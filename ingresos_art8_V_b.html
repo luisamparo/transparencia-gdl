@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Art. 8 Frac. V Inc. b) — Ingresos Extraordinarios</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --o:#F26522; --od:#D4531A; --ol:#FDE8D8; --oxl:#FEF4EE;
+  --n:#1A1A1A; --ng:#3D3D3D; --nm:#6B6B6B; --nc:#F7F6F2; --nb:#E8E6DF; --w:#FFFFFF;
+  --ok:#1D9E75; --ok-bg:#E1F5EE; --warn:#E69F00; --warn-bg:#FFF4D6;
+  --font:'Outfit',system-ui,sans-serif; --ease:cubic-bezier(.4,0,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--nc);color:var(--n);-webkit-font-smoothing:antialiased}
+
+/* HEADER */
+.hdr{background:linear-gradient(135deg,var(--o) 0%,var(--od) 100%);color:#fff;padding:2.25rem 2rem 1.75rem;position:relative;overflow:hidden}
+.hdr::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23fff' fill-opacity='0.04'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+.hdr-inner{max-width:1100px;margin:0 auto;position:relative}
+.hdr-eye{font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.75;margin-bottom:.4rem;display:flex;align-items:center;gap:.4rem}
+.hdr-title{font-size:clamp(1.25rem,3.5vw,1.875rem);font-weight:800;line-height:1.15;margin-bottom:.4rem}
+.hdr-sub{font-size:.9rem;opacity:.85;line-height:1.6;max-width:60ch;margin-bottom:1.1rem}
+.hdr-badges{display:flex;gap:.4rem;flex-wrap:wrap}
+.hdr-badge{display:inline-flex;align-items:center;gap:.3rem;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);color:#fff;font-size:.6875rem;font-weight:700;padding:.3rem .7rem;border-radius:999px}
+
+/* TOOLBAR */
+.toolbar{background:var(--w);border-bottom:1.5px solid var(--nb);padding:.875rem 2rem;position:sticky;top:0;z-index:50;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+.toolbar-inner{max-width:1100px;margin:0 auto;display:flex;gap:.625rem;align-items:center;flex-wrap:wrap}
+.srch-wrap{flex:1 1 16rem;position:relative}
+.srch-icon{position:absolute;left:.8rem;top:50%;transform:translateY(-50%);color:var(--nm);pointer-events:none;width:1rem;height:1rem}
+.srch{width:100%;padding:.625rem 1rem .625rem 2.4rem;border:1.5px solid var(--nb);border-radius:10px;font-size:.9rem;font-family:var(--font);background:var(--nc);color:var(--n);min-height:2.75rem;transition:border-color .15s,box-shadow .15s}
+.srch:focus{outline:none;border-color:var(--o);background:var(--w);box-shadow:0 0 0 3px rgba(242,101,34,.14)}
+.toolbar-count{font-size:.8rem;font-weight:600;color:var(--nm);white-space:nowrap}
+.dl-btn{display:inline-flex;align-items:center;gap:.35rem;background:var(--o);color:#fff;border:none;padding:.5625rem 1rem;border-radius:9px;font-size:.8rem;font-weight:700;font-family:var(--font);cursor:pointer;transition:background .15s;white-space:nowrap;min-height:2.75rem}
+.dl-btn:hover{background:var(--od)}
+
+/* YEAR TABS */
+.ytabs{background:var(--w);border-bottom:1px solid var(--nb);padding:.625rem 2rem 0}
+.ytabs-inner{max-width:1100px;margin:0 auto;display:flex;gap:.25rem;flex-wrap:wrap}
+.ytab{background:transparent;border:none;padding:.6rem 1.1rem;font-family:var(--font);font-size:.875rem;font-weight:700;color:var(--nm);cursor:pointer;border-bottom:2.5px solid transparent;margin-bottom:-1px;transition:color .15s,border-color .15s;min-height:2.75rem}
+.ytab:hover{color:var(--ng)}
+.ytab[aria-selected="true"]{color:var(--o);border-bottom-color:var(--o)}
+
+/* KPI STRIP */
+.kpi-strip{max-width:1100px;margin:1.5rem auto 0;padding:0 2rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,12rem),1fr));gap:.875rem}
+.kpi{background:var(--w);border:1.5px solid var(--nb);border-radius:14px;padding:1rem 1.1rem;transition:border-color .15s}
+.kpi:hover{border-color:var(--ol)}
+.kpi-lbl{font-size:.625rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--nm);margin-bottom:.3rem}
+.kpi-val{font-size:1.5rem;font-weight:800;color:var(--n);line-height:1}
+.kpi[data-tone="o"] .kpi-val{color:var(--o)}
+.kpi[data-tone="g"] .kpi-val{color:var(--ok)}
+.kpi[data-tone="w"] .kpi-val{color:var(--warn)}
+
+/* MAIN WRAPPER */
+.main{max-width:1100px;margin:1.25rem auto 2.5rem;padding:0 2rem}
+
+/* PANEL YEAR */
+.ypanel{display:none}
+.ypanel.active{display:block}
+
+/* SECTION LABEL */
+.sec-lbl{font-size:.6875rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--o);margin:1.5rem 0 .75rem;display:flex;align-items:center;gap:.5rem}
+.sec-lbl::after{content:'';flex:1;height:1px;background:var(--nb)}
+
+/* TABLA INGRESOS */
+.tbl-wrap{background:var(--w);border:1.5px solid var(--nb);border-radius:14px;overflow:hidden;margin-bottom:1.5rem}
+.tbl-head-bar{padding:.7rem 1rem;background:var(--nc);border-bottom:1px solid var(--nb);font-size:.75rem;font-weight:700;color:var(--ng)}
+.tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:.8rem;min-width:56rem}
+thead{background:var(--nc);border-bottom:1.5px solid var(--nb)}
+th{text-align:left;padding:.7rem .875rem;font-weight:700;font-size:.625rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ng);white-space:nowrap}
+td{padding:.7rem .875rem;border-bottom:1px solid var(--nb);vertical-align:top;color:var(--n);line-height:1.45}
+tr:last-child td{border-bottom:none}
+tbody tr{transition:background .12s}
+tbody tr:hover{background:var(--oxl)}
+.td-mes{font-weight:700;color:var(--od);white-space:nowrap;min-width:5rem}
+.td-ejercicio{font-weight:700;color:var(--nm);white-space:nowrap}
+.td-importe{text-align:right;font-weight:800;font-variant-numeric:tabular-nums;color:var(--ok);white-space:nowrap}
+.td-vacio{color:var(--nm);font-style:italic;font-size:.75rem}
+.td-links{min-width:10rem}
+.doc-link{display:inline-flex;align-items:center;gap:.3rem;color:var(--o);font-weight:600;font-size:.7rem;text-decoration:none;padding:.2rem .5rem;border-radius:5px;background:var(--oxl);transition:background .12s;margin:.125rem 0;white-space:nowrap}
+.doc-link:hover{background:var(--ol)}
+
+/* BADGE VACIO */
+.badge-vacio{display:inline-flex;align-items:center;gap:.3rem;background:var(--nc);color:var(--nm);border:1px solid var(--nb);font-size:.7rem;font-weight:600;padding:.2rem .625rem;border-radius:999px}
+
+/* RESPONSABLES */
+.resp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,18rem),1fr));gap:.875rem;margin-bottom:1.5rem}
+.resp-card{background:var(--w);border:1.5px solid var(--nb);border-radius:14px;padding:1.1rem;display:flex;flex-direction:column;gap:.375rem;transition:border-color .15s}
+.resp-card:hover{border-color:var(--ol)}
+.resp-nombre{font-size:.9375rem;font-weight:700;color:var(--n)}
+.resp-cargo{font-size:.8rem;color:var(--nm)}
+.resp-rol{display:inline-flex;align-items:center;gap:.3rem;font-size:.6875rem;font-weight:700;padding:.2rem .6rem;border-radius:999px}
+.resp-rol.recibir{background:var(--ok-bg);color:var(--ok)}
+.resp-rol.administrar{background:var(--warn-bg);color:#7A4E00}
+.resp-rol.ejercer{background:var(--oxl);color:var(--od)}
+.resp-area{font-size:.7rem;color:var(--nm);margin-top:.125rem}
+.resp-periodo{font-size:.6875rem;color:var(--nm);border-top:1px solid var(--nb);padding-top:.375rem;margin-top:.25rem}
+.resp-nota{font-size:.6875rem;color:var(--nm);font-style:italic;margin-top:.125rem;line-height:1.4}
+
+/* EMPTY */
+.tbl-empty{padding:2.5rem 1rem;text-align:center;color:var(--nm);font-size:.875rem;font-style:italic}
+
+/* FOOTER */
+.foot{background:var(--w);border-top:1px solid var(--nb);padding:1.1rem 2rem;margin-top:1.5rem}
+.foot-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem}
+.foot-legal{font-size:.7rem;color:var(--nm);line-height:1.5}
+.foot-legal strong{color:var(--ng)}
+.foot-update{font-size:.7rem;color:var(--nm);display:flex;align-items:center;gap:.4rem}
+.pulse{width:.5rem;height:.5rem;border-radius:50%;background:var(--ok);animation:pulse 2s ease-in-out infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+@media(max-width:640px){
+  .hdr,.toolbar,.ytabs,.kpi-strip,.main,.foot{padding-left:1rem;padding-right:1rem}
+  .kpi-strip{margin-top:1rem}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="hdr">
+  <div class="hdr-inner">
+    <div class="hdr-eye">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      Art. 8 · Frac. V · Inc. b) · Ley de Transparencia Jalisco
+    </div>
+    <h1 class="hdr-title">Ingresos Extraordinarios Recibidos</h1>
+    <p class="hdr-sub">Ingresos extraordinarios recibidos por cualquier concepto, señalando el nombre de los responsables de recibirlos, administrarlos y ejercerlos, así como su destino y utilización.</p>
+    <div class="hdr-badges">
+      <span class="hdr-badge">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Actualización: 24 abril 2026
+      </span>
+      <span class="hdr-badge">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        Datos abiertos · CSV descargable
+      </span>
+      <span class="hdr-badge">Unidad Adm.: Dirección de Ingresos</span>
+    </div>
+  </div>
+</header>
+
+<!-- TOOLBAR -->
+<div class="toolbar">
+  <div class="toolbar-inner">
+    <div class="srch-wrap">
+      <svg class="srch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="search" class="srch" id="srch" placeholder="Buscar por mes, fuente, concepto, responsable…" aria-label="Buscar en ingresos extraordinarios">
+    </div>
+    <span class="toolbar-count" id="srch-count" aria-live="polite"></span>
+    <button class="dl-btn" type="button" onclick="dlCSV()" aria-label="Descargar datos en CSV">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Descargar CSV
+    </button>
+  </div>
+</div>
+
+<!-- YEAR TABS -->
+<div class="ytabs">
+  <div class="ytabs-inner" role="tablist">
+    <button class="ytab" role="tab" aria-selected="true" data-year="2026" type="button">2026</button>
+    <button class="ytab" role="tab" aria-selected="false" data-year="2025" type="button">2025</button>
+    <button class="ytab" role="tab" aria-selected="false" data-year="2024" type="button">2024</button>
+  </div>
+</div>
+
+<!-- KPI STRIP (dinámico) -->
+<div class="kpi-strip" id="kpi-strip"></div>
+
+<!-- MAIN -->
+<main class="main" id="main-content">
+
+  <!-- ══ PANEL 2026 ══ -->
+  <div class="ypanel active" data-year="2026">
+    <div class="sec-lbl">Ingresos Extraordinarios · Ejercicio 2026 · Enero a Marzo</div>
+    <div class="tbl-wrap" id="tbl-wrap-2026">
+      <div class="tbl-head-bar">Fuente: Dirección de Ingresos · Corte: Enero–Marzo 2026</div>
+      <div class="tbl-scroll">
+        <table id="tbl-2026" aria-label="Ingresos extraordinarios 2026">
+          <thead>
+            <tr>
+              <th scope="col">Ejercicio</th>
+              <th scope="col">Mes</th>
+              <th scope="col">Fuente de ingresos</th>
+              <th scope="col">Concepto</th>
+              <th scope="col" style="text-align:right">Importe</th>
+              <th scope="col">Responsable</th>
+              <th scope="col">Destino</th>
+              <th scope="col">Utilización</th>
+              <th scope="col">Comprobación</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="sec-lbl">Responsables de Recibir, Administrar y Ejercer · 2026</div>
+    <div class="resp-grid" id="resp-2026"></div>
+  </div>
+
+  <!-- ══ PANEL 2025 ══ -->
+  <div class="ypanel" data-year="2025">
+    <div class="sec-lbl">Ingresos Extraordinarios · Ejercicio 2025 · Enero a Diciembre</div>
+    <div class="tbl-wrap" id="tbl-wrap-2025">
+      <div class="tbl-head-bar">Fuente: Dirección de Ingresos · Corte: Enero–Diciembre 2025</div>
+      <div class="tbl-scroll">
+        <table id="tbl-2025" aria-label="Ingresos extraordinarios 2025">
+          <thead>
+            <tr>
+              <th scope="col">Ejercicio</th>
+              <th scope="col">Mes</th>
+              <th scope="col">Fuente de ingresos</th>
+              <th scope="col">Concepto</th>
+              <th scope="col" style="text-align:right">Importe</th>
+              <th scope="col">Responsable</th>
+              <th scope="col">Destino</th>
+              <th scope="col">Utilización</th>
+              <th scope="col">Comprobación</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="sec-lbl">Responsables de Recibir, Administrar y Ejercer · 2025</div>
+    <div class="resp-grid" id="resp-2025"></div>
+  </div>
+
+  <!-- ══ PANEL 2024 ══ -->
+  <div class="ypanel" data-year="2024">
+    <div class="sec-lbl">Ingresos Extraordinarios · Ejercicio 2024 · Enero a Diciembre</div>
+    <div class="tbl-wrap" id="tbl-wrap-2024">
+      <div class="tbl-head-bar">Fuente: Dirección de Ingresos · Corte: Enero–Diciembre 2024</div>
+      <div class="tbl-scroll">
+        <table id="tbl-2024" aria-label="Ingresos extraordinarios 2024">
+          <thead>
+            <tr>
+              <th scope="col">Ejercicio</th>
+              <th scope="col">Mes</th>
+              <th scope="col">Fuente de ingresos</th>
+              <th scope="col">Concepto</th>
+              <th scope="col" style="text-align:right">Importe</th>
+              <th scope="col">Responsable</th>
+              <th scope="col">Destino</th>
+              <th scope="col">Utilización</th>
+              <th scope="col">Comprobación</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="sec-lbl">Responsables de Recibir, Administrar y Ejercer · 2024</div>
+    <div class="resp-grid" id="resp-2024"></div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="foot-inner">
+    <div class="foot-legal">
+      <strong>Art. 8, Frac. V, Inc. b) · Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</strong><br>
+      Información pública de oficio · Dirección de Ingresos · Ayuntamiento de Guadalajara
+    </div>
+    <div class="foot-update">
+      <span class="pulse"></span>
+      Actualizado: 24 de abril de 2026
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   DATOS EXACTOS EXTRAÍDOS DE LOS ARCHIVOS XLSX
+   Valores íntegros — ningún dato modificado
+   ═══════════════════════════════════════════════════════════════ */
+
+const DATOS = {
+
+  /* ── 2026 ── */
+  ing2026: [
+    { ejercicio:'2026', mes:'ENERO',   fuente:'—', concepto:'Durante el mes de enero de 2026 no se recibió ningún importe por concepto de ingresos extraordinarios', importe:null, responsable:'—', destino:'—', utilizacion:'—', comprobacion:[] },
+    { ejercicio:'2026', mes:'FEBRERO', fuente:'—', concepto:'Durante el mes de febrero de 2026 no se recibió ningún importe por concepto de ingresos extraordinarios', importe:null, responsable:'—', destino:'—', utilizacion:'—', comprobacion:[] },
+    { ejercicio:'2026', mes:'MARZO',   fuente:'—', concepto:'Durante el mes de marzo de 2026 no se recibió ningún importe por concepto de ingresos extraordinarios', importe:null, responsable:'—', destino:'—', utilizacion:'—', comprobacion:[] },
+  ],
+  resp2026: [
+    { nombre:'Irlanda Loerythe Baumbach Valencia', cargo:'Tesorero Municipal', rol:'Responsable de Recibir', area:'Dirección de Ingresos / Jefatura de Análisis y Evaluación del Ingreso', periodo:'01/01/2026 – 31/03/2026', actualizacion:'17/04/2026', nota:'Información correspondiente a la Administración comprendida entre el 01 de Octubre 2024 y el 30 de Septiembre 2027' },
+    { nombre:'Irlanda Loerythe Baumbach Valencia', cargo:'Tesorero Municipal', rol:'Responsable de Administrar', area:'Dirección de Ingresos / Jefatura de Análisis y Evaluación del Ingreso', periodo:'01/01/2026 – 31/03/2026', actualizacion:'17/04/2026', nota:'Información correspondiente a la Administración comprendida entre el 01 de Octubre 2024 y el 30 de Septiembre 2027' },
+    { nombre:'Irlanda Loerythe Baumbach Valencia', cargo:'Tesorero Municipal', rol:'Responsable de Ejercer', area:'Dirección de Ingresos / Jefatura de Análisis y Evaluación del Ingreso', periodo:'01/01/2026 – 31/03/2026', actualizacion:'17/04/2026', nota:'Información correspondiente a la Administración comprendida entre el 01 de Octubre 2024 y el 30 de Septiembre 2027' },
+  ],
+
+  /* ── 2025 ── */
+  ing2025: [
+    { ejercicio:'2025', mes:'ENERO',      fuente:'—', concepto:'Durante el mes de enero de 2025 no se recibió ningún importe por concepto de ingresos extraordinarios', importe:null, responsable:'—', destino:'—', utilizacion:'—', comprobacion:[] },
+    { ejercicio:'2025', mes:'FEBRERO',    fuente:'—', concepto:'Durante el mes de febrero de 2025 no se recibió ningún importe por concepto de ingresos extraordinarios', importe:null, responsable:'—', destino:'—', utilizacion:'—', comprobacion:[] },
+    { ejercicio:'2025', mes:'MARZO',      fuente:'—', concepto:'Durante el mes de marzo de 2025 no se recibió ningún importe por concepto de ingresos extraordinarios', importe:null, responsable:'—', destino:'—', utilizacion:'—', comprobacion:[] },
+    { ejercicio:'2025', mes:'ABRIL',      fuente:'—', concepto:'Durante el mes de abril de 2025 no se recibió ningún importe por concepto de ingresos extraordinarios', importe:null, responsable:'—', destino:'—', utilizacion:'—', comprobacion:[] },
+    { ejercicio:'2025', mes:'MAYO',       fuente:'—', concepto:'Durante el mes de mayo de 2025 no se recibió ningún importe por concepto de ingresos extraordinarios', importe:null, responsable:'—', destino:'—', utilizacion:'—', comprobacion:[] },
+    { ejercicio:'2025', mes:'JUNIO',      fuente:'—', concepto:'Durante el mes de junio de 2025 no se recibió ningún importe por concepto de ingresos extraordinarios', importe:null, responsable:'—', destino:'—', utilizacion:'—', comprobacion:[] },
+    { ejercicio:'2025', mes:'JULIO',      fuente:'RECURSOS ESTATALES', concepto:'CONVENIO DE COLABORACIÓN POLICIAL METROPOLITANA', importe:19151500, responsable:'COMISARÍA DE LA POLICÍA DE GUADALAJARA', destino:'SUBSIDIO A LOS MUNICIPIOS', utilizacion:'PARA EL APOYO A LOS ELEMENTOS OPERATIVOS ADSCRITOS A LOS MUNICIPIOS INTEGRANTES DE LA POLICÍA METROPOLITANA DE GUADALAJARA', comprobacion:['https://transparencia.guadalajara.gob.mx/sites/default/files/ComprobacionRecursosIngresosExtraordinariosJulio25.pdf','https://transparencia.guadalajara.gob.mx/sites/default/files/ComprobacionRecursosIngresosExtraordinariosJulio25-2.pdf','https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIIEjemplar13Marzo28-2025.pdf'] },
+    { ejercicio:'2025', mes:'AGOSTO',     fuente:'RECURSOS ESTATALES', concepto:'CONVENIO DE COLABORACIÓN POLICIAL METROPOLITANA', importe:2687100, responsable:'COMISARÍA DE LA POLICÍA DE GUADALAJARA', destino:'SUBSIDIO A LOS MUNICIPIOS', utilizacion:'APOYO A LOS ELEMENTOS OPERATIVOS ADSCRITOS A LOS MUNICIPIOS INTEGRANTES DE LA POLICÍA METROPOLITANA DE GUADALAJARA', comprobacion:['https://transparencia.guadalajara.gob.mx/sites/default/files/ComprobacionRecursosIngresosExtraordinariosAgosto25.pdf','https://transparencia.guadalajara.gob.mx/sites/default/files/ComprobacionRecursosIngresosExtraordinariosAgosto25-2.pdf','https://transparencia.guadalajara.gob.mx/sites/default/files/ComprobacionRecursosIngresosExtraordinariosAgosto25-3.pdf','https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIIEjemplar13Marzo28-2025.pdf'] },
+    { ejercicio:'2025', mes:'SEPTIEMBRE', fuente:'RECURSOS ESTATALES', concepto:'CONVENIO DE COLABORACIÓN POLICIAL METROPOLITANA', importe:2679650, responsable:'COMISARÍA DE LA POLICÍA DE GUADALAJARA', destino:'SUBSIDIO A LOS MUNICIPIOS', utilizacion:'APOYO A LOS ELEMENTOS OPERATIVOS ADSCRITOS A LOS MUNICIPIOS INTEGRANTES DE LA POLICÍA METROPOLITANA DE GUADALAJARA', comprobacion:['https://transparencia.guadalajara.gob.mx/sites/default/files/ComprobacionRecursosIngresosExtraordinariosSeptiembre25.pdf','https://transparencia.guadalajara.gob.mx/sites/default/files/ComprobacionRecursosIngresosExtraordinariosSeptiembre25-2.pdf','https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIIEjemplar13Marzo28-2025.pdf'] },
+    { ejercicio:'2025', mes:'OCTUBRE',    fuente:'RECURSOS ESTATALES', concepto:'CONVENIO DE COLABORACIÓN POLICIAL METROPOLITANA', importe:2679650, responsable:'COMISARÍA DE LA POLICÍA DE GUADALAJARA', destino:'SUBSIDIO A LOS MUNICIPIOS', utilizacion:'APOYO A LOS ELEMENTOS OPERATIVOS ADSCRITOS A LOS MUNICIPIOS INTEGRANTES DE LA POLICÍA METROPOLITANA DE GUADALAJARA', comprobacion:['https://transparencia.guadalajara.gob.mx/sites/default/files/ComprobacionRecursosIngresosExtraordinariosOctubre25.pdf','https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIIEjemplar13Marzo28-2025.pdf'] },
+    { ejercicio:'2025', mes:'NOVIEMBRE',  fuente:'RECURSOS ESTATALES', concepto:'CONVENIO DE COLABORACIÓN POLICIAL METROPOLITANA', importe:2722050, responsable:'COMISARÍA DE LA POLICÍA DE GUADALAJARA', destino:'SUBSIDIO A LOS MUNICIPIOS', utilizacion:'APOYO A LOS ELEMENTOS OPERATIVOS ADSCRITOS A LOS MUNICIPIOS INTEGRANTES DE LA POLICÍA METROPOLITANA DE GUADALAJARA', comprobacion:['https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIIEjemplar13Marzo28-2025.pdf'] },
+    { ejercicio:'2025', mes:'DICIEMBRE',  fuente:'RECURSOS ESTATALES', concepto:'CONVENIO DE COLABORACIÓN POLICIAL METROPOLITANA', importe:2738550, responsable:'COMISARÍA DE LA POLICÍA DE GUADALAJARA', destino:'SUBSIDIO A LOS MUNICIPIOS', utilizacion:'APOYO A LOS ELEMENTOS OPERATIVOS ADSCRITOS A LOS MUNICIPIOS INTEGRANTES DE LA POLICÍA METROPOLITANA DE GUADALAJARA', comprobacion:['https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIIEjemplar13Marzo28-2025.pdf'] },
+  ],
+  resp2025: [
+    { nombre:'Irlanda Loerythe Baumbach Valencia', cargo:'Tesorero Municipal', rol:'Responsable de Recibir',    area:'Dirección de Ingresos / Jefatura de Análisis y Evaluación del Ingreso', periodo:'01/01/2025 – 31/12/2025', actualizacion:'21/01/2026', nota:'Información correspondiente a la Administración comprendida entre el 01 de Octubre 2024 y el 30 de Septiembre 2027' },
+    { nombre:'Irlanda Loerythe Baumbach Valencia', cargo:'Tesorero Municipal', rol:'Responsable de Administrar', area:'Dirección de Ingresos / Jefatura de Análisis y Evaluación del Ingreso', periodo:'01/01/2025 – 31/12/2025', actualizacion:'21/01/2026', nota:'Información correspondiente a la Administración comprendida entre el 01 de Octubre 2024 y el 30 de Septiembre 2027' },
+    { nombre:'Irlanda Loerythe Baumbach Valencia', cargo:'Tesorero Municipal', rol:'Responsable de Ejercer',    area:'Dirección de Ingresos / Jefatura de Análisis y Evaluación del Ingreso', periodo:'01/01/2025 – 31/12/2025', actualizacion:'21/01/2026', nota:'Información correspondiente a la Administración comprendida entre el 01 de Octubre 2024 y el 30 de Septiembre 2027' },
+  ],
+
+  /* ── 2024 ── */
+  ing2024: [
+    { ejercicio:'2024', mes:'ENERO',      fuente:'—', concepto:'Durante el mes de enero de 2024 no se recibió ningún importe por concepto de ingresos extraordinarios', importe:null, responsable:'—', destino:'—', utilizacion:'—', comprobacion:[] },
+    { ejercicio:'2024', mes:'FEBRERO',    fuente:'FEDERAL', concepto:'REGULARIZACIÓN DE VEHÍCULOS USADOS DE PROCEDENCIA EXTRANJERA (ESTE PROGRAMA ES PÚBLICO, AJENO A CUALQUIER PARTIDO POLÍTICO. QUEDA PROHIBIDO EL USO PARA FINES DISTINTOS A LOS ESTABLECIDOS EN EL PROGRAMA)', importe:954045, responsable:'DIRECCIÓN DE OBRAS PÚBLICAS', destino:'PROYECTOS DE PAVIMENTACIÓN', utilizacion:'PROYECTOS DE PAVIMENTACIÓN', comprobacion:['https://transparencia.guadalajara.gob.mx/sites/default/files/Convenio_CO_454_CV_2024.pdf','https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar32Febrero27-2023.pdf','No se ha ingresado ninguna comprobación o solicitud de pago derivado del ingreso extraordinario en comento, como se desprende del Oficio TES/DE/0086/2024 girado por el Lic. Rodrigo Ramírez Flores, Director de Egresos.','No se ha ingresado ninguna comprobación o solicitud de pago derivado del ingreso extraordinario en comento, como se desprende del Oficio TES/DE/147/2024 girado por el Lic. Rodrigo Ramírez Flores, Director de Egresos.','No se ha ingresado ninguna comprobación o solicitud de pago derivado del ingreso extraordinario en comento, como se desprende del Oficio TES/DE/189/2024 girado por el Lic. Rodrigo Ramírez Flores, Director de Egresos.','No se ha ingresado ninguna comprobación o solicitud de pago derivado del ingreso extraordinario en comento, como se desprende del Oficio TES/DE/269/2024 girado por el Lic. Rodrigo Ramírez Flores, Director de Egresos.','No se ha ingresado ninguna comprobación o solicitud de pago derivado del ingreso extraordinario en comento, como se desprende del Oficio TESO/DE/0006/2024 girado por el Lic. Miguel Ángel Aceves Huitrón, Director de Egresos.','No se ha ingresado ninguna comprobación o solicitud de pago derivado del ingreso extraordinario en comento, como se desprende del Oficio TESO/DE/047/2024 girado por el Lic. Miguel Ángel Aceves Huitrón, Director de Egresos.'] },
+    { ejercicio:'2024', mes:'MARZO',      fuente:'—', concepto:'Durante el mes de marzo de 2024 no se recibió ningún importe por concepto de ingresos extraordinarios', importe:null, responsable:'—', destino:'—', utilizacion:'—', comprobacion:[] },
+    { ejercicio:'2024', mes:'ABRIL',      fuente:'—', concepto:'Durante el mes de abril de 2024 no se recibió ningún importe por concepto de ingresos extraordinarios', importe:null, responsable:'—', destino:'—', utilizacion:'—', comprobacion:[] },
+    { ejercicio:'2024', mes:'MAYO',       fuente:'—', concepto:'Durante el mes de mayo de 2024 no se recibió ningún importe por concepto de ingresos extraordinarios', importe:null, responsable:'—', destino:'—', utilizacion:'—', comprobacion:[] },
+    { ejercicio:'2024', mes:'JUNIO',      fuente:'—', concepto:'Durante el mes de junio de 2024 no se recibió ningún importe por concepto de ingresos extraordinarios', importe:null, responsable:'—', destino:'—', utilizacion:'—', comprobacion:[] },
+    { ejercicio:'2024', mes:'JULIO',      fuente:'—', concepto:'Durante el mes de julio de 2024 no se recibió ningún importe por concepto de ingresos extraordinarios', importe:null, responsable:'—', destino:'—', utilizacion:'—', comprobacion:[] },
+    { ejercicio:'2024', mes:'AGOSTO',     fuente:'—', concepto:'Durante el mes de agosto de 2024 no se recibió ningún importe por concepto de ingresos extraordinarios', importe:null, responsable:'—', destino:'—', utilizacion:'—', comprobacion:[] },
+    { ejercicio:'2024', mes:'SEPTIEMBRE', fuente:'—', concepto:'Durante el mes de septiembre de 2024 no se recibió ningún importe por concepto de ingresos extraordinarios', importe:null, responsable:'—', destino:'—', utilizacion:'—', comprobacion:[] },
+    { ejercicio:'2024', mes:'OCTUBRE',    fuente:'—', concepto:'Durante el mes de octubre de 2024 no se recibió ningún importe por concepto de ingresos extraordinarios', importe:null, responsable:'—', destino:'—', utilizacion:'—', comprobacion:[] },
+    { ejercicio:'2024', mes:'NOVIEMBRE',  fuente:'—', concepto:'Durante el mes de noviembre de 2024 no se recibió ningún importe por concepto de ingresos extraordinarios', importe:null, responsable:'—', destino:'—', utilizacion:'—', comprobacion:[] },
+    { ejercicio:'2024', mes:'DICIEMBRE',  fuente:'FINANCIAMIENTOS INTERNOS', concepto:'CRÉDITO A CORTO PLAZO MUNICIPIO DE GUADALAJARA 2024, DE ACUERDO AL OFICIO DE/120/2024', importe:300000000, responsable:'TESORERÍA', destino:'CUBRIR INSUFICIENCIAS PRESUPUESTARIAS', utilizacion:'DAR LIQUIDEZ DE CARÁCTER TEMPORAL A COMPROMISOS DE LAS DEPENDENCIAS DEL AYUNTAMIENTO DE GUADALAJARA', comprobacion:['https://deudapublica.guadalajara.gob.mx/categoria/3','https://transparencia.guadalajara.gob.mx/deudapublica2024','https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoVIEjemplar11Secc2aDiciembre2-2024.pdf'] },
+  ],
+  resp2024: [
+    { nombre:'(Responsable registrado en la administración anterior)', cargo:'Tesorero/a Municipal', rol:'Responsable de Recibir',    area:'Dirección de Ingresos', periodo:'01/10/2024 – 31/12/2024', actualizacion:'—', nota:'Datos del ejercicio fiscal 2024, pendiente de confirmación de titular' },
+    { nombre:'(Responsable registrado en la administración anterior)', cargo:'Tesorero/a Municipal', rol:'Responsable de Administrar', area:'Dirección de Ingresos', periodo:'01/10/2024 – 31/12/2024', actualizacion:'—', nota:'Datos del ejercicio fiscal 2024, pendiente de confirmación de titular' },
+    { nombre:'(Responsable registrado en la administración anterior)', cargo:'Tesorero/a Municipal', rol:'Responsable de Ejercer',    area:'Dirección de Ingresos', periodo:'01/10/2024 – 31/12/2024', actualizacion:'—', nota:'Datos del ejercicio fiscal 2024, pendiente de confirmación de titular' },
+  ],
+};
+
+/* ═══════════════════════════════════════════════════════════════
+   UTILIDADES
+   ═══════════════════════════════════════════════════════════════ */
+const fmt = n => new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN',maximumFractionDigits:0}).format(n);
+const esURL = s => s.startsWith('http');
+
+function rolClass(r){
+  if(r.includes('Recibir'))    return 'recibir';
+  if(r.includes('Administrar')) return 'administrar';
+  return 'ejercer';
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RENDER TABLA
+   ═══════════════════════════════════════════════════════════════ */
+function renderTabla(key, tbodyId, query=''){
+  const rows = DATOS[key];
+  const q = query.toLowerCase();
+  const tbody = document.querySelector('#'+tbodyId+' tbody');
+  if(!tbody) return 0;
+  let count = 0;
+  tbody.innerHTML='';
+  rows.forEach(r=>{
+    if(q && ![r.mes,r.fuente,r.concepto,r.responsable,r.destino,r.utilizacion,r.ejercicio]
+        .some(v=>v&&v.toLowerCase().includes(q))) return;
+    count++;
+    const tr=document.createElement('tr');
+    const vacio = !r.importe;
+    const compHTML = r.comprobacion.length===0 ? '<span class="badge-vacio">Sin comprobantes</span>' :
+      r.comprobacion.map(c=>esURL(c)?
+        `<a class="doc-link" href="${c}" target="_blank" rel="noopener noreferrer">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Ver PDF</a>`:
+        `<span style="font-size:.68rem;color:var(--nm);display:block;margin:.1rem 0;line-height:1.35">${c}</span>`
+      ).join('');
+    tr.innerHTML=`
+      <td class="td-ejercicio">${r.ejercicio}</td>
+      <td class="td-mes">${r.mes}</td>
+      <td>${vacio?'<span class="badge-vacio">N/A</span>':r.fuente}</td>
+      <td style="max-width:18rem">${vacio?`<span class="td-vacio">${r.concepto}</span>`:r.concepto}</td>
+      <td class="td-importe">${vacio?'<span class="badge-vacio">—</span>':fmt(r.importe)}</td>
+      <td>${vacio?'<span class="badge-vacio">N/A</span>':r.responsable}</td>
+      <td>${vacio?'<span class="badge-vacio">N/A</span>':r.destino}</td>
+      <td style="max-width:14rem">${vacio?'<span class="badge-vacio">N/A</span>':r.utilizacion}</td>
+      <td class="td-links">${compHTML}</td>`;
+    tbody.appendChild(tr);
+  });
+  if(count===0) tbody.innerHTML=`<tr><td colspan="9" class="tbl-empty">Sin resultados para "${query}"</td></tr>`;
+  return count;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RENDER RESPONSABLES
+   ═══════════════════════════════════════════════════════════════ */
+function renderResp(key, gridId){
+  const grid=document.getElementById(gridId);
+  if(!grid) return;
+  grid.innerHTML=DATOS[key].map(r=>`
+    <div class="resp-card">
+      <div class="resp-nombre">${r.nombre}</div>
+      <div class="resp-cargo">${r.cargo}</div>
+      <span class="resp-rol ${rolClass(r.rol)}">${r.rol}</span>
+      <div class="resp-area">${r.area}</div>
+      <div class="resp-periodo">Período: ${r.periodo} · Actualización: ${r.actualizacion}</div>
+      <div class="resp-nota">${r.nota}</div>
+    </div>`).join('');
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   KPI STRIP
+   ═══════════════════════════════════════════════════════════════ */
+function renderKPIs(year){
+  const key='ing'+year;
+  const rows=DATOS[key];
+  const total=rows.reduce((a,r)=>a+(r.importe||0),0);
+  const conIngreso=rows.filter(r=>r.importe).length;
+  const sinIngreso=rows.filter(r=>!r.importe).length;
+  document.getElementById('kpi-strip').innerHTML=`
+    <div class="kpi" data-tone="o">
+      <div class="kpi-lbl">Total ingresos ${year}</div>
+      <div class="kpi-val">${total>0?fmt(total):'$0'}</div>
+    </div>
+    <div class="kpi" data-tone="g">
+      <div class="kpi-lbl">Meses con ingreso</div>
+      <div class="kpi-val">${conIngreso}</div>
+    </div>
+    <div class="kpi" data-tone="w">
+      <div class="kpi-lbl">Meses sin ingreso</div>
+      <div class="kpi-val">${sinIngreso}</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-lbl">Registros totales</div>
+      <div class="kpi-val">${rows.length}</div>
+    </div>`;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   YEAR TABS
+   ═══════════════════════════════════════════════════════════════ */
+let activeYear='2026';
+document.querySelectorAll('.ytab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    document.querySelectorAll('.ytab').forEach(t=>t.setAttribute('aria-selected','false'));
+    tab.setAttribute('aria-selected','true');
+    activeYear=tab.dataset.year;
+    document.querySelectorAll('.ypanel').forEach(p=>p.classList.toggle('active',p.dataset.year===activeYear));
+    renderKPIs(activeYear);
+    document.getElementById('srch').value='';
+    updateCount(activeYear,'');
+  });
+});
+
+/* ═══════════════════════════════════════════════════════════════
+   BÚSQUEDA
+   ═══════════════════════════════════════════════════════════════ */
+function updateCount(year,q){
+  const key='ing'+year;
+  const tblId='tbl-'+year;
+  const c=renderTabla(key,tblId,q);
+  document.getElementById('srch-count').textContent=c+' registro'+(c!==1?'s':'');
+}
+document.getElementById('srch').addEventListener('input',e=>updateCount(activeYear,e.target.value));
+
+/* ═══════════════════════════════════════════════════════════════
+   DESCARGA CSV — datos del año activo
+   ═══════════════════════════════════════════════════════════════ */
+function dlCSV(){
+  const rows=DATOS['ing'+activeYear];
+  const headers=['Ejercicio','Mes','Fuente de Ingresos','Concepto','Importe','Responsable','Destino','Utilizacion','Comprobacion'];
+  const csv=[headers.join(','),...rows.map(r=>[
+    r.ejercicio,r.mes,r.fuente,r.concepto,
+    r.importe!=null?r.importe:'',
+    r.responsable,r.destino,r.utilizacion,
+    r.comprobacion.join(' | ')
+  ].map(v=>`"${String(v).replace(/"/g,'""')}"`).join(','))].join('\n');
+  const a=document.createElement('a');
+  a.href='data:text/csv;charset=utf-8,\uFEFF'+encodeURIComponent(csv);
+  a.download=`Art8_FracV_Incb_IngresosExtraordinarios_${activeYear}_GDL.csv`;
+  a.click();
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   INICIALIZACIÓN
+   ═══════════════════════════════════════════════════════════════ */
+['2026','2025','2024'].forEach(y=>{
+  renderTabla('ing'+y,'tbl-'+y);
+  renderResp('resp'+y,'resp-'+y);
+});
+renderKPIs('2026');
+updateCount('2026','');
+</script>
+</body>
+</html>

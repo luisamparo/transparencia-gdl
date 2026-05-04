@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Estados Financieros Mensuales · Art. 8 Fracc. V Inc. i) · Transparencia Guadalajara</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root{
+      --nr:#E87722;
+      --nr-l:#FF9A45;
+      --nr-d:#C45F0A;
+      --nr-deeper:#9A4708;
+      --nr-soft:#FFF1E4;
+      --nr-a:rgba(232,119,34,.10);
+      --nr-b:rgba(232,119,34,.22);
+      --g50:#FAFAF8;
+      --g100:#F0F0EC;
+      --g200:#E2E2DD;
+      --g400:#9E9E98;
+      --g600:#5A5A55;
+      --g900:#1A1A1A;
+      --wh:#FFF;
+      --rad:10px;
+      --sh:0 4px 22px rgba(0,0,0,.08);
+      --fh:'Outfit',sans-serif;
+      --fm:'DM Mono',monospace;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:var(--fh);background:var(--g50);color:var(--g900);line-height:1.6}
+
+    .hero{
+      background:
+        radial-gradient(ellipse 800px 400px at 90% 30%, rgba(255,255,255,.18) 0%, transparent 70%),
+        linear-gradient(135deg, var(--nr-d) 0%, var(--nr) 55%, var(--nr-l) 100%);
+      padding:54px 32px 46px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:'';position:absolute;inset:0;
+      background:repeating-linear-gradient(45deg, transparent, transparent 60px, rgba(255,255,255,.04) 60px, rgba(255,255,255,.04) 61px);
+      pointer-events:none;
+    }
+    .hero::after{
+      content:'';position:absolute;right:-120px;top:-80px;width:380px;height:380px;border-radius:50%;
+      background:radial-gradient(circle, rgba(255,255,255,.10) 0%, transparent 70%);pointer-events:none;
+    }
+    .hi{position:relative;max-width:1200px;margin:0 auto;z-index:2}
+    .bc{font-size:11.5px;color:rgba(255,255,255,.85);letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px;font-weight:500}
+    .badge{
+      display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.40);
+      color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+      padding:5px 13px;border-radius:20px;margin-bottom:14px;backdrop-filter:blur(6px);
+    }
+    .hero h1{font-size:clamp(28px,4.4vw,46px);font-weight:800;color:#fff;line-height:1.08;margin-bottom:12px}
+    .hero p{color:rgba(255,255,255,.90);font-size:clamp(14px,1.6vw,17px);max-width:700px;font-weight:400}
+
+    .main{max-width:1200px;margin:0 auto;padding:36px 24px 60px}
+
+    /* Search */
+    .search-wrap{
+      position:relative;max-width:600px;margin:0 auto 28px;
+    }
+    .search-wrap input{
+      width:100%;padding:14px 20px 14px 50px;border-radius:50px;border:2px solid var(--g200);
+      font-size:15px;font-family:var(--fh);background:var(--wh);
+      transition:border-color .2s,box-shadow .2s;
+    }
+    .search-wrap input:focus{outline:none;border-color:var(--nr);box-shadow:0 0 0 4px var(--nr-a)}
+    .search-wrap svg{position:absolute;left:18px;top:50%;transform:translateY(-50%);color:var(--g400)}
+    .search-count{text-align:center;font-size:13px;color:var(--g400);margin-bottom:20px}
+
+    /* Year tabs */
+    .year-tabs{
+      display:flex;gap:8px;justify-content:center;margin-bottom:28px;flex-wrap:wrap;
+    }
+    .year-tab{
+      padding:10px 28px;border-radius:50px;border:2px solid var(--g200);background:var(--wh);
+      font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;font-family:var(--fh);
+    }
+    .year-tab:hover{border-color:var(--nr);color:var(--nr)}
+    .year-tab.active{background:var(--nr);color:#fff;border-color:var(--nr)}
+
+    /* Type filter */
+    .type-filters{
+      display:flex;gap:6px;justify-content:center;margin-bottom:32px;flex-wrap:wrap;
+    }
+    .type-btn{
+      padding:7px 18px;border-radius:20px;border:1.5px solid var(--g200);background:var(--wh);
+      font-size:12.5px;font-weight:500;cursor:pointer;transition:all .2s;font-family:var(--fh);
+    }
+    .type-btn:hover{border-color:var(--nr-l);color:var(--nr)}
+    .type-btn.active{background:var(--nr-soft);color:var(--nr-d);border-color:var(--nr)}
+
+    /* Stats bar */
+    .stats-bar{
+      display:flex;gap:16px;justify-content:center;margin-bottom:32px;flex-wrap:wrap;
+    }
+    .stat-card{
+      background:var(--wh);border-radius:var(--rad);padding:16px 24px;box-shadow:var(--sh);
+      text-align:center;min-width:140px;border-top:3px solid var(--nr);
+    }
+    .stat-card .num{font-size:28px;font-weight:800;color:var(--nr);font-family:var(--fm)}
+    .stat-card .lbl{font-size:11px;color:var(--g400);text-transform:uppercase;letter-spacing:.06em;margin-top:2px}
+
+    /* Grid */
+    .month-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px}
+
+    .month-card{
+      background:var(--wh);border-radius:var(--rad);box-shadow:var(--sh);overflow:hidden;
+      transition:transform .2s,box-shadow .2s;border:1px solid var(--g100);
+    }
+    .month-card:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(0,0,0,.12)}
+    .month-card.hidden{display:none}
+
+    .mc-head{
+      background:linear-gradient(135deg,var(--nr-d),var(--nr));padding:16px 20px;
+      display:flex;align-items:center;justify-content:space-between;
+    }
+    .mc-head h3{color:#fff;font-size:16px;font-weight:700}
+    .mc-head .year-badge{
+      background:rgba(255,255,255,.2);color:#fff;font-size:11px;font-weight:700;
+      padding:3px 10px;border-radius:12px;letter-spacing:.05em;
+    }
+
+    .mc-body{padding:16px 20px}
+    .doc-row{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:10px 0;border-bottom:1px solid var(--g100);
+    }
+    .doc-row:last-child{border-bottom:none}
+    .doc-info{flex:1}
+    .doc-info .doc-name{font-size:13px;font-weight:600;color:var(--g900)}
+    .doc-info .doc-type-label{font-size:10.5px;color:var(--g400);text-transform:uppercase;letter-spacing:.04em}
+    .doc-btns{display:flex;gap:6px}
+    .btn-dl{
+      display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:6px;
+      font-size:11.5px;font-weight:600;text-decoration:none;transition:all .2s;
+      border:1.5px solid;font-family:var(--fh);
+    }
+    .btn-pdf{background:#FEF0E5;color:var(--nr-d);border-color:var(--nr-b)}
+    .btn-pdf:hover{background:var(--nr);color:#fff;border-color:var(--nr)}
+    .btn-xlsx{background:#E8F5E9;color:#2E7D32;border-color:#A5D6A7}
+    .btn-xlsx:hover{background:#2E7D32;color:#fff;border-color:#2E7D32}
+
+    .btn-dl svg{width:14px;height:14px}
+
+    /* Annual section */
+    .annual-section{margin-bottom:36px}
+    .annual-section h2{font-size:20px;font-weight:700;margin-bottom:16px;color:var(--g900)}
+    .annual-cards{display:flex;gap:16px;flex-wrap:wrap}
+    .annual-card{
+      background:var(--wh);border-radius:var(--rad);box-shadow:var(--sh);padding:20px 24px;
+      border-left:4px solid var(--nr);flex:1;min-width:280px;
+    }
+    .annual-card h4{font-size:14px;font-weight:700;margin-bottom:8px}
+    .annual-card .doc-btns{margin-top:8px}
+
+    /* No results */
+    .no-results{
+      text-align:center;padding:60px 20px;display:none;
+    }
+    .no-results svg{width:60px;height:60px;color:var(--g200);margin-bottom:16px}
+    .no-results p{font-size:16px;color:var(--g400)}
+
+    /* Footer */
+    .footer{
+      text-align:center;padding:32px 20px;border-top:1px solid var(--g200);margin-top:40px;
+    }
+    .footer p{font-size:12px;color:var(--g400)}
+    .footer a{color:var(--nr);text-decoration:none}
+
+    @media(max-width:600px){
+      .month-grid{grid-template-columns:1fr}
+      .hero{padding:36px 16px 32px}
+      .main{padding:20px 12px 40px}
+      .stats-bar{flex-direction:column;align-items:center}
+    }
+  </style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hi">
+    <div class="bc">Transparencia Guadalajara &bull; Gobierno Municipal</div>
+    <div class="badge">Art. 8 &bull; Fracc. V &bull; Inc. i)</div>
+    <h1>Estados Financieros Mensuales</h1>
+    <p>Cuenta P&uacute;blica y Estado de Situaci&oacute;n Financiera &mdash; Informaci&oacute;n mensual de los &uacute;ltimos tres a&ntilde;os en formato PDF y Excel, conforme a la Ley de Transparencia.</p>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- Search -->
+  <div class="search-wrap">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    <input type="text" id="searchInput" placeholder="Buscar por mes, a&ntilde;o o tipo de documento..."/>
+  </div>
+  <div class="search-count" id="searchCount"></div>
+
+  <!-- Year Tabs -->
+  <div class="year-tabs">
+    <button class="year-tab active" data-year="all">Todos los A&ntilde;os</button>
+    <button class="year-tab" data-year="2025">2025</button>
+    <button class="year-tab" data-year="2024">2024</button>
+    <button class="year-tab" data-year="2023">2023</button>
+  </div>
+
+  <!-- Type Filters -->
+  <div class="type-filters">
+    <button class="type-btn active" data-type="all">Todos</button>
+    <button class="type-btn" data-type="cuenta">Cuenta P&uacute;blica</button>
+    <button class="type-btn" data-type="situacion">Estado de Situaci&oacute;n Financiera</button>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-bar">
+    <div class="stat-card"><div class="num">3</div><div class="lbl">A&ntilde;os</div></div>
+    <div class="stat-card"><div class="num">35</div><div class="lbl">Meses disponibles</div></div>
+    <div class="stat-card"><div class="num" id="totalDocs">0</div><div class="lbl">Documentos</div></div>
+  </div>
+
+  <!-- Annual Reports -->
+  <div class="annual-section" id="annualSection">
+    <h2>Cuenta P&uacute;blica Anual</h2>
+    <div class="annual-cards">
+      <div class="annual-card" data-year="2024">
+        <h4>Cuenta P&uacute;blica 2024 (Tomo I)</h4>
+        <div class="doc-btns">
+          <a href="https://transparencia.guadalajara.gob.mx/sites/default/files/CuentaPublica2024.pdf" target="_blank" class="btn-dl btn-pdf">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+            PDF
+          </a>
+        </div>
+      </div>
+      <div class="annual-card" data-year="2024">
+        <h4>Cuenta P&uacute;blica Consolidada 2024 (Tomo II)</h4>
+        <div class="doc-btns">
+          <a href="https://transparencia.guadalajara.gob.mx/sites/default/files/CuentaPublicaConsolidada2024.pdf" target="_blank" class="btn-dl btn-pdf">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+            PDF
+          </a>
+        </div>
+      </div>
+      <div class="annual-card" data-year="2023">
+        <h4>Cuenta P&uacute;blica 2023</h4>
+        <div class="doc-btns">
+          <a href="https://transparencia.guadalajara.gob.mx/sites/default/files/CuentaPublica2023.pdf" target="_blank" class="btn-dl btn-pdf">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+            PDF
+          </a>
+        </div>
+      </div>
+      <div class="annual-card" data-year="2023">
+        <h4>Estado de Situaci&oacute;n Financiera Anual 2023</h4>
+        <div class="doc-btns">
+          <a href="https://transparencia.guadalajara.gob.mx/sites/default/files/EstadoSituacionFinanciera2023.pdf" target="_blank" class="btn-dl btn-pdf">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+            PDF
+          </a>
+          <a href="https://transparencia.guadalajara.gob.mx/sites/default/files/EstadoSituacionFinanciera2023.xlsx" target="_blank" class="btn-dl btn-xlsx">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+            XLSX
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Monthly Grid -->
+  <div class="month-grid" id="monthGrid"></div>
+
+  <!-- No results -->
+  <div class="no-results" id="noResults">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+    <p>No se encontraron documentos con ese criterio de b&uacute;squeda.</p>
+  </div>
+
+  <div class="footer">
+    <p>Gobierno Municipal de Guadalajara &bull; Portal de Transparencia &bull; <a href="https://transparencia.guadalajara.gob.mx" target="_blank">transparencia.guadalajara.gob.mx</a></p>
+    <p style="margin-top:6px">Art&iacute;culo 8, Fracci&oacute;n V, Inciso i) &mdash; Ley de Transparencia y Acceso a la Informaci&oacute;n P&uacute;blica del Estado de Jalisco y sus Municipios</p>
+  </div>
+</div>
+
+<script>
+const BASE = 'https://transparencia.guadalajara.gob.mx/sites/default/files/';
+
+const months = [
+  {name:'Enero',key:'Enero'},
+  {name:'Febrero',key:'Febrero'},
+  {name:'Marzo',key:'Marzo'},
+  {name:'Abril',key:'Abril'},
+  {name:'Mayo',key:'Mayo'},
+  {name:'Junio',key:'Junio'},
+  {name:'Julio',key:'Julio'},
+  {name:'Agosto',key:'Agosto'},
+  {name:'Septiembre',key:'Septiembre'},
+  {name:'Octubre',key:'Octubre'},
+  {name:'Noviembre',key:'Noviembre'},
+  {name:'Diciembre',key:'Diciembre'}
+];
+
+// Data: year -> month -> docs
+const data = [];
+
+// 2025: Enero - Noviembre
+months.slice(0,11).forEach(m => {
+  data.push({
+    year:'2025', month:m.name, docs:[
+      {name:'Cuenta Pública Detallada',type:'cuenta',
+        pdf:BASE+'CuentaDetallada'+m.key+'25.pdf'},
+      {name:'Estado de Situación Financiera',type:'situacion',
+        pdf:BASE+'EstadoSituacionFinanciera'+m.key+'25.pdf',
+        xlsx:BASE+'EstadoSituacionFinanciera'+m.key+'25.xlsx'}
+    ]
+  });
+});
+
+// 2024: Enero - Diciembre (with variable extensions)
+const ext2024 = {
+  Enero:'.xlsm',Febrero:'.xlsm',Marzo:'.xlsm',
+  Abril:'.xlsx',Mayo:'.xlsm',Junio:'.xlsx',
+  Julio:'.xlsx',Agosto:'.xlsx',Septiembre:'.xlsx',
+  Octubre:'.xlsx',Noviembre:'.xlsx',Diciembre:'.xlsx'
+};
+const noCuenta2024 = ['Julio'];
+
+months.forEach(m => {
+  const docs = [];
+  if(!noCuenta2024.includes(m.key)){
+    docs.push({name:'Cuenta Pública Detallada',type:'cuenta',
+      pdf:BASE+'CuentaDetallada'+m.key+'24.pdf'});
+  }
+  docs.push({name:'Estado de Situación Financiera',type:'situacion',
+    pdf:BASE+'EstadoSituacionFinanciera'+m.key+'24.pdf',
+    xlsx:BASE+'EstadoSituacionFinanciera'+m.key+'24'+ext2024[m.key]});
+  data.push({year:'2024',month:m.name,docs});
+});
+
+// 2023: Enero - Diciembre
+months.forEach(m => {
+  data.push({
+    year:'2023', month:m.name, docs:[
+      {name:'Cuenta Pública Detallada',type:'cuenta',
+        pdf:BASE+'CuentaDetallada'+m.key+'23.pdf'},
+      {name:'Estado de Situación Financiera',type:'situacion',
+        pdf:BASE+'EstadoSituacionFinanciera'+m.key+'23.pdf',
+        xlsx:BASE+'EstadoSituacionFinanciera'+m.key+'23.xlsx'}
+    ]
+  });
+});
+
+const grid = document.getElementById('monthGrid');
+const searchInput = document.getElementById('searchInput');
+const searchCount = document.getElementById('searchCount');
+const noResults = document.getElementById('noResults');
+const totalDocsEl = document.getElementById('totalDocs');
+
+let activeYear = 'all';
+let activeType = 'all';
+
+function iconPdf(){
+  return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>';
+}
+function iconXlsx(){
+  return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>';
+}
+
+function renderGrid(){
+  const query = searchInput.value.toLowerCase().trim();
+  let html = '';
+  let visible = 0;
+  let totalDocs = 0;
+
+  data.forEach(entry => {
+    if(activeYear !== 'all' && entry.year !== activeYear) return;
+
+    const filteredDocs = entry.docs.filter(d => {
+      if(activeType !== 'all' && d.type !== activeType) return false;
+      if(query){
+        const searchStr = (entry.month+' '+entry.year+' '+d.name).toLowerCase();
+        return searchStr.includes(query);
+      }
+      return true;
+    });
+
+    if(filteredDocs.length === 0) return;
+
+    totalDocs += filteredDocs.length;
+    visible++;
+
+    let docsHtml = '';
+    filteredDocs.forEach(d => {
+      const typeLabel = d.type === 'cuenta' ? 'Cuenta Pública' : 'Estado de Situación Financiera';
+      let btns = `<a href="${d.pdf}" target="_blank" class="btn-dl btn-pdf">${iconPdf()} PDF</a>`;
+      if(d.xlsx) btns += `<a href="${d.xlsx}" target="_blank" class="btn-dl btn-xlsx">${iconXlsx()} Excel</a>`;
+      docsHtml += `<div class="doc-row">
+        <div class="doc-info">
+          <div class="doc-name">${d.name}</div>
+          <div class="doc-type-label">${typeLabel}</div>
+        </div>
+        <div class="doc-btns">${btns}</div>
+      </div>`;
+    });
+
+    html += `<div class="month-card" data-year="${entry.year}" data-month="${entry.month}">
+      <div class="mc-head">
+        <h3>${entry.month}</h3>
+        <span class="year-badge">${entry.year}</span>
+      </div>
+      <div class="mc-body">${docsHtml}</div>
+    </div>`;
+  });
+
+  grid.innerHTML = html;
+  totalDocsEl.textContent = totalDocs;
+  noResults.style.display = visible === 0 ? 'block' : 'none';
+  searchCount.textContent = query ? `${visible} resultado${visible!==1?'s':''} encontrado${visible!==1?'s':''}` : '';
+}
+
+// Year tabs
+document.querySelectorAll('.year-tab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.year-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeYear = btn.dataset.year;
+    // Show/hide annual section
+    const annuals = document.querySelectorAll('.annual-card');
+    annuals.forEach(c => {
+      if(activeYear === 'all' || c.dataset.year === activeYear) c.style.display = '';
+      else c.style.display = 'none';
+    });
+    document.getElementById('annualSection').style.display =
+      [...annuals].some(c => c.style.display !== 'none') ? '' : 'none';
+    renderGrid();
+  });
+});
+
+// Type filters
+document.querySelectorAll('.type-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeType = btn.dataset.type;
+    renderGrid();
+  });
+});
+
+// Search
+searchInput.addEventListener('input', renderGrid);
+
+// Init
+renderGrid();
+</script>
+
+</body>
+</html>
