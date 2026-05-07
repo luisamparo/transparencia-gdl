@@ -55,22 +55,22 @@ body{font-family:var(--font);background:var(--nc);color:var(--n);-webkit-font-sm
 .chip-dot{width:.5rem;height:.5rem;border-radius:50%;flex-shrink:0}
 
 /* ── MAIN GRID ───────────────────────────── */
-.main{max-width:none;margin:0 auto;padding:1.25rem .75rem 2.5rem}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,130px),1fr));gap:.65rem}
+.main{max-width:none;margin:0 auto;padding:1.5rem 1rem 3rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,175px),1fr));gap:1rem}
 
 /* ── TARJETA ─────────────────────────────── */
-.card{background:var(--w);border:1.5px solid var(--nb);border-radius:12px;overflow:hidden;cursor:pointer;display:flex;flex-direction:column;transition:border-color .2s var(--ease),transform .2s var(--ease),box-shadow .2s var(--ease);position:relative}
+.card{background:var(--w);border:1.5px solid var(--nb);border-radius:18px;overflow:hidden;cursor:pointer;display:flex;flex-direction:column;transition:border-color .2s var(--ease),transform .2s var(--ease),box-shadow .2s var(--ease);position:relative}
 .card:hover{border-color:var(--ol);transform:translateY(-4px);box-shadow:0 18px 44px rgba(242,101,34,.12)}
 .card[data-hidden="true"]{display:none}
 
 /* Foto */
-.card-photo{position:relative;padding-top:105%;background:var(--nc);overflow:hidden}
+.card-photo{position:relative;padding-top:118%;background:var(--nc);overflow:hidden}
 .card-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .4s var(--ease)}
 .card:hover .card-photo img{transform:scale(1.045)}
-.card-dept-strip{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(0deg,rgba(26,26,26,.88) 0%,transparent 100%);padding:1.5rem .5rem .4rem;font-size:.5rem;font-weight:700;color:rgba(255,255,255,.82);letter-spacing:.04em;text-transform:uppercase;line-height:1.25}
+.card-dept-strip{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(0deg,rgba(26,26,26,.88) 0%,transparent 100%);padding:1.875rem .875rem .625rem;font-size:.595rem;font-weight:700;color:rgba(255,255,255,.82);letter-spacing:.05em;text-transform:uppercase;line-height:1.3}
 
 /* Grupo badge en esquina */
-.card-grupo-badge{position:absolute;top:.4rem;left:.4rem;font-size:.5rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:.15rem .4rem;border-radius:999px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.card-grupo-badge{position:absolute;top:.625rem;left:.625rem;font-size:.595rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:.2rem .5rem;border-radius:999px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
 .gbadge-presidencia{background:rgba(242,101,34,.88);color:#fff}
 .gbadge-sindicatura{background:rgba(29,158,117,.88);color:#fff}
 .gbadge-seguridad{background:rgba(200,50,63,.88);color:#fff}
@@ -78,16 +78,16 @@ body{font-family:var(--font);background:var(--nc);color:var(--n);-webkit-font-sm
 .gbadge-coordinaciones{background:rgba(100,80,160,.88);color:#fff}
 
 /* Info */
-.card-body{padding:.5rem .6rem;flex:1;display:flex;flex-direction:column;gap:.15rem}
-.card-name{font-size:.75rem;font-weight:700;color:var(--n);line-height:1.25}
-.card-cargo{font-size:.65rem;color:var(--nm);line-height:1.35;flex:1}
+.card-body{padding:.875rem;flex:1;display:flex;flex-direction:column;gap:.2rem}
+.card-name{font-size:.875rem;font-weight:700;color:var(--n);line-height:1.3}
+.card-cargo{font-size:.75rem;color:var(--nm);line-height:1.4;flex:1}
 
 /* Footer de la tarjeta */
-.card-foot{padding:.35rem .6rem .5rem;border-top:1px solid var(--nb);display:flex;align-items:center;gap:.35rem}
-.card-email{font-size:.6rem;color:var(--o);font-weight:600;text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;min-width:0}
+.card-foot{padding:.5rem .875rem .875rem;border-top:1px solid var(--nb);display:flex;align-items:center;gap:.5rem}
+.card-email{font-size:.6875rem;color:var(--o);font-weight:600;text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;min-width:0}
 .card-email:hover{text-decoration:underline}
 .card-links{display:flex;gap:.3rem;flex-shrink:0}
-.card-link-ico{display:flex;align-items:center;justify-content:center;width:1.35rem;height:1.35rem;border-radius:5px;background:var(--nc);color:var(--nm);transition:background .15s,color .15s;text-decoration:none;border:1px solid var(--nb)}
+.card-link-ico{display:flex;align-items:center;justify-content:center;width:1.625rem;height:1.625rem;border-radius:7px;background:var(--nc);color:var(--nm);transition:background .15s,color .15s;text-decoration:none;border:1px solid var(--nb)}
 .card-link-ico:hover{background:var(--oxl);color:var(--od)}
 .card-link-ico.active{background:var(--ol);color:var(--od)}
 
