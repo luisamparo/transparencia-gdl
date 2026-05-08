@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Directorio de Servidores Públicos — Art. 8 Frac. I Inc. j) — Ayuntamiento de Guadalajara">
+<title>Directorio de Servidores Públicos · Transparencia GDL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --o:#F26522;--od:#D4531A;--ol:#FDE8D8;--oxl:#FEF4EE;
+  --n:#1A1A1A;--ng:#3D3D3D;--nm:#6B6B6B;--nc:#F7F6F2;--nb:#E8E6DF;--w:#FFFFFF;
+  --ok:#1D9E75;--warn:#C8323F;--coord:#6450A0;
+  --font:'Outfit',system-ui,sans-serif;
+  --ease:cubic-bezier(.4,0,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--nc);color:var(--n);-webkit-font-smoothing:antialiased;min-height:100vh;font-size:14px}
+
+/* ── HEADER COMPACTO ── */
+.hdr{background:linear-gradient(135deg,var(--o) 0%,var(--od) 100%);color:#fff;padding:1rem 1.25rem;position:relative}
+.hdr-in{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+.hdr-left{display:flex;flex-direction:column;gap:.15rem}
+.hdr-eye{font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.7}
+.hdr-title{font-size:1.1rem;font-weight:800;line-height:1.2}
+.hdr-badges{display:flex;gap:.3rem;flex-wrap:wrap}
+.hdr-badge{display:inline-flex;align-items:center;gap:.25rem;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);color:#fff;font-size:.6rem;font-weight:700;padding:.2rem .55rem;border-radius:999px}
+.hdr-dl{display:inline-flex;align-items:center;gap:.3rem;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.35);color:#fff;font-size:.65rem;font-weight:700;padding:.35rem .7rem;border-radius:8px;text-decoration:none;transition:background .15s}
+.hdr-dl:hover{background:rgba(255,255,255,.35)}
+
+/* ── TOOLBAR ── */
+.toolbar{background:var(--w);border-bottom:1.5px solid var(--nb);padding:.6rem 1.25rem;position:sticky;top:0;z-index:80;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.toolbar-in{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+.srch-wrap{flex:1 1 12rem;position:relative}
+.srch-ico{position:absolute;left:.65rem;top:50%;transform:translateY(-50%);color:var(--nm);pointer-events:none}
+.srch{width:100%;padding:.5rem .8rem .5rem 2rem;border:1.5px solid var(--nb);border-radius:8px;font-size:.8rem;font-family:var(--font);background:var(--nc);color:var(--n);min-height:2.25rem;transition:border-color .15s,box-shadow .15s}
+.srch:focus{outline:none;border-color:var(--o);background:var(--w);box-shadow:0 0 0 3px rgba(242,101,34,.12)}
+.count{font-size:.7rem;font-weight:600;color:var(--nm);white-space:nowrap}
+
+/* ── FILTROS ── */
+.filters{background:var(--w);border-bottom:1px solid var(--nb);padding:.45rem 1.25rem}
+.filters-in{display:flex;gap:.3rem;flex-wrap:wrap;align-items:center}
+.flbl{font-size:.6rem;font-weight:800;color:var(--nm);text-transform:uppercase;letter-spacing:.07em;margin-right:.2rem}
+.chip{border:1.5px solid var(--nb);background:var(--w);color:var(--ng);padding:.2rem .65rem;border-radius:999px;font-size:.65rem;font-weight:600;cursor:pointer;transition:all .15s;font-family:var(--font);min-height:1.75rem;display:inline-flex;align-items:center;gap:.25rem}
+.chip:hover{border-color:var(--o);color:var(--o)}
+.chip[aria-pressed="true"]{background:var(--o);border-color:var(--o);color:#fff}
+.chip-dot{width:.4rem;height:.4rem;border-radius:50%;flex-shrink:0}
+
+/* ── TABLA ── */
+.tbl-wrap{padding:.75rem 1.25rem 2rem;overflow-x:auto}
+table{width:100%;border-collapse:collapse;background:var(--w);border-radius:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.06);font-size:.78rem}
+thead{background:var(--nc)}
+thead th{padding:.6rem .65rem;text-align:left;font-weight:700;font-size:.65rem;text-transform:uppercase;letter-spacing:.06em;color:var(--nm);border-bottom:2px solid var(--nb);cursor:pointer;user-select:none;white-space:nowrap;transition:color .15s}
+thead th:hover{color:var(--o)}
+thead th .sort-arrow{font-size:.55rem;margin-left:.2rem;opacity:.4}
+thead th.sorted .sort-arrow{opacity:1;color:var(--o)}
+tbody tr{border-bottom:1px solid var(--nb);transition:background .12s}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:var(--oxl)}
+tbody tr[data-hidden="true"]{display:none}
+tbody td{padding:.55rem .65rem;vertical-align:middle;line-height:1.4}
+
+/* Columnas especiales */
+.td-num{color:var(--nm);font-size:.7rem;font-weight:600;text-align:center;width:2rem}
+.td-area{white-space:nowrap}
+.area-tag{display:inline-block;padding:.15rem .5rem;border-radius:999px;font-size:.6rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase}
+.area-presidencia{background:rgba(242,101,34,.12);color:var(--od)}
+.area-sindicatura{background:rgba(29,158,117,.12);color:var(--ok)}
+.area-seguridad{background:rgba(200,50,63,.12);color:var(--warn)}
+.area-secretarias{background:rgba(61,61,61,.1);color:var(--ng)}
+.area-coordinaciones{background:rgba(100,80,160,.1);color:var(--coord)}
+.td-name{font-weight:700;color:var(--n);min-width:10rem}
+.td-cargo{color:var(--ng);min-width:8rem}
+.td-dep{color:var(--nm);font-size:.72rem}
+.td-correo a{color:var(--o);font-weight:600;text-decoration:none;font-size:.72rem}
+.td-correo a:hover{text-decoration:underline}
+.td-tel{color:var(--nm);font-size:.72rem;white-space:nowrap}
+.td-links{white-space:nowrap}
+.td-links a{display:inline-flex;align-items:center;justify-content:center;width:1.5rem;height:1.5rem;border-radius:5px;background:var(--nc);color:var(--nm);text-decoration:none;border:1px solid var(--nb);margin-right:.2rem;transition:background .12s,color .12s}
+.td-links a:hover{background:var(--ol);color:var(--od)}
+.td-links a.active{background:var(--ol);color:var(--od)}
+
+/* ── EMPTY STATE ── */
+.empty-row{display:none}
+.empty-row td{text-align:center;padding:2.5rem 1rem;color:var(--nm);font-size:.9rem}
+
+/* ── FOOTER ── */
+.foot{background:var(--w);border-top:1px solid var(--nb);padding:.75rem 1.25rem}
+.foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
+.foot-legal{font-size:.65rem;color:var(--nm);line-height:1.5}
+.foot-legal strong{color:var(--ng)}
+.foot-update{display:flex;align-items:center;gap:.3rem;font-size:.65rem;color:var(--nm)}
+.pulse{width:.4rem;height:.4rem;border-radius:50%;background:var(--ok);animation:pulse 2s ease-in-out infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:640px){
+  .hdr,.toolbar,.filters,.tbl-wrap,.foot{padding-left:.75rem;padding-right:.75rem}
+  .hdr-in{flex-direction:column;align-items:flex-start}
+  table{font-size:.72rem}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER COMPACTO -->
+<header class="hdr">
+  <div class="hdr-in">
+    <div class="hdr-left">
+      <div class="hdr-eye">Art. 8 · Frac. I · Inc. j) · Ley de Transparencia Jalisco</div>
+      <h1 class="hdr-title">Directorio de Servidores Públicos</h1>
+      <div class="hdr-badges">
+        <span class="hdr-badge">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          13 abril 2026
+        </span>
+        <span class="hdr-badge">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          20 funcionarios
+        </span>
+      </div>
+    </div>
+    <a class="hdr-dl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/DirectorioDiciembre25.xlsx" target="_blank" rel="noopener">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      CSV / Excel
+    </a>
+  </div>
+</header>
+
+<!-- TOOLBAR -->
+<div class="toolbar" role="search">
+  <div class="toolbar-in">
+    <div class="srch-wrap">
+      <svg class="srch-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="search" class="srch" id="srch" placeholder="Buscar por nombre, cargo, dependencia o correo…" aria-label="Buscar servidores públicos" autocomplete="off">
+    </div>
+    <span class="count" id="count" aria-live="polite"></span>
+  </div>
+</div>
+
+<!-- FILTROS -->
+<div class="filters">
+  <div class="filters-in" role="group" aria-label="Filtrar por área">
+    <span class="flbl">Área:</span>
+    <button class="chip" data-filter="all" aria-pressed="true" type="button">Todos</button>
+    <button class="chip" data-filter="presidencia" aria-pressed="false" type="button"><span class="chip-dot" style="background:#F26522"></span>Presidencia</button>
+    <button class="chip" data-filter="sindicatura" aria-pressed="false" type="button"><span class="chip-dot" style="background:#1D9E75"></span>Sindicatura</button>
+    <button class="chip" data-filter="seguridad" aria-pressed="false" type="button"><span class="chip-dot" style="background:#C8323F"></span>Seguridad</button>
+    <button class="chip" data-filter="secretarias" aria-pressed="false" type="button"><span class="chip-dot" style="background:#3D3D3D"></span>Secretarías</button>
+    <button class="chip" data-filter="coordinaciones" aria-pressed="false" type="button"><span class="chip-dot" style="background:#6450A0"></span>Coordinaciones</button>
+  </div>
+</div>
+
+<!-- TABLA -->
+<div class="tbl-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th class="td-num">#</th>
+        <th data-sort="nombre">Nombre <span class="sort-arrow">▲</span></th>
+        <th data-sort="cargo">Cargo <span class="sort-arrow">▲</span></th>
+        <th data-sort="dependencia">Dependencia <span class="sort-arrow">▲</span></th>
+        <th data-sort="grupo">Área <span class="sort-arrow">▲</span></th>
+        <th>Correo</th>
+        <th>Teléfono</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+</div>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="foot-in">
+    <div class="foot-legal"><strong>Ayuntamiento de Guadalajara</strong> · Información pública — Art. 8, Frac. I, Inc. j) Ley de Transparencia Jalisco</div>
+    <div class="foot-update"><span class="pulse"></span> Datos actualizados al 13 de abril de 2026</div>
+  </div>
+</footer>
+
+<script>
+const FUNCIONARIOS = [
+  {key:"veronica",grupo:"presidencia",nombre:"Verónica Delgadillo García",cargo:"Presidenta Municipal",dependencia:"Presidencia Municipal",correo:"vero@guadalajara.gob.mx",agenda:"https://guadalajara.gob.mx/conoce-a-la-presidenta-municipal",cv:"https://transparencia.guadalajara.gob.mx/sites/default/files/CurriculumVeronicaDelgadilloGarcia24.pdf",subdirectorio:null,telefono:"33-3837-4496, 33-3837-4400",domicilio:"Av. Miguel Hidalgo y Costilla 400, Col. Centro, 44100, Guadalajara, Jalisco."},
+  {key:"rosalia",grupo:"presidencia",nombre:"Rosalía Herrera Guevara",cargo:"Secretaria Particular",dependencia:"Secretaría Particular",correo:"rosalia.herrera@guadalajara.gob.mx",agenda:null,cv:"https://transparencia.guadalajara.gob.mx/sites/default/files/CurriculumRosaliaHerrera24.docx",subdirectorio:"https://transparencia.guadalajara.gob.mx/directorio-secretariaparticular",telefono:"33-3837-4496, 33-3837-4400",domicilio:"Av. Miguel Hidalgo y Costilla 400, Col. Centro, 44100, Guadalajara, Jalisco."},
+  {key:"ruth",grupo:"presidencia",nombre:"Ruth Alejandra López Hernández",cargo:"Directora de Transparencia y Buenas Prácticas",dependencia:"Dirección de Transparencia y Buenas Prácticas",correo:"ruth.lopez@guadalajara.gob.mx",agenda:"https://calendar.google.com/calendar/u/0/embed?src=ruth.lopez@guadalajara.gob.mx&ctz=America/Mexico_City",cv:"https://transparencia.guadalajara.gob.mx/sites/default/files/CurriculumRuthAlejandraLopezHernandez24.pdf",subdirectorio:null,telefono:"33-3818-3600 ext. 3531",domicilio:"Av. Miguel Hidalgo y Costilla 474, Mercado Corona cuarto piso, Col. Centro, C.P. 44100, Guadalajara, Jalisco."},
+  {key:"juan",grupo:"presidencia",nombre:"Juan José Ramos Fernández",cargo:"Consejero Jurídico",dependencia:"Consejería Jurídica",correo:"juan.ramos@guadalajara.gob.mx",agenda:"https://calendar.google.com/calendar/u/0/embed?src=juan.ramos@guadalajara.gob.mx&ctz=America/Mexico_City",cv:"https://transparencia.guadalajara.gob.mx/sites/default/files/CurriculumJuanJoseRamos24.docx",subdirectorio:"https://transparencia.guadalajara.gob.mx/directorio-consejeria-juridica",telefono:"33-3837-4400 ext. 4721",domicilio:"Av. Miguel Hidalgo y Costilla 400, Zona Centro, 44100 Guadalajara, Jalisco."},
+  {key:"mario",grupo:"presidencia",nombre:"Mario Ramón Silva Rodríguez",cargo:"Jefe de la Oficina Ejecutiva de Presidencia",dependencia:"Oficina Ejecutiva de Presidencia",correo:"mario.silva@guadalajara.gob.mx",agenda:"https://calendar.google.com/calendar/u/0/embed?src=mario.silva@guadalajara.gob.mx&ctz=America/Mexico_City",cv:"https://transparencia.guadalajara.gob.mx/sites/default/files/CurriculumMarioSilva24.docx",subdirectorio:"https://transparencia.guadalajara.gob.mx/directorio-oficina-ejecutiva-presidencia",telefono:"33-3837-4400 / 4760",domicilio:"Av. Miguel Hidalgo y Costilla 400, Col. Centro, 44100, Guadalajara, Jalisco."},
+  {key:"alvaro",grupo:"presidencia",nombre:"Álvaro Alonso González Ramírez",cargo:"Jefe de la Oficina de Análisis y Comunicación Estratégica",dependencia:"Oficina de Análisis y Comunicación Estratégica",correo:"alvaro.gonzalez@guadalajara.gob.mx",agenda:null,cv:null,subdirectorio:"https://transparencia.guadalajara.gob.mx/directorio-analisis-comunicacion-estrategica",telefono:"ext. 4300",domicilio:"Av. Miguel Hidalgo y Costilla 400, Zona Centro, 44100 Guadalajara, Jalisco."},
+  {key:"bernardo",grupo:"presidencia",nombre:"Bernardo Fernández Labastida",cargo:"Jefe de Gabinete",dependencia:"Jefatura de Gabinete",correo:"bernardo.fernandez@guadalajara.gob.mx",agenda:"https://calendar.google.com/calendar/u/0/embed?src=bernardo.fernandez@guadalajara.gob.mx&ctz=America/Mexico_City",cv:"https://transparencia.guadalajara.gob.mx/sites/default/files/CurriculumBernardoFernandez24.docx",subdirectorio:"https://transparencia.guadalajara.gob.mx/directorio-jefatura-de-gabinete",telefono:"33-3837-4400",domicilio:"Av. Miguel Hidalgo y Costilla 400, Col. Centro, 44100, Guadalajara, Jalisco."},
+  {key:"salvador",grupo:"sindicatura",nombre:"Salvador de la Cruz Rodríguez Reyes",cargo:"Síndico Municipal",dependencia:"Sindicatura",correo:"salvador.delacruz@guadalajara.gob.mx",agenda:"https://calendar.google.com/calendar/u/0/embed?src=salvador.delacruz@guadalajara.gob.mx&ctz=America/Mexico_City",cv:"https://transparencia.guadalajara.gob.mx/sites/default/files/CurriculumSalvadorDeLaCruz24.docx",subdirectorio:"https://transparencia.guadalajara.gob.mx/directorio-sindicatura",telefono:"33-3837-4510, 33-3837-4484",domicilio:"Av. Miguel Hidalgo y Costilla 400, Zona Centro, 44100 Guadalajara, Jalisco."},
+  {key:"ismael",grupo:"seguridad",nombre:"Ismael Ramírez Méndez",cargo:"Comisario de Seguridad Ciudadana",dependencia:"Comisaría de Seguridad Ciudadana",correo:"ismael.ramirez@guadalajara.gob.mx",agenda:"https://calendar.google.com/calendar/u/0/embed?src=ismael.ramirez@guadalajara.gob.mx&ctz=America/Mexico_City",cv:"https://transparencia.guadalajara.gob.mx/sites/default/files/CurriculumIsmaelRamirez24.docx",subdirectorio:"https://transparencia.guadalajara.gob.mx/directorio-comisaria",telefono:"",domicilio:"Av. Periférico Pte. Manuel Gómez Morín 3229, Jardines de la Barranca, C.P. 44729, Guadalajara, Jalisco."},
+  {key:"manuel",grupo:"secretarias",nombre:"José Manuel Romo Parra",cargo:"Secretario General",dependencia:"Secretaría General",correo:"jose.romo@guadalajara.gob.mx",agenda:null,cv:"https://transparencia.guadalajara.gob.mx/sites/default/files/CurriculumJoseRomoParra24.docx",subdirectorio:"https://transparencia.guadalajara.gob.mx/directorio-secretaria-general",telefono:"ext. 4270",domicilio:"Av. Miguel Hidalgo y Costilla 400, Zona Centro, 44100 Guadalajara, Jalisco."},
+  {key:"irlanda",grupo:"secretarias",nombre:"Irlanda Loerythe Baumbach Valencia",cargo:"Tesorera Municipal",dependencia:"Tesorería Municipal",correo:"irlanda.baumbach@guadalajara.gob.mx",agenda:"https://calendar.google.com/calendar/u/1?cid=aXJsYW5kYS5iYXVtYmFjaEBndWFkYWxhamFyYS5nb2IubXg",cv:"https://transparencia.guadalajara.gob.mx/sites/default/files/IrlandaLoerytheBaumbachValencia.docx",subdirectorio:"https://transparencia.guadalajara.gob.mx/directorio-tesoreria",telefono:"ext. 2152",domicilio:"C. Miguel Blanco 901, Zona Centro, 44100 Guadalajara, Jalisco."},
+  {key:"alejandra",grupo:"secretarias",nombre:"Alejandra Guadalupe Hernández Santillán",cargo:"Contralora Municipal",dependencia:"Contraloría Ciudadana",correo:"alejandra.hernandez@guadalajara.gob.mx",agenda:"https://calendar.google.com/calendar/embed?src=c_eofeb1hqqbhj7hl77bmt4qas14%40group.calendar.google.com&ctz=America%2FMexico_City",cv:"https://transparencia.guadalajara.gob.mx/sites/default/files/CurriculumAlejandraHernandezS24.docx",subdirectorio:"https://transparencia.guadalajara.gob.mx/directorio-contraloria-ciudadana",telefono:"33-3669-1300 ext. 1354",domicilio:"Calle 5 de Febrero núm. 249, esq. Analco, Unidad Administrativa Reforma, Col. Las Conchas, C.P. 44460, Guadalajara, Jalisco."},
+  {key:"abraham",grupo:"coordinaciones",nombre:"Abraham Yasir Maciel Montoya",cargo:"Coordinador de Administración e Innovación Gubernamental",dependencia:"Coordinación de Administración e Innovación Gubernamental",correo:"abraham.maciel@guadalajara.gob.mx",agenda:"https://calendar.google.com/calendar/u/0/embed?src=abraham.maciel@guadalajara.gob.mx&ctz=America/Mexico_City",cv:"https://transparencia.guadalajara.gob.mx/sites/default/files/CurriculumAbrahamMaciel24.docx",subdirectorio:"https://transparencia.guadalajara.gob.mx/directorio-administracion-innovacion",telefono:"33-3669-1300 ext. 1301",domicilio:"Av. 5 de Febrero #249, esq. Analco, Col. Las Conchas, C.P. 44460, Guadalajara, Jalisco."},
+  {key:"norma",grupo:"coordinaciones",nombre:"Norma Angélica Aguirre Varela",cargo:"Coordinadora General de la Superintendencia del Centro Histórico",dependencia:"Coordinación General de la Superintendencia del Centro Histórico",correo:"naguirrev@guadalajara.gob.mx",agenda:"https://calendar.google.com/calendar/embed?src=naguirrev%40guadalajara.gob.mx&ctz=America%2FMexico_City",cv:"https://transparencia.guadalajara.gob.mx/sites/default/files/CurriculumNormaAguirre24.docx",subdirectorio:"https://transparencia.guadalajara.gob.mx/directorio-coordinacion-superintendencia-del-centro-historico",telefono:"",domicilio:""},
+  {key:"isabel",grupo:"coordinaciones",nombre:"Isabel Viridiana de la Torre Guzmán",cargo:"Coordinadora General de Gestión Integral de la Ciudad",dependencia:"Coordinación General de Gestión Integral de la Ciudad",correo:"ivdelatorre@guadalajara.gob.mx",agenda:null,cv:"https://transparencia.guadalajara.gob.mx/sites/default/files/CurriculumIsabeldelaTorre24.docx",subdirectorio:"https://transparencia.guadalajara.gob.mx/directorio-coordinacion-gestion-integral-de-la-ciudad",telefono:"",domicilio:"Av. Miguel Hidalgo y Costilla 474, Mercado Corona cuarto piso, Col. Centro, C.P. 44100, Guadalajara, Jalisco."},
+  {key:"carmen",grupo:"coordinaciones",nombre:"Carmen Julia Prudencio González",cargo:"Coordinadora General de Combate a la Desigualdad",dependencia:"Coordinación General de Combate a la Desigualdad",correo:"carmen.prudencio@guadalajara.gob.mx",agenda:null,cv:"https://transparencia.guadalajara.gob.mx/sites/default/files/CurriculumJuliaPrudencio25.pdf",subdirectorio:"https://transparencia.guadalajara.gob.mx/directorio-coordinacion-combate-a-la-desigualdad",telefono:"33-3669-1300 ext. 1442 / 1591",domicilio:"Calle 5 de Febrero núm. 249, esq. Analco, Unidad Administrativa Reforma, Col. Las Conchas, C.P. 44460, Guadalajara, Jalisco."},
+  {key:"david",grupo:"coordinaciones",nombre:"David Mendoza Martínez",cargo:"Coordinador General de Desarrollo Económico",dependencia:"Coordinación General de Desarrollo Económico",correo:"david.mendoza@guadalajara.gob.mx",agenda:"https://calendar.google.com/calendar/embed?src=david.mendoza%40guadalajara.gob.mx&ctz=America%2FMexico_City",cv:"https://transparencia.guadalajara.gob.mx/sites/default/files/CurriculumDavidMendoza24.docx",subdirectorio:"https://transparencia.guadalajara.gob.mx/directorio-coordinacion-desarrollo-economico",telefono:"33-3837-4400 ext. 3909",domicilio:"Lerdo de Tejada 1887, Col. Americana, 44160, Guadalajara, Jalisco."},
+  {key:"crystal",grupo:"coordinaciones",nombre:"Erika Crystal Zavala López",cargo:"Coordinadora General de Construcción de Comunidad",dependencia:"Coordinación General de Construcción de Comunidad",correo:"crystal.zavala@guadalajara.gob.mx",agenda:"https://calendar.google.com/calendar/u/0/embed?src=c_1cb8ca6529d00b3e8850e0196a20299c75f86b58e18800a9fa5fbb9f8d257233@group.calendar.google.com&ctz=America/Mexico_City",cv:"https://transparencia.guadalajara.gob.mx/sites/default/files/CurriculumErikaZavala24.docx",subdirectorio:"https://transparencia.guadalajara.gob.mx/directorio-coordinacion-construccion-de-comunidad",telefono:"",domicilio:"Av. Miguel Hidalgo y Costilla 474, Mercado Corona cuarto piso, Col. Centro, C.P. 44100, Guadalajara, Jalisco."},
+  {key:"oscar",grupo:"coordinaciones",nombre:"Oscar Villalobos Gámez",cargo:"Coordinador General de Servicios Municipales",dependencia:"Coordinación General de Servicios Municipales",correo:"oscar.villalobos@guadalajara.gob.mx",agenda:"https://calendar.google.com/calendar/u/0/embed?src=oscar.villalobos@guadalajara.gob.mx&ctz=America/Mexico_City",cv:"https://transparencia.guadalajara.gob.mx/sites/default/files/CurriculumOscarVillalobos24.docx",subdirectorio:"https://transparencia.guadalajara.gob.mx/directorio-coordinacion-servicios-municipales",telefono:"",domicilio:""},
+  {key:"marco",grupo:"coordinaciones",nombre:"Marco Sebastián Ocegueda Sánchez",cargo:"Coordinador General de Cuidamos Guadalajara",dependencia:"Coordinación General de Cuidamos Guadalajara",correo:"marco.ocegueda@guadalajara.gob.mx",agenda:"https://calendar.google.com/calendar/embed?src=marco.ocegueda%40guadalajara.gob.mx&ctz=America%2FMexico_City",cv:"https://transparencia.guadalajara.gob.mx/sites/default/files/CurriculumMarcoOcegueda24.docx",subdirectorio:"https://transparencia.guadalajara.gob.mx/directorio-coordinacion-cuidamos-guadalajara",telefono:"",domicilio:""}
+];
+
+const ICONS = {
+  agenda:`<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>`,
+  cv:`<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>`,
+  sub:`<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`
+};
+
+const GRUPO_LABELS = {presidencia:"Presidencia",sindicatura:"Sindicatura",seguridad:"Seguridad",secretarias:"Secretarías",coordinaciones:"Coordinaciones"};
+
+const tbody = document.getElementById('tbody');
+const srch = document.getElementById('srch');
+const countEl = document.getElementById('count');
+let currentFilter = 'all';
+let sortCol = null;
+let sortAsc = true;
+
+function render(list) {
+  tbody.innerHTML = '';
+  list.forEach((fn, i) => {
+    const tr = document.createElement('tr');
+    tr.dataset.grupo = fn.grupo;
+    const links = [];
+    if(fn.agenda) links.push(`<a href="${fn.agenda}" target="_blank" rel="noopener" title="Agenda">${ICONS.agenda}</a>`);
+    if(fn.cv) links.push(`<a href="${fn.cv}" target="_blank" rel="noopener" title="Currículum">${ICONS.cv}</a>`);
+    if(fn.subdirectorio) links.push(`<a href="${fn.subdirectorio}" target="_blank" rel="noopener" title="Subdirectorio" class="active">${ICONS.sub}</a>`);
+    tr.innerHTML = `
+      <td class="td-num">${i+1}</td>
+      <td class="td-name">${fn.nombre}</td>
+      <td class="td-cargo">${fn.cargo}</td>
+      <td class="td-dep">${fn.dependencia}</td>
+      <td class="td-area"><span class="area-tag area-${fn.grupo}">${GRUPO_LABELS[fn.grupo]}</span></td>
+      <td class="td-correo"><a href="mailto:${fn.correo}">${fn.correo}</a></td>
+      <td class="td-tel">${fn.telefono || '—'}</td>
+      <td class="td-links">${links.join('')}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+  updateCount();
+}
+
+function updateCount() {
+  const visible = tbody.querySelectorAll('tr:not([data-hidden="true"])').length;
+  countEl.textContent = `${visible} servidores`;
+}
+
+function applyFilters() {
+  const q = srch.value.toLowerCase().trim();
+  const rows = tbody.querySelectorAll('tr');
+  rows.forEach(tr => {
+    const matchGrupo = currentFilter === 'all' || tr.dataset.grupo === currentFilter;
+    const text = tr.textContent.toLowerCase();
+    const matchSearch = !q || text.includes(q);
+    tr.dataset.hidden = !(matchGrupo && matchSearch);
+  });
+  updateCount();
+}
+
+function sortData(col) {
+  if (sortCol === col) { sortAsc = !sortAsc; } else { sortCol = col; sortAsc = true; }
+  document.querySelectorAll('thead th').forEach(th => th.classList.remove('sorted'));
+  const th = document.querySelector(`thead th[data-sort="${col}"]`);
+  if(th) { th.classList.add('sorted'); th.querySelector('.sort-arrow').textContent = sortAsc ? '▲' : '▼'; }
+  const sorted = [...FUNCIONARIOS].sort((a,b) => {
+    const va = (a[col]||'').toLowerCase();
+    const vb = (b[col]||'').toLowerCase();
+    return sortAsc ? va.localeCompare(vb) : vb.localeCompare(va);
+  });
+  render(sorted);
+  applyFilters();
+}
+
+// Search
+srch.addEventListener('input', applyFilters);
+
+// Filters
+document.querySelectorAll('.chip[data-filter]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.chip[data-filter]').forEach(b => b.setAttribute('aria-pressed','false'));
+    btn.setAttribute('aria-pressed','true');
+    currentFilter = btn.dataset.filter;
+    applyFilters();
+  });
+});
+
+// Sort headers
+document.querySelectorAll('thead th[data-sort]').forEach(th => {
+  th.addEventListener('click', () => sortData(th.dataset.sort));
+});
+
+// Init
+render(FUNCIONARIOS);
+</script>
+</body>
+</html>
