@@ -434,15 +434,59 @@ const { useState, useMemo, useRef, useEffect } = React;
 // ============================================================
 const MONTHS = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
 
-// Datos reales publicados en transparencia.guadalajara.gob.mx/indicadoresuti (mayo 2026).
-// Cifra mensual de Solicitudes de Acceso a la Información atendidas, por año.
+// =====================================================================
+// DATOS REALES — extraídos de los archivos internos de la
+// Dirección de Transparencia y Buenas Prácticas (Estadisticas2021-2026).
+// Los totales coinciden con las gráficas publicadas en
+// transparencia.guadalajara.gob.mx/indicadoresuti.
+// =====================================================================
+
+// Total mensual de Solicitudes de Acceso a la Información atendidas.
 const SOLICITUDES_DATA = {
   2026: [1064, 708, 864],
   2025: [1536, 1247, 1112, 817, 812, 789, 820, 859, 770, 955, 742, 462],
   2024: [1668, 1321, 972, 1208, 998, 890, 875, 997, 860, 1060, 867, 455],
-  2023: [1774, 1484, 1609, 1139, 1078, 995, 1348, 1130, 1079, 1180, 1082, 419],
+  2023: [1774, 1484, 1609, 1139, 1078, 1348, 995, 1130, 1079, 1180, 1082, 419],
   2022: [1697, 1379, 1485, 1322, 1289, 1520, 941, 1432, 1131, 1200, 1207, 543],
   2021: [836, 665, 1299, 1508, 920, 1070, 997, 1259, 1049, 975, 1168, 576],
+};
+
+// Desglose por sentido de la resolución (procedentes / parc. procedentes /
+// improcedentes), conforme tipos de respuesta del control interno.
+// Procedente = Afirmativa · Parcial = Afirmativa parcial · Improcedente = Negativa.
+// "Otros" agrupa: acuerdos de no competencia, prevenciones, canceladas,
+// remitidas al ITEI y derecho de petición.
+const SOL_PROC = {
+  2026: [422, 286, 341],
+  2025: [544, 446, 464, 341, 317, 313, 356, 328, 257, 303, 219, 139],
+  2024: [658, 499, 386, 505, 360, 329, 333, 342, 333, 377, 291, 169],
+  2023: [618, 488, 637, 437, 445, 516, 396, 479, 406, 498, 452, 152],
+  2022: [766, 670, 641, 540, 501, 628, 392, 568, 425, 438, 460, 227],
+  2021: [349, 237, 545, 561, 288, 420, 416, 549, 434, 439, 501, 246],
+};
+const SOL_PARC = {
+  2026: [451, 253, 290],
+  2025: [636, 485, 347, 270, 281, 244, 229, 255, 238, 376, 284, 185],
+  2024: [623, 554, 394, 454, 413, 373, 352, 458, 308, 446, 368, 198],
+  2023: [791, 676, 626, 475, 429, 613, 438, 465, 427, 448, 401, 137],
+  2022: [647, 466, 624, 550, 508, 624, 396, 614, 524, 552, 526, 238],
+  2021: [287, 247, 389, 579, 389, 441, 384, 493, 487, 385, 425, 201],
+};
+const SOL_IMP = {
+  2026: [145, 122, 183],
+  2025: [213, 174, 145, 113, 114, 103, 116, 172, 125, 122, 103, 67],
+  2024: [348, 224, 184, 231, 205, 170, 179, 185, 193, 212, 156, 61],
+  2023: [275, 300, 326, 208, 187, 154, 128, 144, 172, 182, 162, 99],
+  2022: [211, 169, 204, 222, 189, 194, 125, 173, 163, 164, 179, 75],
+  2021: [82, 95, 230, 157, 116, 89, 74, 111, 119, 131, 216, 118],
+};
+const SOL_OTROS = {
+  2026: [46, 47, 50],
+  2025: [122, 112, 124, 88, 73, 94, 76, 74, 108, 104, 96, 47],
+  2024: [39, 44, 8, 18, 20, 18, 11, 12, 26, 25, 41, 23],
+  2023: [90, 68, 101, 73, 58, 65, 33, 42, 74, 52, 67, 31],
+  2022: [73, 74, 78, 82, 91, 74, 28, 77, 54, 46, 42, 21],
+  2021: [107, 70, 120, 207, 119, 118, 117, 103, 67, 53, 76, 28],
 };
 
 const YEAR_COLORS = {
@@ -454,7 +498,7 @@ const YEAR_COLORS = {
   2021: '#CFD3D8',
 };
 
-// Visitas al Portal de Transparencia (mensual, por año) — fuente: indicadoresuti.
+// Visitas mensuales al Portal de Transparencia — fuente: indicadoresuti.
 const VISITAS_DATA = {
   2026: [6894, 6796, 6619],
   2025: [7986, 7297, 6796, 5664, 6420, 5247, 5505, 5834, 5877, 6561, 4715, 4388],
@@ -464,30 +508,59 @@ const VISITAS_DATA = {
   2021: [5570, 5319, 6508, 5404, 5516, 5194, 5221, 5647, 5884, 7005, 6550, 4452],
 };
 
-// Solicitudes de Derecho a ARCO (mensual, por año). Sin desglose por tipo
-// (acceso / rectificación / cancelación / oposición) en el portal público.
-// 2026 aún no publicado por la dependencia.
+// Solicitudes de Derecho a ARCO (acceso, rectificación, cancelación, oposición)
+// — total mensual conforme registro del control interno.
+// El portal no publica el desglose por tipo (A/R/C/O), solo el total.
 const ARCO_DATA = {
+  2026: [0, 0, 0],
   2025: [21, 30, 32, 5, 27, 35, 43, 30, 42, 50, 40, 24],
   2024: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 4],
   2023: [0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0],
-  2022: [0, 2, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0],
-  2021: [0, 16, 15, 4, 8, 2, 6, 3, 1, 0, 1, 2],
+  2022: [0, 2, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0],
+  2021: [11, 16, 15, 4, 8, 2, 6, 3, 3, 0, 1, 2],
 };
 
-function buildMonthlyRows(dataObj) {
+// Recursos de Revisión presentados ante el ITEI — bonus context.
+const RR_DATA = {
+  2026: [0, 0, 15, 8],
+  2025: [15, 14, 10, 3, 6, 4, 6, 12, 7, 9, 13, 0],
+  2024: [8, 13, 9, 7, 28, 12, 19, 10, 15, 17, 7, 8],
+  2023: [7, 14, 18, 7, 32, 28, 11, 36, 24, 19, 10, 8],
+  2022: [11, 11, 20, 8, 15, 21, 30, 19, 12, 14, 16, 13],
+  2021: [1, 14, 7, 4, 4, 4, 2, 13, 7, 7, 18, 16],
+};
+
+function buildSolicitudesRows() {
   const rows = [];
   let id = 1;
-  Object.keys(dataObj).map(Number).sort((a, b) => b - a).forEach(year => {
-    dataObj[year].forEach((val, mi) => {
+  Object.keys(SOLICITUDES_DATA).map(Number).sort((a, b) => b - a).forEach(year => {
+    SOLICITUDES_DATA[year].forEach((tot, mi) => {
+      rows.push({
+        id: id++, año: year, mes: MONTHS[mi], mesIdx: mi,
+        procedentes:    SOL_PROC[year]?.[mi]  ?? 0,
+        parciales:      SOL_PARC[year]?.[mi]  ?? 0,
+        improcedentes:  SOL_IMP[year]?.[mi]   ?? 0,
+        otros:          SOL_OTROS[year]?.[mi] ?? 0,
+        total: tot,
+      });
+    });
+  });
+  return rows;
+}
+
+function buildArcoRows() {
+  const rows = [];
+  let id = 1;
+  Object.keys(ARCO_DATA).map(Number).sort((a, b) => b - a).forEach(year => {
+    ARCO_DATA[year].forEach((val, mi) => {
       rows.push({ id: id++, año: year, mes: MONTHS[mi], mesIdx: mi, total: val });
     });
   });
   return rows;
 }
 
-const SOLICITUDES_ROWS = buildMonthlyRows(SOLICITUDES_DATA);
-const ARCO_ROWS = buildMonthlyRows(ARCO_DATA);
+const SOLICITUDES_ROWS = buildSolicitudesRows();
+const ARCO_ROWS = buildArcoRows();
 
 // ============================================================
 // HELPERS
@@ -1201,11 +1274,19 @@ function SolicitudesTable() {
       render: r => <span className="tnum" style={{ fontWeight: 600 }}>{r.año}</span> },
     { key: 'mes', label: 'Mes', sortable: true,
       render: r => <span style={{ color: 'var(--ink-2)' }}>{r.mes}</span> },
-    { key: 'total', label: 'Solicitudes atendidas', sortable: true, numeric: true,
+    { key: 'procedentes', label: 'Procedentes', sortable: true, numeric: true,
+      render: r => <span className="tnum" style={{ color: '#157f3e', fontWeight: 600 }}>{fmt(r.procedentes)}</span> },
+    { key: 'parciales', label: 'Parc. procedentes', sortable: true, numeric: true,
+      render: r => <span className="tnum" style={{ color: '#8B5A00', fontWeight: 600 }}>{fmt(r.parciales)}</span> },
+    { key: 'improcedentes', label: 'Improcedentes', sortable: true, numeric: true,
+      render: r => <span className="tnum" style={{ color: '#b53030', fontWeight: 600 }}>{fmt(r.improcedentes)}</span> },
+    { key: 'otros', label: 'Otros trámites', sortable: true, numeric: true,
+      render: r => <span className="tnum" style={{ color: 'var(--ink-3)' }}>{fmt(r.otros)}</span> },
+    { key: 'total', label: 'Total', sortable: true, numeric: true,
       render: r => (
         <span className="cell-bar">
           <span className="num" style={{ fontWeight: 700 }}>{fmt(r.total)}</span>
-          <span className="bar" style={{ width: `${(r.total / maxTotal) * 120}px` }}/>
+          <span className="bar" style={{ width: `${(r.total / maxTotal) * 80}px` }}/>
         </span>
       )},
   ];
@@ -1299,15 +1380,15 @@ function MiniNav() {
 function DownloadGrid() {
   const cards = [
     {
-      group: 'Estadísticas por año',
+      group: 'Solicitudes con desglose',
       title: 'Solicitudes de información 2021–2026',
-      desc: 'Conteo mensual de solicitudes de acceso a la información atendidas, por año.',
+      desc: 'Conteo mensual con desglose: procedentes, parc. procedentes, improcedentes y otros trámites.',
       formats: ['csv', 'json', 'xlsx'],
       icon: I.chart,
     },
     {
       group: 'Datos ARCO',
-      title: 'Solicitudes ARCO 2021–2025',
+      title: 'Solicitudes ARCO 2021–2026',
       desc: 'Total mensual de solicitudes en materia de datos personales (acceso, rectificación, cancelación, oposición).',
       formats: ['csv', 'json', 'xlsx'],
       icon: I.building,
@@ -1320,10 +1401,10 @@ function DownloadGrid() {
       icon: I.globe,
     },
     {
-      group: 'Pendiente de publicación',
-      title: 'Sentido de resolución (SIRES)',
-      desc: 'Desglose de procedentes, parcialmente procedentes e improcedentes — vendrá del sistema SIRES interno.',
-      formats: ['pdf'],
+      group: 'Recursos de revisión',
+      title: 'Recursos de revisión 2021–2026',
+      desc: 'Recursos presentados ante el ITEI cuando una persona se inconforma con la respuesta a su solicitud.',
+      formats: ['csv', 'json', 'xlsx'],
       icon: I.shield,
     },
   ];
@@ -1366,12 +1447,13 @@ function App() {
               <span className="kicker"><span className="dot"/>Artículo 8 · Inciso ñ · Información Fundamental</span>
               <h1 className="title">Estadísticas de <em>Transparencia</em></h1>
               <p className="lede">
-                Solicitudes de acceso a la información, solicitudes ARCO y visitas al portal — desglose mensual,
-                multi-anual y exportable. Hecho para que cualquier persona pueda auditar al gobierno municipal.
+                Solicitudes de acceso a la información con desglose por sentido de resolución (procedentes,
+                parcialmente procedentes, improcedentes), solicitudes ARCO y visitas al portal — desglose
+                mensual, multi-anual y exportable.
               </p>
               <div className="meta-row">
                 <span>Cobertura · <b>2021 – 2026</b></span>
-                <span>Fuente · <b>transparencia.guadalajara.gob.mx/indicadoresuti</b></span>
+                <span>Fuente · <b>Dirección de Transparencia y Buenas Prácticas, GDL</b></span>
                 <span>Licencia · <b>CC-BY 4.0</b></span>
                 <span>Frecuencia · <b>Mensual</b></span>
               </div>
@@ -1385,7 +1467,8 @@ function App() {
                 <h2>Cómo evoluciona la demanda ciudadana de información</h2>
                 <p className="section-deck">
                   Cada línea es un año. Activa o desactiva años con los chips para comparar trayectorias mensuales.
-                  Pasa el cursor sobre la gráfica para ver el conteo exacto.
+                  Pasa el cursor sobre la gráfica para ver el conteo exacto. El desglose por sentido de la
+                  resolución (procedentes / parc. procedentes / improcedentes) está abajo en la base de datos.
                 </p>
               </div>
               <AreaChart data={SOLICITUDES_DATA} colors={YEAR_COLORS}/>
@@ -1419,9 +1502,10 @@ function App() {
             <section className="section" id="tabla-solicitudes">
               <div className="section-head">
                 <div className="section-eyebrow">05 · Base de datos · Solicitudes</div>
-                <h2>Solicitudes de información mes a mes</h2>
+                <h2>Solicitudes de información mes a mes, con desglose</h2>
                 <p className="section-deck">
-                  Filtra por año o mes, ordena cualquier columna y exporta los datos en CSV, JSON o XLSX.
+                  Cada renglón es un mes. Ordena cualquier columna, busca, filtra por año o mes y
+                  exporta a CSV, JSON o XLSX.
                 </p>
                 <div style={{
                   marginTop: 14, fontSize: 13.5, color: 'var(--ink-2)', lineHeight: 1.55,
@@ -1430,10 +1514,11 @@ function App() {
                 }}>
                   <span style={{ color: 'var(--brand)', flexShrink: 0, marginTop: 2 }}>{I.info}</span>
                   <span>
-                    <b style={{ color: 'var(--ink)' }}>Sobre el desglose de "procedentes / parcialmente procedentes / improcedentes":</b>
-                    {' '}el portal de <i>indicadoresuti</i> publica únicamente el total mensual de solicitudes atendidas.
-                    El sentido de la resolución (procede, procede parcialmente, no procede) vive en el sistema SIRES interno
-                    y se agregará en cuanto la dependencia lo libere.
+                    <b style={{ color: '#157f3e' }}>Procedentes</b> = se entregó la información completa.
+                    {' '}<b style={{ color: '#8B5A00' }}>Parc. procedentes</b> = se entregó parte (lo demás era reservado/confidencial).
+                    {' '}<b style={{ color: '#b53030' }}>Improcedentes</b> = no se entregó.
+                    {' '}<b style={{ color: 'var(--ink-3)' }}>Otros trámites</b> agrupa: acuerdos de no competencia, prevenciones,
+                    canceladas, remitidas al ITEI y derecho de petición.
                   </span>
                 </div>
               </div>
