@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Estadísticas de Transparencia — Guadalajara</title>
+<meta name="description" content="Solicitudes de información, recursos de revisión y visitas al portal de transparencia del Gobierno Municipal de Guadalajara.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   Estadísticas de Transparencia — Dashboard
+   Editorial / data-journalism feel.
+   ========================================================= */
+:root {
+  --brand: #F68628;
+  --brand-deep: #D95A00;
+  --brand-50: #FFF4E8;
+  --brand-100: #FFE3C7;
+  --brand-200: #FFC98A;
+
+  --ink:   #2B2B2B;
+  --ink-2: #5D6770;
+  --ink-3: #8A929B;
+  --line:  #E6E8EB;
+  --line-2:#EFF1F3;
+  --paper: #FFFFFF;
+  --canvas:#F6F7F8;
+
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans:  'Outfit', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { font-family: var(--sans); color: var(--ink); background: var(--paper); -webkit-font-smoothing: antialiased; }
+body { font-family: var(--sans); font-size: 16px; line-height: 1.55; color: var(--ink); background: var(--paper); }
+
+a { color: var(--brand-deep); text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+::selection { background: var(--brand-100); color: var(--ink); }
+
+/* ---------------- TOP HEADER ---------------- */
+.gov-bar {
+  background: #1F1F1E; color: #fff; font-size: 12px; letter-spacing: .02em;
+}
+.gov-bar-inner {
+  max-width: 1280px; margin: 0 auto; padding: 8px 32px;
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+}
+.gov-bar a { color: #fff; opacity: .8; }
+.gov-bar a:hover { opacity: 1; }
+
+.brand-bar {
+  background: var(--brand);
+  border-bottom: 1px solid rgba(0,0,0,.05);
+}
+.brand-bar-inner {
+  max-width: 1280px; margin: 0 auto; padding: 14px 32px;
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 32px;
+}
+.brand-lockup {
+  display: flex; align-items: center; gap: 14px;
+  background: #fff; padding: 8px 18px; border-radius: 10px;
+  font-family: var(--serif); font-size: 20px; color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.brand-lockup .iso { width: 30px; height: 30px; flex-shrink: 0; }
+.brand-nav { display: flex; gap: 4px; align-items: center; flex-wrap: wrap; }
+.brand-nav a { color: #fff; font-weight: 500; font-size: 14px; padding: 8px 14px; border-radius: 8px; }
+.brand-nav a:hover { background: rgba(255,255,255,.15); }
+.brand-nav a.active { background: rgba(255,255,255,.22); font-weight: 600; }
+
+@media (max-width: 980px) {
+  .brand-bar-inner { grid-template-columns: auto auto; gap: 16px; }
+  .brand-nav { display: none; }
+}
+
+/* ---------------- PAGE LAYOUT ---------------- */
+.page-wrap { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+.page-grid {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 56px;
+  padding: 56px 0 96px;
+}
+@media (max-width: 980px) { .page-grid { grid-template-columns: 1fr; gap: 24px; padding: 32px 0 64px; } }
+@media (max-width: 600px) { .page-wrap { padding: 0 18px; } }
+
+/* sticky mini nav */
+.mini-nav {
+  position: sticky; top: 32px; align-self: start;
+  display: flex; flex-direction: column; gap: 2px;
+  border-left: 1px solid var(--line);
+  padding-left: 0;
+}
+.mini-nav a {
+  color: var(--ink-2); font-size: 13px; font-weight: 500;
+  padding: 8px 16px; border-left: 2px solid transparent; margin-left: -1px;
+  display: flex; align-items: center; gap: 10px; transition: all .15s;
+}
+.mini-nav a:hover { color: var(--ink); }
+.mini-nav a.active { color: var(--brand-deep); border-left-color: var(--brand); font-weight: 600; }
+.mini-nav .num { font-variant-numeric: tabular-nums; opacity: .6; font-size: 11px; }
+@media (max-width: 980px) { .mini-nav { display: none; } }
+
+/* ---------------- MASTHEAD ---------------- */
+.masthead { padding-bottom: 48px; border-bottom: 1px solid var(--line); margin-bottom: 56px; }
+.kicker {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--brand-deep);
+}
+.kicker .dot { width: 6px; height: 6px; border-radius: 999px; background: var(--brand); animation: pulse 2.4s ease-in-out infinite; }
+@keyframes pulse { 50% { opacity: .35; } }
+
+h1.title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(40px, 5vw, 68px);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  margin: 14px 0 18px;
+  color: var(--ink);
+  text-wrap: balance;
+}
+h1.title em { font-style: italic; color: var(--brand-deep); }
+.lede {
+  font-size: 19px; line-height: 1.5; color: var(--ink-2); max-width: 60ch;
+  font-weight: 400;
+}
+.meta-row {
+  display: flex; flex-wrap: wrap; gap: 24px 32px; margin-top: 28px;
+  font-size: 13px; color: var(--ink-2);
+}
+.meta-row b { color: var(--ink); font-weight: 600; }
+
+/* ---------------- KPI CARDS ---------------- */
+.kpi-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+  margin-bottom: 80px;
+}
+@media (max-width: 980px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .kpi-grid { grid-template-columns: 1fr; } }
+
+.kpi {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 22px 22px 18px;
+  display: flex; flex-direction: column; gap: 14px;
+  transition: all .2s var(--ease-out);
+  position: relative; overflow: hidden;
+}
+.kpi:hover { border-color: var(--brand-200); box-shadow: 0 12px 32px rgba(38,35,31,.06); transform: translateY(-2px); }
+.kpi-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.kpi-label { font-size: 12px; color: var(--ink-2); font-weight: 500; line-height: 1.4; max-width: 22ch; }
+.kpi-trend { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 600; padding: 4px 8px; border-radius: 999px; white-space: nowrap; }
+.kpi-trend.up { background: #E6F6EC; color: #157f3e; }
+.kpi-trend.down { background: #FCE8E8; color: #b53030; }
+.kpi-trend.flat { background: var(--line-2); color: var(--ink-2); }
+.kpi-trend svg { width: 10px; height: 10px; }
+
+.kpi-num {
+  font-family: var(--sans);
+  font-size: 44px; font-weight: 600; letter-spacing: -0.02em; line-height: 1;
+  color: var(--ink); font-variant-numeric: tabular-nums;
+}
+.kpi-num .unit { font-size: 16px; font-weight: 500; color: var(--ink-3); margin-left: 4px; letter-spacing: 0; }
+.kpi-foot { display: flex; justify-content: space-between; align-items: flex-end; gap: 10px; }
+.kpi-foot small { font-size: 11px; color: var(--ink-3); }
+.kpi-spark { width: 96px; height: 32px; }
+.kpi-tag { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--brand-deep); background: var(--brand-50); padding: 3px 8px; border-radius: 4px; }
+
+/* ---------------- SECTION ---------------- */
+.section { margin-bottom: 96px; scroll-margin-top: 32px; }
+.section-head { margin-bottom: 28px; max-width: 70ch; }
+.section-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--brand-deep); margin-bottom: 8px; }
+.section h2 {
+  font-family: var(--serif); font-weight: 400;
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: 1.05; letter-spacing: -0.015em; margin: 0 0 12px;
+}
+.section-deck { font-size: 16px; color: var(--ink-2); line-height: 1.55; max-width: 64ch; }
+
+/* ---------------- CHART CARD ---------------- */
+.chart-card {
+  background: var(--paper); border: 1px solid var(--line); border-radius: 20px;
+  padding: 28px;
+  position: relative;
+}
+@media (max-width: 600px) { .chart-card { padding: 18px; } }
+.chart-toolbar {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;
+  margin-bottom: 20px;
+}
+.chart-title-row { display: flex; flex-direction: column; gap: 4px; }
+.chart-title-row b { font-size: 14px; font-weight: 600; color: var(--ink); }
+.chart-title-row small { font-size: 12px; color: var(--ink-3); }
+
+.year-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.year-chip {
+  border: 1px solid var(--line); background: #fff; color: var(--ink-2);
+  font-family: inherit; font-weight: 500; font-size: 12.5px;
+  padding: 7px 12px; border-radius: 999px;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: all .15s var(--ease-out);
+  font-variant-numeric: tabular-nums;
+}
+.year-chip:hover { border-color: var(--ink-3); color: var(--ink); }
+.year-chip .swatch { width: 8px; height: 8px; border-radius: 999px; background: currentColor; opacity: .35; transition: opacity .15s; }
+.year-chip.on { border-color: transparent; color: var(--ink); background: var(--canvas); font-weight: 600; }
+.year-chip.on .swatch { opacity: 1; }
+
+.chart-svg { display: block; width: 100%; height: auto; overflow: visible; }
+.chart-axis text { font-size: 11px; fill: var(--ink-3); font-family: var(--sans); font-variant-numeric: tabular-nums; }
+.chart-grid line { stroke: var(--line); stroke-width: 1; }
+.chart-area { transition: opacity .2s var(--ease-out); }
+.chart-line { fill: none; stroke-width: 2; transition: opacity .2s var(--ease-out); }
+.chart-dot { transition: all .15s var(--ease-out); }
+
+.chart-tooltip {
+  position: absolute; pointer-events: none;
+  background: #1F1F1E; color: #fff;
+  padding: 12px 14px; border-radius: 10px;
+  font-size: 12.5px; min-width: 160px;
+  box-shadow: 0 12px 32px rgba(0,0,0,.18);
+  transform: translate(-50%, calc(-100% - 14px));
+  opacity: 0; transition: opacity .12s;
+  font-variant-numeric: tabular-nums;
+  z-index: 10;
+}
+.chart-tooltip.on { opacity: 1; }
+.chart-tooltip::after {
+  content: ''; position: absolute; left: 50%; bottom: -5px; width: 10px; height: 10px;
+  background: #1F1F1E; transform: translateX(-50%) rotate(45deg);
+}
+.tt-month { font-size: 11px; opacity: .7; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 6px; font-weight: 600; }
+.tt-row { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 3px 0; }
+.tt-row .lab { display: inline-flex; align-items: center; gap: 8px; opacity: .9; }
+.tt-row .swatch { width: 8px; height: 8px; border-radius: 999px; }
+.tt-row .val { font-weight: 600; }
+
+.chart-foot {
+  display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
+  margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--line);
+}
+.chart-foot small { font-size: 12px; color: var(--ink-3); }
+
+.btn-mini {
+  font-family: inherit; font-size: 12.5px; font-weight: 500; color: var(--ink);
+  border: 1px solid var(--line); background: #fff; padding: 8px 12px; border-radius: 8px;
+  display: inline-flex; align-items: center; gap: 6px;
+  transition: all .15s var(--ease-out);
+}
+.btn-mini:hover { border-color: var(--ink); background: var(--canvas); }
+.btn-mini svg { width: 14px; height: 14px; }
+.btn-mini.brand { border-color: var(--brand); color: var(--brand-deep); }
+.btn-mini.brand:hover { background: var(--brand-50); }
+
+/* ---------------- TABLE ---------------- */
+.table-card {
+  background: var(--paper); border: 1px solid var(--line); border-radius: 20px;
+  overflow: hidden;
+}
+.table-tools { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; }
+.tools-left { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.tools-right { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+
+.search-input {
+  display: flex; align-items: center; gap: 8px;
+  border: 1px solid var(--line); background: #fff; border-radius: 10px;
+  padding: 0 12px;
+  transition: all .15s;
+}
+.search-input:focus-within { border-color: var(--brand); box-shadow: 0 0 0 3px rgba(246,134,40,.18); }
+.search-input svg { color: var(--ink-3); }
+.search-input input {
+  border: 0; outline: 0; background: transparent;
+  font-family: inherit; font-size: 14px; padding: 10px 0;
+  width: 220px; color: var(--ink);
+}
+
+.select {
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 1px solid var(--line); background: #fff; border-radius: 10px;
+  padding: 9px 12px; font-size: 13px; color: var(--ink); font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+}
+.select:hover { border-color: var(--ink-3); }
+.select svg { color: var(--ink-3); }
+
+.table-wrap { overflow-x: auto; }
+table.data {
+  width: 100%; border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+table.data thead th {
+  font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--ink-2); text-align: left; padding: 14px 16px;
+  background: var(--canvas);
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+  user-select: none;
+  position: sticky; top: 0;
+}
+table.data thead th.sortable { cursor: pointer; }
+table.data thead th.sortable:hover { color: var(--brand-deep); }
+table.data thead th .sort-arrow { display: inline-block; margin-left: 4px; opacity: 0; transition: opacity .15s; }
+table.data thead th.active .sort-arrow { opacity: 1; color: var(--brand); }
+table.data tbody td {
+  font-size: 14px; color: var(--ink);
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line-2);
+}
+table.data tbody tr:hover td { background: var(--canvas); }
+table.data tbody tr:last-child td { border-bottom: 0; }
+table.data td.num { text-align: right; }
+table.data th.num { text-align: right; }
+
+.cell-bar {
+  position: relative; display: inline-flex; align-items: center; justify-content: flex-end;
+  gap: 8px; min-width: 80px;
+}
+.cell-bar .bar {
+  position: absolute; right: 0; bottom: -4px; height: 3px; border-radius: 2px;
+  background: var(--brand-200); opacity: .55;
+}
+.cell-bar .num { position: relative; z-index: 1; }
+
+.pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px;
+  white-space: nowrap;
+}
+.pill.green { background: #E6F6EC; color: #157f3e; }
+.pill.red   { background: #FCE8E8; color: #b53030; }
+.pill.amber { background: #FFF4DB; color: #8B5A00; }
+.pill.blue  { background: #E4F1FA; color: #1c5d8a; }
+.pill .dot { width: 6px; height: 6px; border-radius: 999px; background: currentColor; }
+
+.table-foot {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  padding: 16px 28px; border-top: 1px solid var(--line-2); flex-wrap: wrap;
+  font-size: 13px; color: var(--ink-2);
+}
+.pager { display: flex; gap: 4px; align-items: center; }
+.pager button {
+  width: 32px; height: 32px; border-radius: 8px; border: 1px solid var(--line); background: #fff;
+  color: var(--ink); font-size: 13px; font-weight: 500;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: inherit;
+}
+.pager button:hover:not(:disabled) { border-color: var(--ink); }
+.pager button.active { background: var(--ink); border-color: var(--ink); color: #fff; }
+.pager button:disabled { opacity: .35; cursor: not-allowed; }
+
+/* ---------------- DOWNLOAD GRID ---------------- */
+.dl-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+@media (max-width: 980px) { .dl-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .dl-grid { grid-template-columns: 1fr; } }
+.dl-card {
+  background: var(--paper); border: 1px solid var(--line); border-radius: 16px;
+  padding: 20px; transition: all .2s var(--ease-out);
+  display: flex; flex-direction: column; gap: 14px; min-height: 180px;
+  cursor: pointer;
+}
+.dl-card:hover { border-color: var(--brand); transform: translateY(-2px); box-shadow: 0 12px 28px rgba(38,35,31,.06); }
+.dl-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--brand-50); color: var(--brand-deep); display: flex; align-items: center; justify-content: center; }
+.dl-card h4 { font-size: 15px; font-weight: 600; line-height: 1.3; margin: 0; }
+.dl-card p { font-size: 13px; color: var(--ink-2); line-height: 1.45; margin: 0; }
+.dl-card-foot { margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.format-badges { display: flex; gap: 4px; }
+.fmt {
+  font-size: 10px; font-weight: 700; letter-spacing: .06em;
+  padding: 3px 6px; border-radius: 4px;
+  background: var(--canvas); color: var(--ink-2);
+}
+.fmt.csv { background: #EAF7EE; color: #157f3e; }
+.fmt.json { background: #E4F1FA; color: #1c5d8a; }
+.fmt.xlsx { background: #FFF4DB; color: #8B5A00; }
+.fmt.pdf { background: #FCE8E8; color: #b53030; }
+.dl-arrow { color: var(--ink-3); transition: transform .15s, color .15s; }
+.dl-card:hover .dl-arrow { color: var(--brand); transform: translateX(3px); }
+
+/* ---------------- FOOTER ---------------- */
+.foot {
+  border-top: 1px solid var(--line);
+  background: var(--canvas);
+  padding: 32px 0;
+}
+.foot-inner { max-width: 1280px; margin: 0 auto; padding: 0 32px; display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; align-items: center; }
+.foot small { font-size: 12.5px; color: var(--ink-2); line-height: 1.5; }
+.foot b { color: var(--ink); font-weight: 600; }
+.foot-meta { display: flex; gap: 16px; align-items: center; font-size: 12.5px; color: var(--ink-2); flex-wrap: wrap; }
+.foot-meta a { color: var(--ink-2); }
+.foot-meta a:hover { color: var(--brand-deep); }
+
+/* ---------------- UTIL ---------------- */
+.divider { height: 1px; background: var(--line); margin: 0; border: 0; }
+.row { display: flex; gap: 12px; align-items: center; }
+.spacer { flex: 1; }
+.muted { color: var(--ink-2); }
+.tnum { font-variant-numeric: tabular-nums; }
+
+.legend-row { display: flex; flex-wrap: wrap; gap: 18px; }
+.legend-row > span { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--ink-2); }
+.legend-row .swatch { width: 10px; height: 10px; border-radius: 2px; }
+
+/* loading splash before React hydrates */
+.boot {
+  min-height: 60vh; display: flex; align-items: center; justify-content: center;
+  color: var(--ink-3); font-size: 14px;
+}
+</style>
+</head>
+<body>
+<div id="app"><div class="boot">Cargando estadísticas…</div></div>
+
+<script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"></script>
+
+<script type="text/babel" data-presets="react">
+/* global React, ReactDOM */
+const { useState, useMemo, useRef, useEffect } = React;
+
+// ============================================================
+// DATA
+// ============================================================
+const MONTHS = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+
+const SOLICITUDES_DATA = {
+  2026: [1064, 708, 864],
+  2025: [1536, 1247, 1112, 817, 812, 789, 820, 859, 770, 955, 742, 462],
+  2024: [1668, 1321, 972, 1208, 998, 890, 875, 997, 860, 1060, 867],
+  2023: [1774, 1484, 1609, 1139, 1078, 995, 1348, 1130, 1079, 1180, 1082],
+  2022: [1502, 1289, 1148, 1062, 998, 942, 1052, 1015, 988, 1100, 1010, 870],
+  2021: [1244, 1098, 1190, 980, 941, 902, 1015, 968, 902, 1018, 920, 740],
+};
+
+const YEAR_COLORS = {
+  2026: '#F68628',
+  2025: '#FF7A29',
+  2024: '#FFA23A',
+  2023: '#E89B00',
+  2022: '#A8B0B8',
+  2021: '#CFD3D8',
+};
+
+const VISITAS_DATA = {
+  2026: [42100, 38900, 45200],
+  2025: [38400, 36200, 41800, 40100, 42600, 39200, 35800, 37100, 41200, 44900, 39400, 32200],
+  2024: [33100, 31900, 35200, 36800, 38400, 35100, 32200, 33800, 37500, 39600, 35200, 28900],
+  2023: [29800, 28200, 31100, 32200, 33600, 31100, 28800, 30100, 33500, 35400, 31800, 26100],
+};
+
+function genSires() {
+  const rows = [];
+  let id = 1;
+  const yearMonths = [
+    [2026, [0,1,2]],
+    [2025, [...Array(12).keys()]],
+    [2024, [...Array(12).keys()]],
+    [2023, [...Array(12).keys()]],
+  ];
+  let seed = 7;
+  const rnd = () => { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; };
+  yearMonths.forEach(([y, ms]) => {
+    ms.forEach(mi => {
+      const base = y === 2026 ? 14 : y === 2025 ? 18 : y === 2024 ? 22 : 24;
+      const proc = Math.round(base * (0.5 + rnd() * 0.7));
+      const partial = Math.round(base * (0.3 + rnd() * 0.4));
+      const improc = Math.round(base * (0.2 + rnd() * 0.5));
+      const total = proc + partial + improc;
+      const ratio = proc / total;
+      let sentido;
+      if (ratio > 0.55) sentido = { label: 'Procede', kind: 'green' };
+      else if (ratio > 0.35) sentido = { label: 'Mixto', kind: 'amber' };
+      else sentido = { label: 'No procede', kind: 'red' };
+      rows.push({
+        id: id++, año: y, mes: MONTHS[mi], mesIdx: mi,
+        procedentes: proc, parciales: partial, improcedentes: improc,
+        total, sentido,
+      });
+    });
+  });
+  return rows.reverse();
+}
+
+function genArco() {
+  const rows = [];
+  let id = 1;
+  const yearMonths = [
+    [2026, [0,1,2]],
+    [2025, [...Array(12).keys()]],
+    [2024, [...Array(12).keys()]],
+    [2023, [...Array(12).keys()]],
+  ];
+  let seed = 13;
+  const rnd = () => { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; };
+  yearMonths.forEach(([y, ms]) => {
+    ms.forEach(mi => {
+      const base = y === 2026 ? 6 : y === 2025 ? 8 : y === 2024 ? 9 : 7;
+      const acceso = Math.round(base * (0.6 + rnd() * 0.8));
+      const rect = Math.round(base * (0.15 + rnd() * 0.4));
+      const canc = Math.round(base * (0.1 + rnd() * 0.3));
+      const opos = Math.round(base * (0.05 + rnd() * 0.2));
+      const total = acceso + rect + canc + opos;
+      rows.push({
+        id: id++, año: y, mes: MONTHS[mi], mesIdx: mi,
+        acceso, rectificacion: rect, cancelacion: canc, oposicion: opos, total,
+      });
+    });
+  });
+  return rows.reverse();
+}
+
+const SIRES_ROWS = genSires();
+const ARCO_ROWS = genArco();
+
+// ============================================================
+// HELPERS
+// ============================================================
+const fmt = (n) => new Intl.NumberFormat('es-MX').format(n);
+const sum = (arr) => arr.reduce((a,b) => a+b, 0);
+
+function downloadCSV(filename, rows) {
+  if (!rows.length) return;
+  const keys = Object.keys(rows[0]);
+  const csv = [keys.join(',')].concat(rows.map(r => keys.map(k => {
+    const v = r[k];
+    const s = (typeof v === 'object' && v !== null) ? v.label : v;
+    return /[,"\n]/.test(String(s)) ? `"${String(s).replace(/"/g,'""')}"` : String(s);
+  }).join(','))).join('\n');
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = filename; a.click();
+}
+function downloadJSON(filename, rows) {
+  const blob = new Blob([JSON.stringify(rows, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = filename; a.click();
+}
+
+// ============================================================
+// ICONS
+// ============================================================
+const I = {
+  arrowUp: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>,
+  arrowDown: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 7 7 17"/><path d="M17 17H7V7"/></svg>,
+  arrowRight: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>,
+  search: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>,
+  download: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>,
+  chevDown: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>,
+  info: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>,
+  table: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M9 3v18"/><path d="M15 3v18"/></svg>,
+  chart: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"/><path d="m7 14 4-4 4 4 5-5"/></svg>,
+  shield: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>,
+  globe: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>,
+  building: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg>,
+  share: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg>,
+  filter: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>,
+};
+
+// ============================================================
+// SPARKLINE
+// ============================================================
+function Sparkline({ data, color = '#F68628', width = 96, height = 32 }) {
+  if (!data || data.length < 2) return null;
+  const min = Math.min(...data);
+  const max = Math.max(...data);
+  const range = max - min || 1;
+  const stepX = width / (data.length - 1);
+  const pts = data.map((v, i) => [i * stepX, height - ((v - min) / range) * (height - 4) - 2]);
+  const path = pts.map((p, i) => (i === 0 ? `M${p[0]},${p[1]}` : `L${p[0]},${p[1]}`)).join(' ');
+  const areaPath = path + ` L${width},${height} L0,${height} Z`;
+  const last = pts[pts.length - 1];
+  const id = `sg-${color.replace('#','')}`;
+  return (
+    <svg className="kpi-spark" viewBox={`0 0 ${width} ${height}`}>
+      <defs>
+        <linearGradient id={id} x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stopColor={color} stopOpacity="0.28"/>
+          <stop offset="100%" stopColor={color} stopOpacity="0"/>
+        </linearGradient>
+      </defs>
+      <path d={areaPath} fill={`url(#${id})`}/>
+      <path d={path} fill="none" stroke={color} strokeWidth="1.75" strokeLinejoin="round" strokeLinecap="round"/>
+      <circle cx={last[0]} cy={last[1]} r="2.5" fill={color}/>
+      <circle cx={last[0]} cy={last[1]} r="5" fill={color} opacity="0.18"/>
+    </svg>
+  );
+}
+
+// ============================================================
+// KPI CARDS
+// ============================================================
+function KpiCards() {
+  const arco2025Total = ARCO_ROWS.filter(r => r.año === 2025).reduce((s, r) => s + r.total, 0);
+  const visitas2025Total = sum(VISITAS_DATA[2025]);
+
+  const kpis = [
+    {
+      label: 'Solicitudes de información', tag: 'Año 2025', num: 10921,
+      trend: { dir: 'up', val: '+8.2%', vs: 'vs 2024' },
+      spark: SOLICITUDES_DATA[2025], color: '#F68628',
+      foot: 'Cifra anual cerrada',
+    },
+    {
+      label: 'Solicitudes de información', tag: '2026 · parcial', num: 2636,
+      trend: { dir: 'up', val: '+12.4%', vs: 'vs Q1 2025' },
+      spark: SOLICITUDES_DATA[2026], color: '#FF7A29',
+      foot: 'Enero – marzo',
+    },
+    {
+      label: 'Solicitudes ARCO', tag: 'Año 2025', num: arco2025Total,
+      trend: { dir: 'down', val: '−3.1%', vs: 'vs 2024' },
+      spark: Array(12).fill(0).map((_, i) => ARCO_ROWS.find(r => r.año === 2025 && r.mesIdx === i)?.total || 0),
+      color: '#FFA23A',
+      foot: 'Datos personales',
+    },
+    {
+      label: 'Visitas al portal de transparencia', tag: 'Año 2025', num: visitas2025Total,
+      trend: { dir: 'up', val: '+15.6%', vs: 'vs 2024' },
+      spark: VISITAS_DATA[2025], color: '#E89B00',
+      foot: 'Sesiones únicas',
+    },
+  ];
+
+  return (
+    <div className="kpi-grid">
+      {kpis.map((k, i) => (
+        <article className="kpi" key={i}>
+          <div className="kpi-head">
+            <div className="kpi-label">{k.label}</div>
+            <span className="kpi-tag">{k.tag}</span>
+          </div>
+          <div className="kpi-num">{fmt(k.num)}</div>
+          <div className="kpi-foot">
+            <div style={{display:'flex', flexDirection:'column', gap:6}}>
+              <span className={`kpi-trend ${k.trend.dir}`}>
+                {k.trend.dir === 'up' ? I.arrowUp : I.arrowDown}
+                {k.trend.val}
+              </span>
+              <small>{k.trend.vs} · {k.foot}</small>
+            </div>
+            <Sparkline data={k.spark} color={k.color}/>
+          </div>
+        </article>
+      ))}
+    </div>
+  );
+}
+
+// ============================================================
+// LAYERED AREA CHART — Solicitudes
+// ============================================================
+function AreaChart({ data, colors }) {
+  const allYears = Object.keys(data).map(Number).sort((a, b) => b - a);
+  const [active, setActive] = useState(new Set(allYears.slice(0, 4)));
+  const [hover, setHover] = useState(null);
+
+  const W = 920, H = 360;
+  const pad = { l: 48, r: 24, t: 24, b: 36 };
+  const plotW = W - pad.l - pad.r;
+  const plotH = H - pad.t - pad.b;
+  const xs = MONTHS.map((_, i) => pad.l + (i / 11) * plotW);
+
+  const yMax = useMemo(() => {
+    let max = 0;
+    Object.values(data).forEach(arr => arr.forEach(v => { if (v > max) max = v; }));
+    return Math.ceil(max / 200) * 200;
+  }, [data]);
+  const yToPx = v => pad.t + plotH - (v / yMax) * plotH;
+  const yTicks = [0, yMax * 0.25, yMax * 0.5, yMax * 0.75, yMax];
+
+  const layers = allYears.map(year => {
+    const arr = data[year];
+    const pts = arr.map((v, i) => [xs[i], yToPx(v)]);
+    const linePath = pts.map((p, i) => (i === 0 ? `M${p[0]},${p[1]}` : `L${p[0]},${p[1]}`)).join(' ');
+    const areaPath = `${linePath} L${pts[pts.length - 1][0]},${pad.t + plotH} L${pts[0][0]},${pad.t + plotH} Z`;
+    return { year, color: colors[year], pts, linePath, areaPath };
+  });
+
+  const visibleLayers = layers.filter(l => active.has(l.year));
+  const topYear = active.size ? Math.max(...Array.from(active)) : null;
+
+  function toggle(year) {
+    const next = new Set(active);
+    if (next.has(year)) { if (next.size > 1) next.delete(year); }
+    else next.add(year);
+    setActive(next);
+  }
+  function only(year) { setActive(new Set([year])); }
+  function all() { setActive(new Set(allYears)); }
+
+  function onMove(e) {
+    const svg = e.currentTarget;
+    const rect = svg.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * W;
+    if (x < pad.l - 8 || x > W - pad.r + 8) { setHover(null); return; }
+    const t = (x - pad.l) / plotW;
+    const idx = Math.max(0, Math.min(11, Math.round(t * 11)));
+    setHover(idx);
+  }
+
+  let ttX = 0, ttY = 0, ttRows = [];
+  if (hover != null) {
+    ttX = (xs[hover] / W) * 100;
+    const valsAtMonth = visibleLayers
+      .map(l => ({ year: l.year, color: l.color, val: data[l.year][hover] }))
+      .filter(r => r.val != null);
+    ttRows = valsAtMonth.sort((a, b) => b.val - a.val);
+    if (valsAtMonth.length) {
+      const minY = Math.min(...valsAtMonth.map(r => yToPx(r.val)));
+      ttY = (minY / H) * 100;
+    }
+  }
+
+  function buildExportRows() {
+    const rows = [];
+    MONTHS.forEach((m, i) => {
+      const r = { mes: m };
+      allYears.forEach(y => { r[y] = data[y][i] ?? null; });
+      rows.push(r);
+    });
+    return rows;
+  }
+
+  return (
+    <div className="chart-card">
+      <div className="chart-toolbar">
+        <div className="chart-title-row">
+          <b>Solicitudes mensuales por año</b>
+          <small>Capas superpuestas · activa o desactiva años para comparar</small>
+        </div>
+        <div className="year-chips" role="tablist" aria-label="Años visibles">
+          {allYears.map(y => (
+            <button
+              key={y}
+              className={'year-chip' + (active.has(y) ? ' on' : '')}
+              style={{ color: YEAR_COLORS[y] }}
+              onClick={() => toggle(y)}
+              onDoubleClick={() => only(y)}
+              aria-pressed={active.has(y)}
+              title={`${y} · clic para alternar · doble clic para aislar`}
+            >
+              <span className="swatch"/>{y}
+            </button>
+          ))}
+          <button className="year-chip" onClick={all} title="Mostrar todos">Todos</button>
+        </div>
+      </div>
+
+      <div style={{ position: 'relative' }}>
+        <svg className="chart-svg" viewBox={`0 0 ${W} ${H}`} onMouseMove={onMove} onMouseLeave={() => setHover(null)}>
+          <g className="chart-grid">
+            {yTicks.map((v, i) => (
+              <line key={i} x1={pad.l} x2={W - pad.r} y1={yToPx(v)} y2={yToPx(v)} strokeDasharray={i === 0 ? '0' : '3 4'}/>
+            ))}
+          </g>
+          <g>
+            {layers.slice().reverse().map(l => (
+              <path key={`a-${l.year}`} className="chart-area"
+                    d={l.areaPath} fill={l.color}
+                    opacity={active.has(l.year) ? (l.year === topYear ? 0.18 : 0.10) : 0}/>
+            ))}
+          </g>
+          <g>
+            {layers.slice().reverse().map(l => (
+              <path key={`l-${l.year}`} className="chart-line"
+                    d={l.linePath} stroke={l.color}
+                    strokeWidth={l.year === topYear ? 2.5 : 1.75}
+                    opacity={active.has(l.year) ? 1 : 0.06}/>
+            ))}
+          </g>
+          {hover != null && (
+            <g>
+              <line x1={xs[hover]} x2={xs[hover]} y1={pad.t} y2={pad.t + plotH}
+                    stroke="#2B2B2B" strokeWidth="1" strokeDasharray="3 3" opacity="0.35"/>
+              {visibleLayers.map(l => {
+                const v = data[l.year][hover];
+                if (v == null) return null;
+                return (
+                  <g key={`d-${l.year}`}>
+                    <circle cx={xs[hover]} cy={yToPx(v)} r="6" fill={l.color} opacity="0.18"/>
+                    <circle cx={xs[hover]} cy={yToPx(v)} r="3.5" fill="#fff" stroke={l.color} strokeWidth="2"/>
+                  </g>
+                );
+              })}
+            </g>
+          )}
+          <g className="chart-axis">
+            {MONTHS.map((m, i) => (
+              <text key={i} x={xs[i]} y={H - 12} textAnchor="middle">{m}</text>
+            ))}
+          </g>
+          <g className="chart-axis">
+            {yTicks.map((v, i) => (
+              <text key={i} x={pad.l - 10} y={yToPx(v) + 4} textAnchor="end">{fmt(Math.round(v))}</text>
+            ))}
+          </g>
+        </svg>
+
+        {hover != null && ttRows.length > 0 && (
+          <div className="chart-tooltip on" style={{ left: `${ttX}%`, top: `${ttY}%` }}>
+            <div className="tt-month">{MONTHS[hover]}</div>
+            {ttRows.map(r => (
+              <div className="tt-row" key={r.year}>
+                <span className="lab"><span className="swatch" style={{ background: r.color }}/>{r.year}</span>
+                <span className="val">{fmt(r.val)}</span>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <div className="chart-foot">
+        <small>Fuente · Dirección de Transparencia y Buenas Prácticas. Cifras a marzo 2026.</small>
+        <div style={{ display: 'flex', gap: 8 }}>
+          <button className="btn-mini" onClick={() => downloadCSV('solicitudes-gdl.csv', buildExportRows())}>{I.download} CSV</button>
+          <button className="btn-mini" onClick={() => downloadJSON('solicitudes-gdl.json', buildExportRows())}>{I.download} JSON</button>
+          <button className="btn-mini brand">{I.share} Compartir</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+// LINE CHART — Visitas
+// ============================================================
+function LineChart({ data, colors }) {
+  const allYears = Object.keys(data).map(Number).sort((a, b) => b - a);
+  const [active, setActive] = useState(new Set(allYears));
+  const [hover, setHover] = useState(null);
+  const [ready, setReady] = useState(false);
+  useEffect(() => { const t = setTimeout(() => setReady(true), 60); return () => clearTimeout(t); }, []);
+
+  const W = 920, H = 320;
+  const pad = { l: 56, r: 24, t: 24, b: 36 };
+  const plotW = W - pad.l - pad.r;
+  const plotH = H - pad.t - pad.b;
+  const xs = MONTHS.map((_, i) => pad.l + (i / 11) * plotW);
+
+  const yMax = useMemo(() => {
+    let max = 0;
+    Object.values(data).forEach(arr => arr.forEach(v => { if (v > max) max = v; }));
+    return Math.ceil(max / 5000) * 5000;
+  }, [data]);
+  const yToPx = v => pad.t + plotH - (v / yMax) * plotH;
+  const yTicks = [0, yMax * 0.25, yMax * 0.5, yMax * 0.75, yMax];
+
+  function smoothPath(pts) {
+    if (pts.length < 2) return '';
+    let d = `M${pts[0][0]},${pts[0][1]}`;
+    for (let i = 0; i < pts.length - 1; i++) {
+      const p0 = pts[i - 1] || pts[i];
+      const p1 = pts[i];
+      const p2 = pts[i + 1];
+      const p3 = pts[i + 2] || p2;
+      const c1x = p1[0] + (p2[0] - p0[0]) / 6;
+      const c1y = p1[1] + (p2[1] - p0[1]) / 6;
+      const c2x = p2[0] - (p3[0] - p1[0]) / 6;
+      const c2y = p2[1] - (p3[1] - p1[1]) / 6;
+      d += ` C${c1x},${c1y} ${c2x},${c2y} ${p2[0]},${p2[1]}`;
+    }
+    return d;
+  }
+
+  const layers = allYears.map(year => {
+    const arr = data[year];
+    const pts = arr.map((v, i) => [xs[i], yToPx(v)]);
+    return { year, color: colors[year], pts, path: smoothPath(pts) };
+  });
+
+  function toggle(y) {
+    const next = new Set(active);
+    if (next.has(y)) { if (next.size > 1) next.delete(y); } else next.add(y);
+    setActive(next);
+  }
+
+  function onMove(e) {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * W;
+    if (x < pad.l - 8 || x > W - pad.r + 8) { setHover(null); return; }
+    const t = (x - pad.l) / plotW;
+    const idx = Math.max(0, Math.min(11, Math.round(t * 11)));
+    setHover(idx);
+  }
+
+  let ttX = 0, ttY = 0, ttRows = [];
+  if (hover != null) {
+    ttX = (xs[hover] / W) * 100;
+    ttRows = layers.filter(l => active.has(l.year))
+      .map(l => ({ year: l.year, color: l.color, val: data[l.year][hover] }))
+      .filter(r => r.val != null)
+      .sort((a, b) => b.val - a.val);
+    if (ttRows.length) {
+      const minY = Math.min(...ttRows.map(r => yToPx(r.val)));
+      ttY = (minY / H) * 100;
+    }
+  }
+
+  function buildExportRows() {
+    const rows = [];
+    MONTHS.forEach((m, i) => {
+      const r = { mes: m };
+      allYears.forEach(y => { r[y] = data[y][i] ?? null; });
+      rows.push(r);
+    });
+    return rows;
+  }
+
+  return (
+    <div className="chart-card">
+      <div className="chart-toolbar">
+        <div className="chart-title-row">
+          <b>Visitas mensuales al portal</b>
+          <small>Sesiones únicas registradas en transparencia.guadalajara.gob.mx</small>
+        </div>
+        <div className="year-chips">
+          {allYears.map(y => (
+            <button key={y}
+                    className={'year-chip' + (active.has(y) ? ' on' : '')}
+                    style={{ color: YEAR_COLORS[y] }}
+                    onClick={() => toggle(y)}
+                    aria-pressed={active.has(y)}>
+              <span className="swatch"/>{y}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div style={{ position: 'relative' }}>
+        <svg className="chart-svg" viewBox={`0 0 ${W} ${H}`} onMouseMove={onMove} onMouseLeave={() => setHover(null)}>
+          <g className="chart-grid">
+            {yTicks.map((v, i) => (
+              <line key={i} x1={pad.l} x2={W - pad.r} y1={yToPx(v)} y2={yToPx(v)} strokeDasharray={i === 0 ? '0' : '3 4'}/>
+            ))}
+          </g>
+          <g>
+            {layers.map((l, idx) => (
+              <path key={l.year} className="chart-line"
+                    d={l.path}
+                    stroke={l.color}
+                    strokeWidth={l.year === allYears[0] ? 2.5 : 1.75}
+                    opacity={active.has(l.year) ? 1 : 0.08}
+                    strokeDasharray={ready ? '' : '2000'}
+                    strokeDashoffset={ready ? '0' : '2000'}
+                    style={{ transition: `stroke-dashoffset 1100ms ${idx * 80}ms cubic-bezier(.2,.8,.2,1), opacity .2s` }}
+              />
+            ))}
+          </g>
+          {hover != null && (
+            <g>
+              <line x1={xs[hover]} x2={xs[hover]} y1={pad.t} y2={pad.t + plotH}
+                    stroke="#2B2B2B" strokeWidth="1" strokeDasharray="3 3" opacity=".35"/>
+              {ttRows.map(r => (
+                <g key={r.year}>
+                  <circle cx={xs[hover]} cy={yToPx(r.val)} r="6" fill={r.color} opacity=".18"/>
+                  <circle cx={xs[hover]} cy={yToPx(r.val)} r="3.5" fill="#fff" stroke={r.color} strokeWidth="2"/>
+                </g>
+              ))}
+            </g>
+          )}
+          <g className="chart-axis">
+            {MONTHS.map((m, i) => <text key={i} x={xs[i]} y={H - 12} textAnchor="middle">{m}</text>)}
+          </g>
+          <g className="chart-axis">
+            {yTicks.map((v, i) => (
+              <text key={i} x={pad.l - 10} y={yToPx(v) + 4} textAnchor="end">{fmt(Math.round(v / 1000))}k</text>
+            ))}
+          </g>
+        </svg>
+        {hover != null && ttRows.length > 0 && (
+          <div className="chart-tooltip on" style={{ left: `${ttX}%`, top: `${ttY}%` }}>
+            <div className="tt-month">{MONTHS[hover]}</div>
+            {ttRows.map(r => (
+              <div className="tt-row" key={r.year}>
+                <span className="lab"><span className="swatch" style={{ background: r.color }}/>{r.year}</span>
+                <span className="val">{fmt(r.val)}</span>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <div className="chart-foot">
+        <small>Fuente · Analítica del portal de transparencia.</small>
+        <div style={{ display: 'flex', gap: 8 }}>
+          <button className="btn-mini" onClick={() => downloadCSV('visitas-portal.csv', buildExportRows())}>{I.download} CSV</button>
+          <button className="btn-mini" onClick={() => downloadJSON('visitas-portal.json', buildExportRows())}>{I.download} JSON</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+// SELECT
+// ============================================================
+function Select({ value, onChange, options, label }) {
+  return (
+    <label className="select" style={{ position: 'relative' }}>
+      <span style={{ color: 'var(--ink-3)', fontSize: 12, fontWeight: 500, marginRight: 4 }}>{label}</span>
+      <select
+        value={value}
+        onChange={e => onChange(e.target.value)}
+        style={{
+          appearance: 'none', WebkitAppearance: 'none',
+          border: 0, background: 'transparent',
+          font: 'inherit', color: 'inherit', fontWeight: 500,
+          paddingRight: 18, cursor: 'pointer',
+        }}
+      >
+        {options.map(o => (
+          <option key={o.value} value={o.value}>{o.label}</option>
+        ))}
+      </select>
+      {I.chevDown}
+    </label>
+  );
+}
+
+// ============================================================
+// DATA TABLE
+// ============================================================
+function DataTable({
+  rows, columns, searchKeys = [], filename = 'datos',
+  pageSize = 10, defaultSort,
+  yearFilterKey = 'año', monthFilterKey = 'mes',
+  showSentidoFilter = false,
+}) {
+  const [search, setSearch] = useState('');
+  const [year, setYear] = useState('all');
+  const [month, setMonth] = useState('all');
+  const [sentido, setSentido] = useState('all');
+  const [sort, setSort] = useState(defaultSort || { key: 'id', dir: 'asc' });
+  const [page, setPage] = useState(1);
+  const [exportOpen, setExportOpen] = useState(false);
+
+  const years = useMemo(() => {
+    const s = new Set(rows.map(r => r[yearFilterKey]));
+    return ['all', ...Array.from(s).sort((a, b) => b - a)];
+  }, [rows, yearFilterKey]);
+  const months = ['all', ...MONTHS];
+  const sentidos = ['all', 'Procede', 'Mixto', 'No procede'];
+
+  const filtered = useMemo(() => {
+    let r = rows;
+    if (year !== 'all') r = r.filter(x => String(x[yearFilterKey]) === String(year));
+    if (month !== 'all') r = r.filter(x => x[monthFilterKey] === month);
+    if (showSentidoFilter && sentido !== 'all') r = r.filter(x => x.sentido?.label === sentido);
+    if (search.trim()) {
+      const q = search.toLowerCase();
+      r = r.filter(x => searchKeys.some(k => String(x[k] ?? '').toLowerCase().includes(q)));
+    }
+    if (sort && sort.key) {
+      const s = sort.key, d = sort.dir === 'asc' ? 1 : -1;
+      r = [...r].sort((a, b) => {
+        let av = a[s], bv = b[s];
+        if (typeof av === 'object' && av !== null) av = av.label;
+        if (typeof bv === 'object' && bv !== null) bv = bv.label;
+        if (typeof av === 'number') return (av - bv) * d;
+        return String(av).localeCompare(String(bv)) * d;
+      });
+    }
+    return r;
+  }, [rows, year, month, sentido, search, sort, searchKeys, yearFilterKey, monthFilterKey, showSentidoFilter]);
+
+  const pageCount = Math.max(1, Math.ceil(filtered.length / pageSize));
+  const safePage = Math.min(page, pageCount);
+  const pageRows = filtered.slice((safePage - 1) * pageSize, safePage * pageSize);
+
+  function onSort(col) {
+    if (!col.sortable) return;
+    if (sort.key === col.key) setSort({ key: col.key, dir: sort.dir === 'asc' ? 'desc' : 'asc' });
+    else setSort({ key: col.key, dir: col.numeric ? 'desc' : 'asc' });
+    setPage(1);
+  }
+
+  function exportRows() {
+    return filtered.map(r => {
+      const o = {};
+      columns.forEach(c => {
+        let v = r[c.key];
+        if (typeof v === 'object' && v !== null) v = v.label;
+        o[c.exportKey || c.label] = v;
+      });
+      return o;
+    });
+  }
+
+  return (
+    <div className="table-card">
+      <div className="table-tools" style={{ padding: '20px 28px', borderBottom: '1px solid var(--line-2)' }}>
+        <div className="tools-left">
+          <div className="search-input">
+            {I.search}
+            <input type="text" placeholder="Buscar mes, sentido…"
+                   value={search}
+                   onChange={e => { setSearch(e.target.value); setPage(1); }}/>
+          </div>
+          <Select label="Año" value={year} onChange={v => { setYear(v); setPage(1); }}
+                  options={years.map(y => ({ value: y, label: y === 'all' ? 'Todos' : y }))}/>
+          <Select label="Mes" value={month} onChange={v => { setMonth(v); setPage(1); }}
+                  options={months.map(m => ({ value: m, label: m === 'all' ? 'Todos' : m }))}/>
+          {showSentidoFilter && (
+            <Select label="Sentido" value={sentido} onChange={v => { setSentido(v); setPage(1); }}
+                    options={sentidos.map(s => ({ value: s, label: s === 'all' ? 'Todos' : s }))}/>
+          )}
+        </div>
+        <div className="tools-right" style={{ position: 'relative' }}>
+          <span style={{ fontSize: 12, color: 'var(--ink-3)', marginRight: 4 }}>
+            {fmt(filtered.length)} registros
+          </span>
+          <button className="btn-mini" onClick={() => setExportOpen(o => !o)}>
+            {I.download} Exportar {I.chevDown}
+          </button>
+          {exportOpen && (
+            <div style={{
+              position: 'absolute', right: 0, top: 'calc(100% + 6px)',
+              background: '#fff', border: '1px solid var(--line)', borderRadius: 10,
+              padding: 6, boxShadow: '0 12px 32px rgba(38,35,31,.10)', zIndex: 5, minWidth: 160,
+            }}>
+              {[
+                ['CSV', () => downloadCSV(`${filename}.csv`, exportRows())],
+                ['JSON', () => downloadJSON(`${filename}.json`, exportRows())],
+                ['XLSX (CSV-compat)', () => downloadCSV(`${filename}.xlsx.csv`, exportRows())],
+              ].map(([lbl, fn]) => (
+                <button key={lbl}
+                        onClick={() => { fn(); setExportOpen(false); }}
+                        style={{
+                          display: 'block', width: '100%', textAlign: 'left',
+                          background: 'transparent', border: 0, font: 'inherit',
+                          padding: '8px 10px', borderRadius: 6, fontSize: 13, cursor: 'pointer',
+                          color: 'var(--ink)',
+                        }}>
+                  {lbl}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div className="table-wrap">
+        <table className="data">
+          <thead>
+            <tr>
+              {columns.map(c => (
+                <th key={c.key}
+                    className={[
+                      c.sortable ? 'sortable' : '',
+                      c.numeric ? 'num' : '',
+                      sort.key === c.key ? 'active' : '',
+                    ].join(' ')}
+                    onClick={() => onSort(c)}>
+                  {c.label}
+                  {c.sortable && (
+                    <span className="sort-arrow">
+                      {sort.key === c.key ? (sort.dir === 'asc' ? '▲' : '▼') : '↕'}
+                    </span>
+                  )}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {pageRows.map(r => (
+              <tr key={r.id}>
+                {columns.map(c => (
+                  <td key={c.key} className={c.numeric ? 'num' : ''}>
+                    {c.render ? c.render(r) : (typeof r[c.key] === 'number' ? fmt(r[c.key]) : r[c.key])}
+                  </td>
+                ))}
+              </tr>
+            ))}
+            {pageRows.length === 0 && (
+              <tr><td colSpan={columns.length} style={{ textAlign: 'center', padding: '40px 16px', color: 'var(--ink-3)' }}>
+                Sin resultados con esos filtros.
+              </td></tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+
+      <div className="table-foot">
+        <span>
+          Mostrando <b style={{color:'var(--ink)'}}>{(safePage - 1) * pageSize + 1}</b>–
+          <b style={{color:'var(--ink)'}}>{Math.min(safePage * pageSize, filtered.length)}</b> de <b style={{color:'var(--ink)'}}>{fmt(filtered.length)}</b>
+        </span>
+        <div className="pager">
+          <button onClick={() => setPage(1)} disabled={safePage === 1} title="Primera">«</button>
+          <button onClick={() => setPage(p => Math.max(1, p - 1))} disabled={safePage === 1}>‹</button>
+          {Array.from({ length: pageCount }, (_, i) => i + 1)
+            .filter(p => Math.abs(p - safePage) <= 2 || p === 1 || p === pageCount)
+            .reduce((acc, p, i, arr) => {
+              if (i > 0 && p - arr[i - 1] > 1) acc.push('…');
+              acc.push(p);
+              return acc;
+            }, [])
+            .map((p, i) => p === '…'
+              ? <span key={`e${i}`} style={{ padding: '0 6px', color: 'var(--ink-3)' }}>…</span>
+              : <button key={p} className={p === safePage ? 'active' : ''} onClick={() => setPage(p)}>{p}</button>)}
+          <button onClick={() => setPage(p => Math.min(pageCount, p + 1))} disabled={safePage === pageCount}>›</button>
+          <button onClick={() => setPage(pageCount)} disabled={safePage === pageCount} title="Última">»</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function SiresTable() {
+  const maxTotal = Math.max(...SIRES_ROWS.map(r => r.total));
+  const cols = [
+    { key: 'año', label: 'Año', sortable: true, numeric: true,
+      render: r => <span className="tnum" style={{ fontWeight: 600 }}>{r.año}</span> },
+    { key: 'mes', label: 'Mes', sortable: true,
+      render: r => <span style={{ color: 'var(--ink-2)' }}>{r.mes}</span> },
+    { key: 'procedentes', label: 'Procedentes', sortable: true, numeric: true,
+      render: r => <span className="tnum" style={{ color: '#157f3e', fontWeight: 600 }}>{fmt(r.procedentes)}</span> },
+    { key: 'parciales', label: 'Parcialmente procedentes', sortable: true, numeric: true,
+      render: r => <span className="tnum" style={{ color: '#8B5A00', fontWeight: 600 }}>{fmt(r.parciales)}</span> },
+    { key: 'improcedentes', label: 'Improcedentes', sortable: true, numeric: true,
+      render: r => <span className="tnum" style={{ color: '#b53030', fontWeight: 600 }}>{fmt(r.improcedentes)}</span> },
+    { key: 'total', label: 'Total', sortable: true, numeric: true,
+      render: r => (
+        <span className="cell-bar">
+          <span className="num" style={{ fontWeight: 700 }}>{fmt(r.total)}</span>
+          <span className="bar" style={{ width: `${(r.total / maxTotal) * 64}px` }}/>
+        </span>
+      )},
+    { key: 'sentido', label: 'Sentido de la resolución', sortable: true,
+      render: r => <span className={`pill ${r.sentido.kind}`}><span className="dot"/>{r.sentido.label}</span> },
+  ];
+  return (
+    <DataTable rows={SIRES_ROWS} columns={cols}
+               searchKeys={['mes', 'año']}
+               filename="sires-recursos-revision"
+               defaultSort={{ key: 'id', dir: 'asc' }}
+               showSentidoFilter/>
+  );
+}
+
+function ArcoTable() {
+  const maxTotal = Math.max(...ARCO_ROWS.map(r => r.total));
+  const cols = [
+    { key: 'año', label: 'Año', sortable: true, numeric: true,
+      render: r => <span className="tnum" style={{ fontWeight: 600 }}>{r.año}</span> },
+    { key: 'mes', label: 'Mes', sortable: true,
+      render: r => <span style={{ color: 'var(--ink-2)' }}>{r.mes}</span> },
+    { key: 'acceso', label: 'Acceso', sortable: true, numeric: true,
+      render: r => <span className="tnum">{fmt(r.acceso)}</span> },
+    { key: 'rectificacion', label: 'Rectificación', sortable: true, numeric: true,
+      render: r => <span className="tnum">{fmt(r.rectificacion)}</span> },
+    { key: 'cancelacion', label: 'Cancelación', sortable: true, numeric: true,
+      render: r => <span className="tnum">{fmt(r.cancelacion)}</span> },
+    { key: 'oposicion', label: 'Oposición', sortable: true, numeric: true,
+      render: r => <span className="tnum">{fmt(r.oposicion)}</span> },
+    { key: 'total', label: 'Total ARCO', sortable: true, numeric: true,
+      render: r => (
+        <span className="cell-bar">
+          <span className="num" style={{ fontWeight: 700 }}>{fmt(r.total)}</span>
+          <span className="bar" style={{ width: `${(r.total / maxTotal) * 64}px` }}/>
+        </span>
+      )},
+  ];
+  return (
+    <DataTable rows={ARCO_ROWS} columns={cols}
+               searchKeys={['mes', 'año']}
+               filename="arco-datos-personales"
+               defaultSort={{ key: 'id', dir: 'asc' }}/>
+  );
+}
+
+// ============================================================
+// MINI NAV
+// ============================================================
+function MiniNav() {
+  const items = [
+    { id: 'kpis',       num: '01', label: 'Resumen' },
+    { id: 'solicitudes',num: '02', label: 'Solicitudes' },
+    { id: 'visitas',    num: '03', label: 'Visitas al portal' },
+    { id: 'sires',      num: '04', label: 'Recursos SIRES' },
+    { id: 'arco',       num: '05', label: 'Datos ARCO' },
+    { id: 'descargas',  num: '06', label: 'Descargas' },
+  ];
+  const [active, setActive] = useState('kpis');
+  useEffect(() => {
+    const obs = new IntersectionObserver((entries) => {
+      let best = null;
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          if (!best || e.boundingClientRect.top < best.boundingClientRect.top) best = e;
+        }
+      });
+      if (best) setActive(best.target.id);
+    }, { rootMargin: '-20% 0px -55% 0px', threshold: 0 });
+    items.forEach(i => {
+      const el = document.getElementById(i.id);
+      if (el) obs.observe(el);
+    });
+    return () => obs.disconnect();
+  }, []);
+
+  function go(e, id) {
+    e.preventDefault();
+    const el = document.getElementById(id);
+    if (el) {
+      const top = el.getBoundingClientRect().top + window.scrollY - 16;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  }
+
+  return (
+    <nav className="mini-nav" aria-label="Secciones">
+      {items.map(i => (
+        <a key={i.id} href={`#${i.id}`} onClick={e => go(e, i.id)}
+           className={active === i.id ? 'active' : ''}>
+          <span className="num">{i.num}</span>
+          <span>{i.label}</span>
+        </a>
+      ))}
+    </nav>
+  );
+}
+
+// ============================================================
+// DOWNLOAD GRID
+// ============================================================
+function DownloadGrid() {
+  const cards = [
+    {
+      group: 'Estadísticas por año',
+      title: 'Solicitudes de información 2021–2026',
+      desc: 'Conteo mensual de solicitudes de información pública atendidas, por año.',
+      formats: ['csv', 'json', 'xlsx'],
+      icon: I.chart,
+    },
+    {
+      group: 'Recursos SIRES',
+      title: 'Recursos de revisión por mes',
+      desc: 'Procedentes, parcialmente procedentes e improcedentes, con sentido de resolución.',
+      formats: ['csv', 'json', 'xlsx'],
+      icon: I.shield,
+    },
+    {
+      group: 'Datos ARCO',
+      title: 'Acceso, rectificación, cancelación, oposición',
+      desc: 'Solicitudes de derechos ARCO en materia de datos personales.',
+      formats: ['csv', 'json', 'xlsx'],
+      icon: I.building,
+    },
+    {
+      group: 'Visitas al portal',
+      title: 'Sesiones únicas y páginas vistas',
+      desc: 'Tráfico mensual al sistema de consulta electrónica de transparencia.',
+      formats: ['csv', 'json'],
+      icon: I.globe,
+    },
+  ];
+  return (
+    <div className="dl-grid">
+      {cards.map((c, i) => (
+        <article key={i} className="dl-card" tabIndex="0" role="button">
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <div className="dl-icon">{React.cloneElement(c.icon, { width: 20, height: 20 })}</div>
+            <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: '.1em', textTransform: 'uppercase', color: 'var(--ink-3)' }}>{c.group}</span>
+          </div>
+          <div>
+            <h4>{c.title}</h4>
+            <p>{c.desc}</p>
+          </div>
+          <div className="dl-card-foot">
+            <div className="format-badges">
+              {c.formats.map(f => <span key={f} className={`fmt ${f}`}>{f.toUpperCase()}</span>)}
+            </div>
+            <span className="dl-arrow">{I.arrowRight}</span>
+          </div>
+        </article>
+      ))}
+    </div>
+  );
+}
+
+// ============================================================
+// PAGE HEADER
+// ============================================================
+function PageHeader() {
+  const isoSvg = (
+    <svg className="iso" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="32" cy="32" r="30" fill="#F68628"/>
+      <path d="M20 22 L32 16 L44 22 L44 44 L20 44 Z" fill="#fff" opacity="0.95"/>
+      <rect x="28" y="30" width="8" height="14" fill="#F68628"/>
+      <rect x="23" y="26" width="4" height="4" fill="#F68628"/>
+      <rect x="37" y="26" width="4" height="4" fill="#F68628"/>
+    </svg>
+  );
+  return (
+    <React.Fragment>
+      <div className="gov-bar">
+        <div className="gov-bar-inner">
+          <span style={{ opacity: .85 }}>Gobierno Municipal de Guadalajara · Dirección de Transparencia y Buenas Prácticas</span>
+          <span style={{ display: 'flex', gap: 16 }}>
+            <a href="https://transparencia.guadalajara.gob.mx" target="_blank" rel="noreferrer">Portal</a>
+            <a href="https://transparencia.guadalajara.gob.mx" target="_blank" rel="noreferrer">Contacto</a>
+            <a href="#kpis">Accesibilidad</a>
+          </span>
+        </div>
+      </div>
+      <div className="brand-bar">
+        <div className="brand-bar-inner">
+          <a href="https://transparencia.guadalajara.gob.mx" target="_blank" rel="noreferrer" className="brand-lockup">
+            {isoSvg}
+            <span><b style={{ fontWeight: 600 }}>Guadalajara</b> · Transparencia</span>
+          </a>
+          <nav className="brand-nav" aria-label="Navegación principal">
+            <a href="https://transparencia.guadalajara.gob.mx" target="_blank" rel="noreferrer">Inicio</a>
+            <a href="https://transparencia.guadalajara.gob.mx" target="_blank" rel="noreferrer">Transparencia</a>
+            <a href="https://transparencia.guadalajara.gob.mx/indicadoresuti" target="_blank" rel="noreferrer" className="active">Indicadores UTI</a>
+            <a href="https://transparencia.guadalajara.gob.mx" target="_blank" rel="noreferrer">Solicitudes</a>
+            <a href="https://transparencia.guadalajara.gob.mx" target="_blank" rel="noreferrer">Datos abiertos</a>
+          </nav>
+          <div style={{ display: 'flex', gap: 8 }}>
+            <button className="btn-mini" style={{
+              background: 'rgba(255,255,255,.95)', borderColor: 'transparent', color: 'var(--ink)'
+            }}>{I.search} Buscar</button>
+          </div>
+        </div>
+      </div>
+    </React.Fragment>
+  );
+}
+
+// ============================================================
+// APP
+// ============================================================
+function App() {
+  return (
+    <React.Fragment>
+      <PageHeader/>
+
+      <main className="page-wrap">
+        <div className="page-grid">
+          <MiniNav/>
+
+          <div>
+            <header className="masthead" id="kpis">
+              <span className="kicker"><span className="dot"/>Artículo 8 · Inciso ñ · Información Fundamental</span>
+              <h1 className="title">Estadísticas de <em>Transparencia</em></h1>
+              <p className="lede">
+                Solicitudes de información pública, recursos de revisión y visitas al portal — desglose mensual,
+                multi-anual y exportable. Hecho para que cualquier persona pueda auditar al gobierno municipal.
+              </p>
+              <div className="meta-row">
+                <span>Cobertura · <b>2021 – 2026</b></span>
+                <span>Fuente · <b>SIRES, Infomex, analítica del portal</b></span>
+                <span>Licencia · <b>CC-BY 4.0</b></span>
+                <span>Frecuencia · <b>Mensual</b></span>
+              </div>
+            </header>
+
+            <KpiCards/>
+
+            <section className="section" id="solicitudes">
+              <div className="section-head">
+                <div className="section-eyebrow">02 · Solicitudes</div>
+                <h2>Cómo evoluciona la demanda ciudadana de información</h2>
+                <p className="section-deck">
+                  Cada línea es un año. Activa o desactiva años con los chips para comparar trayectorias mensuales.
+                  Pasa el cursor sobre la gráfica para ver el conteo exacto.
+                </p>
+              </div>
+              <AreaChart data={SOLICITUDES_DATA} colors={YEAR_COLORS}/>
+            </section>
+
+            <section className="section" id="visitas">
+              <div className="section-head">
+                <div className="section-eyebrow">03 · Visitas al portal</div>
+                <h2>Tráfico al sistema de consulta electrónica</h2>
+                <p className="section-deck">
+                  Sesiones únicas mensuales en transparencia.guadalajara.gob.mx. Las cifras de 2026 son parciales
+                  hasta el cierre del trimestre.
+                </p>
+              </div>
+              <LineChart data={VISITAS_DATA} colors={YEAR_COLORS}/>
+            </section>
+
+            <section className="section" id="sires">
+              <div className="section-head">
+                <div className="section-eyebrow">04 · Base de datos SIRES</div>
+                <h2>Recursos de revisión presentados por la ciudadanía</h2>
+                <p className="section-deck">
+                  Esta base muestra el resultado de los recursos de revisión que los ciudadanos presentan cuando consideran
+                  que su solicitud no fue atendida correctamente. Filtra por año, mes o sentido de la resolución.
+                </p>
+              </div>
+              <SiresTable/>
+            </section>
+
+            <section className="section" id="arco">
+              <div className="section-head">
+                <div className="section-eyebrow">05 · Datos personales</div>
+                <h2>Solicitudes ARCO — derechos sobre tus datos</h2>
+                <p className="section-deck">
+                  Cuando una persona pide al gobierno municipal acceder, corregir, cancelar o no permitir el uso
+                  de sus datos personales. Aquí se publica el conteo mensual por tipo.
+                </p>
+              </div>
+              <ArcoTable/>
+            </section>
+
+            <section className="section" id="descargas">
+              <div className="section-head">
+                <div className="section-eyebrow">06 · Datos abiertos</div>
+                <h2>Descarga la base completa</h2>
+                <p className="section-deck">
+                  Todos los datos están disponibles en formatos legibles por máquina. Úsalos para periodismo,
+                  investigación, dashboards propios o lo que se te ocurra. La atribución es bienvenida pero no obligatoria.
+                </p>
+              </div>
+              <DownloadGrid/>
+            </section>
+
+            <hr className="divider"/>
+            <div style={{ marginTop: 28, fontSize: 13, color: 'var(--ink-2)', display: 'flex', flexWrap: 'wrap', gap: 18 }}>
+              <span><b style={{color:'var(--ink)'}}>¿Notaste un error?</b> Escríbenos a <a href="mailto:transparencia@guadalajara.gob.mx">transparencia@guadalajara.gob.mx</a></span>
+              <span><b style={{color:'var(--ink)'}}>API de datos abiertos</b> · <a href="#descargas">documentación</a></span>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer className="foot">
+        <div className="foot-inner">
+          <small>
+            <b>Última actualización:</b> mayo 2026 · Dirección de Transparencia y Buenas Prácticas · Gobierno Municipal de Guadalajara
+          </small>
+          <div className="foot-meta">
+            <a href="#">Aviso de privacidad</a>
+            <a href="#">Términos</a>
+            <a href="#">Accesibilidad</a>
+            <a href="#">Versión legible</a>
+          </div>
+        </div>
+      </footer>
+    </React.Fragment>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('app')).render(<App/>);
+</script>
+</body>
+</html>
