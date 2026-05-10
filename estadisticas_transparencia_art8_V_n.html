@@ -434,13 +434,15 @@ const { useState, useMemo, useRef, useEffect } = React;
 // ============================================================
 const MONTHS = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
 
+// Datos reales publicados en transparencia.guadalajara.gob.mx/indicadoresuti (mayo 2026).
+// Cifra mensual de Solicitudes de Acceso a la Información atendidas, por año.
 const SOLICITUDES_DATA = {
   2026: [1064, 708, 864],
   2025: [1536, 1247, 1112, 817, 812, 789, 820, 859, 770, 955, 742, 462],
-  2024: [1668, 1321, 972, 1208, 998, 890, 875, 997, 860, 1060, 867],
-  2023: [1774, 1484, 1609, 1139, 1078, 995, 1348, 1130, 1079, 1180, 1082],
-  2022: [1502, 1289, 1148, 1062, 998, 942, 1052, 1015, 988, 1100, 1010, 870],
-  2021: [1244, 1098, 1190, 980, 941, 902, 1015, 968, 902, 1018, 920, 740],
+  2024: [1668, 1321, 972, 1208, 998, 890, 875, 997, 860, 1060, 867, 455],
+  2023: [1774, 1484, 1609, 1139, 1078, 995, 1348, 1130, 1079, 1180, 1082, 419],
+  2022: [1697, 1379, 1485, 1322, 1289, 1520, 941, 1432, 1131, 1200, 1207, 543],
+  2021: [836, 665, 1299, 1508, 920, 1070, 997, 1259, 1049, 975, 1168, 576],
 };
 
 const YEAR_COLORS = {
@@ -452,76 +454,40 @@ const YEAR_COLORS = {
   2021: '#CFD3D8',
 };
 
+// Visitas al Portal de Transparencia (mensual, por año) — fuente: indicadoresuti.
 const VISITAS_DATA = {
-  2026: [42100, 38900, 45200],
-  2025: [38400, 36200, 41800, 40100, 42600, 39200, 35800, 37100, 41200, 44900, 39400, 32200],
-  2024: [33100, 31900, 35200, 36800, 38400, 35100, 32200, 33800, 37500, 39600, 35200, 28900],
-  2023: [29800, 28200, 31100, 32200, 33600, 31100, 28800, 30100, 33500, 35400, 31800, 26100],
+  2026: [6894, 6796, 6619],
+  2025: [7986, 7297, 6796, 5664, 6420, 5247, 5505, 5834, 5877, 6561, 4715, 4388],
+  2024: [6145, 7791, 6266, 6726, 6691, 5755, 6798, 6200, 6098, 7074, 6244, 4623],
+  2023: [6269, 6364, 6417, 4868, 6285, 5642, 5507, 6134, 6036, 6087, 5579, 3231],
+  2022: [7300, 6539, 7003, 5155, 6388, 5418, 5249, 6179, 6174, 6097, 5635, 3557],
+  2021: [5570, 5319, 6508, 5404, 5516, 5194, 5221, 5647, 5884, 7005, 6550, 4452],
 };
 
-function genSires() {
+// Solicitudes de Derecho a ARCO (mensual, por año). Sin desglose por tipo
+// (acceso / rectificación / cancelación / oposición) en el portal público.
+// 2026 aún no publicado por la dependencia.
+const ARCO_DATA = {
+  2025: [21, 30, 32, 5, 27, 35, 43, 30, 42, 50, 40, 24],
+  2024: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 4],
+  2023: [0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+  2022: [0, 2, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0],
+  2021: [0, 16, 15, 4, 8, 2, 6, 3, 1, 0, 1, 2],
+};
+
+function buildMonthlyRows(dataObj) {
   const rows = [];
   let id = 1;
-  const yearMonths = [
-    [2026, [0,1,2]],
-    [2025, [...Array(12).keys()]],
-    [2024, [...Array(12).keys()]],
-    [2023, [...Array(12).keys()]],
-  ];
-  let seed = 7;
-  const rnd = () => { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; };
-  yearMonths.forEach(([y, ms]) => {
-    ms.forEach(mi => {
-      const base = y === 2026 ? 14 : y === 2025 ? 18 : y === 2024 ? 22 : 24;
-      const proc = Math.round(base * (0.5 + rnd() * 0.7));
-      const partial = Math.round(base * (0.3 + rnd() * 0.4));
-      const improc = Math.round(base * (0.2 + rnd() * 0.5));
-      const total = proc + partial + improc;
-      const ratio = proc / total;
-      let sentido;
-      if (ratio > 0.55) sentido = { label: 'Procede', kind: 'green' };
-      else if (ratio > 0.35) sentido = { label: 'Mixto', kind: 'amber' };
-      else sentido = { label: 'No procede', kind: 'red' };
-      rows.push({
-        id: id++, año: y, mes: MONTHS[mi], mesIdx: mi,
-        procedentes: proc, parciales: partial, improcedentes: improc,
-        total, sentido,
-      });
+  Object.keys(dataObj).map(Number).sort((a, b) => b - a).forEach(year => {
+    dataObj[year].forEach((val, mi) => {
+      rows.push({ id: id++, año: year, mes: MONTHS[mi], mesIdx: mi, total: val });
     });
   });
-  return rows.reverse();
+  return rows;
 }
 
-function genArco() {
-  const rows = [];
-  let id = 1;
-  const yearMonths = [
-    [2026, [0,1,2]],
-    [2025, [...Array(12).keys()]],
-    [2024, [...Array(12).keys()]],
-    [2023, [...Array(12).keys()]],
-  ];
-  let seed = 13;
-  const rnd = () => { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; };
-  yearMonths.forEach(([y, ms]) => {
-    ms.forEach(mi => {
-      const base = y === 2026 ? 6 : y === 2025 ? 8 : y === 2024 ? 9 : 7;
-      const acceso = Math.round(base * (0.6 + rnd() * 0.8));
-      const rect = Math.round(base * (0.15 + rnd() * 0.4));
-      const canc = Math.round(base * (0.1 + rnd() * 0.3));
-      const opos = Math.round(base * (0.05 + rnd() * 0.2));
-      const total = acceso + rect + canc + opos;
-      rows.push({
-        id: id++, año: y, mes: MONTHS[mi], mesIdx: mi,
-        acceso, rectificacion: rect, cancelacion: canc, oposicion: opos, total,
-      });
-    });
-  });
-  return rows.reverse();
-}
-
-const SIRES_ROWS = genSires();
-const ARCO_ROWS = genArco();
+const SOLICITUDES_ROWS = buildMonthlyRows(SOLICITUDES_DATA);
+const ARCO_ROWS = buildMonthlyRows(ARCO_DATA);
 
 // ============================================================
 // HELPERS
@@ -601,34 +567,43 @@ function Sparkline({ data, color = '#F68628', width = 96, height = 32 }) {
 // KPI CARDS
 // ============================================================
 function KpiCards() {
-  const arco2025Total = ARCO_ROWS.filter(r => r.año === 2025).reduce((s, r) => s + r.total, 0);
-  const visitas2025Total = sum(VISITAS_DATA[2025]);
+  const sol2025      = sum(SOLICITUDES_DATA[2025]);
+  const sol2024      = sum(SOLICITUDES_DATA[2024]);
+  const sol2026      = sum(SOLICITUDES_DATA[2026]);
+  const sol2025Q1    = SOLICITUDES_DATA[2025].slice(0, 3).reduce((a, b) => a + b, 0);
+  const arco2025     = sum(ARCO_DATA[2025]);
+  const arco2024     = sum(ARCO_DATA[2024]);
+  const visitas2025  = sum(VISITAS_DATA[2025]);
+  const visitas2024  = sum(VISITAS_DATA[2024]);
+
+  const pct = (a, b) => b ? ((a - b) / b * 100) : 0;
+  const fmtPct = v => (v >= 0 ? '+' : '−') + Math.abs(v).toFixed(1) + '%';
+  const dir = v => v >= 0 ? 'up' : 'down';
 
   const kpis = [
     {
-      label: 'Solicitudes de información', tag: 'Año 2025', num: 10921,
-      trend: { dir: 'up', val: '+8.2%', vs: 'vs 2024' },
+      label: 'Solicitudes de información', tag: 'Año 2025', num: sol2025,
+      trend: { dir: dir(pct(sol2025, sol2024)), val: fmtPct(pct(sol2025, sol2024)), vs: 'vs 2024' },
       spark: SOLICITUDES_DATA[2025], color: '#F68628',
       foot: 'Cifra anual cerrada',
     },
     {
-      label: 'Solicitudes de información', tag: '2026 · parcial', num: 2636,
-      trend: { dir: 'up', val: '+12.4%', vs: 'vs Q1 2025' },
+      label: 'Solicitudes de información', tag: '2026 · parcial', num: sol2026,
+      trend: { dir: dir(pct(sol2026, sol2025Q1)), val: fmtPct(pct(sol2026, sol2025Q1)), vs: 'vs Q1 2025' },
       spark: SOLICITUDES_DATA[2026], color: '#FF7A29',
       foot: 'Enero – marzo',
     },
     {
-      label: 'Solicitudes ARCO', tag: 'Año 2025', num: arco2025Total,
-      trend: { dir: 'down', val: '−3.1%', vs: 'vs 2024' },
-      spark: Array(12).fill(0).map((_, i) => ARCO_ROWS.find(r => r.año === 2025 && r.mesIdx === i)?.total || 0),
-      color: '#FFA23A',
+      label: 'Solicitudes ARCO', tag: 'Año 2025', num: arco2025,
+      trend: { dir: 'up', val: '+' + fmt(arco2025 - arco2024), vs: 'vs ' + fmt(arco2024) + ' en 2024' },
+      spark: ARCO_DATA[2025], color: '#FFA23A',
       foot: 'Datos personales',
     },
     {
-      label: 'Visitas al portal de transparencia', tag: 'Año 2025', num: visitas2025Total,
-      trend: { dir: 'up', val: '+15.6%', vs: 'vs 2024' },
+      label: 'Visitas al Portal de Transparencia', tag: 'Año 2025', num: visitas2025,
+      trend: { dir: dir(pct(visitas2025, visitas2024)), val: fmtPct(pct(visitas2025, visitas2024)), vs: 'vs 2024' },
       spark: VISITAS_DATA[2025], color: '#E89B00',
-      foot: 'Sesiones únicas',
+      foot: 'Conforme reporta el portal',
     },
   ];
 
@@ -674,7 +649,8 @@ function AreaChart({ data, colors }) {
   const yMax = useMemo(() => {
     let max = 0;
     Object.values(data).forEach(arr => arr.forEach(v => { if (v > max) max = v; }));
-    return Math.ceil(max / 200) * 200;
+    const bucket = max < 20 ? 2 : max < 60 ? 10 : max < 200 ? 25 : max < 500 ? 50 : max < 2000 ? 200 : 500;
+    return Math.ceil(max / bucket) * bucket;
   }, [data]);
   const yToPx = v => pad.t + plotH - (v / yMax) * plotH;
   const yTicks = [0, yMax * 0.25, yMax * 0.5, yMax * 0.75, yMax];
@@ -851,7 +827,8 @@ function LineChart({ data, colors }) {
   const yMax = useMemo(() => {
     let max = 0;
     Object.values(data).forEach(arr => arr.forEach(v => { if (v > max) max = v; }));
-    return Math.ceil(max / 5000) * 5000;
+    const bucket = max < 1000 ? 100 : max < 10000 ? 1000 : max < 50000 ? 5000 : 10000;
+    return Math.ceil(max / bucket) * bucket;
   }, [data]);
   const yToPx = v => pad.t + plotH - (v / yMax) * plotH;
   const yTicks = [0, yMax * 0.25, yMax * 0.5, yMax * 0.75, yMax];
@@ -1217,65 +1194,48 @@ function DataTable({
   );
 }
 
-function SiresTable() {
-  const maxTotal = Math.max(...SIRES_ROWS.map(r => r.total));
+function SolicitudesTable() {
+  const maxTotal = Math.max(...SOLICITUDES_ROWS.map(r => r.total));
   const cols = [
     { key: 'año', label: 'Año', sortable: true, numeric: true,
       render: r => <span className="tnum" style={{ fontWeight: 600 }}>{r.año}</span> },
     { key: 'mes', label: 'Mes', sortable: true,
       render: r => <span style={{ color: 'var(--ink-2)' }}>{r.mes}</span> },
-    { key: 'procedentes', label: 'Procedentes', sortable: true, numeric: true,
-      render: r => <span className="tnum" style={{ color: '#157f3e', fontWeight: 600 }}>{fmt(r.procedentes)}</span> },
-    { key: 'parciales', label: 'Parcialmente procedentes', sortable: true, numeric: true,
-      render: r => <span className="tnum" style={{ color: '#8B5A00', fontWeight: 600 }}>{fmt(r.parciales)}</span> },
-    { key: 'improcedentes', label: 'Improcedentes', sortable: true, numeric: true,
-      render: r => <span className="tnum" style={{ color: '#b53030', fontWeight: 600 }}>{fmt(r.improcedentes)}</span> },
-    { key: 'total', label: 'Total', sortable: true, numeric: true,
+    { key: 'total', label: 'Solicitudes atendidas', sortable: true, numeric: true,
       render: r => (
         <span className="cell-bar">
           <span className="num" style={{ fontWeight: 700 }}>{fmt(r.total)}</span>
-          <span className="bar" style={{ width: `${(r.total / maxTotal) * 64}px` }}/>
+          <span className="bar" style={{ width: `${(r.total / maxTotal) * 120}px` }}/>
         </span>
       )},
-    { key: 'sentido', label: 'Sentido de la resolución', sortable: true,
-      render: r => <span className={`pill ${r.sentido.kind}`}><span className="dot"/>{r.sentido.label}</span> },
   ];
   return (
-    <DataTable rows={SIRES_ROWS} columns={cols}
+    <DataTable rows={SOLICITUDES_ROWS} columns={cols}
                searchKeys={['mes', 'año']}
-               filename="sires-recursos-revision"
-               defaultSort={{ key: 'id', dir: 'asc' }}
-               showSentidoFilter/>
+               filename="solicitudes-acceso-informacion-gdl"
+               defaultSort={{ key: 'id', dir: 'asc' }}/>
   );
 }
 
 function ArcoTable() {
-  const maxTotal = Math.max(...ARCO_ROWS.map(r => r.total));
+  const maxTotal = Math.max(...ARCO_ROWS.map(r => r.total)) || 1;
   const cols = [
     { key: 'año', label: 'Año', sortable: true, numeric: true,
       render: r => <span className="tnum" style={{ fontWeight: 600 }}>{r.año}</span> },
     { key: 'mes', label: 'Mes', sortable: true,
       render: r => <span style={{ color: 'var(--ink-2)' }}>{r.mes}</span> },
-    { key: 'acceso', label: 'Acceso', sortable: true, numeric: true,
-      render: r => <span className="tnum">{fmt(r.acceso)}</span> },
-    { key: 'rectificacion', label: 'Rectificación', sortable: true, numeric: true,
-      render: r => <span className="tnum">{fmt(r.rectificacion)}</span> },
-    { key: 'cancelacion', label: 'Cancelación', sortable: true, numeric: true,
-      render: r => <span className="tnum">{fmt(r.cancelacion)}</span> },
-    { key: 'oposicion', label: 'Oposición', sortable: true, numeric: true,
-      render: r => <span className="tnum">{fmt(r.oposicion)}</span> },
-    { key: 'total', label: 'Total ARCO', sortable: true, numeric: true,
+    { key: 'total', label: 'Solicitudes ARCO', sortable: true, numeric: true,
       render: r => (
         <span className="cell-bar">
           <span className="num" style={{ fontWeight: 700 }}>{fmt(r.total)}</span>
-          <span className="bar" style={{ width: `${(r.total / maxTotal) * 64}px` }}/>
+          <span className="bar" style={{ width: `${(r.total / maxTotal) * 120}px` }}/>
         </span>
       )},
   ];
   return (
     <DataTable rows={ARCO_ROWS} columns={cols}
                searchKeys={['mes', 'año']}
-               filename="arco-datos-personales"
+               filename="arco-datos-personales-gdl"
                defaultSort={{ key: 'id', dir: 'asc' }}/>
   );
 }
@@ -1285,12 +1245,13 @@ function ArcoTable() {
 // ============================================================
 function MiniNav() {
   const items = [
-    { id: 'kpis',       num: '01', label: 'Resumen' },
-    { id: 'solicitudes',num: '02', label: 'Solicitudes' },
-    { id: 'visitas',    num: '03', label: 'Visitas al portal' },
-    { id: 'sires',      num: '04', label: 'Recursos SIRES' },
-    { id: 'arco',       num: '05', label: 'Datos ARCO' },
-    { id: 'descargas',  num: '06', label: 'Descargas' },
+    { id: 'kpis',          num: '01', label: 'Resumen' },
+    { id: 'solicitudes',   num: '02', label: 'Solicitudes' },
+    { id: 'visitas',       num: '03', label: 'Visitas al portal' },
+    { id: 'arco',          num: '04', label: 'Solicitudes ARCO' },
+    { id: 'tabla-solicitudes', num: '05', label: 'Tabla solicitudes' },
+    { id: 'tabla-arco',    num: '06', label: 'Tabla ARCO' },
+    { id: 'descargas',     num: '07', label: 'Descargas' },
   ];
   const [active, setActive] = useState('kpis');
   useEffect(() => {
@@ -1340,30 +1301,30 @@ function DownloadGrid() {
     {
       group: 'Estadísticas por año',
       title: 'Solicitudes de información 2021–2026',
-      desc: 'Conteo mensual de solicitudes de información pública atendidas, por año.',
+      desc: 'Conteo mensual de solicitudes de acceso a la información atendidas, por año.',
       formats: ['csv', 'json', 'xlsx'],
       icon: I.chart,
     },
     {
-      group: 'Recursos SIRES',
-      title: 'Recursos de revisión por mes',
-      desc: 'Procedentes, parcialmente procedentes e improcedentes, con sentido de resolución.',
-      formats: ['csv', 'json', 'xlsx'],
-      icon: I.shield,
-    },
-    {
       group: 'Datos ARCO',
-      title: 'Acceso, rectificación, cancelación, oposición',
-      desc: 'Solicitudes de derechos ARCO en materia de datos personales.',
+      title: 'Solicitudes ARCO 2021–2025',
+      desc: 'Total mensual de solicitudes en materia de datos personales (acceso, rectificación, cancelación, oposición).',
       formats: ['csv', 'json', 'xlsx'],
       icon: I.building,
     },
     {
       group: 'Visitas al portal',
-      title: 'Sesiones únicas y páginas vistas',
-      desc: 'Tráfico mensual al sistema de consulta electrónica de transparencia.',
+      title: 'Visitas mensuales 2021–2026',
+      desc: 'Tráfico al portal de transparencia conforme reporta la dependencia.',
       formats: ['csv', 'json'],
       icon: I.globe,
+    },
+    {
+      group: 'Pendiente de publicación',
+      title: 'Sentido de resolución (SIRES)',
+      desc: 'Desglose de procedentes, parcialmente procedentes e improcedentes — vendrá del sistema SIRES interno.',
+      formats: ['pdf'],
+      icon: I.shield,
     },
   ];
   return (
@@ -1405,12 +1366,12 @@ function App() {
               <span className="kicker"><span className="dot"/>Artículo 8 · Inciso ñ · Información Fundamental</span>
               <h1 className="title">Estadísticas de <em>Transparencia</em></h1>
               <p className="lede">
-                Solicitudes de información pública, recursos de revisión y visitas al portal — desglose mensual,
+                Solicitudes de acceso a la información, solicitudes ARCO y visitas al portal — desglose mensual,
                 multi-anual y exportable. Hecho para que cualquier persona pueda auditar al gobierno municipal.
               </p>
               <div className="meta-row">
                 <span>Cobertura · <b>2021 – 2026</b></span>
-                <span>Fuente · <b>SIRES, Infomex, analítica del portal</b></span>
+                <span>Fuente · <b>transparencia.guadalajara.gob.mx/indicadoresuti</b></span>
                 <span>Licencia · <b>CC-BY 4.0</b></span>
                 <span>Frecuencia · <b>Mensual</b></span>
               </div>
@@ -1435,32 +1396,56 @@ function App() {
                 <div className="section-eyebrow">03 · Visitas al portal</div>
                 <h2>Tráfico al sistema de consulta electrónica</h2>
                 <p className="section-deck">
-                  Sesiones únicas mensuales en transparencia.guadalajara.gob.mx. Las cifras de 2026 son parciales
+                  Visitas mensuales al portal de transparencia.guadalajara.gob.mx. Las cifras de 2026 son parciales
                   hasta el cierre del trimestre.
                 </p>
               </div>
               <LineChart data={VISITAS_DATA} colors={YEAR_COLORS}/>
             </section>
 
-            <section className="section" id="sires">
-              <div className="section-head">
-                <div className="section-eyebrow">04 · Base de datos SIRES</div>
-                <h2>Recursos de revisión presentados por la ciudadanía</h2>
-                <p className="section-deck">
-                  Esta base muestra el resultado de los recursos de revisión que los ciudadanos presentan cuando consideran
-                  que su solicitud no fue atendida correctamente. Filtra por año, mes o sentido de la resolución.
-                </p>
-              </div>
-              <SiresTable/>
-            </section>
-
             <section className="section" id="arco">
               <div className="section-head">
-                <div className="section-eyebrow">05 · Datos personales</div>
+                <div className="section-eyebrow">04 · Datos personales</div>
                 <h2>Solicitudes ARCO — derechos sobre tus datos</h2>
                 <p className="section-deck">
-                  Cuando una persona pide al gobierno municipal acceder, corregir, cancelar o no permitir el uso
-                  de sus datos personales. Aquí se publica el conteo mensual por tipo.
+                  Cuando una persona pide al gobierno municipal <b>acceder</b>, <b>rectificar</b>, <b>cancelar</b> u <b>oponerse</b> al uso
+                  de sus datos personales. El portal publica el total mensual; el desglose por tipo aún no se publica
+                  en línea — se incorporará a esta vista cuando esté disponible.
+                </p>
+              </div>
+              <AreaChart data={ARCO_DATA} colors={YEAR_COLORS}/>
+            </section>
+
+            <section className="section" id="tabla-solicitudes">
+              <div className="section-head">
+                <div className="section-eyebrow">05 · Base de datos · Solicitudes</div>
+                <h2>Solicitudes de información mes a mes</h2>
+                <p className="section-deck">
+                  Filtra por año o mes, ordena cualquier columna y exporta los datos en CSV, JSON o XLSX.
+                </p>
+                <div style={{
+                  marginTop: 14, fontSize: 13.5, color: 'var(--ink-2)', lineHeight: 1.55,
+                  background: 'var(--canvas)', borderRadius: 10, padding: '14px 16px',
+                  display: 'flex', gap: 10,
+                }}>
+                  <span style={{ color: 'var(--brand)', flexShrink: 0, marginTop: 2 }}>{I.info}</span>
+                  <span>
+                    <b style={{ color: 'var(--ink)' }}>Sobre el desglose de "procedentes / parcialmente procedentes / improcedentes":</b>
+                    {' '}el portal de <i>indicadoresuti</i> publica únicamente el total mensual de solicitudes atendidas.
+                    El sentido de la resolución (procede, procede parcialmente, no procede) vive en el sistema SIRES interno
+                    y se agregará en cuanto la dependencia lo libere.
+                  </span>
+                </div>
+              </div>
+              <SolicitudesTable/>
+            </section>
+
+            <section className="section" id="tabla-arco">
+              <div className="section-head">
+                <div className="section-eyebrow">06 · Base de datos · ARCO</div>
+                <h2>Solicitudes ARCO mes a mes</h2>
+                <p className="section-deck">
+                  Total mensual de solicitudes en materia de datos personales, conforme publica el portal.
                 </p>
               </div>
               <ArcoTable/>
@@ -1468,7 +1453,7 @@ function App() {
 
             <section className="section" id="descargas">
               <div className="section-head">
-                <div className="section-eyebrow">06 · Datos abiertos</div>
+                <div className="section-eyebrow">07 · Datos abiertos</div>
                 <h2>Descarga la base completa</h2>
                 <p className="section-deck">
                   Todos los datos están disponibles en formatos legibles por máquina. Úsalos para periodismo,
