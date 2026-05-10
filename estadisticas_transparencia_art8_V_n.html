@@ -1391,62 +1391,11 @@ function DownloadGrid() {
 }
 
 // ============================================================
-// PAGE HEADER
-// ============================================================
-function PageHeader() {
-  const isoSvg = (
-    <svg className="iso" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="32" cy="32" r="30" fill="#F68628"/>
-      <path d="M20 22 L32 16 L44 22 L44 44 L20 44 Z" fill="#fff" opacity="0.95"/>
-      <rect x="28" y="30" width="8" height="14" fill="#F68628"/>
-      <rect x="23" y="26" width="4" height="4" fill="#F68628"/>
-      <rect x="37" y="26" width="4" height="4" fill="#F68628"/>
-    </svg>
-  );
-  return (
-    <React.Fragment>
-      <div className="gov-bar">
-        <div className="gov-bar-inner">
-          <span style={{ opacity: .85 }}>Gobierno Municipal de Guadalajara · Dirección de Transparencia y Buenas Prácticas</span>
-          <span style={{ display: 'flex', gap: 16 }}>
-            <a href="https://transparencia.guadalajara.gob.mx" target="_blank" rel="noreferrer">Portal</a>
-            <a href="https://transparencia.guadalajara.gob.mx" target="_blank" rel="noreferrer">Contacto</a>
-            <a href="#kpis">Accesibilidad</a>
-          </span>
-        </div>
-      </div>
-      <div className="brand-bar">
-        <div className="brand-bar-inner">
-          <a href="https://transparencia.guadalajara.gob.mx" target="_blank" rel="noreferrer" className="brand-lockup">
-            {isoSvg}
-            <span><b style={{ fontWeight: 600 }}>Guadalajara</b> · Transparencia</span>
-          </a>
-          <nav className="brand-nav" aria-label="Navegación principal">
-            <a href="https://transparencia.guadalajara.gob.mx" target="_blank" rel="noreferrer">Inicio</a>
-            <a href="https://transparencia.guadalajara.gob.mx" target="_blank" rel="noreferrer">Transparencia</a>
-            <a href="https://transparencia.guadalajara.gob.mx/indicadoresuti" target="_blank" rel="noreferrer" className="active">Indicadores UTI</a>
-            <a href="https://transparencia.guadalajara.gob.mx" target="_blank" rel="noreferrer">Solicitudes</a>
-            <a href="https://transparencia.guadalajara.gob.mx" target="_blank" rel="noreferrer">Datos abiertos</a>
-          </nav>
-          <div style={{ display: 'flex', gap: 8 }}>
-            <button className="btn-mini" style={{
-              background: 'rgba(255,255,255,.95)', borderColor: 'transparent', color: 'var(--ink)'
-            }}>{I.search} Buscar</button>
-          </div>
-        </div>
-      </div>
-    </React.Fragment>
-  );
-}
-
-// ============================================================
 // APP
 // ============================================================
 function App() {
   return (
     <React.Fragment>
-      <PageHeader/>
-
       <main className="page-wrap">
         <div className="page-grid">
           <MiniNav/>
