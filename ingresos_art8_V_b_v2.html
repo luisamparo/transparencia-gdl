@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ingresos extraordinarios recibidos por el Ayuntamiento de Guadalajara — Art. 8 Frac. V Inc. b) Ley de Transparencia Jalisco">
+<title>Ingresos Extraordinarios · Transparencia GDL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ════════════════════════════════════════════════════════════════
+   PALETA NARANJA TRANSPARENCIA GDL
+═══════════════════════════════════════════════════════════════ */
+:root{
+  --o:#F26522; --od:#D4531A; --ol:#FDE8D8; --oxl:#FEF4EE;
+  --n:#1A1A1A; --ng:#3D3D3D; --nm:#6B6B6B; --nc:#F7F6F2; --nb:#E8E6DF; --w:#FFFFFF;
+  --ok:#1D9E75; --okL:#E1F5EE;
+  --warn:#D97706; --warnL:#FEF3C7;
+  --err:#C8323F; --errL:#FCE6E8;
+  --info:#2563EB; --infoL:#DBEAFE;
+  --coord:#6450A0; --coordL:#EDE7F6;
+  --font:'Inter',system-ui,sans-serif;
+  --fontD:'Outfit','Inter',system-ui,sans-serif;
+  --shadow-sm:0 1px 2px rgba(26,26,26,.04), 0 1px 1px rgba(26,26,26,.03);
+  --shadow:0 1px 3px rgba(26,26,26,.06), 0 1px 2px rgba(26,26,26,.04);
+  --shadow-md:0 4px 12px rgba(26,26,26,.06), 0 2px 4px rgba(26,26,26,.04);
+  --shadow-lg:0 12px 32px rgba(26,26,26,.08), 0 4px 8px rgba(26,26,26,.04);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --r:10px; --r-md:14px; --r-lg:20px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--nc);color:var(--n);-webkit-font-smoothing:antialiased;font-size:14px;line-height:1.55}
+
+/* ── HEADER ── */
+.hdr{background:linear-gradient(135deg, var(--o) 0%, var(--od) 100%);color:#fff;padding:1.6rem 1.5rem 1.4rem;position:relative;overflow:hidden}
+.hdr::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 20% 20%, rgba(255,255,255,.08) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(255,255,255,.06) 0%, transparent 50%);pointer-events:none}
+.hdr-in{max-width:1400px;margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;position:relative;z-index:1}
+.hdr-left{display:flex;flex-direction:column;gap:.3rem;max-width:80ch}
+.hdr-tag{display:inline-flex;align-items:center;gap:.4rem;font-size:.65rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;opacity:.92;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);padding:.28rem .75rem;border-radius:999px;width:fit-content}
+.hdr-title{font-family:var(--fontD);font-size:1.5rem;font-weight:800;line-height:1.15;letter-spacing:-.018em;margin-top:.25rem}
+.hdr-sub{font-size:.86rem;opacity:.9;line-height:1.55;font-weight:400;max-width:75ch;margin-top:.25rem}
+.hdr-meta{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.6rem}
+.hdr-pill{display:inline-flex;align-items:center;gap:.35rem;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.26);font-size:.62rem;font-weight:700;padding:.32rem .75rem;border-radius:999px;color:#fff}
+.hdr-pill .pulse{width:.42rem;height:.42rem;border-radius:50%;background:#A7F3D0;box-shadow:0 0 0 3px rgba(167,243,208,.3);animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 3px rgba(167,243,208,.3)}50%{box-shadow:0 0 0 5px rgba(167,243,208,.15)}}
+
+/* ── HERO CIUDADANO (¿Qué es esto?) ── */
+.hero-cit{max-width:1400px;margin:1.1rem auto 0;padding:0 1.5rem}
+.hero-cit-card{background:linear-gradient(135deg, var(--oxl) 0%, var(--w) 100%);border:1px solid var(--ol);border-radius:var(--r-md);padding:1rem 1.2rem;display:flex;align-items:flex-start;gap:1rem}
+.hero-cit-ico{flex-shrink:0;width:2.6rem;height:2.6rem;border-radius:10px;background:var(--o);color:#fff;display:flex;align-items:center;justify-content:center}
+.hero-cit-body{flex:1;min-width:0}
+.hero-cit-h{font-family:var(--fontD);font-size:.95rem;font-weight:800;color:var(--n);letter-spacing:-.005em;line-height:1.3;margin-bottom:.25rem}
+.hero-cit-txt{font-size:.8rem;color:var(--ng);line-height:1.55}
+.hero-cit-txt strong{color:var(--od);font-weight:700}
+
+/* ── CONTROLES STICKY ── */
+.controls{background:rgba(247,246,242,.92);backdrop-filter:blur(8px);padding:.85rem 1.5rem;position:sticky;top:0;z-index:40;border-bottom:1px solid var(--nb);margin-top:1.25rem}
+.controls-in{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.85rem}
+.ctrl-left{display:flex;flex-direction:column;gap:.35rem}
+.ctrl-lbl{font-size:.6rem;font-weight:700;color:var(--nm);text-transform:uppercase;letter-spacing:.08em}
+.segctrl{display:inline-flex;background:#fff;border:1.5px solid var(--nb);border-radius:12px;padding:.25rem;box-shadow:var(--shadow-sm);gap:.2rem}
+.segctrl-btn{border:none;background:transparent;padding:.5rem 1rem;border-radius:8px;font-size:.78rem;font-weight:700;cursor:pointer;font-family:var(--font);color:var(--nm);transition:all .2s var(--ease);font-variant-numeric:tabular-nums;min-width:3.6rem;position:relative}
+.segctrl-btn:hover{color:var(--od);background:var(--oxl)}
+.segctrl-btn.active{background:var(--o);color:#fff;box-shadow:0 1px 3px rgba(242,101,34,.35), inset 0 1px 0 rgba(255,255,255,.1)}
+.segctrl-btn.current::after{content:'';position:absolute;top:6px;right:6px;width:5px;height:5px;background:var(--ok);border-radius:50%;box-shadow:0 0 0 2px rgba(29,158,117,.25)}
+.segctrl-btn.active.current::after{background:#fff}
+.ctrl-right{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+.srch-wrap{position:relative;flex:1 1 14rem;max-width:22rem}
+.srch-wrap svg{position:absolute;left:.7rem;top:50%;transform:translateY(-50%);color:var(--nm);pointer-events:none}
+.srch-wrap input{width:100%;padding:.5rem .85rem .5rem 2.1rem;border:1.5px solid var(--nb);border-radius:9px;font-size:.8rem;font-family:var(--font);background:#fff;min-height:2.4rem;transition:border-color .15s,box-shadow .15s}
+.srch-wrap input:focus{outline:none;border-color:var(--o);box-shadow:0 0 0 3px rgba(242,101,34,.12)}
+.btn-csv{display:inline-flex;align-items:center;gap:.35rem;background:#fff;color:var(--ng);border:1.5px solid var(--nb);padding:.45rem .85rem;border-radius:9px;font-size:.72rem;font-weight:700;cursor:pointer;font-family:var(--font);transition:all .15s;letter-spacing:.02em;text-transform:uppercase}
+.btn-csv:hover{border-color:var(--o);color:var(--o);background:var(--oxl);transform:translateY(-1px);box-shadow:var(--shadow-sm)}
+.btn-csv.downloaded{background:var(--okL);border-color:var(--ok);color:var(--ok)}
+
+/* ── KPI STRIP ── */
+.section{max-width:1400px;margin:0 auto;padding:1.25rem 1.5rem}
+.section + .section{padding-top:0}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:.85rem}
+.kpi{background:#fff;border-radius:var(--r-md);box-shadow:var(--shadow-md);padding:1rem 1.15rem;position:relative;overflow:hidden;animation:fadeUp .4s var(--ease)}
+.kpi::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%}
+.kpi.total::before{background:var(--ok)}
+.kpi.con::before{background:var(--info)}
+.kpi.sin::before{background:var(--warn)}
+.kpi.reg::before{background:var(--coord)}
+.kpi-lbl{font-size:.6rem;font-weight:700;color:var(--nm);text-transform:uppercase;letter-spacing:.07em;line-height:1.3;display:flex;align-items:center;gap:.3rem}
+.kpi-val{font-family:var(--fontD);font-size:1.55rem;font-weight:800;color:var(--n);line-height:1.05;font-variant-numeric:tabular-nums;margin-top:.2rem;letter-spacing:-.02em}
+.kpi.total .kpi-val{color:var(--ok)}
+.kpi.con .kpi-val{color:var(--info)}
+.kpi.sin .kpi-val{color:var(--warn)}
+.kpi-sub{font-size:.66rem;color:var(--nm);font-weight:500;margin-top:.15rem;line-height:1.4}
+
+/* ── SECTION TITLE ── */
+.sec-h{font-family:var(--fontD);font-size:.95rem;font-weight:800;color:var(--n);letter-spacing:-.005em;margin:0 0 .75rem;display:flex;align-items:center;gap:.55rem}
+.sec-h::after{content:'';flex:1;height:1px;background:var(--nb)}
+.sec-h-count{font-size:.65rem;font-weight:700;color:var(--nm);background:var(--nc);border:1px solid var(--nb);padding:.18rem .55rem;border-radius:999px;letter-spacing:.04em;text-transform:uppercase}
+
+/* ── INGRESOS CARD GRID (sólo meses con ingreso real) ── */
+.ing-grid{display:grid;grid-template-columns:1fr;gap:1rem}
+.ing-card{background:#fff;border-radius:var(--r-md);box-shadow:var(--shadow-md);overflow:hidden;animation:fadeUp .45s var(--ease) both}
+.ing-card-top{padding:1.1rem 1.3rem .9rem;display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.85rem;border-bottom:1px dashed var(--nb);background:linear-gradient(135deg, var(--oxl) 0%, var(--w) 60%)}
+.ing-meta-left{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap}
+.ing-mes-badge{display:inline-flex;align-items:center;gap:.4rem;background:var(--o);color:#fff;padding:.45rem .85rem;border-radius:10px;font-weight:800;font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;font-family:var(--fontD);box-shadow:0 1px 3px rgba(242,101,34,.35)}
+.ing-mes-badge .ing-mes-yr{opacity:.85;font-weight:600;margin-left:.2rem}
+.ing-fuente-tag{display:inline-flex;align-items:center;gap:.35rem;font-size:.65rem;font-weight:700;padding:.32rem .7rem;border-radius:999px;letter-spacing:.04em;text-transform:uppercase}
+.ing-fuente-tag.federal{background:var(--infoL);color:var(--info);border:1px solid #BFDBFE}
+.ing-fuente-tag.estatal{background:var(--coordL);color:var(--coord);border:1px solid #D9CFEC}
+.ing-fuente-tag.financiamiento{background:var(--errL);color:var(--err);border:1px solid #F5C6CB}
+.ing-fuente-tag.otro{background:var(--nc);color:var(--ng);border:1px solid var(--nb)}
+.ing-importe{font-family:var(--fontD);font-size:1.85rem;font-weight:800;color:var(--ok);line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.02em;white-space:nowrap}
+.ing-importe-lbl{font-size:.6rem;font-weight:700;color:var(--nm);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.15rem}
+.ing-importe-wrap{display:flex;flex-direction:column;align-items:flex-end}
+.ing-body{padding:1rem 1.3rem 1.1rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr));gap:.85rem 1.25rem}
+.ing-field{display:flex;flex-direction:column;gap:.2rem;min-width:0}
+.ing-field-lbl{font-size:.58rem;font-weight:700;color:var(--nm);text-transform:uppercase;letter-spacing:.06em;display:flex;align-items:center;gap:.3rem}
+.ing-field-val{font-size:.78rem;color:var(--n);line-height:1.5;font-weight:500;word-break:break-word}
+.ing-field.wide{grid-column:1/-1}
+.ing-field-val strong{color:var(--od);font-weight:700}
+.ing-comp{padding:.85rem 1.3rem 1.15rem;border-top:1px dashed var(--nb);background:var(--nc)}
+.ing-comp-h{font-size:.6rem;font-weight:700;color:var(--nm);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.5rem;display:flex;align-items:center;gap:.35rem}
+.ing-comp-h svg{color:var(--o)}
+.ing-comp-list{display:flex;flex-wrap:wrap;gap:.4rem .5rem}
+.ing-comp-link{display:inline-flex;align-items:center;gap:.35rem;background:#fff;color:var(--od);border:1.5px solid var(--ol);padding:.35rem .7rem;border-radius:8px;text-decoration:none;font-size:.7rem;font-weight:700;transition:all .15s}
+.ing-comp-link:hover{background:var(--ol);transform:translateY(-1px);box-shadow:var(--shadow-sm)}
+.ing-comp-note{font-size:.7rem;color:var(--nm);font-style:italic;background:#fff;border:1px solid var(--nb);padding:.5rem .7rem;border-radius:8px;line-height:1.5;width:100%;margin-top:.35rem}
+
+/* ── BLOQUE MESES SIN INGRESO (compacto, sin spam) ── */
+.no-ing{background:#fff;border:1.5px dashed var(--nb);border-radius:var(--r-md);padding:1rem 1.2rem;display:flex;align-items:flex-start;gap:.85rem;animation:fadeUp .5s var(--ease)}
+.no-ing-ico{flex-shrink:0;width:2.4rem;height:2.4rem;border-radius:10px;background:var(--nc);color:var(--nm);display:flex;align-items:center;justify-content:center;border:1px solid var(--nb)}
+.no-ing-body{flex:1;min-width:0}
+.no-ing-h{font-size:.78rem;font-weight:700;color:var(--ng);margin-bottom:.25rem}
+.no-ing-meses{display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:.4rem}
+.no-ing-mes{display:inline-flex;align-items:center;background:var(--nc);color:var(--nm);font-size:.7rem;font-weight:600;padding:.22rem .6rem;border-radius:999px;border:1px solid var(--nb);text-transform:capitalize}
+.no-ing-legal{font-size:.65rem;color:var(--nm);font-style:italic;line-height:1.5;margin-top:.3rem;padding-top:.4rem;border-top:1px dashed var(--nb)}
+
+/* ── RESPONSABLE (UNA sola tarjeta por año) ── */
+.resp-card{background:#fff;border-radius:var(--r-md);box-shadow:var(--shadow-md);overflow:hidden;animation:fadeUp .5s var(--ease)}
+.resp-top{padding:1.2rem 1.4rem 1rem;background:linear-gradient(135deg, var(--oxl) 0%, var(--w) 60%);border-bottom:1px solid var(--nb);display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap}
+.resp-avatar{flex-shrink:0;width:3.4rem;height:3.4rem;border-radius:50%;background:linear-gradient(135deg, var(--o) 0%, var(--od) 100%);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--fontD);font-size:1.1rem;font-weight:800;letter-spacing:.02em;box-shadow:0 4px 10px rgba(242,101,34,.32)}
+.resp-info{flex:1;min-width:0}
+.resp-nombre{font-family:var(--fontD);font-size:1.05rem;font-weight:800;color:var(--n);line-height:1.2;letter-spacing:-.005em}
+.resp-cargo{font-size:.85rem;color:var(--od);font-weight:700;margin-top:.1rem}
+.resp-area{font-size:.72rem;color:var(--nm);line-height:1.45;margin-top:.35rem}
+.resp-roles{display:flex;flex-wrap:wrap;gap:.4rem;padding:.85rem 1.4rem;border-bottom:1px solid var(--nb);background:var(--nc)}
+.resp-role-pill{display:inline-flex;align-items:center;gap:.4rem;background:#fff;border:1.5px solid currentColor;padding:.32rem .7rem;border-radius:999px;font-size:.66rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.resp-role-pill.recibir{color:var(--ok)}
+.resp-role-pill.administrar{color:var(--warn)}
+.resp-role-pill.ejercer{color:var(--od)}
+.resp-role-pill .dot{width:.4rem;height:.4rem;border-radius:50%;background:currentColor}
+.resp-bottom{padding:.85rem 1.4rem 1.1rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,12rem),1fr));gap:.55rem 1.5rem}
+.resp-meta{display:flex;flex-direction:column;gap:.15rem}
+.resp-meta-lbl{font-size:.58rem;font-weight:700;color:var(--nm);text-transform:uppercase;letter-spacing:.06em}
+.resp-meta-val{font-size:.78rem;color:var(--n);font-weight:600;font-variant-numeric:tabular-nums}
+.resp-nota{font-size:.68rem;color:var(--nm);font-style:italic;line-height:1.55;padding:.7rem 1.4rem 1rem;background:var(--nc);border-top:1px dashed var(--nb)}
+.resp-nota strong{color:var(--ng);font-style:normal;font-weight:700}
+
+/* Responsable múltiple (3 personas, 3 roles distintos — usado en 2024) */
+.resp-top-multi{justify-content:space-between;align-items:center}
+.resp-multi-lbl{font-family:var(--fontD);font-size:.95rem;font-weight:800;color:var(--n);letter-spacing:-.005em;line-height:1.3}
+.resp-multi-meta{display:flex;gap:1.4rem;flex-wrap:wrap}
+.resp-multi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr));gap:.75rem;padding:1rem 1.4rem;background:var(--nc);border-bottom:1px solid var(--nb)}
+.resp-card-mini{background:#fff;border:1.5px solid var(--nb);border-radius:10px;padding:.85rem .95rem;display:flex;flex-direction:column;gap:.55rem;transition:border-color .15s,transform .15s}
+.resp-card-mini:hover{border-color:var(--ol);transform:translateY(-2px);box-shadow:var(--shadow-sm)}
+.resp-card-mini-top{display:flex;gap:.65rem;align-items:center}
+.resp-avatar-sm{flex-shrink:0;width:2.4rem;height:2.4rem;border-radius:50%;background:linear-gradient(135deg, var(--o) 0%, var(--od) 100%);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--fontD);font-size:.78rem;font-weight:800;letter-spacing:.02em}
+.resp-card-mini-info{flex:1;min-width:0}
+.resp-card-mini-name{font-size:.82rem;font-weight:700;color:var(--n);line-height:1.25}
+.resp-card-mini-cargo{font-size:.7rem;color:var(--od);font-weight:600;margin-top:.1rem}
+.resp-aviso{margin:.85rem 1.4rem;padding:.7rem .85rem;background:var(--warnL);border:1px solid var(--warn);border-radius:8px;color:#7A4E00;font-size:.7rem;line-height:1.55;display:flex;gap:.55rem;align-items:flex-start}
+.resp-aviso svg{flex-shrink:0;color:var(--warn);margin-top:1px}
+.resp-aviso strong{color:#5A3800;font-weight:700}
+
+/* ── TABLA SIRES (para evaluadores, plegable) ── */
+.disclosure{background:#fff;border-radius:var(--r-md);box-shadow:var(--shadow-md);overflow:hidden}
+.disc-btn{width:100%;background:#fff;border:none;border-bottom:1.5px solid transparent;padding:1rem 1.3rem;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-family:var(--font);transition:background .15s}
+.disc-btn:hover{background:var(--oxl)}
+.disc-btn[aria-expanded="true"]{border-bottom-color:var(--nb);background:var(--oxl)}
+.disc-btn-l{display:flex;align-items:center;gap:.7rem;text-align:left}
+.disc-btn-l svg{flex-shrink:0;color:var(--o)}
+.disc-btn-title{font-family:var(--fontD);font-size:.9rem;font-weight:800;color:var(--n);letter-spacing:-.005em}
+.disc-btn-sub{font-size:.7rem;color:var(--nm);margin-top:.15rem}
+.disc-btn-r{display:flex;align-items:center;gap:.5rem;font-size:.65rem;color:var(--nm);font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.disc-btn .chev{transition:transform .25s var(--ease);color:var(--o)}
+.disc-btn[aria-expanded="true"] .chev{transform:rotate(180deg)}
+.disc-content{max-height:0;overflow:hidden;transition:max-height .35s var(--ease)}
+.disc-content.open{max-height:none}
+.tbl-wrap{overflow-x:auto;max-height:520px;overflow-y:auto}
+table{width:100%;border-collapse:collapse;font-size:.7rem;white-space:nowrap;min-width:62rem}
+thead{background:var(--o);color:#fff;position:sticky;top:0;z-index:5}
+thead th{padding:.55rem .6rem;text-align:left;font-weight:700;font-size:.6rem;text-transform:uppercase;letter-spacing:.04em;border-bottom:2px solid var(--od);line-height:1.3}
+thead th.t-month{position:sticky;left:0;z-index:6;background:var(--od);min-width:6rem}
+thead th.t-importe{text-align:right}
+tbody tr{border-bottom:1px solid var(--nb);transition:background .12s}
+tbody tr:nth-child(even){background:var(--nc)}
+tbody tr:hover{background:var(--oxl)}
+tbody td{padding:.5rem .6rem;font-variant-numeric:tabular-nums;color:var(--ng);vertical-align:top;line-height:1.45;font-size:.7rem;white-space:normal}
+tbody td.t-month{font-weight:700;color:var(--n);background:#fff;position:sticky;left:0;text-transform:capitalize;border-right:1.5px solid var(--nb);white-space:nowrap}
+tbody tr:nth-child(even) td.t-month{background:var(--nc)}
+tbody td.t-importe{text-align:right;font-weight:800;color:var(--ok);white-space:nowrap}
+tbody td.t-importe.empty{color:var(--nm);font-weight:600}
+tbody td.t-vacio{color:var(--nm);font-style:italic}
+.doc-link-mini{display:inline-flex;align-items:center;gap:.25rem;color:var(--od);font-weight:600;font-size:.62rem;text-decoration:none;padding:.15rem .45rem;border-radius:4px;background:var(--oxl);margin:.1rem .15rem .1rem 0;transition:background .12s}
+.doc-link-mini:hover{background:var(--ol)}
+.doc-note-mini{display:block;font-size:.6rem;color:var(--nm);font-style:italic;margin:.15rem 0;line-height:1.4}
+.tbl-empty{padding:2.5rem 1rem;text-align:center;color:var(--nm);font-size:.85rem;font-style:italic}
+
+/* ── FOOTER ── */
+.foot{background:#fff;border-top:1px solid var(--nb);padding:1rem 1.5rem;margin-top:1.5rem}
+.foot-in{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.6rem}
+.foot-legal{font-size:.66rem;color:var(--nm);line-height:1.55;max-width:80ch}
+.foot-legal strong{color:var(--ng);font-weight:700}
+
+/* ── ANIMACIONES ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .hdr-title{font-size:1.25rem}
+  .ing-importe{font-size:1.5rem}
+}
+@media(max-width:540px){
+  .hdr,.section,.foot,.controls,.hero-cit{padding-left:.85rem;padding-right:.85rem}
+  .ing-card-top{flex-direction:column}
+  .ing-importe-wrap{align-items:flex-start}
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .kpi-val{font-size:1.2rem}
+  .segctrl-btn{padding:.4rem .75rem;min-width:2.85rem;font-size:.72rem}
+  table{font-size:.62rem}
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════════════
+     HEADER
+═══════════════════════════════════════════════════════════════ -->
+<header class="hdr">
+  <div class="hdr-in">
+    <div class="hdr-left">
+      <span class="hdr-tag">
+        <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Art. 8 · Frac. V · Inc. b) · Ley de Transparencia Jalisco
+      </span>
+      <h1 class="hdr-title">Ingresos Extraordinarios</h1>
+      <p class="hdr-sub">Ingresos extraordinarios recibidos por cualquier concepto, señalando el nombre de los responsables de recibirlos, administrarlos y ejercerlos, así como su destino y utilización.</p>
+      <div class="hdr-meta">
+        <span class="hdr-pill"><span class="pulse"></span><span id="hdr-update">Actualizado</span></span>
+        <span class="hdr-pill">
+          <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          Datos abiertos · CSV
+        </span>
+        <span class="hdr-pill">Dirección de Ingresos · Tesorería Municipal</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ════════════════════════════════════════════════════════════════
+     HERO CIUDADANO (¿Qué es esto?)
+═══════════════════════════════════════════════════════════════ -->
+<div class="hero-cit">
+  <div class="hero-cit-card">
+    <div class="hero-cit-ico">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 2"/></svg>
+    </div>
+    <div class="hero-cit-body">
+      <div class="hero-cit-h">¿Qué son los ingresos extraordinarios?</div>
+      <div class="hero-cit-txt">Son aquellos recursos que <strong>no forman parte del presupuesto regular anual</strong> del Ayuntamiento. Pueden venir de convenios estatales, recursos federales, créditos o aportaciones por proyectos específicos. Aquí ves <strong>cuánto recibió Guadalajara</strong>, <strong>de dónde vino</strong>, <strong>para qué se usó</strong> y <strong>quién lo administra</strong>.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════
+     CONTROLES STICKY
+═══════════════════════════════════════════════════════════════ -->
+<div class="controls">
+  <div class="controls-in">
+    <div class="ctrl-left">
+      <span class="ctrl-lbl">Ejercicio fiscal</span>
+      <div class="segctrl" id="segctrl" role="tablist" aria-label="Seleccionar año"></div>
+    </div>
+    <div class="ctrl-right">
+      <div class="srch-wrap">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="search" id="srch" placeholder="Buscar por mes, fuente, concepto, responsable…" autocomplete="off">
+      </div>
+      <button class="btn-csv" id="btn-csv" type="button" aria-label="Descargar datos en CSV">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Descargar CSV
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════
+     KPIs
+═══════════════════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="kpis" id="kpis"></div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════
+     INGRESOS REGISTRADOS (cards grandes) + MESES SIN INGRESO
+═══════════════════════════════════════════════════════════════ -->
+<section class="section">
+  <h2 class="sec-h" id="sec-ing-h">
+    Ingresos registrados
+    <span class="sec-h-count" id="sec-ing-count">—</span>
+  </h2>
+  <div class="ing-grid" id="ing-grid"></div>
+  <div id="no-ing-wrap" style="margin-top:1rem"></div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════
+     RESPONSABLE
+═══════════════════════════════════════════════════════════════ -->
+<section class="section">
+  <h2 class="sec-h">Responsable de recibir, administrar y ejercer</h2>
+  <div id="resp-wrap"></div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════
+     TABLA SIRES COMPLETA (Disclosure para evaluadores)
+═══════════════════════════════════════════════════════════════ -->
+<section class="section">
+  <h2 class="sec-h">Tabla técnica completa</h2>
+  <div class="disclosure">
+    <button class="disc-btn" id="disc-btn" type="button" aria-expanded="false" aria-controls="disc-content">
+      <span class="disc-btn-l">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 3h18v18H3z"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+        <span>
+          <span class="disc-btn-title">Ver tabla SIRES completa (formato de evaluación)</span>
+          <span class="disc-btn-sub">Las 9 columnas oficiales con todos los meses del ejercicio · Para auditores y sujetos garantes</span>
+        </span>
+      </span>
+      <span class="disc-btn-r">
+        <span id="disc-count">—</span>
+        <svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </span>
+    </button>
+    <div class="disc-content" id="disc-content" aria-hidden="true">
+      <div class="tbl-wrap">
+        <table id="tbl-full">
+          <thead>
+            <tr>
+              <th class="t-month">Mes</th>
+              <th>Ejercicio</th>
+              <th>Fuente de ingresos</th>
+              <th>Concepto</th>
+              <th class="t-importe">Importe</th>
+              <th>Responsable</th>
+              <th>Destino</th>
+              <th>Utilización</th>
+              <th>Comprobación</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════════════════════ -->
+<footer class="foot">
+  <div class="foot-in">
+    <div class="foot-legal">
+      <strong>Ayuntamiento de Guadalajara</strong> · Información pública conforme al <strong>Art. 8, Fracción V, Inciso b)</strong> de la Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios. Generada y publicada por la <strong>Dirección de Ingresos · Tesorería Municipal</strong>. Los importes corresponden a los registros oficiales del ejercicio fiscal y se encuentran respaldados por las comprobaciones documentales vinculadas en cada registro.
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ═══════════════════════════════════════════════════════════════
+     DATOS — Extraídos textualmente de los Excel oficiales
+     ⚠️ NO MODIFICAR importes, conceptos, URLs ni nombres
+     ⚠️ Cambios deben validarse contra la fuente oficial
+  ═══════════════════════════════════════════════════════════════ */
+  const DATOS = {
+
+    /* ── 2026 (Enero–Marzo, Q1) ──
+       Fuente: IngresosExtraordinariosMarzo2026.xlsx (transparencia.guadalajara.gob.mx)
+       ⚠️ El concepto de MARZO en el Excel oficial dice "enero de 2026" — es un typo
+          del archivo oficial. Se preserva el texto literal por fidelidad documental. */
+    ing2026: [
+      { mes:'ENERO',   fuente:'—', concepto:'Durante el mes de enero de 2026 no se recibió ningún importe por concepto de ingresos extraordinarios',   importe:null, responsable:'—', destino:'—', utilizacion:'—', comprobacion:[] },
+      { mes:'FEBRERO', fuente:'—', concepto:'Durante el mes de febrero de 2026 no se recibió ningún importe por concepto de ingresos extraordinarios', importe:null, responsable:'—', destino:'—', utilizacion:'—', comprobacion:[] },
+      { mes:'MARZO',   fuente:'—', concepto:'Durante el mes de enero de 2026 no se recibió ningún importe por concepto de ingresos extraordinarios',   importe:null, responsable:'—', destino:'—', utilizacion:'—', comprobacion:[] },
+    ],
+    resp2026: {
+      tipo:'unico',
+      nombre:'Irlanda Loerythe Baumbach Valencia',
+      cargo:'Tesorero Municipal',
+      area:'Dirección de Ingresos / Jefatura de Análisis y Evaluación del Ingreso',
+      periodo:'01/01/2026 – 31/03/2026',
+      actualizacion:'17/04/2026',
+      nota:'Información correspondiente a la Administración comprendida entre el 01 de Octubre 2024 y el 30 de Septiembre 2027.'
+    },
+
+    /* ── 2025 (Enero–Diciembre, año completo) ── */
+    ing2025: [
+      { mes:'ENERO',      fuente:'—', concepto:'Durante el mes de enero de 2025 no se recibió ningún importe por concepto de ingresos extraordinarios',      importe:null, responsable:'—', destino:'—', utilizacion:'—', comprobacion:[] },
+      { mes:'FEBRERO',    fuente:'—', concepto:'Durante el mes de febrero de 2025 no se recibió ningún importe por concepto de ingresos extraordinarios',    importe:null, responsable:'—', destino:'—', utilizacion:'—', comprobacion:[] },
+      { mes:'MARZO',      fuente:'—', concepto:'Durante el mes de marzo de 2025 no se recibió ningún importe por concepto de ingresos extraordinarios',      importe:null, responsable:'—', destino:'—', utilizacion:'—', comprobacion:[] },
+      { mes:'ABRIL',      fuente:'—', concepto:'Durante el mes de abril de 2025 no se recibió ningún importe por concepto de ingresos extraordinarios',      importe:null, responsable:'—', destino:'—', utilizacion:'—', comprobacion:[] },
+      { mes:'MAYO',       fuente:'—', concepto:'Durante el mes de mayo de 2025 no se recibió ningún importe por concepto de ingresos extraordinarios',       importe:null, responsable:'—', destino:'—', utilizacion:'—', comprobacion:[] },
+      { mes:'JUNIO',      fuente:'—', concepto:'Durante el mes de junio de 2025 no se recibió ningún importe por concepto de ingresos extraordinarios',      importe:null, responsable:'—', destino:'—', utilizacion:'—', comprobacion:[] },
+      { mes:'JULIO',      fuente:'RECURSOS ESTATALES', concepto:'CONVENIO DE COLABORACIÓN POLICIAL METROPOLITANA', importe:19151500, responsable:'COMISARÍA DE LA POLICÍA DE GUADALAJARA', destino:'SUBSIDIO A LOS MUNICIPIOS', utilizacion:'PARA EL APOYO A LOS ELEMENTOS OPERATIVOS ADSCRITOS A LOS MUNICIPIOS INTEGRANTES DE LA POLICÍA METROPOLITANA DE GUADALAJARA', comprobacion:['https://transparencia.guadalajara.gob.mx/sites/default/files/ComprobacionRecursosIngresosExtraordinariosJulio25.pdf','https://transparencia.guadalajara.gob.mx/sites/default/files/ComprobacionRecursosIngresosExtraordinariosJulio25-2.pdf','https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIIEjemplar13Marzo28-2025.pdf'] },
+      { mes:'AGOSTO',     fuente:'RECURSOS ESTATALES', concepto:'CONVENIO DE COLABORACIÓN POLICIAL METROPOLITANA', importe:2687100,  responsable:'COMISARÍA DE LA POLICÍA DE GUADALAJARA', destino:'SUBSIDIO A LOS MUNICIPIOS', utilizacion:'APOYO A LOS ELEMENTOS OPERATIVOS ADSCRITOS A LOS MUNICIPIOS INTEGRANTES DE LA POLICÍA METROPOLITANA DE GUADALAJARA', comprobacion:['https://transparencia.guadalajara.gob.mx/sites/default/files/ComprobacionRecursosIngresosExtraordinariosAgosto25.pdf','https://transparencia.guadalajara.gob.mx/sites/default/files/ComprobacionRecursosIngresosExtraordinariosAgosto25-2.pdf','https://transparencia.guadalajara.gob.mx/sites/default/files/ComprobacionRecursosIngresosExtraordinariosAgosto25-3.pdf','https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIIEjemplar13Marzo28-2025.pdf'] },
+      { mes:'SEPTIEMBRE', fuente:'RECURSOS ESTATALES', concepto:'CONVENIO DE COLABORACIÓN POLICIAL METROPOLITANA', importe:2679650,  responsable:'COMISARÍA DE LA POLICÍA DE GUADALAJARA', destino:'SUBSIDIO A LOS MUNICIPIOS', utilizacion:'APOYO A LOS ELEMENTOS OPERATIVOS ADSCRITOS A LOS MUNICIPIOS INTEGRANTES DE LA POLICÍA METROPOLITANA DE GUADALAJARA', comprobacion:['https://transparencia.guadalajara.gob.mx/sites/default/files/ComprobacionRecursosIngresosExtraordinariosSeptiembre25.pdf','https://transparencia.guadalajara.gob.mx/sites/default/files/ComprobacionRecursosIngresosExtraordinariosSeptiembre25-2.pdf','https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIIEjemplar13Marzo28-2025.pdf'] },
+      { mes:'OCTUBRE',    fuente:'RECURSOS ESTATALES', concepto:'CONVENIO DE COLABORACIÓN POLICIAL METROPOLITANA', importe:2679650,  responsable:'COMISARÍA DE LA POLICÍA DE GUADALAJARA', destino:'SUBSIDIO A LOS MUNICIPIOS', utilizacion:'APOYO A LOS ELEMENTOS OPERATIVOS ADSCRITOS A LOS MUNICIPIOS INTEGRANTES DE LA POLICÍA METROPOLITANA DE GUADALAJARA', comprobacion:['https://transparencia.guadalajara.gob.mx/sites/default/files/ComprobacionRecursosIngresosExtraordinariosOctubre25.pdf','https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIIEjemplar13Marzo28-2025.pdf'] },
+      { mes:'NOVIEMBRE',  fuente:'RECURSOS ESTATALES', concepto:'CONVENIO DE COLABORACIÓN POLICIAL METROPOLITANA', importe:2722050,  responsable:'COMISARÍA DE LA POLICÍA DE GUADALAJARA', destino:'SUBSIDIO A LOS MUNICIPIOS', utilizacion:'APOYO A LOS ELEMENTOS OPERATIVOS ADSCRITOS A LOS MUNICIPIOS INTEGRANTES DE LA POLICÍA METROPOLITANA DE GUADALAJARA', comprobacion:['https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIIEjemplar13Marzo28-2025.pdf'] },
+      { mes:'DICIEMBRE',  fuente:'RECURSOS ESTATALES', concepto:'CONVENIO DE COLABORACIÓN POLICIAL METROPOLITANA', importe:2738550,  responsable:'COMISARÍA DE LA POLICÍA DE GUADALAJARA', destino:'SUBSIDIO A LOS MUNICIPIOS', utilizacion:'APOYO A LOS ELEMENTOS OPERATIVOS ADSCRITOS A LOS MUNICIPIOS INTEGRANTES DE LA POLICÍA METROPOLITANA DE GUADALAJARA', comprobacion:['https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIIEjemplar13Marzo28-2025.pdf'] },
+    ],
+    resp2025: {
+      tipo:'unico',
+      nombre:'Irlanda Loerythe Baumbach Valencia',
+      cargo:'Tesorero Municipal',
+      area:'Dirección de Ingresos / Jefatura de Análisis y Evaluación del Ingreso',
+      periodo:'01/01/2025 – 31/12/2025',
+      actualizacion:'21/01/2026',
+      nota:'Información correspondiente a la Administración comprendida entre el 01 de Octubre 2024 y el 30 de Septiembre 2027.'
+    },
+
+    /* ── 2024 (Enero–Diciembre) ── */
+    ing2024: [
+      { mes:'ENERO',      fuente:'—', concepto:'Durante el mes de enero de 2024 no se recibió ningún importe por concepto de ingresos extraordinarios',      importe:null, responsable:'—', destino:'—', utilizacion:'—', comprobacion:[] },
+      { mes:'FEBRERO',    fuente:'FEDERAL', concepto:'REGULARIZACION DE VEHICULOS USADOS DE PROCEDENCIA EXTRANJERA (ESTE PROGRAMA ES PÚBLICO, AJENO A CUALQUIER PARTIDO POLÍTICO. QUEDA PROHIBIDO EL USO PARA FINES DISTINTOS A LOS ESTABLECIDOS EN EL PROGRAMA)', importe:954045, responsable:'DIRECCIÓN DE OBRAS PÚBLICAS', destino:'PROYECTOS DE PAVIMENTACIÓN', utilizacion:'PROYECTOS DE PAVIMENTACIÓN', comprobacion:['https://transparencia.guadalajara.gob.mx/sites/default/files/Convenio_CO_454_CV_2024.pdf','https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar32Febrero27-2023.pdf','No se ha ingresado ninguna comprobación o solictud de pago derivado del ingreso extraordinario en comento, como se desprende del Oficio TES/DE/0086/2024 girado por el Lic. Rodrigo Ramírez Flores, Director de Egresos.','No se ha ingresado ninguna comprobación o solictud de pago derivado del ingreso extraordinario en comento, como se desprende del Oficio TES/DE/147/2024 girado por el Lic. Rodrigo Ramírez Flores, Director de Egresos.','No se ha ingresado ninguna comprobación o solictud de pago derivado del ingreso extraordinario en comento, como se desprende del Oficio TES/DE/189/2024 girado por el Lic. Rodrigo Ramírez Flores, Director de Egresos.','No se ha ingresado ninguna comprobación o solictud de pago derivado del ingreso extraordinario en comento, como se desprende del Oficio TES/DE/269/2024 girado por el Lic. Rodrigo Ramírez Flores, Director de Egresos.','No se ha ingresado ninguna comprobación o solictud de pago derivado del ingreso extraordinario en comento, como se desprende del Oficio TESO/DE/0006/2024 girado por el Lic. Miguel Ángel Aceves Huitrón, Director de Egresos.','No se ha ingresado ninguna comprobación o solictud de pago derivado del ingreso extraordinario en comento, como se desprende del Oficio TESO/DE/047/2024 girado por el Lic. Miguel Ángel Aceves Huitrón, Director de Egresos.'] },
+      { mes:'MARZO',      fuente:'—', concepto:'Durante el mes de marzo de 2024 no se recibió ningún importe por concepto de ingresos extraordinarios',      importe:null, responsable:'—', destino:'—', utilizacion:'—', comprobacion:[] },
+      { mes:'ABRIL',      fuente:'—', concepto:'Durante el mes de abril de 2024 no se recibió ningún importe por concepto de ingresos extraordinarios',      importe:null, responsable:'—', destino:'—', utilizacion:'—', comprobacion:[] },
+      { mes:'MAYO',       fuente:'—', concepto:'Durante el mes de mayo de 2024 no se recibió ningún importe por concepto de ingresos extraordinarios',       importe:null, responsable:'—', destino:'—', utilizacion:'—', comprobacion:[] },
+      { mes:'JUNIO',      fuente:'—', concepto:'Durante el mes de junio de 2024 no se recibió ningún importe por concepto de ingresos extraordinarios',      importe:null, responsable:'—', destino:'—', utilizacion:'—', comprobacion:[] },
+      { mes:'JULIO',      fuente:'—', concepto:'Durante el mes de julio de 2024 no se recibió ningún importe por concepto de ingresos extraordinarios',      importe:null, responsable:'—', destino:'—', utilizacion:'—', comprobacion:[] },
+      { mes:'AGOSTO',     fuente:'—', concepto:'Durante el mes de agosto de 2024 no se recibió ningún importe por concepto de ingresos extraordinarios',     importe:null, responsable:'—', destino:'—', utilizacion:'—', comprobacion:[] },
+      { mes:'SEPTIEMBRE', fuente:'—', concepto:'Durante el mes de septiembre de 2024 no se recibió ningún importe por concepto de ingresos extraordinarios', importe:null, responsable:'—', destino:'—', utilizacion:'—', comprobacion:[] },
+      { mes:'OCTUBRE',    fuente:'—', concepto:'Durante el mes de octubre de 2024 no se recibió ningún importe por concepto de ingresos extraordinarios',    importe:null, responsable:'—', destino:'—', utilizacion:'—', comprobacion:[] },
+      { mes:'NOVIEMBRE',  fuente:'—', concepto:'Durante el mes de noviembre de 2024 no se recibió ningún importe por concepto de ingresos extraordinarios',  importe:null, responsable:'—', destino:'—', utilizacion:'—', comprobacion:[] },
+      { mes:'DICIEMBRE',  fuente:'FINANCIAMIENTOS INTERNOS', concepto:'CRÉDITO A CORTO PLAZO MUNICIPIO DE GUADALAJARA 2024, DE ACUERDO AL OFICIO DE/120/2024', importe:300000000, responsable:'TESORERÍA', destino:'CUBRIR INSUFICIENCIAS PRESUPUESTARIAS', utilizacion:'DAR LIQUIDEZ DE CARÁCTER TEMPORAL A COMPROMISOS DE LAS DEPENDENCIAS DEL AYUNTAMIENTO DE GUADALAJARA', comprobacion:['https://deudapublica.guadalajara.gob.mx/categoria/3','https://transparencia.guadalajara.gob.mx/deudapublica2024','https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoVIEjemplar11Secc2aDiciembre2-2024.pdf'] },
+    ],
+    /* ── 2024 responsables ──
+       Fuente oficial: Art8FraccionV-Inciso-b-Responsable-Recibir-Administrar-Ejercer-Ingresos-2024Oct-Dic.xlsx
+       Período cubierto: 01/10/2024 – 31/12/2024 (administración actual)
+       ⚠️ Los meses ENERO–SEPTIEMBRE 2024 corresponden a la administración anterior
+          y NO están documentados en este archivo oficial. */
+    resp2024: {
+      tipo:'multiple',
+      periodo:'01/10/2024 – 31/12/2024',
+      actualizacion:'06/11/2024',
+      area:'Dirección de Ingresos / Jefatura de Análisis y Evaluación del Ingreso',
+      nota:'Información correspondiente al periodo comprendido entre el 01 de Octubre de 2024 al 30 de Septiembre de 2027.',
+      avisoPeriodo:'Los meses de enero a septiembre de 2024 corresponden a la administración municipal anterior y no se encuentran documentados en el archivo oficial publicado en transparencia.guadalajara.gob.mx/ingresosextraordinarios.',
+      personas:[
+        { rol:'Responsable de Recibir',    nombre:'Fabián Aceves Dávalos',           cargo:'Director de Ingresos' },
+        { rol:'Responsable de Administrar', nombre:'Ricardo Rodríguez Jiménez',       cargo:'Tesorero Municipal'    },
+        { rol:'Responsable de Ejercer',    nombre:'Juan Francisco Castellanos Horta', cargo:'Director de Finanzas'  }
+      ]
+    },
+
+    /* Fecha de última actualización general del documento */
+    metaUpdate: '24 de abril de 2026'
+  };
+
+  /* ═══════════════════════════════════════════════════════════════
+     HELPERS
+  ═══════════════════════════════════════════════════════════════ */
+  const $ = id => document.getElementById(id);
+  const fmtMXN = n => new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN',maximumFractionDigits:0}).format(n);
+  const fmtN = n => new Intl.NumberFormat('es-MX').format(n);
+  const cap = s => (s||'').toLowerCase().replace(/(?:^|\s)\S/g, c => c.toUpperCase());
+  const esURL = s => typeof s === 'string' && s.startsWith('http');
+  const YEARS = ['2026','2025','2024'];
+  const CURRENT_YR = new Date().getFullYear();
+
+  function fuenteClass(f) {
+    if(!f || f === '—') return 'otro';
+    const u = f.toUpperCase();
+    if(u.includes('FEDERAL')) return 'federal';
+    if(u.includes('ESTATAL') || u.includes('CONVENIO')) return 'estatal';
+    if(u.includes('FINANCIAMIENTO') || u.includes('CRÉDITO') || u.includes('CREDITO')) return 'financiamiento';
+    return 'otro';
+  }
+  function fuenteShort(f) {
+    if(!f || f === '—') return '—';
+    return f;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     ESTADO
+  ═══════════════════════════════════════════════════════════════ */
+  let activeYear = '2026';
+  let activeQuery = '';
+
+  /* ═══════════════════════════════════════════════════════════════
+     SEGMENTED CONTROL
+  ═══════════════════════════════════════════════════════════════ */
+  const seg = $('segctrl');
+  YEARS.forEach(y => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'segctrl-btn';
+    if(parseInt(y,10) === CURRENT_YR) b.classList.add('current');
+    if(y === activeYear) b.classList.add('active');
+    b.textContent = y;
+    b.dataset.year = y;
+    b.setAttribute('role','tab');
+    b.setAttribute('aria-selected', y === activeYear ? 'true' : 'false');
+    seg.appendChild(b);
+  });
+  seg.addEventListener('click', e => {
+    const btn = e.target.closest('.segctrl-btn');
+    if(!btn || btn.dataset.year === activeYear) return;
+    activeYear = btn.dataset.year;
+    document.querySelectorAll('.segctrl-btn').forEach(x => { x.classList.remove('active'); x.setAttribute('aria-selected','false'); });
+    btn.classList.add('active');
+    btn.setAttribute('aria-selected','true');
+    $('srch').value = '';
+    activeQuery = '';
+    render();
+  });
+
+  /* ═══════════════════════════════════════════════════════════════
+     KPIs
+  ═══════════════════════════════════════════════════════════════ */
+  function renderKPIs() {
+    const rows = DATOS['ing'+activeYear];
+    const total = rows.reduce((a,r) => a + (r.importe || 0), 0);
+    const con = rows.filter(r => r.importe).length;
+    const sin = rows.filter(r => !r.importe).length;
+    $('kpis').innerHTML = `
+      <div class="kpi total">
+        <div class="kpi-lbl">Total recibido en ${activeYear}</div>
+        <div class="kpi-val">${total > 0 ? fmtMXN(total) : '$0'}</div>
+        <div class="kpi-sub">Suma de todos los ingresos extraordinarios del año</div>
+      </div>
+      <div class="kpi con">
+        <div class="kpi-lbl">Meses con ingreso</div>
+        <div class="kpi-val">${con}</div>
+        <div class="kpi-sub">${con === 1 ? 'Mes registrado' : 'Meses registrados'} con recursos extraordinarios</div>
+      </div>
+      <div class="kpi sin">
+        <div class="kpi-lbl">Meses sin ingreso</div>
+        <div class="kpi-val">${sin}</div>
+        <div class="kpi-sub">Sin recursos extraordinarios recibidos</div>
+      </div>
+      <div class="kpi reg">
+        <div class="kpi-lbl">Registros del ejercicio</div>
+        <div class="kpi-val">${rows.length}</div>
+        <div class="kpi-sub">Meses reportados oficialmente</div>
+      </div>
+    `;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     INGRESOS REGISTRADOS (cards con detalle)
+  ═══════════════════════════════════════════════════════════════ */
+  function renderIngresos() {
+    const rows = DATOS['ing'+activeYear];
+    const q = activeQuery.toLowerCase().trim();
+    const conIngreso = rows.filter(r => r.importe);
+    const sinIngreso = rows.filter(r => !r.importe);
+
+    // Filtrar por búsqueda si aplica
+    const conFiltered = conIngreso.filter(r => !q || [r.mes, r.fuente, r.concepto, r.responsable, r.destino, r.utilizacion].some(v => v && v.toLowerCase().includes(q)));
+
+    const grid = $('ing-grid');
+    const noIngWrap = $('no-ing-wrap');
+    const secCount = $('sec-ing-count');
+
+    if(conFiltered.length === 0 && q) {
+      grid.innerHTML = `<div class="no-ing"><div class="no-ing-ico">🔍</div><div class="no-ing-body"><div class="no-ing-h">Sin resultados para "${activeQuery}"</div><div style="font-size:.7rem;color:var(--nm)">Prueba con otros términos o limpia la búsqueda.</div></div></div>`;
+      noIngWrap.innerHTML = '';
+      secCount.textContent = '0 registros';
+      return;
+    }
+
+    // Render cards de ingresos reales
+    grid.innerHTML = conFiltered.map(r => {
+      const fCls = fuenteClass(r.fuente);
+      const compHTML = r.comprobacion.length === 0 ?
+        '<div style="font-size:.7rem;color:var(--nm);font-style:italic">Sin comprobaciones registradas</div>' :
+        '<div class="ing-comp-list">' +
+        r.comprobacion.map(c => esURL(c) ?
+          `<a class="ing-comp-link" href="${c}" target="_blank" rel="noopener noreferrer">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Ver PDF / Gaceta
+          </a>` :
+          `<div class="ing-comp-note">${c}</div>`
+        ).join('') + '</div>';
+
+      return `
+        <article class="ing-card">
+          <div class="ing-card-top">
+            <div class="ing-meta-left">
+              <span class="ing-mes-badge">${r.mes.toLowerCase()}<span class="ing-mes-yr">${activeYear}</span></span>
+              <span class="ing-fuente-tag ${fCls}">${fuenteShort(r.fuente)}</span>
+            </div>
+            <div class="ing-importe-wrap">
+              <div class="ing-importe-lbl">Importe recibido</div>
+              <div class="ing-importe">${fmtMXN(r.importe)}</div>
+            </div>
+          </div>
+          <div class="ing-body">
+            <div class="ing-field wide">
+              <div class="ing-field-lbl">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Concepto
+              </div>
+              <div class="ing-field-val">${r.concepto}</div>
+            </div>
+            <div class="ing-field">
+              <div class="ing-field-lbl">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="7" r="4"/><path d="M20 21a8 8 0 10-16 0"/></svg>
+                Responsable de ejercerlo
+              </div>
+              <div class="ing-field-val">${r.responsable}</div>
+            </div>
+            <div class="ing-field">
+              <div class="ing-field-lbl">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+                Destino
+              </div>
+              <div class="ing-field-val">${r.destino}</div>
+            </div>
+            <div class="ing-field wide">
+              <div class="ing-field-lbl">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                Utilización
+              </div>
+              <div class="ing-field-val">${r.utilizacion}</div>
+            </div>
+          </div>
+          <div class="ing-comp">
+            <div class="ing-comp-h">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4"/><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Comprobación documental
+            </div>
+            ${compHTML}
+          </div>
+        </article>
+      `;
+    }).join('');
+
+    secCount.textContent = conFiltered.length + (conFiltered.length === 1 ? ' registro' : ' registros');
+
+    // Render bloque de meses sin ingreso (solo si no hay query)
+    if(!q && sinIngreso.length > 0) {
+      const mesesPretty = sinIngreso.map(r => cap(r.mes)).join(', ');
+      const mesesLegal = sinIngreso[0].concepto.replace(/Durante el mes de \w+ de \d+ /, 'En estos meses ');
+      const ejemploLegal = `Durante el mes de ${sinIngreso[0].mes.toLowerCase()} de ${activeYear} no se recibió ningún importe por concepto de ingresos extraordinarios. (Texto registrado idénticamente para los demás meses sin ingreso del ejercicio).`;
+      noIngWrap.innerHTML = `
+        <div class="no-ing">
+          <div class="no-ing-ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div class="no-ing-body">
+            <div class="no-ing-h">Meses sin ingresos extraordinarios en ${activeYear} <span style="font-weight:600;color:var(--nm)">(${sinIngreso.length} ${sinIngreso.length === 1 ? 'mes' : 'meses'})</span></div>
+            <div class="no-ing-meses">${sinIngreso.map(r => `<span class="no-ing-mes">${cap(r.mes)}</span>`).join('')}</div>
+            <div class="no-ing-legal">
+              <strong style="color:var(--ng);font-style:normal">Texto oficial reportado:</strong> "${ejemploLegal}"
+            </div>
+          </div>
+        </div>
+      `;
+    } else {
+      noIngWrap.innerHTML = '';
+    }
+
+    // Si no hay ningún registro con ingreso, indicarlo
+    if(conIngreso.length === 0 && !q) {
+      grid.innerHTML = `
+        <div class="no-ing" style="background:var(--oxl);border-style:solid;border-color:var(--ol)">
+          <div class="no-ing-ico" style="background:var(--ol);color:var(--od);border-color:var(--o)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <div class="no-ing-body">
+            <div class="no-ing-h" style="color:var(--od)">En ${activeYear} aún no se han registrado ingresos extraordinarios</div>
+            <div style="font-size:.72rem;color:var(--ng);line-height:1.5">Conforme avance el ejercicio fiscal y se reciban recursos extraordinarios, se publicarán aquí con su comprobación documental correspondiente.</div>
+          </div>
+        </div>
+      `;
+    }
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     RESPONSABLE
+     · tipo 'unico'    : 1 sola persona con los 3 roles (Irlanda 2025/2026)
+     · tipo 'multiple' : 3 personas distintas, una por rol (2024 Oct-Dic)
+  ═══════════════════════════════════════════════════════════════ */
+  function getInitials(name){
+    return name.split(' ').filter(w => w.length > 2 && !w.startsWith('(')).slice(0,2).map(w => w[0]).join('').toUpperCase() || '?';
+  }
+  function rolClass(rol){
+    if(rol.includes('Recibir')) return 'recibir';
+    if(rol.includes('Administrar')) return 'administrar';
+    return 'ejercer';
+  }
+
+  function renderResp() {
+    const r = DATOS['resp'+activeYear];
+
+    if(r.tipo === 'unico') {
+      // Una sola persona con los 3 roles → tarjeta única
+      $('resp-wrap').innerHTML = `
+        <div class="resp-card">
+          <div class="resp-top">
+            <div class="resp-avatar">${getInitials(r.nombre)}</div>
+            <div class="resp-info">
+              <div class="resp-nombre">${r.nombre}</div>
+              <div class="resp-cargo">${r.cargo}</div>
+              <div class="resp-area">${r.area}</div>
+            </div>
+          </div>
+          <div class="resp-roles">
+            <span class="resp-role-pill recibir"><span class="dot"></span>Responsable de recibir</span>
+            <span class="resp-role-pill administrar"><span class="dot"></span>Responsable de administrar</span>
+            <span class="resp-role-pill ejercer"><span class="dot"></span>Responsable de ejercer</span>
+          </div>
+          <div class="resp-bottom">
+            <div class="resp-meta">
+              <span class="resp-meta-lbl">Período del ejercicio</span>
+              <span class="resp-meta-val">${r.periodo}</span>
+            </div>
+            <div class="resp-meta">
+              <span class="resp-meta-lbl">Última actualización</span>
+              <span class="resp-meta-val">${r.actualizacion}</span>
+            </div>
+          </div>
+          <div class="resp-nota">
+            <strong>Nota legal:</strong> ${r.nota}
+          </div>
+        </div>
+      `;
+      return;
+    }
+
+    if(r.tipo === 'multiple') {
+      // 3 personas distintas, una por rol → bloque encabezado + 3 mini-cards + nota
+      const personasHTML = r.personas.map(p => `
+        <div class="resp-card-mini">
+          <div class="resp-card-mini-top">
+            <div class="resp-avatar-sm">${getInitials(p.nombre)}</div>
+            <div class="resp-card-mini-info">
+              <div class="resp-card-mini-name">${p.nombre}</div>
+              <div class="resp-card-mini-cargo">${p.cargo}</div>
+            </div>
+          </div>
+          <span class="resp-role-pill ${rolClass(p.rol)}"><span class="dot"></span>${p.rol}</span>
+        </div>
+      `).join('');
+
+      $('resp-wrap').innerHTML = `
+        <div class="resp-card">
+          <div class="resp-top resp-top-multi">
+            <div class="resp-info">
+              <div class="resp-multi-lbl">Equipo responsable del periodo</div>
+              <div class="resp-area">${r.area}</div>
+            </div>
+            <div class="resp-multi-meta">
+              <div class="resp-meta">
+                <span class="resp-meta-lbl">Período</span>
+                <span class="resp-meta-val">${r.periodo}</span>
+              </div>
+              <div class="resp-meta">
+                <span class="resp-meta-lbl">Actualización</span>
+                <span class="resp-meta-val">${r.actualizacion}</span>
+              </div>
+            </div>
+          </div>
+          <div class="resp-multi-grid">${personasHTML}</div>
+          ${r.avisoPeriodo ? `
+            <div class="resp-aviso">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              <span><strong>Aviso de período:</strong> ${r.avisoPeriodo}</span>
+            </div>` : ''}
+          <div class="resp-nota">
+            <strong>Nota legal:</strong> ${r.nota}
+          </div>
+        </div>
+      `;
+      return;
+    }
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     TABLA SIRES COMPLETA (Disclosure)
+  ═══════════════════════════════════════════════════════════════ */
+  function renderTablaCompleta() {
+    const rows = DATOS['ing'+activeYear];
+    const tbody = document.querySelector('#tbl-full tbody');
+    let total = 0;
+    tbody.innerHTML = rows.map(r => {
+      const empty = !r.importe;
+      total += r.importe || 0;
+      const compHTML = r.comprobacion.length === 0 ?
+        '<span style="color:var(--nm);font-style:italic;font-size:.62rem">Sin comprobantes</span>' :
+        r.comprobacion.map(c => esURL(c) ?
+          `<a class="doc-link-mini" href="${c}" target="_blank" rel="noopener noreferrer">
+            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Ver PDF
+          </a>` :
+          `<span class="doc-note-mini">${c}</span>`
+        ).join('');
+      return `
+        <tr>
+          <td class="t-month">${r.mes.toLowerCase()}</td>
+          <td>${activeYear}</td>
+          <td>${empty ? '<span class="t-vacio">N/A</span>' : r.fuente}</td>
+          <td style="max-width:24rem;word-break:break-word">${empty ? `<span class="t-vacio">${r.concepto}</span>` : r.concepto}</td>
+          <td class="t-importe ${empty ? 'empty' : ''}">${empty ? '—' : fmtMXN(r.importe)}</td>
+          <td>${empty ? '<span class="t-vacio">N/A</span>' : r.responsable}</td>
+          <td>${empty ? '<span class="t-vacio">N/A</span>' : r.destino}</td>
+          <td style="max-width:18rem;word-break:break-word">${empty ? '<span class="t-vacio">N/A</span>' : r.utilizacion}</td>
+          <td style="max-width:22rem">${compHTML}</td>
+        </tr>
+      `;
+    }).join('');
+    $('disc-count').textContent = rows.length + (rows.length === 1 ? ' mes' : ' meses');
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     DISCLOSURE
+  ═══════════════════════════════════════════════════════════════ */
+  $('disc-btn').addEventListener('click', () => {
+    const btn = $('disc-btn');
+    const content = $('disc-content');
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    if(expanded) {
+      content.style.maxHeight = '0';
+      content.classList.remove('open');
+      btn.setAttribute('aria-expanded','false');
+      content.setAttribute('aria-hidden','true');
+    } else {
+      content.classList.add('open');
+      content.style.maxHeight = content.scrollHeight + 'px';
+      btn.setAttribute('aria-expanded','true');
+      content.setAttribute('aria-hidden','false');
+      setTimeout(() => { content.style.maxHeight = 'none'; }, 400);
+    }
+  });
+
+  /* ═══════════════════════════════════════════════════════════════
+     BÚSQUEDA
+  ═══════════════════════════════════════════════════════════════ */
+  let qTimer;
+  $('srch').addEventListener('input', e => {
+    clearTimeout(qTimer);
+    qTimer = setTimeout(() => {
+      activeQuery = e.target.value;
+      renderIngresos();
+    }, 150);
+  });
+
+  /* ═══════════════════════════════════════════════════════════════
+     DESCARGAR CSV
+  ═══════════════════════════════════════════════════════════════ */
+  function escapeCSV(c) {
+    const s = String(c == null ? '' : c);
+    if(s.includes(',') || s.includes('"') || s.includes('\n')) {
+      return '"' + s.replace(/"/g, '""') + '"';
+    }
+    return s;
+  }
+
+  $('btn-csv').addEventListener('click', function() {
+    const rows = DATOS['ing'+activeYear];
+    const headers = ['Ejercicio','Mes','Fuente de ingresos','Concepto','Importe','Responsable','Destino','Utilización','Comprobación'];
+    const csv = [
+      headers.map(escapeCSV).join(','),
+      ...rows.map(r => [
+        activeYear,
+        r.mes,
+        r.fuente,
+        r.concepto,
+        r.importe != null ? r.importe : '',
+        r.responsable,
+        r.destino,
+        r.utilizacion,
+        r.comprobacion.join(' | ')
+      ].map(escapeCSV).join(','))
+    ].join('\r\n');
+    const blob = new Blob(['﻿' + csv], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `Art8_FracV_IncB_IngresosExtraordinarios_${activeYear}_GDL.csv`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 200);
+    this.classList.add('downloaded');
+    setTimeout(() => this.classList.remove('downloaded'), 2000);
+  });
+
+  /* ═══════════════════════════════════════════════════════════════
+     RENDER GLOBAL
+  ═══════════════════════════════════════════════════════════════ */
+  function render() {
+    renderKPIs();
+    renderIngresos();
+    renderResp();
+    renderTablaCompleta();
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     INIT
+  ═══════════════════════════════════════════════════════════════ */
+  $('hdr-update').textContent = 'Actualizado al ' + DATOS.metaUpdate;
+  render();
+})();
+</script>
+</body>
+</html>
