@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recursos Materiales · Transparencia Guadalajara</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root{
+      /* Paleta institucional GDL */
+      --nr:#E87722;          /* Naranja Guadalajara */
+      --nr-l:#FF9A45;
+      --nr-d:#C45F0A;
+      --nr-deeper:#9A4708;
+      --nr-soft:#FFF1E4;
+      --nr-a:rgba(232,119,34,.10);
+      --nr-b:rgba(232,119,34,.22);
+
+      --g50:#FAFAF8;
+      --g100:#F0F0EC;
+      --g200:#E2E2DD;
+      --g400:#9E9E98;
+      --g600:#5A5A55;
+      --g900:#1A1A1A;
+      --wh:#FFF;
+      --rad:10px;
+      --sh:0 4px 22px rgba(0,0,0,.08);
+      --fh:'Outfit',sans-serif;
+      --fm:'DM Mono',monospace;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:var(--fh);background:var(--g50);color:var(--g900);line-height:1.6}
+
+    /* ════════════════════════════════════════
+       HERO — NARANJA INSTITUCIONAL
+    ════════════════════════════════════════ */
+    .hero{
+      background:
+        radial-gradient(ellipse 800px 400px at 90% 30%, rgba(255,255,255,.18) 0%, transparent 70%),
+        linear-gradient(135deg, var(--nr-d) 0%, var(--nr) 55%, var(--nr-l) 100%);
+      padding:28px 32px 24px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:
+        repeating-linear-gradient(45deg, transparent, transparent 60px, rgba(255,255,255,.04) 60px, rgba(255,255,255,.04) 61px);
+      pointer-events:none;
+    }
+    /* Decorative geometric shape */
+    .hero::after{
+      content:'';
+      position:absolute;
+      right:-120px; top:-80px;
+      width:380px; height:380px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(255,255,255,.10) 0%, transparent 70%);
+      pointer-events:none;
+    }
+    .hi{position:relative;max-width:1100px;margin:0 auto;z-index:2}
+    .bc{
+      font-size:10.5px;color:rgba(255,255,255,.85);
+      letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;
+      font-weight:500;
+    }
+    .badge{
+      display:inline-block;
+      background:rgba(255,255,255,.18);
+      border:1px solid rgba(255,255,255,.40);
+      color:#fff;font-size:10px;font-weight:700;letter-spacing:.12em;
+      text-transform:uppercase;padding:4px 11px;border-radius:20px;
+      margin-bottom:8px;backdrop-filter:blur(6px);
+    }
+    .hero h1{
+      font-size:clamp(22px,3vw,32px);
+      font-weight:800;color:#fff;line-height:1.08;margin-bottom:8px;
+      letter-spacing:-.02em;
+    }
+    .hero h1 span{
+      display:inline-block;
+      color:#fff;
+      font-weight:300;
+      font-style:italic;
+    }
+    .hero-sub{
+      font-size:13px;color:rgba(255,255,255,.92);
+      max-width:660px;margin-bottom:18px;font-weight:400;
+    }
+    .kpis{display:flex;gap:12px;flex-wrap:wrap}
+    .kpi{
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.25);
+      border-radius:var(--rad);
+      padding:8px 14px;min-width:108px;
+      backdrop-filter:blur(8px);
+    }
+    .kpi-n{
+      font-size:20px;font-weight:800;color:#fff;
+      font-family:var(--fm);line-height:1;
+    }
+    .kpi-l{
+      font-size:10px;color:rgba(255,255,255,.85);
+      text-transform:uppercase;letter-spacing:.08em;margin-top:4px;
+      font-weight:500;
+    }
+
+    /* ════════════════════════════════════════
+       MAIN
+    ════════════════════════════════════════ */
+    .wrap{max-width:1100px;margin:0 auto;padding:16px 20px 24px}
+
+    .chip{
+      display:inline-flex;align-items:center;gap:7px;
+      background:var(--wh);border:1px solid var(--g200);
+      border-radius:20px;padding:5px 14px;font-size:11.5px;color:var(--g600);
+      box-shadow:0 2px 8px rgba(0,0,0,.05);margin-bottom:12px;
+    }
+    .chip strong{color:var(--g900)}
+    .dot{width:7px;height:7px;background:#4CAF50;border-radius:50%;flex-shrink:0;animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+
+    .fleg{
+      background:var(--wh);border-left:4px solid var(--nr);
+      border-radius:var(--rad);padding:12px 18px;
+      box-shadow:0 2px 12px rgba(0,0,0,.05);margin-bottom:14px;
+    }
+    .fleg h3{
+      font-size:11px;font-weight:700;text-transform:uppercase;
+      letter-spacing:.09em;color:var(--nr-d);margin-bottom:6px;
+    }
+    .fleg p{font-size:12.5px;color:var(--g600);line-height:1.5}
+    .fleg p strong{color:var(--g900)}
+    .tags{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px}
+    .tag{
+      background:var(--nr-a);border:1px solid var(--nr-b);color:var(--nr-d);
+      font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px;font-family:var(--fm);
+    }
+
+    /* ════════════════════════════════════════
+       TABS PRINCIPALES — 3 RUBROS
+    ════════════════════════════════════════ */
+    .tabs{
+      display:flex;gap:4px;background:var(--g100);
+      padding:4px;border-radius:var(--rad);margin-bottom:14px;
+      width:fit-content;flex-wrap:wrap;
+    }
+    .tab{
+      padding:8px 16px;border-radius:8px;font-size:12.5px;font-weight:600;
+      cursor:pointer;border:none;background:transparent;color:var(--g600);
+      transition:all .2s;font-family:var(--fh);
+      display:inline-flex;align-items:center;gap:6px;
+    }
+    .tab.active{
+      background:var(--nr);color:#fff;
+      box-shadow:0 2px 10px rgba(232,119,34,.35);
+    }
+    .tab:hover:not(.active){background:var(--g200);color:var(--g900)}
+    .panel{display:none;animation:fadeIn .25s ease}
+    .panel.active{display:block}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+    /* STATS BAR */
+    .sb{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin-bottom:14px}
+    .sc{
+      background:var(--wh);border-radius:var(--rad);
+      padding:10px 14px;box-shadow:0 2px 10px rgba(0,0,0,.05);
+      border-left:3px solid var(--nr);
+      display:flex;flex-direction:column;
+    }
+    .sc .sn{font-size:21px;font-weight:800;color:var(--nr-d);font-family:var(--fm);line-height:1.1;display:block}
+    .sc .sl{font-size:10.5px;color:var(--g600);text-transform:uppercase;letter-spacing:.06em;margin-top:4px;font-weight:700;display:block}
+    .sc .ss{font-size:10px;color:var(--g400);margin-top:2px;display:block}
+
+    /* SUBTÍTULO */
+    .st{
+      font-size:13px;font-weight:700;color:var(--g900);
+      margin:14px 0 8px;padding-left:10px;
+      border-left:3px solid var(--nr);
+      display:flex;align-items:center;gap:8px;
+    }
+    .st-tag{
+      font-size:10px;font-weight:700;background:var(--nr);color:#fff;
+      padding:2px 8px;border-radius:10px;text-transform:uppercase;letter-spacing:.05em;
+    }
+
+    /* GRID DE TARJETAS POR PERIODO */
+    .yg{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-bottom:14px}
+    .yc{
+      background:var(--wh);border-radius:var(--rad);
+      box-shadow:0 2px 10px rgba(0,0,0,.06);overflow:hidden;
+      transition:transform .18s, box-shadow .18s;
+      max-width:340px;
+    }
+    .yc:hover{transform:translateY(-2px);box-shadow:var(--sh)}
+    .yh{
+      background:linear-gradient(135deg, var(--nr-d) 0%, var(--nr) 100%);
+      padding:8px 14px;display:flex;align-items:center;justify-content:space-between;
+    }
+    .yh span{font-size:12.5px;font-weight:700;color:#fff}
+    .ybg{
+      font-size:9px;background:rgba(255,255,255,.25);color:#fff;
+      padding:2px 7px;border-radius:10px;font-weight:700;
+      white-space:nowrap;border:1px solid rgba(255,255,255,.4);
+    }
+    .yb{padding:6px 12px}
+    .fr{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:5px 0;border-bottom:1px solid var(--g100);gap:8px;
+    }
+    .fr:last-child{border-bottom:none}
+    .fl{font-size:11px;color:var(--g600);font-weight:500}
+    .fls{display:flex;gap:5px;flex-wrap:wrap}
+
+    /* BOTONES DESCARGA */
+    .dl{
+      display:inline-flex;align-items:center;gap:3px;
+      padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;
+      text-decoration:none;transition:filter .15s, transform .1s;white-space:nowrap;
+    }
+    .dl:hover{filter:brightness(.92);transform:translateY(-1px)}
+    .xl{background:#E8F5E9;color:#1B5E20;border:1px solid #A5D6A7}
+    .pd{background:#FFEBEE;color:#B71C1C;border:1px solid #EF9A9A}
+    .nd{color:var(--g400);font-size:11px;padding:4px 0;font-style:italic}
+
+    /* ACORDEÓN */
+    .acc{margin-bottom:6px}
+    .acb{
+      width:100%;display:flex;align-items:center;justify-content:space-between;
+      padding:10px 16px;background:var(--wh);border:1px solid var(--g200);
+      border-radius:var(--rad);cursor:pointer;font-family:var(--fh);
+      font-size:13px;font-weight:600;color:var(--g900);text-align:left;
+      transition:all .2s;box-shadow:0 2px 8px rgba(0,0,0,.04);
+    }
+    .acb:hover,.acb.open{border-color:var(--nr);background:var(--nr-soft)}
+    .acb.open{border-bottom-left-radius:0;border-bottom-right-radius:0}
+    .aci{font-size:10px;color:var(--nr);transition:transform .25s}
+    .acb.open .aci{transform:rotate(180deg)}
+    .act{
+      font-size:10px;font-weight:700;background:var(--nr-b);color:var(--nr-d);
+      padding:2px 8px;border-radius:10px;margin-left:8px;
+    }
+    .acd{
+      display:none;background:var(--wh);
+      border:1px solid var(--nr);border-top:none;
+      border-radius:0 0 var(--rad) var(--rad);overflow:hidden;
+    }
+    .acd.open{display:block}
+
+    /* TABLA INTERIOR */
+    .tw{overflow-x:auto}
+    table.it{width:100%;border-collapse:collapse;font-size:11.5px}
+    table.it thead tr{background:var(--nr-soft)}
+    table.it thead th{
+      padding:7px 11px;text-align:left;font-size:10px;font-weight:700;
+      text-transform:uppercase;letter-spacing:.07em;color:var(--nr-d);
+      border-bottom:2px solid var(--nr);
+    }
+    table.it tbody tr:hover{background:var(--nr-a)}
+    table.it td{padding:7px 11px;border-bottom:1px solid var(--g100);vertical-align:middle}
+    table.it tbody tr:last-child td{border-bottom:none}
+    table.it td:first-child{font-weight:600;white-space:nowrap;color:var(--g900)}
+
+    @media(max-width:640px){
+      .hero{padding:34px 18px 28px}
+      .wrap{padding:22px 14px 50px}
+      .kpis{gap:8px}
+      .kpi{min-width:108px;padding:10px 12px}
+      .kpi-n{font-size:21px}
+      .tab{padding:8px 14px;font-size:12px}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════ HERO NARANJA ═══════════════════ -->
+<section class="hero">
+  <div class="hi">
+    <p class="bc">Transparencia · Ayuntamiento de Guadalajara · Artículo 8</p>
+    <span class="badge">LTAIPEJM · Art. 8 · Recursos Materiales Patrimoniales</span>
+    <h1>Recursos<br/><span>Materiales</span></h1>
+    <p class="hero-sub">Inventario de los bienes muebles, inmuebles y vehículos que el Ayuntamiento de Guadalajara utiliza, tiene a su cargo o le han sido asignados para el desarrollo de sus funciones públicas. Cobertura: octubre 2024 – marzo 2026.</p>
+    <div class="kpis">
+      <div class="kpi"><div class="kpi-n">2,358</div><div class="kpi-l">Vehículos en inventario</div></div>
+      <div class="kpi"><div class="kpi-n">17</div><div class="kpi-l">Meses publicados</div></div>
+      <div class="kpi"><div class="kpi-n">100%</div><div class="kpi-l">Formato XLSX</div></div>
+      <div class="kpi"><div class="kpi-n">3</div><div class="kpi-l">Rubros patrimoniales</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ MAIN ═══════════════════ -->
+<main class="wrap">
+
+  <div class="chip">
+    <span class="dot"></span>
+    Última actualización:&nbsp;<strong>28 de abril de 2026</strong>&nbsp;|&nbsp;Ejercicio vigente:&nbsp;<strong>2026</strong>
+  </div>
+
+  <!-- FUNDAMENTO LEGAL -->
+  <div class="fleg">
+    <h3>⚖ Fundamento Legal</h3>
+    <p><strong>Artículo 8</strong> de la <strong>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios (LTAIPEJM)</strong>: los sujetos obligados deberán publicar el inventario de los recursos materiales asignados para la realización de sus funciones públicas, conforme a la normatividad aplicable.</p>
+    <div class="tags">
+      <span class="tag">LTAIPEJM</span>
+      <span class="tag">Art. 8</span>
+      <span class="tag">LTAIPEJM8FV-R</span>
+      <span class="tag">LTAIPEJM8FV-R2</span>
+      <span class="tag">LTAIPEJM8FV-R3</span>
+      <span class="tag">LTAIPEJM8FV-R7</span>
+    </div>
+  </div>
+
+  <!-- TABS DE RUBROS -->
+  <div class="tabs">
+    <button class="tab active" id="tab-v" onclick="showPanel('v')">🚗 Inventario de Vehículos</button>
+    <button class="tab"        id="tab-m" onclick="showPanel('m')">🖥 Bienes Muebles Patrimoniales</button>
+    <button class="tab"        id="tab-i" onclick="showPanel('i')">🏛 Bienes Inmuebles Patrimoniales</button>
+  </div>
+
+
+  <!-- ════════════════════════════════════════
+       PANEL: VEHÍCULOS
+  ════════════════════════════════════════ -->
+  <div id="panel-v" class="panel active">
+
+    <div class="sb">
+      <div class="sc"><span class="sn">2,358</span><span class="sl">Total inventario</span><span class="ss">Marzo 2026</span></div>
+      <div class="sc"><span class="sn">796</span><span class="sl">Camionetas</span><span class="ss">Rubro mayor</span></div>
+      <div class="sc"><span class="sn">667</span><span class="sl">Automóviles</span><span class="ss">2.° rubro</span></div>
+      <div class="sc"><span class="sn">502</span><span class="sl">Camiones</span><span class="ss">3.° rubro</span></div>
+      <div class="sc"><span class="sn">190</span><span class="sl">Motocicletas</span><span class="ss">4.° rubro</span></div>
+    </div>
+
+    <!-- 2026 -->
+    <p class="st">2026 — Consolidado anual <span class="st-tag">VIGENTE</span></p>
+    <div class="yg">
+      <div class="yc">
+        <div class="yh"><span>2026 (a marzo)</span><span class="ybg">VIGENTE</span></div>
+        <div class="yb">
+          <div class="fr"><span class="fl">📋 Inventario General</span><div class="fls"><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/Vehiculos-Inventario-2026.xlsx" target="_blank">⬇ XLSX</a></div></div>
+          <div class="fr"><span class="fl">⬆ Altas practicadas</span><div class="fls"><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/Vehiculos-Altas-2026.xlsx" target="_blank">⬇ XLSX</a></div></div>
+          <div class="fr"><span class="fl">⬇ Bajas practicadas</span><div class="fls"><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/Vehiculos-Bajas-2026.xlsx" target="_blank">⬇ XLSX</a></div></div>
+          <div class="fr"><span class="fl">📋 Donaciones</span><div class="fls"><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/Vehiculos-Donaciones-2026.xlsx" target="_blank">⬇ XLSX</a></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2025 -->
+    <p class="st">2025 — Consolidado anual y mensual</p>
+    <div class="yg">
+      <div class="yc">
+        <div class="yh"><span>2025 — Consolidado</span></div>
+        <div class="yb">
+          <div class="fr"><span class="fl">📋 Inventario General</span><div class="fls"><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/Vehiculos-Inventario-2025.xlsx" target="_blank">⬇ XLSX</a></div></div>
+          <div class="fr"><span class="fl">⬆ Altas practicadas</span><div class="fls"><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/Vehiculos-Altas-2025.xlsx" target="_blank">⬇ XLSX</a></div></div>
+          <div class="fr"><span class="fl">⬇ Bajas practicadas</span><div class="fls"><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/Vehiculos-Bajas-2025.xlsx" target="_blank">⬇ XLSX</a></div></div>
+          <div class="fr"><span class="fl">📋 Donaciones</span><div class="fls"><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/Vehiculos-Donaciones-2025.xlsx" target="_blank">⬇ XLSX</a></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2024 oct-dic -->
+    <p class="st">2024 — Octubre · Noviembre · Diciembre</p>
+    <div class="yg">
+      <div class="yc"><div class="yh"><span>Diciembre 2024</span></div><div class="yb">
+        <div class="fr"><span class="fl">📋 Inventario</span><div class="fls"><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/VehiculosDiciembre24.xlsx" target="_blank">⬇ XLSX</a></div></div>
+        <div class="fr"><span class="fl">⬆ Altas practicadas</span><div class="fls"><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesVehiculosDiciembreAltas2024.xlsx" target="_blank">⬇ XLSX</a></div></div>
+        <div class="fr"><span class="fl">📄 Oficio Patrimonial</span><div class="fls"><a class="dl pd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioVehiculosDiciembre24.pdf" target="_blank">📄 PDF</a></div></div>
+      </div></div>
+      <div class="yc"><div class="yh"><span>Noviembre 2024</span></div><div class="yb">
+        <div class="fr"><span class="fl">📋 Inventario</span><div class="fls"><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/VehiculosNoviembre24.xlsx" target="_blank">⬇ XLSX</a></div></div>
+        <div class="fr"><span class="fl">⬇ Bajas practicadas</span><div class="fls"><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesVehiculosNoviembreBajas2024.xlsx" target="_blank">⬇ XLSX</a></div></div>
+        <div class="fr"><span class="fl">📄 Oficio Patrimonial</span><div class="fls"><a class="dl pd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioVehiculosNoviembre24.pdf" target="_blank">📄 PDF</a></div></div>
+      </div></div>
+      <div class="yc"><div class="yh"><span>Octubre 2024</span></div><div class="yb">
+        <div class="fr"><span class="fl">📋 Inventario</span><div class="fls"><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/VehiculosOctubre24.xlsx" target="_blank">⬇ XLSX</a></div></div>
+        <div class="fr"><span class="fl">⬇ Bajas practicadas</span><div class="fls"><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesVehiculosOctubreBajas2024.xlsx" target="_blank">⬇ XLSX</a></div></div>
+        <div class="fr"><span class="fl">📄 Oficio Patrimonial</span><div class="fls"><a class="dl pd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioVehiculosOctubre24.pdf" target="_blank">📄 PDF</a></div></div>
+      </div></div>
+    </div>
+  </div><!-- /panel-v -->
+
+
+  <!-- ════════════════════════════════════════
+       PANEL: BIENES MUEBLES PATRIMONIALES
+  ════════════════════════════════════════ -->
+  <div id="panel-m" class="panel">
+
+    <!-- 2026 -->
+    <div class="acc" id="m26">
+      <button class="acb open" onclick="togAcc('m26')">
+        <span>Bienes Muebles Patrimoniales — 2026 <span class="act">VIGENTE</span></span>
+        <span class="aci">▼</span>
+      </button>
+      <div class="acd open"><div class="tw">
+        <table class="it">
+          <thead><tr><th>Periodo</th><th>Inventario</th><th>Altas</th><th>Bajas</th><th>Oficio Patrimonial</th></tr></thead>
+          <tbody>
+            <tr><td>Marzo 2026</td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/MueblesMarzo26.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><span class="nd">—</span></td><td><span class="nd">—</span></td>
+              <td><a class="dl pd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioBienesPatrimonialesMarzo26.pdf" target="_blank">📄 PDF</a></td>
+            </tr>
+            <tr><td>Febrero 2026</td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/MueblesFebrero26.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><span class="nd">—</span></td><td><span class="nd">—</span></td>
+              <td><a class="dl pd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioBienesPatrimonialesFebrero26.pdf" target="_blank">📄 PDF</a></td>
+            </tr>
+            <tr><td>Enero 2026</td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/MueblesEnero26.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesMueblesEneroAltas2026.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesMueblesEneroBajas2026.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl pd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioBienesPatrimonialesEnero26.pdf" target="_blank">📄 PDF</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div></div>
+    </div>
+
+    <!-- 2025 -->
+    <div class="acc" id="m25">
+      <button class="acb" onclick="togAcc('m25')">
+        <span>Bienes Muebles Patrimoniales — 2025 <span class="act">2025</span></span>
+        <span class="aci">▼</span>
+      </button>
+      <div class="acd"><div class="tw">
+        <table class="it">
+          <thead><tr><th>Periodo</th><th>Inventario</th><th>Altas</th><th>Bajas</th><th>Oficio Patrimonial</th></tr></thead>
+          <tbody>
+            <tr><td>Diciembre 2025</td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/MueblesDiciembre25.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesMueblesDiciembreAltas2025.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesMueblesDiciembreBajas2025.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl pd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioBienesPatrimonialesDiciembre25.pdf" target="_blank">📄 PDF</a></td>
+            </tr>
+            <tr><td>Noviembre 2025</td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/MueblesNoviembre25.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesMueblesNoviembreAltas2025.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesMueblesNoviembreBajas2025.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl pd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioBienesPatrimonialesNoviembre25.pdf" target="_blank">📄 PDF</a></td>
+            </tr>
+            <tr><td>Octubre 2025</td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/MueblesOctubre25.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesMueblesOctubreAltas2025.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><span class="nd">—</span></td>
+              <td><a class="dl pd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioBienesPatrimonialesOctubre25.pdf" target="_blank">📄 PDF</a></td>
+            </tr>
+            <tr><td>Septiembre 2025</td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/MueblesSeptiembre25.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesMueblesSeptiembreAltas2025.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesMueblesSeptiembreBajas2025.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl pd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioBienesPatrimonialesSeptiembre25.pdf" target="_blank">📄 PDF</a></td>
+            </tr>
+            <tr><td>Agosto 2025</td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/MueblesAgosto25.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesMueblesAgostoAltas2025.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><span class="nd">—</span></td>
+              <td><a class="dl pd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioBienesPatrimonialesAgosto25.pdf" target="_blank">📄 PDF</a></td>
+            </tr>
+            <tr><td>Julio 2025</td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/MueblesJulio25.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesMueblesJulioAltas2025.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><span class="nd">—</span></td><td><span class="nd">—</span></td>
+            </tr>
+            <tr><td>Junio 2025</td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/MueblesJunio25.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesMueblesJunioAltas2025.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesMueblesJunioBajas2025.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl pd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioBienesPatrimonialesJunio25.pdf" target="_blank">📄 PDF</a></td>
+            </tr>
+            <tr><td>Mayo 2025</td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/MueblesMayo25.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><span class="nd">—</span></td><td><span class="nd">—</span></td>
+              <td><a class="dl pd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioBienesPatrimonialesMayo25.pdf" target="_blank">📄 PDF</a></td>
+            </tr>
+            <tr><td>Abril 2025</td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/MueblesAbril25.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><span class="nd">—</span></td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesMueblesAbrilBajas2025.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl pd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioBienesPatrimonialesAbril25.pdf" target="_blank">📄 PDF</a></td>
+            </tr>
+            <tr><td>Marzo 2025</td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/MueblesMarzo25.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><span class="nd">—</span></td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesMueblesMarzoBajas2025.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl pd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioBienesPatrimonialesMarzo25.pdf" target="_blank">📄 PDF</a></td>
+            </tr>
+            <tr><td>Febrero 2025</td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/MueblesFebrero25.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesMueblesFebreroAltas2025.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><span class="nd">—</span></td>
+              <td><a class="dl pd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioBienesPatrimonialesFebrero25.pdf" target="_blank">📄 PDF</a></td>
+            </tr>
+            <tr><td>Enero 2025</td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/MueblesEnero25.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesMueblesEneroAltas2025.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><span class="nd">—</span></td>
+              <td><a class="dl pd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioBienesPatrimonialesEnero25.pdf" target="_blank">📄 PDF</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div></div>
+    </div>
+
+    <!-- 2024 oct-dic -->
+    <div class="acc" id="m24">
+      <button class="acb" onclick="togAcc('m24')">
+        <span>Bienes Muebles Patrimoniales — 2024 (octubre – diciembre) <span class="act">2024</span></span>
+        <span class="aci">▼</span>
+      </button>
+      <div class="acd"><div class="tw">
+        <table class="it">
+          <thead><tr><th>Periodo</th><th>Inventario</th><th>Altas</th><th>Bajas</th><th>Donaciones</th><th>Oficio</th></tr></thead>
+          <tbody>
+            <tr><td>Diciembre 2024</td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/MueblesDiciembre24.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesMueblesDiciembreAltas2024.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><span class="nd">—</span></td><td><span class="nd">—</span></td>
+              <td><a class="dl pd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesMueblesDiciembre2024.pdf" target="_blank">📄 PDF</a></td>
+            </tr>
+            <tr><td>Noviembre 2024</td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/MueblesNoviembre24.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesMueblesNoviembreAltas2024.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesMueblesNoviembreBajas2024.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesMueblesNoviembreDonaciones2024.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><span class="nd">—</span></td>
+            </tr>
+            <tr><td>Octubre 2024</td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/MueblesOctubre24.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesMueblesOctubreAltas2024.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesMueblesOctubreBajas2024.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><span class="nd">—</span></td>
+              <td><a class="dl pd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioMueblesOctubre24.pdf" target="_blank">📄 PDF</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div></div>
+    </div>
+
+  </div><!-- /panel-m -->
+
+
+  <!-- ════════════════════════════════════════
+       PANEL: BIENES INMUEBLES PATRIMONIALES
+  ════════════════════════════════════════ -->
+  <div id="panel-i" class="panel">
+
+    <!-- 2026 -->
+    <div class="acc" id="i26">
+      <button class="acb open" onclick="togAcc('i26')">
+        <span>Bienes Inmuebles Patrimoniales — 2026 <span class="act">VIGENTE</span></span>
+        <span class="aci">▼</span>
+      </button>
+      <div class="acd open"><div class="tw">
+        <table class="it">
+          <thead><tr><th>Periodo</th><th>Inventario</th><th>Oficio Patrimonial</th></tr></thead>
+          <tbody>
+            <tr><td>Marzo 2026</td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesInmueblesMarzoInventario2026.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl pd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioBienesPatrimonialesMarzo26.pdf" target="_blank">📄 PDF</a></td>
+            </tr>
+            <tr><td>Febrero 2026</td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesInmueblesFebreroInventario2026.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl pd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioBienesPatrimonialesFebrero26.pdf" target="_blank">📄 PDF</a></td>
+            </tr>
+            <tr><td>Enero 2026</td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesInmueblesEneroInventario2026.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl pd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioBienesPatrimonialesEnero26.pdf" target="_blank">📄 PDF</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div></div>
+    </div>
+
+    <!-- 2025 -->
+    <div class="acc" id="i25">
+      <button class="acb" onclick="togAcc('i25')">
+        <span>Bienes Inmuebles Patrimoniales — 2025 <span class="act">2025</span></span>
+        <span class="aci">▼</span>
+      </button>
+      <div class="acd"><div class="tw">
+        <table class="it">
+          <thead><tr><th>Periodo</th><th>Inventario</th><th>Altas</th><th>Oficio Patrimonial</th></tr></thead>
+          <tbody>
+            <tr><td>Diciembre 2025</td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesInmueblesDiciembreInventario2025.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><span class="nd">—</span></td>
+              <td><a class="dl pd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioBienesPatrimonialesDiciembre25.pdf" target="_blank">📄 PDF</a></td>
+            </tr>
+            <tr><td>Noviembre 2025</td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesInmueblesNoviembreInventario2025.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><span class="nd">—</span></td>
+              <td><a class="dl pd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioBienesPatrimonialesNoviembre25.pdf" target="_blank">📄 PDF</a></td>
+            </tr>
+            <tr><td>Octubre 2025</td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesInmueblesOctubreInventario2025.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesInmueblesOctubreAltas2025.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl pd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioBienesPatrimonialesOctubre25.pdf" target="_blank">📄 PDF</a></td>
+            </tr>
+            <tr><td>Septiembre 2025</td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesInmueblesSeptiembreInventario2025.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><span class="nd">—</span></td>
+              <td><a class="dl pd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioBienesPatrimonialesSeptiembre25.pdf" target="_blank">📄 PDF</a></td>
+            </tr>
+            <tr><td>Agosto 2025</td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesInmueblesAgostoInventario2025.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><span class="nd">—</span></td>
+              <td><a class="dl pd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioBienesPatrimonialesAgosto25.pdf" target="_blank">📄 PDF</a></td>
+            </tr>
+            <tr><td>Julio 2025</td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesInmueblesJulioInventario2025.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesInmueblesJulioAltas2025.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl pd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioBienesPatrimonialesJulio25.pdf" target="_blank">📄 PDF</a></td>
+            </tr>
+            <tr><td>Junio 2025</td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesInmueblesJunioInventario2025.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><span class="nd">—</span></td>
+              <td><a class="dl pd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioBienesPatrimonialesJunio25.pdf" target="_blank">📄 PDF</a></td>
+            </tr>
+            <tr><td>Mayo 2025</td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesInmueblesMayoInventario2025.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><span class="nd">—</span></td>
+              <td><a class="dl pd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioBienesPatrimonialesMayo25.pdf" target="_blank">📄 PDF</a></td>
+            </tr>
+            <tr><td>Abril 2025</td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesInmueblesAbrilInventario2025.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><span class="nd">—</span></td>
+              <td><a class="dl pd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioBienesPatrimonialesAbril25.pdf" target="_blank">📄 PDF</a></td>
+            </tr>
+            <tr><td>Marzo 2025</td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesInmueblesMarzoInventario2025.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesInmueblesMarzoAltas2025.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl pd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioBienesPatrimonialesMarzo25.pdf" target="_blank">📄 PDF</a></td>
+            </tr>
+            <tr><td>Febrero 2025</td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesInmueblesFebreroInventario2025.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><span class="nd">—</span></td>
+              <td><a class="dl pd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioBienesPatrimonialesFebrero25.pdf" target="_blank">📄 PDF</a></td>
+            </tr>
+            <tr><td>Enero 2025</td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesInmueblesEneroInventario2025.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><span class="nd">—</span></td>
+              <td><a class="dl pd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioBienesPatrimonialesEnero25.pdf" target="_blank">📄 PDF</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div></div>
+    </div>
+
+    <!-- 2024 -->
+    <div class="acc" id="i24">
+      <button class="acb" onclick="togAcc('i24')">
+        <span>Bienes Inmuebles Patrimoniales — 2024 (octubre – diciembre) <span class="act">2024</span></span>
+        <span class="aci">▼</span>
+      </button>
+      <div class="acd"><div class="tw">
+        <table class="it">
+          <thead><tr><th>Periodo</th><th>Inventario</th><th>Altas</th><th>Oficio Patrimonial</th></tr></thead>
+          <tbody>
+            <tr><td>Diciembre 2024</td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesInmueblesDiciembreInventario2024.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesInmueblesDiciembreAltas2024.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl pd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioInmueblesDiciembre24.pdf" target="_blank">📄 PDF</a></td>
+            </tr>
+            <tr><td>Noviembre 2024</td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesInmueblesNoviembreInventario2024.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesInmueblesNoviembreAltas2024.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl pd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioInmueblesNoviembre24.pdf" target="_blank">📄 PDF</a></td>
+            </tr>
+            <tr><td>Octubre 2024</td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesInmueblesOctubreInventario2024.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl xl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesInmueblesOctubreAltas2024.xlsx" target="_blank">⬇ XLSX</a></td>
+              <td><a class="dl pd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioInmueblesOctubre24.pdf" target="_blank">📄 PDF</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div></div>
+    </div>
+
+  </div><!-- /panel-i -->
+
+</main>
+
+<script>
+  function showPanel(n){
+    document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+    document.getElementById('panel-'+n).classList.add('active');
+    document.getElementById('tab-'+n).classList.add('active');
+  }
+  function togAcc(id){
+    const w=document.getElementById(id);
+    w.querySelector('.acb').classList.toggle('open');
+    w.querySelector('.acd').classList.toggle('open');
+  }
+</script>
+</body>
+</html>
