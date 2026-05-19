@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Ingresos extraordinarios recibidos por el Ayuntamiento de Guadalajara — Art. 8, Fracción V, Inciso b) de la Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios. Administración 2024–2027."/>
+<meta name="robots" content="index,follow"/>
+<meta property="og:title" content="Ingresos Extraordinarios · Transparencia Guadalajara"/>
+<meta property="og:description" content="Recursos adicionales al presupuesto regular del Ayuntamiento de Guadalajara: convenios, financiamientos y aportaciones. Importes verificados contra archivo oficial."/>
+<meta property="og:type" content="website"/>
+<title>Ingresos Extraordinarios · Art. 8 Fracc. V Inc. b) · Transparencia Guadalajara</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+:root{
+  --nr:#E87722;--nr-l:#FF9A45;--nr-d:#C45F0A;--nr-deeper:#8B4308;--nr-soft:#FFF1E4;
+  --nr-a:rgba(232,119,34,.10);--nr-b:rgba(232,119,34,.22);
+  --g50:#FAFAF8;--g100:#F0F0EC;--g200:#E2E2DD;--g300:#CFCFC8;--g400:#9E9E98;--g600:#5A5A55;--g800:#2D2D2A;--g900:#1A1A1A;
+  --wh:#FFF;
+  /* Acentos */
+  --info:#2563EB;--info-l:#DBEAFE;--info-d:#1E3A8A;
+  --plum:#6F4D8E;--plum-l:#EDE7F6;--plum-d:#4F3567;
+  --err:#C8323F;--err-l:#FCE6E8;--err-d:#7A1F29;
+  --warn:#D97706;--warn-l:#FEF3C7;
+  --ok:#1D9E75;--ok-l:#E1F5EE;--ok-d:#0E6B4C;
+  --rad:10px;--rad-lg:14px;
+  --sh:0 4px 22px rgba(0,0,0,.08);
+  --sh-sm:0 1px 3px rgba(0,0,0,.06);
+  --sh-md:0 6px 18px rgba(0,0,0,.07);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --fh:'Outfit',system-ui,-apple-system,sans-serif;
+  --fm:'DM Mono','SF Mono',Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--fh);background:var(--g50);color:var(--g900);line-height:1.5;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer}
+a{color:var(--nr-d)}
+
+/* ============================================================
+   BREADCRUMB
+============================================================ */
+.bcnav{background:var(--g900);color:#fff;padding:10px 24px;font-size:11.5px;border-bottom:3px solid var(--nr)}
+.bcnav-in{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+.bcnav-bc{display:flex;align-items:center;gap:8px;color:#D5CFC2;font-weight:500}
+.bcnav-bc a{color:var(--nr-l);text-decoration:none;font-weight:600;transition:color .15s}
+.bcnav-bc a:hover{color:#fff}
+.bcnav-bc .sep{color:#6E665A}
+.bcnav-meta{color:#A39A89;font-size:10.5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;display:flex;align-items:center;gap:6px}
+.bcnav-meta .dot{width:6px;height:6px;border-radius:50%;background:#5BCB8F;box-shadow:0 0 0 3px rgba(91,203,143,.25);animation:beat 2.4s infinite}
+@keyframes beat{0%,100%{box-shadow:0 0 0 3px rgba(91,203,143,.25)}50%{box-shadow:0 0 0 6px rgba(91,203,143,.1)}}
+
+/* ============================================================
+   HERO — gradient institucional GDL
+============================================================ */
+.hero{background:radial-gradient(ellipse 800px 400px at 90% 30%,rgba(255,255,255,.18) 0%,transparent 70%),linear-gradient(135deg,var(--nr-d) 0%,var(--nr) 55%,var(--nr-l) 100%);padding:54px 32px 46px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 60px,rgba(255,255,255,.04) 60px,rgba(255,255,255,.04) 61px);pointer-events:none}
+.hero::after{content:'';position:absolute;right:-120px;top:-80px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.10) 0%,transparent 70%);pointer-events:none}
+.hi{position:relative;max-width:1400px;margin:0 auto;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,300px);gap:30px 50px;align-items:end}
+.hi-left{min-width:0}
+.bc{font-size:11.5px;color:rgba(255,255,255,.85);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;font-weight:500}
+.badge{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.40);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 13px;border-radius:20px;margin-bottom:14px;backdrop-filter:blur(6px)}
+.hero h1{font-size:clamp(26px,4.2vw,44px);font-weight:800;color:#fff;line-height:1.08;margin-bottom:12px;letter-spacing:-.015em}
+.hero p{color:rgba(255,255,255,.92);font-size:clamp(13px,1.5vw,16px);max-width:720px;line-height:1.55}
+.hero p strong{font-weight:700;color:#fff}
+.hero-meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,.18);font-size:11px;color:rgba(255,255,255,.85)}
+.hero-meta-item{display:flex;flex-direction:column;gap:2px}
+.hero-meta-lbl{font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.75}
+.hero-meta-val{font-weight:600;color:#fff;font-family:var(--fm);font-size:11.5px}
+/* Hero number card */
+.hero-num{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);border-radius:var(--rad-lg);padding:18px 22px;backdrop-filter:blur(10px);min-width:0}
+.hero-num-lbl{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.88;color:#fff;margin-bottom:6px}
+.hero-num-val{font-family:var(--fm);font-size:clamp(24px,3.5vw,34px);font-weight:700;color:#fff;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums;text-shadow:0 1px 8px rgba(0,0,0,.12)}
+.hero-num-foot{display:flex;justify-content:space-between;margin-top:14px;padding-top:10px;border-top:1px solid rgba(255,255,255,.18);font-size:10.5px;color:rgba(255,255,255,.85);font-weight:600}
+.hero-num-foot strong{display:block;color:#fff;font-family:var(--fm);font-size:13px;font-weight:700;margin-top:2px}
+@media(max-width:880px){.hi{grid-template-columns:1fr;gap:22px}}
+
+/* ============================================================
+   MAIN container
+============================================================ */
+.main{max-width:1400px;margin:0 auto;padding:28px 20px 60px}
+
+/* ============================================================
+   BANNER LEGAL — cita textual
+============================================================ */
+.legal{background:var(--wh);border:1px solid var(--g200);border-left:4px solid var(--nr);border-radius:var(--rad-lg);padding:18px 22px;margin-bottom:22px;display:grid;grid-template-columns:auto 1fr;gap:14px 20px;box-shadow:var(--sh-sm)}
+.legal-stamp{flex-shrink:0;width:48px;height:48px;border-radius:50%;background:var(--nr-soft);border:2px solid var(--nr);color:var(--nr-d);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:22px;font-family:var(--fh)}
+.legal-body{min-width:0}
+.legal-h{font-size:10.5px;font-weight:800;color:var(--nr-d);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.legal-h::after{content:'';flex:1;height:1px;background:var(--g200);max-width:140px}
+.legal-txt{font-size:14.5px;color:var(--g900);line-height:1.6;font-style:italic;font-weight:500}
+.legal-txt strong{background:linear-gradient(180deg,transparent 60%,var(--nr-soft) 60%);padding:0 3px;color:var(--g900);font-weight:700;font-style:normal}
+.legal-cite{font-size:11.5px;color:var(--g600);margin-top:10px;line-height:1.5}
+.legal-cite a{color:var(--nr-d);font-weight:600;text-decoration:underline}
+@media(max-width:600px){.legal{grid-template-columns:1fr}.legal-stamp{display:none}}
+
+/* ============================================================
+   GLOSARIO CIUDADANO
+============================================================ */
+.glos{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh);overflow:hidden;margin-bottom:22px}
+.glos-top{padding:18px 22px;border-bottom:1px solid var(--g100);background:linear-gradient(135deg,var(--nr-soft) 0%,var(--wh) 70%)}
+.glos-eye{font-size:10px;font-weight:800;color:var(--g400);letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px}
+.glos-h{font-size:20px;font-weight:800;color:var(--g900);line-height:1.2;letter-spacing:-.012em}
+.glos-h em{color:var(--nr-d);font-style:italic;font-weight:800}
+.glos-body{padding:18px 22px 22px}
+.glos-lead{font-size:14px;color:var(--g600);line-height:1.65;margin-bottom:16px;max-width:80ch}
+.glos-lead strong{color:var(--g900);font-weight:600}
+.glos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr));gap:10px}
+.glos-item{background:var(--g50);border:1px solid var(--g200);border-radius:var(--rad);padding:14px 16px;border-left:3px solid var(--g300);transition:all .18s var(--ease)}
+.glos-item:hover{transform:translateY(-2px);box-shadow:var(--sh-sm);border-color:var(--nr-b)}
+.glos-item[data-src="federal"]{border-left-color:var(--info)}
+.glos-item[data-src="estatal"]{border-left-color:var(--plum)}
+.glos-item[data-src="financ"]{border-left-color:var(--err)}
+.glos-item[data-src="otro"]{border-left-color:var(--nr)}
+.glos-item-name{font-size:14px;font-weight:700;color:var(--g900);margin-bottom:4px}
+.glos-item-def{font-size:11.5px;color:var(--g600);line-height:1.5}
+.glos-item-def strong{color:var(--g800);font-weight:600}
+
+/* ============================================================
+   SELECTOR DE EJERCICIO — tabs
+============================================================ */
+.year-row{margin-bottom:22px}
+.year-lbl{font-size:10.5px;font-weight:800;color:var(--g600);letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.year-lbl::before{content:'';width:24px;height:2px;background:var(--nr)}
+.year-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,11rem),1fr));gap:10px}
+.year-card{background:var(--wh);border:1.5px solid var(--g200);border-radius:var(--rad-lg);padding:14px 16px;cursor:pointer;text-align:left;font-family:var(--fh);position:relative;overflow:hidden;display:flex;flex-direction:column;gap:4px;transition:all .2s var(--ease);box-shadow:var(--sh-sm)}
+.year-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(180deg,var(--nr) 0%,var(--nr-d) 100%);transition:width .2s var(--ease)}
+.year-card:hover{border-color:var(--nr-b);transform:translateY(-2px);box-shadow:var(--sh)}
+.year-card:hover::before{width:4px}
+.year-card.active{border-color:var(--nr);background:linear-gradient(135deg,var(--nr-soft) 0%,var(--wh) 70%);box-shadow:var(--sh)}
+.year-card.active::before{width:5px;background:linear-gradient(180deg,var(--nr-d) 0%,var(--nr) 100%)}
+.year-card-top{display:flex;justify-content:space-between;align-items:baseline}
+.year-card-yr{font-size:26px;font-weight:800;color:var(--g900);line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums;font-family:var(--fm)}
+.year-card.active .year-card-yr{color:var(--nr-d)}
+.year-card-tag{font-size:9px;font-weight:800;color:var(--g400);text-transform:uppercase;letter-spacing:.08em;background:var(--g100);padding:3px 8px;border-radius:999px;border:1px solid var(--g200)}
+.year-card.now .year-card-tag{background:var(--ok-l);color:var(--ok-d);border-color:#A8D6BB}
+.year-card-val{font-size:17px;font-weight:700;color:var(--g900);font-variant-numeric:tabular-nums;letter-spacing:-.012em;line-height:1.1;margin-top:6px;font-family:var(--fm)}
+.year-card.zero .year-card-val{color:var(--g400);font-style:italic;font-family:var(--fh)}
+.year-card-sub{font-size:10.5px;color:var(--g400);font-weight:500;line-height:1.4;margin-top:2px}
+.year-card.active .year-card-sub{color:var(--g600)}
+
+/* ============================================================
+   KPI BAND
+============================================================ */
+.kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:12px;margin-bottom:22px}
+.kpi{background:var(--wh);border-radius:var(--rad);box-shadow:var(--sh);padding:16px 18px;position:relative;overflow:hidden;border-top:3px solid var(--nr);transition:transform .18s var(--ease)}
+.kpi:hover{transform:translateY(-2px);box-shadow:var(--sh-md)}
+.kpi.total{border-top-color:var(--ok)}
+.kpi.with{border-top-color:var(--info)}
+.kpi.empty{border-top-color:var(--warn)}
+.kpi.src{border-top-color:var(--plum)}
+.kpi-lbl{font-size:10px;font-weight:800;color:var(--g400);text-transform:uppercase;letter-spacing:.07em;line-height:1.3}
+.kpi-val{font-family:var(--fm);font-size:26px;font-weight:700;color:var(--g900);font-variant-numeric:tabular-nums;letter-spacing:-.02em;line-height:1.05;margin-top:6px}
+.kpi.total .kpi-val{color:var(--ok-d)}
+.kpi.with .kpi-val{color:var(--info-d)}
+.kpi.empty .kpi-val{color:var(--warn)}
+.kpi.src .kpi-val{color:var(--plum-d)}
+.kpi-sub{font-size:11px;color:var(--g600);font-weight:500;margin-top:4px;line-height:1.45}
+
+/* ============================================================
+   CHART CARDS
+============================================================ */
+.chart-card{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh);padding:20px 24px 16px;margin-bottom:22px}
+.chart-head{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:14px}
+.chart-title{font-size:17px;font-weight:800;color:var(--g900);letter-spacing:-.005em}
+.chart-sub{font-size:12px;color:var(--g600);margin-top:3px;line-height:1.5;max-width:60ch}
+.chart-toggle{display:flex;gap:6px;flex-wrap:wrap}
+.chart-toggle button{padding:7px 13px;border-radius:7px;border:1.5px solid var(--g200);background:var(--wh);font-size:11.5px;font-weight:700;cursor:pointer;font-family:var(--fh);transition:all .15s;color:var(--g600);letter-spacing:.02em}
+.chart-toggle button:hover{border-color:var(--nr);color:var(--nr-d)}
+.chart-toggle button.active{background:var(--nr);color:#fff;border-color:var(--nr);box-shadow:0 2px 6px rgba(232,119,34,.3)}
+.chart-wrap{position:relative;height:340px}
+.chart-wrap-tall{height:380px}
+@media(max-width:600px){.chart-wrap,.chart-wrap-tall{height:260px}}
+.chart-legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px;padding-top:12px;border-top:1px solid var(--g100);font-size:11px;color:var(--g600);font-weight:600}
+.chart-legend-item{display:inline-flex;align-items:center;gap:6px}
+.chart-legend-dot{width:10px;height:10px;border-radius:3px}
+
+/* ============================================================
+   SECTION HEADERS
+============================================================ */
+.sec-head{margin:0 0 12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.sec-head-num{font-size:11px;font-weight:800;color:var(--nr-d);font-variant-numeric:tabular-nums;letter-spacing:.04em;flex-shrink:0;background:var(--nr-soft);padding:3px 9px;border-radius:999px;border:1px solid var(--nr-b);font-family:var(--fm);text-transform:uppercase}
+.sec-head-h{font-size:20px;font-weight:800;color:var(--g900);letter-spacing:-.012em;line-height:1.2}
+.sec-head-tag{font-size:10px;font-weight:800;color:var(--g400);background:var(--g100);padding:4px 10px;border-radius:999px;border:1px solid var(--g200);letter-spacing:.06em;text-transform:uppercase;margin-left:auto;font-variant-numeric:tabular-nums}
+.sec-intro{font-size:13px;color:var(--g600);line-height:1.6;margin-bottom:14px;max-width:80ch}
+.sec-intro strong{color:var(--g900);font-weight:600}
+
+/* ============================================================
+   DESGLOSE POR FUENTE
+============================================================ */
+.split-card{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh);overflow:hidden;margin-bottom:22px}
+.split-top{padding:16px 22px;border-bottom:1px solid var(--g100);background:linear-gradient(135deg,var(--nr-soft) 0%,var(--wh) 70%)}
+.split-h{font-size:16px;font-weight:800;color:var(--g900);letter-spacing:-.008em}
+.split-sub{font-size:11.5px;color:var(--g600);line-height:1.5;margin-top:3px}
+.split-body{padding:14px 22px 20px}
+.split-row{display:grid;grid-template-columns:auto 1fr auto;gap:12px 16px;align-items:center;padding:11px 0;border-bottom:1px solid var(--g100)}
+.split-row:last-child{border-bottom:none}
+.split-tag{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;font-weight:800;padding:5px 12px;border-radius:6px;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;font-family:var(--fh)}
+.split-tag.federal{background:var(--info-l);color:var(--info-d);border:1px solid #BFCCEA}
+.split-tag.estatal{background:var(--plum-l);color:var(--plum-d);border:1px solid #D9C9E8}
+.split-tag.financ{background:var(--err-l);color:var(--err-d);border:1px solid #EDB7BD}
+.split-tag.otro{background:var(--g100);color:var(--g600);border:1px solid var(--g200)}
+.split-bar-wrap{height:14px;background:var(--g100);border-radius:8px;overflow:hidden;border:1px solid var(--g200);position:relative}
+.split-bar{height:100%;border-radius:7px;transition:width 1s var(--ease)}
+.split-bar.federal{background:linear-gradient(90deg,var(--info) 0%,var(--info-d) 100%)}
+.split-bar.estatal{background:linear-gradient(90deg,var(--plum) 0%,var(--plum-d) 100%)}
+.split-bar.financ{background:linear-gradient(90deg,var(--err) 0%,var(--err-d) 100%)}
+.split-bar.otro{background:linear-gradient(90deg,var(--nr) 0%,var(--nr-d) 100%)}
+.split-amt{font-family:var(--fm);font-size:15px;font-weight:700;color:var(--g900);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap;letter-spacing:-.005em}
+.split-pct{font-family:var(--fm);font-size:10.5px;color:var(--g400);font-weight:500;margin-top:2px;font-variant-numeric:tabular-nums;text-align:right}
+@media(max-width:540px){.split-row{grid-template-columns:1fr;gap:6px}.split-amt,.split-pct{text-align:left}}
+
+/* ============================================================
+   INGRESO CARDS
+============================================================ */
+.ing-list{display:flex;flex-direction:column;gap:16px;margin-bottom:22px}
+.ing-card{background:var(--wh);border:1px solid var(--g200);border-radius:var(--rad-lg);overflow:hidden;box-shadow:var(--sh);transition:box-shadow .2s,transform .2s;animation:fadeUp .4s var(--ease) both}
+.ing-card:hover{box-shadow:var(--sh-md);transform:translateY(-1px)}
+.ing-card.federal{border-left:4px solid var(--info)}
+.ing-card.estatal{border-left:4px solid var(--plum)}
+.ing-card.financ{border-left:4px solid var(--err)}
+.ing-card.otro{border-left:4px solid var(--nr)}
+
+.ing-head{padding:18px 22px 14px;display:grid;grid-template-columns:auto 1fr auto;gap:14px 18px;align-items:center;background:linear-gradient(135deg,var(--g50) 0%,var(--wh) 60%);border-bottom:1px solid var(--g100)}
+.ing-mes{flex-shrink:0;display:flex;flex-direction:column;align-items:center;background:var(--wh);border:1.5px solid var(--g200);border-radius:var(--rad);padding:8px 14px;min-width:88px;text-align:center;box-shadow:var(--sh-sm)}
+.ing-mes-name{font-size:17px;font-weight:800;color:var(--g900);letter-spacing:-.012em;line-height:1.05;text-transform:capitalize}
+.ing-mes-yr{font-family:var(--fm);font-size:10.5px;font-weight:600;color:var(--g400);font-variant-numeric:tabular-nums;margin-top:2px;letter-spacing:.04em}
+.ing-card.financ .ing-mes-name{color:var(--err-d)}
+.ing-card.estatal .ing-mes-name{color:var(--plum-d)}
+.ing-card.federal .ing-mes-name{color:var(--info-d)}
+
+.ing-headline{min-width:0;display:flex;flex-direction:column;gap:7px}
+.ing-source{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.ing-source-tag{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:800;padding:4px 10px;border-radius:5px;letter-spacing:.05em;text-transform:uppercase}
+.ing-source-tag.federal{background:var(--info-l);color:var(--info-d);border:1px solid #BFCCEA}
+.ing-source-tag.estatal{background:var(--plum-l);color:var(--plum-d);border:1px solid #D9C9E8}
+.ing-source-tag.financ{background:var(--err-l);color:var(--err-d);border:1px solid #EDB7BD}
+.ing-source-tag.otro{background:var(--g100);color:var(--g600);border:1px solid var(--g200)}
+.ing-concepto{font-size:16px;font-weight:700;color:var(--g900);line-height:1.3;letter-spacing:-.003em}
+
+.ing-amount{flex-shrink:0;display:flex;flex-direction:column;align-items:flex-end;gap:2px;text-align:right}
+.ing-amount-lbl{font-size:9.5px;font-weight:800;color:var(--g400);text-transform:uppercase;letter-spacing:.1em}
+.ing-amount-val{font-family:var(--fm);font-size:clamp(20px,2.6vw,30px);font-weight:700;color:var(--ok-d);line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.02em;white-space:nowrap}
+.ing-amount-pct{font-family:var(--fm);font-size:10.5px;color:var(--g400);font-weight:500;margin-top:3px;font-variant-numeric:tabular-nums}
+
+.ing-body{padding:16px 22px 18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr));gap:14px 24px}
+.ing-field{display:flex;flex-direction:column;gap:4px;min-width:0}
+.ing-field.wide{grid-column:1/-1}
+.ing-field-lbl{font-size:9.5px;font-weight:800;color:var(--g400);text-transform:uppercase;letter-spacing:.09em;display:flex;align-items:center;gap:6px}
+.ing-field-lbl::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--nr);flex-shrink:0}
+.ing-field-val{font-size:13.5px;color:var(--g900);line-height:1.55;font-weight:500;word-break:break-word}
+
+.ing-comp{padding:14px 22px 18px;border-top:1px dashed var(--g200);background:var(--g50)}
+.ing-comp-h{font-size:10.5px;font-weight:800;color:var(--g600);text-transform:uppercase;letter-spacing:.09em;margin-bottom:10px;display:flex;align-items:center;gap:7px}
+.ing-comp-h::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--nr)}
+.ing-comp-h::after{content:'';flex:1;height:1px;background:var(--g200);max-width:140px}
+.ing-comp-list{display:flex;flex-wrap:wrap;gap:8px}
+.ing-comp-link{display:inline-flex;align-items:center;gap:7px;background:var(--wh);color:var(--g800);border:1.5px solid var(--g200);padding:7px 12px;border-radius:8px;text-decoration:none;font-size:12px;font-weight:600;transition:all .14s var(--ease);box-shadow:var(--sh-sm)}
+.ing-comp-link:hover{border-color:var(--nr);transform:translateY(-2px);box-shadow:var(--sh-sm)}
+.ing-comp-link.pdf{color:var(--err-d);border-color:#EDB7BD;background:#FCF2F4}
+.ing-comp-link.pdf:hover{background:var(--err-l);border-color:var(--err)}
+.ing-comp-link.gaceta{color:#7A4D00;border-color:#F1D38A;background:#FFF7E5}
+.ing-comp-link.gaceta:hover{background:var(--warn-l);border-color:var(--warn)}
+.ing-comp-link.deuda{color:var(--plum-d);border-color:#D9C9E8;background:#F6F0FB}
+.ing-comp-link.deuda:hover{background:var(--plum-l)}
+.ing-comp-link svg{flex-shrink:0;opacity:.85}
+.ing-comp-note{font-size:12px;color:var(--g600);font-style:italic;background:var(--wh);border:1px solid var(--g200);border-left:3px solid var(--warn);padding:10px 14px;border-radius:6px;line-height:1.55;margin-bottom:6px;width:100%}
+.ing-comp-note strong{color:var(--g900);font-style:normal;font-weight:700}
+
+/* ============================================================
+   MESES SIN INGRESO
+============================================================ */
+.none-card{background:var(--wh);border:1px solid var(--g200);border-radius:var(--rad-lg);overflow:hidden;box-shadow:var(--sh-sm);margin-bottom:22px}
+.none-top{padding:16px 22px;display:flex;align-items:center;gap:12px;background:var(--g50);border-bottom:1px solid var(--g100)}
+.none-ico{flex-shrink:0;width:38px;height:38px;border-radius:50%;background:var(--wh);border:1.5px solid var(--g300);color:var(--g400);display:flex;align-items:center;justify-content:center}
+.none-h{font-size:14.5px;font-weight:800;color:var(--g800);letter-spacing:-.008em}
+.none-sub{font-size:11px;color:var(--g400);margin-top:2px}
+.none-body{padding:14px 22px 18px}
+.none-meses{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px}
+.none-mes{display:inline-flex;align-items:center;gap:6px;background:var(--g50);border:1px solid var(--g200);font-size:11.5px;font-weight:600;color:var(--g600);padding:5px 12px;border-radius:999px;text-transform:capitalize}
+.none-mes::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--g400)}
+.none-legal{font-size:11.5px;color:var(--g600);line-height:1.65;padding-top:12px;border-top:1px dashed var(--g200);font-style:italic}
+.none-legal strong{color:var(--g800);font-style:normal;font-weight:600}
+
+/* ============================================================
+   RESPONSABLES
+============================================================ */
+.resp-card{background:var(--wh);border-radius:var(--rad-lg);overflow:hidden;box-shadow:var(--sh);margin-bottom:22px}
+.resp-top{padding:18px 22px 14px;background:linear-gradient(135deg,var(--nr-soft) 0%,var(--wh) 65%);border-bottom:1px solid var(--g100)}
+.resp-top-h{font-size:16px;font-weight:800;color:var(--g900);letter-spacing:-.008em;margin-bottom:3px}
+.resp-top-sub{font-size:12px;color:var(--g600);line-height:1.5}
+
+.resp-single{padding:18px 22px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.resp-avatar{flex-shrink:0;width:62px;height:62px;border-radius:50%;background:linear-gradient(135deg,var(--nr-deeper) 0%,var(--nr-d) 60%,var(--nr) 100%);color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;letter-spacing:.02em;box-shadow:0 6px 18px rgba(196,95,10,.32);font-family:var(--fh)}
+.resp-info{flex:1;min-width:200px}
+.resp-name{font-size:19px;font-weight:800;color:var(--g900);line-height:1.2;letter-spacing:-.012em}
+.resp-cargo{font-size:14px;color:var(--nr-d);font-weight:700;margin-top:3px}
+.resp-area{font-size:11.5px;color:var(--g600);line-height:1.5;margin-top:7px}
+
+.resp-roles{display:flex;flex-wrap:wrap;gap:8px;padding:0 22px 16px;border-bottom:1px solid var(--g100)}
+.resp-role{display:inline-flex;align-items:center;gap:7px;background:var(--wh);border:1.5px solid currentColor;padding:6px 14px;border-radius:999px;font-size:10.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase}
+.resp-role.recibir{color:var(--ok-d)}
+.resp-role.administrar{color:var(--warn)}
+.resp-role.ejercer{color:var(--nr-d)}
+.resp-role .dot{width:7px;height:7px;border-radius:50%;background:currentColor}
+
+.resp-multi{padding:16px 22px 18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;background:var(--g50);border-bottom:1px solid var(--g100)}
+.resp-mini{background:var(--wh);border:1.5px solid var(--g200);border-radius:var(--rad);padding:14px 16px;display:flex;flex-direction:column;gap:10px;transition:all .15s var(--ease);box-shadow:var(--sh-sm)}
+.resp-mini:hover{border-color:var(--nr-b);transform:translateY(-2px);box-shadow:var(--sh-sm)}
+.resp-mini-rol{display:inline-flex;align-items:center;gap:7px;font-size:10px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;width:fit-content;padding:4px 10px;border-radius:999px;border:1.5px solid currentColor;background:var(--wh)}
+.resp-mini-rol.recibir{color:var(--ok-d);background:var(--ok-l)}
+.resp-mini-rol.administrar{color:var(--warn);background:var(--warn-l)}
+.resp-mini-rol.ejercer{color:var(--nr-d);background:var(--nr-soft)}
+.resp-mini-rol .dot{width:6px;height:6px;border-radius:50%;background:currentColor}
+.resp-mini-body{display:flex;align-items:center;gap:12px}
+.resp-avatar-sm{flex-shrink:0;width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--nr-deeper) 0%,var(--nr-d) 100%);color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;font-family:var(--fh)}
+.resp-mini-info{flex:1;min-width:0}
+.resp-mini-name{font-size:14px;font-weight:800;color:var(--g900);line-height:1.2;letter-spacing:-.005em}
+.resp-mini-cargo{font-size:11.5px;color:var(--nr-d);font-weight:600;margin-top:2px}
+
+.resp-meta{padding:14px 22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,11rem),1fr));gap:8px 24px;background:var(--wh)}
+.resp-meta-item{display:flex;flex-direction:column;gap:2px;min-width:0}
+.resp-meta-lbl{font-size:9.5px;font-weight:800;color:var(--g400);text-transform:uppercase;letter-spacing:.09em}
+.resp-meta-val{font-size:13px;color:var(--g900);font-weight:600;font-variant-numeric:tabular-nums;font-family:var(--fm)}
+
+.resp-aviso{margin:0 22px 16px;padding:11px 14px;background:var(--warn-l);border:1px solid #F1D38A;border-left:4px solid var(--warn);border-radius:6px;color:#5A3800;font-size:12px;line-height:1.55;display:flex;gap:10px;align-items:flex-start}
+.resp-aviso svg{flex-shrink:0;color:var(--warn);margin-top:2px}
+.resp-aviso strong{color:#3A2400;font-weight:700}
+.resp-nota{font-size:11.5px;color:var(--g600);line-height:1.65;padding:14px 22px 16px;background:var(--g50);border-top:1px dashed var(--g200);font-style:italic}
+.resp-nota strong{color:var(--g800);font-style:normal;font-weight:600}
+
+/* ============================================================
+   ARCHIVOS FUENTE
+============================================================ */
+.docs-card{background:var(--wh);border-radius:var(--rad-lg);overflow:hidden;box-shadow:var(--sh);margin-bottom:22px}
+.docs-top{padding:18px 22px 14px;border-bottom:1px solid var(--g100);background:linear-gradient(135deg,var(--g50) 0%,var(--wh) 70%)}
+.docs-h{font-size:16px;font-weight:800;color:var(--g900);letter-spacing:-.008em}
+.docs-sub{font-size:12px;color:var(--g600);line-height:1.55;margin-top:5px;max-width:80ch}
+.docs-sub strong{color:var(--g800);font-weight:600}
+.docs-grid{padding:16px 22px 18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr));gap:10px}
+.docs-link{display:flex;align-items:flex-start;gap:12px;background:var(--g50);border:1.5px solid var(--g200);border-radius:var(--rad);padding:14px 16px;text-decoration:none;color:inherit;transition:all .15s var(--ease);box-shadow:var(--sh-sm)}
+.docs-link:hover{border-color:var(--nr);transform:translateY(-2px);box-shadow:var(--sh-sm);background:var(--wh)}
+.docs-link-ico{flex-shrink:0;width:38px;height:38px;border-radius:var(--rad);background:var(--ok-l);color:var(--ok-d);display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:10px;font-weight:700;letter-spacing:.04em;border:1.5px solid #B8D8C5}
+.docs-link-ico.url{background:var(--plum-l);color:var(--plum);border-color:#D9C9E8}
+.docs-link-ico.pdf{background:var(--err-l);color:var(--err-d);border-color:#EDB7BD}
+.docs-link-body{flex:1;min-width:0}
+.docs-link-h{font-size:13px;font-weight:700;color:var(--g900);line-height:1.3}
+.docs-link-d{font-size:11px;color:var(--g400);line-height:1.5;margin-top:3px;font-weight:500}
+
+/* ============================================================
+   ACCIÓN CIUDADANA
+============================================================ */
+.act-card{background:var(--wh);border-radius:var(--rad-lg);overflow:hidden;box-shadow:var(--sh);margin-bottom:22px}
+.act-top{padding:18px 22px 16px;background:linear-gradient(135deg,var(--nr-soft) 0%,var(--wh) 65%);border-bottom:1px solid var(--g100)}
+.act-eyebrow{font-size:10px;font-weight:800;color:var(--nr-d);letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px}
+.act-h{font-size:19px;font-weight:800;color:var(--g900);letter-spacing:-.012em;line-height:1.25}
+.act-sub{font-size:13px;color:var(--g600);line-height:1.6;margin-top:7px;max-width:75ch}
+.act-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr))}
+.act-item{padding:18px 22px;border-right:1px solid var(--g100);border-top:1px solid var(--g100);display:flex;flex-direction:column;gap:8px}
+.act-item:nth-child(-n+3){border-top:none}
+.act-item:last-child{border-right:none}
+.act-item-num{font-family:var(--fm);font-size:11px;font-weight:700;color:var(--nr-d);letter-spacing:.04em}
+.act-item-h{font-size:14.5px;font-weight:800;color:var(--g900);letter-spacing:-.005em;display:flex;align-items:center;gap:8px}
+.act-item-h svg{color:var(--nr-d);flex-shrink:0}
+.act-item-d{font-size:12.5px;color:var(--g600);line-height:1.65}
+.act-item-d strong{color:var(--g800);font-weight:600}
+.act-item-d a{color:var(--nr-d);font-weight:700;text-decoration:underline;text-underline-offset:2px}
+.act-item-d a:hover{text-decoration:none}
+@media(max-width:780px){.act-item{border-right:none;border-top:1px solid var(--g100)!important}}
+
+/* ============================================================
+   FOOTER
+============================================================ */
+.foot{background:var(--g900);color:#E8E2D6;padding:32px 24px 22px;position:relative}
+.foot::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--nr-deeper) 0%,var(--nr-d) 40%,var(--nr) 70%,var(--nr-d) 100%)}
+.foot-in{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr));gap:28px 36px}
+.foot-block{display:flex;flex-direction:column;gap:8px}
+.foot-h{font-size:11px;font-weight:800;color:#fff;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px;padding-bottom:8px;border-bottom:1.5px solid rgba(255,255,255,.1)}
+.foot-txt{font-size:12px;color:#C3BCAE;line-height:1.7}
+.foot-txt strong{color:#fff;font-weight:600}
+.foot-txt em{font-style:italic;color:#FFC799;font-weight:500}
+.foot-txt a{color:var(--nr-l);text-decoration:none;font-weight:600}
+.foot-txt a:hover{text-decoration:underline}
+.foot-list{list-style:none;display:flex;flex-direction:column;gap:7px;font-size:12px;color:#C3BCAE;line-height:1.55}
+.foot-list strong{color:#fff;font-weight:600;display:block}
+.foot-list-item{padding-left:13px;border-left:1.5px solid rgba(255,255,255,.12)}
+.foot-bottom{max-width:1400px;margin:24px auto 0;padding-top:16px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;font-size:11px;color:#8C8474}
+.foot-bottom .pulse{width:8px;height:8px;border-radius:50%;background:#5BCB8F;animation:beat 2.4s infinite;display:inline-block;margin-right:7px;vertical-align:middle}
+
+/* ============================================================
+   ANIMACIONES
+============================================================ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* Mobile */
+@media(max-width:540px){
+  .hero{padding:38px 18px 32px}
+  .main{padding:18px 12px 40px}
+  .ing-head{grid-template-columns:1fr;text-align:left}
+  .ing-amount{align-items:flex-start;text-align:left}
+  .kpi-row{grid-template-columns:repeat(2,1fr)}
+  .glos-grid{grid-template-columns:1fr}
+  .sires-tbl{font-size:10px}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     BREADCRUMB SUPERIOR
+============================================================ -->
+<nav class="bcnav" aria-label="Ubicación dentro del portal">
+  <div class="bcnav-in">
+    <div class="bcnav-bc">
+      <a href="https://transparencia.guadalajara.gob.mx">Transparencia GDL</a>
+      <span class="sep">/</span>
+      <a href="https://transparencia.guadalajara.gob.mx/articulo-8">Artículo 8</a>
+      <span class="sep">/</span>
+      <span>Fracción V</span>
+      <span class="sep">/</span>
+      <strong style="color:#fff;font-weight:600">Inciso b)</strong>
+    </div>
+    <div class="bcnav-meta"><span class="dot"></span>Información en línea · validada el 24 de abril de 2026</div>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO institucional
+============================================================ -->
+<section class="hero">
+  <div class="hi">
+    <div class="hi-left">
+      <div class="bc">Transparencia Guadalajara · Gobierno Municipal</div>
+      <div class="badge">Art. 8 · Fracc. V · Inc. b)</div>
+      <h1>Ingresos Extraordinarios</h1>
+      <p>Recursos que el Ayuntamiento de Guadalajara recibió <strong>adicionales al presupuesto regular</strong>: convenios federales y estatales, financiamientos y aportaciones por proyectos específicos — con el responsable, destino y comprobación documental de cada peso.</p>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <span class="hero-meta-lbl">Validación</span>
+          <span class="hero-meta-val">24 abr 2026</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-lbl">Unidad responsable</span>
+          <span class="hero-meta-val">Dirección de Ingresos</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-lbl">Periodo cubierto</span>
+          <span class="hero-meta-val">Oct 2024 – Mar 2026</span>
+        </div>
+      </div>
+    </div>
+    <aside class="hero-num" aria-labelledby="hero-num-lbl">
+      <div class="hero-num-lbl" id="hero-num-lbl">Total recibido</div>
+      <div class="hero-num-val" id="hero-val">$0</div>
+      <div class="hero-num-foot">
+        <div>Ejercicio<strong id="hero-yr">—</strong></div>
+        <div style="text-align:right">Registros<strong id="hero-reg">—</strong></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<main class="main">
+
+  <!-- ============================================================
+       BANNER LEGAL — cita textual
+  ============================================================ -->
+  <div class="legal">
+    <div class="legal-stamp" aria-hidden="true">§</div>
+    <div class="legal-body">
+      <div class="legal-h">Fundamento legal de esta publicación</div>
+      <p class="legal-txt">"Los ingresos extraordinarios recibidos por cualquier concepto, señalando el nombre de los <strong>responsables de recibirlos, administrarlos y ejercerlos</strong>, así como su <strong>destino y utilización</strong>."</p>
+      <p class="legal-cite">— <strong>Artículo 8, Fracción V, Inciso b)</strong> de la <em>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</em>. Fuente única de verdad: <a href="https://transparencia.guadalajara.gob.mx/ingresosextraordinarios" target="_blank" rel="noopener">transparencia.guadalajara.gob.mx/ingresosextraordinarios</a>. Si un dato presentado aquí discrepa del archivo oficial, <strong style="color:var(--g900)">prevalece el archivo oficial</strong>.</p>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       GLOSARIO CIUDADANO
+  ============================================================ -->
+  <section class="glos">
+    <div class="glos-top">
+      <div class="glos-eye">En lenguaje ciudadano</div>
+      <h2 class="glos-h">¿Qué son los <em>ingresos extraordinarios</em>?</h2>
+    </div>
+    <div class="glos-body">
+      <p class="glos-lead">Son recursos que <strong>no forman parte del presupuesto anual</strong> con el que arranca el año el Municipio. Llegan fuera del flujo ordinario, casi siempre con un <strong>destino específico</strong> definido por el convenio, ley o instrumento que los origina. Se clasifican en cuatro categorías según su origen:</p>
+      <div class="glos-grid">
+        <div class="glos-item" data-src="federal">
+          <div class="glos-item-name">Recursos Federales</div>
+          <p class="glos-item-def">Provienen de <strong>la Federación</strong> por programas, subsidios o convenios. Ejemplo: el programa de regularización de vehículos extranjeros.</p>
+        </div>
+        <div class="glos-item" data-src="estatal">
+          <div class="glos-item-name">Recursos Estatales</div>
+          <p class="glos-item-def">Provienen del <strong>Gobierno de Jalisco</strong> por convenios de colaboración. Ejemplo: el Convenio de la Policía Metropolitana.</p>
+        </div>
+        <div class="glos-item" data-src="financ">
+          <div class="glos-item-name">Financiamientos Internos</div>
+          <p class="glos-item-def">Son <strong>créditos o líneas de crédito</strong> aprobados para cubrir necesidades temporales. Generan obligación de pago futura.</p>
+        </div>
+        <div class="glos-item" data-src="otro">
+          <div class="glos-item-name">Otros ingresos</div>
+          <p class="glos-item-def">Aportaciones, donativos, recursos especiales o cualquier ingreso <strong>atípico</strong> que no encaje en las tres categorías anteriores.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SELECTOR DE EJERCICIO
+  ============================================================ -->
+  <div class="year-row">
+    <div class="year-lbl">Selecciona un ejercicio fiscal</div>
+    <div class="year-grid" id="yearGrid" role="tablist" aria-label="Ejercicios fiscales disponibles"></div>
+  </div>
+
+  <!-- ============================================================
+       KPI BAND
+  ============================================================ -->
+  <div class="kpi-row" id="kpiRow"></div>
+
+  <!-- ============================================================
+       GRÁFICA COMPARATIVA ANUAL (siempre visible · Chart.js)
+  ============================================================ -->
+  <div class="chart-card">
+    <div class="chart-head">
+      <div>
+        <div class="chart-title">Comparativa entre ejercicios fiscales</div>
+        <div class="chart-sub">Vista de los <strong>tres ejercicios</strong> de la administración actual. Permite contextualizar el total de cada año respecto a los demás.</div>
+      </div>
+      <div class="chart-toggle" id="comparaToggle">
+        <button data-view="total" class="active" type="button">Total anual</button>
+        <button data-view="fuente" type="button">Por fuente</button>
+      </div>
+    </div>
+    <div class="chart-wrap"><canvas id="comparaChart"></canvas></div>
+    <div class="chart-legend">
+      <span class="chart-legend-item"><span class="chart-legend-dot" style="background:linear-gradient(135deg,var(--info) 0%,var(--info-d) 100%)"></span>Federal</span>
+      <span class="chart-legend-item"><span class="chart-legend-dot" style="background:linear-gradient(135deg,var(--plum) 0%,var(--plum-d) 100%)"></span>Estatal</span>
+      <span class="chart-legend-item"><span class="chart-legend-dot" style="background:linear-gradient(135deg,var(--err) 0%,var(--err-d) 100%)"></span>Financiamiento</span>
+      <span class="chart-legend-item"><span class="chart-legend-dot" style="background:linear-gradient(135deg,var(--nr) 0%,var(--nr-d) 100%)"></span>Otro</span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       GRÁFICA MENSUAL DEL AÑO SELECCIONADO (Chart.js)
+  ============================================================ -->
+  <div class="chart-card">
+    <div class="chart-head">
+      <div>
+        <div class="chart-title">Calendario fiscal — <span id="mensualYr" style="color:var(--nr-d)">—</span></div>
+        <div class="chart-sub" id="mensualSub">Importes recibidos mes a mes durante el ejercicio seleccionado. Color por fuente del recurso.</div>
+      </div>
+      <span class="sec-head-tag" id="mensualTag">12 meses</span>
+    </div>
+    <div class="chart-wrap"><canvas id="mensualChart"></canvas></div>
+    <div id="mensualEmpty"></div>
+  </div>
+
+  <!-- ============================================================
+       DESGLOSE POR FUENTE
+  ============================================================ -->
+  <section id="splitSection">
+    <div class="sec-head">
+      <span class="sec-head-num">i</span>
+      <h2 class="sec-head-h">Desglose por fuente del recurso</h2>
+    </div>
+    <p class="sec-intro">¿De dónde vino cada peso recibido? La suma por categoría de origen permite ver el peso relativo de cada tipo de recurso dentro del ejercicio.</p>
+    <div class="split-card">
+      <div class="split-top">
+        <h3 class="split-h">Distribución del ejercicio <span id="splitYr" style="color:var(--nr-d)">—</span></h3>
+        <p class="split-sub">Suma de importes agrupados por fuente, ordenados de mayor a menor.</p>
+      </div>
+      <div class="split-body" id="splitBody"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       INGRESOS REGISTRADOS
+  ============================================================ -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-head-num">ii</span>
+      <h2 class="sec-head-h">Ingresos registrados del ejercicio</h2>
+      <span class="sec-head-tag" id="ingCount">—</span>
+    </div>
+    <p class="sec-intro">Cada registro corresponde a un ingreso extraordinario efectivamente recibido durante el periodo, con sus <strong>nueve campos oficiales SIRES</strong>: ejercicio, mes, fuente, concepto, importe, responsable, destino, utilización y comprobación documental.</p>
+    <div class="ing-list" id="ingList"></div>
+    <div id="noneWrap"></div>
+  </section>
+
+  <!-- ============================================================
+       RESPONSABLES
+  ============================================================ -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-head-num">iii</span>
+      <h2 class="sec-head-h">Responsables de recibir, administrar y ejercer</h2>
+    </div>
+    <p class="sec-intro">Funcionarios públicos legalmente facultados durante el ejercicio para <strong>recibir</strong> los recursos, <strong>administrarlos</strong> dentro del sistema financiero municipal y <strong>ejercerlos</strong> conforme a su destino.</p>
+    <div id="respWrap"></div>
+  </section>
+
+  <!-- ============================================================
+       ARCHIVOS FUENTE OFICIALES
+  ============================================================ -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-head-num">iv</span>
+      <h2 class="sec-head-h">Archivos fuente del ejercicio</h2>
+    </div>
+    <p class="sec-intro">Archivos originales publicados por el Ayuntamiento de Guadalajara en su portal oficial. Toda cifra mostrada en esta página se extrae de estos archivos. <strong>Si detectas una diferencia, prevalece el archivo oficial.</strong></p>
+    <div class="docs-card">
+      <div class="docs-top">
+        <h3 class="docs-h">Documentación oficial del ejercicio <span id="docsYr" style="color:var(--nr-d)">—</span></h3>
+        <p class="docs-sub">Cada enlace dirige directamente al archivo alojado en <strong>transparencia.guadalajara.gob.mx</strong>. Todos los enlaces fueron verificados con respuesta HTTP&nbsp;200.</p>
+      </div>
+      <div class="docs-grid" id="docsGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ACCIÓN CIUDADANA
+  ============================================================ -->
+  <section class="act-card">
+    <div class="act-top">
+      <div class="act-eyebrow">Tu derecho a saber</div>
+      <h2 class="act-h">¿Tienes una duda, encontraste un error o quieres profundizar?</h2>
+      <p class="act-sub">La transparencia funciona cuando la ciudadanía la usa. Si no entiendes un dato, identificas una discrepancia con el archivo oficial o necesitas información complementaria, estos son los tres caminos formales para ejercer tu derecho.</p>
+    </div>
+    <div class="act-grid">
+      <div class="act-item">
+        <span class="act-item-num">01</span>
+        <div class="act-item-h">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          Pregunta a la dependencia
+        </div>
+        <p class="act-item-d">Escribe a <a href="mailto:transparencia@guadalajara.gob.mx">transparencia@guadalajara.gob.mx</a> o llama al <strong>33 3818 3600</strong>. La Dirección de Ingresos atiende dudas sobre montos, conceptos y comprobaciones de <strong>lunes a viernes, 9:00 – 15:00 hrs</strong>.</p>
+      </div>
+      <div class="act-item">
+        <span class="act-item-num">02</span>
+        <div class="act-item-h">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          Solicitud formal
+        </div>
+        <p class="act-item-d">Presenta una solicitud por la <a href="https://www.plataformadetransparencia.org.mx/" target="_blank" rel="noopener">Plataforma Nacional de Transparencia</a>. Es gratuita y obliga al Municipio a responder en <strong>un plazo máximo de 20 días hábiles</strong>, conforme a la Ley General.</p>
+      </div>
+      <div class="act-item">
+        <span class="act-item-num">03</span>
+        <div class="act-item-h">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2 4 5v6c0 5.5 3.8 10.7 8 12 4.2-1.3 8-6.5 8-12V5l-8-3z"/></svg>
+          Inconformidad al ITEI
+        </div>
+        <p class="act-item-d">Si la respuesta no te satisface, presenta un <strong>recurso de revisión</strong> ante el <strong>Instituto de Transparencia, Información Pública y Protección de Datos Personales del Estado de Jalisco (ITEI)</strong> desde la <a href="https://www.plataformadetransparencia.org.mx/" target="_blank" rel="noopener">misma Plataforma Nacional</a>.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="foot">
+  <div class="foot-in">
+    <div class="foot-block">
+      <h3 class="foot-h">Fundamento legal</h3>
+      <p class="foot-txt"><strong>Art. 8, Fracción V, Inciso b)</strong> de la <em>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</em>: <em>"Los ingresos extraordinarios recibidos por cualquier concepto, señalando el nombre de los responsables de recibirlos, administrarlos y ejercerlos, así como su destino y utilización."</em></p>
+    </div>
+    <div class="foot-block">
+      <h3 class="foot-h">Marco normativo aplicable</h3>
+      <ul class="foot-list">
+        <li class="foot-list-item"><strong>Ley General de Contabilidad Gubernamental</strong></li>
+        <li class="foot-list-item"><strong>Ley de Disciplina Financiera</strong> de las Entidades Federativas y los Municipios</li>
+        <li class="foot-list-item"><strong>Ley de Hacienda Municipal</strong> del Estado de Jalisco</li>
+        <li class="foot-list-item"><strong>Ley de Ingresos del Municipio de Guadalajara</strong> del ejercicio que aplique</li>
+      </ul>
+    </div>
+    <div class="foot-block">
+      <h3 class="foot-h">Unidad responsable</h3>
+      <p class="foot-txt"><strong>Dirección de Ingresos · Tesorería Municipal</strong> del Ayuntamiento de Guadalajara. Publicación a través de la <strong>Dirección de Transparencia y Buenas Prácticas</strong>.</p>
+      <p class="foot-txt" style="margin-top:9px">Cuarto Piso, Mercado Corona<br>Av. Miguel Hidalgo y Costilla 474<br>Zona Centro · 44100 Guadalajara, Jal.<br>Tel. <strong>33 3818 3600</strong></p>
+    </div>
+    <div class="foot-block">
+      <h3 class="foot-h">¿Detectaste un error?</h3>
+      <p class="foot-txt">La <strong>fuente única de verdad</strong> es el archivo oficial (XLSX o PDF) alojado en transparencia.guadalajara.gob.mx. Si una cifra de esta página no coincide con el archivo, prevalece el archivo oficial.</p>
+      <p class="foot-txt" style="margin-top:9px">Reporta a <a href="mailto:transparencia@guadalajara.gob.mx">transparencia@guadalajara.gob.mx</a>.</p>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span><span class="pulse"></span>Información publicada bajo el principio de <strong style="color:#fff">máxima publicidad</strong> — art. 4 LGTAIP y art. 5 LTAIPEJM.</span>
+    <span>— Última actualización: 24 de abril de 2026 —</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+
+/* ============================================================
+   DATOS — VERIFICADOS LITERALMENTE CONTRA XLSX OFICIAL
+   Fuente: archivos descargados de transparencia.guadalajara.gob.mx
+   URLs validadas HTTP 200 el 19/may/2026
+============================================================ */
+const DATOS = {
+  ing2026: [
+    { mes:'ENERO',   fuente:'—', concepto:'Durante el mes de enero de 2026 no se recibió ningún importe por concepto de ingresos extraordinarios',   importe:null, responsable:'—', destino:'—', utilizacion:'—', comp:[] },
+    { mes:'FEBRERO', fuente:'—', concepto:'Durante el mes de febrero de 2026 no se recibió ningún importe por concepto de ingresos extraordinarios', importe:null, responsable:'—', destino:'—', utilizacion:'—', comp:[] },
+    { mes:'MARZO',   fuente:'—', concepto:'Durante el mes de enero de 2026 no se recibió ningún importe por concepto de ingresos extraordinarios',   importe:null, responsable:'—', destino:'—', utilizacion:'—', comp:[] }
+  ],
+  resp2026: {
+    tipo:'unico',
+    nombre:'Irlanda Loerythe Baumbach Valencia',
+    cargo:'Tesorero Municipal',
+    area:'Dirección de Ingresos / Jefatura de Análisis y Evaluación del Ingreso',
+    periodo:'01/01/2026 – 31/03/2026',
+    actualizacion:'17 de abril de 2026',
+    nota:'Información correspondiente a la Administración comprendida entre el 01 de Octubre 2024 y el 30 de Septiembre 2027.'
+  },
+
+  ing2025: [
+    { mes:'ENERO',      fuente:'—', concepto:'Durante el mes de enero de 2025 no se recibió ningún importe por concepto de ingresos extraordinarios',      importe:null, responsable:'—', destino:'—', utilizacion:'—', comp:[] },
+    { mes:'FEBRERO',    fuente:'—', concepto:'Durante el mes de febrero de 2025 no se recibió ningún importe por concepto de ingresos extraordinarios',    importe:null, responsable:'—', destino:'—', utilizacion:'—', comp:[] },
+    { mes:'MARZO',      fuente:'—', concepto:'Durante el mes de marzo de 2025 no se recibió ningún importe por concepto de ingresos extraordinarios',      importe:null, responsable:'—', destino:'—', utilizacion:'—', comp:[] },
+    { mes:'ABRIL',      fuente:'—', concepto:'Durante el mes de abril de 2025 no se recibió ningún importe por concepto de ingresos extraordinarios',      importe:null, responsable:'—', destino:'—', utilizacion:'—', comp:[] },
+    { mes:'MAYO',       fuente:'—', concepto:'Durante el mes de mayo de 2025 no se recibió ningún importe por concepto de ingresos extraordinarios',       importe:null, responsable:'—', destino:'—', utilizacion:'—', comp:[] },
+    { mes:'JUNIO',      fuente:'—', concepto:'Durante el mes de junio de 2025 no se recibió ningún importe por concepto de ingresos extraordinarios',      importe:null, responsable:'—', destino:'—', utilizacion:'—', comp:[] },
+    { mes:'JULIO',      fuente:'RECURSOS ESTATALES', concepto:'CONVENIO DE COLABORACIÓN POLICIAL METROPOLITANA', importe:19151500, responsable:'COMISARÍA DE LA POLICÍA DE GUADALAJARA', destino:'SUBSIDIO A LOS MUNICIPIOS', utilizacion:'PARA EL APOYO A LOS ELEMENTOS OPERATIVOS ADSCRITOS A LOS MUNICIPIOS INTEGRANTES DE LA POLICÍA METROPOLITANA DE GUADALAJARA', comp:[
+      'https://transparencia.guadalajara.gob.mx/sites/default/files/ComprobacionRecursosIngresosExtraordinariosJulio25.pdf',
+      'https://transparencia.guadalajara.gob.mx/sites/default/files/ComprobacionRecursosIngresosExtraordinariosJulio25-2.pdf',
+      'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIIEjemplar13Marzo28-2025.pdf'
+    ]},
+    { mes:'AGOSTO',     fuente:'RECURSOS ESTATALES', concepto:'CONVENIO DE COLABORACIÓN POLICIAL METROPOLITANA', importe:2687100,  responsable:'COMISARÍA DE LA POLICÍA DE GUADALAJARA', destino:'SUBSIDIO A LOS MUNICIPIOS', utilizacion:'APOYO A LOS ELEMENTOS OPERATIVOS ADSCRITOS A LOS MUNICIPIOS INTEGRANTES DE LA POLICÍA METROPOLITANA DE GUADALAJARA', comp:[
+      'https://transparencia.guadalajara.gob.mx/sites/default/files/ComprobacionRecursosIngresosExtraordinariosAgosto25.pdf',
+      'https://transparencia.guadalajara.gob.mx/sites/default/files/ComprobacionRecursosIngresosExtraordinariosAgosto25-2.pdf',
+      'https://transparencia.guadalajara.gob.mx/sites/default/files/ComprobacionRecursosIngresosExtraordinariosAgosto25-3.pdf',
+      'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIIEjemplar13Marzo28-2025.pdf'
+    ]},
+    { mes:'SEPTIEMBRE', fuente:'RECURSOS ESTATALES', concepto:'CONVENIO DE COLABORACIÓN POLICIAL METROPOLITANA', importe:2679650,  responsable:'COMISARÍA DE LA POLICÍA DE GUADALAJARA', destino:'SUBSIDIO A LOS MUNICIPIOS', utilizacion:'APOYO A LOS ELEMENTOS OPERATIVOS ADSCRITOS A LOS MUNICIPIOS INTEGRANTES DE LA POLICÍA METROPOLITANA DE GUADALAJARA', comp:[
+      'https://transparencia.guadalajara.gob.mx/sites/default/files/ComprobacionRecursosIngresosExtraordinariosSeptiembre25.pdf',
+      'https://transparencia.guadalajara.gob.mx/sites/default/files/ComprobacionRecursosIngresosExtraordinariosSeptiembre25-2.pdf',
+      'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIIEjemplar13Marzo28-2025.pdf'
+    ]},
+    { mes:'OCTUBRE',    fuente:'RECURSOS ESTATALES', concepto:'CONVENIO DE COLABORACIÓN POLICIAL METROPOLITANA', importe:2679650,  responsable:'COMISARÍA DE LA POLICÍA DE GUADALAJARA', destino:'SUBSIDIO A LOS MUNICIPIOS', utilizacion:'APOYO A LOS ELEMENTOS OPERATIVOS ADSCRITOS A LOS MUNICIPIOS INTEGRANTES DE LA POLICÍA METROPOLITANA DE GUADALAJARA', comp:[
+      'https://transparencia.guadalajara.gob.mx/sites/default/files/ComprobacionRecursosIngresosExtraordinariosOctubre25.pdf',
+      'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIIEjemplar13Marzo28-2025.pdf'
+    ]},
+    { mes:'NOVIEMBRE',  fuente:'RECURSOS ESTATALES', concepto:'CONVENIO DE COLABORACIÓN POLICIAL METROPOLITANA', importe:2722050,  responsable:'COMISARÍA DE LA POLICÍA DE GUADALAJARA', destino:'SUBSIDIO A LOS MUNICIPIOS', utilizacion:'APOYO A LOS ELEMENTOS OPERATIVOS ADSCRITOS A LOS MUNICIPIOS INTEGRANTES DE LA POLICÍA METROPOLITANA DE GUADALAJARA', comp:[
+      'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIIEjemplar13Marzo28-2025.pdf'
+    ]},
+    { mes:'DICIEMBRE',  fuente:'RECURSOS ESTATALES', concepto:'CONVENIO DE COLABORACIÓN POLICIAL METROPOLITANA', importe:2738550,  responsable:'COMISARÍA DE LA POLICÍA DE GUADALAJARA', destino:'SUBSIDIO A LOS MUNICIPIOS', utilizacion:'APOYO A LOS ELEMENTOS OPERATIVOS ADSCRITOS A LOS MUNICIPIOS INTEGRANTES DE LA POLICÍA METROPOLITANA DE GUADALAJARA', comp:[
+      'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIIEjemplar13Marzo28-2025.pdf'
+    ]}
+  ],
+  resp2025: {
+    tipo:'unico',
+    nombre:'Irlanda Loerythe Baumbach Valencia',
+    cargo:'Tesorero Municipal',
+    area:'Dirección de Ingresos / Jefatura de Análisis y Evaluación del Ingreso',
+    periodo:'01/01/2025 – 31/12/2025',
+    actualizacion:'21 de enero de 2026',
+    nota:'Información correspondiente a la Administración comprendida entre el 01 de Octubre 2024 y el 30 de Septiembre 2027.'
+  },
+
+  ing2024: [
+    { mes:'OCTUBRE',   fuente:'—', concepto:'Durante el mes de octubre de 2024 no se recibió ningún importe por concepto de ingresos extraordinarios',   importe:null, responsable:'—', destino:'—', utilizacion:'—', comp:[] },
+    { mes:'NOVIEMBRE', fuente:'—', concepto:'Durante el mes de noviembre de 2024 no se recibió ningún importe por concepto de ingresos extraordinarios', importe:null, responsable:'—', destino:'—', utilizacion:'—', comp:[] },
+    { mes:'DICIEMBRE', fuente:'FINANCIAMIENTOS INTERNOS', concepto:'CRÉDITO A CORTO PLAZO MUNICIPIO DE GUADALAJARA 2024, DE ACUERDO AL OFICIO DE/120/2024', importe:300000000, responsable:'TESORERÍA', destino:'CUBRIR INSUFICIENCIAS PRESUPUESTARIAS', utilizacion:'DAR LIQUIDEZ DE CARÁCTER TEMPORAL A COMPROMISOS DE LAS DEPENDENCIAS DEL AYUNTAMIENTO DE GUADALAJARA', comp:[
+      'https://deudapublica.guadalajara.gob.mx/categoria/3',
+      'https://transparencia.guadalajara.gob.mx/deudapublica2024',
+      'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoVIEjemplar11Secc2aDiciembre2-2024.pdf'
+    ]}
+  ],
+  resp2024: {
+    tipo:'multi',
+    periodo:'01/10/2024 – 31/12/2024',
+    actualizacion:'06 de noviembre de 2024',
+    area:'Dirección de Ingresos / Jefatura de Análisis y Evaluación del Ingreso',
+    nota:'Información correspondiente a la administración municipal entrante, periodo 01 de octubre 2024 al 30 de septiembre 2027.',
+    aviso:'Los meses de enero a septiembre de 2024 corresponden a la administración municipal anterior. Para consultar esa información, visita la sección de Administraciones Pasadas en transparencia.guadalajara.gob.mx.',
+    personas:[
+      { rol:'Recibir',     nombre:'Fabián Aceves Dávalos',           cargo:'Director de Ingresos' },
+      { rol:'Administrar', nombre:'Ricardo Rodríguez Jiménez',       cargo:'Tesorero Municipal'   },
+      { rol:'Ejercer',     nombre:'Juan Francisco Castellanos Horta', cargo:'Director de Finanzas' }
+    ]
+  },
+
+  metaUpdate: '24 de abril de 2026'
+};
+
+const DOCS = {
+  '2026':[
+    { tipo:'XLSX', titulo:'Ingresos Extraordinarios 2026 (Ene–Mar)', sub:'Archivo Excel oficial · Q1 2026', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/IngresosExtraordinariosMarzo2026.xlsx' },
+    { tipo:'XLSX', titulo:'Responsables 2026 (Ene–Mar)', sub:'Recibir, Administrar y Ejercer · Excel oficial', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/Art8FraccionV-Inciso-b-Responsable-Recibir-Administrar-Ejercer-Ingresos-2026.xlsx' },
+    { tipo:'URL',  titulo:'Página oficial del Ayuntamiento', sub:'Portal Transparencia GDL · sección V-b', url:'https://transparencia.guadalajara.gob.mx/ingresosextraordinarios' }
+  ],
+  '2025':[
+    { tipo:'XLSX', titulo:'Ingresos Extraordinarios 2025 (Ene–Dic)', sub:'Archivo Excel oficial · año completo', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/IngresosExtraordinariosDiciembre2025.xlsx' },
+    { tipo:'XLSX', titulo:'Responsables 2025 (Ene–Dic)', sub:'Recibir, Administrar y Ejercer · Excel oficial', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/Art8FraccionV-Inciso-b-Responsable-Recibir-Administrar-Ejercer-Ingresos-2025.xlsx' },
+    { tipo:'URL',  titulo:'Página oficial del Ayuntamiento', sub:'Portal Transparencia GDL · sección V-b', url:'https://transparencia.guadalajara.gob.mx/ingresosextraordinarios' }
+  ],
+  '2024':[
+    { tipo:'XLSX', titulo:'Ingresos Extraordinarios 2024 (anual)', sub:'Archivo Excel oficial · año completo', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/IngresosExtraordinariosDiciembre2024.xlsx' },
+    { tipo:'XLSX', titulo:'Responsables 2024 · Oct–Dic', sub:'Administración entrante · Excel oficial', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/Art8FraccionV-Inciso-b-Responsable-Recibir-Administrar-Ejercer-Ingresos-2024Oct-Dic.xlsx' },
+    { tipo:'URL',  titulo:'Página oficial del Ayuntamiento', sub:'Portal Transparencia GDL · sección V-b', url:'https://transparencia.guadalajara.gob.mx/ingresosextraordinarios' }
+  ]
+};
+
+const YEARS = ['2026','2025','2024'];
+const MES_FULL = ['ENERO','FEBRERO','MARZO','ABRIL','MAYO','JUNIO','JULIO','AGOSTO','SEPTIEMBRE','OCTUBRE','NOVIEMBRE','DICIEMBRE'];
+const MES_SHORT = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+let activeYear = '2025'; // arranca en 2025 para mostrar la gráfica con movimiento
+let comparaView = 'total';
+let comparaChart, mensualChart;
+
+/* HELPERS */
+const $ = id => document.getElementById(id);
+const fmtMXN = n => new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN',maximumFractionDigits:0}).format(n);
+const fmtMXNshort = n => {
+  if (n >= 1e9) return '$' + (n/1e9).toFixed(2).replace(/\.?0+$/,'') + ' MMDP';
+  if (n >= 1e6) return '$' + (n/1e6).toFixed(2).replace(/\.?0+$/,'') + ' MDP';
+  if (n >= 1e3) return '$' + (n/1e3).toFixed(0) + 'K';
+  return '$' + n;
+};
+const cap = s => (s||'').toLowerCase().replace(/(?:^|\s)\S/g, c => c.toUpperCase());
+const esURL = s => typeof s === 'string' && /^https?:\/\//.test(s);
+const escapeHtml = s => String(s).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+const escapeCsv = s => `"${String(s).replace(/"/g,'""').replace(/\r?\n/g,' ')}"`;
+
+function fuenteClass(f){
+  if (!f || f === '—') return 'otro';
+  const u = f.toUpperCase();
+  if (u.includes('FEDERAL')) return 'federal';
+  if (u.includes('ESTATAL') || u.includes('CONVENIO')) return 'estatal';
+  if (u.includes('FINANCIAMIENTO') || u.includes('CRÉDITO') || u.includes('CREDITO')) return 'financ';
+  return 'otro';
+}
+const fuenteLabel = c => ({federal:'Federal',estatal:'Estatal',financ:'Financiamiento interno',otro:'Otro origen'})[c] || 'Otro';
+const fuenteColor = c => ({federal:'#2563EB',estatal:'#6F4D8E',financ:'#C8323F',otro:'#E87722'})[c] || '#9E9E98';
+const fuenteColorD = c => ({federal:'#1E3A8A',estatal:'#4F3567',financ:'#7A1F29',otro:'#C45F0A'})[c] || '#5A5A55';
+
+function compLinkType(url){
+  if (!esURL(url)) return null;
+  if (/Gaceta/i.test(url)) return 'gaceta';
+  if (/deuda/i.test(url)) return 'deuda';
+  return 'pdf';
+}
+const initials = name => name.split(' ').filter(w => w.length > 2 && !w.startsWith('(')).slice(0,2).map(w => w[0]).join('').toUpperCase() || '?';
+
+function calcTotal(yr){ return (DATOS['ing'+yr] || []).reduce((a,r) => a + (r.importe || 0), 0); }
+function regCount(yr){ return (DATOS['ing'+yr] || []).filter(r => r.importe).length; }
+function calcByFuente(yr){
+  const out = {federal:0,estatal:0,financ:0,otro:0};
+  (DATOS['ing'+yr] || []).forEach(r => {
+    if (!r.importe) return;
+    out[fuenteClass(r.fuente)] += r.importe;
+  });
+  return out;
+}
+
+/* ============================================================
+   RENDER: SELECTOR DE AÑOS
+============================================================ */
+function renderYears(){
+  const CURRENT = new Date().getFullYear();
+  $('yearGrid').innerHTML = YEARS.map(y => {
+    const total = calcTotal(y);
+    const isActive = y === activeYear;
+    const isZero = total === 0;
+    const isNow = parseInt(y,10) === CURRENT;
+    const periodos = { '2026':'Ene – Mar', '2025':'Año completo', '2024':'Oct – Dic' };
+    return `
+      <button class="year-card ${isActive?'active':''} ${isZero?'zero':''} ${isNow?'now':''}" data-year="${y}" role="tab" aria-selected="${isActive}" type="button">
+        <div class="year-card-top">
+          <span class="year-card-yr">${y}</span>
+          <span class="year-card-tag">${isNow?'Vigente':'Cerrado'}</span>
+        </div>
+        <span class="year-card-val">${isZero ? 'Sin ingresos' : fmtMXN(total)}</span>
+        <span class="year-card-sub">${periodos[y]}${isZero ? ' · meses oficialmente reportados sin movimiento' : ' · '+regCount(y)+' registro(s)'}</span>
+      </button>
+    `;
+  }).join('');
+  $('yearGrid').querySelectorAll('.year-card').forEach(c => {
+    c.addEventListener('click', () => setYear(c.dataset.year));
+  });
+}
+
+function setYear(y){
+  if (y === activeYear) return;
+  activeYear = y;
+  renderForYear();
+  setTimeout(() => {
+    const target = $('kpiRow');
+    if (target) target.scrollIntoView({behavior:'smooth',block:'start'});
+  }, 80);
+}
+
+/* ============================================================
+   RENDER: HERO NUMBER
+============================================================ */
+function renderHero(){
+  const total = calcTotal(activeYear);
+  const reg = regCount(activeYear);
+  $('hero-val').textContent = total > 0 ? fmtMXN(total) : '$0';
+  $('hero-yr').textContent = activeYear;
+  $('hero-reg').textContent = String(reg);
+}
+
+/* ============================================================
+   RENDER: KPIs
+============================================================ */
+function renderKpis(){
+  const rows = DATOS['ing'+activeYear] || [];
+  const total = rows.reduce((a,r) => a + (r.importe || 0), 0);
+  const con = rows.filter(r => r.importe).length;
+  const sin = rows.filter(r => !r.importe).length;
+  const sources = new Set();
+  rows.forEach(r => { if (r.importe) sources.add(fuenteClass(r.fuente)); });
+  const srcCount = sources.size;
+  $('kpiRow').innerHTML = `
+    <div class="kpi total">
+      <div class="kpi-lbl">Total recibido en ${activeYear}</div>
+      <div class="kpi-val">${total > 0 ? fmtMXN(total) : '$0'}</div>
+      <div class="kpi-sub">${total > 0 ? 'Suma de ingresos extraordinarios del ejercicio' : 'Sin ingresos extraordinarios en este ejercicio'}</div>
+    </div>
+    <div class="kpi with">
+      <div class="kpi-lbl">Meses con ingreso</div>
+      <div class="kpi-val">${con}</div>
+      <div class="kpi-sub">${con === 1 ? 'Mes con recursos extraordinarios' : 'Meses con recursos extraordinarios'}</div>
+    </div>
+    <div class="kpi empty">
+      <div class="kpi-lbl">Meses sin ingreso</div>
+      <div class="kpi-val">${sin}</div>
+      <div class="kpi-sub">Reportados oficialmente sin movimiento</div>
+    </div>
+    <div class="kpi src">
+      <div class="kpi-lbl">Fuentes activas</div>
+      <div class="kpi-val">${srcCount}</div>
+      <div class="kpi-sub">${srcCount === 0 ? 'No aplica este ejercicio' : srcCount === 1 ? 'Categoría de origen presente' : 'Categorías de origen presentes'}</div>
+    </div>
+  `;
+}
+
+/* ============================================================
+   CHART.JS — GRÁFICA COMPARATIVA ANUAL (siempre visible)
+   Vista 1: Total anual · Vista 2: Por fuente (stacked)
+============================================================ */
+function renderComparaChart(){
+  const ctx = document.getElementById('comparaChart').getContext('2d');
+  if (comparaChart) comparaChart.destroy();
+
+  const orderedYears = ['2024','2025','2026'];
+  const labels = orderedYears.map(y => `Ejercicio ${y}`);
+
+  if (comparaView === 'total') {
+    const data = orderedYears.map(calcTotal);
+    comparaChart = new Chart(ctx, {
+      type:'bar',
+      data:{
+        labels,
+        datasets:[{
+          label:'Total recibido (MXN)',
+          data,
+          backgroundColor: orderedYears.map(y => y === activeYear ? '#C45F0A' : '#E87722'),
+          borderColor: orderedYears.map(y => y === activeYear ? '#8B4308' : '#C45F0A'),
+          borderWidth: 1.5,
+          borderRadius: 6,
+          hoverBackgroundColor: '#8B4308'
+        }]
+      },
+      options:{
+        responsive:true,
+        maintainAspectRatio:false,
+        plugins:{
+          legend:{display:false},
+          tooltip:{
+            backgroundColor:'#1A1A1A',
+            titleColor:'#fff',
+            bodyColor:'#fff',
+            titleFont:{family:'Outfit',size:13,weight:'700'},
+            bodyFont:{family:'DM Mono',size:13},
+            padding:12,
+            cornerRadius:8,
+            callbacks:{
+              label: ctx => ' ' + fmtMXN(ctx.parsed.y)
+            }
+          }
+        },
+        scales:{
+          y:{
+            beginAtZero:true,
+            ticks:{
+              callback: v => fmtMXNshort(v),
+              font:{family:'DM Mono',size:11},
+              color:'#5A5A55'
+            },
+            grid:{color:'#F0F0EC',drawBorder:false}
+          },
+          x:{
+            ticks:{
+              font:{family:'Outfit',size:12,weight:'600'},
+              color:'#1A1A1A'
+            },
+            grid:{display:false}
+          }
+        }
+      }
+    });
+  } else {
+    // Por fuente (stacked)
+    const byFuente = orderedYears.map(calcByFuente);
+    const sources = ['federal','estatal','financ','otro'];
+    const datasets = sources.map(src => ({
+      label: fuenteLabel(src),
+      data: byFuente.map(b => b[src] || 0),
+      backgroundColor: fuenteColor(src),
+      borderColor: fuenteColorD(src),
+      borderWidth: 1,
+      borderRadius: 4,
+      stack: 'fuentes'
+    }));
+    comparaChart = new Chart(ctx, {
+      type:'bar',
+      data:{ labels, datasets },
+      options:{
+        responsive:true,
+        maintainAspectRatio:false,
+        plugins:{
+          legend:{
+            position:'bottom',
+            labels:{
+              font:{family:'Outfit',size:11,weight:'600'},
+              color:'#5A5A55',
+              padding:14,
+              boxWidth:14,
+              boxHeight:14,
+              usePointStyle:false
+            }
+          },
+          tooltip:{
+            backgroundColor:'#1A1A1A',
+            titleColor:'#fff',
+            bodyColor:'#fff',
+            titleFont:{family:'Outfit',size:13,weight:'700'},
+            bodyFont:{family:'DM Mono',size:12},
+            padding:12,
+            cornerRadius:8,
+            callbacks:{
+              label: ctx => ' ' + ctx.dataset.label + ': ' + (ctx.parsed.y ? fmtMXN(ctx.parsed.y) : '$0')
+            }
+          }
+        },
+        scales:{
+          y:{
+            beginAtZero:true,
+            stacked:true,
+            ticks:{
+              callback: v => fmtMXNshort(v),
+              font:{family:'DM Mono',size:11},
+              color:'#5A5A55'
+            },
+            grid:{color:'#F0F0EC',drawBorder:false}
+          },
+          x:{
+            stacked:true,
+            ticks:{
+              font:{family:'Outfit',size:12,weight:'600'},
+              color:'#1A1A1A'
+            },
+            grid:{display:false}
+          }
+        }
+      }
+    });
+  }
+}
+
+/* ============================================================
+   CHART.JS — GRÁFICA MENSUAL DEL AÑO SELECCIONADO
+============================================================ */
+function renderMensualChart(){
+  $('mensualYr').textContent = activeYear;
+  const rows = DATOS['ing'+activeYear] || [];
+  $('mensualTag').textContent = `${rows.length} mes${rows.length===1?'':'es'} reportado${rows.length===1?'':'s'}`;
+  $('mensualSub').textContent = rows.length === 12
+    ? 'Importes recibidos mes a mes durante el año completo. Color por fuente del recurso.'
+    : `Importes recibidos durante el periodo reportado: ${cap(rows[0].mes)} a ${cap(rows[rows.length-1].mes)} de ${activeYear}.`;
+
+  const total = rows.reduce((a,r) => a + (r.importe || 0), 0);
+
+  // Empty state debajo de la gráfica
+  $('mensualEmpty').innerHTML = total === 0
+    ? `<div style="margin-top:12px;padding:12px 16px;background:var(--g50);border:1px dashed var(--g200);border-radius:8px;font-size:12.5px;color:var(--g600);line-height:1.55;font-style:italic">Durante los ${rows.length} mes${rows.length===1?'':'es'} reportado${rows.length===1?'':'s'} del ejercicio ${activeYear}, el Ayuntamiento <strong style="color:var(--g900);font-style:normal;font-weight:700">no recibió ingresos extraordinarios</strong>. La publicación de meses sin movimiento es obligatoria bajo el principio de máxima publicidad.</div>`
+    : '';
+
+  // Build dataset for 12 months
+  const byMes = {};
+  rows.forEach(r => { byMes[r.mes] = r; });
+  const labels = MES_SHORT;
+  const dataPoints = MES_FULL.map(m => {
+    const r = byMes[m];
+    return (r && r.importe) ? r.importe : 0;
+  });
+  const bgColors = MES_FULL.map(m => {
+    const r = byMes[m];
+    if (!r || !r.importe) return '#E2E2DD';
+    return fuenteColor(fuenteClass(r.fuente));
+  });
+  const borderColors = MES_FULL.map(m => {
+    const r = byMes[m];
+    if (!r || !r.importe) return '#CFCFC8';
+    return fuenteColorD(fuenteClass(r.fuente));
+  });
+  const sourceLabels = MES_FULL.map(m => {
+    const r = byMes[m];
+    if (!r || !r.importe) return 'Sin ingreso';
+    return fuenteLabel(fuenteClass(r.fuente));
+  });
+
+  const ctx = document.getElementById('mensualChart').getContext('2d');
+  if (mensualChart) mensualChart.destroy();
+  mensualChart = new Chart(ctx, {
+    type:'bar',
+    data:{
+      labels,
+      datasets:[{
+        label:'Importe recibido',
+        data:dataPoints,
+        backgroundColor:bgColors,
+        borderColor:borderColors,
+        borderWidth:1.5,
+        borderRadius:5,
+        borderSkipped:false
+      }]
+    },
+    options:{
+      responsive:true,
+      maintainAspectRatio:false,
+      plugins:{
+        legend:{display:false},
+        tooltip:{
+          backgroundColor:'#1A1A1A',
+          titleColor:'#fff',
+          bodyColor:'#fff',
+          titleFont:{family:'Outfit',size:13,weight:'700'},
+          bodyFont:{family:'DM Mono',size:12},
+          padding:12,
+          cornerRadius:8,
+          callbacks:{
+            title: items => MES_FULL[items[0].dataIndex].charAt(0) + MES_FULL[items[0].dataIndex].slice(1).toLowerCase() + ' ' + activeYear,
+            label: ctx => {
+              const v = ctx.parsed.y;
+              const src = sourceLabels[ctx.dataIndex];
+              if (v === 0) return ' Sin movimiento registrado';
+              return [' Importe: ' + fmtMXN(v), ' Fuente: ' + src];
+            }
+          }
+        }
+      },
+      scales:{
+        y:{
+          beginAtZero:true,
+          ticks:{
+            callback: v => v === 0 ? '$0' : fmtMXNshort(v),
+            font:{family:'DM Mono',size:11},
+            color:'#5A5A55'
+          },
+          grid:{color:'#F0F0EC',drawBorder:false}
+        },
+        x:{
+          ticks:{
+            font:{family:'Outfit',size:11,weight:'700'},
+            color:'#5A5A55'
+          },
+          grid:{display:false}
+        }
+      }
+    }
+  });
+}
+
+/* ============================================================
+   RENDER: DESGLOSE POR FUENTE
+============================================================ */
+function renderSplit(){
+  $('splitYr').textContent = activeYear;
+  const rows = DATOS['ing'+activeYear] || [];
+  const total = rows.reduce((a,r) => a + (r.importe || 0), 0);
+  if (total === 0) {
+    $('splitSection').style.display = 'none';
+    return;
+  }
+  $('splitSection').style.display = '';
+  const byFuente = {};
+  rows.forEach(r => {
+    if (!r.importe) return;
+    const c = fuenteClass(r.fuente);
+    byFuente[c] = (byFuente[c] || 0) + r.importe;
+  });
+  const sorted = Object.entries(byFuente).sort((a,b) => b[1] - a[1]);
+  $('splitBody').innerHTML = sorted.map(([c,amt]) => {
+    const pct = (amt / total * 100).toFixed(1);
+    return `
+      <div class="split-row">
+        <span class="split-tag ${c}">${fuenteLabel(c)}</span>
+        <div><div class="split-bar-wrap"><div class="split-bar ${c}" style="width:${pct}%"></div></div></div>
+        <div>
+          <div class="split-amt">${fmtMXN(amt)}</div>
+          <div class="split-pct">${pct}% del total</div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+/* ============================================================
+   RENDER: INGRESOS REGISTRADOS
+============================================================ */
+function renderIngresos(){
+  const rows = DATOS['ing'+activeYear] || [];
+  const conIng = rows.filter(r => r.importe);
+  const sinIng = rows.filter(r => !r.importe);
+  const total = conIng.reduce((a,r) => a + r.importe, 0);
+
+  $('ingCount').textContent = conIng.length === 0
+    ? 'Sin movimientos en el ejercicio'
+    : `${conIng.length} ${conIng.length === 1 ? 'registro' : 'registros'} · ${fmtMXN(total)}`;
+
+  if (conIng.length === 0) {
+    $('ingList').innerHTML = '';
+  } else {
+    $('ingList').innerHTML = conIng.map((r,idx) => {
+      const fc = fuenteClass(r.fuente);
+      const pct = ((r.importe / total) * 100).toFixed(1);
+      const compHtml = (r.comp && r.comp.length) ? `
+        <div class="ing-comp">
+          <div class="ing-comp-h">Comprobación de los recursos · ${r.comp.filter(esURL).length} documento${r.comp.filter(esURL).length===1?'':'s'}</div>
+          <div class="ing-comp-list">
+            ${r.comp.map((c,i) => {
+              if (esURL(c)) {
+                const t = compLinkType(c);
+                const tipoTxt = t === 'gaceta' ? 'Gaceta Municipal' : t === 'deuda' ? 'Portal Deuda Pública' : 'Comprobación oficial';
+                return `<a class="ing-comp-link ${t}" href="${escapeHtml(c)}" target="_blank" rel="noopener" aria-label="${tipoTxt} — documento ${i+1}">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                  ${tipoTxt} ${i+1}
+                </a>`;
+              }
+              return `<div class="ing-comp-note">${escapeHtml(c)}</div>`;
+            }).join('')}
+          </div>
+        </div>
+      ` : '';
+      return `
+        <article class="ing-card ${fc}" style="animation-delay:${idx*60}ms">
+          <header class="ing-head">
+            <div class="ing-mes">
+              <span class="ing-mes-name">${cap(r.mes)}</span>
+              <span class="ing-mes-yr">${activeYear}</span>
+            </div>
+            <div class="ing-headline">
+              <div class="ing-source">
+                <span class="ing-source-tag ${fc}">${escapeHtml(r.fuente)}</span>
+              </div>
+              <div class="ing-concepto">${escapeHtml(r.concepto)}</div>
+            </div>
+            <div class="ing-amount">
+              <span class="ing-amount-lbl">Importe recibido</span>
+              <span class="ing-amount-val">${fmtMXN(r.importe)}</span>
+              <span class="ing-amount-pct">${pct}% del ejercicio</span>
+            </div>
+          </header>
+          <div class="ing-body">
+            <div class="ing-field">
+              <span class="ing-field-lbl">Responsable</span>
+              <span class="ing-field-val">${escapeHtml(r.responsable)}</span>
+            </div>
+            <div class="ing-field">
+              <span class="ing-field-lbl">Destino</span>
+              <span class="ing-field-val">${escapeHtml(r.destino)}</span>
+            </div>
+            <div class="ing-field wide">
+              <span class="ing-field-lbl">Utilización específica</span>
+              <span class="ing-field-val">${escapeHtml(r.utilizacion)}</span>
+            </div>
+          </div>
+          ${compHtml}
+        </article>
+      `;
+    }).join('');
+  }
+
+  if (sinIng.length > 0 && conIng.length > 0) {
+    $('noneWrap').innerHTML = `
+      <div class="none-card">
+        <div class="none-top">
+          <div class="none-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div>
+          <div>
+            <div class="none-h">${sinIng.length} ${sinIng.length === 1 ? 'mes' : 'meses'} sin ingreso extraordinario</div>
+            <div class="none-sub">Reportado(s) oficialmente en el archivo fuente del ejercicio</div>
+          </div>
+        </div>
+        <div class="none-body">
+          <div class="none-meses">
+            ${sinIng.map(r => `<span class="none-mes">${cap(r.mes)} ${activeYear}</span>`).join('')}
+          </div>
+          <p class="none-legal">El reporte mensual incluye <strong>todos los meses del periodo informado</strong>, aún cuando no haya movimientos. Esto cumple el principio de máxima publicidad: la ausencia de ingreso también es información pública relevante.</p>
+        </div>
+      </div>
+    `;
+  } else if (sinIng.length > 0 && conIng.length === 0) {
+    $('noneWrap').innerHTML = `
+      <div class="none-card">
+        <div class="none-top">
+          <div class="none-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div>
+          <div>
+            <div class="none-h">Sin ingresos extraordinarios en el ejercicio ${activeYear}</div>
+            <div class="none-sub">${sinIng.length} ${sinIng.length === 1 ? 'mes reportado' : 'meses reportados'} sin movimiento</div>
+          </div>
+        </div>
+        <div class="none-body">
+          <div class="none-meses">
+            ${sinIng.map(r => `<span class="none-mes">${cap(r.mes)} ${activeYear}</span>`).join('')}
+          </div>
+          <p class="none-legal">Durante el periodo reportado, el Ayuntamiento <strong>no recibió recursos adicionales</strong> al presupuesto regular. La publicación de meses sin movimiento es obligatoria conforme al principio de máxima publicidad.</p>
+        </div>
+      </div>
+    `;
+  } else {
+    $('noneWrap').innerHTML = '';
+  }
+}
+
+/* ============================================================
+   RENDER: RESPONSABLES
+============================================================ */
+function renderResp(){
+  const r = DATOS['resp'+activeYear];
+  if (!r) { $('respWrap').innerHTML = ''; return; }
+
+  let html = `<div class="resp-card">`;
+
+  if (r.tipo === 'unico') {
+    html += `
+      <div class="resp-top">
+        <div class="resp-top-h">Una sola persona ejerce los tres roles</div>
+        <div class="resp-top-sub">La misma servidora pública es responsable de recibir, administrar y ejercer los recursos durante este periodo.</div>
+      </div>
+      <div class="resp-single">
+        <div class="resp-avatar" aria-hidden="true">${initials(r.nombre)}</div>
+        <div class="resp-info">
+          <div class="resp-name">${escapeHtml(r.nombre)}</div>
+          <div class="resp-cargo">${escapeHtml(r.cargo)}</div>
+          <div class="resp-area">${escapeHtml(r.area)}</div>
+        </div>
+      </div>
+      <div class="resp-roles">
+        <span class="resp-role recibir"><span class="dot"></span>Recibir</span>
+        <span class="resp-role administrar"><span class="dot"></span>Administrar</span>
+        <span class="resp-role ejercer"><span class="dot"></span>Ejercer</span>
+      </div>
+    `;
+  } else {
+    html += `
+      <div class="resp-top">
+        <div class="resp-top-h">Tres personas, tres roles separados</div>
+        <div class="resp-top-sub">Cada rol está asignado a una persona distinta, conforme a la estructura orgánica de Tesorería Municipal.</div>
+      </div>
+      <div class="resp-multi">
+        ${r.personas.map(p => `
+          <div class="resp-mini">
+            <span class="resp-mini-rol ${p.rol.toLowerCase()}"><span class="dot"></span>Responsable de ${escapeHtml(p.rol)}</span>
+            <div class="resp-mini-body">
+              <div class="resp-avatar-sm">${initials(p.nombre)}</div>
+              <div class="resp-mini-info">
+                <div class="resp-mini-name">${escapeHtml(p.nombre)}</div>
+                <div class="resp-mini-cargo">${escapeHtml(p.cargo)}</div>
+              </div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+    if (r.aviso) {
+      html += `
+        <div class="resp-aviso">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <span><strong>Aviso de periodo:</strong> ${escapeHtml(r.aviso)}</span>
+        </div>
+      `;
+    }
+  }
+
+  html += `
+    <div class="resp-meta">
+      <div class="resp-meta-item">
+        <span class="resp-meta-lbl">Periodo informado</span>
+        <span class="resp-meta-val">${escapeHtml(r.periodo)}</span>
+      </div>
+      ${r.area && r.tipo === 'multi' ? `
+      <div class="resp-meta-item">
+        <span class="resp-meta-lbl">Área administrativa</span>
+        <span class="resp-meta-val" style="font-size:11.5px;font-family:var(--fh);font-weight:600">${escapeHtml(r.area)}</span>
+      </div>` : ''}
+      <div class="resp-meta-item">
+        <span class="resp-meta-lbl">Última actualización</span>
+        <span class="resp-meta-val">${escapeHtml(r.actualizacion)}</span>
+      </div>
+    </div>
+    <p class="resp-nota"><strong>Nota:</strong> ${escapeHtml(r.nota)}</p>
+  </div>`;
+
+  $('respWrap').innerHTML = html;
+}
+
+/* ============================================================
+   RENDER: ARCHIVOS FUENTE
+============================================================ */
+function renderDocs(){
+  $('docsYr').textContent = activeYear;
+  const docs = DOCS[activeYear] || [];
+  $('docsGrid').innerHTML = docs.map(d => {
+    const ico = d.tipo === 'XLSX' ? '<span class="docs-link-ico">XLSX</span>'
+              : d.tipo === 'PDF' ? '<span class="docs-link-ico pdf">PDF</span>'
+              : '<span class="docs-link-ico url">WEB</span>';
+    return `
+      <a class="docs-link" href="${escapeHtml(d.url)}" target="_blank" rel="noopener">
+        ${ico}
+        <div class="docs-link-body">
+          <div class="docs-link-h">${escapeHtml(d.titulo)}</div>
+          <div class="docs-link-d">${escapeHtml(d.sub)}</div>
+        </div>
+      </a>
+    `;
+  }).join('');
+}
+
+/* ============================================================
+   TOGGLE COMPARATIVA
+============================================================ */
+function setupComparaToggle(){
+  document.getElementById('comparaToggle').addEventListener('click', e => {
+    const b = e.target.closest('button[data-view]');
+    if (!b) return;
+    document.querySelectorAll('#comparaToggle button').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    comparaView = b.dataset.view;
+    renderComparaChart();
+  });
+}
+
+/* ============================================================
+   RENDER cosas que cambian con el año
+============================================================ */
+function renderForYear(){
+  renderYears();
+  renderHero();
+  renderKpis();
+  renderComparaChart();
+  renderMensualChart();
+  renderSplit();
+  renderIngresos();
+  renderResp();
+  renderDocs();
+}
+
+/* INIT */
+function init(){
+  renderForYear();
+  setupComparaToggle();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
+})();
+</script>
+
+</body>
+</html>
