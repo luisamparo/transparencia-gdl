@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Plan Nacional de Desarrollo 2025-2030 · Vista ciudadana</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+body{margin:0;padding:24px;background:#f7f3ec;font-family:Outfit,Arial,Helvetica,sans-serif;color:#2a241d;line-height:1.55}
+.pnd-wrap{max-width:1200px;margin:0 auto}
+
+/* HERO con cifras grandes 4-14-100 - NEUTRO INSTITUCIONAL (dark slate cálido) */
+.pnd-hero{background:linear-gradient(135deg,#1f1a14 0%,#2d251c 50%,#3d342a 100%);color:#fff;border-radius:18px;padding:32px 36px;margin:0 0 22px;position:relative;overflow:hidden;box-shadow:0 6px 24px rgba(31,26,20,.22)}
+.pnd-hero::before{content:'';position:absolute;top:-100px;right:-100px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.1) 0%,transparent 70%);pointer-events:none}
+.pnd-hero-tag{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px}
+.pnd-hero h2{margin:0 0 8px;font-size:clamp(22px,3.2vw,32px);font-weight:800;color:#fff;letter-spacing:-.018em;line-height:1.15;position:relative;z-index:1}
+.pnd-hero h2 em{font-style:normal;color:#fbe5b3}
+.pnd-hero-sub{font-size:14.5px;color:rgba(255,255,255,.92);max-width:75ch;margin:0 0 22px;line-height:1.6;position:relative;z-index:1}
+.pnd-cifras{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px;position:relative;z-index:1;max-width:520px}
+.pnd-cifra{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:12px;padding:14px 16px;backdrop-filter:blur(6px)}
+.pnd-cifra-num{font-family:Outfit,sans-serif;font-size:38px;font-weight:800;line-height:1;color:#fbe5b3;letter-spacing:-.02em;font-feature-settings:'tnum'}
+.pnd-cifra-lbl{font-size:11px;font-weight:700;color:rgba(255,255,255,.92);text-transform:uppercase;letter-spacing:.08em;margin-top:4px;line-height:1.3}
+
+/* CARDS DE EJES */
+.pnd-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:18px;margin:0 0 30px}
+.pnd-card{position:relative;overflow:hidden;border-radius:16px;padding:24px 24px 22px;background:#fff;box-shadow:0 4px 20px rgba(42,36,29,.06);transition:transform .25s ease,box-shadow .25s ease;display:flex;flex-direction:column;border-top:5px solid currentColor}
+.pnd-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(42,36,29,.12)}
+.pnd-card::before{content:'';position:absolute;top:-60px;right:-60px;width:180px;height:180px;border-radius:50%;background:currentColor;opacity:.06;transition:opacity .25s ease}
+.pnd-card:hover::before{opacity:.1}
+.pnd-card.eje-1{color:#5a5a55}
+.pnd-card.eje-2{color:#C45F0A}
+.pnd-card.eje-3{color:#7a5d23}
+.pnd-card.eje-4{color:#3f6b48}
+.pnd-card-top{display:flex;align-items:center;gap:14px;margin-bottom:14px;position:relative;z-index:1}
+.pnd-card-num{font-family:Outfit,sans-serif;font-size:46px;font-weight:800;line-height:1;letter-spacing:-.04em;color:currentColor;font-feature-settings:'tnum'}
+.pnd-card-icono{width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.04);border-radius:12px;color:currentColor;flex-shrink:0}
+.pnd-card-eyebrow{font-size:10.5px;font-weight:700;color:currentColor;letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px;opacity:.85;position:relative;z-index:1}
+.pnd-card-titulo{font-size:19px;font-weight:800;color:#2a241d;line-height:1.22;letter-spacing:-.012em;margin:0 0 14px;position:relative;z-index:1}
+.pnd-card-republicas-lbl{font-size:10.5px;font-weight:700;color:#6f5c47;text-transform:uppercase;letter-spacing:.12em;margin:6px 0 8px;position:relative;z-index:1;display:flex;align-items:center;gap:6px}
+.pnd-card-republicas-lbl::before{content:'';width:18px;height:1px;background:currentColor;opacity:.4}
+.pnd-card-republicas{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;position:relative;z-index:1}
+.pnd-card-republicas li{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:#3d342a;line-height:1.5;background:#faf6ee;padding:9px 12px;border-radius:8px;border-left:3px solid currentColor;transition:transform .15s ease,background .15s ease}
+.pnd-card-republicas li:hover{background:#fff;transform:translateX(2px)}
+.pnd-card-republicas li strong{color:#2a241d;font-weight:700;display:block;font-size:13.5px;letter-spacing:-.005em}
+
+/* BANDA TRANSVERSALES */
+.pnd-transversal-banda{margin:30px 0 16px;background:linear-gradient(135deg,#2a241d 0%,#3d342a 100%);color:#f7f3ec;padding:22px 26px;border-radius:14px;box-shadow:0 4px 18px rgba(42,36,29,.18)}
+.pnd-transversal-banda-eyebrow{font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#fbe5b3;margin-bottom:6px}
+.pnd-transversal-banda h3{margin:0;font-size:19px;font-weight:700;color:#fff;letter-spacing:-.008em;line-height:1.3}
+.pnd-transversal-banda p{margin:6px 0 0;font-size:13.5px;color:#cdc4b6;line-height:1.55;max-width:70ch}
+
+.pnd-transversal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px;margin:0 0 28px}
+.pnd-transversal{background:#fff;border:1px solid #e8dec9;border-radius:10px;padding:16px 18px;display:flex;flex-direction:column;gap:8px;transition:border-color .15s ease,transform .15s ease,box-shadow .15s ease;border-left:4px solid #C45F0A}
+.pnd-transversal:hover{border-color:#C45F0A;transform:translateY(-2px);box-shadow:0 6px 16px rgba(42,36,29,.08)}
+.pnd-transversal-tag{font-size:10px;font-weight:700;color:#C45F0A;letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:6px}
+.pnd-transversal-tag::before{content:'';width:6px;height:6px;background:#C45F0A;border-radius:50%}
+.pnd-transversal h4{margin:0;font-size:14.5px;font-weight:700;color:#2a241d;line-height:1.3;letter-spacing:-.005em}
+.pnd-transversal p{margin:0;font-size:12.5px;color:#5a4d3e;line-height:1.5}
+
+/* CTA institucional */
+.pnd-cta{background:#fff;border-radius:14px;padding:22px 26px;border-left:5px solid #b35a1f;display:flex;align-items:center;gap:18px;flex-wrap:wrap;box-shadow:0 2px 10px rgba(42,36,29,.05)}
+.pnd-cta-icono{flex-shrink:0;width:54px;height:54px;background:#fff1e1;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#b35a1f}
+.pnd-cta-texto{flex:1;min-width:240px}
+.pnd-cta-titulo{font-size:16px;font-weight:700;color:#2a241d;margin:0 0 4px;letter-spacing:-.005em}
+.pnd-cta-desc{font-size:13.5px;color:#5a4d3e;line-height:1.55;margin:0}
+.pnd-cta-desc strong{color:#2a241d;font-weight:600}
+
+@media (max-width:560px){
+  body{padding:14px}
+  .pnd-hero{padding:24px 22px}
+  .pnd-hero h2{font-size:20px}
+  .pnd-cifras{grid-template-columns:repeat(3,1fr);gap:8px}
+  .pnd-cifra{padding:10px 8px}
+  .pnd-cifra-num{font-size:28px}
+  .pnd-cifra-lbl{font-size:9.5px}
+  .pnd-card{padding:20px 18px 18px}
+  .pnd-card-num{font-size:38px}
+  .pnd-card-titulo{font-size:16.5px}
+  .pnd-card-republicas li{font-size:13px;padding:8px 10px}
+  .pnd-transversal-banda{padding:18px}
+}
+</style>
+</head>
+<body>
+
+<div class="pnd-wrap">
+
+  <!-- HERO con las cifras 4-14-100 -->
+  <section class="pnd-hero">
+    <span class="pnd-hero-tag">Plan Nacional de Desarrollo 2025-2030</span>
+    <h2>Una sola ruta para México: <em>4 ejes, 14 Repúblicas, 100 compromisos.</em></h2>
+    <p class="pnd-hero-sub">Así organiza el Gobierno de México su trabajo durante los próximos seis años. Lo presentamos en lenguaje claro para que cualquier persona pueda entender hacia dónde va el país. El documento oficial completo está disponible en el visor superior.</p>
+    <div class="pnd-cifras">
+      <div class="pnd-cifra">
+        <div class="pnd-cifra-num">4</div>
+        <div class="pnd-cifra-lbl">Ejes generales</div>
+      </div>
+      <div class="pnd-cifra">
+        <div class="pnd-cifra-num">14</div>
+        <div class="pnd-cifra-lbl">Repúblicas</div>
+      </div>
+      <div class="pnd-cifra">
+        <div class="pnd-cifra-num">100</div>
+        <div class="pnd-cifra-lbl">Compromisos</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 EJES con sus Repúblicas oficiales -->
+  <div class="pnd-grid">
+
+    <article class="pnd-card eje-1">
+      <div class="pnd-card-top">
+        <span class="pnd-card-num">1</span>
+        <span class="pnd-card-icono" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+        </span>
+      </div>
+      <div class="pnd-card-eyebrow">Eje rector</div>
+      <h3 class="pnd-card-titulo">Gobernanza con justicia y participación ciudadana</h3>
+      <div class="pnd-card-republicas-lbl">2 Repúblicas que integran este eje</div>
+      <ul class="pnd-card-republicas">
+        <li><strong>República democrática, justa, honesta, libre, participativa y responsable</strong></li>
+        <li><strong>República segura y con justicia</strong></li>
+      </ul>
+    </article>
+
+    <article class="pnd-card eje-2">
+      <div class="pnd-card-top">
+        <span class="pnd-card-num">2</span>
+        <span class="pnd-card-icono" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </span>
+      </div>
+      <div class="pnd-card-eyebrow">Eje rector</div>
+      <h3 class="pnd-card-titulo">Desarrollo con bienestar y humanismo</h3>
+      <div class="pnd-card-republicas-lbl">6 Repúblicas que integran este eje</div>
+      <ul class="pnd-card-republicas">
+        <li><strong>República fraterna</strong></li>
+        <li><strong>República educadora, humanista y científica</strong></li>
+        <li><strong>República cultural y lectora</strong></li>
+        <li><strong>República sana</strong></li>
+        <li><strong>República con acceso a la vivienda</strong></li>
+        <li><strong>República de y para las mujeres</strong></li>
+      </ul>
+    </article>
+
+    <article class="pnd-card eje-3">
+      <div class="pnd-card-top">
+        <span class="pnd-card-num">3</span>
+        <span class="pnd-card-icono" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+        </span>
+      </div>
+      <div class="pnd-card-eyebrow">Eje rector</div>
+      <h3 class="pnd-card-titulo">Economía moral y trabajo</h3>
+      <div class="pnd-card-republicas-lbl">3 Repúblicas que integran este eje</div>
+      <ul class="pnd-card-republicas">
+        <li><strong>República con trabajo y salario justo</strong></li>
+        <li><strong>República rural justa y soberana</strong></li>
+        <li><strong>República próspera y conectada</strong></li>
+      </ul>
+    </article>
+
+    <article class="pnd-card eje-4">
+      <div class="pnd-card-top">
+        <span class="pnd-card-num">4</span>
+        <span class="pnd-card-icono" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M2 12c4-2 6-6 10-6s6 4 10 6c-4 2-6 6-10 6s-6-4-10-6z"/></svg>
+        </span>
+      </div>
+      <div class="pnd-card-eyebrow">Eje rector</div>
+      <h3 class="pnd-card-titulo">Desarrollo sustentable</h3>
+      <div class="pnd-card-republicas-lbl">3 Repúblicas que integran este eje</div>
+      <ul class="pnd-card-republicas">
+        <li><strong>República soberana y con energía sustentable</strong></li>
+        <li><strong>República con derecho al agua</strong></li>
+        <li><strong>República que protege el medio ambiente y sus recursos naturales</strong></li>
+      </ul>
+    </article>
+
+  </div>
+
+  <!-- EJES TRANSVERSALES -->
+  <div class="pnd-transversal-banda">
+    <div class="pnd-transversal-banda-eyebrow">Ejes transversales</div>
+    <h3>Principios que cruzan todo el Plan</h3>
+    <p>Estos enfoques se aplican en cada eje y en cada política pública del Gobierno de México. Son la mirada compartida de toda la planeación.</p>
+  </div>
+
+  <div class="pnd-transversal-grid">
+    <div class="pnd-transversal">
+      <span class="pnd-transversal-tag">Transversal</span>
+      <h4>Igualdad sustantiva y derechos de las mujeres</h4>
+      <p>Cerrar las brechas de género en derechos, oportunidades y vida pública.</p>
+    </div>
+    <div class="pnd-transversal">
+      <span class="pnd-transversal-tag">Transversal</span>
+      <h4>Innovación pública para el desarrollo tecnológico nacional</h4>
+      <p>Ciencia, tecnología e innovación al servicio del bienestar del país.</p>
+    </div>
+    <div class="pnd-transversal">
+      <span class="pnd-transversal-tag">Transversal</span>
+      <h4>Derechos de las comunidades indígenas y afromexicanas</h4>
+      <p>Reconocimiento, derechos colectivos y desarrollo con identidad cultural.</p>
+    </div>
+  </div>
+
+  <!-- CTA: cómo se alinea Guadalajara -->
+  <div class="pnd-cta">
+    <span class="pnd-cta-icono" aria-hidden="true">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    </span>
+    <div class="pnd-cta-texto">
+      <p class="pnd-cta-titulo">Guadalajara alinea sus prioridades con este Plan</p>
+      <p class="pnd-cta-desc">El Ayuntamiento de Guadalajara coordina su Plan Municipal de Desarrollo y sus programas sectoriales con los <strong>ejes, Repúblicas y compromisos</strong> del PND, especialmente en lo relativo a sus atribuciones municipales (servicios públicos, seguridad, desarrollo urbano, bienestar y cultura). El documento oficial está disponible en el visor superior.</p>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
