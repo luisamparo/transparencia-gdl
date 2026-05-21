@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Plan Estatal de Desarrollo y Gobernanza Jalisco 2024-2030 · Vista ciudadana</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+body{margin:0;padding:24px;background:#f7f3ec;font-family:Outfit,Arial,Helvetica,sans-serif;color:#2a241d;line-height:1.55}
+.pej-wrap{max-width:1200px;margin:0 auto}
+
+/* HERO naranja institucional GDL */
+.pej-hero{background:linear-gradient(135deg,#FFF4E8 0%,#FFFFFF 55%);color:#2a241d;border-radius:14px;padding:24px 28px;margin:0 0 22px;position:relative;overflow:hidden;border-left:5px solid #E87722;box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.pej-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.12) 0%,transparent 70%);pointer-events:none}
+.pej-hero-tag{display:inline-block;background:#E87722;color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;position:relative;z-index:1;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.pej-hero h2{margin:0 0 8px;font-size:clamp(22px,3.2vw,28px);font-weight:800;color:#2a241d;letter-spacing:-.015em;line-height:1.22;position:relative;z-index:1}
+.pej-hero h2 em{font-style:normal;color:#C45F0A}
+.pej-hero-sub{font-size:14.5px;color:#5a4d3e;max-width:78ch;margin:0 0 20px;line-height:1.6;position:relative;z-index:1}
+.pej-hero-sub strong{color:#2a241d;font-weight:700}
+.pej-cifras{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px;max-width:560px;position:relative;z-index:1}
+.pej-cifra{background:#fff;border:1.5px solid #FFD2A5;border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:2px;transition:border-color .18s ease,transform .18s ease}
+.pej-cifra:hover{border-color:#E87722;transform:translateY(-2px)}
+.pej-cifra-num{font-family:Outfit,sans-serif;font-size:38px;font-weight:800;line-height:1;color:#C45F0A;letter-spacing:-.02em;font-feature-settings:'tnum'}
+.pej-cifra-lbl{font-size:11px;font-weight:700;color:#5a4d3e;text-transform:uppercase;letter-spacing:.08em;margin-top:2px;line-height:1.3}
+
+/* SECCIÓN: 5 cards ejes sectoriales */
+.pej-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:18px;margin:0 0 30px}
+.pej-card{position:relative;overflow:hidden;border-radius:16px;padding:24px 24px 22px;background:#fff;box-shadow:0 4px 20px rgba(42,36,29,.06);transition:transform .25s ease,box-shadow .25s ease;display:flex;flex-direction:column;border-top:5px solid currentColor}
+.pej-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(42,36,29,.12)}
+.pej-card::before{content:'';position:absolute;top:-60px;right:-60px;width:180px;height:180px;border-radius:50%;background:currentColor;opacity:.06;transition:opacity .25s ease}
+.pej-card:hover::before{opacity:.1}
+.pej-card.eje-1{color:#5a5a55}
+.pej-card.eje-2{color:#C45F0A}
+.pej-card.eje-3{color:#7a5d23}
+.pej-card.eje-4{color:#3f6b48}
+.pej-card.eje-5{color:#3a5a7a}
+.pej-card-top{display:flex;align-items:center;gap:14px;margin-bottom:14px;position:relative;z-index:1}
+.pej-card-num{font-family:Outfit,sans-serif;font-size:46px;font-weight:800;line-height:1;letter-spacing:-.04em;color:currentColor;font-feature-settings:'tnum'}
+.pej-card-icono{width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.04);border-radius:12px;color:currentColor;flex-shrink:0}
+.pej-card-eyebrow{font-size:10.5px;font-weight:700;color:currentColor;letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px;opacity:.85;position:relative;z-index:1}
+.pej-card-titulo{font-size:19px;font-weight:800;color:#2a241d;line-height:1.22;letter-spacing:-.012em;margin:0 0 6px;position:relative;z-index:1}
+.pej-card-tecnico{font-size:12px;color:#6f5c47;line-height:1.45;margin:0 0 14px;font-style:italic;position:relative;z-index:1}
+.pej-card-resumen{font-size:13.5px;color:#3d342a;line-height:1.6;margin:0;position:relative;z-index:1}
+.pej-card-resumen strong{color:#2a241d;font-weight:600}
+
+/* BANDA SECCIÓN TRANSVERSAL */
+.pej-seccion-banda{margin:30px 0 16px;background:linear-gradient(135deg,#2a241d 0%,#3d342a 100%);color:#f7f3ec;padding:22px 26px;border-radius:14px;box-shadow:0 4px 18px rgba(42,36,29,.18)}
+.pej-seccion-banda-eyebrow{font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#fbe5b3;margin-bottom:6px}
+.pej-seccion-banda h3{margin:0;font-size:19px;font-weight:700;color:#fff;letter-spacing:-.008em;line-height:1.3}
+.pej-seccion-banda p{margin:6px 0 0;font-size:13.5px;color:#cdc4b6;line-height:1.55;max-width:75ch}
+
+/* GRID TEMÁTICAS - con color e ícono por tema */
+.pej-tematicas{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px;margin:0 0 28px}
+.pej-tematica{--c:#C45F0A;--cbg:rgba(196,95,10,.10);background:#fff;border:1px solid #e8dec9;border-radius:12px;padding:18px 18px 16px;display:flex;flex-direction:column;gap:8px;transition:border-color .18s ease,transform .18s ease,box-shadow .18s ease;border-left:4px solid var(--c);position:relative;overflow:hidden}
+.pej-tematica:hover{border-color:var(--c);transform:translateY(-3px);box-shadow:0 8px 20px rgba(42,36,29,.10)}
+.pej-tematica::before{content:'';position:absolute;top:-30px;right:-30px;width:90px;height:90px;border-radius:50%;background:var(--cbg);opacity:.6;pointer-events:none}
+.pej-tematica-head{display:flex;align-items:center;gap:10px;position:relative;z-index:1}
+.pej-tematica-icono{flex-shrink:0;width:42px;height:42px;border-radius:11px;background:var(--cbg);color:var(--c);display:flex;align-items:center;justify-content:center;transition:transform .25s ease}
+.pej-tematica:hover .pej-tematica-icono{transform:scale(1.08) rotate(-3deg)}
+.pej-tematica-tag{font-size:10.5px;font-weight:700;color:var(--c);letter-spacing:.14em;text-transform:uppercase;font-family:Outfit,sans-serif;font-variant-numeric:tabular-nums}
+.pej-tematica h4{margin:0;font-size:14.5px;font-weight:700;color:#2a241d;line-height:1.3;letter-spacing:-.005em;position:relative;z-index:1}
+.pej-tematica p{margin:0;font-size:12.5px;color:#5a4d3e;line-height:1.55;position:relative;z-index:1}
+/* Colores por temática transversal */
+.pej-tematica.tt-a{--c:#2563EB;--cbg:rgba(37,99,235,.10)}
+.pej-tematica.tt-b{--c:#8E44AD;--cbg:rgba(142,68,173,.12)}
+.pej-tematica.tt-c{--c:#6B5A4A;--cbg:rgba(107,90,74,.10)}
+.pej-tematica.tt-d{--c:#3f6b48;--cbg:rgba(63,107,72,.12)}
+.pej-tematica.tt-e{--c:#0EA5C7;--cbg:rgba(14,165,199,.12)}
+.pej-tematica.tt-f{--c:#B7421C;--cbg:rgba(183,66,28,.12)}
+/* Colores por temática especial */
+.pej-tematica.te-g{--c:#8E44AD;--cbg:rgba(142,68,173,.12)}
+.pej-tematica.te-h{--c:#5A6E80;--cbg:rgba(90,110,128,.12)}
+.pej-tematica.te-i{--c:#D97706;--cbg:rgba(217,119,6,.12)}
+.pej-tematica.te-j{--c:#1D7A8C;--cbg:rgba(29,122,140,.12)}
+
+/* CTA */
+.pej-cta{background:#fff;border-radius:14px;padding:22px 26px;border-left:5px solid #b35a1f;display:flex;align-items:center;gap:18px;flex-wrap:wrap;box-shadow:0 2px 10px rgba(42,36,29,.05)}
+.pej-cta-icono{flex-shrink:0;width:54px;height:54px;background:#fff1e1;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#b35a1f}
+.pej-cta-texto{flex:1;min-width:240px}
+.pej-cta-titulo{font-size:16px;font-weight:700;color:#2a241d;margin:0 0 4px;letter-spacing:-.005em}
+.pej-cta-desc{font-size:13.5px;color:#5a4d3e;line-height:1.55;margin:0}
+.pej-cta-desc strong{color:#2a241d;font-weight:600}
+
+@media (max-width:560px){
+  body{padding:14px}
+  .pej-hero{padding:20px 22px}
+  .pej-hero h2{font-size:20px}
+  .pej-cifras{grid-template-columns:repeat(3,1fr);gap:8px}
+  .pej-cifra{padding:10px 8px}
+  .pej-cifra-num{font-size:28px}
+  .pej-cifra-lbl{font-size:9.5px}
+  .pej-card{padding:20px 18px 18px}
+  .pej-card-num{font-size:38px}
+  .pej-card-titulo{font-size:16.5px}
+  .pej-seccion-banda{padding:18px}
+}
+</style>
+</head>
+<body>
+
+<div class="pej-wrap">
+
+  <!-- HERO claro con cifras 5-6-4 -->
+  <section class="pej-hero">
+    <span class="pej-hero-tag">Plan Estatal de Desarrollo y Gobernanza Jalisco 2024-2030</span>
+    <h2>El plan que decide en qué trabaja Jalisco hasta 2030: <em>5 grandes prioridades, 6 enfoques que cruzan todo y 4 temas que no pueden esperar.</em></h2>
+    <p class="pej-hero-sub">Aquí encuentras hacia dónde camina Jalisco. Es el <strong>documento que define qué problemas atiende primero</strong> el Gobierno del Estado durante los próximos seis años, con la mirada puesta en cómo queremos que sea Jalisco en 2050. Te lo presentamos sin tecnicismos, pero con todos los datos a la mano. El documento oficial completo está en el visor superior.</p>
+    <div class="pej-cifras">
+      <div class="pej-cifra">
+        <div class="pej-cifra-num">5</div>
+        <div class="pej-cifra-lbl">Grandes prioridades</div>
+      </div>
+      <div class="pej-cifra">
+        <div class="pej-cifra-num">6</div>
+        <div class="pej-cifra-lbl">Enfoques que cruzan todo</div>
+      </div>
+      <div class="pej-cifra">
+        <div class="pej-cifra-num">4</div>
+        <div class="pej-cifra-lbl">Temas que no esperan</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 EJES SECTORIALES -->
+  <div class="pej-grid">
+
+    <article class="pej-card eje-1">
+      <div class="pej-card-top">
+        <span class="pej-card-num">1</span>
+        <span class="pej-card-icono" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+        </span>
+      </div>
+      <div class="pej-card-eyebrow">Gran prioridad</div>
+      <h3 class="pej-card-titulo">Jalisco tranquilo y en paz</h3>
+      <p class="pej-card-tecnico">Seguridad ciudadana, justicia y estado de derecho</p>
+      <p class="pej-card-resumen">Que salgas a trabajar, lleves a tus hijos a la escuela y regreses a casa <strong>sin miedo</strong>. Menos delitos, policías capacitados y una justicia que sí responde cuando alguien la necesita.</p>
+    </article>
+
+    <article class="pej-card eje-2">
+      <div class="pej-card-top">
+        <span class="pej-card-num">2</span>
+        <span class="pej-card-icono" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </span>
+      </div>
+      <div class="pej-card-eyebrow">Gran prioridad</div>
+      <h3 class="pej-card-titulo">Jalisco crece para todas y todos</h3>
+      <p class="pej-card-tecnico">Desarrollo social</p>
+      <p class="pej-card-resumen">Salud, escuela, vivienda y apoyos sociales que <strong>llegan a todas las personas</strong>, sin importar cuánto ganen o dónde vivan. Atención especial para niñas, niños y adolescentes.</p>
+    </article>
+
+    <article class="pej-card eje-3">
+      <div class="pej-card-top">
+        <span class="pej-card-num">3</span>
+        <span class="pej-card-icono" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+        </span>
+      </div>
+      <div class="pej-card-eyebrow">Gran prioridad</div>
+      <h3 class="pej-card-titulo">Jalisco economía que avanza</h3>
+      <p class="pej-card-tecnico">Desarrollo y crecimiento económico</p>
+      <p class="pej-card-resumen">Empleos con prestaciones, salarios con los que <strong>sí alcance el mes</strong> y oportunidades reales para emprender, tanto en la ciudad como en el campo.</p>
+    </article>
+
+    <article class="pej-card eje-4">
+      <div class="pej-card-top">
+        <span class="pej-card-num">4</span>
+        <span class="pej-card-icono" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M2 12c4-2 6-6 10-6s6 4 10 6c-4 2-6 6-10 6s-6-4-10-6z"/></svg>
+        </span>
+      </div>
+      <div class="pej-card-eyebrow">Gran prioridad</div>
+      <h3 class="pej-card-titulo">Jalisco cuida su tierra</h3>
+      <p class="pej-card-tecnico">Desarrollo sostenible del territorio</p>
+      <p class="pej-card-resumen">Proteger el <strong>agua que tomas, el aire que respiras y los bosques</strong> que rodean Jalisco. Decisiones de hoy pensadas para tus hijos y los hijos de tus hijos.</p>
+    </article>
+
+    <article class="pej-card eje-5">
+      <div class="pej-card-top">
+        <span class="pej-card-num">5</span>
+        <span class="pej-card-icono" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+        </span>
+      </div>
+      <div class="pej-card-eyebrow">Gran prioridad</div>
+      <h3 class="pej-card-titulo">Jalisco cercano y transparente</h3>
+      <p class="pej-card-tecnico">Gobierno efectivo e integridad pública</p>
+      <p class="pej-card-resumen">Un gobierno que <strong>responde, rinde cuentas y escucha</strong>. Trámites más rápidos, información clara y decisiones donde tu opinión sí cuenta.</p>
+    </article>
+
+  </div>
+
+  <!-- BANDA: 6 TEMÁTICAS TRANSVERSALES -->
+  <div class="pej-seccion-banda">
+    <div class="pej-seccion-banda-eyebrow">Enfoques que cruzan todo el Plan</div>
+    <h3>Seis miradas presentes en cada decisión del gobierno</h3>
+    <p>Estos enfoques se aplican en cada acción del gobierno, sin importar el tema. Son los valores que sostienen todo el Plan.</p>
+  </div>
+
+  <div class="pej-tematicas">
+    <!-- TT.A · Derechos humanos · azul · carta/declaración -->
+    <div class="pej-tematica tt-a">
+      <div class="pej-tematica-head">
+        <span class="pej-tematica-icono" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </span>
+        <span class="pej-tematica-tag">Enfoque transversal</span>
+      </div>
+      <h4>Derechos humanos</h4>
+      <p>Trato digno, no discriminación y respeto a tu integridad en cualquier oficina pública. Todas las personas, todas las veces.</p>
+    </div>
+
+    <!-- TT.B · Igualdad de género · morado 8M · símbolo Venus -->
+    <div class="pej-tematica tt-b">
+      <div class="pej-tematica-head">
+        <span class="pej-tematica-icono" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><path d="M12 14v8"/><path d="M9 19h6"/></svg>
+        </span>
+        <span class="pej-tematica-tag">Enfoque transversal</span>
+      </div>
+      <h4>Igualdad de género</h4>
+      <p>Mismas oportunidades para mujeres y hombres en el trabajo, la política, la educación y la vida familiar.</p>
+    </div>
+
+    <!-- TT.C · Gobernanza · neutro · personas conectadas -->
+    <div class="pej-tematica tt-c">
+      <div class="pej-tematica-head">
+        <span class="pej-tematica-icono" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><circle cx="17" cy="9" r="2"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><path d="M17 13h2a3 3 0 0 1 3 3v3"/></svg>
+        </span>
+        <span class="pej-tematica-tag">Enfoque transversal</span>
+      </div>
+      <h4>Gobernanza para el desarrollo</h4>
+      <p>Gobierno, sociedad civil y empresas deciden juntos, con visión de futuro y no solo de un sexenio.</p>
+    </div>
+
+    <!-- TT.D · Cultura de paz · verde · paloma clásica de paz -->
+    <div class="pej-tematica tt-d">
+      <div class="pej-tematica-head">
+        <span class="pej-tematica-icono" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7h.01"/><path d="M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20"/><path d="m20 7 2 .5-2 .5"/><path d="M10 18v3"/><path d="M14 17.75V21"/><path d="M7 18a6 6 0 0 0 3.84-10.61"/></svg>
+        </span>
+        <span class="pej-tematica-tag">Enfoque transversal</span>
+      </div>
+      <h4>Cultura de paz</h4>
+      <p>Prevenir la violencia antes de que estalle. Resolver conflictos por el diálogo y reconstruir la confianza entre vecinos.</p>
+    </div>
+
+    <!-- TT.E · Cambio climático · azul cielo · nube con lluvia -->
+    <div class="pej-tematica tt-e">
+      <div class="pej-tematica-head">
+        <span class="pej-tematica-icono" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.9A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.24"/><path d="M16 14v6"/><path d="M8 14v6"/><path d="M12 16v6"/></svg>
+        </span>
+        <span class="pej-tematica-tag">Enfoque transversal</span>
+      </div>
+      <h4>Cambio climático</h4>
+      <p>Reducir lo que daña al planeta y preparar a Jalisco para las sequías, lluvias intensas y olas de calor que ya están aquí.</p>
+    </div>
+
+    <!-- TT.F · Corrupción e impunidad · rojo tierra · martillo de juez -->
+    <div class="pej-tematica tt-f">
+      <div class="pej-tematica-head">
+        <span class="pej-tematica-icono" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m14.5 12.5-8 8a2.12 2.12 0 1 1-3-3l8-8"/><path d="m16 16 6-6"/><path d="m8 8 6-6"/><path d="m9 7 8 8"/><path d="m21 11-8-8"/></svg>
+        </span>
+        <span class="pej-tematica-tag">Enfoque transversal</span>
+      </div>
+      <h4>Corrupción e impunidad</h4>
+      <p>Cero tolerancia al robo del dinero público. Quien comete un delito desde el gobierno enfrenta consecuencias reales.</p>
+    </div>
+  </div>
+
+  <!-- BANDA: 4 TEMÁTICAS ESPECIALES -->
+  <div class="pej-seccion-banda">
+    <div class="pej-seccion-banda-eyebrow">Temas que no pueden esperar</div>
+    <h3>Cuatro asuntos urgentes con seguimiento especial</h3>
+    <p>Estos cuatro temas exigen acción inmediata y vigilancia constante. Cada uno tiene recursos propios y se reporta su avance durante toda la administración.</p>
+  </div>
+
+  <div class="pej-tematicas">
+    <!-- TE.G · Mujeres libres de violencia · morado · corazón / solidaridad -->
+    <div class="pej-tematica te-g">
+      <div class="pej-tematica-head">
+        <span class="pej-tematica-icono" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/></svg>
+        </span>
+        <span class="pej-tematica-tag">Prioridad especial</span>
+      </div>
+      <h4>Mujeres libres de violencia</h4>
+      <p>Que <strong>ninguna mujer ni niña viva con miedo</strong>. Prevenir agresiones, perseguir a quien las comete y reparar el daño causado.</p>
+    </div>
+
+    <!-- TE.H · Personas desaparecidas · gris azulado · lupa búsqueda -->
+    <div class="pej-tematica te-h">
+      <div class="pej-tematica-head">
+        <span class="pej-tematica-icono" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8a2 2 0 0 1 2 2c0 .8-.4 1.5-1 1.7-.6.2-1 .8-1 1.3"/><path d="M11 15h.01"/></svg>
+        </span>
+        <span class="pej-tematica-tag">Prioridad especial</span>
+      </div>
+      <h4>Personas desaparecidas</h4>
+      <p>Buscar a quienes faltan en casa, identificar a quienes son encontrados y acompañar a las familias que siguen esperando.</p>
+    </div>
+
+    <!-- TE.I · Niñas, niños y adolescentes · ámbar cálido · niño sonriente -->
+    <div class="pej-tematica te-i">
+      <div class="pej-tematica-head">
+        <span class="pej-tematica-icono" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 22c0-4.4 3.6-8 8-8s8 3.6 8 8"/><path d="M10 7h.01"/><path d="M14 7h.01"/><path d="M9.5 10.5s.8 1 2.5 1 2.5-1 2.5-1"/></svg>
+        </span>
+        <span class="pej-tematica-tag">Prioridad especial</span>
+      </div>
+      <h4>Niñas, niños y adolescentes</h4>
+      <p>Cuidar hoy a la infancia y la adolescencia para que en 2050 tengan la <strong>vida digna que merecen</strong>: salud, educación y protección.</p>
+    </div>
+
+    <!-- TE.J · Río Santiago · azul agua · ondas de río -->
+    <div class="pej-tematica te-j">
+      <div class="pej-tematica-head">
+        <span class="pej-tematica-icono" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg>
+        </span>
+        <span class="pej-tematica-tag">Prioridad especial</span>
+      </div>
+      <h4>Recuperación del Río Santiago</h4>
+      <p>Limpiar el Río Santiago, devolverle vida y reparar el daño a las <strong>comunidades</strong> que llevan décadas pagando la contaminación.</p>
+    </div>
+  </div>
+
+  <!-- CTA institucional -->
+  <div class="pej-cta">
+    <span class="pej-cta-icono" aria-hidden="true">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    </span>
+    <div class="pej-cta-texto">
+      <p class="pej-cta-titulo">¿Cómo se traduce este Plan en tu colonia de Guadalajara?</p>
+      <p class="pej-cta-desc">Lo que decide el Gobierno del Estado se convierte en acciones del Ayuntamiento de Guadalajara: <strong>seguridad en tu calle, parques cercanos, atención social, cuidado ambiental local</strong>. El Plan Municipal se construye sobre esta base. El documento estatal completo está en el visor superior.</p>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
