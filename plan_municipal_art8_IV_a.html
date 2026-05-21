@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Plan Municipal de Desarrollo y Gobernanza Guadalajara 2024-2027 con visión al 2042 — Art. 8 Fracción IV Inciso a) Ley de Transparencia Jalisco"/>
+<title>Plan Municipal de Guadalajara 2024-2027 · Lo que el Ayuntamiento se compromete a hacer · Transparencia GDL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+body{margin:0;padding:24px;background:#f7f3ec;font-family:Outfit,Arial,Helvetica,sans-serif;color:#2a241d;line-height:1.55}
+.pmg-wrap{max-width:1200px;margin:0 auto}
+
+/* HERO naranja institucional GDL */
+.pmg-hero{background:linear-gradient(135deg,#FFF4E8 0%,#FFFFFF 55%);color:#2a241d;border-radius:14px;padding:24px 28px;margin:0 0 22px;position:relative;overflow:hidden;border-left:5px solid #E87722;box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.pmg-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.12) 0%,transparent 70%);pointer-events:none}
+.pmg-hero-tag{display:inline-block;background:#E87722;color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;position:relative;z-index:1;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.pmg-hero h2{margin:0 0 8px;font-size:clamp(22px,3.2vw,28px);font-weight:800;color:#2a241d;letter-spacing:-.015em;line-height:1.22;position:relative;z-index:1}
+.pmg-hero h2 em{font-style:normal;color:#C45F0A}
+.pmg-hero-sub{font-size:14.5px;color:#5a4d3e;max-width:78ch;margin:0 0 20px;line-height:1.6;position:relative;z-index:1}
+.pmg-hero-sub strong{color:#2a241d;font-weight:700}
+.pmg-cifras{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px;max-width:560px;position:relative;z-index:1}
+.pmg-cifra{background:#fff;border:1.5px solid #FFD2A5;border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:2px;transition:border-color .18s ease,transform .18s ease}
+.pmg-cifra:hover{border-color:#E87722;transform:translateY(-2px)}
+.pmg-cifra-num{font-family:Outfit,sans-serif;font-size:38px;font-weight:800;line-height:1;color:#C45F0A;letter-spacing:-.02em;font-feature-settings:'tnum'}
+.pmg-cifra-lbl{font-size:11px;font-weight:700;color:#5a4d3e;text-transform:uppercase;letter-spacing:.08em;margin-top:2px;line-height:1.3}
+
+/* SECCIÓN: 7 cards ejes */
+.pmg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:18px;margin:0 0 30px}
+.pmg-card{position:relative;overflow:hidden;border-radius:16px;padding:24px 24px 22px;background:#fff;box-shadow:0 4px 20px rgba(42,36,29,.06);transition:transform .25s ease,box-shadow .25s ease;display:flex;flex-direction:column;border-top:5px solid currentColor}
+.pmg-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(42,36,29,.12)}
+.pmg-card::before{content:'';position:absolute;top:-60px;right:-60px;width:180px;height:180px;border-radius:50%;background:currentColor;opacity:.06;transition:opacity .25s ease}
+.pmg-card:hover::before{opacity:.1}
+.pmg-card.eje-1{color:#3a5a7a}   /* Próspera - azul oscuro */
+.pmg-card.eje-2{color:#C2185B}   /* Construyendo comunidad - rosa */
+.pmg-card.eje-3{color:#1976D2}   /* Segura, justa y en paz - azul */
+.pmg-card.eje-4{color:#B58A1A}   /* Funcional con servicios - ámbar */
+.pmg-card.eje-5{color:#6A1B9A}   /* Ordenada y sustentable - morado */
+.pmg-card.eje-6{color:#0E7C7B}   /* Honesta y bien administrada - turquesa */
+.pmg-card.eje-7{color:#C45F0A}   /* Te cuida - naranja GDL */
+.pmg-card-top{display:flex;align-items:center;gap:14px;margin-bottom:14px;position:relative;z-index:1}
+.pmg-card-num{font-family:Outfit,sans-serif;font-size:46px;font-weight:800;line-height:1;letter-spacing:-.04em;color:currentColor;font-feature-settings:'tnum'}
+.pmg-card-icono{width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.04);border-radius:12px;color:currentColor;flex-shrink:0;transition:transform .25s ease}
+.pmg-card:hover .pmg-card-icono{transform:scale(1.08) rotate(-3deg)}
+.pmg-card-eyebrow{font-size:10.5px;font-weight:700;color:currentColor;letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px;opacity:.85;position:relative;z-index:1}
+.pmg-card-titulo{font-size:19px;font-weight:800;color:#2a241d;line-height:1.22;letter-spacing:-.012em;margin:0 0 14px;position:relative;z-index:1}
+.pmg-card-resumen{font-size:13.5px;color:#3d342a;line-height:1.6;margin:0;position:relative;z-index:1}
+.pmg-card-resumen strong{color:#2a241d;font-weight:600}
+
+/* Banda visión 2042 */
+.pmg-vision-banda{margin:30px 0 22px;background:linear-gradient(135deg,#2a241d 0%,#3d342a 100%);color:#f7f3ec;padding:22px 26px;border-radius:14px;box-shadow:0 4px 18px rgba(42,36,29,.18);display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.pmg-vision-icono{flex-shrink:0;width:54px;height:54px;border-radius:14px;background:rgba(251,229,179,.18);color:#fbe5b3;display:flex;align-items:center;justify-content:center;border:1px solid rgba(251,229,179,.32)}
+.pmg-vision-body{flex:1;min-width:240px}
+.pmg-vision-eyebrow{font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#fbe5b3;margin-bottom:4px}
+.pmg-vision-banda h3{margin:0 0 4px;font-size:18px;font-weight:700;color:#fff;letter-spacing:-.008em;line-height:1.3}
+.pmg-vision-banda p{margin:0;font-size:13.5px;color:#cdc4b6;line-height:1.55;max-width:75ch}
+
+/* CTA */
+.pmg-cta{background:#fff;border-radius:14px;padding:22px 26px;border-left:5px solid #b35a1f;display:flex;align-items:center;gap:18px;flex-wrap:wrap;box-shadow:0 2px 10px rgba(42,36,29,.05)}
+.pmg-cta-icono{flex-shrink:0;width:54px;height:54px;background:#fff1e1;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#b35a1f}
+.pmg-cta-texto{flex:1;min-width:240px}
+.pmg-cta-titulo{font-size:16px;font-weight:700;color:#2a241d;margin:0 0 4px;letter-spacing:-.005em}
+.pmg-cta-desc{font-size:13.5px;color:#5a4d3e;line-height:1.55;margin:0}
+.pmg-cta-desc strong{color:#2a241d;font-weight:600}
+
+@media (max-width:560px){
+  body{padding:14px}
+  .pmg-hero{padding:20px 22px}
+  .pmg-hero h2{font-size:20px}
+  .pmg-cifras{grid-template-columns:repeat(3,1fr);gap:8px}
+  .pmg-cifra{padding:10px 8px}
+  .pmg-cifra-num{font-size:28px}
+  .pmg-cifra-lbl{font-size:9.5px}
+  .pmg-card{padding:20px 18px 18px}
+  .pmg-card-num{font-size:38px}
+  .pmg-card-titulo{font-size:16.5px}
+  .pmg-vision-banda{padding:18px}
+}
+</style>
+</head>
+<body>
+
+<div class="pmg-wrap">
+
+  <!-- HERO con cifras 7-2042-3 -->
+  <section class="pmg-hero">
+    <span class="pmg-hero-tag">Plan Municipal de Guadalajara 2024-2027 · Visión 2042</span>
+    <h2>Lo que el Ayuntamiento se compromete a hacer por ti hasta 2027: <em>7 ejes para una ciudad que te cuida.</em></h2>
+    <p class="pmg-hero-sub">Este es el <strong>plan oficial</strong> con el que la administración municipal organiza su trabajo durante los próximos tres años — y traza la ciudad que queremos ser para el año 2042. Aquí lo presentamos en lenguaje claro, sin tecnicismos, pero con todos los compromisos visibles. El documento completo está disponible en el visor superior.</p>
+    <div class="pmg-cifras">
+      <div class="pmg-cifra">
+        <div class="pmg-cifra-num">7</div>
+        <div class="pmg-cifra-lbl">Ejes del Plan</div>
+      </div>
+      <div class="pmg-cifra">
+        <div class="pmg-cifra-num">3</div>
+        <div class="pmg-cifra-lbl">Años de trabajo</div>
+      </div>
+      <div class="pmg-cifra">
+        <div class="pmg-cifra-num">2042</div>
+        <div class="pmg-cifra-lbl">Visión a largo plazo</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 EJES DEL PLAN MUNICIPAL -->
+  <div class="pmg-grid">
+
+    <article class="pmg-card eje-1">
+      <div class="pmg-card-top">
+        <span class="pmg-card-num">1</span>
+        <span class="pmg-card-icono" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+        </span>
+      </div>
+      <div class="pmg-card-eyebrow">Eje 1</div>
+      <h3 class="pmg-card-titulo">Guadalajara próspera</h3>
+      <p class="pmg-card-resumen">Más oportunidades para <strong>emprender, trabajar e invertir</strong> en la ciudad. Apoyo a comercios locales, atracción de inversión y desarrollo de la economía cercana a tu colonia.</p>
+    </article>
+
+    <article class="pmg-card eje-2">
+      <div class="pmg-card-top">
+        <span class="pmg-card-num">2</span>
+        <span class="pmg-card-icono" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </span>
+      </div>
+      <div class="pmg-card-eyebrow">Eje 2</div>
+      <h3 class="pmg-card-titulo">Guadalajara construyendo comunidad</h3>
+      <p class="pmg-card-resumen">Una ciudad <strong>más unida</strong>: parques activos, espacios culturales, deporte, cohesión vecinal y oportunidades para todas las edades, especialmente jóvenes.</p>
+    </article>
+
+    <article class="pmg-card eje-3">
+      <div class="pmg-card-top">
+        <span class="pmg-card-num">3</span>
+        <span class="pmg-card-icono" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+        </span>
+      </div>
+      <div class="pmg-card-eyebrow">Eje 3</div>
+      <h3 class="pmg-card-titulo">Guadalajara segura, justa y en paz</h3>
+      <p class="pmg-card-resumen">Más <strong>tranquilidad en tu calle</strong>. Policías capacitados, prevención del delito, justicia cercana y acompañamiento a víctimas. Una ciudad donde se vive sin miedo.</p>
+    </article>
+
+    <article class="pmg-card eje-4">
+      <div class="pmg-card-top">
+        <span class="pmg-card-num">4</span>
+        <span class="pmg-card-icono" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </span>
+      </div>
+      <div class="pmg-card-eyebrow">Eje 4</div>
+      <h3 class="pmg-card-titulo">Guadalajara funcional y con servicios de calidad</h3>
+      <p class="pmg-card-resumen">Servicios públicos que <strong>sí funcionan</strong>: recolección de basura puntual, alumbrado encendido, calles bacheadas, banquetas transitables y parques cuidados.</p>
+    </article>
+
+    <article class="pmg-card eje-5">
+      <div class="pmg-card-top">
+        <span class="pmg-card-num">5</span>
+        <span class="pmg-card-icono" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M2 12c4-2 6-6 10-6s6 4 10 6c-4 2-6 6-10 6s-6-4-10-6z"/></svg>
+        </span>
+      </div>
+      <div class="pmg-card-eyebrow">Eje 5</div>
+      <h3 class="pmg-card-titulo">Guadalajara ordenada y sustentable</h3>
+      <p class="pmg-card-resumen">Una ciudad que <strong>crece con cabeza</strong>: movilidad funcional, espacios públicos protegidos, cuidado del agua, los árboles y el aire que respiras.</p>
+    </article>
+
+    <article class="pmg-card eje-6">
+      <div class="pmg-card-top">
+        <span class="pmg-card-num">6</span>
+        <span class="pmg-card-icono" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m14.5 12.5-8 8a2.12 2.12 0 1 1-3-3l8-8"/><path d="m16 16 6-6"/><path d="m8 8 6-6"/><path d="m9 7 8 8"/><path d="m21 11-8-8"/></svg>
+        </span>
+      </div>
+      <div class="pmg-card-eyebrow">Eje 6</div>
+      <h3 class="pmg-card-titulo">Guadalajara honesta y bien administrada</h3>
+      <p class="pmg-card-resumen">Un gobierno que <strong>cuida tu dinero</strong>: combate a la corrupción, transparencia abierta, trámites más rápidos y decisiones que sí rinden cuentas.</p>
+    </article>
+
+    <article class="pmg-card eje-7">
+      <div class="pmg-card-top">
+        <span class="pmg-card-num">7</span>
+        <span class="pmg-card-icono" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/></svg>
+        </span>
+      </div>
+      <div class="pmg-card-eyebrow">Eje 7</div>
+      <h3 class="pmg-card-titulo">Guadalajara te cuida</h3>
+      <p class="pmg-card-resumen">El compromiso central de esta administración: <strong>nadie se queda atrás</strong>. Salud cercana, apoyos a infancia y juventud, atención a personas adultas mayores y a quienes más lo necesitan.</p>
+    </article>
+
+  </div>
+
+  <!-- BANDA VISIÓN 2042 -->
+  <div class="pmg-vision-banda">
+    <span class="pmg-vision-icono" aria-hidden="true">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    </span>
+    <div class="pmg-vision-body">
+      <div class="pmg-vision-eyebrow">Visión 2042</div>
+      <h3>Lo que decide el Ayuntamiento hoy también construye la Guadalajara que dejaremos a la próxima generación</h3>
+      <p>El Plan no termina en 2027. Cada eje incluye metas y proyectos pensados para que esta ciudad <strong>siga mejorando durante los próximos dieciocho años</strong>, en sintonía con la Visión 2050 del Estado de Jalisco.</p>
+    </div>
+  </div>
+
+  <!-- CTA institucional -->
+  <div class="pmg-cta">
+    <span class="pmg-cta-icono" aria-hidden="true">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    </span>
+    <div class="pmg-cta-texto">
+      <p class="pmg-cta-titulo">Así se conecta este Plan con los planes Estatal y Nacional</p>
+      <p class="pmg-cta-desc">Lo que hace Guadalajara <strong>no funciona en solitario</strong>. Cada eje de este Plan se alinea con el Plan Estatal de Jalisco 2024-2030 y con el Plan Nacional de Desarrollo 2025-2030 del Gobierno de México. Así, lo que se decide en tu colonia, en tu estado y en el país camina en la misma dirección.</p>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
