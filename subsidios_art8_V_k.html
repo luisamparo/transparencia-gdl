@@ -132,7 +132,7 @@ tbody td{padding:10px 10px;vertical-align:top;color:var(--g900)}
     <div class="stat"><div class="n" id="s-2023">40</div><div class="l">Subsidios 2023</div></div>
     <div class="stat"><div class="n" id="s-2024">31</div><div class="l">Subsidios 2024</div></div>
     <div class="stat"><div class="n" id="s-2025">109</div><div class="l">Subsidios 2025</div></div>
-    <div class="stat"><div class="n" style="color:#2E7D32">0</div><div class="l">Subsidios 2026</div></div>
+    <div class="stat"><div class="n" style="color:#2E7D32">7</div><div class="l">Subsidios 2026</div></div>
     <div class="stat"><div class="n" id="s-monto">-</div><div class="l">Mostrados ahora</div></div>
   </div>
 
@@ -159,27 +159,31 @@ tbody td{padding:10px 10px;vertical-align:top;color:var(--g900)}
     </div>
   </div>
 
-  <!-- Panel 2026 sin registros -->
-  <div id="panel2026" style="display:none;background:var(--wh);border-radius:var(--rad);box-shadow:var(--sh);padding:32px 28px;margin-bottom:20px;border-left:4px solid var(--nr)">
-    <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
-      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E87722" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+  <!-- Panel 2026: aviso de meses sin pagos (abril sí tiene 7 subsidios visibles en la tabla) -->
+  <div id="panel2026" style="display:none;background:var(--wh);border-radius:var(--rad);box-shadow:var(--sh);padding:24px 28px;margin-bottom:20px;border-left:4px solid var(--nr)">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+      <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E87722" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
       <div>
-        <div style="font-size:18px;font-weight:800;color:var(--g900)">Ejercicio 2026 &mdash; Sin subsidios otorgados</div>
-        <div style="font-size:13px;color:var(--g400);margin-top:2px">Informaci&oacute;n publicada en cumplimiento a la Ley de Transparencia</div>
+        <div style="font-size:17px;font-weight:800;color:var(--g900)">Ejercicio 2026 &mdash; Avance al mes de abril</div>
+        <div style="font-size:12.5px;color:var(--g400);margin-top:2px">Los meses de enero a marzo de 2026 no registraron pagos. Los 7 subsidios entregados en abril 2026 se muestran en la tabla de abajo.</div>
       </div>
     </div>
-    <div style="display:flex;flex-direction:column;gap:10px">
-      <div style="background:var(--g50);border-radius:8px;padding:14px 18px;border:1px solid var(--g200);display:flex;align-items:center;gap:12px">
-        <span style="background:var(--nr-soft);color:var(--nr-d);font-weight:700;font-size:12px;padding:4px 12px;border-radius:20px;white-space:nowrap">Enero 2026</span>
-        <span style="font-size:13px;color:var(--g600)">Durante el mes de enero de 2026 no fue realizado ning&uacute;n pago de Dictamen T&eacute;cnico aprobado por el Comit&eacute; para Otorgar Subsidios y Ayudas Sociales del Presupuesto de Egresos 2026.</span>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="background:var(--g50);border-radius:8px;padding:12px 16px;border:1px solid var(--g200);display:flex;align-items:center;gap:12px">
+        <span style="background:var(--nr-soft);color:var(--nr-d);font-weight:700;font-size:11.5px;padding:4px 12px;border-radius:20px;white-space:nowrap">Enero 2026</span>
+        <span style="font-size:12.5px;color:var(--g600)">Sin pagos de Dictamen T&eacute;cnico aprobado por el Comit&eacute; para Otorgar Subsidios y Ayudas Sociales del Presupuesto de Egresos 2026.</span>
       </div>
-      <div style="background:var(--g50);border-radius:8px;padding:14px 18px;border:1px solid var(--g200);display:flex;align-items:center;gap:12px">
-        <span style="background:var(--nr-soft);color:var(--nr-d);font-weight:700;font-size:12px;padding:4px 12px;border-radius:20px;white-space:nowrap">Febrero 2026</span>
-        <span style="font-size:13px;color:var(--g600)">Durante el mes de febrero de 2026 no fue realizado ning&uacute;n pago de Dictamen T&eacute;cnico aprobado por el Comit&eacute; para Otorgar Subsidios y Ayudas Sociales del Presupuesto de Egresos 2026.</span>
+      <div style="background:var(--g50);border-radius:8px;padding:12px 16px;border:1px solid var(--g200);display:flex;align-items:center;gap:12px">
+        <span style="background:var(--nr-soft);color:var(--nr-d);font-weight:700;font-size:11.5px;padding:4px 12px;border-radius:20px;white-space:nowrap">Febrero 2026</span>
+        <span style="font-size:12.5px;color:var(--g600)">Sin pagos de Dictamen T&eacute;cnico aprobado por el Comit&eacute; para Otorgar Subsidios y Ayudas Sociales del Presupuesto de Egresos 2026.</span>
       </div>
-      <div style="background:var(--g50);border-radius:8px;padding:14px 18px;border:1px solid var(--g200);display:flex;align-items:center;gap:12px">
-        <span style="background:var(--nr-soft);color:var(--nr-d);font-weight:700;font-size:12px;padding:4px 12px;border-radius:20px;white-space:nowrap">Marzo 2026</span>
-        <span style="font-size:13px;color:var(--g600)">Durante el mes de marzo de 2026 no fue realizado ning&uacute;n pago de Dictamen T&eacute;cnico aprobado por el Comit&eacute; para Otorgar Subsidios y Ayudas Sociales del Presupuesto de Egresos 2026.</span>
+      <div style="background:var(--g50);border-radius:8px;padding:12px 16px;border:1px solid var(--g200);display:flex;align-items:center;gap:12px">
+        <span style="background:var(--nr-soft);color:var(--nr-d);font-weight:700;font-size:11.5px;padding:4px 12px;border-radius:20px;white-space:nowrap">Marzo 2026</span>
+        <span style="font-size:12.5px;color:var(--g600)">Sin pagos de Dictamen T&eacute;cnico aprobado por el Comit&eacute; para Otorgar Subsidios y Ayudas Sociales del Presupuesto de Egresos 2026.</span>
+      </div>
+      <div style="background:#E1F5EE;border-radius:8px;padding:12px 16px;border:1px solid #A8D6BB;display:flex;align-items:center;gap:12px">
+        <span style="background:#2E7D32;color:#fff;font-weight:700;font-size:11.5px;padding:4px 12px;border-radius:20px;white-space:nowrap">Abril 2026</span>
+        <span style="font-size:12.5px;color:#0E6B4C;font-weight:600">7 subsidios entregados por un total de $26,947,799.05. Ver detalle en la tabla siguiente.</span>
       </div>
     </div>
   </div>
@@ -406,7 +410,14 @@ const DATA = [
   {yr:"2025",fecha:"26/12/2025",nombre:"Juan Jose Tovar Balderrama",tipo_persona:"Fisica ",concepto:"Kit Set LEGO Education SPIKE Prime",modalidad:"Ayudas Sociales a personas",tipo_subsidio:"Economico",poblacion:"1 una persona",monto:"$12,444.31",partida:"4411",periodicidad:"Unica Ocasión",url:"https://transparencia.guadalajara.gob.mx/sites/default/files/DictamenROP-A-025-25.pdf",nota:""},
   {yr:"2025",fecha:"31/12/2025",nombre:"El Colegio de Jalisco A.C.",tipo_persona:"Moral",concepto:"PROMOCIÓN Y DIFUSIÓN A LA CULTURA Y LAS CIENCIAS SOCIALES",modalidad:"Otros Subsidios",tipo_subsidio:"Economico",poblacion:"La población del municipio de Guadalajara",monto:" $                600,000.00 ",partida:"4391",periodicidad:"Unica Ocasión",url:"https://transparencia.guadalajara.gob.mx/sites/default/files/DictamenROP-COLEGIOJALISCO-25.pdf",nota:""},
   {yr:"2025",fecha:"31/12/2025",nombre:"Claudia Elizabeth Barajas Mercado",tipo_persona:"Fisica ",concepto:"Kit Set Spike Essential de LEGO Education",modalidad:"Ayudas Sociales a personas",tipo_subsidio:"Economico",poblacion:"1 una persona",monto:"$9,549.12",partida:"4411",periodicidad:"Unica Ocasión",url:"https://transparencia.guadalajara.gob.mx/sites/default/files/DictamenROP-A-023-25.pdf",nota:""},
-  {yr:"2025",fecha:"31/12/2025",nombre:"Laura Noemi Luna Montaño",tipo_persona:"Fisica ",concepto:"Kit Set LEGO Education SPIKE Prime",modalidad:"Ayudas Sociales a personas",tipo_subsidio:"Economico",poblacion:"1 una persona",monto:"$12,444.31",partida:"4411",periodicidad:"Unica Ocasión",url:"https://transparencia.guadalajara.gob.mx/sites/default/files/DictamenROP-A-026-25.pdf",nota:""}
+  {yr:"2025",fecha:"31/12/2025",nombre:"Laura Noemi Luna Montaño",tipo_persona:"Fisica ",concepto:"Kit Set LEGO Education SPIKE Prime",modalidad:"Ayudas Sociales a personas",tipo_subsidio:"Economico",poblacion:"1 una persona",monto:"$12,444.31",partida:"4411",periodicidad:"Unica Ocasión",url:"https://transparencia.guadalajara.gob.mx/sites/default/files/DictamenROP-A-026-25.pdf",nota:""},
+  {yr:"2026",fecha:"15/04/2026",nombre:"Con el Poder de Hacer Khuba",tipo_persona:"Moral",concepto:"México en el corazón 2026",modalidad:"Otros Subsidios",tipo_subsidio:"Economico",poblacion:"Población del Municipio de Guadalajara",monto:"$2,850,000.00",partida:"4391",periodicidad:"Unica Ocasión",url:"https://transparencia.guadalajara.gob.mx/sites/default/files/ROP-C-004-2026.pdf",nota:""},
+  {yr:"2026",fecha:"22/04/2026",nombre:"Fundación Paseo Fray Antonio Alcalde",tipo_persona:"Moral",concepto:"Promoción y difusión del patrimonio cultural del Paseo Fray Antonio Alcalde",modalidad:"Otros Subsidios",tipo_subsidio:"Economico",poblacion:"Población del Municipio de Guadalajara",monto:"$858,000.00",partida:"4391",periodicidad:"Unica Ocasión",url:"https://transparencia.guadalajara.gob.mx/sites/default/files/ROP-C-002-2026.pdf",nota:""},
+  {yr:"2026",fecha:"23/04/2026",nombre:"Especies en Expansión S.A.P.I. DE C.V.",tipo_persona:"Moral",concepto:"Festival GDLUZ 2026",modalidad:"Otros Subsidios",tipo_subsidio:"Economico",poblacion:"Población del Municipio de Guadalajara",monto:"$12,189,799.05",partida:"4391",periodicidad:"Unica Ocasión",url:"https://transparencia.guadalajara.gob.mx/sites/default/files/ROP-C-006-2026.pdf",nota:""},
+  {yr:"2026",fecha:"23/04/2026",nombre:"Festmayo A.C.",tipo_persona:"Moral",concepto:"Festival Cultural de Mayo en Jalisco",modalidad:"Otros Subsidios",tipo_subsidio:"Economico",poblacion:"Población del Municipio de Guadalajara",monto:"$2,250,000.00",partida:"4391",periodicidad:"Unica Ocasión",url:"https://transparencia.guadalajara.gob.mx/sites/default/files/ROP-C-007-2026.pdf",nota:""},
+  {yr:"2026",fecha:"24/04/2026",nombre:"Patronato del Festival Internacional del Cine en Guadalajara",tipo_persona:"Moral",concepto:"Festival Internacional del Cine en Guadalajara 2026",modalidad:"Otros Subsidios",tipo_subsidio:"Economico",poblacion:"Población del Municipio de Guadalajara",monto:"$6,000,000.00",partida:"4391",periodicidad:"Unica Ocasión",url:"https://transparencia.guadalajara.gob.mx/sites/default/files/ROP-C-001-2026.pdf",nota:""},
+  {yr:"2026",fecha:"28/04/2026",nombre:"Fundación Proyecto Kalos",tipo_persona:"Moral",concepto:"Judea Guadalajara 2026",modalidad:"Otros Subsidios",tipo_subsidio:"Economico",poblacion:"Población del Municipio de Guadalajara",monto:"$300,000.00",partida:"4391",periodicidad:"Unica Ocasión",url:"https://transparencia.guadalajara.gob.mx/sites/default/files/ROP-C-010-2026.pdf",nota:""},
+  {yr:"2026",fecha:"28/04/2026",nombre:"Experiencias Creativas y de Publicidad S.A. de C.V.",tipo_persona:"Moral",concepto:"Academias para niñas, niños y jóvenes Astros de Jalisco",modalidad:"Otros Subsidios",tipo_subsidio:"Economico",poblacion:"Población del Municipio de Guadalajara",monto:"$2,500,000.00",partida:"4391",periodicidad:"Unica Ocasión",url:"https://transparencia.guadalajara.gob.mx/sites/default/files/ROP-C-009-2026.pdf",nota:""}
 ]
 ;
 
@@ -500,13 +511,10 @@ function goPage(p){ page=p; render(); window.scrollTo({top:0,behavior:'smooth'})
 document.querySelectorAll('#yearTabs .tab').forEach(b => b.addEventListener('click',()=>{
   document.querySelectorAll('#yearTabs .tab').forEach(x=>x.classList.remove('active'));
   b.classList.add('active'); activeYr=b.dataset.yr; page=1;
+  // Mostrar el panel informativo solo cuando se selecciona 2026 (avisa de meses sin pagos + total abril)
   const is2026 = activeYr==='2026';
   document.getElementById('panel2026').style.display = is2026 ? 'block' : 'none';
-  document.getElementById('pagination-top').style.display = is2026 ? 'none' : '';
-  document.getElementById('pagination').style.display = is2026 ? 'none' : '';
-  document.getElementById('tipoTabs').style.display = is2026 ? 'none' : '';
-  if(!is2026) render();
-  else { document.getElementById('tblWrap').style.display='none'; document.getElementById('noRes').style.display='none'; document.getElementById('s-monto').textContent='0'; }
+  render();
 }));
 document.querySelectorAll('#tipoTabs .tab').forEach(b => b.addEventListener('click',()=>{
   document.querySelectorAll('#tipoTabs .tab').forEach(x=>x.classList.remove('active'));
