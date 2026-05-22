@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Las partidas del Presupuesto de Egresos de la Federación y del Estado de Jalisco aplicables al Ayuntamiento de Guadalajara — Art. 8, Fracción V, Inciso a) de la Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios."/>
+<title>Presupuesto de Egresos · ¿En qué autoriza México y Jalisco gastar su dinero? · Transparencia GDL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --nr:#E87722;--nr-l:#FF9A45;--nr-d:#C45F0A;--nr-deeper:#8B4308;--nr-soft:#FFF1E4;
+  --nr-a:rgba(232,119,34,.10);--nr-b:rgba(232,119,34,.22);
+  --g50:#FAFAF8;--g100:#F0F0EC;--g200:#E2E2DD;--g300:#CFCFC8;--g400:#9E9E98;--g600:#5A5A55;--g800:#2D2D2A;--g900:#1A1A1A;
+  --wh:#FFF;
+  --fed:#8B2434;--fed-l:#FCEDF0;--fed-d:#5C1622;--fed-border:#E8C5CB;
+  --est:#E87722;--est-l:#FFF1E4;--est-d:#C45F0A;--est-border:#FFD2A5;
+  --ok:#1D9E75;--ok-l:#E1F5EE;--ok-d:#0E6B4C;
+  --rad:10px;--rad-lg:14px;
+  --sh:0 4px 22px rgba(0,0,0,.08);
+  --sh-sm:0 1px 3px rgba(0,0,0,.06);
+  --sh-md:0 6px 18px rgba(0,0,0,.07);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --fh:'Outfit',system-ui,-apple-system,sans-serif;
+  --fm:'DM Mono','SF Mono',Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--g900);line-height:1.55}
+.peg-wrap{max-width:1200px;margin:0 auto}
+
+/* HERO */
+.peg-hero{background:linear-gradient(135deg,#FFF4E8 0%,#FFFFFF 55%);color:var(--g900);border-radius:var(--rad-lg);padding:24px 28px;margin:0 0 22px;position:relative;overflow:hidden;border-left:5px solid var(--nr);box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.peg-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.12) 0%,transparent 70%);pointer-events:none}
+.peg-hero-tag{display:inline-block;background:var(--nr);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;position:relative;z-index:1;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.peg-hero h2{margin:0 0 8px;font-size:clamp(22px,3.2vw,28px);font-weight:800;color:var(--g900);letter-spacing:-.015em;line-height:1.22;position:relative;z-index:1}
+.peg-hero h2 em{font-style:normal;color:var(--nr-d)}
+.peg-hero-sub{font-size:14.5px;color:#5a4d3e;max-width:78ch;margin:0 0 20px;line-height:1.6;position:relative;z-index:1}
+.peg-hero-sub strong{color:var(--g900);font-weight:700}
+.peg-cifras{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px;max-width:580px;position:relative;z-index:1}
+.peg-cifra{background:var(--wh);border:1.5px solid #FFD2A5;border-radius:var(--rad);padding:14px 16px;display:flex;flex-direction:column;gap:2px;transition:border-color .18s ease,transform .18s ease}
+.peg-cifra:hover{border-color:var(--nr);transform:translateY(-2px)}
+.peg-cifra-num{font-family:var(--fm);font-size:38px;font-weight:700;line-height:1;color:var(--nr-d);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.peg-cifra-lbl{font-size:11px;font-weight:700;color:#5a4d3e;text-transform:uppercase;letter-spacing:.08em;margin-top:2px;line-height:1.3}
+
+/* LEYENDA */
+.peg-legend{background:var(--wh);border-radius:var(--rad-lg);padding:18px 22px;margin-bottom:22px;border-left:4px solid var(--g300);box-shadow:var(--sh-sm)}
+.peg-legend-eye{font-size:10.5px;font-weight:800;color:var(--g400);letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+.peg-legend h3{font-size:18px;font-weight:800;color:var(--g900);letter-spacing:-.01em;margin-bottom:8px}
+.peg-legend p{font-size:13.5px;color:var(--g600);line-height:1.65;max-width:78ch}
+.peg-legend p strong{color:var(--g800);font-weight:600}
+
+/* TARJETA POR ORDEN */
+.peg-orden{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh);overflow:hidden;margin-bottom:22px;border-top:5px solid var(--nr)}
+.peg-orden.federal{border-top-color:var(--fed)}
+.peg-orden.estatal{border-top-color:var(--est)}
+.peg-orden-head{padding:22px 26px 18px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;background:linear-gradient(135deg,var(--wh) 0%,#FAFAF8 100%);border-bottom:1px solid var(--g100)}
+.peg-orden-icono{flex-shrink:0;width:60px;height:60px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:var(--nr-soft);color:var(--nr-d)}
+.peg-orden.federal .peg-orden-icono{background:var(--fed-l);color:var(--fed-d)}
+.peg-orden.estatal .peg-orden-icono{background:var(--est-l);color:var(--est-d)}
+.peg-orden-body{flex:1;min-width:240px}
+.peg-orden-eye{font-size:10.5px;font-weight:800;color:var(--g400);letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px}
+.peg-orden.federal .peg-orden-eye{color:var(--fed)}
+.peg-orden.estatal .peg-orden-eye{color:var(--est-d)}
+.peg-orden h3{font-size:20px;font-weight:800;color:var(--g900);letter-spacing:-.015em;line-height:1.25}
+.peg-orden p{font-size:13.5px;color:var(--g600);margin-top:6px;line-height:1.55;max-width:65ch}
+.peg-orden p strong{color:var(--g800);font-weight:600}
+.peg-orden-stats{display:flex;gap:10px;flex-wrap:wrap}
+.peg-orden-stat{background:var(--g50);border:1px solid var(--g200);border-radius:var(--rad);padding:8px 14px;text-align:center}
+.peg-orden-stat .n{font-family:var(--fm);font-size:18px;font-weight:700;color:var(--g900);line-height:1;font-variant-numeric:tabular-nums}
+.peg-orden.federal .peg-orden-stat .n{color:var(--fed-d)}
+.peg-orden.estatal .peg-orden-stat .n{color:var(--est-d)}
+.peg-orden-stat .l{font-size:9.5px;font-weight:700;color:var(--g400);text-transform:uppercase;letter-spacing:.05em;margin-top:3px}
+
+/* GRID FEDERAL: 4 cards horizontales */
+.peg-fed-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:14px;padding:20px 26px}
+.peg-year-card{display:flex;flex-direction:column;background:var(--g50);border:1.5px solid var(--g200);border-radius:var(--rad);padding:16px 18px;text-decoration:none;color:inherit;transition:all .18s ease;position:relative;overflow:hidden}
+.peg-year-card:hover{border-color:var(--fed);transform:translateY(-3px);box-shadow:var(--sh-md);background:var(--fed-l)}
+.peg-year-card.current{border-color:var(--ok);background:var(--ok-l)}
+.peg-year-card.current:hover{border-color:var(--ok-d);background:#CFEBD9}
+.peg-year-card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.peg-year-card-year{font-family:var(--fm);font-size:28px;font-weight:700;color:var(--g900);line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.peg-year-card.current .peg-year-card-year{color:var(--ok-d)}
+.peg-year-card-badge{font-size:9px;font-weight:800;color:var(--g400);background:var(--g100);padding:3px 8px;border-radius:999px;letter-spacing:.06em;text-transform:uppercase}
+.peg-year-card.current .peg-year-card-badge{background:var(--ok);color:#fff}
+.peg-year-card-icon{flex-shrink:0;color:#991B1B;background:#FEE2E2;width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center}
+.peg-year-card-desc{font-size:11.5px;color:var(--g600);line-height:1.5;margin:6px 0 12px}
+.peg-year-card-cta{font-size:11.5px;font-weight:700;color:var(--fed-d);text-transform:uppercase;letter-spacing:.05em;display:inline-flex;align-items:center;gap:6px;margin-top:auto}
+.peg-year-card.current .peg-year-card-cta{color:var(--ok-d)}
+.peg-year-card-cta svg{transition:transform .15s ease}
+.peg-year-card:hover .peg-year-card-cta svg{transform:translateX(3px)}
+
+/* TABS DE AÑO (estatal) */
+.peg-year-tabs{padding:16px 26px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--g50);border-bottom:1px solid var(--g100)}
+.peg-year-tabs-lbl{font-size:11px;font-weight:800;color:var(--g400);letter-spacing:.12em;text-transform:uppercase;margin-right:6px}
+.peg-year-tab{font-family:var(--fh);font-size:14px;font-weight:700;color:var(--g600);background:var(--wh);border:1.5px solid var(--g200);padding:8px 18px;border-radius:999px;cursor:pointer;transition:all .15s ease;font-variant-numeric:tabular-nums;letter-spacing:.02em;display:inline-flex;align-items:center;gap:8px}
+.peg-year-tab:hover{border-color:var(--est);color:var(--est-d)}
+.peg-year-tab.active{background:var(--est);border-color:var(--est);color:#fff;box-shadow:0 2px 8px rgba(232,119,34,.32)}
+.peg-year-tab .vol-count{font-size:10px;font-weight:800;padding:2px 6px;background:rgba(0,0,0,.06);border-radius:999px;font-family:var(--fm)}
+.peg-year-tab.active .vol-count{background:rgba(255,255,255,.25);color:#fff}
+.peg-year-tab .badge-current{font-size:8.5px;font-weight:800;background:var(--ok);color:#fff;padding:2px 6px;border-radius:999px;letter-spacing:.05em;text-transform:uppercase}
+.peg-year-tab.active .badge-current{background:#fff;color:var(--est-d)}
+
+/* BÚSQUEDA */
+.peg-search-wrap{padding:14px 26px;background:var(--g50);border-bottom:1px solid var(--g100);display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.peg-search{position:relative;flex:1;min-width:220px;max-width:380px}
+.peg-search input{width:100%;padding:10px 16px 10px 38px;border-radius:8px;border:1.5px solid var(--g200);font-size:13.5px;font-family:var(--fh);background:var(--wh);transition:border-color .15s,box-shadow .15s}
+.peg-search input:focus{outline:none;border-color:var(--est);box-shadow:0 0 0 3px rgba(232,119,34,.15)}
+.peg-search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--g400);width:16px;height:16px;pointer-events:none}
+.peg-count{font-size:11.5px;color:var(--g600);font-weight:600;font-family:var(--fm)}
+.peg-count strong{color:var(--g900);font-weight:700}
+
+/* GRID DE VOLÚMENES (estatal) */
+.peg-vol-grid{padding:20px 26px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px}
+.peg-vol-card{display:flex;flex-direction:column;background:var(--wh);border:1.5px solid var(--g200);border-radius:var(--rad);padding:16px 18px;text-decoration:none;color:inherit;transition:all .18s ease;animation:fadeUp .25s var(--ease) both}
+.peg-vol-card:hover{border-color:var(--est);transform:translateY(-3px);box-shadow:var(--sh-md);background:#FFF8EE}
+.peg-vol-card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;gap:10px}
+.peg-vol-badge{display:inline-flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:12px;font-weight:700;background:var(--est-l);color:var(--est-d);padding:6px 12px;border-radius:7px;letter-spacing:.06em;min-width:60px;border:1px solid var(--est-border)}
+.peg-vol-pdf-ico{flex-shrink:0;color:#991B1B;background:#FEE2E2;width:32px;height:32px;border-radius:7px;display:flex;align-items:center;justify-content:center;transition:all .15s ease}
+.peg-vol-card:hover .peg-vol-pdf-ico{background:#991B1B;color:#fff}
+.peg-vol-desc{font-size:12.5px;color:var(--g600);line-height:1.5;flex:1;margin-bottom:10px}
+.peg-vol-cta{font-size:11px;font-weight:700;color:var(--est-d);text-transform:uppercase;letter-spacing:.05em;display:inline-flex;align-items:center;gap:6px;margin-top:auto}
+.peg-vol-cta svg{transition:transform .15s ease}
+.peg-vol-card:hover .peg-vol-cta svg{transform:translateX(3px)}
+.peg-empty-search{padding:30px 20px;text-align:center;color:var(--g400);font-size:13px;font-style:italic;grid-column:1/-1;display:none}
+.peg-empty-search.show{display:block}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* FOOTER LEY */
+.peg-ley{background:var(--wh);border-radius:var(--rad-lg);padding:22px 26px;border-left:4px solid var(--nr-d);box-shadow:var(--sh-sm);margin-top:8px}
+.peg-ley-eye{font-size:10.5px;font-weight:800;color:var(--nr-d);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.peg-ley h3{font-size:16px;font-weight:800;color:var(--g900);margin-bottom:8px;letter-spacing:-.008em}
+.peg-ley p{font-size:13px;color:var(--g600);line-height:1.65}
+.peg-ley p strong{color:var(--g800);font-weight:600}
+.peg-ley blockquote{font-size:13.5px;color:#5a4d3e;line-height:1.65;margin:12px 0 8px;padding:12px 18px;background:var(--nr-soft);border-left:3px solid var(--nr);border-radius:6px;font-style:italic}
+.peg-ley blockquote strong{color:var(--g900);font-style:normal;font-weight:700}
+
+@media(max-width:560px){
+  body{padding:14px}
+  .peg-hero{padding:20px 22px}
+  .peg-hero h2{font-size:20px}
+  .peg-cifras{grid-template-columns:repeat(3,1fr);gap:8px}
+  .peg-cifra{padding:10px 8px}
+  .peg-cifra-num{font-size:26px}
+  .peg-cifra-lbl{font-size:9.5px}
+  .peg-orden-head{padding:18px 20px;flex-direction:column;align-items:flex-start;text-align:left}
+  .peg-orden-icono{width:48px;height:48px}
+  .peg-orden h3{font-size:17px}
+  .peg-fed-grid,.peg-vol-grid{padding:16px 18px}
+  .peg-year-tabs,.peg-search-wrap{padding:14px 18px}
+}
+</style>
+</head>
+<body>
+
+<div class="peg-wrap">
+
+  <!-- HERO -->
+  <section class="peg-hero">
+    <span class="peg-hero-tag">Art. 8 · Fracción V · Inciso a)</span>
+    <h2>El presupuesto público explicado: <em>¿en qué autorizan gastar México y Jalisco cada año?</em></h2>
+    <p class="peg-hero-sub">Aquí encuentras los documentos oficiales que <strong>aprueba el Congreso de la Unión y el Congreso del Estado de Jalisco</strong> cada año para decidir cómo se gasta el dinero público. El Ayuntamiento de Guadalajara recibe recursos de ambos órdenes de gobierno: esta es la radiografía completa de los últimos años, lista para consulta y descarga.</p>
+    <div class="peg-cifras">
+      <div class="peg-cifra">
+        <div class="peg-cifra-num">4</div>
+        <div class="peg-cifra-lbl">Años disponibles</div>
+      </div>
+      <div class="peg-cifra">
+        <div class="peg-cifra-num">2</div>
+        <div class="peg-cifra-lbl">Órdenes de gobierno</div>
+      </div>
+      <div class="peg-cifra">
+        <div class="peg-cifra-num">34</div>
+        <div class="peg-cifra-lbl">Documentos oficiales</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEYENDA -->
+  <div class="peg-legend">
+    <div class="peg-legend-eye">¿Cómo usar esta página?</div>
+    <h3>Dos órdenes de gobierno, navegación rápida</h3>
+    <p>Cada año, el dinero público se aprueba en <strong>dos niveles</strong>: el Gobierno Federal aprueba el suyo en la Cámara de Diputados (un único documento por año), y el Gobierno de Jalisco aprueba el suyo en el Congreso Estatal (dividido en <strong>siete volúmenes</strong> por temas). En la sección federal toca un año para abrirlo; en la sección estatal elige primero el año y verás directamente los siete volúmenes.</p>
+  </div>
+
+  <!-- ===== SECCIÓN FEDERAL (grid de 4 cards) ===== -->
+  <section class="peg-orden federal">
+    <div class="peg-orden-head">
+      <div class="peg-orden-icono" aria-hidden="true">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 9h1"/><path d="M9 12h1"/><path d="M9 15h1"/><path d="M14 9h1"/><path d="M14 12h1"/><path d="M14 15h1"/></svg>
+      </div>
+      <div class="peg-orden-body">
+        <div class="peg-orden-eye">Gobierno Federal · Cámara de Diputados</div>
+        <h3>Presupuesto de Egresos de la Federación</h3>
+        <p>El documento que aprueba el <strong>Congreso de la Unión</strong> cada año. Define cómo se distribuye el dinero del país entre todas las dependencias federales, los estados y municipios. <strong>Toca cualquier año</strong> para abrir su PDF.</p>
+      </div>
+    </div>
+    <div class="peg-fed-grid">
+      <a class="peg-year-card current" href="https://transparencia.guadalajara.gob.mx/sites/default/files/PresupuestoEgresosFederacion-2026.pdf" target="_blank" rel="noopener">
+        <div class="peg-year-card-top">
+          <span class="peg-year-card-year">2026</span>
+          <span class="peg-year-card-badge">Vigente</span>
+        </div>
+        <p class="peg-year-card-desc">Presupuesto federal del ejercicio en curso, aprobado por la Cámara de Diputados.</p>
+        <span class="peg-year-card-cta">Abrir PDF <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="peg-year-card" href="https://transparencia.guadalajara.gob.mx/sites/default/files/PresupuestoEgresosFederacion-2025.pdf" target="_blank" rel="noopener">
+        <div class="peg-year-card-top">
+          <span class="peg-year-card-year">2025</span>
+          <span class="peg-year-card-badge">Cerrado</span>
+        </div>
+        <p class="peg-year-card-desc">Presupuesto federal del ejercicio fiscal 2025.</p>
+        <span class="peg-year-card-cta">Abrir PDF <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="peg-year-card" href="https://transparencia.guadalajara.gob.mx/sites/default/files/PresupuestoEgresosFederacion-2024.pdf" target="_blank" rel="noopener">
+        <div class="peg-year-card-top">
+          <span class="peg-year-card-year">2024</span>
+          <span class="peg-year-card-badge">Cerrado</span>
+        </div>
+        <p class="peg-year-card-desc">Presupuesto federal del ejercicio fiscal 2024.</p>
+        <span class="peg-year-card-cta">Abrir PDF <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="peg-year-card" href="https://transparencia.guadalajara.gob.mx/sites/default/files/PresupuestoEgresosFederacion-2023.pdf" target="_blank" rel="noopener">
+        <div class="peg-year-card-top">
+          <span class="peg-year-card-year">2023</span>
+          <span class="peg-year-card-badge">Cerrado</span>
+        </div>
+        <p class="peg-year-card-desc">Presupuesto federal del ejercicio fiscal 2023.</p>
+        <span class="peg-year-card-cta">Abrir PDF <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== SECCIÓN ESTATAL (tabs de año + grid de 7 volúmenes) ===== -->
+  <section class="peg-orden estatal">
+    <div class="peg-orden-head">
+      <div class="peg-orden-icono" aria-hidden="true">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg>
+      </div>
+      <div class="peg-orden-body">
+        <div class="peg-orden-eye">Gobierno de Jalisco · Congreso del Estado</div>
+        <h3>Presupuesto de Egresos del Estado de Jalisco</h3>
+        <p>El documento que aprueba el <strong>Congreso del Estado</strong> cada año, dividido en <strong>siete volúmenes</strong> por temas. <strong>Elige primero el año</strong> y verás los volúmenes correspondientes.</p>
+      </div>
+    </div>
+
+    <div class="peg-year-tabs" role="tablist" aria-label="Selecciona año">
+      <span class="peg-year-tabs-lbl">Año</span>
+      <button class="peg-year-tab active" data-year="2026" type="button" role="tab">2026 <span class="vol-count">7</span> <span class="badge-current">Vigente</span></button>
+      <button class="peg-year-tab" data-year="2025" type="button" role="tab">2025 <span class="vol-count">7</span></button>
+      <button class="peg-year-tab" data-year="2024" type="button" role="tab">2024 <span class="vol-count">9</span></button>
+      <button class="peg-year-tab" data-year="2023" type="button" role="tab">2023 <span class="vol-count">7</span></button>
+    </div>
+
+    <div class="peg-search-wrap">
+      <div class="peg-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" id="estSearch" placeholder="Filtrar volúmenes del año (ej. clasificador, salud, Vol III)" autocomplete="off"/>
+      </div>
+      <div class="peg-count">Mostrando <strong id="estShowing">7</strong> volúmenes</div>
+    </div>
+
+    <div class="peg-vol-grid" id="estVolGrid">
+      <!-- Las cards se renderizan dinámicamente con JS según el año seleccionado -->
+    </div>
+  </section>
+
+  <!-- FUNDAMENTO LEGAL -->
+  <div class="peg-ley">
+    <div class="peg-ley-eye">Fundamento legal</div>
+    <h3>¿Por qué se publica esta información?</h3>
+    <p>Artículo 8, Fracción V, Inciso a) de la <strong>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</strong>:</p>
+    <blockquote>"Las partidas del <strong>Presupuesto de Egresos de la Federación</strong> y del <strong>Presupuesto de Egresos del Estado</strong>, así como los conceptos del clasificador por objeto del gasto, aplicables al y por el sujeto obligado, de cuando menos los <strong>últimos tres años</strong>."</blockquote>
+    <p>El <strong>clasificador por objeto del gasto</strong> al que se refiere la ley se encuentra integrado dentro del <strong>Volumen III</strong> del Presupuesto del Estado de cada año, junto con los demás clasificadores presupuestales (funcional, programático y administrativo).</p>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var VOLS_DESC = {
+    'I':'Resumen general y exposición de motivos del Presupuesto del Estado.',
+    'II':'Calendario, flujo financiero y proyecciones presupuestales.',
+    'III':'Clasificadores presupuestales: por objeto del gasto, funcional y programático.',
+    'IV':'Programas presupuestarios, proyectos de inversión y dependencias.',
+    'V':'Entidades paraestatales, organismos descentralizados y fideicomisos.',
+    'VI':'Anexos transversales: igualdad, pueblos originarios, cambio climático y otros.',
+    'VII':'Tomos especiales por sector: educación, salud, seguridad y otros.',
+    'VII-A':'Tomos especiales por sector (parte A).',
+    'VII-B':'Tomos especiales por sector (parte B).',
+    'VII-C':'Tomos especiales por sector (parte C).'
+  };
+  var DATA = {
+    '2026': ['I','II','III','IV','V','VI','VII'],
+    '2025': ['I','II','III','IV','V','VI','VII'],
+    '2024': ['I','II','III','IV','V','VI','VII-A','VII-B','VII-C'],
+    '2023': ['I','II','III','IV','V','VI','VII']
+  };
+  var FILE_BASE = 'https://transparencia.guadalajara.gob.mx/sites/default/files/PresupuestoJaliscoVol';
+  var grid = document.getElementById('estVolGrid');
+  var showing = document.getElementById('estShowing');
+  var search = document.getElementById('estSearch');
+  var activeYear = '2026';
+
+  function pdfIcon(){
+    return '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>';
+  }
+  function arrowIcon(){
+    return '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
+  }
+  function render(year, query){
+    grid.innerHTML = '';
+    var vols = DATA[year] || [];
+    var q = (query||'').trim().toLowerCase();
+    var visible = 0;
+    vols.forEach(function(vol){
+      var desc = VOLS_DESC[vol] || '';
+      var fileName = FILE_BASE + vol + '-' + year + '.pdf';
+      var matchText = ('vol ' + vol + ' ' + desc + ' ' + year).toLowerCase();
+      if(q && matchText.indexOf(q) === -1){ return; }
+      visible++;
+      var a = document.createElement('a');
+      a.className = 'peg-vol-card';
+      a.href = fileName;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.style.animationDelay = (visible * 30) + 'ms';
+      a.innerHTML =
+        '<div class="peg-vol-card-top">' +
+          '<span class="peg-vol-badge">Vol ' + vol + '</span>' +
+          '<span class="peg-vol-pdf-ico">' + pdfIcon() + '</span>' +
+        '</div>' +
+        '<p class="peg-vol-desc">' + desc + '</p>' +
+        '<span class="peg-vol-cta">Abrir PDF ' + arrowIcon() + '</span>';
+      grid.appendChild(a);
+    });
+    if(visible === 0){
+      var empty = document.createElement('div');
+      empty.className = 'peg-empty-search show';
+      empty.textContent = 'No se encontraron volúmenes con ese criterio en ' + year + '. Prueba con otra palabra.';
+      grid.appendChild(empty);
+    }
+    showing.textContent = visible;
+  }
+  // Tabs
+  document.querySelectorAll('.peg-year-tab').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.peg-year-tab').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      activeYear = btn.getAttribute('data-year');
+      render(activeYear, search.value);
+    });
+  });
+  // Búsqueda
+  search.addEventListener('input', function(){ render(activeYear, search.value); });
+  // Init
+  render(activeYear, '');
+})();
+</script>
+
+</body>
+</html>

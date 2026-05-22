@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Presupuesto de Egresos anual y Clasificador por Objeto del Gasto del Ayuntamiento de Guadalajara — Art. 8, Fracción V, Inciso c) de la Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios. Ejercicios 2023, 2024, 2025 y 2026."/>
+<meta name="robots" content="index,follow"/>
+<meta property="og:title" content="Presupuesto de Egresos · Transparencia Guadalajara"/>
+<meta property="og:description" content="Cuánto, en qué y por qué gasta Guadalajara. Cifras verificadas contra los archivos oficiales publicados por el Ayuntamiento."/>
+<meta property="og:type" content="website"/>
+<title>Presupuesto de Egresos · Art. 8 Fracc. V Inc. c) · Transparencia Guadalajara</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+:root{
+  --nr:#E87722;--nr-l:#FF9A45;--nr-d:#C45F0A;--nr-deeper:#8B4308;--nr-soft:#FFF1E4;
+  --nr-a:rgba(232,119,34,.10);--nr-b:rgba(232,119,34,.22);
+  --g50:#FAFAF8;--g100:#F0F0EC;--g200:#E2E2DD;--g300:#CFCFC8;--g400:#9E9E98;--g600:#5A5A55;--g800:#2D2D2A;--g900:#1A1A1A;
+  --wh:#FFF;
+  /* Acentos */
+  --info:#2563EB;--info-l:#DBEAFE;--info-d:#1E3A8A;
+  --plum:#6F4D8E;--plum-l:#EDE7F6;--plum-d:#4F3567;
+  --err:#C8323F;--err-l:#FCE6E8;--err-d:#7A1F29;
+  --warn:#D97706;--warn-l:#FEF3C7;
+  --ok:#1D9E75;--ok-l:#E1F5EE;--ok-d:#0E6B4C;
+  --teal:#0E7490;--teal-l:#CFFAFE;--teal-d:#155E75;
+  --rose:#BE185D;--rose-l:#FCE7F3;--rose-d:#831843;
+  --slate:#475569;--slate-l:#E2E8F0;--slate-d:#1E293B;
+  --rad:10px;--rad-lg:14px;
+  --sh:0 4px 22px rgba(0,0,0,.08);
+  --sh-sm:0 1px 3px rgba(0,0,0,.06);
+  --sh-md:0 6px 18px rgba(0,0,0,.07);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --fh:'Outfit',system-ui,-apple-system,sans-serif;
+  --fm:'DM Mono','SF Mono',Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--fh);background:var(--g50);color:var(--g900);line-height:1.5;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer}
+a{color:var(--nr-d)}
+
+/* ============================================================
+   HERO
+============================================================ */
+.hero{background:radial-gradient(ellipse 800px 400px at 90% 30%,rgba(255,255,255,.18) 0%,transparent 70%),linear-gradient(135deg,var(--nr-d) 0%,var(--nr) 55%,var(--nr-l) 100%);padding:54px 32px 46px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 60px,rgba(255,255,255,.04) 60px,rgba(255,255,255,.04) 61px);pointer-events:none}
+.hero::after{content:'';position:absolute;right:-120px;top:-80px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.10) 0%,transparent 70%);pointer-events:none}
+.hi{position:relative;max-width:1400px;margin:0 auto;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,300px);gap:30px 50px;align-items:end}
+.hi-left{min-width:0}
+.bc{font-size:11.5px;color:rgba(255,255,255,.85);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;font-weight:500}
+.badge{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.40);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 13px;border-radius:20px;margin-bottom:14px;backdrop-filter:blur(6px)}
+.hero h1{font-size:clamp(26px,4.2vw,44px);font-weight:800;color:#fff;line-height:1.08;margin-bottom:12px;letter-spacing:-.015em}
+.hero p{color:rgba(255,255,255,.92);font-size:clamp(13px,1.5vw,16px);max-width:720px;line-height:1.55}
+.hero p strong{font-weight:700;color:#fff}
+.hero-meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,.18);font-size:11px;color:rgba(255,255,255,.85)}
+.hero-meta-item{display:flex;flex-direction:column;gap:2px}
+.hero-meta-lbl{font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.75}
+.hero-meta-val{font-weight:600;color:#fff;font-family:var(--fm);font-size:11.5px}
+.hero-num{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);border-radius:var(--rad-lg);padding:18px 22px;backdrop-filter:blur(10px);min-width:0}
+.hero-num-lbl{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.88;color:#fff;margin-bottom:6px}
+.hero-num-val{font-family:var(--fm);font-size:clamp(22px,3.3vw,30px);font-weight:700;color:#fff;line-height:1.05;letter-spacing:-.02em;font-variant-numeric:tabular-nums;text-shadow:0 1px 8px rgba(0,0,0,.12);word-break:break-all}
+.hero-num-foot{display:flex;justify-content:space-between;margin-top:14px;padding-top:10px;border-top:1px solid rgba(255,255,255,.18);font-size:10.5px;color:rgba(255,255,255,.85);font-weight:600}
+.hero-num-foot strong{display:block;color:#fff;font-family:var(--fm);font-size:13px;font-weight:700;margin-top:2px}
+@media(max-width:880px){.hi{grid-template-columns:1fr;gap:22px}}
+
+/* ============================================================
+   MAIN
+============================================================ */
+.main{max-width:1400px;margin:0 auto;padding:28px 20px 60px}
+
+/* ============================================================
+   BANNER LEGAL
+============================================================ */
+.legal{background:var(--wh);border:1px solid var(--g200);border-left:4px solid var(--nr);border-radius:var(--rad-lg);padding:18px 22px;margin-bottom:22px;display:grid;grid-template-columns:auto 1fr;gap:14px 20px;box-shadow:var(--sh-sm)}
+.legal-stamp{flex-shrink:0;width:48px;height:48px;border-radius:50%;background:var(--nr-soft);border:2px solid var(--nr);color:var(--nr-d);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:22px;font-family:var(--fh)}
+.legal-body{min-width:0}
+.legal-h{font-size:10.5px;font-weight:800;color:var(--nr-d);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.legal-h::after{content:'';flex:1;height:1px;background:var(--g200);max-width:140px}
+.legal-txt{font-size:14.5px;color:var(--g900);line-height:1.6;font-style:italic;font-weight:500}
+.legal-txt strong{background:linear-gradient(180deg,transparent 60%,var(--nr-soft) 60%);padding:0 3px;color:var(--g900);font-weight:700;font-style:normal}
+.legal-cite{font-size:11.5px;color:var(--g600);margin-top:10px;line-height:1.5}
+.legal-cite a{color:var(--nr-d);font-weight:600;text-decoration:underline}
+@media(max-width:600px){.legal{grid-template-columns:1fr}.legal-stamp{display:none}}
+
+/* ============================================================
+   PREGUNTA CIUDADANA + GLOSARIO
+============================================================ */
+.qa{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh);overflow:hidden;margin-bottom:22px}
+.qa-top{padding:18px 22px;border-bottom:1px solid var(--g100);background:linear-gradient(135deg,var(--nr-soft) 0%,var(--wh) 70%)}
+.qa-eye{font-size:10px;font-weight:800;color:var(--g400);letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px}
+.qa-h{font-size:20px;font-weight:800;color:var(--g900);line-height:1.2;letter-spacing:-.012em}
+.qa-h em{color:var(--nr-d);font-style:italic;font-weight:800}
+.qa-body{padding:18px 22px 22px}
+.qa-lead{font-size:14px;color:var(--g600);line-height:1.65;margin-bottom:18px;max-width:80ch}
+.qa-lead strong{color:var(--g900);font-weight:600}
+
+.qa-twocol{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
+@media(max-width:720px){.qa-twocol{grid-template-columns:1fr}}
+.qa-def{background:var(--g50);border:1px solid var(--g200);border-radius:var(--rad);padding:16px 18px;border-left:3px solid var(--nr)}
+.qa-def-tag{font-size:9.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--nr-d);margin-bottom:6px}
+.qa-def-h{font-size:15px;font-weight:800;color:var(--g900);line-height:1.3;margin-bottom:6px}
+.qa-def-txt{font-size:12.5px;color:var(--g600);line-height:1.6}
+.qa-def-txt strong{color:var(--g800);font-weight:600}
+
+/* Capítulos grid */
+.cap-eyebrow{font-size:10.5px;font-weight:800;color:var(--g600);letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.cap-eyebrow::before{content:'';width:24px;height:2px;background:var(--nr)}
+.cap-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:10px}
+.cap-tile{background:var(--g50);border:1px solid var(--g200);border-radius:var(--rad);padding:13px 15px;display:flex;align-items:flex-start;gap:11px;transition:all .18s var(--ease);border-left:3px solid var(--g300)}
+.cap-tile:hover{transform:translateY(-2px);box-shadow:var(--sh-sm)}
+.cap-tile[data-cap="1000"]{border-left-color:var(--info)}
+.cap-tile[data-cap="2000"]{border-left-color:var(--ok)}
+.cap-tile[data-cap="3000"]{border-left-color:var(--warn)}
+.cap-tile[data-cap="4000"]{border-left-color:var(--plum)}
+.cap-tile[data-cap="5000"]{border-left-color:var(--teal)}
+.cap-tile[data-cap="6000"]{border-left-color:var(--nr)}
+.cap-tile[data-cap="7000"]{border-left-color:var(--rose)}
+.cap-tile[data-cap="8000"]{border-left-color:var(--slate)}
+.cap-tile[data-cap="9000"]{border-left-color:var(--err)}
+.cap-tile-num{flex-shrink:0;font-family:var(--fm);font-size:12px;font-weight:700;color:var(--g900);background:var(--wh);border:1.5px solid var(--g200);padding:3px 8px;border-radius:6px;letter-spacing:.02em}
+.cap-tile[data-cap="1000"] .cap-tile-num{background:var(--info-l);border-color:#BFCCEA;color:var(--info-d)}
+.cap-tile[data-cap="2000"] .cap-tile-num{background:var(--ok-l);border-color:#A8D6BB;color:var(--ok-d)}
+.cap-tile[data-cap="3000"] .cap-tile-num{background:var(--warn-l);border-color:#F1D38A;color:#7A4D00}
+.cap-tile[data-cap="4000"] .cap-tile-num{background:var(--plum-l);border-color:#D9C9E8;color:var(--plum-d)}
+.cap-tile[data-cap="5000"] .cap-tile-num{background:var(--teal-l);border-color:#A5E5EF;color:var(--teal-d)}
+.cap-tile[data-cap="6000"] .cap-tile-num{background:var(--nr-soft);border-color:#F3B889;color:var(--nr-d)}
+.cap-tile[data-cap="7000"] .cap-tile-num{background:var(--rose-l);border-color:#F8B4D9;color:var(--rose-d)}
+.cap-tile[data-cap="8000"] .cap-tile-num{background:var(--slate-l);border-color:#94A3B8;color:var(--slate-d)}
+.cap-tile[data-cap="9000"] .cap-tile-num{background:var(--err-l);border-color:#EDB7BD;color:var(--err-d)}
+.cap-tile-body{min-width:0;flex:1}
+.cap-tile-h{font-size:13px;font-weight:700;color:var(--g900);line-height:1.25;margin-bottom:3px}
+.cap-tile-d{font-size:11.5px;color:var(--g600);line-height:1.5}
+
+/* ============================================================
+   SELECTOR DE EJERCICIO
+============================================================ */
+.year-row{margin-bottom:22px}
+.year-lbl{font-size:10.5px;font-weight:800;color:var(--g600);letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.year-lbl::before{content:'';width:24px;height:2px;background:var(--nr)}
+.year-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,11rem),1fr));gap:10px}
+.year-card{background:var(--wh);border:1.5px solid var(--g200);border-radius:var(--rad-lg);padding:14px 16px;cursor:pointer;text-align:left;font-family:var(--fh);position:relative;overflow:hidden;display:flex;flex-direction:column;gap:4px;transition:all .2s var(--ease);box-shadow:var(--sh-sm)}
+.year-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(180deg,var(--nr) 0%,var(--nr-d) 100%);transition:width .2s var(--ease)}
+.year-card:hover{border-color:var(--nr-b);transform:translateY(-2px);box-shadow:var(--sh)}
+.year-card:hover::before{width:4px}
+.year-card.active{border-color:var(--nr);background:linear-gradient(135deg,var(--nr-soft) 0%,var(--wh) 70%);box-shadow:var(--sh)}
+.year-card.active::before{width:5px;background:linear-gradient(180deg,var(--nr-d) 0%,var(--nr) 100%)}
+.year-card-top{display:flex;justify-content:space-between;align-items:baseline}
+.year-card-yr{font-size:26px;font-weight:800;color:var(--g900);line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums;font-family:var(--fm)}
+.year-card.active .year-card-yr{color:var(--nr-d)}
+.year-card-tag{font-size:9px;font-weight:800;color:var(--g400);text-transform:uppercase;letter-spacing:.08em;background:var(--g100);padding:3px 8px;border-radius:999px;border:1px solid var(--g200)}
+.year-card.now .year-card-tag{background:var(--ok-l);color:var(--ok-d);border-color:#A8D6BB}
+.year-card-val{font-size:15px;font-weight:700;color:var(--g900);font-variant-numeric:tabular-nums;letter-spacing:-.012em;line-height:1.1;margin-top:6px;font-family:var(--fm)}
+.year-card-sub{font-size:10.5px;color:var(--g400);font-weight:500;line-height:1.4;margin-top:2px}
+.year-card.active .year-card-sub{color:var(--g600)}
+
+/* ============================================================
+   KPI BAND
+============================================================ */
+.kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:12px;margin-bottom:22px}
+.kpi{background:var(--wh);border-radius:var(--rad);box-shadow:var(--sh);padding:16px 18px;position:relative;overflow:hidden;border-top:3px solid var(--nr);transition:transform .18s var(--ease)}
+.kpi:hover{transform:translateY(-2px);box-shadow:var(--sh-md)}
+.kpi.total{border-top-color:var(--ok)}
+.kpi.cap{border-top-color:var(--info)}
+.kpi.var{border-top-color:var(--plum)}
+.kpi.docs{border-top-color:var(--warn)}
+.kpi-lbl{font-size:10px;font-weight:800;color:var(--g400);text-transform:uppercase;letter-spacing:.07em;line-height:1.3}
+.kpi-val{font-family:var(--fm);font-size:22px;font-weight:700;color:var(--g900);font-variant-numeric:tabular-nums;letter-spacing:-.02em;line-height:1.1;margin-top:6px;word-break:break-word}
+.kpi.total .kpi-val{color:var(--ok-d);font-size:18px}
+.kpi.cap .kpi-val{color:var(--info-d);font-size:17px}
+.kpi.var .kpi-val{color:var(--plum-d)}
+.kpi.var .kpi-val.neg{color:var(--err-d)}
+.kpi.docs .kpi-val{color:#7A4D00}
+.kpi-sub{font-size:11px;color:var(--g600);font-weight:500;margin-top:4px;line-height:1.45}
+
+/* ============================================================
+   CHART CARDS
+============================================================ */
+.chart-card{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh);padding:20px 24px 16px;margin-bottom:22px}
+.chart-head{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:14px}
+.chart-title{font-size:17px;font-weight:800;color:var(--g900);letter-spacing:-.005em}
+.chart-sub{font-size:12px;color:var(--g600);margin-top:3px;line-height:1.5;max-width:60ch}
+.chart-toggle{display:flex;gap:6px;flex-wrap:wrap}
+.chart-toggle button{padding:7px 13px;border-radius:7px;border:1.5px solid var(--g200);background:var(--wh);font-size:11.5px;font-weight:700;cursor:pointer;font-family:var(--fh);transition:all .15s;color:var(--g600);letter-spacing:.02em}
+.chart-toggle button:hover{border-color:var(--nr);color:var(--nr-d)}
+.chart-toggle button.active{background:var(--nr);color:#fff;border-color:var(--nr);box-shadow:0 2px 6px rgba(232,119,34,.3)}
+.chart-wrap{position:relative;height:360px}
+.chart-wrap-tall{height:420px}
+@media(max-width:600px){.chart-wrap,.chart-wrap-tall{height:280px}}
+.chart-legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px;padding-top:12px;border-top:1px solid var(--g100);font-size:11px;color:var(--g600);font-weight:600}
+.chart-legend-item{display:inline-flex;align-items:center;gap:6px}
+.chart-legend-dot{width:10px;height:10px;border-radius:3px}
+
+/* ============================================================
+   SECTION HEADERS
+============================================================ */
+.sec-head{margin:0 0 12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.sec-head-num{font-size:11px;font-weight:800;color:var(--nr-d);font-variant-numeric:tabular-nums;letter-spacing:.04em;flex-shrink:0;background:var(--nr-soft);padding:3px 9px;border-radius:999px;border:1px solid var(--nr-b);font-family:var(--fm);text-transform:uppercase}
+.sec-head-h{font-size:20px;font-weight:800;color:var(--g900);letter-spacing:-.012em;line-height:1.2}
+.sec-head-tag{font-size:10px;font-weight:800;color:var(--g400);background:var(--g100);padding:4px 10px;border-radius:999px;border:1px solid var(--g200);letter-spacing:.06em;text-transform:uppercase;margin-left:auto;font-variant-numeric:tabular-nums}
+.sec-intro{font-size:13px;color:var(--g600);line-height:1.6;margin-bottom:14px;max-width:80ch}
+.sec-intro strong{color:var(--g900);font-weight:600}
+
+/* ============================================================
+   DESGLOSE POR CAPÍTULO (barras horizontales)
+============================================================ */
+.split-card{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh);overflow:hidden;margin-bottom:22px}
+.split-top{padding:16px 22px;border-bottom:1px solid var(--g100);background:linear-gradient(135deg,var(--nr-soft) 0%,var(--wh) 70%)}
+.split-h{font-size:16px;font-weight:800;color:var(--g900);letter-spacing:-.008em}
+.split-sub{font-size:11.5px;color:var(--g600);line-height:1.5;margin-top:3px}
+.split-body{padding:14px 22px 20px}
+.split-row{display:grid;grid-template-columns:auto 1fr auto;gap:12px 18px;align-items:center;padding:12px 0;border-bottom:1px solid var(--g100)}
+.split-row:last-child{border-bottom:none}
+.split-row.zero{opacity:.55}
+.split-tag{display:inline-flex;align-items:center;gap:7px;font-size:10.5px;font-weight:800;padding:5px 12px;border-radius:6px;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;font-family:var(--fh);min-width:0}
+.split-tag-num{font-family:var(--fm);font-weight:700;background:rgba(0,0,0,.08);padding:2px 6px;border-radius:4px;font-size:9.5px}
+.split-tag[data-cap="1000"]{background:var(--info-l);color:var(--info-d);border:1px solid #BFCCEA}
+.split-tag[data-cap="2000"]{background:var(--ok-l);color:var(--ok-d);border:1px solid #A8D6BB}
+.split-tag[data-cap="3000"]{background:var(--warn-l);color:#7A4D00;border:1px solid #F1D38A}
+.split-tag[data-cap="4000"]{background:var(--plum-l);color:var(--plum-d);border:1px solid #D9C9E8}
+.split-tag[data-cap="5000"]{background:var(--teal-l);color:var(--teal-d);border:1px solid #A5E5EF}
+.split-tag[data-cap="6000"]{background:var(--nr-soft);color:var(--nr-d);border:1px solid #F3B889}
+.split-tag[data-cap="7000"]{background:var(--rose-l);color:var(--rose-d);border:1px solid #F8B4D9}
+.split-tag[data-cap="8000"]{background:var(--slate-l);color:var(--slate-d);border:1px solid #94A3B8}
+.split-tag[data-cap="9000"]{background:var(--err-l);color:var(--err-d);border:1px solid #EDB7BD}
+.split-bar-cont{display:flex;flex-direction:column;gap:4px;min-width:0}
+.split-bar-name{font-size:11.5px;color:var(--g600);font-weight:500;line-height:1.4}
+.split-bar-wrap{height:14px;background:var(--g100);border-radius:8px;overflow:hidden;border:1px solid var(--g200);position:relative}
+.split-bar{height:100%;border-radius:7px;transition:width 1s var(--ease)}
+.split-bar[data-cap="1000"]{background:linear-gradient(90deg,var(--info) 0%,var(--info-d) 100%)}
+.split-bar[data-cap="2000"]{background:linear-gradient(90deg,var(--ok) 0%,var(--ok-d) 100%)}
+.split-bar[data-cap="3000"]{background:linear-gradient(90deg,var(--warn) 0%,#92400E 100%)}
+.split-bar[data-cap="4000"]{background:linear-gradient(90deg,var(--plum) 0%,var(--plum-d) 100%)}
+.split-bar[data-cap="5000"]{background:linear-gradient(90deg,var(--teal) 0%,var(--teal-d) 100%)}
+.split-bar[data-cap="6000"]{background:linear-gradient(90deg,var(--nr) 0%,var(--nr-d) 100%)}
+.split-bar[data-cap="7000"]{background:linear-gradient(90deg,var(--rose) 0%,var(--rose-d) 100%)}
+.split-bar[data-cap="8000"]{background:linear-gradient(90deg,var(--slate) 0%,var(--slate-d) 100%)}
+.split-bar[data-cap="9000"]{background:linear-gradient(90deg,var(--err) 0%,var(--err-d) 100%)}
+.split-amt{display:flex;flex-direction:column;align-items:flex-end;gap:2px;text-align:right}
+.split-amt-val{font-family:var(--fm);font-size:14px;font-weight:700;color:var(--g900);font-variant-numeric:tabular-nums;white-space:nowrap;letter-spacing:-.005em}
+.split-amt-pct{font-family:var(--fm);font-size:10.5px;color:var(--g400);font-weight:500;font-variant-numeric:tabular-nums}
+@media(max-width:560px){.split-row{grid-template-columns:1fr;gap:6px}.split-amt{align-items:flex-start;text-align:left}}
+
+/* ============================================================
+   ARCHIVOS FUENTE
+============================================================ */
+.docs-card{background:var(--wh);border-radius:var(--rad-lg);overflow:hidden;box-shadow:var(--sh);margin-bottom:22px}
+.docs-top{padding:18px 22px 14px;border-bottom:1px solid var(--g100);background:linear-gradient(135deg,var(--g50) 0%,var(--wh) 70%)}
+.docs-h{font-size:16px;font-weight:800;color:var(--g900);letter-spacing:-.008em}
+.docs-sub{font-size:12px;color:var(--g600);line-height:1.55;margin-top:5px;max-width:80ch}
+.docs-sub strong{color:var(--g800);font-weight:600}
+.docs-grid{padding:16px 22px 18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:10px}
+.docs-link{display:flex;align-items:flex-start;gap:12px;background:var(--g50);border:1.5px solid var(--g200);border-radius:var(--rad);padding:14px 16px;text-decoration:none;color:inherit;transition:all .15s var(--ease);box-shadow:var(--sh-sm)}
+.docs-link:hover{border-color:var(--nr);transform:translateY(-2px);box-shadow:var(--sh-sm);background:var(--wh)}
+.docs-link-ico{flex-shrink:0;width:44px;height:44px;border-radius:var(--rad);background:var(--err-l);color:var(--err-d);display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:10.5px;font-weight:700;letter-spacing:.04em;border:1.5px solid #EDB7BD}
+.docs-link-ico.xlsx{background:var(--ok-l);color:var(--ok-d);border-color:#B8D8C5}
+.docs-link-ico.url{background:var(--plum-l);color:var(--plum);border-color:#D9C9E8}
+.docs-link-ico.ciudadano{background:var(--nr-soft);color:var(--nr-d);border-color:#F3B889}
+.docs-link-body{flex:1;min-width:0}
+.docs-link-h{font-size:13px;font-weight:700;color:var(--g900);line-height:1.3}
+.docs-link-d{font-size:11px;color:var(--g400);line-height:1.5;margin-top:3px;font-weight:500}
+.docs-link-pill{display:inline-block;margin-top:5px;font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--g600);background:var(--wh);border:1px solid var(--g200);padding:2px 7px;border-radius:999px;font-family:var(--fm)}
+
+/* ============================================================
+   RESPONSABLES
+============================================================ */
+.resp-card{background:var(--wh);border-radius:var(--rad-lg);overflow:hidden;box-shadow:var(--sh);margin-bottom:22px}
+.resp-top{padding:18px 22px 14px;background:linear-gradient(135deg,var(--nr-soft) 0%,var(--wh) 65%);border-bottom:1px solid var(--g100)}
+.resp-top-h{font-size:16px;font-weight:800;color:var(--g900);letter-spacing:-.008em;margin-bottom:3px}
+.resp-top-sub{font-size:12px;color:var(--g600);line-height:1.5}
+.resp-single{padding:18px 22px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.resp-avatar{flex-shrink:0;width:62px;height:62px;border-radius:50%;background:linear-gradient(135deg,var(--nr-deeper) 0%,var(--nr-d) 60%,var(--nr) 100%);color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;letter-spacing:.02em;box-shadow:0 6px 18px rgba(196,95,10,.32);font-family:var(--fh)}
+.resp-info{flex:1;min-width:200px}
+.resp-name{font-size:18px;font-weight:800;color:var(--g900);line-height:1.2;letter-spacing:-.012em}
+.resp-cargo{font-size:13.5px;color:var(--nr-d);font-weight:700;margin-top:3px}
+.resp-area{font-size:11.5px;color:var(--g600);line-height:1.5;margin-top:7px}
+.resp-meta{padding:14px 22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,11rem),1fr));gap:8px 24px;background:var(--wh);border-top:1px solid var(--g100)}
+.resp-meta-item{display:flex;flex-direction:column;gap:2px;min-width:0}
+.resp-meta-lbl{font-size:9.5px;font-weight:800;color:var(--g400);text-transform:uppercase;letter-spacing:.09em}
+.resp-meta-val{font-size:13px;color:var(--g900);font-weight:600;font-variant-numeric:tabular-nums;font-family:var(--fm)}
+
+/* ============================================================
+   AVISO / FOOTNOTE
+============================================================ */
+.foot-note{background:var(--wh);border:1px solid var(--g200);border-left:4px solid var(--warn);border-radius:var(--rad);padding:14px 18px;font-size:12.5px;color:var(--g600);line-height:1.65;margin-bottom:14px}
+.foot-note strong{color:var(--g900);font-weight:700}
+
+/* ============================================================
+   STICKY YEAR BAR — aparece al scrollear más allá del hero
+============================================================ */
+.sticky-bar{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--g200);box-shadow:0 4px 20px rgba(0,0,0,.06);padding:10px 20px;transform:translateY(-100%);transition:transform .28s var(--ease),opacity .28s var(--ease);opacity:0;pointer-events:none}
+.sticky-bar.visible{transform:translateY(0);opacity:1;pointer-events:auto}
+.sticky-bar-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.sticky-bar-lbl{font-size:10px;font-weight:800;color:var(--g600);letter-spacing:.12em;text-transform:uppercase;display:flex;align-items:center;gap:8px;flex-shrink:0}
+.sticky-bar-lbl::before{content:'';width:4px;height:18px;background:linear-gradient(180deg,var(--nr) 0%,var(--nr-d) 100%);border-radius:2px}
+.sticky-bar-pills{display:flex;gap:6px;flex-wrap:wrap;flex:1;min-width:0}
+.sticky-pill{display:inline-flex;flex-direction:column;align-items:flex-start;gap:1px;background:var(--g50);border:1.5px solid var(--g200);border-radius:8px;padding:6px 12px;font-family:var(--fh);font-weight:700;cursor:pointer;transition:all .15s var(--ease);min-width:0;line-height:1.1}
+.sticky-pill-yr{font-family:var(--fm);font-size:14px;font-weight:700;color:var(--g900);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.sticky-pill-amt{font-family:var(--fm);font-size:9.5px;color:var(--g400);font-weight:500;font-variant-numeric:tabular-nums}
+.sticky-pill:hover{border-color:var(--nr);background:var(--wh);transform:translateY(-1px);box-shadow:var(--sh-sm)}
+.sticky-pill:hover .sticky-pill-yr{color:var(--nr-d)}
+.sticky-pill.active{background:linear-gradient(135deg,var(--nr) 0%,var(--nr-d) 100%);border-color:var(--nr-d);box-shadow:0 3px 10px rgba(232,119,34,.32)}
+.sticky-pill.active .sticky-pill-yr,.sticky-pill.active .sticky-pill-amt{color:#fff}
+.sticky-pill.active .sticky-pill-amt{opacity:.92}
+.sticky-bar-actions{display:flex;gap:6px;flex-shrink:0}
+.sticky-bar-btn{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:8px;background:var(--wh);border:1.5px solid var(--g200);color:var(--g600);cursor:pointer;transition:all .15s var(--ease)}
+.sticky-bar-btn:hover{border-color:var(--nr);color:var(--nr-d);background:var(--nr-soft)}
+@media(max-width:680px){
+  .sticky-bar{padding:8px 12px}
+  .sticky-bar-lbl{display:none}
+  .sticky-pill{padding:5px 10px}
+  .sticky-pill-yr{font-size:12.5px}
+  .sticky-pill-amt{font-size:9px}
+  .sticky-bar-btn{width:30px;height:30px}
+}
+
+/* ============================================================
+   FAB — Floating navigator (acceso rápido en móvil y desktop)
+============================================================ */
+.fab-wrap{position:fixed;bottom:24px;right:24px;z-index:99;display:flex;flex-direction:column;align-items:flex-end;gap:10px;opacity:0;transform:translateY(20px);transition:all .3s var(--ease);pointer-events:none}
+.fab-wrap.visible{opacity:1;transform:translateY(0);pointer-events:auto}
+.fab-pills{display:flex;flex-direction:column;gap:7px;align-items:flex-end;max-height:0;overflow:hidden;transition:max-height .3s var(--ease),margin .3s var(--ease)}
+.fab-wrap.open .fab-pills{max-height:300px;margin-bottom:4px}
+.fab-pill{display:inline-flex;align-items:center;gap:10px;background:var(--wh);border:1.5px solid var(--g200);border-radius:999px;padding:7px 14px 7px 9px;font-family:var(--fh);font-weight:700;cursor:pointer;box-shadow:var(--sh-md);transition:all .15s var(--ease);transform:translateX(20px);opacity:0}
+.fab-wrap.open .fab-pill{transform:translateX(0);opacity:1;transition:transform .25s var(--ease),opacity .25s var(--ease),border-color .15s,background .15s}
+.fab-wrap.open .fab-pill:nth-child(1){transition-delay:.04s}
+.fab-wrap.open .fab-pill:nth-child(2){transition-delay:.08s}
+.fab-wrap.open .fab-pill:nth-child(3){transition-delay:.12s}
+.fab-wrap.open .fab-pill:nth-child(4){transition-delay:.16s}
+.fab-pill:hover{border-color:var(--nr);transform:translateX(-2px);box-shadow:var(--sh)}
+.fab-pill-dot{width:26px;height:26px;border-radius:50%;background:var(--g100);color:var(--g600);display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:10px;font-weight:700;letter-spacing:-.02em;flex-shrink:0}
+.fab-pill.active{background:linear-gradient(135deg,var(--nr-soft) 0%,var(--wh) 70%);border-color:var(--nr)}
+.fab-pill.active .fab-pill-dot{background:linear-gradient(135deg,var(--nr-d) 0%,var(--nr) 100%);color:#fff}
+.fab-pill-txt{display:flex;flex-direction:column;gap:1px;line-height:1.1}
+.fab-pill-yr{font-family:var(--fm);font-size:13.5px;font-weight:700;color:var(--g900);font-variant-numeric:tabular-nums}
+.fab-pill.active .fab-pill-yr{color:var(--nr-d)}
+.fab-pill-sub{font-family:var(--fm);font-size:9.5px;color:var(--g400);font-weight:500;font-variant-numeric:tabular-nums}
+
+.fab-main{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--nr-d) 0%,var(--nr) 100%);color:#fff;border:none;border-radius:999px;padding:11px 18px 11px 14px;font-family:var(--fh);font-weight:700;cursor:pointer;box-shadow:0 8px 24px rgba(196,95,10,.36);transition:all .2s var(--ease);font-size:13px}
+.fab-main:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(196,95,10,.48)}
+.fab-main-ico{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.20);border:1.5px solid rgba(255,255,255,.45);display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:11.5px;font-weight:800;letter-spacing:-.02em;backdrop-filter:blur(4px)}
+.fab-main-lbl{display:flex;flex-direction:column;align-items:flex-start;line-height:1.1;gap:1px}
+.fab-main-yr{font-family:var(--fm);font-size:13.5px;font-weight:700;letter-spacing:-.01em}
+.fab-main-hint{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.85}
+.fab-main-arrow{transition:transform .25s var(--ease);opacity:.9;margin-left:2px}
+.fab-wrap.open .fab-main-arrow{transform:rotate(180deg)}
+
+.fab-top{position:fixed;bottom:24px;left:24px;z-index:99;width:42px;height:42px;border-radius:50%;background:var(--wh);border:1.5px solid var(--g200);color:var(--g600);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:var(--sh);opacity:0;transform:translateY(20px);transition:all .3s var(--ease);pointer-events:none}
+.fab-top.visible{opacity:1;transform:translateY(0);pointer-events:auto}
+.fab-top:hover{border-color:var(--nr);color:var(--nr-d);background:var(--nr-soft);transform:translateY(-3px)}
+
+@media(max-width:540px){
+  .fab-wrap{bottom:16px;right:16px}
+  .fab-top{bottom:16px;left:16px;width:38px;height:38px}
+  .fab-main{padding:10px 14px 10px 11px;font-size:12px}
+  .fab-main-ico{width:26px;height:26px;font-size:10.5px}
+  .fab-main-yr{font-size:12.5px}
+}
+
+/* ============================================================
+   ANCHOR OFFSET — para que scrollIntoView no quede tapado por sticky bar
+============================================================ */
+.kpi-row{scroll-margin-top:74px}
+
+/* ============================================================
+   ANIMACIONES + MOBILE
+============================================================ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+@media(max-width:540px){
+  .hero{padding:38px 18px 32px}
+  .main{padding:18px 12px 40px}
+  .kpi-row{grid-template-columns:repeat(2,1fr)}
+  .cap-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     STICKY YEAR BAR — aparece al scrollear
+============================================================ -->
+<nav class="sticky-bar" id="stickyBar" aria-label="Navegación rápida de ejercicios fiscales">
+  <div class="sticky-bar-inner">
+    <span class="sticky-bar-lbl">Ejercicio fiscal</span>
+    <div class="sticky-bar-pills" id="stickyPills" role="tablist"></div>
+    <div class="sticky-bar-actions">
+      <button class="sticky-bar-btn" id="stickyTopBtn" type="button" aria-label="Volver al inicio de la página" title="Volver al inicio">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================
+     FLOATING ACTION BUTTONS — cambio rápido de año
+============================================================ -->
+<div class="fab-wrap" id="fabWrap">
+  <div class="fab-pills" id="fabPills" role="menu" aria-label="Cambiar ejercicio fiscal"></div>
+  <button class="fab-main" id="fabMain" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Cambiar de ejercicio fiscal">
+    <span class="fab-main-ico" id="fabMainIco">—</span>
+    <span class="fab-main-lbl">
+      <span class="fab-main-hint">Ejercicio</span>
+      <span class="fab-main-yr" id="fabMainYr">—</span>
+    </span>
+    <svg class="fab-main-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+  </button>
+</div>
+
+<button class="fab-top" id="fabTop" type="button" aria-label="Volver al inicio" title="Inicio">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section class="hero">
+  <div class="hi">
+    <div class="hi-left">
+      <div class="bc">Transparencia Guadalajara · Gobierno Municipal</div>
+      <div class="badge">Art. 8 · Fracc. V · Inc. c)</div>
+      <h1>Presupuesto de Egresos</h1>
+      <p>Cuánto, en qué y por qué gasta Guadalajara cada año — desglosado por <strong>capítulo del gasto</strong> según el clasificador oficial CONAC. Cuatro ejercicios verificados al centavo contra los archivos publicados por la Tesorería Municipal.</p>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <span class="hero-meta-lbl">Validación</span>
+          <span class="hero-meta-val">19 may 2026</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-lbl">Unidad responsable</span>
+          <span class="hero-meta-val">Dirección de Egresos</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-lbl">Cobertura</span>
+          <span class="hero-meta-val">2023 – 2026</span>
+        </div>
+      </div>
+    </div>
+    <aside class="hero-num" aria-labelledby="hero-num-lbl">
+      <div class="hero-num-lbl" id="hero-num-lbl">Presupuesto autorizado</div>
+      <div class="hero-num-val" id="hero-val">$0</div>
+      <div class="hero-num-foot">
+        <div>Ejercicio<strong id="hero-yr">—</strong></div>
+        <div style="text-align:right">Capítulos<strong id="hero-cap">—</strong></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<main class="main">
+
+  <!-- ============================================================
+       BANNER LEGAL
+  ============================================================ -->
+  <div class="legal">
+    <div class="legal-stamp" aria-hidden="true">§</div>
+    <div class="legal-body">
+      <div class="legal-h">Fundamento legal de esta publicación</div>
+      <p class="legal-txt">"El <strong>Presupuesto de Egresos</strong> anual y, en su caso, el <strong>clasificador por objeto del gasto</strong> del sujeto obligado, de cuando menos los últimos tres años."</p>
+      <p class="legal-cite">— <strong>Artículo 8, Fracción V, Inciso c)</strong> de la <em>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</em>. Fuentes oficiales: <a href="https://enlinea.guadalajara.gob.mx/egresos/presupuesto.php" target="_blank" rel="noopener">enlinea.guadalajara.gob.mx/egresos/presupuesto.php</a> y <a href="https://transparencia.guadalajara.gob.mx/clasificadoresmunicipal" target="_blank" rel="noopener">transparencia.guadalajara.gob.mx/clasificadoresmunicipal</a>. Si un dato presentado aquí discrepa del archivo oficial, <strong style="color:var(--g900)">prevalece el archivo oficial</strong>.</p>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       PREGUNTA CIUDADANA + GLOSARIO
+  ============================================================ -->
+  <section class="qa">
+    <div class="qa-top">
+      <div class="qa-eye">En lenguaje ciudadano</div>
+      <h2 class="qa-h">¿Qué es el <em>Presupuesto de Egresos</em> y para qué sirve el <em>Clasificador por Objeto del Gasto</em>?</h2>
+    </div>
+    <div class="qa-body">
+      <p class="qa-lead">Cada año el Ayuntamiento debe decidir <strong>cuánto va a gastar y en qué</strong>. Esa decisión queda por escrito en dos documentos complementarios, ambos públicos y obligatorios:</p>
+
+      <div class="qa-twocol">
+        <div class="qa-def">
+          <div class="qa-def-tag">Documento 1</div>
+          <div class="qa-def-h">Presupuesto de Egresos anual</div>
+          <p class="qa-def-txt">Es el <strong>plan de gasto del año</strong>. Lo aprueba el Cabildo, se publica en la Gaceta Municipal y establece el monto total que el Municipio puede ejercer durante el ejercicio fiscal. Define el techo presupuestal para cada dependencia y obra.</p>
+        </div>
+        <div class="qa-def">
+          <div class="qa-def-tag">Documento 2</div>
+          <div class="qa-def-h">Clasificador por Objeto del Gasto</div>
+          <p class="qa-def-txt">Es la <strong>tabla detallada</strong> que clasifica ese gasto según el catálogo nacional del CONAC. Permite responder con precisión: ¿cuánto va a sueldos? ¿cuánto a obra pública? ¿cuánto a deuda? Es indispensable para comparar entre años y entre municipios.</p>
+        </div>
+      </div>
+
+      <div class="cap-eyebrow">Los 9 capítulos del gasto público (clasificador CONAC)</div>
+      <div class="cap-grid">
+        <div class="cap-tile" data-cap="1000">
+          <span class="cap-tile-num">1000</span>
+          <div class="cap-tile-body">
+            <div class="cap-tile-h">Servicios personales</div>
+            <p class="cap-tile-d">Sueldos, prestaciones, seguridad social y pagos al personal del Ayuntamiento.</p>
+          </div>
+        </div>
+        <div class="cap-tile" data-cap="2000">
+          <span class="cap-tile-num">2000</span>
+          <div class="cap-tile-body">
+            <div class="cap-tile-h">Materiales y suministros</div>
+            <p class="cap-tile-d">Papelería, combustibles, alimentos, refacciones y otros insumos consumibles.</p>
+          </div>
+        </div>
+        <div class="cap-tile" data-cap="3000">
+          <span class="cap-tile-num">3000</span>
+          <div class="cap-tile-body">
+            <div class="cap-tile-h">Servicios generales</div>
+            <p class="cap-tile-d">Luz, agua, internet, arrendamientos, servicios profesionales, mantenimiento.</p>
+          </div>
+        </div>
+        <div class="cap-tile" data-cap="4000">
+          <span class="cap-tile-num">4000</span>
+          <div class="cap-tile-body">
+            <div class="cap-tile-h">Transferencias, subsidios y ayudas</div>
+            <p class="cap-tile-d">Apoyos sociales, subsidios, donativos y transferencias a organismos descentralizados.</p>
+          </div>
+        </div>
+        <div class="cap-tile" data-cap="5000">
+          <span class="cap-tile-num">5000</span>
+          <div class="cap-tile-body">
+            <div class="cap-tile-h">Bienes muebles, inmuebles e intangibles</div>
+            <p class="cap-tile-d">Compra de equipo, vehículos, mobiliario, software y propiedades del Municipio.</p>
+          </div>
+        </div>
+        <div class="cap-tile" data-cap="6000">
+          <span class="cap-tile-num">6000</span>
+          <div class="cap-tile-body">
+            <div class="cap-tile-h">Inversión pública</div>
+            <p class="cap-tile-d">Obra pública: pavimentación, parques, espacios deportivos, infraestructura urbana.</p>
+          </div>
+        </div>
+        <div class="cap-tile" data-cap="7000">
+          <span class="cap-tile-num">7000</span>
+          <div class="cap-tile-body">
+            <div class="cap-tile-h">Inversiones financieras</div>
+            <p class="cap-tile-d">Aportaciones de capital, fondos productivos y provisiones financieras.</p>
+          </div>
+        </div>
+        <div class="cap-tile" data-cap="8000">
+          <span class="cap-tile-num">8000</span>
+          <div class="cap-tile-body">
+            <div class="cap-tile-h">Participaciones y aportaciones</div>
+            <p class="cap-tile-d">Transferencias a otros órdenes de gobierno (no aplica al nivel municipal).</p>
+          </div>
+        </div>
+        <div class="cap-tile" data-cap="9000">
+          <span class="cap-tile-num">9000</span>
+          <div class="cap-tile-body">
+            <div class="cap-tile-h">Deuda pública</div>
+            <p class="cap-tile-d">Amortización de créditos, intereses y otros compromisos financieros del Municipio.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SELECTOR DE EJERCICIO
+  ============================================================ -->
+  <div class="year-row">
+    <div class="year-lbl">Selecciona un ejercicio fiscal</div>
+    <div class="year-grid" id="yearGrid" role="tablist" aria-label="Ejercicios fiscales disponibles"></div>
+  </div>
+
+  <!-- ============================================================
+       KPI BAND
+  ============================================================ -->
+  <div class="kpi-row" id="kpiRow"></div>
+
+  <!-- ============================================================
+       GRÁFICA COMPARATIVA ANUAL
+  ============================================================ -->
+  <div class="chart-card">
+    <div class="chart-head">
+      <div>
+        <div class="chart-title">Comparativa entre ejercicios fiscales</div>
+        <div class="chart-sub">Cuatro años de presupuestos autorizados. Cumple el mínimo legal de <strong>tres ejercicios</strong> previstos en el inciso c) y agrega el ejercicio vigente.</div>
+      </div>
+      <div class="chart-toggle" id="comparaToggle">
+        <button data-view="total" class="active" type="button">Total anual</button>
+        <button data-view="capitulo" type="button">Por capítulo</button>
+      </div>
+    </div>
+    <div class="chart-wrap"><canvas id="comparaChart"></canvas></div>
+    <div class="chart-legend" id="comparaLegend"></div>
+  </div>
+
+  <!-- ============================================================
+       DESGLOSE POR CAPÍTULO DEL AÑO SELECCIONADO
+  ============================================================ -->
+  <section id="splitSection">
+    <div class="sec-head">
+      <span class="sec-head-num">i</span>
+      <h2 class="sec-head-h">Desglose por capítulo del gasto</h2>
+    </div>
+    <p class="sec-intro">¿A qué se dedica cada peso autorizado? El clasificador agrupa el gasto en <strong>nueve capítulos CONAC</strong>, ordenados aquí de mayor a menor importe. Las barras y porcentajes facilitan la lectura visual; los importes están al centavo según el archivo oficial.</p>
+    <div class="split-card">
+      <div class="split-top">
+        <h3 class="split-h">Distribución del ejercicio <span id="splitYr" style="color:var(--nr-d)">—</span></h3>
+        <p class="split-sub" id="splitSub">Capítulos con asignación presupuestal, en orden descendente.</p>
+      </div>
+      <div class="split-body" id="splitBody"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       GRÁFICA DETALLE POR CAPÍTULO (donut)
+  ============================================================ -->
+  <div class="chart-card">
+    <div class="chart-head">
+      <div>
+        <div class="chart-title">Composición del presupuesto — <span id="donutYr" style="color:var(--nr-d)">—</span></div>
+        <div class="chart-sub">Vista proporcional del gasto autorizado. Cada porción equivale al peso relativo de un capítulo CONAC dentro del total del ejercicio.</div>
+      </div>
+      <span class="sec-head-tag" id="donutTag">9 capítulos</span>
+    </div>
+    <div class="chart-wrap chart-wrap-tall"><canvas id="donutChart"></canvas></div>
+  </div>
+
+  <!-- ============================================================
+       ARCHIVOS FUENTE OFICIALES
+  ============================================================ -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-head-num">ii</span>
+      <h2 class="sec-head-h">Archivos fuente del ejercicio</h2>
+    </div>
+    <p class="sec-intro">Documentos publicados por el Ayuntamiento de Guadalajara: la <strong>Gaceta Municipal</strong> que aprueba el presupuesto, el <strong>Presupuesto Ciudadano</strong> en formato accesible y el <strong>Clasificador por Objeto del Gasto</strong> en Excel. Toda cifra mostrada en esta página se extrae de estos archivos.</p>
+    <div class="docs-card">
+      <div class="docs-top">
+        <h3 class="docs-h">Documentación oficial del ejercicio <span id="docsYr" style="color:var(--nr-d)">—</span></h3>
+        <p class="docs-sub">Enlaces directos a los archivos en <strong>transparencia.guadalajara.gob.mx</strong>. Todos verificados con respuesta HTTP&nbsp;200 al 19 de mayo de 2026.</p>
+      </div>
+      <div class="docs-grid" id="docsGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       RESPONSABLE
+  ============================================================ -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-head-num">iii</span>
+      <h2 class="sec-head-h">Área responsable de la información</h2>
+    </div>
+    <p class="sec-intro">El <strong>Presupuesto de Egresos</strong> y su <strong>Clasificador por Objeto del Gasto</strong> son elaborados y publicados por la dependencia del Ayuntamiento facultada para programar y ejercer el gasto público municipal.</p>
+    <div class="resp-card">
+      <div class="resp-top">
+        <div class="resp-top-h">Dirección de Egresos</div>
+        <div class="resp-top-sub">Adscrita a la Tesorería Municipal del Ayuntamiento de Guadalajara. Responsable de la integración del Presupuesto de Egresos anual y del Clasificador por Objeto del Gasto.</div>
+      </div>
+      <div class="resp-single">
+        <div class="resp-avatar" aria-hidden="true">DE</div>
+        <div class="resp-info">
+          <div class="resp-name">Dirección de Egresos</div>
+          <div class="resp-cargo">Tesorería Municipal · Ayuntamiento de Guadalajara</div>
+          <div class="resp-area">Atribución conforme al Reglamento de la Administración Pública Municipal de Guadalajara y a la Ley General de Contabilidad Gubernamental para la armonización de los clasificadores CONAC.</div>
+        </div>
+      </div>
+      <div class="resp-meta">
+        <div class="resp-meta-item">
+          <span class="resp-meta-lbl">Cobertura</span>
+          <span class="resp-meta-val">Ejercicios 2023 – 2026</span>
+        </div>
+        <div class="resp-meta-item">
+          <span class="resp-meta-lbl">Fecha de publicación</span>
+          <span class="resp-meta-val">19 may 2026</span>
+        </div>
+        <div class="resp-meta-item">
+          <span class="resp-meta-lbl">Última actualización</span>
+          <span class="resp-meta-val">19 may 2026</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       NOTAS Y AVISOS
+  ============================================================ -->
+  <div class="foot-note">
+    <strong>Sobre los importes mostrados:</strong> las cifras corresponden al <strong>presupuesto autorizado</strong> publicado en la Gaceta Municipal al inicio de cada ejercicio, no al gasto ejercido. Para conocer el gasto efectivamente ejercido, consulta la información financiera trimestral y la cuenta pública anual en las secciones correspondientes del portal. Para el ejercicio 2023 se incluyen también la Ampliación Presupuestal y la Fe de Erratas publicadas durante el año.
+  </div>
+
+  <div class="foot-note" style="border-left-color:var(--info)">
+    <strong>Sobre los administraciones anteriores:</strong> los presupuestos previos a 2023 (ejercicios 2009&nbsp;–&nbsp;2022) están disponibles en la sección <em>Administraciones anteriores</em> del portal de transparencia y en <a href="https://enlinea.guadalajara.gob.mx/egresos/presupuesto.php" target="_blank" rel="noopener" style="color:var(--info-d);font-weight:600">enlinea.guadalajara.gob.mx/egresos/presupuesto.php</a>. La ley exige conservar como mínimo los últimos tres ejercicios; aquí se publican cuatro.
+  </div>
+
+</main>
+
+<script>
+(function(){
+'use strict';
+
+/* ============================================================
+   DATOS — VERIFICADOS LITERALMENTE CONTRA XLSX OFICIALES
+   Fuente: ClasificadorObjetoGasto{23,24,25,26}.xlsx descargados
+   de transparencia.guadalajara.gob.mx el 19/may/2026.
+   La suma de los 9 capítulos = Total General en los 4 años.
+============================================================ */
+const PRESUPUESTOS = {
+  '2026': {
+    total: 13016671527.89,
+    caps: {
+      '1000': 5829384043.90,
+      '2000': 803213010.65,
+      '3000': 2765103716.23,
+      '4000': 1745909967.86,
+      '5000': 445887148.16,
+      '6000': 1205023930.48,
+      '7000': 10000500.00,
+      '8000': 0,
+      '9000': 212149210.61
+    }
+  },
+  '2025': {
+    total: 12491139903.44,
+    caps: {
+      '1000': 5678059773.48,
+      '2000': 754953776.36,
+      '3000': 2897895850.22,
+      '4000': 1470913490.90,
+      '5000': 239290141.56,
+      '6000': 627881760.00,
+      '7000': 581600137.83,
+      '8000': 0,
+      '9000': 240544973.09
+    }
+  },
+  '2024': {
+    total: 11896776214.35,
+    caps: {
+      '1000': 5321572924.82,
+      '2000': 599795105.03,
+      '3000': 2727809194.96,
+      '4000': 1301704918.18,
+      '5000': 224295315.45,
+      '6000': 1385488471.00,
+      '7000': 110948241.96,
+      '8000': 0,
+      '9000': 225162042.95
+    }
+  },
+  '2023': {
+    total: 10602000000.00,
+    caps: {
+      '1000': 4963366746.71,
+      '2000': 462248614.97,
+      '3000': 2405308042.31,
+      '4000': 1143534725.70,
+      '5000': 116056621.26,
+      '6000': 1275000000.05,
+      '7000': 10000000.00,
+      '8000': 0,
+      '9000': 226485249.00
+    }
+  }
+};
+
+const CAPS_META = {
+  '1000': { nombre:'Servicios personales',                                ciudadano:'Sueldos y prestaciones del personal' },
+  '2000': { nombre:'Materiales y suministros',                            ciudadano:'Papelería, combustibles, insumos' },
+  '3000': { nombre:'Servicios generales',                                 ciudadano:'Luz, agua, arrendamientos, mantenimiento' },
+  '4000': { nombre:'Transferencias, asignaciones, subsidios y ayudas',    ciudadano:'Apoyos, subsidios y transferencias' },
+  '5000': { nombre:'Bienes muebles, inmuebles e intangibles',             ciudadano:'Equipos, vehículos, software' },
+  '6000': { nombre:'Inversión pública',                                   ciudadano:'Obra pública, infraestructura' },
+  '7000': { nombre:'Inversiones financieras y otras provisiones',         ciudadano:'Provisiones y aportaciones de capital' },
+  '8000': { nombre:'Participaciones y aportaciones',                      ciudadano:'No aplica al nivel municipal' },
+  '9000': { nombre:'Deuda pública',                                       ciudadano:'Pago de créditos e intereses' }
+};
+
+const CAP_COLOR = {
+  '1000': { base:'#2563EB', dark:'#1E3A8A' },
+  '2000': { base:'#1D9E75', dark:'#0E6B4C' },
+  '3000': { base:'#D97706', dark:'#92400E' },
+  '4000': { base:'#6F4D8E', dark:'#4F3567' },
+  '5000': { base:'#0E7490', dark:'#155E75' },
+  '6000': { base:'#E87722', dark:'#C45F0A' },
+  '7000': { base:'#BE185D', dark:'#831843' },
+  '8000': { base:'#475569', dark:'#1E293B' },
+  '9000': { base:'#C8323F', dark:'#7A1F29' }
+};
+
+const DOCS = {
+  '2026': [
+    { tipo:'PDF',  titulo:'Presupuesto de Egresos 2026', sub:'Gaceta Municipal · Tomo VI, Ejemplar 23 · 19 dic 2025', pill:'Aprobación', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoVIEjemplar23Secc1aDiciembre19-2025.pdf' },
+    { tipo:'PDF',  titulo:'Presupuesto de Egresos 2026 — Anexos', sub:'Gaceta Municipal · Tomo I, Ejemplar 3 · 12 ene 2026', pill:'Anexos', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar3Enero12-2026.pdf' },
+    { tipo:'XLSX', titulo:'Clasificador por Objeto del Gasto 2026', sub:'Archivo Excel oficial · armonización CONAC', pill:'Clasificador', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/ClasificadorObjetoGasto26.xlsx' },
+    { tipo:'URL',  titulo:'Página oficial · Egresos', sub:'enlinea.guadalajara.gob.mx/egresos/presupuesto.php', pill:'Portal', url:'https://enlinea.guadalajara.gob.mx/egresos/presupuesto.php' }
+  ],
+  '2025': [
+    { tipo:'PDF',  titulo:'Presupuesto de Egresos 2025', sub:'Gaceta Municipal · Tomo VI, Ejemplar 18 · 17 dic 2024', pill:'Aprobación', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoVIEjemplar18Secc1aDiciembre17-2024.pdf' },
+    { tipo:'CIUDADANO', titulo:'Presupuesto Ciudadano 2025', sub:'Versión accesible · resumen visual del gasto', pill:'Lectura fácil', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/PresupuestoCiudadanoGuadalajara25.pdf' },
+    { tipo:'XLSX', titulo:'Clasificador por Objeto del Gasto 2025', sub:'Archivo Excel oficial · armonización CONAC', pill:'Clasificador', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/ClasificadorObjetoGasto25.xlsx' },
+    { tipo:'URL',  titulo:'Página oficial · Egresos', sub:'enlinea.guadalajara.gob.mx/egresos/presupuesto.php', pill:'Portal', url:'https://enlinea.guadalajara.gob.mx/egresos/presupuesto.php' }
+  ],
+  '2024': [
+    { tipo:'PDF',  titulo:'Presupuesto de Egresos 2024', sub:'Gaceta Municipal · Tomo VI, Ejemplar 19 · 15 dic 2023', pill:'Aprobación', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoVIEjemplar19Diciembre15-2023.pdf' },
+    { tipo:'CIUDADANO', titulo:'Presupuesto Ciudadano 2024', sub:'Versión accesible · resumen visual del gasto', pill:'Lectura fácil', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/PresupuestoCiudadanoGuadalajara24.pdf' },
+    { tipo:'XLSX', titulo:'Clasificador por Objeto del Gasto 2024', sub:'Archivo Excel oficial · armonización CONAC', pill:'Clasificador', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/ClasificadorObjetoGasto24.xlsx' },
+    { tipo:'URL',  titulo:'Página oficial · Egresos', sub:'enlinea.guadalajara.gob.mx/egresos/presupuesto.php', pill:'Portal', url:'https://enlinea.guadalajara.gob.mx/egresos/presupuesto.php' }
+  ],
+  '2023': [
+    { tipo:'PDF',  titulo:'Presupuesto de Egresos 2023', sub:'Gaceta Municipal · Tomo VI, Ejemplar 12 · 29 nov 2022', pill:'Aprobación', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoVIEjemplar12Noviembre29-2022.pdf' },
+    { tipo:'CIUDADANO', titulo:'Presupuesto Ciudadano 2023', sub:'Versión accesible · resumen visual del gasto', pill:'Lectura fácil', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/PresupuestoCiudadanoGuadalajara23.pdf' },
+    { tipo:'PDF',  titulo:'Presupuesto 2023 — Ampliación', sub:'Gaceta Municipal · Tomo IV, Ejemplar 32 · 25 ago 2023', pill:'Ampliación', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIVEjemplar32Agosto25-2023.pdf' },
+    { tipo:'PDF',  titulo:'Presupuesto 2023 — Fe de Erratas', sub:'Gaceta Municipal · Tomo IV, Ejemplar 35 · 30 ago 2023', pill:'Fe de erratas', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIVEjemplar35Agosto30-2023.pdf' },
+    { tipo:'XLSX', titulo:'Clasificador por Objeto del Gasto 2023', sub:'Archivo Excel oficial · armonización CONAC', pill:'Clasificador', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/ClasificadorObjetoGasto23.xlsx' },
+    { tipo:'URL',  titulo:'Página oficial · Egresos', sub:'enlinea.guadalajara.gob.mx/egresos/presupuesto.php', pill:'Portal', url:'https://enlinea.guadalajara.gob.mx/egresos/presupuesto.php' }
+  ]
+};
+
+const YEARS = ['2026','2025','2024','2023'];
+let activeYear = '2026';
+let comparaView = 'total';
+let comparaChart, donutChart;
+
+/* HELPERS */
+const $ = id => document.getElementById(id);
+const fmtMXN = n => new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN',maximumFractionDigits:0}).format(n);
+const fmtMXNexact = n => new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN',minimumFractionDigits:2,maximumFractionDigits:2}).format(n);
+const fmtMXNshort = n => {
+  if (n >= 1e9) return '$' + (n/1e9).toFixed(2).replace(/\.?0+$/,'') + ' MMDP';
+  if (n >= 1e6) return '$' + (n/1e6).toFixed(1).replace(/\.?0+$/,'') + ' MDP';
+  if (n >= 1e3) return '$' + (n/1e3).toFixed(0) + 'K';
+  return '$' + n;
+};
+const escapeHtml = s => String(s).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+
+function variacionPct(yr){
+  const prev = String(parseInt(yr,10) - 1);
+  if (!PRESUPUESTOS[prev]) return null;
+  return ((PRESUPUESTOS[yr].total - PRESUPUESTOS[prev].total) / PRESUPUESTOS[prev].total) * 100;
+}
+
+function capWithImporte(yr){
+  return Object.entries(PRESUPUESTOS[yr].caps)
+    .map(([k,v]) => ({ cap:k, importe:v, nombre:CAPS_META[k].nombre, ciudadano:CAPS_META[k].ciudadano }))
+    .filter(c => c.importe > 0)
+    .sort((a,b) => b.importe - a.importe);
+}
+
+/* ============================================================
+   RENDER: SELECTOR DE AÑOS
+============================================================ */
+function renderYears(){
+  const CURRENT = new Date().getFullYear();
+  $('yearGrid').innerHTML = YEARS.map(y => {
+    const total = PRESUPUESTOS[y].total;
+    const isActive = y === activeYear;
+    const isNow = parseInt(y,10) === CURRENT;
+    return `
+      <button class="year-card ${isActive?'active':''} ${isNow?'now':''}" data-year="${y}" role="tab" aria-selected="${isActive}" type="button">
+        <div class="year-card-top">
+          <span class="year-card-yr">${y}</span>
+          <span class="year-card-tag">${isNow?'Vigente':'Cerrado'}</span>
+        </div>
+        <span class="year-card-val">${fmtMXNshort(total)}</span>
+        <span class="year-card-sub">Presupuesto autorizado</span>
+      </button>
+    `;
+  }).join('');
+  $('yearGrid').querySelectorAll('.year-card').forEach(c => {
+    c.addEventListener('click', () => setYear(c.dataset.year));
+  });
+}
+
+function setYear(y){
+  if (y === activeYear) return;
+  activeYear = y;
+  renderForYear();
+  setTimeout(() => {
+    const target = $('kpiRow');
+    if (target) target.scrollIntoView({behavior:'smooth',block:'start'});
+  }, 80);
+}
+
+/* ============================================================
+   RENDER: HERO NUMBER
+============================================================ */
+function renderHero(){
+  const data = PRESUPUESTOS[activeYear];
+  const activeCaps = Object.values(data.caps).filter(v => v > 0).length;
+  $('hero-val').textContent = fmtMXN(data.total);
+  $('hero-yr').textContent = activeYear;
+  $('hero-cap').textContent = activeCaps + ' / 9';
+}
+
+/* ============================================================
+   RENDER: KPIs
+============================================================ */
+function renderKpis(){
+  const data = PRESUPUESTOS[activeYear];
+  const caps = capWithImporte(activeYear);
+  const top = caps[0];
+  const topPct = ((top.importe / data.total) * 100).toFixed(1);
+  const variacion = variacionPct(activeYear);
+  const numDocs = DOCS[activeYear].length;
+
+  let variacionHtml;
+  if (variacion === null) {
+    variacionHtml = `<div class="kpi-val">—</div><div class="kpi-sub">Sin ejercicio anterior publicado en esta vista</div>`;
+  } else {
+    const cls = variacion < 0 ? 'neg' : '';
+    const signo = variacion > 0 ? '+' : '';
+    const prevYr = String(parseInt(activeYear,10)-1);
+    variacionHtml = `<div class="kpi-val ${cls}">${signo}${variacion.toFixed(1)}%</div><div class="kpi-sub">Variación vs ejercicio ${prevYr}</div>`;
+  }
+
+  $('kpiRow').innerHTML = `
+    <div class="kpi total">
+      <div class="kpi-lbl">Total autorizado ${activeYear}</div>
+      <div class="kpi-val">${fmtMXNexact(data.total)}</div>
+      <div class="kpi-sub">Cifra exacta publicada en la Gaceta Municipal</div>
+    </div>
+    <div class="kpi cap">
+      <div class="kpi-lbl">Capítulo más alto</div>
+      <div class="kpi-val">Cap. ${top.cap}</div>
+      <div class="kpi-sub">${escapeHtml(top.nombre)} · ${topPct}% del total</div>
+    </div>
+    <div class="kpi var">
+      <div class="kpi-lbl">Variación interanual</div>
+      ${variacionHtml}
+    </div>
+    <div class="kpi docs">
+      <div class="kpi-lbl">Documentos publicados</div>
+      <div class="kpi-val">${numDocs}</div>
+      <div class="kpi-sub">Archivos oficiales de este ejercicio</div>
+    </div>
+  `;
+}
+
+/* ============================================================
+   CHART.JS — COMPARATIVA ANUAL
+============================================================ */
+function renderComparaChart(){
+  const ctx = document.getElementById('comparaChart').getContext('2d');
+  if (comparaChart) comparaChart.destroy();
+
+  const orderedYears = ['2023','2024','2025','2026'];
+  const labels = orderedYears.map(y => `Ejercicio ${y}`);
+
+  if (comparaView === 'total') {
+    const data = orderedYears.map(y => PRESUPUESTOS[y].total);
+    comparaChart = new Chart(ctx, {
+      type:'bar',
+      data:{
+        labels,
+        datasets:[{
+          label:'Presupuesto autorizado (MXN)',
+          data,
+          backgroundColor: orderedYears.map(y => y === activeYear ? '#C45F0A' : '#E87722'),
+          borderColor: orderedYears.map(y => y === activeYear ? '#8B4308' : '#C45F0A'),
+          borderWidth: 1.5,
+          borderRadius: 6,
+          hoverBackgroundColor: '#8B4308'
+        }]
+      },
+      options:{
+        responsive:true,
+        maintainAspectRatio:false,
+        plugins:{
+          legend:{display:false},
+          tooltip:{
+            backgroundColor:'#1A1A1A',
+            titleColor:'#fff',
+            bodyColor:'#fff',
+            titleFont:{family:'Outfit',size:13,weight:'700'},
+            bodyFont:{family:'DM Mono',size:13},
+            padding:12,
+            cornerRadius:8,
+            callbacks:{
+              label: c => ' ' + fmtMXN(c.parsed.y)
+            }
+          }
+        },
+        scales:{
+          y:{
+            beginAtZero:true,
+            ticks:{
+              callback: v => fmtMXNshort(v),
+              font:{family:'DM Mono',size:11},
+              color:'#5A5A55'
+            },
+            grid:{color:'#F0F0EC',drawBorder:false}
+          },
+          x:{
+            ticks:{
+              font:{family:'Outfit',size:12,weight:'600'},
+              color:'#1A1A1A'
+            },
+            grid:{display:false}
+          }
+        }
+      }
+    });
+    $('comparaLegend').innerHTML = `
+      <span class="chart-legend-item"><span class="chart-legend-dot" style="background:#C45F0A"></span>Ejercicio activo</span>
+      <span class="chart-legend-item"><span class="chart-legend-dot" style="background:#E87722"></span>Otros ejercicios</span>
+    `;
+  } else {
+    const capKeys = ['1000','2000','3000','4000','5000','6000','7000','8000','9000'];
+    const datasets = capKeys.filter(k => orderedYears.some(y => PRESUPUESTOS[y].caps[k] > 0)).map(k => ({
+      label: 'Cap. ' + k + ' · ' + CAPS_META[k].nombre,
+      data: orderedYears.map(y => PRESUPUESTOS[y].caps[k] || 0),
+      backgroundColor: CAP_COLOR[k].base,
+      borderColor: CAP_COLOR[k].dark,
+      borderWidth: 1,
+      borderRadius: 3,
+      stack: 'caps'
+    }));
+    comparaChart = new Chart(ctx, {
+      type:'bar',
+      data:{ labels, datasets },
+      options:{
+        responsive:true,
+        maintainAspectRatio:false,
+        plugins:{
+          legend:{
+            position:'bottom',
+            labels:{
+              font:{family:'Outfit',size:10.5,weight:'600'},
+              color:'#5A5A55',
+              padding:10,
+              boxWidth:12,
+              boxHeight:12,
+              usePointStyle:false
+            }
+          },
+          tooltip:{
+            backgroundColor:'#1A1A1A',
+            titleColor:'#fff',
+            bodyColor:'#fff',
+            titleFont:{family:'Outfit',size:13,weight:'700'},
+            bodyFont:{family:'DM Mono',size:12},
+            padding:12,
+            cornerRadius:8,
+            callbacks:{
+              label: c => ' ' + c.dataset.label + ': ' + (c.parsed.y ? fmtMXN(c.parsed.y) : '$0')
+            }
+          }
+        },
+        scales:{
+          y:{
+            beginAtZero:true,
+            stacked:true,
+            ticks:{
+              callback: v => fmtMXNshort(v),
+              font:{family:'DM Mono',size:11},
+              color:'#5A5A55'
+            },
+            grid:{color:'#F0F0EC',drawBorder:false}
+          },
+          x:{
+            stacked:true,
+            ticks:{
+              font:{family:'Outfit',size:12,weight:'600'},
+              color:'#1A1A1A'
+            },
+            grid:{display:false}
+          }
+        }
+      }
+    });
+    $('comparaLegend').innerHTML = '';
+  }
+}
+
+/* ============================================================
+   CHART.JS — DONUT DEL AÑO SELECCIONADO
+============================================================ */
+function renderDonut(){
+  $('donutYr').textContent = activeYear;
+  const caps = capWithImporte(activeYear);
+  $('donutTag').textContent = caps.length + ' capítulos activos';
+  const total = PRESUPUESTOS[activeYear].total;
+
+  const ctx = document.getElementById('donutChart').getContext('2d');
+  if (donutChart) donutChart.destroy();
+  donutChart = new Chart(ctx, {
+    type:'doughnut',
+    data:{
+      labels: caps.map(c => 'Cap. ' + c.cap + ' · ' + c.nombre),
+      datasets:[{
+        data: caps.map(c => c.importe),
+        backgroundColor: caps.map(c => CAP_COLOR[c.cap].base),
+        borderColor: caps.map(c => CAP_COLOR[c.cap].dark),
+        borderWidth: 2,
+        hoverOffset: 12
+      }]
+    },
+    options:{
+      responsive:true,
+      maintainAspectRatio:false,
+      cutout:'56%',
+      plugins:{
+        legend:{
+          position:'right',
+          labels:{
+            font:{family:'Outfit',size:11.5,weight:'600'},
+            color:'#2D2D2A',
+            padding:11,
+            boxWidth:13,
+            boxHeight:13,
+            usePointStyle:false,
+            generateLabels: chart => {
+              const data = chart.data;
+              return data.labels.map((label, i) => {
+                const val = data.datasets[0].data[i];
+                const pct = ((val / total) * 100).toFixed(1);
+                return {
+                  text: label.length > 38 ? label.slice(0, 38) + '…' : label + '   ' + pct + '%',
+                  fillStyle: data.datasets[0].backgroundColor[i],
+                  strokeStyle: data.datasets[0].borderColor[i],
+                  lineWidth: 1.5,
+                  index: i
+                };
+              });
+            }
+          }
+        },
+        tooltip:{
+          backgroundColor:'#1A1A1A',
+          titleColor:'#fff',
+          bodyColor:'#fff',
+          titleFont:{family:'Outfit',size:13,weight:'700'},
+          bodyFont:{family:'DM Mono',size:12},
+          padding:12,
+          cornerRadius:8,
+          callbacks:{
+            label: c => {
+              const v = c.parsed;
+              const pct = ((v / total) * 100).toFixed(2);
+              return ' ' + fmtMXN(v) + '   ' + pct + '% del total';
+            }
+          }
+        }
+      }
+    }
+  });
+}
+
+/* ============================================================
+   RENDER: DESGLOSE POR CAPÍTULO
+============================================================ */
+function renderSplit(){
+  $('splitYr').textContent = activeYear;
+  const caps = capWithImporte(activeYear);
+  const total = PRESUPUESTOS[activeYear].total;
+  const zeroCaps = Object.entries(PRESUPUESTOS[activeYear].caps).filter(([k,v]) => v === 0);
+  const cero = zeroCaps.length;
+  $('splitSub').textContent = `${caps.length} capítulos con asignación presupuestal · ${cero} sin asignación · suma total ${fmtMXNexact(total)}`;
+
+  let html = caps.map(c => {
+    const pct = ((c.importe / total) * 100);
+    const pctFmt = pct >= 1 ? pct.toFixed(1) : pct.toFixed(2);
+    const barPct = Math.max(pct, 0.4);
+    return `
+      <div class="split-row" style="animation:fadeUp .4s var(--ease) both">
+        <span class="split-tag" data-cap="${c.cap}"><span class="split-tag-num">${c.cap}</span>${escapeHtml(c.ciudadano)}</span>
+        <div class="split-bar-cont">
+          <span class="split-bar-name">${escapeHtml(c.nombre)}</span>
+          <div class="split-bar-wrap"><div class="split-bar" data-cap="${c.cap}" style="width:${barPct}%"></div></div>
+        </div>
+        <div class="split-amt">
+          <span class="split-amt-val">${fmtMXNexact(c.importe)}</span>
+          <span class="split-amt-pct">${pctFmt}% del total</span>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  if (zeroCaps.length > 0) {
+    html += zeroCaps.map(([k,v]) => `
+      <div class="split-row zero">
+        <span class="split-tag" data-cap="${k}"><span class="split-tag-num">${k}</span>${escapeHtml(CAPS_META[k].ciudadano)}</span>
+        <div class="split-bar-cont">
+          <span class="split-bar-name">${escapeHtml(CAPS_META[k].nombre)}</span>
+          <div class="split-bar-wrap"></div>
+        </div>
+        <div class="split-amt">
+          <span class="split-amt-val" style="color:var(--g400);font-style:italic">Sin asignación</span>
+          <span class="split-amt-pct">0% del total</span>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  $('splitBody').innerHTML = html;
+}
+
+/* ============================================================
+   RENDER: ARCHIVOS FUENTE
+============================================================ */
+function renderDocs(){
+  $('docsYr').textContent = activeYear;
+  const docs = DOCS[activeYear] || [];
+  $('docsGrid').innerHTML = docs.map(d => {
+    let icoClass = '', icoText = d.tipo;
+    if (d.tipo === 'XLSX')      { icoClass = 'xlsx'; }
+    else if (d.tipo === 'URL')  { icoClass = 'url'; icoText = 'WEB'; }
+    else if (d.tipo === 'CIUDADANO') { icoClass = 'ciudadano'; icoText = 'PDF'; }
+    return `
+      <a class="docs-link" href="${escapeHtml(d.url)}" target="_blank" rel="noopener">
+        <span class="docs-link-ico ${icoClass}">${icoText}</span>
+        <div class="docs-link-body">
+          <div class="docs-link-h">${escapeHtml(d.titulo)}</div>
+          <div class="docs-link-d">${escapeHtml(d.sub)}</div>
+          <span class="docs-link-pill">${escapeHtml(d.pill)}</span>
+        </div>
+      </a>
+    `;
+  }).join('');
+}
+
+/* ============================================================
+   TOGGLE COMPARATIVA
+============================================================ */
+function setupComparaToggle(){
+  document.getElementById('comparaToggle').addEventListener('click', e => {
+    const b = e.target.closest('button[data-view]');
+    if (!b) return;
+    document.querySelectorAll('#comparaToggle button').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    comparaView = b.dataset.view;
+    renderComparaChart();
+  });
+}
+
+/* ============================================================
+   RENDER: STICKY BAR + FAB (navegación persistente)
+============================================================ */
+function renderStickyBar(){
+  $('stickyPills').innerHTML = YEARS.map(y => {
+    const isActive = y === activeYear;
+    return `
+      <button class="sticky-pill ${isActive?'active':''}" data-year="${y}" role="tab" aria-selected="${isActive}" type="button" title="Ver ejercicio ${y}">
+        <span class="sticky-pill-yr">${y}</span>
+        <span class="sticky-pill-amt">${fmtMXNshort(PRESUPUESTOS[y].total)}</span>
+      </button>
+    `;
+  }).join('');
+  $('stickyPills').querySelectorAll('.sticky-pill').forEach(p => {
+    p.addEventListener('click', () => setYear(p.dataset.year));
+  });
+}
+
+function renderFab(){
+  $('fabMainIco').textContent = activeYear.slice(-2);
+  $('fabMainYr').textContent = activeYear;
+  $('fabPills').innerHTML = YEARS.map(y => {
+    const isActive = y === activeYear;
+    return `
+      <button class="fab-pill ${isActive?'active':''}" data-year="${y}" role="menuitem" type="button">
+        <span class="fab-pill-dot">${y.slice(-2)}</span>
+        <span class="fab-pill-txt">
+          <span class="fab-pill-yr">${y}</span>
+          <span class="fab-pill-sub">${fmtMXNshort(PRESUPUESTOS[y].total)}</span>
+        </span>
+      </button>
+    `;
+  }).join('');
+  $('fabPills').querySelectorAll('.fab-pill').forEach(p => {
+    p.addEventListener('click', () => {
+      setYear(p.dataset.year);
+      closeFab();
+    });
+  });
+}
+
+function openFab(){
+  $('fabWrap').classList.add('open');
+  $('fabMain').setAttribute('aria-expanded','true');
+}
+function closeFab(){
+  $('fabWrap').classList.remove('open');
+  $('fabMain').setAttribute('aria-expanded','false');
+}
+function toggleFab(){
+  if ($('fabWrap').classList.contains('open')) closeFab(); else openFab();
+}
+
+function setupNavigation(){
+  // Toggle FAB
+  $('fabMain').addEventListener('click', e => { e.stopPropagation(); toggleFab(); });
+  // Cerrar FAB al click fuera
+  document.addEventListener('click', e => {
+    if (!$('fabWrap').contains(e.target)) closeFab();
+  });
+  // Cerrar FAB con Escape
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeFab();
+  });
+  // Scroll to top desde sticky bar y desde FAB top
+  const goTop = () => window.scrollTo({ top:0, behavior:'smooth' });
+  $('stickyTopBtn').addEventListener('click', goTop);
+  $('fabTop').addEventListener('click', goTop);
+
+  // Visibility: aparecen después del hero (~480px)
+  const hero = document.querySelector('.hero');
+  let lastY = 0;
+  const onScroll = () => {
+    const y = window.scrollY;
+    const trigger = (hero ? hero.offsetHeight : 480) - 60;
+    const shouldShow = y > trigger;
+    $('stickyBar').classList.toggle('visible', shouldShow);
+    $('fabWrap').classList.toggle('visible', shouldShow);
+    $('fabTop').classList.toggle('visible', y > 600);
+    // Cerrar FAB si el usuario scrollea fuerte
+    if (Math.abs(y - lastY) > 80) closeFab();
+    lastY = y;
+  };
+  window.addEventListener('scroll', onScroll, { passive:true });
+  onScroll();
+}
+
+/* ============================================================
+   RENDER COMPUESTO
+============================================================ */
+function renderForYear(){
+  renderYears();
+  renderStickyBar();
+  renderFab();
+  renderHero();
+  renderKpis();
+  renderComparaChart();
+  renderDonut();
+  renderSplit();
+  renderDocs();
+}
+
+/* INIT */
+function init(){
+  renderForYear();
+  setupComparaToggle();
+  setupNavigation();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
+})();
+</script>
+
+</body>
+</html>
