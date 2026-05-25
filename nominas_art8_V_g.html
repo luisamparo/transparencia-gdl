@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Nóminas completas del Ayuntamiento de Guadalajara con gratificaciones, primas, comisiones, dietas y estímulos — Art. 8, Fracción V, Inciso g) de la Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios."/>
+<title>Nóminas Completas · ¿Cuánto gana cada persona del Ayuntamiento? · Transparencia GDL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --nr:#E87722;--nr-l:#FF9A45;--nr-d:#C45F0A;--nr-deeper:#8B4308;--nr-soft:#FFF1E4;
+  --nr-a:rgba(232,119,34,.10);--nr-b:rgba(232,119,34,.22);
+  --g50:#FAFAF8;--g100:#F0F0EC;--g200:#E2E2DD;--g300:#CFCFC8;--g400:#9E9E98;--g600:#5A5A55;--g800:#2D2D2A;--g900:#1A1A1A;
+  --wh:#FFF;
+  --q1:#0E7C7B;--q1-l:#D9F0EF;--q1-d:#075A59;--q1-border:#A5DDDB;
+  --esp:#8E44AD;--esp-l:#F0E5F8;--esp-d:#5E2D78;--esp-border:#D9C2E8;
+  --glo:#1E40AF;--glo-l:#DBEAFE;--glo-d:#0F2A5C;--glo-border:#BFDBFE;
+  --ok:#1D9E75;--ok-l:#E1F5EE;--ok-d:#0E6B4C;
+  --rad:10px;--rad-lg:14px;
+  --sh:0 4px 22px rgba(0,0,0,.08);
+  --sh-sm:0 1px 3px rgba(0,0,0,.06);
+  --sh-md:0 6px 18px rgba(0,0,0,.07);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --fh:'Outfit',system-ui,-apple-system,sans-serif;
+  --fm:'DM Mono','SF Mono',Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--g900);line-height:1.55}
+.nm-wrap{max-width:1200px;margin:0 auto}
+
+/* HERO */
+.nm-hero{background:linear-gradient(135deg,#FFF4E8 0%,#FFFFFF 55%);color:var(--g900);border-radius:var(--rad-lg);padding:24px 28px;margin:0 0 22px;position:relative;overflow:hidden;border-left:5px solid var(--nr);box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.nm-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.12) 0%,transparent 70%);pointer-events:none}
+.nm-hero-tag{display:inline-block;background:var(--nr);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;position:relative;z-index:1;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.nm-hero h2{margin:0 0 8px;font-size:clamp(22px,3.2vw,28px);font-weight:800;color:var(--g900);letter-spacing:-.015em;line-height:1.22;position:relative;z-index:1}
+.nm-hero h2 em{font-style:normal;color:var(--nr-d)}
+.nm-hero-sub{font-size:14.5px;color:#5a4d3e;max-width:78ch;margin:0 0 20px;line-height:1.6;position:relative;z-index:1}
+.nm-hero-sub strong{color:var(--g900);font-weight:700}
+.nm-cifras{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px;max-width:580px;position:relative;z-index:1}
+.nm-cifra{background:var(--wh);border:1.5px solid #FFD2A5;border-radius:var(--rad);padding:14px 16px;display:flex;flex-direction:column;gap:2px;transition:border-color .18s ease,transform .18s ease}
+.nm-cifra:hover{border-color:var(--nr);transform:translateY(-2px)}
+.nm-cifra-num{font-family:var(--fm);font-size:38px;font-weight:700;line-height:1;color:var(--nr-d);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.nm-cifra-lbl{font-size:11px;font-weight:700;color:#5a4d3e;text-transform:uppercase;letter-spacing:.08em;margin-top:2px;line-height:1.3}
+
+/* 2 POSTALES */
+.nm-postales{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;margin-bottom:22px}
+.nm-postal{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh);overflow:hidden;text-decoration:none;color:inherit;transition:all .25s ease;display:flex;flex-direction:column;border-top:5px solid var(--nr);position:relative}
+.nm-postal:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,.12)}
+.nm-postal-cover{padding:22px 24px 0;position:relative;overflow:hidden;min-height:130px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.nm-postal-icono{flex-shrink:0;width:64px;height:64px;border-radius:14px;background:var(--wh);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.06)}
+.nm-postal-illus{flex:1;display:flex;justify-content:flex-end;opacity:.20;font-size:48px;line-height:1;font-weight:900;font-family:var(--fm);text-align:right;letter-spacing:-.02em}
+.nm-postal-body{padding:18px 24px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.nm-postal-eye{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.nm-postal-title{font-size:17px;font-weight:800;color:var(--g900);letter-spacing:-.012em;line-height:1.3}
+.nm-postal-desc{font-size:13px;color:var(--g600);line-height:1.55;flex:1}
+.nm-postal-desc strong{color:var(--g800);font-weight:600}
+.nm-postal-cta{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-top:6px;padding-top:12px;border-top:1px dashed var(--g200)}
+.nm-postal-cta svg{transition:transform .15s ease}
+.nm-postal:hover .nm-postal-cta svg{transform:translateX(4px)}
+/* Variante GLOSARIO */
+.nm-postal.glosario{border-top-color:var(--glo)}
+.nm-postal.glosario .nm-postal-cover{background:linear-gradient(135deg,var(--glo-l) 0%,#BFDBFE 100%)}
+.nm-postal.glosario .nm-postal-icono{color:var(--glo)}
+.nm-postal.glosario .nm-postal-illus{color:var(--glo)}
+.nm-postal.glosario .nm-postal-eye{color:var(--glo)}
+.nm-postal.glosario .nm-postal-cta{color:var(--glo)}
+/* Variante GUÍA */
+.nm-postal.guia{border-top-color:var(--nr)}
+.nm-postal.guia .nm-postal-cover{background:linear-gradient(135deg,var(--nr-soft) 0%,#FFE6CC 100%)}
+.nm-postal.guia .nm-postal-icono{color:var(--nr-d)}
+.nm-postal.guia .nm-postal-illus{color:var(--nr-d)}
+.nm-postal.guia .nm-postal-eye{color:var(--nr-d)}
+.nm-postal.guia .nm-postal-cta{color:var(--nr-d)}
+
+/* LEYENDA */
+.nm-legend{background:var(--wh);border-radius:var(--rad-lg);padding:18px 22px;margin-bottom:22px;border-left:4px solid var(--g300);box-shadow:var(--sh-sm)}
+.nm-legend-eye{font-size:10.5px;font-weight:800;color:var(--g400);letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+.nm-legend h3{font-size:18px;font-weight:800;color:var(--g900);letter-spacing:-.01em;margin-bottom:8px}
+.nm-legend p{font-size:13.5px;color:var(--g600);line-height:1.65;max-width:78ch}
+.nm-legend p strong{color:var(--g800);font-weight:600}
+
+/* SECCIÓN PRINCIPAL */
+.nm-main{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh);overflow:hidden;margin-bottom:22px;border-top:5px solid var(--nr)}
+.nm-main-head{padding:22px 26px 18px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;background:linear-gradient(135deg,var(--wh) 0%,#FAFAF8 100%);border-bottom:1px solid var(--g100)}
+.nm-main-icono{flex-shrink:0;width:60px;height:60px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:var(--nr-soft);color:var(--nr-d)}
+.nm-main-body{flex:1;min-width:240px}
+.nm-main-eye{font-size:10.5px;font-weight:800;color:var(--nr-d);letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px}
+.nm-main h3{font-size:20px;font-weight:800;color:var(--g900);letter-spacing:-.015em;line-height:1.25}
+.nm-main p{font-size:13.5px;color:var(--g600);margin-top:6px;line-height:1.55;max-width:65ch}
+.nm-main p strong{color:var(--g800);font-weight:600}
+
+/* TABS AÑO */
+.nm-year-tabs{padding:16px 26px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--g50);border-bottom:1px solid var(--g100)}
+.nm-year-tabs-lbl{font-size:11px;font-weight:800;color:var(--g400);letter-spacing:.12em;text-transform:uppercase;margin-right:6px}
+.nm-year-tab{font-family:var(--fh);font-size:14px;font-weight:700;color:var(--g600);background:var(--wh);border:1.5px solid var(--g200);padding:8px 18px;border-radius:999px;cursor:pointer;transition:all .15s ease;font-variant-numeric:tabular-nums;display:inline-flex;align-items:center;gap:8px}
+.nm-year-tab:hover{border-color:var(--nr);color:var(--nr-d)}
+.nm-year-tab.active{background:var(--nr);border-color:var(--nr);color:#fff;box-shadow:0 2px 8px rgba(232,119,34,.32)}
+.nm-year-tab .doc-count{font-size:10px;font-weight:800;padding:2px 7px;background:rgba(0,0,0,.06);border-radius:999px;font-family:var(--fm)}
+.nm-year-tab.active .doc-count{background:rgba(255,255,255,.25);color:#fff}
+.nm-year-tab .badge-current{font-size:8.5px;font-weight:800;background:var(--ok);color:#fff;padding:2px 6px;border-radius:999px;letter-spacing:.05em;text-transform:uppercase}
+.nm-year-tab.active .badge-current{background:#fff;color:var(--nr-d)}
+
+/* BÚSQUEDA */
+.nm-search-wrap{padding:14px 26px;background:var(--g50);border-bottom:1px solid var(--g100);display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.nm-search{position:relative;flex:1;min-width:220px;max-width:420px}
+.nm-search input{width:100%;padding:10px 16px 10px 38px;border-radius:8px;border:1.5px solid var(--g200);font-size:13.5px;font-family:var(--fh);background:var(--wh);transition:border-color .15s,box-shadow .15s}
+.nm-search input:focus{outline:none;border-color:var(--nr);box-shadow:0 0 0 3px rgba(232,119,34,.15)}
+.nm-search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--g400);width:16px;height:16px;pointer-events:none}
+.nm-count{font-size:11.5px;color:var(--g600);font-weight:600;font-family:var(--fm)}
+.nm-count strong{color:var(--g900);font-weight:700}
+
+/* SECCIONES POR TIPO */
+.nm-secciones{padding:20px 26px 24px;display:flex;flex-direction:column;gap:26px}
+.nm-seccion{display:flex;flex-direction:column;gap:14px}
+.nm-seccion-head{display:flex;align-items:center;gap:12px;padding-bottom:10px;border-bottom:2px solid var(--g100)}
+.nm-seccion-icono{flex-shrink:0;width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center}
+.nm-seccion.quincenas .nm-seccion-icono{background:var(--q1-l);color:var(--q1-d);border:1px solid var(--q1-border)}
+.nm-seccion.especiales .nm-seccion-icono{background:var(--esp-l);color:var(--esp-d);border:1px solid var(--esp-border)}
+.nm-seccion-titulo{font-size:15.5px;font-weight:800;color:var(--g900);letter-spacing:-.008em;flex:1}
+.nm-seccion-desc{font-size:12px;color:var(--g400);margin-top:2px;line-height:1.4}
+.nm-seccion-badge{font-family:var(--fm);font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;letter-spacing:.04em}
+.nm-seccion.quincenas .nm-seccion-badge{background:var(--q1-l);color:var(--q1-d)}
+.nm-seccion.especiales .nm-seccion-badge{background:var(--esp-l);color:var(--esp-d)}
+
+/* GRID por MES (quincenas) */
+.nm-mes-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:10px}
+.nm-mes-card{background:var(--wh);border:1.5px solid var(--g200);border-radius:var(--rad);padding:14px 16px;display:flex;flex-direction:column;gap:8px;transition:all .15s ease;animation:fadeUp .25s var(--ease) both}
+.nm-mes-card-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px dashed var(--g200);padding-bottom:8px}
+.nm-mes-card-mes{font-size:14.5px;font-weight:800;color:var(--g900);letter-spacing:-.005em;text-transform:capitalize}
+.nm-mes-card-year{font-family:var(--fm);font-size:10.5px;font-weight:700;color:var(--g400);background:var(--g100);padding:3px 8px;border-radius:5px}
+.nm-mes-card-q{display:flex;gap:8px;flex-wrap:wrap}
+.nm-q-link{display:inline-flex;align-items:center;gap:7px;background:var(--g50);border:1.5px solid var(--g200);padding:8px 12px;border-radius:8px;text-decoration:none;color:var(--g800);font-size:11.5px;font-weight:700;transition:all .15s ease;flex:1;justify-content:center;min-width:0}
+.nm-q-link:hover{border-color:var(--q1);background:var(--q1-l);color:var(--q1-d);transform:translateY(-1px)}
+.nm-q-link svg{flex-shrink:0;color:#166534}
+.nm-q-link .q-label{font-family:var(--fh);letter-spacing:.02em}
+.nm-q-empty{padding:8px 12px;font-size:11px;color:var(--g400);font-style:italic;flex:1;text-align:center}
+
+/* GRID ESPECIALES */
+.nm-esp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr));gap:10px}
+.nm-esp-card{display:flex;flex-direction:column;background:var(--wh);border:1.5px solid var(--g200);border-radius:var(--rad);padding:14px 16px;text-decoration:none;color:inherit;transition:all .18s ease;animation:fadeUp .25s var(--ease) both;min-height:96px}
+.nm-esp-card:hover{border-color:var(--esp);transform:translateY(-3px);box-shadow:var(--sh-md);background:#FAF5FE}
+.nm-esp-card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:8px}
+.nm-esp-card-titulo{font-size:13.5px;font-weight:800;color:var(--g900);letter-spacing:-.005em;line-height:1.3;flex:1}
+.nm-esp-card-tipo{flex-shrink:0;font-family:var(--fm);font-size:9.5px;font-weight:700;padding:3px 7px;border-radius:5px;background:#DCFCE7;color:#166534;letter-spacing:.04em}
+.nm-esp-card-desc{font-size:11px;color:var(--g400);line-height:1.45;flex:1;margin-bottom:8px}
+.nm-esp-card-cta{font-size:10.5px;font-weight:700;color:var(--esp-d);text-transform:uppercase;letter-spacing:.05em;display:inline-flex;align-items:center;gap:5px;margin-top:auto}
+.nm-esp-card-cta svg{transition:transform .15s ease}
+.nm-esp-card:hover .nm-esp-card-cta svg{transform:translateX(2px)}
+.nm-empty-search{padding:30px 20px;text-align:center;color:var(--g400);font-size:13px;font-style:italic;display:none}
+.nm-empty-search.show{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* VISOR MODAL */
+.nm-viewer-overlay{position:fixed;inset:0;background:rgba(20,16,12,.78);backdrop-filter:blur(4px);z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px;animation:vfade .2s var(--ease);transition:padding .2s ease}
+.nm-viewer-overlay[hidden]{display:none}
+.nm-viewer-box{background:var(--wh);border-radius:var(--rad-lg);box-shadow:0 25px 60px rgba(0,0,0,.45);width:min(1280px,calc(100vw - 24px));height:min(900px,calc(100vh - 40px));display:flex;flex-direction:column;overflow:hidden;animation:vrise .25s var(--ease);transition:width .25s var(--ease),height .25s var(--ease),border-radius .2s ease,max-width .25s var(--ease)}
+/* MODO EXPANDIDO: ocupa todo el iframe */
+.nm-viewer-overlay.expanded{padding:0}
+.nm-viewer-overlay.expanded .nm-viewer-box{width:100%;height:100%;max-width:none;border-radius:0}
+.nm-viewer-overlay.expanded .nm-viewer-head{border-radius:0}
+/* MODO ALEJAR: zoom progresivo agresivo. Nivel 1=55%, Nivel 2=30% (vista panorámica). El host toma el alto definido del flex; el iframe se posiciona absoluto adentro para permitir overflow controlado por el host. */
+.nm-viewer-overlay.zoom-out .nm-viewer-iframe{transform:scale(0.55);transform-origin:top left;width:181.818%;height:181.818%}
+.nm-viewer-overlay.zoom-out-2 .nm-viewer-iframe{transform:scale(0.30);transform-origin:top left;width:333.333%;height:333.333%}
+/* MODO ACERCAR: zoom in progresivo. Nivel 1=125%, Nivel 2=150% (para lectura cómoda). Permite scroll dentro del host. */
+.nm-viewer-overlay.zoom-in .nm-viewer-iframe-host{overflow:auto}
+.nm-viewer-overlay.zoom-in .nm-viewer-iframe{transform:scale(1.25);transform-origin:top left;width:80%;height:80%}
+.nm-viewer-overlay.zoom-in-2 .nm-viewer-iframe-host{overflow:auto}
+.nm-viewer-overlay.zoom-in-2 .nm-viewer-iframe{transform:scale(1.50);transform-origin:top left;width:66.666%;height:66.666%}
+.nm-viewer-head{background:linear-gradient(135deg,var(--nr-d) 0%,var(--nr) 100%);color:#fff;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;flex-shrink:0}
+.nm-viewer-meta{flex:1;min-width:0}
+.nm-viewer-tag{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.32);font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:999px;margin-bottom:5px}
+.nm-viewer-title{font-size:15px;font-weight:800;color:#fff;line-height:1.3;letter-spacing:-.005em}
+.nm-viewer-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center;flex-shrink:0}
+.nm-viewer-btn{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;padding:8px 14px;border-radius:7px;cursor:pointer;text-decoration:none;border:1.5px solid rgba(255,255,255,.4);background:rgba(255,255,255,.14);color:#fff;font-family:var(--fh);transition:all .15s;text-transform:uppercase;letter-spacing:.04em}
+.nm-viewer-btn:hover{background:#fff;color:var(--nr-d);border-color:#fff}
+.nm-viewer-close{background:rgba(255,255,255,.18);border:1.5px solid rgba(255,255,255,.4);width:36px;height:36px;border-radius:7px;color:#fff;font-size:20px;cursor:pointer;font-family:var(--fh);display:flex;align-items:center;justify-content:center;line-height:1;transition:all .15s}
+.nm-viewer-close:hover{background:#fff;color:var(--nr-d)}
+.nm-viewer-body{flex:1;min-height:0;background:#f4f3ee;position:relative;display:flex;flex-direction:column;overflow:hidden}
+.nm-viewer-iframe-host{flex:1 1 auto;position:relative;min-height:0;overflow:hidden;background:#fff;width:100%}
+.nm-viewer-iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff;transform-origin:top left;transition:transform .2s ease,width .2s ease,height .2s ease}
+.nm-viewer-loading{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#fff;z-index:2;gap:14px;color:var(--g600)}
+.nm-viewer-loading.hidden{display:none}
+.nm-viewer-spinner{width:42px;height:42px;border:3px solid var(--nr-soft);border-top-color:var(--nr);border-radius:50%;animation:spin .85s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.nm-viewer-loading-txt{font-size:14.5px;font-weight:700;text-align:center;max-width:52ch;line-height:1.5;color:var(--g800)}
+.nm-viewer-loading-sub{font-size:12.5px;color:var(--g600);text-align:center;max-width:52ch;line-height:1.6}
+.nm-viewer-loading-sub strong{color:var(--g800);font-weight:700}
+.nm-viewer-loading-actions{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap;justify-content:center;animation:fadeUp .3s var(--ease)}
+.nm-viewer-retry-btn,.nm-viewer-dl-btn,.nm-viewer-fast-btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--fh);font-size:12px;font-weight:700;padding:10px 18px;border-radius:8px;cursor:pointer;text-decoration:none;text-transform:uppercase;letter-spacing:.04em;transition:all .15s;border:1.5px solid var(--nr);background:var(--wh);color:var(--nr-d)}
+.nm-viewer-retry-btn:hover,.nm-viewer-dl-btn:hover,.nm-viewer-fast-btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.18)}
+.nm-viewer-dl-btn{background:var(--nr);color:#fff;border-color:var(--nr)}
+.nm-viewer-dl-btn:hover{background:var(--nr-d);border-color:var(--nr-d)}
+.nm-viewer-fast-btn{background:#1D9E75;color:#fff;border-color:#1D9E75;font-size:13px;padding:11px 22px;box-shadow:0 3px 10px rgba(29,158,117,.30)}
+.nm-viewer-fast-btn:hover{background:#0E6B4C;border-color:#0E6B4C;box-shadow:0 6px 16px rgba(29,158,117,.40)}
+.nm-viewer-fast-btn svg{flex-shrink:0}
+.nm-viewer-error{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#fff;z-index:3;gap:14px;padding:30px;text-align:center}
+.nm-viewer-error[hidden]{display:none}
+.nm-viewer-error-icon{color:#D97706;width:48px;height:48px;background:#FEF3C7;border-radius:50%;display:flex;align-items:center;justify-content:center;padding:8px}
+.nm-viewer-error-title{font-size:17px;font-weight:800;color:var(--g900);max-width:50ch;line-height:1.3}
+.nm-viewer-error-sub{font-size:13px;color:var(--g600);line-height:1.6;max-width:55ch}
+.nm-viewer-error-sub strong{color:var(--g800);font-weight:700}
+.nm-viewer-error-actions{display:flex;gap:10px;margin-top:6px;flex-wrap:wrap;justify-content:center}
+.nm-viewer-foot{background:var(--g50);border-top:1px solid var(--g200);padding:9px 18px;font-size:11px;color:var(--g600);line-height:1.5;flex-shrink:0;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.nm-viewer-foot strong{color:var(--g800)}
+.nm-viewer-foot-src{font-family:var(--fm);font-size:10px;color:var(--g400);word-break:break-all;flex:1;min-width:0}
+@keyframes vfade{from{opacity:0}to{opacity:1}}
+@keyframes vrise{from{opacity:0;transform:translateY(15px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+body.nm-viewer-open{overflow:hidden}
+
+/* Convertir nm-q-link y nm-esp-card en botones */
+button.nm-q-link,button.nm-esp-card{font-family:inherit;cursor:pointer;text-align:left;width:100%}
+button.nm-q-link{border:1.5px solid var(--g200)}
+button.nm-esp-card{border:1.5px solid var(--g200);background:var(--wh)}
+
+/* BUSCADOR DENTRO DEL EXCEL */
+.nm-finder{flex-shrink:0;background:#fff;border-bottom:1.5px solid var(--g200);display:none;flex-direction:column;min-height:0}
+.nm-finder.show{display:flex}
+.nm-viewer-overlay.find-mode .nm-viewer-iframe-host{display:none}
+.nm-viewer-overlay.find-mode .nm-viewer-loading{display:none}
+.nm-viewer-overlay.find-mode .nm-finder{display:flex;flex:1 1 auto;max-height:none;height:100%;min-height:0}
+.nm-finder-topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 18px;background:var(--g50);border-bottom:1.5px solid var(--g200);flex-wrap:wrap}
+.nm-finder-back{display:inline-flex;align-items:center;gap:7px;font-family:var(--fh);font-size:12px;font-weight:700;background:var(--wh);border:1.5px solid var(--nr);color:var(--nr-d);padding:8px 14px;border-radius:7px;cursor:pointer;transition:all .15s;text-transform:uppercase;letter-spacing:.04em}
+.nm-finder-back:hover{background:var(--nr);color:#fff;transform:translateX(-2px)}
+.nm-finder-back:focus-visible{outline:3px solid rgba(232,119,34,.35);outline-offset:1px}
+.nm-finder-back svg{flex-shrink:0}
+.nm-finder-scope{font-size:11.5px;color:var(--g600);font-weight:600}
+.nm-finder-scope strong{color:var(--g900);font-weight:800}
+.nm-finder-controls{padding:12px 18px;background:var(--nr-soft);border-bottom:1px solid var(--g200);display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.nm-finder-input-wrap{position:relative;flex:1;min-width:220px;max-width:420px}
+.nm-finder-input{width:100%;padding:9px 36px 9px 36px;border-radius:8px;border:1.5px solid var(--g200);font-size:13.5px;font-family:var(--fh);background:var(--wh);transition:border-color .15s,box-shadow .15s}
+.nm-finder-input:focus{outline:none;border-color:var(--nr);box-shadow:0 0 0 3px rgba(232,119,34,.15)}
+.nm-finder-input-icon{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--g400);width:16px;height:16px;pointer-events:none}
+.nm-finder-clear{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:transparent;border:none;color:var(--g400);width:22px;height:22px;border-radius:50%;cursor:pointer;display:none;align-items:center;justify-content:center;font-size:16px;line-height:1;font-family:var(--fh)}
+.nm-finder-clear:hover{background:var(--g100);color:var(--g800)}
+.nm-finder-clear.show{display:flex}
+.nm-finder-count{font-size:11.5px;color:var(--g600);font-weight:600;font-family:var(--fm)}
+.nm-finder-count strong{color:var(--nr-d);font-weight:700}
+.nm-finder-loading{padding:30px 20px;text-align:center;color:var(--g600);font-size:13px;display:flex;flex-direction:column;align-items:center;gap:12px}
+.nm-finder-results{flex:1;overflow:auto;background:#fff;min-height:0}
+.nm-finder-table{width:100%;border-collapse:collapse;font-size:12px;font-family:var(--fh)}
+.nm-finder-table thead{position:sticky;top:0;background:var(--nr);color:#fff;z-index:5}
+.nm-finder-table thead th{padding:9px 10px;text-align:left;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;border-bottom:2px solid var(--nr-d);white-space:nowrap}
+.nm-finder-table tbody tr{border-bottom:1px solid var(--g100);transition:background .1s}
+.nm-finder-table tbody tr:nth-child(even){background:var(--g50)}
+.nm-finder-table tbody tr:hover{background:var(--nr-soft)}
+.nm-finder-table tbody td{padding:8px 10px;color:var(--g800);vertical-align:top;line-height:1.4;white-space:nowrap;max-width:280px;overflow:hidden;text-overflow:ellipsis}
+.nm-finder-table tbody td.num{font-variant-numeric:tabular-nums;text-align:right;font-family:var(--fm)}
+.nm-finder-empty{padding:40px 20px;text-align:center;color:var(--g400);font-size:13px;font-style:italic}
+.nm-finder-empty strong{color:var(--g600);display:block;margin-bottom:6px;font-style:normal}
+.nm-finder-hint{font-size:11px;color:var(--g400);font-style:italic}
+.nm-finder-mark{background:#FEF08A;color:var(--g900);font-weight:600;padding:0 2px;border-radius:2px}
+.nm-finder-pager{padding:10px 18px;background:var(--g50);border-top:1px solid var(--g200);display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:11.5px;color:var(--g600);flex-wrap:wrap}
+.nm-finder-pager strong{color:var(--g800);font-weight:700}
+.nm-finder-pager-btn{font-family:var(--fh);font-size:11px;font-weight:700;background:var(--wh);border:1.5px solid var(--g200);padding:5px 11px;border-radius:6px;cursor:pointer;transition:all .15s;color:var(--g800)}
+.nm-finder-pager-btn:hover:not(:disabled){border-color:var(--nr);color:var(--nr-d)}
+.nm-finder-pager-btn:disabled{opacity:.4;cursor:not-allowed}
+.nm-finder-spinner{width:34px;height:34px;border:3px solid var(--nr-soft);border-top-color:var(--nr);border-radius:50%;animation:spin .85s linear infinite}
+
+/* FOOTER LEY */
+.nm-ley{background:var(--wh);border-radius:var(--rad-lg);padding:22px 26px;border-left:4px solid var(--nr-d);box-shadow:var(--sh-sm)}
+.nm-ley-eye{font-size:10.5px;font-weight:800;color:var(--nr-d);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.nm-ley h3{font-size:16px;font-weight:800;color:var(--g900);margin-bottom:8px;letter-spacing:-.008em}
+.nm-ley p{font-size:13px;color:var(--g600);line-height:1.65}
+.nm-ley p strong{color:var(--g800);font-weight:600}
+.nm-ley blockquote{font-size:13.5px;color:#5a4d3e;line-height:1.65;margin:12px 0 8px;padding:12px 18px;background:var(--nr-soft);border-left:3px solid var(--nr);border-radius:6px;font-style:italic}
+.nm-ley blockquote strong{color:var(--g900);font-style:normal;font-weight:700}
+
+@media(max-width:560px){
+  body{padding:14px}
+  .nm-hero{padding:20px 22px}
+  .nm-hero h2{font-size:20px}
+  .nm-cifras{grid-template-columns:repeat(3,1fr);gap:8px}
+  .nm-cifra{padding:10px 8px}
+  .nm-cifra-num{font-size:26px}
+  .nm-cifra-lbl{font-size:9.5px}
+  .nm-postal-cover{padding:18px 20px 0;min-height:110px}
+  .nm-postal-icono{width:54px;height:54px}
+  .nm-postal-body{padding:16px 20px 18px}
+  .nm-main-head{padding:18px 20px;flex-direction:column;align-items:flex-start;text-align:left}
+  .nm-main-icono{width:48px;height:48px}
+  .nm-main h3{font-size:17px}
+  .nm-secciones{padding:14px 18px 20px}
+  .nm-year-tabs,.nm-search-wrap{padding:14px 18px}
+}
+</style>
+</head>
+<body>
+
+<div class="nm-wrap">
+
+  <!-- HERO -->
+  <section class="nm-hero">
+    <span class="nm-hero-tag">Art. 8 · Fracción V · Inciso g)</span>
+    <h2>El sueldo del Ayuntamiento: <em>¿cuánto gana cada persona del gobierno municipal?</em></h2>
+    <p class="nm-hero-sub">Aquí están las <strong>nóminas oficiales</strong> del Ayuntamiento de Guadalajara. Cada quincena se publica un archivo Excel con el pago real de cada servidor público: sueldo base, gratificaciones, primas, comisiones, dietas, estímulos y demás conceptos. Cinco años de información, descargable y consultable.</p>
+    <div class="nm-cifras">
+      <div class="nm-cifra">
+        <div class="nm-cifra-num">5</div>
+        <div class="nm-cifra-lbl">Años disponibles</div>
+      </div>
+      <div class="nm-cifra">
+        <div class="nm-cifra-num">15</div>
+        <div class="nm-cifra-lbl">Días entre cada pago</div>
+      </div>
+      <div class="nm-cifra">
+        <div class="nm-cifra-num">130+</div>
+        <div class="nm-cifra-lbl">Archivos oficiales</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 POSTALES -->
+  <div class="nm-postales">
+    <a class="nm-postal glosario" href="https://enlinea.guadalajara.gob.mx/consultaNomina/files/2026/GlosarioConceptosNomina.pdf" target="_blank" rel="noopener">
+      <div class="nm-postal-cover">
+        <div class="nm-postal-icono" aria-hidden="true">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/><path d="M8 7h7"/><path d="M8 11h5"/></svg>
+        </div>
+        <div class="nm-postal-illus">ABC</div>
+      </div>
+      <div class="nm-postal-body">
+        <div class="nm-postal-eye">Glosario · Conceptos en la nómina</div>
+        <h3 class="nm-postal-title">¿Qué significa cada concepto del recibo?</h3>
+        <p class="nm-postal-desc">Documento oficial que explica <strong>qué es cada palabra técnica</strong> que aparece en la nómina: prima vacacional, despensa, estímulo, dieta, gratificación... para que entiendas lo que estás leyendo.</p>
+        <span class="nm-postal-cta">Abrir glosario PDF <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </div>
+    </a>
+
+    <a class="nm-postal guia" href="#nm-main" target="_self">
+      <div class="nm-postal-cover">
+        <div class="nm-postal-icono" aria-hidden="true">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M8 2v4"/><path d="M16 2v4"/><path d="M2 10h20"/></svg>
+        </div>
+        <div class="nm-postal-illus">15</div>
+      </div>
+      <div class="nm-postal-body">
+        <div class="nm-postal-eye">Cómo navegar esta página</div>
+        <h3 class="nm-postal-title">Cinco años de nóminas, búsqueda en un solo lugar</h3>
+        <p class="nm-postal-desc"><strong>Elige el año</strong>, busca un mes específico o un pago especial (aguinaldo, día del policía, prima vacacional...) y descárgalo en Excel. La nómina se paga cada 15 días.</p>
+        <span class="nm-postal-cta">Ir al buscador <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </div>
+    </a>
+  </div>
+
+  <!-- LEYENDA -->
+  <div class="nm-legend">
+    <div class="nm-legend-eye">Lectura ciudadana de la nómina</div>
+    <h3>¿Qué es exactamente lo que vas a encontrar?</h3>
+    <p>Cada archivo Excel contiene a <strong>todas las personas servidoras públicas</strong> del Ayuntamiento de Guadalajara con su <strong>nombre, puesto, dependencia y cada peso que recibieron</strong> en esa quincena: sueldo base, prima vacacional, despensa, gratificación, estímulo, dieta y demás conceptos aplicables. Los datos personales sensibles (RFC, CURP, datos bancarios) se omiten conforme a la Ley de Protección de Datos Personales. Lo que sí está, está completo.</p>
+  </div>
+
+  <!-- SECCIÓN PRINCIPAL -->
+  <section class="nm-main" id="nm-main">
+    <div class="nm-main-head">
+      <div class="nm-main-icono" aria-hidden="true">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+      </div>
+      <div class="nm-main-body">
+        <div class="nm-main-eye">Archivos por año</div>
+        <h3>Nóminas quincenales y pagos especiales</h3>
+        <p><strong>Elige primero el año</strong>. Verás las nóminas quincenales agrupadas por mes y, abajo, los pagos especiales del ejercicio (aguinaldo, día del policía/bombero, primas, gratificaciones).</p>
+      </div>
+    </div>
+
+    <div class="nm-year-tabs" role="tablist" aria-label="Selecciona año">
+      <span class="nm-year-tabs-lbl">Año</span>
+      <button class="nm-year-tab active" data-year="2026" type="button" role="tab">2026 <span class="doc-count">11</span> <span class="badge-current">Vigente</span></button>
+      <button class="nm-year-tab" data-year="2025" type="button" role="tab">2025 <span class="doc-count">26</span></button>
+      <button class="nm-year-tab" data-year="2024" type="button" role="tab">2024 <span class="doc-count">29</span></button>
+      <button class="nm-year-tab" data-year="2023" type="button" role="tab">2023 <span class="doc-count">31</span></button>
+      <button class="nm-year-tab" data-year="2022" type="button" role="tab">2022 <span class="doc-count">34</span></button>
+    </div>
+
+    <div class="nm-search-wrap">
+      <div class="nm-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" id="nmSearch" placeholder="Buscar por mes, quincena o tipo de pago (ej. aguinaldo, marzo, policía)" autocomplete="off"/>
+      </div>
+      <div class="nm-count">Mostrando <strong id="nmShowing">11</strong> documentos</div>
+    </div>
+
+    <div class="nm-secciones" id="nmSecciones">
+      <!-- Renderizado dinámico -->
+    </div>
+  </section>
+
+<!-- VISOR MODAL -->
+<div id="nmViewer" class="nm-viewer-overlay" hidden>
+  <div class="nm-viewer-box">
+    <header class="nm-viewer-head">
+      <div class="nm-viewer-meta">
+        <div class="nm-viewer-tag">Visor de Excel · Vista previa en línea</div>
+        <h4 class="nm-viewer-title" id="nmViewerTitle">Nómina</h4>
+      </div>
+      <div class="nm-viewer-actions">
+        <button class="nm-viewer-btn" id="nmViewerFind" type="button" aria-label="Buscar dentro del archivo" title="Buscar nombre, puesto o dependencia">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span id="nmViewerFindLabel">Buscar dentro</span>
+        </button>
+        <button class="nm-viewer-btn" id="nmViewerZoomIn" type="button" aria-label="Acercar la vista para leer más cómodamente" title="Acercar para leer mejor">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          <span id="nmViewerZoomInLabel">Acercar</span>
+        </button>
+        <button class="nm-viewer-btn" id="nmViewerZoomOut" type="button" aria-label="Alejar la vista para ver más filas y columnas" title="Alejar para ver más datos a la vez">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          <span id="nmViewerZoomLabel">Alejar</span>
+        </button>
+        <button class="nm-viewer-btn" id="nmViewerExpand" type="button" aria-label="Expandir o reducir el visor" title="Expandir / reducir el visor">
+          <svg id="nmViewerExpandIco" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+          <span id="nmViewerExpandLabel">Expandir</span>
+        </button>
+        <a class="nm-viewer-btn" id="nmViewerDownload" href="#" target="_blank" rel="noopener" title="Descargar el archivo XLSX original">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Descargar
+        </a>
+        <button class="nm-viewer-close" id="nmViewerClose" type="button" aria-label="Cerrar visor">×</button>
+      </div>
+    </header>
+    <div class="nm-viewer-body">
+      <div class="nm-viewer-loading" id="nmViewerLoading">
+        <div class="nm-viewer-spinner"></div>
+        <div class="nm-viewer-loading-txt">Estamos abriendo el Excel…</div>
+        <div class="nm-viewer-loading-sub">Esta nómina contiene más de <strong>12 mil personas</strong>. El visor de Microsoft puede tardar entre 10 y 30 segundos. <strong>Si tarda demasiado o se queda en blanco</strong>, abajo tienes opciones más rápidas.</div>
+        <div class="nm-viewer-loading-actions" id="nmViewerLoadingActions" style="display:none">
+          <button type="button" class="nm-viewer-fast-btn" id="nmViewerFast" title="Abre la nómina como tabla nativa, sin depender del visor de Microsoft">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg>
+            Ver como tabla rápida
+          </button>
+          <a class="nm-viewer-dl-btn" id="nmViewerLoadingDl" href="#" target="_blank" rel="noopener">Descargar XLSX</a>
+          <button type="button" class="nm-viewer-retry-btn" id="nmViewerRetry">Reintentar visor</button>
+        </div>
+      </div>
+      <div class="nm-viewer-error" id="nmViewerError" hidden>
+        <div class="nm-viewer-error-icon" aria-hidden="true">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <div class="nm-viewer-error-title">El visor de Microsoft no respondió</div>
+        <div class="nm-viewer-error-sub" id="nmViewerErrorSub">Es un problema temporal del servicio externo de Microsoft. <strong>No es tu conexión</strong>. La nómina sigue disponible — puedes verla como tabla aquí mismo, descargarla en Excel o intentar de nuevo.</div>
+        <div class="nm-viewer-error-actions">
+          <button type="button" class="nm-viewer-fast-btn" id="nmViewerErrorFast">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg>
+            Ver como tabla rápida
+          </button>
+          <a class="nm-viewer-dl-btn" id="nmViewerErrorDl" href="#" target="_blank" rel="noopener">Descargar XLSX</a>
+          <button type="button" class="nm-viewer-retry-btn" id="nmViewerErrorRetry">Reintentar visor</button>
+        </div>
+      </div>
+      <div class="nm-viewer-iframe-host" id="nmViewerIframeHost">
+        <iframe class="nm-viewer-iframe" id="nmViewerIframe" src="about:blank" title="Visor de nómina"></iframe>
+      </div>
+      <!-- Buscador dentro del Excel (SheetJS) -->
+      <div class="nm-finder" id="nmFinder">
+        <div class="nm-finder-topbar">
+          <button class="nm-finder-back" id="nmFinderBack" type="button" aria-label="Regresar a la vista del Excel">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="15 18 9 12 15 6"/></svg>
+            <span>Regresar al Excel</span>
+          </button>
+          <div class="nm-finder-scope">Buscando en <strong id="nmFinderScope">todo el documento</strong></div>
+        </div>
+        <div class="nm-finder-controls">
+          <div class="nm-finder-input-wrap">
+            <svg class="nm-finder-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input class="nm-finder-input" id="nmFinderInput" type="search" placeholder="Ejemplo: tesoreria, transparencia, garcia, juan…" autocomplete="off"/>
+            <button class="nm-finder-clear" id="nmFinderClear" type="button" aria-label="Limpiar búsqueda">×</button>
+          </div>
+          <div class="nm-finder-count" id="nmFinderCount">Cargando archivo…</div>
+          <span class="nm-finder-hint" id="nmFinderHint">No importa si escribes con o sin acentos · MAYÚSCULAS o minúsculas</span>
+        </div>
+        <div class="nm-finder-results" id="nmFinderResults">
+          <div class="nm-finder-loading">
+            <div class="nm-finder-spinner"></div>
+            <div>Descargando y procesando el Excel…<br><small style="color:var(--g400);font-weight:500">Esto sólo ocurre una vez por archivo. Una vez cargado, las búsquedas son instantáneas.</small></div>
+          </div>
+        </div>
+        <div class="nm-finder-pager" id="nmFinderPager" style="display:none">
+          <div>Mostrando <strong id="nmFinderShowing">0</strong> de <strong id="nmFinderTotal">0</strong> filas</div>
+          <div style="display:flex;gap:6px;align-items:center">
+            <button class="nm-finder-pager-btn" id="nmFinderPrev" type="button">◀ Anterior</button>
+            <span>Página <strong id="nmFinderPage">1</strong> de <strong id="nmFinderPages">1</strong></span>
+            <button class="nm-finder-pager-btn" id="nmFinderNext" type="button">Siguiente ▶</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="nm-viewer-foot">
+      <div class="nm-viewer-foot-src"><strong>Fuente:</strong> <span id="nmViewerSrc">—</span></div>
+      <div>Si el visor no carga, usa <strong>Descargar</strong> y abre el archivo en Excel.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER LEY -->
+  <div class="nm-ley">
+    <div class="nm-ley-eye">Fundamento legal</div>
+    <h3>¿Por qué se publica esta información?</h3>
+    <p>Artículo 8, Fracción V, Inciso g) de la <strong>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</strong>:</p>
+    <blockquote>"<strong>Las nóminas completas del sujeto obligado</strong> en las que se incluya las <strong>gratificaciones, primas, comisiones, dietas y estímulos</strong>, de cuando menos los <strong>últimos tres años</strong>, y en su caso, con sistema de búsqueda."</blockquote>
+    <p>El Ayuntamiento de Guadalajara emite la nómina <strong>cada quincena</strong> a través de la Tesorería Municipal. Los archivos originales viven en <strong>enlinea.guadalajara.gob.mx</strong>; esta página los organiza con buscador para que tú los encuentres más fácil.</p>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var BASE = 'https://enlinea.guadalajara.gob.mx/consultaNomina/files/';
+  var MESES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+
+  // Datos por año: meses con quincenas (1=primera, 2=segunda, ambas=true) y pagos especiales
+  var DATA = {
+    '2026': {
+      yr: '26',
+      quincenas: {
+        'Enero':[1,2],'Febrero':[1,2],'Marzo':[1,2],'Abril':[1,2],'Mayo':[1]
+      },
+      especiales: [
+        {nombre:'Día del Policía 2026', file:'DiaPolicia2026.xlsx', desc:'Estímulo especial por el Día del Policía'}
+      ]
+    },
+    '2025': {
+      yr: '25',
+      quincenas: {
+        'Enero':[1,2],'Febrero':[1,2],'Marzo':[1,2],'Abril':[1,2],'Mayo':[1,2],'Junio':[1,2],
+        'Julio':[1,2],'Agosto':[1,2],'Septiembre':[1,2],'Octubre':[1,2],'Noviembre':[1,2],'Diciembre':[1,2]
+      },
+      especiales: [
+        {nombre:'Aguinaldo 2025', file:'Aguinaldo2025.xlsx', desc:'Pago anual de aguinaldo a servidores públicos'}
+      ]
+    },
+    '2024': {
+      yr: '24',
+      quincenas: {
+        'Enero':[1,2],'Febrero':[1,2],'Marzo':[1,2],'Abril':[1,2],'Mayo':[1,2],'Junio':[1,2],
+        'Julio':[1,2],'Agosto':[1,2],'Septiembre':[1,2],'Octubre':[1,2],'Noviembre':[1,2],'Diciembre':[1,2]
+      },
+      especiales: [
+        {nombre:'Aguinaldo 2024', file:'Aguinaldo2024.xlsx', desc:'Pago anual de aguinaldo'},
+        {nombre:'Día del Servidor Público Base 2024', file:'DiaServidorPublicoBase2024.xlsx', desc:'Estímulo especial personal de base'},
+        {nombre:'Día del Servidor Público Confianza 2024', file:'DiaServidorPublicoConfianza2024.xlsx', desc:'Estímulo especial personal de confianza'},
+        {nombre:'Estímulos Día del Bombero 2024', file:'EstimulosDiaBombero2024.xlsx', desc:'Pago especial por el Día del Bombero'},
+        {nombre:'Estímulos Día del Policía 2024', file:'EstimulosDiaPolicia2024.xlsx', desc:'Pago especial por el Día del Policía'}
+      ]
+    },
+    '2023': {
+      yr: '23',
+      quincenas: {
+        'Enero':[1,2],'Febrero':[1,2],'Marzo':[1,2],'Abril':[1,2],'Mayo':[1,2],'Junio':[1,2],
+        'Julio':[1,2],'Agosto':[1,2],'Septiembre':[1,2],'Octubre':[1,2],'Noviembre':[1,2],'Diciembre':[1,2]
+      },
+      especiales: [
+        {nombre:'Aguinaldo 2023', file:'Aguinaldo2023.xlsx', desc:'Pago anual de aguinaldo'},
+        {nombre:'Día del Servidor Público 2023', file:'DiaServidorPublico2023.xlsx', desc:'Estímulo especial para todo el personal'},
+        {nombre:'Estímulos Día del Bombero 2023', file:'EstimulosDiaBombero2023.xlsx', desc:'Pago especial por el Día del Bombero'},
+        {nombre:'Estímulos Día del Policía 2023', file:'EstimulosDiaPolicia2023.xlsx', desc:'Pago especial por el Día del Policía'},
+        {nombre:'Gratificación de Antigüedad 2023', file:'GratificacionAntiguedad2023.xlsx', desc:'Reconocimiento por años de servicio'},
+        {nombre:'Gratificación Escolar 2023', file:'GratificacionEscolar2023.xlsx', desc:'Apoyo escolar a hijos de servidores públicos'},
+        {nombre:'Gratificación Rastro 2023', file:'GratificacionRastro2023.xlsx', desc:'Estímulo al personal del Rastro Municipal'}
+      ]
+    },
+    '2022': {
+      yr: '22',
+      quincenas: {
+        'Enero':[1,2],'Febrero':[1,2],'Marzo':[1,2],'Abril':[1,2],'Mayo':[1,2],'Junio':[1,2],
+        'Julio':[1,2],'Agosto':[1,2],'Septiembre':[1,2],'Octubre':[1,2],'Noviembre':[1,2],'Diciembre':[1,2]
+      },
+      especiales: [
+        {nombre:'Aguinaldo 2022', file:'Aguinaldo2022.xlsx', desc:'Pago anual de aguinaldo'},
+        {nombre:'Adelanto de Aguinaldo 2022', file:'AdelantoAguinaldo2022.xlsx', desc:'Anticipo del aguinaldo'},
+        {nombre:'Día del Servidor Público 2022', file:'DiaServidorPublico2022.xlsx', desc:'Estímulo especial para todo el personal'},
+        {nombre:'Dietas Enero a Diciembre 2022', file:'DietasEneroDiciembre2022.xlsx', desc:'Compilado anual de dietas pagadas'},
+        {nombre:'Estímulos Día del Bombero 2022', file:'EstimulosDiaBombero2022.xlsx', desc:'Pago especial por el Día del Bombero'},
+        {nombre:'Estímulos Día del Policía 2022', file:'EstimulosDiaPolicia2022.xlsx', desc:'Pago especial por el Día del Policía'},
+        {nombre:'Gratificación 2022', file:'Gratificacion2022.xlsx', desc:'Gratificación general'},
+        {nombre:'Gratificación Rastro 2022', file:'GratificacionRastro2022.xlsx', desc:'Estímulo al personal del Rastro Municipal'},
+        {nombre:'Primas Vacacionales Abril 2022', file:'PrimasVacacionalesAbril2022.xlsx', desc:'Prima vacacional periodo abril'},
+        {nombre:'Primas Vacacionales Diciembre 2022', file:'PrimasVacacionalesDiciembre2022.xlsx', desc:'Prima vacacional periodo diciembre'}
+      ]
+    }
+  };
+
+  var secciones = document.getElementById('nmSecciones');
+  var showing = document.getElementById('nmShowing');
+  var search = document.getElementById('nmSearch');
+  var activeYear = '2026';
+
+  function excelIcon(){
+    return '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>';
+  }
+  function arrowIcon(){
+    return '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
+  }
+
+  function render(year, query){
+    secciones.innerHTML = '';
+    var data = DATA[year];
+    var q = (query||'').trim().toLowerCase();
+    var visible = 0;
+
+    // SECCIÓN 1: Nóminas quincenales (agrupadas por mes)
+    var quincenasHtml = '';
+    var quincenasVisible = 0;
+    MESES.forEach(function(mes){
+      var quincenas = data.quincenas[mes] || [];
+      if(quincenas.length === 0) return;
+      // Filtro por búsqueda
+      var monthText = (mes + ' ' + year + ' quincena').toLowerCase();
+      if(q && monthText.indexOf(q) === -1) return;
+      var q1html = '';
+      var q2html = '';
+      if(quincenas.indexOf(1) !== -1){
+        var f1 = BASE + year + '/NominaPrimeraQuincena' + mes + data.yr + '.xlsx';
+        var t1 = 'Nómina 1ª Quincena de ' + mes + ' ' + year;
+        q1html = '<button class="nm-q-link" type="button" data-url="' + f1 + '" data-title="' + t1 + '">' + excelIcon() + ' <span class="q-label">1ª quincena</span></button>';
+        quincenasVisible++;
+      } else {
+        q1html = '<span class="nm-q-empty">— Sin 1ª quincena</span>';
+      }
+      if(quincenas.indexOf(2) !== -1){
+        var f2 = BASE + year + '/NominaSegundaQuincena' + mes + data.yr + '.xlsx';
+        var t2 = 'Nómina 2ª Quincena de ' + mes + ' ' + year;
+        q2html = '<button class="nm-q-link" type="button" data-url="' + f2 + '" data-title="' + t2 + '">' + excelIcon() + ' <span class="q-label">2ª quincena</span></button>';
+        quincenasVisible++;
+      } else {
+        q2html = '<span class="nm-q-empty">— Sin 2ª quincena</span>';
+      }
+      quincenasHtml +=
+        '<div class="nm-mes-card">' +
+          '<div class="nm-mes-card-head"><div class="nm-mes-card-mes">' + mes + '</div><div class="nm-mes-card-year">' + year + '</div></div>' +
+          '<div class="nm-mes-card-q">' + q1html + q2html + '</div>' +
+        '</div>';
+    });
+    if(quincenasVisible > 0){
+      visible += quincenasVisible;
+      var sec1 = document.createElement('div');
+      sec1.className = 'nm-seccion quincenas';
+      sec1.innerHTML =
+        '<div class="nm-seccion-head">' +
+          '<div class="nm-seccion-icono"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>' +
+          '<div style="flex:1"><div class="nm-seccion-titulo">Nómina quincenal · ' + year + '</div><div class="nm-seccion-desc">Pago regular cada 15 días, agrupado por mes</div></div>' +
+          '<span class="nm-seccion-badge">' + quincenasVisible + ' archivo' + (quincenasVisible === 1 ? '' : 's') + '</span>' +
+        '</div>' +
+        '<div class="nm-mes-row">' + quincenasHtml + '</div>';
+      secciones.appendChild(sec1);
+    }
+
+    // SECCIÓN 2: Pagos especiales
+    var especialesFiltered = data.especiales.filter(function(item){
+      if(!q) return true;
+      return (item.nombre + ' ' + item.desc + ' ' + year).toLowerCase().indexOf(q) !== -1;
+    });
+    if(especialesFiltered.length > 0){
+      visible += especialesFiltered.length;
+      var sec2 = document.createElement('div');
+      sec2.className = 'nm-seccion especiales';
+      var espHtml = '';
+      especialesFiltered.forEach(function(item, idx){
+        var fileUrl = BASE + year + '/' + item.file;
+        espHtml +=
+          '<button class="nm-esp-card" type="button" data-url="' + fileUrl + '" data-title="' + item.nombre.replace(/"/g,'&quot;') + '" style="animation-delay:' + (idx*25) + 'ms">' +
+            '<div class="nm-esp-card-top"><div class="nm-esp-card-titulo">' + item.nombre + '</div><span class="nm-esp-card-tipo">XLSX</span></div>' +
+            '<p class="nm-esp-card-desc">' + item.desc + '</p>' +
+            '<span class="nm-esp-card-cta">Abrir vista previa ' + arrowIcon() + '</span>' +
+          '</button>';
+      });
+      sec2.innerHTML =
+        '<div class="nm-seccion-head">' +
+          '<div class="nm-seccion-icono"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>' +
+          '<div style="flex:1"><div class="nm-seccion-titulo">Pagos especiales · ' + year + '</div><div class="nm-seccion-desc">Aguinaldo, primas, estímulos y gratificaciones del ejercicio</div></div>' +
+          '<span class="nm-seccion-badge">' + especialesFiltered.length + ' archivo' + (especialesFiltered.length === 1 ? '' : 's') + '</span>' +
+        '</div>' +
+        '<div class="nm-esp-grid">' + espHtml + '</div>';
+      secciones.appendChild(sec2);
+    }
+
+    if(visible === 0){
+      var empty = document.createElement('div');
+      empty.className = 'nm-empty-search show';
+      empty.textContent = 'No se encontraron documentos con ese criterio en ' + year + '. Prueba con otra palabra.';
+      secciones.appendChild(empty);
+    }
+    showing.textContent = visible;
+  }
+
+  // Tabs
+  document.querySelectorAll('.nm-year-tab').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.nm-year-tab').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      activeYear = btn.getAttribute('data-year');
+      // Actualizar URL del glosario al año activo
+      var glosarioLink = document.querySelector('.nm-postal.glosario');
+      if(glosarioLink) glosarioLink.href = BASE + activeYear + '/GlosarioConceptosNomina.pdf';
+      render(activeYear, search.value);
+    });
+  });
+  // Búsqueda
+  search.addEventListener('input', function(){ render(activeYear, search.value); });
+
+  // ============= VISOR MODAL DE EXCEL =============
+  var viewer = document.getElementById('nmViewer');
+  var viewerIframe = document.getElementById('nmViewerIframe');
+  var viewerTitle = document.getElementById('nmViewerTitle');
+  var viewerDownload = document.getElementById('nmViewerDownload');
+  var viewerSrc = document.getElementById('nmViewerSrc');
+  var viewerLoading = document.getElementById('nmViewerLoading');
+  var viewerClose = document.getElementById('nmViewerClose');
+  var viewerLoadingActions = document.getElementById('nmViewerLoadingActions');
+  var viewerLoadingDl = document.getElementById('nmViewerLoadingDl');
+  var viewerRetry = document.getElementById('nmViewerRetry');
+  var viewerFast = document.getElementById('nmViewerFast');
+  var viewerError = document.getElementById('nmViewerError');
+  var viewerErrorDl = document.getElementById('nmViewerErrorDl');
+  var viewerErrorRetry = document.getElementById('nmViewerErrorRetry');
+  var viewerErrorFast = document.getElementById('nmViewerErrorFast');
+
+  var currentLoadUrl = null;     // URL XLSX original (no la del visor)
+  var loadStartTime = 0;          // timestamp del inicio de carga
+  var slowLoadTimer = null;       // timer que muestra botones de "lento" después de 30s
+  var hardFailTimer = null;       // timer que muestra error duro después de 90s
+  var iframeLoaded = false;       // si el iframe ya emitió load
+
+  function resetViewerState(){
+    // Reset zoom (vuelve a 100%)
+    viewer.classList.remove('zoom-out','zoom-out-2','zoom-in','zoom-in-2','find-mode','expanded');
+    zoomLevel = 0;
+    zoomInLevel = 0;
+    if(viewerZoomLabel) viewerZoomLabel.textContent = 'Alejar';
+    if(viewerZoomInLabel) viewerZoomInLabel.textContent = 'Acercar';
+    if(viewerExpandLabel) viewerExpandLabel.textContent = 'Expandir';
+    if(viewerExpandIco){
+      viewerExpandIco.innerHTML = '<polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/>';
+    }
+    if(viewerFindLabel) viewerFindLabel.textContent = 'Buscar dentro';
+    // Reset búsqueda
+    if(finderInput){ finderInput.value = ''; }
+    if(finderClear){ finderClear.classList.remove('show'); }
+    // Reset error y loading-actions
+    if(viewerError) viewerError.hidden = true;
+    if(viewerLoadingActions) viewerLoadingActions.style.display = 'none';
+    iframeLoaded = false;
+    if(slowLoadTimer){ clearTimeout(slowLoadTimer); slowLoadTimer = null; }
+    if(hardFailTimer){ clearTimeout(hardFailTimer); hardFailTimer = null; }
+  }
+
+  function openViewer(url, title){
+    resetViewerState();
+    currentLoadUrl = url;
+    viewerTitle.textContent = title;
+    viewerDownload.href = url;
+    viewerDownload.setAttribute('download','');
+    if(viewerLoadingDl) viewerLoadingDl.href = url;
+    if(viewerErrorDl) viewerErrorDl.href = url;
+    viewerSrc.textContent = url;
+    viewerLoading.classList.remove('hidden');
+    // Microsoft Office Online Viewer (oficial, soporta XLSX grandes)
+    var viewerUrl = 'https://view.officeapps.live.com/op/embed.aspx?src=' + encodeURIComponent(url);
+    viewerIframe.src = viewerUrl;
+    viewer.hidden = false;
+    document.body.classList.add('nm-viewer-open');
+    loadStartTime = Date.now();
+    // Después de 12 segundos sin cargar: mostrar botón verde "Ver como tabla rápida" + alternativas
+    slowLoadTimer = setTimeout(function(){
+      if(!iframeLoaded && viewerLoadingActions){
+        viewerLoadingActions.style.display = 'flex';
+      }
+    }, 12000);
+    // Después de 45 segundos: declarar error duro del visor Microsoft y mostrar panel completo
+    hardFailTimer = setTimeout(function(){
+      if(!iframeLoaded){
+        viewerLoading.classList.add('hidden');
+        if(viewerError) viewerError.hidden = false;
+      }
+    }, 45000);
+  }
+  function closeViewer(){
+    viewer.hidden = true;
+    viewerIframe.src = 'about:blank';
+    document.body.classList.remove('nm-viewer-open');
+    resetViewerState();
+    currentLoadUrl = null;
+  }
+  function retryViewer(){
+    if(!currentLoadUrl) return;
+    var url = currentLoadUrl;
+    var title = viewerTitle.textContent;
+    closeViewer();
+    setTimeout(function(){ openViewer(url, title); }, 100);
+  }
+  viewerIframe.addEventListener('load', function(){
+    if(viewerIframe.src !== 'about:blank' && !viewerIframe.src.endsWith('blank')){
+      iframeLoaded = true;
+      if(slowLoadTimer){ clearTimeout(slowLoadTimer); slowLoadTimer = null; }
+      if(hardFailTimer){ clearTimeout(hardFailTimer); hardFailTimer = null; }
+      setTimeout(function(){ viewerLoading.classList.add('hidden'); }, 800);
+    }
+  });
+  if(viewerRetry) viewerRetry.addEventListener('click', retryViewer);
+  if(viewerErrorRetry) viewerErrorRetry.addEventListener('click', retryViewer);
+  // Función que cambia a vista de tabla rápida (SheetJS, sin depender de Microsoft).
+  // NO cancela el iframe: lo deja cargando en background. Si el usuario decide volver a "Ver Excel",
+  // hay buenas probabilidades de que ya esté listo.
+  function switchToFastTable(){
+    if(!currentLoadUrl) return;
+    // Cancelar timers de Office Online (ya no nos importa si tarda)
+    if(slowLoadTimer){ clearTimeout(slowLoadTimer); slowLoadTimer = null; }
+    if(hardFailTimer){ clearTimeout(hardFailTimer); hardFailTimer = null; }
+    // Ocultar loading y panel de error
+    viewerLoading.classList.add('hidden');
+    if(viewerError) viewerError.hidden = true;
+    // Activar el modo finder (tabla SheetJS, sin depender de Microsoft)
+    if(typeof openFinder === 'function'){ openFinder(); }
+  }
+  if(viewerFast) viewerFast.addEventListener('click', switchToFastTable);
+  if(viewerErrorFast) viewerErrorFast.addEventListener('click', switchToFastTable);
+  viewerClose.addEventListener('click', closeViewer);
+  viewer.addEventListener('click', function(e){
+    if(e.target === viewer) closeViewer();
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && !viewer.hidden) closeViewer();
+  });
+
+  // Expandir/reducir el modal
+  var viewerExpand = document.getElementById('nmViewerExpand');
+  var viewerExpandLabel = document.getElementById('nmViewerExpandLabel');
+  var viewerExpandIco = document.getElementById('nmViewerExpandIco');
+  viewerExpand.addEventListener('click', function(){
+    var expanded = viewer.classList.toggle('expanded');
+    viewerExpandLabel.textContent = expanded ? 'Reducir' : 'Expandir';
+    // Cambiar ícono: expandir vs reducir (flechas hacia adentro vs afuera)
+    if(expanded){
+      viewerExpandIco.innerHTML = '<polyline points="4 14 10 14 10 20"/><polyline points="20 10 14 10 14 4"/><line x1="14" y1="10" x2="21" y2="3"/><line x1="3" y1="21" x2="10" y2="14"/>';
+    } else {
+      viewerExpandIco.innerHTML = '<polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/>';
+    }
+  });
+
+  // Acercar (3 niveles: 100% → 125% → 150% → 100%). Lenguaje ciudadano.
+  var viewerZoomIn = document.getElementById('nmViewerZoomIn');
+  var viewerZoomInLabel = document.getElementById('nmViewerZoomInLabel');
+  var zoomInLevel = 0; // 0=100%, 1=125%, 2=150%
+  viewerZoomIn.addEventListener('click', function(){
+    // Si está alejado, primero regresa a 100%
+    if(zoomLevel !== 0){
+      zoomLevel = 0;
+      viewer.classList.remove('zoom-out','zoom-out-2');
+      viewerZoomLabel.textContent = 'Alejar';
+    }
+    zoomInLevel = (zoomInLevel + 1) % 3;
+    viewer.classList.remove('zoom-in','zoom-in-2');
+    if(zoomInLevel === 1){
+      viewer.classList.add('zoom-in');
+      viewerZoomInLabel.textContent = 'Acercar más';
+    } else if(zoomInLevel === 2){
+      viewer.classList.add('zoom-in-2');
+      viewerZoomInLabel.textContent = 'Regresar a 100%';
+    } else {
+      viewerZoomInLabel.textContent = 'Acercar';
+    }
+  });
+
+  // Alejar (3 niveles: 100% → 55% → 30% → 100%). Lenguaje ciudadano.
+  var viewerZoomOut = document.getElementById('nmViewerZoomOut');
+  var viewerZoomLabel = document.getElementById('nmViewerZoomLabel');
+  var zoomLevel = 0; // 0=100%, 1=55%, 2=30%
+  viewerZoomOut.addEventListener('click', function(){
+    // Si está acercado, primero regresa a 100%
+    if(zoomInLevel !== 0){
+      zoomInLevel = 0;
+      viewer.classList.remove('zoom-in','zoom-in-2');
+      viewerZoomInLabel.textContent = 'Acercar';
+    }
+    zoomLevel = (zoomLevel + 1) % 3;
+    viewer.classList.remove('zoom-out','zoom-out-2');
+    if(zoomLevel === 1){
+      viewer.classList.add('zoom-out');
+      viewerZoomLabel.textContent = 'Alejar más';
+    } else if(zoomLevel === 2){
+      viewer.classList.add('zoom-out-2');
+      viewerZoomLabel.textContent = 'Regresar a 100%';
+    } else {
+      viewerZoomLabel.textContent = 'Alejar';
+    }
+  });
+
+  // ============= BUSCADOR DENTRO DEL EXCEL (SheetJS) =============
+  var viewerFind = document.getElementById('nmViewerFind');
+  var viewerFindLabel = document.getElementById('nmViewerFindLabel');
+  var finder = document.getElementById('nmFinder');
+  var finderInput = document.getElementById('nmFinderInput');
+  var finderClear = document.getElementById('nmFinderClear');
+  var finderCount = document.getElementById('nmFinderCount');
+  var finderHint = document.getElementById('nmFinderHint');
+  var finderResults = document.getElementById('nmFinderResults');
+  var finderPager = document.getElementById('nmFinderPager');
+  var finderShowing = document.getElementById('nmFinderShowing');
+  var finderTotal = document.getElementById('nmFinderTotal');
+  var finderPage = document.getElementById('nmFinderPage');
+  var finderPages = document.getElementById('nmFinderPages');
+  var finderPrev = document.getElementById('nmFinderPrev');
+  var finderNext = document.getElementById('nmFinderNext');
+  var finderBack = document.getElementById('nmFinderBack');
+  var finderScope = document.getElementById('nmFinderScope');
+
+  var sheetJsLoaded = false;
+  var xlsxCache = {}; // {url: {headers, rows, sheetName}}
+  var currentUrl = null;
+  var currentMatches = [];
+  var currentPage = 1;
+  var PAGE_SIZE = 100;
+
+  function loadSheetJS(){
+    return new Promise(function(resolve, reject){
+      if(sheetJsLoaded){ resolve(); return; }
+      var script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js';
+      script.onload = function(){ sheetJsLoaded = true; resolve(); };
+      script.onerror = function(){ reject(new Error('No se pudo cargar SheetJS')); };
+      document.head.appendChild(script);
+    });
+  }
+
+  function escapeHtml(s){
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+  // Normalización ciudadana: quita acentos y baja a lowercase.
+  // "INNOVACIÓN" → "innovacion"  · "Tesorería" → "tesoreria"  · "Educación, Niñez" → "educacion, ninez"
+  // Esto permite que el ciudadano encuentre dependencias escribiendo sin acentos.
+  function normalize(s){
+    if(s == null) return '';
+    return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+  }
+  // Highlight inteligente: hace match insensible a acentos PERO conserva el texto original con sus acentos al pintar.
+  function highlightSmart(text, query){
+    if(!query || query.length < 2) return escapeHtml(text);
+    var textStr = String(text == null ? '' : text);
+    var textNorm = normalize(textStr);
+    var queryNorm = normalize(query);
+    if(queryNorm.length === 0) return escapeHtml(textStr);
+    var result = '';
+    var lastIdx = 0;
+    var idx = textNorm.indexOf(queryNorm);
+    while(idx !== -1){
+      result += escapeHtml(textStr.substring(lastIdx, idx));
+      result += '<span class="nm-finder-mark">' + escapeHtml(textStr.substring(idx, idx + queryNorm.length)) + '</span>';
+      lastIdx = idx + queryNorm.length;
+      idx = textNorm.indexOf(queryNorm, lastIdx);
+    }
+    result += escapeHtml(textStr.substring(lastIdx));
+    return result;
+  }
+  function isNumeric(v){
+    return typeof v === 'number' || (typeof v === 'string' && /^-?\d+(\.\d+)?$/.test(v.trim()));
+  }
+
+  async function loadExcelForFind(url){
+    if(xlsxCache[url]) return xlsxCache[url];
+    try{
+      await loadSheetJS();
+      finderResults.innerHTML = '<div class="nm-finder-loading"><div class="nm-finder-spinner"></div><div>Descargando y procesando el Excel…<br><small style="color:var(--g400);font-weight:500">Esto sólo ocurre una vez por archivo. Una vez cargado, las búsquedas son instantáneas.</small></div></div>';
+      var resp = await fetch(url);
+      if(!resp.ok) throw new Error('HTTP_' + resp.status);
+      var buf = await resp.arrayBuffer();
+      var wb = window.XLSX.read(buf, {type:'array'});
+      if(!wb || !wb.SheetNames || wb.SheetNames.length === 0){
+        throw new Error('EMPTY_WORKBOOK');
+      }
+      var firstSheet = wb.SheetNames[0];
+      var ws = wb.Sheets[firstSheet];
+      var data = window.XLSX.utils.sheet_to_json(ws, {header:1, blankrows:false, defval:''});
+      if(data.length === 0){
+        throw new Error('NO_ROWS');
+      }
+      // Buscar la fila que parece ser el header (no necesariamente la primera)
+      var headerIdx = 0;
+      for(var i = 0; i < Math.min(10, data.length); i++){
+        var nonEmpty = data[i].filter(function(c){ return c !== '' && c != null; }).length;
+        if(nonEmpty >= 5){ headerIdx = i; break; }
+      }
+      // FIX: usar índice del map para nombrar columnas vacías (antes referenciaba `headers` antes de asignarla)
+      var headers = data[headerIdx].map(function(h, idx){
+        var clean = String(h||'').trim();
+        return clean || ('Columna ' + (idx + 1));
+      });
+      var rows = data.slice(headerIdx + 1).filter(function(row){
+        return row.some(function(c){ return c !== '' && c != null; });
+      });
+      // Pre-normalizar cada fila para búsqueda rápida sin acentos.
+      // Cada fila se aplana a un solo string "celda1|celda2|celda3..." normalizado.
+      // Así la búsqueda es O(filas) en vez de O(filas × columnas) por término.
+      var rowsNorm = new Array(rows.length);
+      for(var ri = 0; ri < rows.length; ri++){
+        var joined = '';
+        for(var ci = 0; ci < rows[ri].length; ci++){
+          if(ci > 0) joined += '|';
+          joined += normalize(rows[ri][ci]);
+        }
+        rowsNorm[ri] = joined;
+      }
+      var cache = { headers: headers, rows: rows, rowsNorm: rowsNorm, sheetName: firstSheet, totalSheets: wb.SheetNames.length };
+      xlsxCache[url] = cache;
+      return cache;
+    } catch(err){
+      // Mensaje ciudadano según tipo de error
+      var msg = String(err && err.message || err || '');
+      var titulo = 'No pudimos abrir el archivo para buscar';
+      var explicacion;
+      if(msg.indexOf('HTTP_404') !== -1){
+        explicacion = 'El archivo no se encontró en el servidor del Ayuntamiento (error 404). Puede que se haya movido o renombrado. Avísanos a transparencia@guadalajara.gob.mx.';
+      } else if(msg.indexOf('HTTP_5') !== -1){
+        explicacion = 'El servidor del Ayuntamiento está respondiendo con un error. Intenta de nuevo en unos minutos.';
+      } else if(msg.indexOf('Failed to fetch') !== -1 || msg.indexOf('NetworkError') !== -1){
+        explicacion = 'No pudimos descargar el archivo. Revisa tu conexión a internet o intenta de nuevo. Si el problema persiste, descarga el Excel directamente con el botón <strong>Descargar</strong> del visor.';
+      } else if(msg.indexOf('SheetJS') !== -1){
+        explicacion = 'No pudimos cargar el motor de búsqueda. Probablemente tu navegador está bloqueando scripts externos. Puedes seguir usando el visor de Office Online o descargar el archivo en Excel.';
+      } else if(msg.indexOf('EMPTY_WORKBOOK') !== -1 || msg.indexOf('NO_ROWS') !== -1){
+        explicacion = 'El archivo se descargó pero parece estar vacío o dañado. Reporta el problema a transparencia@guadalajara.gob.mx.';
+      } else {
+        explicacion = 'Algo inesperado ocurrió al procesar el archivo. Puedes seguir usando el visor de Office Online o descargar el Excel original con el botón <strong>Descargar</strong>.';
+      }
+      finderResults.innerHTML = '<div class="nm-finder-empty"><strong>' + escapeHtml(titulo) + '</strong>' + explicacion + '<br><small style="display:block;margin-top:14px;color:var(--g400)">Detalle técnico: ' + escapeHtml(msg) + '</small></div>';
+      throw err;
+    }
+  }
+
+  function renderFinderResults(){
+    var qRaw = finderInput.value.trim();
+    if(!currentUrl || !xlsxCache[currentUrl]){ return; }
+    var cache = xlsxCache[currentUrl];
+    var rows = cache.rows;
+    var rowsNorm = cache.rowsNorm;
+    if(qRaw.length === 0){
+      currentMatches = rows;
+      finderHint.textContent = 'Mostrando todas las filas. Escribe para filtrar.';
+    } else if(qRaw.length === 1){
+      finderHint.textContent = 'Escribe al menos 2 letras para filtrar';
+      finderResults.innerHTML = '<div class="nm-finder-empty"><strong>Sigue escribiendo…</strong>Al menos 2 letras para empezar a filtrar.</div>';
+      finderPager.style.display = 'none';
+      return;
+    } else {
+      // Búsqueda sin acentos, sin distinción de mayúsculas/minúsculas.
+      // "tesoreria" encuentra "TESORERÍA". "innovacion" encuentra "INNOVACIÓN Y EDUCACIÓN".
+      var qn = normalize(qRaw);
+      currentMatches = [];
+      for(var i = 0; i < rowsNorm.length; i++){
+        if(rowsNorm[i].indexOf(qn) !== -1){
+          currentMatches.push(rows[i]);
+        }
+      }
+      finderHint.textContent = currentMatches.length + ' coincidencia' + (currentMatches.length === 1 ? '' : 's') + (currentMatches.length > 0 ? ' (sin distinguir acentos)' : '');
+    }
+    currentPage = 1;
+    paintTable(qRaw);
+  }
+
+  function paintTable(q){
+    if(!currentUrl || !xlsxCache[currentUrl]) return;
+    var cache = xlsxCache[currentUrl];
+    var total = currentMatches.length;
+    var pages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+    if(currentPage > pages) currentPage = pages;
+    var start = (currentPage - 1) * PAGE_SIZE;
+    var pageRows = currentMatches.slice(start, start + PAGE_SIZE);
+
+    finderTotal.textContent = total.toLocaleString('es-MX');
+    finderShowing.textContent = pageRows.length.toLocaleString('es-MX');
+    finderPage.textContent = currentPage;
+    finderPages.textContent = pages;
+    finderPrev.disabled = currentPage <= 1;
+    finderNext.disabled = currentPage >= pages;
+    finderPager.style.display = total > 0 ? 'flex' : 'none';
+    finderCount.innerHTML = q && q.length >= 2 ? '<strong>' + total.toLocaleString('es-MX') + '</strong> coincidencias' : '<strong>' + total.toLocaleString('es-MX') + '</strong> filas totales';
+    // Scope: indica que la búsqueda se aplica a TODAS las filas del documento abierto
+    if(finderScope){
+      finderScope.textContent = 'todo el documento (' + cache.rows.length.toLocaleString('es-MX') + ' filas)';
+    }
+
+    if(total === 0){
+      finderResults.innerHTML = '<div class="nm-finder-empty"><strong>Sin resultados</strong>No se encontró "' + escapeHtml(q) + '" en este archivo. Prueba con otro nombre, puesto o dependencia.</div>';
+      return;
+    }
+
+    var html = '<table class="nm-finder-table"><thead><tr>';
+    cache.headers.forEach(function(h){ html += '<th>' + escapeHtml(h) + '</th>'; });
+    html += '</tr></thead><tbody>';
+    pageRows.forEach(function(row){
+      html += '<tr>';
+      for(var i = 0; i < cache.headers.length; i++){
+        var cell = row[i] == null ? '' : row[i];
+        var isNum = isNumeric(cell);
+        var displayValue = isNum ? Number(cell).toLocaleString('es-MX', {maximumFractionDigits:2, minimumFractionDigits: (String(cell).indexOf('.') !== -1 ? 2 : 0)}) : String(cell);
+        var content = q && q.length >= 2 ? highlightSmart(displayValue, q) : escapeHtml(displayValue);
+        html += '<td class="' + (isNum ? 'num' : '') + '">' + content + '</td>';
+      }
+      html += '</tr>';
+    });
+    html += '</tbody></table>';
+    finderResults.innerHTML = html;
+  }
+
+  async function openFinder(){
+    if(!currentUrl){
+      // Defensa: si abren el finder sin URL activa, mostrar mensaje
+      return;
+    }
+    // Feedback INSTANTÁNEO: cambia visual antes de cualquier operación async
+    viewer.classList.add('find-mode');
+    viewerFindLabel.textContent = 'Ver Excel';
+    finderInput.value = '';
+    finderClear.classList.remove('show');
+    finderCount.innerHTML = '<strong>Cargando archivo…</strong>';
+    finderHint.textContent = 'Estamos abriendo el Excel completo. La primera vez tarda 5-15 segundos.';
+    if(finderScope){ finderScope.textContent = 'todo el documento'; }
+    finderPager.style.display = 'none';
+    try {
+      await loadExcelForFind(currentUrl);
+      renderFinderResults();
+      setTimeout(function(){ finderInput.focus(); }, 100);
+    } catch(e){ /* ya se muestra el error en el resultado */ }
+  }
+  function closeFinder(){
+    viewer.classList.remove('find-mode');
+    viewerFindLabel.textContent = 'Buscar dentro';
+  }
+  viewerFind.addEventListener('click', function(){
+    if(viewer.classList.contains('find-mode')){ closeFinder(); }
+    else { openFinder(); }
+  });
+  finderInput.addEventListener('input', function(){
+    finderClear.classList.toggle('show', finderInput.value.length > 0);
+    renderFinderResults();
+  });
+  finderClear.addEventListener('click', function(){
+    finderInput.value = '';
+    finderClear.classList.remove('show');
+    renderFinderResults();
+    finderInput.focus();
+  });
+  finderPrev.addEventListener('click', function(){
+    if(currentPage > 1){ currentPage--; paintTable(finderInput.value.trim().toLowerCase()); finderResults.scrollTop = 0; }
+  });
+  finderNext.addEventListener('click', function(){
+    var pages = Math.max(1, Math.ceil(currentMatches.length / PAGE_SIZE));
+    if(currentPage < pages){ currentPage++; paintTable(finderInput.value.trim().toLowerCase()); finderResults.scrollTop = 0; }
+  });
+  // Botón "< Regresar al Excel": cierra el buscador y vuelve a la vista del iframe
+  if(finderBack){
+    finderBack.addEventListener('click', function(){ closeFinder(); });
+  }
+  // Override openViewer para guardar la URL actual
+  var origOpenViewer = openViewer;
+  openViewer = function(url, title){
+    currentUrl = url;
+    closeFinder();
+    origOpenViewer(url, title);
+  };
+  var origCloseViewer = closeViewer;
+  closeViewer = function(){
+    closeFinder();
+    currentUrl = null;
+    origCloseViewer();
+  };
+  // Delegación de clicks sobre los botones nm-q-link y nm-esp-card
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('.nm-q-link, .nm-esp-card');
+    if(btn && btn.tagName === 'BUTTON'){
+      var url = btn.getAttribute('data-url');
+      var title = btn.getAttribute('data-title');
+      if(url){ openViewer(url, title); }
+    }
+  });
+
+  // Init
+  render(activeYear, '');
+})();
+</script>
+
+</body>
+</html>
