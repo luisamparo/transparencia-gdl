@@ -973,8 +973,58 @@ button.nm-esp-card{border:1.5px solid var(--g200);background:var(--wh)}
     return typeof v === 'number' || (typeof v === 'string' && /^-?\d+(\.\d+)?$/.test(v.trim()));
   }
 
+  // Convierte URL del XLSX del Ayuntamiento -> URL del JSON pre-procesado en GitHub Pages
+  // ej: https://enlinea.guadalajara.gob.mx/consultaNomina/files/2026/NominaPrimeraQuincenaEnero26.xlsx
+  //  -> ./data/2026/NominaPrimeraQuincenaEnero26.json
+  function xlsxToJsonUrl(xlsxUrl){
+    var m = xlsxUrl.match(/\/consultaNomina\/files\/(\d{4})\/(.+)\.xlsx$/i);
+    if(!m) return null;
+    return './data/' + m[1] + '/' + m[2] + '.json';
+  }
+
+  // Construye el cache desde el JSON pre-procesado (formato {sheet, headers, rows})
+  function buildCacheFromJson(json){
+    var headers = (json.headers || []).map(function(h, idx){
+      var clean = String(h||'').trim();
+      return clean || ('Columna ' + (idx + 1));
+    });
+    var rows = json.rows || [];
+    var rowsNorm = new Array(rows.length);
+    for(var ri = 0; ri < rows.length; ri++){
+      var joined = '';
+      for(var ci = 0; ci < rows[ri].length; ci++){
+        if(ci > 0) joined += '|';
+        joined += normalize(rows[ri][ci]);
+      }
+      rowsNorm[ri] = joined;
+    }
+    return { headers: headers, rows: rows, rowsNorm: rowsNorm, sheetName: json.sheet || '', totalSheets: 1, source: 'json' };
+  }
+
   async function loadExcelForFind(url){
     if(xlsxCache[url]) return xlsxCache[url];
+
+    // RUTA RAPIDA: JSON pre-procesado en mismo origen (GitHub Pages).
+    // Inmune a CSP, CORS, mixed content, firewalls del Ayuntamiento, extensiones.
+    // El GitHub Action `build-data.yml` se encarga de generar estos JSON.
+    var jsonUrl = xlsxToJsonUrl(url);
+    if(jsonUrl){
+      try {
+        finderResults.innerHTML = '<div class="nm-finder-loading"><div class="nm-finder-spinner"></div><div>Cargando datos…<br><small style="color:var(--g400);font-weight:500">Versión optimizada · búsqueda instantánea</small></div></div>';
+        var jResp = await fetch(jsonUrl);
+        if(jResp.ok){
+          var jData = await jResp.json();
+          if(jData && jData.rows && jData.rows.length > 0){
+            var cacheJson = buildCacheFromJson(jData);
+            xlsxCache[url] = cacheJson;
+            return cacheJson;
+          }
+        }
+        // Si no es 200 o el JSON vino vacio, caemos al fallback de XLSX
+      } catch(_){ /* silencioso, intentamos XLSX */ }
+    }
+
+    // FALLBACK: descargar XLSX directo del Ayuntamiento (depende de CSP/CORS del entorno).
     try{
       await loadSheetJS();
       finderResults.innerHTML = '<div class="nm-finder-loading"><div class="nm-finder-spinner"></div><div>Descargando y procesando el Excel…<br><small style="color:var(--g400);font-weight:500">Esto sólo ocurre una vez por archivo. Una vez cargado, las búsquedas son instantáneas.</small></div></div>';
