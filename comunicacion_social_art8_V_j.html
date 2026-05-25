@@ -135,7 +135,7 @@ body{font-family:var(--fh);background:var(--g50);color:var(--g900);line-height:1
 
 /* Administration bands below X axis (no names) — alineadas con las barras (max-width 54px por columna) */
 .hist-periods{margin-left:62px;display:grid;grid-template-columns:repeat(16,minmax(0,1fr));gap:8px;padding:14px 10px 0;--bgap:8px}
-.hist-period{font-family:var(--fh);font-size:clamp(8.5px,1.1vw,11px);color:#fff;font-weight:700;text-align:center;letter-spacing:.02em;padding:8px 4px;border-radius:7px;line-height:1.3;box-shadow:0 1px 2px rgba(15,23,42,.08);width:100%;max-width:calc(54px * var(--cols, 1) + var(--bgap, 8px) * (var(--cols, 1) - 1));justify-self:center;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hist-period{font-family:var(--fh);font-size:clamp(8.5px,1.1vw,11px);color:#fff;font-weight:700;text-align:center;letter-spacing:.02em;padding:8px 4px;border-radius:7px;line-height:1.25;box-shadow:0 1px 2px rgba(15,23,42,.08);width:100%;max-width:calc(54px * var(--cols, 1) + var(--bgap, 8px) * (var(--cols, 1) - 1));justify-self:center;min-width:0;word-break:break-word;hyphens:auto}
 .hist-period.adm-1{background:linear-gradient(180deg,#64748B 0%,#475569 100%)}
 .hist-period.adm-2{background:linear-gradient(180deg,#6366F1 0%,#4338CA 100%)}
 .hist-period.adm-3{background:linear-gradient(180deg,#0F766E 0%,#115E59 100%)}
@@ -195,9 +195,8 @@ body{font-family:var(--fh);background:var(--g50);color:var(--g900);line-height:1
 
 /* ---------- Insights ---------- */
 
-@media(max-width:980px){
+@media(max-width:1120px){
   .hist-bar-val{display:none}
-  .hist-period{font-size:0;padding:6px 2px;min-height:18px}
 }
 @media(max-width:780px){
   .hist-plot{height:320px}
