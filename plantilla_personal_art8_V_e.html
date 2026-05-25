@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Plantilla de personal del Ayuntamiento de Guadalajara: plazas de base y confianza, ocupadas y vacantes, por género — Art. 8, Fracción V, Inciso e) de la Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios."/>
+<title>Plantilla de Personal · ¿Cuántas plazas tiene el Ayuntamiento? · Transparencia GDL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --nr:#E87722;--nr-l:#FF9A45;--nr-d:#C45F0A;--nr-deeper:#8B4308;--nr-soft:#FFF1E4;
+  --nr-a:rgba(232,119,34,.10);--nr-b:rgba(232,119,34,.22);
+  --g50:#FAFAF8;--g100:#F0F0EC;--g200:#E2E2DD;--g300:#CFCFC8;--g400:#9E9E98;--g600:#5A5A55;--g800:#2D2D2A;--g900:#1A1A1A;
+  --wh:#FFF;
+  --base:#1E40AF;--base-l:#DBEAFE;--base-d:#0F2A5C;--base-border:#BFDBFE;
+  --conf:#8E44AD;--conf-l:#F0E5F8;--conf-d:#5E2D78;--conf-border:#D9C2E8;
+  --ok:#1D9E75;--ok-l:#E1F5EE;--ok-d:#0E6B4C;
+  --vac:#8C6D1F;--vac-l:#FFF8E1;--vac-d:#5F4A0F;--vac-border:#F0E0A8;
+  --h:#0E7C7B;--h-l:#D9F0EF;--h-d:#075A59;
+  --m:#C2185B;--m-l:#FCE4EC;--m-d:#7A0F3C;
+  --rad:10px;--rad-lg:14px;
+  --sh:0 4px 22px rgba(0,0,0,.08);
+  --sh-sm:0 1px 3px rgba(0,0,0,.06);
+  --sh-md:0 6px 18px rgba(0,0,0,.07);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --fh:'Outfit',system-ui,-apple-system,sans-serif;
+  --fm:'DM Mono','SF Mono',Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--g900);line-height:1.55}
+.pp-wrap{max-width:1200px;margin:0 auto}
+
+/* HERO */
+.pp-hero{background:linear-gradient(135deg,#FFF4E8 0%,#FFFFFF 55%);color:var(--g900);border-radius:var(--rad-lg);padding:24px 28px;margin:0 0 22px;position:relative;overflow:hidden;border-left:5px solid var(--nr);box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.pp-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.12) 0%,transparent 70%);pointer-events:none}
+.pp-hero-tag{display:inline-block;background:var(--nr);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;position:relative;z-index:1;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.pp-hero h2{margin:0 0 8px;font-size:clamp(22px,3.2vw,28px);font-weight:800;color:var(--g900);letter-spacing:-.015em;line-height:1.22;position:relative;z-index:1}
+.pp-hero h2 em{font-style:normal;color:var(--nr-d)}
+.pp-hero-sub{font-size:14.5px;color:#5a4d3e;max-width:78ch;margin:0 0 20px;line-height:1.6;position:relative;z-index:1}
+.pp-hero-sub strong{color:var(--g900);font-weight:700}
+
+.pp-cifras{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:12px;margin-top:18px;position:relative;z-index:1}
+.pp-cifra{background:var(--wh);border:1.5px solid #FFD2A5;border-radius:var(--rad);padding:14px 16px;display:flex;flex-direction:column;gap:2px;transition:border-color .18s ease,transform .18s ease}
+.pp-cifra:hover{border-color:var(--nr);transform:translateY(-2px)}
+.pp-cifra-num{font-family:var(--fm);font-size:36px;font-weight:700;line-height:1;color:var(--nr-d);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.pp-cifra-lbl{font-size:11px;font-weight:700;color:#5a4d3e;text-transform:uppercase;letter-spacing:.08em;margin-top:3px;line-height:1.3}
+.pp-cifra-sub{font-size:10.5px;color:var(--g400);margin-top:1px;line-height:1.4}
+.pp-cifra.headline{border-color:var(--nr);background:linear-gradient(135deg,#FFF8F0 0%,#FFFFFF 100%);grid-column:span 2}
+.pp-cifra.headline .pp-cifra-num{font-size:54px;color:var(--nr-d)}
+.pp-cifra.headline .pp-cifra-lbl{font-size:12.5px;color:var(--nr-d)}
+
+@media (max-width:720px){
+  .pp-cifra.headline{grid-column:span 1}
+  .pp-cifra.headline .pp-cifra-num{font-size:42px}
+}
+
+/* 2 POSTALES (acceso a los Excel oficiales) */
+.pp-postales{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;margin-bottom:22px}
+.pp-postal{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh);overflow:hidden;text-decoration:none;color:inherit;transition:all .25s ease;display:flex;flex-direction:column;border-top:5px solid var(--nr);position:relative}
+.pp-postal:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,.12)}
+.pp-postal.detalle{border-top-color:var(--base)}
+.pp-postal.detalle .pp-postal-cover{background:linear-gradient(135deg,var(--base-l) 0%,#E8F1FF 100%)}
+.pp-postal.detalle .pp-postal-icono{color:var(--base-d)}
+.pp-postal.detalle .pp-postal-illus{color:var(--base-d)}
+.pp-postal.detalle .pp-postal-eye{color:var(--base-d)}
+.pp-postal.detalle .pp-postal-cta{color:var(--base-d)}
+.pp-postal.resumen{border-top-color:var(--nr)}
+.pp-postal.resumen .pp-postal-cover{background:linear-gradient(135deg,var(--nr-soft) 0%,#FFE6CC 100%)}
+.pp-postal.resumen .pp-postal-icono{color:var(--nr-d)}
+.pp-postal.resumen .pp-postal-illus{color:var(--nr-d)}
+.pp-postal.resumen .pp-postal-eye{color:var(--nr-d)}
+.pp-postal.resumen .pp-postal-cta{color:var(--nr-d)}
+.pp-postal-cover{height:120px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;position:relative;overflow:hidden}
+.pp-postal-icono{position:relative;z-index:1}
+.pp-postal-illus{font-family:var(--fm);font-size:62px;font-weight:700;opacity:.18;letter-spacing:-.04em;position:relative;z-index:1;line-height:1}
+.pp-postal-body{padding:18px 22px 22px;display:flex;flex-direction:column;flex:1}
+.pp-postal-eye{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.pp-postal-title{font-size:17px;font-weight:800;color:var(--g900);margin-bottom:8px;letter-spacing:-.01em;line-height:1.3}
+.pp-postal-desc{font-size:13px;color:var(--g600);line-height:1.55;margin-bottom:14px;flex:1}
+.pp-postal-desc strong{color:var(--g800);font-weight:700}
+.pp-postal-cta{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;display:inline-flex;align-items:center;gap:6px}
+.pp-postal-cta svg{transition:transform .15s ease}
+.pp-postal:hover .pp-postal-cta svg{transform:translateX(3px)}
+
+/* LEYENDA */
+.pp-legend{background:var(--wh);border-radius:var(--rad-lg);padding:22px 26px;margin-bottom:22px;border-left:4px solid var(--nr);box-shadow:var(--sh-sm)}
+.pp-legend-eye{font-size:10.5px;font-weight:800;color:var(--nr-d);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.pp-legend h3{font-size:17px;font-weight:800;color:var(--g900);margin-bottom:8px;letter-spacing:-.005em}
+.pp-legend p{font-size:13.5px;color:var(--g600);line-height:1.65}
+.pp-legend p strong{color:var(--g800);font-weight:700}
+
+/* SECCIONES PRINCIPALES (Base + Confianza) */
+.pp-grupos{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:16px;margin-bottom:22px}
+.pp-grupo{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh);overflow:hidden;border-top:5px solid var(--base)}
+.pp-grupo.conf{border-top-color:var(--conf)}
+.pp-grupo-head{padding:18px 22px 14px;background:var(--base-l);display:flex;align-items:center;gap:14px;border-bottom:1.5px solid var(--base-border)}
+.pp-grupo.conf .pp-grupo-head{background:var(--conf-l);border-bottom-color:var(--conf-border)}
+.pp-grupo-icono{width:48px;height:48px;border-radius:12px;background:var(--base);color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 3px 10px rgba(30,64,175,.25)}
+.pp-grupo.conf .pp-grupo-icono{background:var(--conf);box-shadow:0 3px 10px rgba(142,68,173,.25)}
+.pp-grupo-titulo{flex:1;min-width:0}
+.pp-grupo-titulo h3{font-size:17px;font-weight:800;color:var(--base-d);margin-bottom:2px;letter-spacing:-.005em;line-height:1.2}
+.pp-grupo.conf .pp-grupo-titulo h3{color:var(--conf-d)}
+.pp-grupo-titulo .pp-grupo-sub{font-size:11.5px;color:var(--g600);font-weight:500;line-height:1.35}
+.pp-grupo-total{font-family:var(--fm);font-size:32px;font-weight:700;line-height:1;color:var(--base-d);letter-spacing:-.02em}
+.pp-grupo.conf .pp-grupo-total{color:var(--conf-d)}
+.pp-grupo-body{padding:18px 22px 22px}
+
+.pp-row{display:flex;align-items:center;justify-content:space-between;padding:11px 0;border-bottom:1px dashed var(--g200);gap:10px}
+.pp-row:last-child{border-bottom:0}
+.pp-row-lbl{font-size:13px;color:var(--g800);font-weight:600;display:flex;align-items:center;gap:8px;flex:1;min-width:0}
+.pp-row-lbl .pp-tag{font-family:var(--fh);font-size:9.5px;font-weight:800;padding:3px 7px;border-radius:5px;text-transform:uppercase;letter-spacing:.05em;flex-shrink:0}
+.pp-tag.ok{background:var(--ok-l);color:var(--ok-d)}
+.pp-tag.vac{background:var(--vac-l);color:var(--vac-d)}
+.pp-tag.h{background:var(--h-l);color:var(--h-d)}
+.pp-tag.m{background:var(--m-l);color:var(--m-d)}
+.pp-row-num{font-family:var(--fm);font-size:18px;font-weight:700;color:var(--g900);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.pp-row-pct{font-family:var(--fm);font-size:11px;font-weight:600;color:var(--g400);margin-left:8px}
+.pp-row.subtotal{background:var(--g50);margin:6px -22px 0;padding:11px 22px;border-top:1.5px solid var(--g200);border-bottom:0;border-radius:0 0 0 0}
+.pp-row.subtotal .pp-row-lbl{font-weight:800;color:var(--g900);font-size:13.5px}
+.pp-row.subtotal .pp-row-num{font-size:20px;color:var(--g900)}
+
+/* GÉNERO COMPARATIVO */
+.pp-genero{background:var(--wh);border-radius:var(--rad-lg);padding:24px 26px;margin-bottom:22px;box-shadow:var(--sh)}
+.pp-genero-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-bottom:18px;flex-wrap:wrap}
+.pp-genero-head h3{font-size:17px;font-weight:800;color:var(--g900);letter-spacing:-.005em}
+.pp-genero-head .pp-genero-eye{font-size:10.5px;font-weight:800;color:var(--nr-d);letter-spacing:.14em;text-transform:uppercase}
+.pp-genero-head .pp-genero-meta{font-size:11.5px;color:var(--g400);font-family:var(--fm)}
+
+.pp-bar{margin-bottom:16px}
+.pp-bar:last-child{margin-bottom:0}
+.pp-bar-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:5px;gap:10px;flex-wrap:wrap}
+.pp-bar-lbl{font-size:13px;font-weight:700;color:var(--g800);display:flex;align-items:center;gap:8px}
+.pp-bar-lbl-icono{width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:800;flex-shrink:0}
+.pp-bar-lbl-icono.h{background:var(--h)}
+.pp-bar-lbl-icono.m{background:var(--m)}
+.pp-bar-stats{font-family:var(--fm);font-size:12.5px;font-weight:600;color:var(--g600)}
+.pp-bar-stats strong{color:var(--g900);font-size:17px;letter-spacing:-.01em}
+.pp-bar-track{height:14px;background:var(--g100);border-radius:7px;overflow:hidden;position:relative}
+.pp-bar-fill{height:100%;border-radius:7px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font-family:var(--fm);font-size:9.5px;font-weight:700;color:#fff;letter-spacing:.04em;min-width:20px;transition:width .6s var(--ease)}
+.pp-bar-fill.h{background:linear-gradient(90deg,var(--h-d) 0%,var(--h) 100%)}
+.pp-bar-fill.m{background:linear-gradient(90deg,var(--m-d) 0%,var(--m) 100%)}
+
+/* CONCEPTOS (ciudadanización) */
+.pp-conceptos{background:linear-gradient(135deg,var(--nr-soft) 0%,#FFFFFF 60%);border-radius:var(--rad-lg);padding:24px 26px;margin-bottom:22px;border:1.5px solid #FFD2A5}
+.pp-conceptos-eye{font-size:10.5px;font-weight:800;color:var(--nr-d);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.pp-conceptos h3{font-size:18px;font-weight:800;color:var(--g900);margin-bottom:14px;letter-spacing:-.01em}
+.pp-conceptos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px}
+.pp-concepto{background:var(--wh);padding:14px 16px;border-radius:var(--rad);border:1.5px solid var(--g200);transition:border-color .18s ease,transform .18s ease}
+.pp-concepto:hover{border-color:var(--nr);transform:translateY(-2px)}
+.pp-concepto-titulo{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.pp-concepto-tag{font-family:var(--fm);font-size:9.5px;font-weight:800;padding:3px 7px;border-radius:5px;text-transform:uppercase;letter-spacing:.05em}
+.pp-concepto-tag.base{background:var(--base-l);color:var(--base-d)}
+.pp-concepto-tag.conf{background:var(--conf-l);color:var(--conf-d)}
+.pp-concepto-tag.ok{background:var(--ok-l);color:var(--ok-d)}
+.pp-concepto-tag.vac{background:var(--vac-l);color:var(--vac-d)}
+.pp-concepto h4{font-size:13.5px;font-weight:800;color:var(--g900);letter-spacing:-.005em}
+.pp-concepto p{font-size:12px;color:var(--g600);line-height:1.55}
+
+/* METADATA OFICIAL */
+.pp-meta{background:var(--wh);border:1.5px solid var(--g200);border-left:4px solid var(--nr);border-radius:var(--rad);padding:16px 20px;margin-bottom:22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:14px}
+.pp-meta-item{display:flex;flex-direction:column;gap:2px}
+.pp-meta-lbl{font-size:10px;font-weight:800;color:var(--nr-d);letter-spacing:.12em;text-transform:uppercase}
+.pp-meta-val{font-size:13.5px;font-weight:700;color:var(--g900);font-family:var(--fh)}
+.pp-meta-val.mono{font-family:var(--fm);letter-spacing:-.005em}
+
+/* FOOTER LEY */
+.pp-ley{background:var(--wh);border-radius:var(--rad-lg);padding:22px 26px;border-left:4px solid var(--nr-d);box-shadow:var(--sh-sm)}
+.pp-ley-eye{font-size:10.5px;font-weight:800;color:var(--nr-d);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.pp-ley h3{font-size:16px;font-weight:800;color:var(--g900);margin-bottom:10px;letter-spacing:-.005em}
+.pp-ley blockquote{background:var(--g50);border-left:3px solid var(--nr);padding:14px 18px;font-size:13px;color:var(--g800);line-height:1.65;border-radius:0 var(--rad) var(--rad) 0;font-style:italic}
+.pp-ley blockquote strong{color:var(--g900);font-style:normal;font-weight:700}
+.pp-ley-fuente{margin-top:14px;font-size:11.5px;color:var(--g400);line-height:1.55;font-family:var(--fm)}
+.pp-ley-fuente a{color:var(--nr-d);text-decoration:none;border-bottom:1px dotted var(--nr)}
+.pp-ley-fuente a:hover{color:var(--nr-deeper)}
+
+@media (max-width:600px){
+  body{padding:12px}
+  .pp-hero{padding:18px 18px}
+  .pp-hero h2{font-size:20px}
+  .pp-postal-cover{height:96px}
+  .pp-postal-illus{font-size:42px}
+  .pp-grupo-head{flex-wrap:wrap}
+  .pp-grupo-total{width:100%;text-align:right}
+}
+</style>
+</head>
+<body>
+<div class="pp-wrap">
+
+  <!-- HERO -->
+  <section class="pp-hero">
+    <span class="pp-hero-tag">Art. 8 · Fracción V · Inciso e</span>
+    <h2>Cada plaza del Ayuntamiento de Guadalajara, <em>contada y publicada</em></h2>
+    <p class="pp-hero-sub">Las <strong>12,698 plazas</strong> que conforman la estructura del Ayuntamiento — quienes están ocupadas, quienes están vacantes esperando convocatoria, y cómo se distribuyen entre <strong>plazas de base</strong> (carrera permanente) y <strong>plazas de confianza</strong> (designación directa).</p>
+    <div class="pp-cifras">
+      <div class="pp-cifra headline">
+        <div class="pp-cifra-num">12,698</div>
+        <div class="pp-cifra-lbl">Plazas totales</div>
+        <div class="pp-cifra-sub">Estructura completa autorizada · Abril 2026</div>
+      </div>
+      <div class="pp-cifra">
+        <div class="pp-cifra-num">11,161</div>
+        <div class="pp-cifra-lbl">Ocupadas</div>
+        <div class="pp-cifra-sub">87.9% del total</div>
+      </div>
+      <div class="pp-cifra">
+        <div class="pp-cifra-num">1,537</div>
+        <div class="pp-cifra-lbl">Vacantes</div>
+        <div class="pp-cifra-sub">12.1% en proceso</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 POSTALES (links a los Excel oficiales) -->
+  <div class="pp-postales">
+    <a class="pp-postal resumen" href="https://transparencia.guadalajara.gob.mx/sites/default/files/Art8FraccionV-Inciso-e-Total-Plazas-Abril-2026.xlsx" target="_blank" rel="noopener">
+      <div class="pp-postal-cover">
+        <div class="pp-postal-icono" aria-hidden="true">
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg>
+        </div>
+        <div class="pp-postal-illus">∑</div>
+      </div>
+      <div class="pp-postal-body">
+        <div class="pp-postal-eye">Resumen oficial · Excel</div>
+        <h3 class="pp-postal-title">Total de plazas vacantes y ocupadas</h3>
+        <p class="pp-postal-desc">Reporte oficial con los <strong>conteos totales</strong> por categoría: base, confianza, ocupadas, vacantes y por género. Una sola fila con las cifras agregadas que se reportan al ITEI.</p>
+        <span class="pp-postal-cta">Abrir Excel oficial <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </div>
+    </a>
+
+    <a class="pp-postal detalle" href="https://transparencia.guadalajara.gob.mx/sites/default/files/PlantillaAbril2026.xlsx" target="_blank" rel="noopener">
+      <div class="pp-postal-cover">
+        <div class="pp-postal-icono" aria-hidden="true">
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="pp-postal-illus">10K</div>
+      </div>
+      <div class="pp-postal-body">
+        <div class="pp-postal-eye">Plantilla detallada · Excel</div>
+        <h3 class="pp-postal-title">Plaza por plaza, sin filtros</h3>
+        <p class="pp-postal-desc">Lista completa con <strong>10,735 registros</strong>: denominación del área, nombre del puesto, clave, tipo, estado y género. Para análisis ciudadano o periodístico a fondo.</p>
+        <span class="pp-postal-cta">Descargar plantilla completa <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </div>
+    </a>
+  </div>
+
+  <!-- LEYENDA CIUDADANA -->
+  <section class="pp-legend">
+    <div class="pp-legend-eye">Cómo leer este informe</div>
+    <h3>¿Qué estás viendo exactamente?</h3>
+    <p>Toda persona que trabaja en el Ayuntamiento ocupa una <strong>plaza</strong> (un puesto autorizado en el presupuesto). El Ayuntamiento de Guadalajara tiene <strong>12,698 plazas autorizadas</strong> divididas en dos grandes familias: <strong>plazas de base</strong> (servicio civil, permanencia laboral) y <strong>plazas de confianza</strong> (designación directa, ligadas a la administración en turno). De ese total, <strong>11,161 están ocupadas</strong> por una persona y <strong>1,537 están vacantes</strong> — esas vacantes son las que se llenan mediante las convocatorias públicas del inciso d).</p>
+  </section>
+
+  <!-- METADATA OFICIAL -->
+  <div class="pp-meta">
+    <div class="pp-meta-item">
+      <span class="pp-meta-lbl">Ejercicio fiscal</span>
+      <span class="pp-meta-val mono">2026</span>
+    </div>
+    <div class="pp-meta-item">
+      <span class="pp-meta-lbl">Periodo informado</span>
+      <span class="pp-meta-val">Abril 2026 (01/04/2026 – 30/04/2026)</span>
+    </div>
+    <div class="pp-meta-item">
+      <span class="pp-meta-lbl">Fecha de actualización</span>
+      <span class="pp-meta-val mono">06/05/2026</span>
+    </div>
+    <div class="pp-meta-item">
+      <span class="pp-meta-lbl">Área responsable</span>
+      <span class="pp-meta-val">Dirección de Recursos Humanos</span>
+    </div>
+  </div>
+
+  <!-- SECCIONES BASE Y CONFIANZA -->
+  <div class="pp-grupos">
+
+    <!-- BASE -->
+    <div class="pp-grupo">
+      <div class="pp-grupo-head">
+        <div class="pp-grupo-icono" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9h.01"/><path d="M9 12h.01"/><path d="M9 15h.01"/><path d="M9 18h.01"/></svg>
+        </div>
+        <div class="pp-grupo-titulo">
+          <h3>Plazas de base</h3>
+          <div class="pp-grupo-sub">Servicio civil de carrera · Permanencia laboral</div>
+        </div>
+        <div class="pp-grupo-total">6,212</div>
+      </div>
+      <div class="pp-grupo-body">
+        <div class="pp-row">
+          <div class="pp-row-lbl"><span class="pp-tag ok">Ocupadas</span> Total ocupadas</div>
+          <div class="pp-row-num">5,691<span class="pp-row-pct">91.6%</span></div>
+        </div>
+        <div class="pp-row" style="padding-left:24px">
+          <div class="pp-row-lbl"><span class="pp-tag h">H</span> Ocupadas por hombres</div>
+          <div class="pp-row-num">3,358</div>
+        </div>
+        <div class="pp-row" style="padding-left:24px">
+          <div class="pp-row-lbl"><span class="pp-tag m">M</span> Ocupadas por mujeres</div>
+          <div class="pp-row-num">2,333</div>
+        </div>
+        <div class="pp-row">
+          <div class="pp-row-lbl"><span class="pp-tag vac">Vacantes</span> Disponibles para concurso</div>
+          <div class="pp-row-num">521<span class="pp-row-pct">8.4%</span></div>
+        </div>
+        <div class="pp-row subtotal">
+          <div class="pp-row-lbl">Total plazas de base</div>
+          <div class="pp-row-num">6,212</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONFIANZA -->
+    <div class="pp-grupo conf">
+      <div class="pp-grupo-head">
+        <div class="pp-grupo-icono" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg>
+        </div>
+        <div class="pp-grupo-titulo">
+          <h3>Plazas de confianza</h3>
+          <div class="pp-grupo-sub">Designación directa · Ligadas a la administración</div>
+        </div>
+        <div class="pp-grupo-total">6,486</div>
+      </div>
+      <div class="pp-grupo-body">
+        <div class="pp-row">
+          <div class="pp-row-lbl"><span class="pp-tag ok">Ocupadas</span> Total ocupadas</div>
+          <div class="pp-row-num">5,470<span class="pp-row-pct">84.3%</span></div>
+        </div>
+        <div class="pp-row" style="padding-left:24px">
+          <div class="pp-row-lbl"><span class="pp-tag h">H</span> Ocupadas por hombres</div>
+          <div class="pp-row-num">3,754</div>
+        </div>
+        <div class="pp-row" style="padding-left:24px">
+          <div class="pp-row-lbl"><span class="pp-tag m">M</span> Ocupadas por mujeres</div>
+          <div class="pp-row-num">1,716</div>
+        </div>
+        <div class="pp-row">
+          <div class="pp-row-lbl"><span class="pp-tag vac">Vacantes</span> Disponibles para designación</div>
+          <div class="pp-row-num">1,016<span class="pp-row-pct">15.7%</span></div>
+        </div>
+        <div class="pp-row subtotal">
+          <div class="pp-row-lbl">Total plazas de confianza</div>
+          <div class="pp-row-num">6,486</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- COMPARATIVO POR GÉNERO -->
+  <section class="pp-genero">
+    <div class="pp-genero-head">
+      <div>
+        <div class="pp-genero-eye">Distribución por género</div>
+        <h3>¿Cómo se reparten las plazas ocupadas?</h3>
+      </div>
+      <div class="pp-genero-meta">Base · 11,161 plazas ocupadas</div>
+    </div>
+
+    <div class="pp-bar">
+      <div class="pp-bar-top">
+        <div class="pp-bar-lbl"><span class="pp-bar-lbl-icono h">H</span> Hombres ocupando plaza</div>
+        <div class="pp-bar-stats"><strong>7,112</strong> · 63.7%</div>
+      </div>
+      <div class="pp-bar-track">
+        <div class="pp-bar-fill h" style="width:63.7%">63.7%</div>
+      </div>
+    </div>
+
+    <div class="pp-bar">
+      <div class="pp-bar-top">
+        <div class="pp-bar-lbl"><span class="pp-bar-lbl-icono m">M</span> Mujeres ocupando plaza</div>
+        <div class="pp-bar-stats"><strong>4,049</strong> · 36.3%</div>
+      </div>
+      <div class="pp-bar-track">
+        <div class="pp-bar-fill m" style="width:36.3%">36.3%</div>
+      </div>
+    </div>
+
+    <div style="margin-top:16px;padding-top:14px;border-top:1px dashed var(--g200);font-size:11.5px;color:var(--g400);line-height:1.55">
+      <strong style="color:var(--g600);font-weight:700">Suma 100% sobre 11,161 plazas ocupadas.</strong> La distribución se reporta para las plazas que están actualmente cubiertas; las vacantes (1,537) no entran en este cálculo porque aún no han sido asignadas a una persona.
+    </div>
+  </section>
+
+  <!-- CONCEPTOS CIUDADANOS -->
+  <section class="pp-conceptos">
+    <div class="pp-conceptos-eye">Glosario rápido</div>
+    <h3>¿Qué significa cada palabra técnica?</h3>
+    <div class="pp-conceptos-grid">
+      <div class="pp-concepto">
+        <div class="pp-concepto-titulo"><span class="pp-concepto-tag base">Base</span></div>
+        <h4>Plaza de base</h4>
+        <p>Puesto sindicalizado o de servicio civil de carrera. La persona tiene <strong>estabilidad laboral</strong>: no la pueden despedir al cambiar la administración. Se accede generalmente por escalafón o convocatoria.</p>
+      </div>
+      <div class="pp-concepto">
+        <div class="pp-concepto-titulo"><span class="pp-concepto-tag conf">Confianza</span></div>
+        <h4>Plaza de confianza</h4>
+        <p>Puesto directivo o estratégico de <strong>libre designación</strong> por la persona Titular. La persona puede ser removida en cualquier momento. Directores, jefaturas y mandos superiores suelen ser de confianza.</p>
+      </div>
+      <div class="pp-concepto">
+        <div class="pp-concepto-titulo"><span class="pp-concepto-tag ok">Ocupada</span></div>
+        <h4>Plaza ocupada</h4>
+        <p>Hay una persona <strong>contratada y trabajando</strong> en ese puesto. Está cobrando salario y tiene funciones asignadas.</p>
+      </div>
+      <div class="pp-concepto">
+        <div class="pp-concepto-titulo"><span class="pp-concepto-tag vac">Vacante</span></div>
+        <h4>Plaza vacante</h4>
+        <p>El puesto <strong>existe y está autorizado</strong> en el presupuesto, pero <strong>nadie lo ocupa</strong> todavía. Las plazas de base vacantes se llenan por convocatoria; las de confianza, por designación.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER LEY -->
+  <section class="pp-ley">
+    <div class="pp-ley-eye">Lo que dice la ley</div>
+    <h3>Art. 8, Fracción V, Inciso e — Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</h3>
+    <blockquote>
+      <strong>Artículo 8.</strong> Información fundamental — General.<br>
+      <strong>1.</strong> Es información fundamental, obligatoria para todos los sujetos obligados, la siguiente: […]<br>
+      <strong>V.</strong> La información financiera, patrimonial y administrativa, que comprende:<br>
+      […] <strong>e)</strong> La información sobre la estructura orgánica vigente, indicando los puestos y plazas autorizadas, vacantes y ocupadas, los servidores públicos por cada puesto, salarios y demás prestaciones que reciben, así como los hipervínculos a las convocatorias respectivas, a partir del 01/04/2023, desagregada por sexo y género;
+    </blockquote>
+    <div class="pp-ley-fuente">
+      <strong>Fuentes oficiales · Abril 2026:</strong><br>
+      · <a href="https://transparencia.guadalajara.gob.mx/sites/default/files/Art8FraccionV-Inciso-e-Total-Plazas-Abril-2026.xlsx" target="_blank" rel="noopener">Art8FraccionV-Inciso-e-Total-Plazas-Abril-2026.xlsx</a> (resumen oficial, código LTAIPEJM8FV-E3)<br>
+      · <a href="https://transparencia.guadalajara.gob.mx/sites/default/files/PlantillaAbril2026.xlsx" target="_blank" rel="noopener">PlantillaAbril2026.xlsx</a> (plantilla detallada plaza por plaza, código LTAIPEJM8FV-E2)<br>
+      · Área responsable: Dirección de Recursos Humanos del Ayuntamiento de Guadalajara · Actualizado al 06/05/2026.
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
