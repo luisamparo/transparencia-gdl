@@ -116,6 +116,7 @@ body{font-family:var(--fh);background:var(--g50);color:var(--g900);line-height:1
 /* The bar itself — institutional orange gradient by default, slate for older admins, distinct accent per admin band */
 .hist-bar{width:100%;max-width:54px;border-radius:6px 6px 0 0;position:relative;transition:filter .18s var(--ease,cubic-bezier(.4,0,.2,1)),transform .18s;cursor:pointer;min-height:4px}
 .hist-bar:hover{filter:brightness(1.06);transform:translateY(-4px)}
+.hist-bar-wrap:hover{z-index:50}
 
 /* Bar color by administration band — sophisticated neutrals + orange for current */
 .hist-bar.adm-1{background:linear-gradient(180deg,#94A3B8 0%,#64748B 100%)} /* 2010-2012 — slate */
@@ -135,7 +136,7 @@ body{font-family:var(--fh);background:var(--g50);color:var(--g900);line-height:1
 
 /* Administration bands below X axis (no names) — alineadas con las barras (max-width 54px por columna) */
 .hist-periods{margin-left:62px;display:grid;grid-template-columns:repeat(16,minmax(0,1fr));gap:8px;padding:14px 10px 0;--bgap:8px}
-.hist-period{font-family:var(--fh);font-size:clamp(8.5px,1.1vw,11px);color:#fff;font-weight:700;text-align:center;letter-spacing:.02em;padding:8px 4px;border-radius:7px;line-height:1.25;box-shadow:0 1px 2px rgba(15,23,42,.08);width:100%;max-width:calc(54px * var(--cols, 1) + var(--bgap, 8px) * (var(--cols, 1) - 1));justify-self:center;min-width:0;word-break:break-word;hyphens:auto}
+.hist-period{font-family:var(--fh);font-size:clamp(8.5px,1.1vw,11px);color:#fff;font-weight:700;text-align:center;letter-spacing:.02em;padding:8px 4px;border-radius:7px;line-height:1.3;box-shadow:0 1px 2px rgba(15,23,42,.08);width:100%;max-width:calc(54px * var(--cols, 1) + var(--bgap, 8px) * (var(--cols, 1) - 1));justify-self:center;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:42px}
 .hist-period.adm-1{background:linear-gradient(180deg,#64748B 0%,#475569 100%)}
 .hist-period.adm-2{background:linear-gradient(180deg,#6366F1 0%,#4338CA 100%)}
 .hist-period.adm-3{background:linear-gradient(180deg,#0F766E 0%,#115E59 100%)}
@@ -161,7 +162,7 @@ body{font-family:var(--fh);background:var(--g50);color:var(--g900);line-height:1
 .hist-tip-vs{margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,.14);font-size:11px;color:rgba(255,255,255,.7);font-style:italic}
 .hist-tip-vs.high{color:#FCA5A5;font-style:normal;font-weight:600}
 .hist-tip-vs.low{color:#86EFAC;font-style:normal;font-weight:600}
-.hist-tip-admin{margin-top:6px;font-size:10.5px;color:rgba(255,255,255,.6);letter-spacing:.04em;text-transform:uppercase;font-weight:600}
+.hist-tip-admin{margin-top:6px;font-size:10.5px;color:rgba(255,255,255,.6);letter-spacing:.04em;text-transform:uppercase;font-weight:600;white-space:normal;line-height:1.4}
 
 /* ---------- Legend (plain language) ---------- */
 .hist-legend{margin-top:24px;padding:20px 22px;background:var(--slate-50);border-radius:12px;border:1px solid var(--slate-200)}
@@ -574,7 +575,8 @@ function renderHistorical(){
     const isFirst = cols[0] === d.yr;
     if(isFirst){
       const span = cols.length;
-      periodsHTML += `<div class="hist-period adm-${admin.id}" style="--cols:${span};grid-column:span ${span}">${admin.label}</div>`;
+      const labelHtml = admin.label.replace(/\s+(\d{4}[–-]\d{4})/, '<br>$1');
+      periodsHTML += `<div class="hist-period adm-${admin.id}" style="--cols:${span};grid-column:span ${span}">${labelHtml}</div>`;
     }
   });
   $$$('hist-periods').innerHTML = periodsHTML;
