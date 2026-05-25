@@ -1,0 +1,377 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Remuneraciones mensuales por puesto del Ayuntamiento de Guadalajara â€” Art. 8, FracciÃ³n V, Inciso f) de la Ley de Transparencia y Acceso a la InformaciÃ³n PÃºblica del Estado de Jalisco y sus Municipios. Ejercicios 2023, 2024, 2025 y 2026."/>
+<meta name="robots" content="index,follow"/>
+<title>Remuneraciones mensuales &middot; Art. 8 Fracc. V Inc. f) &middot; Transparencia Guadalajara</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --nr:#E87722;--nr-l:#FF9A45;--nr-d:#C45F0A;--nr-deeper:#8B4308;--nr-soft:#FFF1E4;
+  --g50:#FAFAF8;--g100:#F0F0EC;--g200:#E2E2DD;--g300:#CFCFC8;--g400:#9E9E98;--g600:#5A5A55;--g800:#2D2D2A;--g900:#1A1A1A;
+  --wh:#FFF;
+  --rad:10px;--rad-lg:14px;
+  --sh:0 4px 22px rgba(0,0,0,.08);
+  --sh-sm:0 1px 3px rgba(0,0,0,.06);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --fh:'Outfit',system-ui,-apple-system,sans-serif;
+  --fm:'DM Mono','SF Mono',Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--fh);background:var(--g50);color:var(--g900);line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:var(--nr-d)}
+button{font-family:inherit;cursor:pointer}
+
+/* ============================================================
+   HERO
+============================================================ */
+.hero{background:radial-gradient(ellipse 800px 400px at 90% 30%,rgba(255,255,255,.18) 0%,transparent 70%),linear-gradient(135deg,var(--nr-d) 0%,var(--nr) 55%,var(--nr-l) 100%);padding:48px 32px 42px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 60px,rgba(255,255,255,.04) 60px,rgba(255,255,255,.04) 61px);pointer-events:none}
+.hero::after{content:'';position:absolute;right:-120px;top:-80px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.10) 0%,transparent 70%);pointer-events:none}
+.hi{position:relative;max-width:1200px;margin:0 auto;z-index:2}
+.bc{font-size:11.5px;color:rgba(255,255,255,.85);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;font-weight:500}
+.badge{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.40);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 13px;border-radius:20px;margin-bottom:14px;backdrop-filter:blur(6px)}
+.hero h1{font-size:clamp(26px,4.2vw,42px);font-weight:800;color:#fff;line-height:1.1;margin-bottom:10px;letter-spacing:-.015em}
+.hero p{color:rgba(255,255,255,.92);font-size:clamp(13px,1.45vw,15.5px);max-width:720px;line-height:1.55}
+
+/* ============================================================
+   MAIN
+============================================================ */
+.main{max-width:1200px;margin:0 auto;padding:30px 20px 60px}
+
+/* ============================================================
+   LEGAL BANNER
+============================================================ */
+.legal{display:grid;grid-template-columns:44px 1fr;gap:16px;background:var(--wh);border-left:4px solid var(--nr);border-radius:var(--rad);padding:18px 22px;margin-bottom:26px;box-shadow:var(--sh-sm)}
+.legal-stamp{font-family:Georgia,serif;font-size:38px;font-weight:800;color:var(--nr);line-height:1;text-align:center;align-self:start}
+.legal-body{min-width:0}
+.legal-txt{font-size:14px;color:var(--g800);line-height:1.55;margin-bottom:8px}
+.legal-txt strong{color:var(--g900);font-weight:700}
+.legal-cite{font-size:11.5px;color:var(--g600);line-height:1.5}
+.legal-cite a{font-weight:700;color:var(--nr-d);text-decoration:underline}
+.legal-cite em{font-style:italic;color:var(--g600)}
+
+/* ============================================================
+   SECCION: ELIGE EL AÃ‘O
+============================================================ */
+.sec{margin-bottom:30px}
+.sec-h{display:flex;align-items:center;gap:11px;margin-bottom:14px}
+.sec-h-num{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--nr) 0%,var(--nr-d) 100%);color:#fff;font-family:var(--fm);font-weight:700;font-size:13px;box-shadow:0 2px 6px rgba(232,119,34,.28)}
+.sec-h-title{font-size:18px;font-weight:800;color:var(--g900);letter-spacing:-.01em}
+.sec-h-sub{font-size:13.5px;color:var(--g600);margin-left:42px;margin-top:-4px;margin-bottom:14px}
+
+/* Year buttons (4 grandes, accesibles) */
+.year-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:8px}
+.year-btn{background:var(--wh);border:2px solid var(--g200);border-radius:var(--rad-lg);padding:18px 14px;cursor:pointer;transition:all .18s var(--ease);text-align:center;font-family:var(--fh);position:relative;overflow:hidden}
+.year-btn:hover{border-color:var(--nr);transform:translateY(-2px);box-shadow:0 6px 16px rgba(232,119,34,.14)}
+.year-btn-yr{font-family:var(--fm);font-size:clamp(20px,2.6vw,26px);font-weight:800;color:var(--g900);letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.05}
+.year-btn-meta{font-size:11px;color:var(--g600);font-weight:600;margin-top:6px;text-transform:uppercase;letter-spacing:.05em}
+.year-btn.vigente .year-btn-yr::after{content:'';display:inline-block;width:7px;height:7px;background:#16A34A;border-radius:50%;margin-left:7px;vertical-align:middle;animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(1.2)}}
+.year-btn.active{background:linear-gradient(135deg,var(--nr) 0%,var(--nr-d) 100%);border-color:var(--nr-d);box-shadow:0 8px 22px rgba(232,119,34,.32)}
+.year-btn.active .year-btn-yr{color:#fff}
+.year-btn.active .year-btn-meta{color:rgba(255,255,255,.92)}
+.year-btn.active.vigente .year-btn-yr::after{background:#FFF}
+@media(max-width:560px){
+  .year-row{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ============================================================
+   CALENDARIO DE MESES
+============================================================ */
+.cal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:14px;margin-top:18px}
+.cal-mes{background:var(--wh);border:1px solid var(--g200);border-radius:var(--rad-lg);padding:18px 18px 16px;display:flex;flex-direction:column;gap:12px;transition:border-color .18s var(--ease),box-shadow .18s var(--ease)}
+.cal-mes:hover{border-color:var(--nr-l);box-shadow:0 4px 14px rgba(232,119,34,.08)}
+.cal-mes.empty{background:repeating-linear-gradient(45deg,#FAFAF8,#FAFAF8 8px,#F5F5F1 8px,#F5F5F1 9px);border-style:dashed;border-color:var(--g300);opacity:.86}
+.cal-mes-top{display:flex;align-items:baseline;justify-content:space-between;gap:8px;padding-bottom:10px;border-bottom:1px solid var(--g100)}
+.cal-mes-name{font-size:17px;font-weight:800;color:var(--g900);letter-spacing:-.01em}
+.cal-mes-yr{font-family:var(--fm);font-size:11px;color:var(--g400);font-weight:600;font-variant-numeric:tabular-nums}
+.cal-mes-body{display:flex;flex-direction:column;gap:8px}
+.cal-link{display:flex;align-items:center;gap:11px;padding:11px 12px;background:var(--g50);border:1.5px solid var(--g200);border-radius:9px;text-decoration:none;color:var(--g900);transition:all .15s var(--ease)}
+.cal-link:hover{background:var(--nr-soft);border-color:var(--nr);transform:translateX(2px)}
+.cal-link-ico{flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:7px;background:#16A34A;color:#fff;font-family:var(--fm);font-size:9.5px;font-weight:800;letter-spacing:.02em}
+.cal-link.rastro .cal-link-ico{background:#0E7490}
+.cal-link-info{display:flex;flex-direction:column;gap:1px;flex:1;min-width:0}
+.cal-link-lbl{font-size:13px;font-weight:700;color:var(--g900);line-height:1.25}
+.cal-link-fmt{font-size:10.5px;color:var(--g600);font-weight:500;font-family:var(--fm);letter-spacing:.01em}
+.cal-link-arrow{flex-shrink:0;color:var(--nr-d);opacity:.6;transition:opacity .15s,transform .15s}
+.cal-link:hover .cal-link-arrow{opacity:1;transform:translateY(2px)}
+.cal-mes-empty-msg{font-size:12.5px;color:var(--g600);line-height:1.45;padding:14px 4px;text-align:center;font-style:italic}
+.cal-mes-empty-msg strong{display:block;font-style:normal;font-size:13.5px;color:var(--g800);font-weight:700;margin-bottom:4px}
+
+/* ============================================================
+   FOOTER
+============================================================ */
+.foot{margin-top:36px;padding:22px 24px;background:var(--wh);border-radius:var(--rad);border:1px solid var(--g200);text-align:center}
+.foot-source{font-size:12.5px;color:var(--g600);margin-bottom:6px}
+.foot-source a{font-weight:700;color:var(--nr-d);text-decoration:underline}
+.foot-cite{font-size:11px;color:var(--g400);line-height:1.5}
+
+@media(max-width:600px){
+  .hero{padding:36px 18px 32px}
+  .main{padding:20px 14px 40px}
+  .legal{grid-template-columns:1fr;gap:8px;padding:16px 18px}
+  .legal-stamp{font-size:28px;text-align:left}
+  .sec-h-sub{margin-left:0}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section class="hero">
+  <div class="hi">
+    <div class="bc">Transparencia Guadalajara &bull; Gobierno Municipal</div>
+    <div class="badge">Art. 8 &bull; Fracc. V &bull; Inc. f)</div>
+    <h1>Remuneraciones mensuales del Ayuntamiento</h1>
+    <p>Cu&aacute;nto gana cada puesto del Ayuntamiento de Guadalajara, mes con mes &mdash; incluyendo <strong style="color:#fff">sueldos, prestaciones, est&iacute;mulos y compensaciones</strong>. Descarga el archivo oficial del mes que te interese.</p>
+  </div>
+</section>
+
+<main class="main">
+
+  <!-- ============================================================
+       LEGAL BANNER (compliance)
+  ============================================================ -->
+  <div class="legal">
+    <div class="legal-stamp" aria-hidden="true">&sect;</div>
+    <div class="legal-body">
+      <p class="legal-txt">&ldquo;Las <strong>remuneraciones mensuales por puesto</strong>, incluidas <strong>todas las prestaciones, est&iacute;mulos o compensaciones</strong>.&rdquo;</p>
+      <p class="legal-cite">&mdash; Art. 8, Fracc. V, Inc. f) &middot; <em>Ley de Transparencia y Acceso a la Informaci&oacute;n P&uacute;blica del Estado de Jalisco y sus Municipios</em>. Fuente oficial: <a href="https://transparencia.guadalajara.gob.mx/remuneracion" target="_blank" rel="noopener">transparencia.guadalajara.gob.mx/remuneracion</a>. En caso de discrepancia <strong style="color:var(--g900)">prevalece el archivo oficial</strong>.</p>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       PASO 1 - ELIGE EL EJERCICIO FISCAL
+  ============================================================ -->
+  <div class="sec">
+    <div class="sec-h">
+      <span class="sec-h-num">1</span>
+      <span class="sec-h-title">Elige el ejercicio fiscal</span>
+    </div>
+    <p class="sec-h-sub">Selecciona el a&ntilde;o que quieres consultar. El ejercicio vigente aparece con un indicador verde.</p>
+    <div class="year-row" id="yearRow" role="tablist" aria-label="Ejercicio fiscal"></div>
+  </div>
+
+  <!-- ============================================================
+       PASO 2 - CALENDARIO DE MESES
+  ============================================================ -->
+  <div class="sec">
+    <div class="sec-h">
+      <span class="sec-h-num">2</span>
+      <span class="sec-h-title">Descarga el archivo del mes</span>
+    </div>
+    <p class="sec-h-sub">Cada mes incluye dos archivos: la <strong>n&oacute;mina general</strong> del Ayuntamiento y la <strong>n&oacute;mina del Rastro Municipal</strong>. Toca el bot&oacute;n para abrir el Excel oficial.</p>
+    <div class="cal-grid" id="calGrid"></div>
+  </div>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <div class="foot">
+    <p class="foot-source">Publicado por la <strong>Direcci&oacute;n de N&oacute;mina</strong> &middot; Tesorer&iacute;a Municipal &middot; Ayuntamiento de Guadalajara<br/>Fuente oficial: <a href="https://transparencia.guadalajara.gob.mx/remuneracion" target="_blank" rel="noopener">transparencia.guadalajara.gob.mx/remuneracion</a></p>
+    <p class="foot-cite">Para ejercicios fiscales previos a 2023, consulta directamente el portal oficial de transparencia.</p>
+  </div>
+
+</main>
+
+<script>
+(function(){
+'use strict';
+
+/* ============================================================
+   DATOS â€” 80 archivos verificados HTTP 200 contra el portal
+   transparencia.guadalajara.gob.mx el 22/may/2026
+============================================================ */
+const MESES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+
+/* Cada entrada: { yr, mes, tipo:'general'|'rastro', fmt:'xlsx'|'xls', url } */
+const DATOS = [
+  // 2026 (Ene-Abr)
+  { yr:'2026', mes:'Enero',   tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionEnero26.xlsx' },
+  { yr:'2026', mes:'Enero',   tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroEnero26.xlsx' },
+  { yr:'2026', mes:'Febrero', tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionFebrero26.xlsx' },
+  { yr:'2026', mes:'Febrero', tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroFebrero26.xlsx' },
+  { yr:'2026', mes:'Marzo',   tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionMarzo26.xlsx' },
+  { yr:'2026', mes:'Marzo',   tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroMarzo26.xlsx' },
+  { yr:'2026', mes:'Abril',   tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionAbril26.xlsx' },
+  { yr:'2026', mes:'Abril',   tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroAbril26.xlsx' },
+
+  // 2025 (12 meses)
+  { yr:'2025', mes:'Enero',      tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionEnero25.xlsx' },
+  { yr:'2025', mes:'Enero',      tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroEnero25.xlsx' },
+  { yr:'2025', mes:'Febrero',    tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionFebrero25.xlsx' },
+  { yr:'2025', mes:'Febrero',    tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroFebrero25.xlsx' },
+  { yr:'2025', mes:'Marzo',      tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionMarzo25.xlsx' },
+  { yr:'2025', mes:'Marzo',      tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroMarzo25.xlsx' },
+  { yr:'2025', mes:'Abril',      tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionAbril25.xlsx' },
+  { yr:'2025', mes:'Abril',      tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroAbril25.xlsx' },
+  { yr:'2025', mes:'Mayo',       tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionMayo25.xlsx' },
+  { yr:'2025', mes:'Mayo',       tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroMayo25.xlsx' },
+  { yr:'2025', mes:'Junio',      tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionJunio25.xlsx' },
+  { yr:'2025', mes:'Junio',      tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroJunio25.xlsx' },
+  { yr:'2025', mes:'Julio',      tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionJulio25.xlsx' },
+  { yr:'2025', mes:'Julio',      tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroJulio25.xlsx' },
+  { yr:'2025', mes:'Agosto',     tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionAgosto25.xlsx' },
+  { yr:'2025', mes:'Agosto',     tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroAgosto25.xlsx' },
+  { yr:'2025', mes:'Septiembre', tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionSeptiembre25.xlsx' },
+  { yr:'2025', mes:'Septiembre', tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroSeptiembre25.xlsx' },
+  { yr:'2025', mes:'Octubre',    tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionOctubre25.xlsx' },
+  { yr:'2025', mes:'Octubre',    tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroOctubre25.xlsx' },
+  { yr:'2025', mes:'Noviembre',  tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionNoviembre25.xlsx' },
+  { yr:'2025', mes:'Noviembre',  tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroNoviembre25.xlsx' },
+  { yr:'2025', mes:'Diciembre',  tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionDiciembre25.xlsx' },
+  { yr:'2025', mes:'Diciembre',  tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroDiciembre25.xlsx' },
+
+  // 2024 (12 meses)
+  { yr:'2024', mes:'Enero',      tipo:'general', fmt:'xls',  url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionEnero24.xls' },
+  { yr:'2024', mes:'Enero',      tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroEnero24.xlsx' },
+  { yr:'2024', mes:'Febrero',    tipo:'general', fmt:'xls',  url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionFebrero24.xls' },
+  { yr:'2024', mes:'Febrero',    tipo:'rastro',  fmt:'xls',  url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroFebrero24.xls' },
+  { yr:'2024', mes:'Marzo',      tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionMarzo24.xlsx' },
+  { yr:'2024', mes:'Marzo',      tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroMarzo24.xlsx' },
+  { yr:'2024', mes:'Abril',      tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionAbril24.xlsx' },
+  { yr:'2024', mes:'Abril',      tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroAbril24.xlsx' },
+  { yr:'2024', mes:'Mayo',       tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionMayo24.xlsx' },
+  { yr:'2024', mes:'Mayo',       tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroMayo24.xlsx' },
+  { yr:'2024', mes:'Junio',      tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionJunio24.xlsx' },
+  { yr:'2024', mes:'Junio',      tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroJunio24.xlsx' },
+  { yr:'2024', mes:'Julio',      tipo:'general', fmt:'xls',  url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionJulio24.xls' },
+  { yr:'2024', mes:'Julio',      tipo:'rastro',  fmt:'xls',  url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroJulio24.xls' },
+  { yr:'2024', mes:'Agosto',     tipo:'general', fmt:'xls',  url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionAgosto24.xls' },
+  { yr:'2024', mes:'Agosto',     tipo:'rastro',  fmt:'xls',  url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroAgosto24.xls' },
+  { yr:'2024', mes:'Septiembre', tipo:'general', fmt:'xls',  url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionSeptiembre24.xls' },
+  { yr:'2024', mes:'Septiembre', tipo:'rastro',  fmt:'xls',  url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroSeptiembre24.xls' },
+  { yr:'2024', mes:'Octubre',    tipo:'general', fmt:'xls',  url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionOctubre24.xls' },
+  { yr:'2024', mes:'Octubre',    tipo:'rastro',  fmt:'xls',  url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroOctubre24.xls' },
+  { yr:'2024', mes:'Noviembre',  tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionNoviembre24.xlsx' },
+  { yr:'2024', mes:'Noviembre',  tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroNoviembre24.xlsx' },
+  { yr:'2024', mes:'Diciembre',  tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionDiciembre24.xlsx' },
+  { yr:'2024', mes:'Diciembre',  tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroDiciembre24.xlsx' },
+
+  // 2023 (12 meses)
+  { yr:'2023', mes:'Enero',      tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionEnero23.xlsx' },
+  { yr:'2023', mes:'Enero',      tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroEnero23.xlsx' },
+  { yr:'2023', mes:'Febrero',    tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionFebrero23.xlsx' },
+  { yr:'2023', mes:'Febrero',    tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroFebrero23.xlsx' },
+  { yr:'2023', mes:'Marzo',      tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionMarzo23.xlsx' },
+  { yr:'2023', mes:'Marzo',      tipo:'rastro',  fmt:'xls',  url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroMarzo23.xls' },
+  { yr:'2023', mes:'Abril',      tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionAbril23.xlsx' },
+  { yr:'2023', mes:'Abril',      tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroAbril23.xlsx' },
+  { yr:'2023', mes:'Mayo',       tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionMayo23.xlsx' },
+  { yr:'2023', mes:'Mayo',       tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroMayo23.xlsx' },
+  { yr:'2023', mes:'Junio',      tipo:'general', fmt:'xls',  url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionJunio23.xls' },
+  { yr:'2023', mes:'Junio',      tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroJunio23.xlsx' },
+  { yr:'2023', mes:'Julio',      tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionJulio23.xlsx' },
+  { yr:'2023', mes:'Julio',      tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroJulio23.xlsx' },
+  { yr:'2023', mes:'Agosto',     tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionAgosto23.xlsx' },
+  { yr:'2023', mes:'Agosto',     tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroAgosto23.xlsx' },
+  { yr:'2023', mes:'Septiembre', tipo:'general', fmt:'xls',  url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionSeptiembre23.xls' },
+  { yr:'2023', mes:'Septiembre', tipo:'rastro',  fmt:'xls',  url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroSeptiembre23.xls' },
+  { yr:'2023', mes:'Octubre',    tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionOctubre23.xlsx' },
+  { yr:'2023', mes:'Octubre',    tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroOctubre23.xlsx' },
+  { yr:'2023', mes:'Noviembre',  tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionNoviembre23.xlsx' },
+  { yr:'2023', mes:'Noviembre',  tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroNoviembre23.xlsx' },
+  { yr:'2023', mes:'Diciembre',  tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionDiciembre23.xlsx' },
+  { yr:'2023', mes:'Diciembre',  tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroDiciembre23.xlsx' }
+];
+
+const YEARS = ['2026','2025','2024','2023'];
+const CURRENT_YEAR = new Date().getFullYear();
+
+let activeYear = '2026';
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+
+function countYear(y){ return DATOS.filter(d => d.yr === y).length; }
+function monthsPub(y){ return new Set(DATOS.filter(d => d.yr === y).map(d => d.mes)).size; }
+
+function renderYears(){
+  $('yearRow').innerHTML = YEARS.map(y => {
+    const isActive = activeYear === y;
+    const isVigente = parseInt(y,10) === CURRENT_YEAR;
+    const count = countYear(y);
+    const meses = monthsPub(y);
+    return `
+      <button class="year-btn ${isActive ? 'active' : ''} ${isVigente ? 'vigente' : ''}" data-year="${y}" type="button" role="tab" aria-selected="${isActive}">
+        <div class="year-btn-yr">${y}</div>
+        <div class="year-btn-meta">${meses} ${meses===1?'mes':'meses'} &middot; ${count} archivos</div>
+      </button>
+    `;
+  }).join('');
+  $('yearRow').querySelectorAll('.year-btn').forEach(b => {
+    b.addEventListener('click', () => {
+      activeYear = b.dataset.year;
+      renderYears();
+      renderCalendar();
+    });
+  });
+}
+
+function renderCalendar(){
+  const yr = activeYear;
+  $('calGrid').innerHTML = MESES.map(m => {
+    const archivos = DATOS.filter(d => d.yr === yr && d.mes === m);
+    if(archivos.length === 0){
+      return `
+        <article class="cal-mes empty">
+          <header class="cal-mes-top">
+            <span class="cal-mes-name">${m}</span>
+            <span class="cal-mes-yr">${yr}</span>
+          </header>
+          <div class="cal-mes-empty-msg">
+            <strong>Pr&oacute;ximamente</strong>
+            A&uacute;n no publicado oficialmente
+          </div>
+        </article>
+      `;
+    }
+    const links = archivos.map(a => {
+      const lbl = a.tipo === 'general' ? 'N&oacute;mina general' : 'N&oacute;mina Rastro';
+      const icoLbl = a.tipo === 'general' ? 'GRAL' : 'RAST';
+      return `
+        <a class="cal-link ${a.tipo}" href="${esc(a.url)}" target="_blank" rel="noopener" aria-label="Descargar ${lbl} de ${m} ${yr}">
+          <span class="cal-link-ico">${icoLbl}</span>
+          <span class="cal-link-info">
+            <span class="cal-link-lbl">${lbl}</span>
+            <span class="cal-link-fmt">Descargar ${a.fmt.toUpperCase()}</span>
+          </span>
+          <svg class="cal-link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/><path d="M5 21h14"/></svg>
+        </a>
+      `;
+    }).join('');
+    return `
+      <article class="cal-mes">
+        <header class="cal-mes-top">
+          <span class="cal-mes-name">${m}</span>
+          <span class="cal-mes-yr">${yr}</span>
+        </header>
+        <div class="cal-mes-body">${links}</div>
+      </article>
+    `;
+  }).join('');
+}
+
+function init(){
+  renderYears();
+  renderCalendar();
+}
+
+if(document.readyState === 'loading'){
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
+})();
+</script>
+
+</body>
+</html>
