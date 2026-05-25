@@ -249,6 +249,25 @@ button.nm-esp-card{border:1.5px solid var(--g200);background:var(--wh)}
 .nm-finder-table tbody td.num{font-variant-numeric:tabular-nums;text-align:right;font-family:var(--fm)}
 .nm-finder-empty{padding:40px 20px;text-align:center;color:var(--g400);font-size:13px;font-style:italic}
 .nm-finder-empty strong{color:var(--g600);display:block;margin-bottom:6px;font-style:normal}
+.nm-finder-err{padding:36px 28px;text-align:center;color:var(--g800);max-width:620px;margin:0 auto;font-style:normal;display:flex;flex-direction:column;align-items:center;gap:14px}
+.nm-finder-err-icon{color:#D97706;background:#FEF3C7;border-radius:50%;width:64px;height:64px;display:flex;align-items:center;justify-content:center;padding:10px;flex-shrink:0}
+.nm-finder-err-title{font-size:17px;font-weight:800;color:var(--g900);line-height:1.3;letter-spacing:-.005em;margin-top:2px}
+.nm-finder-err-body{font-size:13.5px;color:var(--g600);line-height:1.65;max-width:55ch}
+.nm-finder-err-body strong{color:var(--g800);font-weight:700}
+.nm-finder-err-body code{font-family:var(--fm);font-size:12px;background:var(--g100);padding:1px 6px;border-radius:4px;color:var(--g800)}
+.nm-finder-err-body a{color:var(--nr-d);font-weight:600;text-decoration:underline}
+.nm-finder-err-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:8px}
+.nm-finder-err-btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--fh);font-size:12.5px;font-weight:700;padding:10px 18px;border-radius:8px;cursor:pointer;text-decoration:none;text-transform:uppercase;letter-spacing:.04em;transition:all .15s;border:1.5px solid var(--g300);background:var(--wh);color:var(--g800)}
+.nm-finder-err-btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.12);border-color:var(--g600)}
+.nm-finder-err-btn.primary{background:var(--nr);color:#fff;border-color:var(--nr);box-shadow:0 2px 8px rgba(232,119,34,.30)}
+.nm-finder-err-btn.primary:hover{background:var(--nr-d);border-color:var(--nr-d);box-shadow:0 6px 16px rgba(232,119,34,.40)}
+.nm-finder-err-btn.download{background:#1D9E75;color:#fff;border-color:#1D9E75;box-shadow:0 2px 8px rgba(29,158,117,.25)}
+.nm-finder-err-btn.download:hover{background:#0E6B4C;border-color:#0E6B4C}
+.nm-finder-err-btn svg{flex-shrink:0}
+.nm-finder-err-tech{margin-top:14px;font-size:11px;color:var(--g400)}
+.nm-finder-err-tech summary{cursor:pointer;text-transform:uppercase;letter-spacing:.06em;font-weight:700;color:var(--g600);user-select:none;padding:4px 8px;border-radius:4px;display:inline-block}
+.nm-finder-err-tech summary:hover{background:var(--g100)}
+.nm-finder-err-tech code{display:block;margin-top:10px;padding:10px 14px;background:var(--g900);color:#FDA463;font-family:var(--fm);font-size:11px;border-radius:6px;text-align:left;word-break:break-all;white-space:pre-wrap}
 .nm-finder-hint{font-size:11px;color:var(--g400);font-style:italic}
 .nm-finder-mark{background:#FEF08A;color:var(--g900);font-weight:600;padding:0 2px;border-radius:2px}
 .nm-finder-pager{padding:10px 18px;background:var(--g50);border-top:1px solid var(--g200);display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:11.5px;color:var(--g600);flex-wrap:wrap}
@@ -1002,24 +1021,62 @@ button.nm-esp-card{border:1.5px solid var(--g200);background:var(--wh)}
       xlsxCache[url] = cache;
       return cache;
     } catch(err){
-      // Mensaje ciudadano según tipo de error
+      // Mensaje ciudadano según tipo de error + acciones inmediatas
       var msg = String(err && err.message || err || '');
       var titulo = 'No pudimos abrir el archivo para buscar';
       var explicacion;
+      var mostrarAcciones = true;
       if(msg.indexOf('HTTP_404') !== -1){
-        explicacion = 'El archivo no se encontró en el servidor del Ayuntamiento (error 404). Puede que se haya movido o renombrado. Avísanos a transparencia@guadalajara.gob.mx.';
+        titulo = 'No encontramos el archivo en el servidor';
+        explicacion = 'El Ayuntamiento devolvió <strong>error 404</strong>: la nómina puede haber sido movida o renombrada. Avísanos a <a href="mailto:transparencia@guadalajara.gob.mx">transparencia@guadalajara.gob.mx</a> con el nombre del archivo.';
       } else if(msg.indexOf('HTTP_5') !== -1){
-        explicacion = 'El servidor del Ayuntamiento está respondiendo con un error. Intenta de nuevo en unos minutos.';
-      } else if(msg.indexOf('Failed to fetch') !== -1 || msg.indexOf('NetworkError') !== -1){
-        explicacion = 'No pudimos descargar el archivo. Revisa tu conexión a internet o intenta de nuevo. Si el problema persiste, descarga el Excel directamente con el botón <strong>Descargar</strong> del visor.';
+        titulo = 'El servidor del Ayuntamiento está fallando';
+        explicacion = 'Respondió con error del lado del servidor (HTTP 5xx). Es temporal — intenta de nuevo en unos minutos. Mientras tanto puedes ver el archivo en el visor de Microsoft o descargarlo.';
+      } else if(msg.indexOf('Failed to fetch') !== -1 || msg.indexOf('NetworkError') !== -1 || msg.indexOf('TypeError') !== -1){
+        titulo = 'Tu navegador bloqueó la descarga del Excel';
+        explicacion = 'Esto puede ser por <strong>tu conexión a internet</strong> o, más comúnmente, por la <strong>política de seguridad (CSP) del sitio donde está embebida</strong> esta página, que no permite descargar archivos de <code>enlinea.guadalajara.gob.mx</code> vía JavaScript.<br><br>La buena noticia: el <strong>visor de Microsoft Office Online</strong> y el botón <strong>Descargar</strong> sí funcionan, porque no dependen del navegador para bajar el archivo.';
       } else if(msg.indexOf('SheetJS') !== -1){
-        explicacion = 'No pudimos cargar el motor de búsqueda. Probablemente tu navegador está bloqueando scripts externos. Puedes seguir usando el visor de Office Online o descargar el archivo en Excel.';
+        titulo = 'No pudimos cargar el motor de búsqueda';
+        explicacion = 'Tu navegador o el sitio que embebe esta página bloqueó la librería <code>SheetJS</code> desde <code>cdn.jsdelivr.net</code>. Puedes seguir usando el visor de Microsoft o descargar el Excel directamente.';
       } else if(msg.indexOf('EMPTY_WORKBOOK') !== -1 || msg.indexOf('NO_ROWS') !== -1){
-        explicacion = 'El archivo se descargó pero parece estar vacío o dañado. Reporta el problema a transparencia@guadalajara.gob.mx.';
+        titulo = 'El archivo se descargó pero está vacío';
+        explicacion = 'Es probable que el archivo en el servidor del Ayuntamiento esté dañado. Reporta el problema a <a href="mailto:transparencia@guadalajara.gob.mx">transparencia@guadalajara.gob.mx</a> con el nombre del archivo.';
+        mostrarAcciones = false;
       } else {
-        explicacion = 'Algo inesperado ocurrió al procesar el archivo. Puedes seguir usando el visor de Office Online o descargar el Excel original con el botón <strong>Descargar</strong>.';
+        explicacion = 'Algo inesperado ocurrió al procesar el archivo. Puedes ver el archivo en el visor de Microsoft o descargar el Excel original.';
       }
-      finderResults.innerHTML = '<div class="nm-finder-empty"><strong>' + escapeHtml(titulo) + '</strong>' + explicacion + '<br><small style="display:block;margin-top:14px;color:var(--g400)">Detalle técnico: ' + escapeHtml(msg) + '</small></div>';
+      var officeUrl = 'https://view.officeapps.live.com/op/view.aspx?src=' + encodeURIComponent(url);
+      var acciones = '';
+      if(mostrarAcciones){
+        acciones =
+          '<div class="nm-finder-err-actions">' +
+            '<button type="button" class="nm-finder-err-btn primary" data-action="office">' +
+              '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg>' +
+              'Ver con Microsoft Office' +
+            '</button>' +
+            '<a class="nm-finder-err-btn download" href="' + escapeHtml(url) + '" download target="_blank" rel="noopener">' +
+              '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>' +
+              'Descargar XLSX' +
+            '</a>' +
+            '<a class="nm-finder-err-btn" href="' + escapeHtml(officeUrl) + '" target="_blank" rel="noopener">' +
+              '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>' +
+              'Abrir en pestaña nueva' +
+            '</a>' +
+          '</div>';
+      }
+      finderResults.innerHTML =
+        '<div class="nm-finder-err">' +
+          '<div class="nm-finder-err-icon" aria-hidden="true">' +
+            '<svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>' +
+          '</div>' +
+          '<div class="nm-finder-err-title">' + escapeHtml(titulo) + '</div>' +
+          '<div class="nm-finder-err-body">' + explicacion + '</div>' +
+          acciones +
+          '<details class="nm-finder-err-tech"><summary>Detalle técnico</summary><code>' + escapeHtml(msg) + '</code></details>' +
+        '</div>';
+      // Wire up del botón "Ver con Office Online": vuelve al iframe interno
+      var officeBtn = finderResults.querySelector('[data-action="office"]');
+      if(officeBtn){ officeBtn.addEventListener('click', function(){ closeFinder(); }); }
       throw err;
     }
   }
