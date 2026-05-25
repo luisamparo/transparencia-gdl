@@ -1,0 +1,670 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Gastos de Comunicaci&oacute;n Social &middot; Art. 8 Fracc. V Inc. j) &middot; Transparencia Guadalajara</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --nr:#E87722;--nr-l:#FF9A45;--nr-d:#C45F0A;--nr-soft:#FFF1E4;
+  --nr-a:rgba(232,119,34,.10);--nr-b:rgba(232,119,34,.22);
+  --g50:#FAFAF8;--g100:#F0F0EC;--g200:#E2E2DD;--g400:#9E9E98;--g600:#5A5A55;--g900:#1A1A1A;
+  --wh:#FFF;--rad:10px;--sh:0 4px 22px rgba(0,0,0,.08);
+  --fh:'Outfit',sans-serif;--fm:'DM Mono',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--fh);background:var(--g50);color:var(--g900);line-height:1.5}
+
+/* HERO */
+.hero{
+  background:radial-gradient(ellipse 800px 400px at 90% 30%,rgba(255,255,255,.18) 0%,transparent 70%),
+    linear-gradient(135deg,var(--nr-d) 0%,var(--nr) 55%,var(--nr-l) 100%);
+  padding:48px 32px 40px;position:relative;overflow:hidden;
+}
+.hero::before{content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(45deg,transparent,transparent 60px,rgba(255,255,255,.04) 60px,rgba(255,255,255,.04) 61px);
+  pointer-events:none;}
+.hero::after{content:'';position:absolute;right:-120px;top:-80px;width:380px;height:380px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.10) 0%,transparent 70%);pointer-events:none;}
+.hi{position:relative;max-width:1400px;margin:0 auto;z-index:2}
+.bc{font-size:11.5px;color:rgba(255,255,255,.85);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;font-weight:500}
+.badge{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.40);
+  color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  padding:5px 13px;border-radius:20px;margin-bottom:12px;backdrop-filter:blur(6px);}
+.hero h1{font-size:clamp(24px,3.8vw,42px);font-weight:800;color:#fff;line-height:1.1;margin-bottom:10px}
+.hero p{color:rgba(255,255,255,.90);font-size:clamp(13px,1.5vw,16px);max-width:780px}
+
+/* MAIN */
+.main{max-width:1400px;margin:0 auto;padding:28px 20px 60px}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-bottom:20px}
+.stat{background:var(--wh);border-radius:var(--rad);padding:12px 10px;box-shadow:var(--sh);
+  text-align:center;border-top:3px solid var(--nr);min-width:0}
+.stat .n{font-size:clamp(15px,2.2vw,22px);font-weight:800;color:var(--nr);font-family:var(--fm);line-height:1.2;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.stat .l{font-size:9.5px;color:var(--g400);text-transform:uppercase;letter-spacing:.04em;margin-top:4px;line-height:1.3}
+
+/* =================================================================
+   COMPARATIVO HISTÓRICO ANUAL — Diseño institucional GDL
+   Paleta: naranja institucional (#E87722) + slate-blue + grises neutros
+================================================================= */
+:root{
+  --insti-orange:#E87722;
+  --insti-orange-d:#C45F0A;
+  --insti-orange-l:#FCA85C;
+  --insti-orange-pale:#FFF1E4;
+  --slate-900:#0F172A;
+  --slate-700:#334155;
+  --slate-600:#475569;
+  --slate-500:#64748B;
+  --slate-400:#94A3B8;
+  --slate-300:#CBD5E1;
+  --slate-200:#E2E8F0;
+  --slate-100:#F1F5F9;
+  --slate-50:#F8FAFC;
+  --grid-line:#EAEAE6;
+  --avg-blue:#1E3A8A;
+}
+
+/* ---------- KPI cards (3 cards) ---------- */
+.histkpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px;margin-bottom:24px}
+.histkpi{position:relative;background:#fff;border-radius:16px;padding:24px 26px 22px;border:1px solid var(--slate-200);box-shadow:0 1px 2px rgba(15,23,42,.04),0 4px 12px rgba(15,23,42,.03);overflow:hidden}
+.histkpi::before{content:'';position:absolute;left:0;top:0;bottom:0;width:5px}
+.histkpi-max::before{background:linear-gradient(180deg,var(--insti-orange) 0%,var(--insti-orange-d) 100%)}
+.histkpi-min::before{background:linear-gradient(180deg,#0F766E 0%,#115E59 100%)}
+.histkpi-avg::before{background:linear-gradient(180deg,var(--avg-blue) 0%,#1E40AF 100%)}
+.histkpi-tag{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;font-weight:700;color:var(--slate-500);letter-spacing:.09em;text-transform:uppercase;line-height:1}
+.histkpi-tag-dot{width:7px;height:7px;border-radius:50%;background:var(--insti-orange)}
+.histkpi-min .histkpi-tag-dot{background:#0F766E}
+.histkpi-avg .histkpi-tag-dot{background:var(--avg-blue)}
+.histkpi-val{font-family:var(--fh);font-size:clamp(30px,3.8vw,42px);font-weight:800;color:var(--slate-900);line-height:1;margin-top:14px;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.histkpi-yr{font-family:var(--fh);font-size:14px;font-weight:600;color:var(--slate-700);margin-top:10px;letter-spacing:-.005em}
+.histkpi-yr strong{color:var(--slate-900);font-weight:800}
+.histkpi-admin{display:inline-block;margin-top:10px;font-size:11.5px;color:var(--slate-600);font-weight:600;padding:4px 10px;border-radius:6px;background:var(--slate-50);border:1px solid var(--slate-200);letter-spacing:.01em}
+
+/* ---------- Chart card ---------- */
+.hist-card{background:#fff;border-radius:16px;border:1px solid var(--slate-200);box-shadow:0 1px 2px rgba(15,23,42,.04),0 4px 12px rgba(15,23,42,.03);padding:32px 34px 28px;margin-bottom:20px}
+.hist-head{margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--slate-100)}
+.hist-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;color:var(--insti-orange-d);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+.hist-eyebrow::before{content:'';width:24px;height:2px;background:var(--insti-orange);border-radius:2px}
+.hist-title{font-family:var(--fh);font-size:clamp(22px,2.6vw,30px);font-weight:800;color:var(--slate-900);line-height:1.15;letter-spacing:-.022em}
+.hist-sub{font-size:14.5px;color:var(--slate-600);margin-top:10px;line-height:1.6;max-width:78ch;font-weight:400}
+.hist-sub strong{color:var(--slate-900);font-weight:700}
+
+/* ---------- Chart with Y axis + gridlines + bars ---------- */
+.hist-chart{position:relative;margin-top:6px}
+.hist-yaxis{position:absolute;left:0;top:24px;bottom:0;width:62px;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-end;padding-right:10px;pointer-events:none;z-index:2}
+.hist-yaxis-tick{font-family:var(--fh);font-size:11px;font-weight:600;color:var(--slate-400);line-height:1;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.hist-plot{position:relative;margin-left:62px;height:420px;border-bottom:1.5px solid var(--slate-300)}
+.hist-gridlines{position:absolute;inset:0;pointer-events:none;z-index:1}
+.hist-gridline{position:absolute;left:0;right:0;height:1px;background:var(--grid-line)}
+.hist-gridline-zero{background:var(--slate-300);height:1.5px}
+
+/* Average line on chart */
+.hist-avg-line{position:absolute;left:0;right:0;height:0;border-top:2px dashed var(--avg-blue);z-index:3;pointer-events:none}
+
+/* Bars container */
+.hist-bars{position:absolute;inset:0;display:grid;grid-template-columns:repeat(16,1fr);gap:8px;align-items:end;padding:22px 10px 0;z-index:2}
+.hist-bar-wrap{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;position:relative}
+
+/* Bar value label on top */
+.hist-bar-val{font-family:var(--fh);font-size:11.5px;font-weight:800;color:var(--slate-900);font-variant-numeric:tabular-nums;white-space:nowrap;letter-spacing:-.02em;text-align:center;line-height:1.1;margin-bottom:8px;height:14px}
+
+/* The bar itself — institutional orange gradient by default, slate for older admins, distinct accent per admin band */
+.hist-bar{width:100%;max-width:54px;border-radius:6px 6px 0 0;position:relative;transition:filter .18s var(--ease,cubic-bezier(.4,0,.2,1)),transform .18s;cursor:pointer;min-height:4px}
+.hist-bar:hover{filter:brightness(1.06);transform:translateY(-4px)}
+
+/* Bar color by administration band — sophisticated neutrals + orange for current */
+.hist-bar.adm-1{background:linear-gradient(180deg,#94A3B8 0%,#64748B 100%)} /* 2010-2012 — slate */
+.hist-bar.adm-2{background:linear-gradient(180deg,#A5B4FC 0%,#6366F1 100%)} /* 2012-2015 — indigo */
+.hist-bar.adm-3{background:linear-gradient(180deg,#5EEAD4 0%,#0F766E 100%)} /* 2015-2018 — teal */
+.hist-bar.adm-4{background:linear-gradient(180deg,#FCD34D 0%,#B45309 100%)} /* 2018-2021 — amber */
+.hist-bar.adm-5{background:linear-gradient(180deg,#FBA8B8 0%,#9F1239 100%)} /* 2021-2024 — rose */
+.hist-bar.adm-6{background:linear-gradient(180deg,var(--insti-orange-l) 0%,var(--insti-orange-d) 100%)} /* 2024-2027 — orange */
+
+.hist-bar-empty{background:repeating-linear-gradient(45deg,#F1F5F9,#F1F5F9 6px,#FAFAFA 6px,#FAFAFA 12px);border:1.5px dashed var(--slate-200);border-radius:6px 6px 0 0;cursor:default;height:24px;width:100%;max-width:54px;display:flex;align-items:center;justify-content:center}
+.hist-bar-empty-lbl{font-family:var(--fh);font-size:9.5px;font-weight:700;color:var(--slate-500);letter-spacing:.05em;text-transform:uppercase}
+
+/* X axis (years) */
+.hist-xaxis{margin-left:62px;display:grid;grid-template-columns:repeat(16,1fr);gap:8px;padding:12px 10px 0}
+.hist-xaxis-yr{font-family:var(--fh);font-size:12px;font-weight:600;color:var(--slate-500);text-align:center;letter-spacing:.01em;line-height:1.2}
+.hist-xaxis-yr.curr{color:var(--insti-orange-d);font-weight:800}
+
+/* Administration bands below X axis (no names) — alineadas con las barras (max-width 54px por columna) */
+.hist-periods{margin-left:62px;display:grid;grid-template-columns:repeat(16,1fr);gap:8px;padding:14px 10px 0;--bgap:8px}
+.hist-period{font-family:var(--fh);font-size:11px;color:#fff;font-weight:700;text-align:center;letter-spacing:.02em;padding:8px 6px;border-radius:7px;line-height:1.3;box-shadow:0 1px 2px rgba(15,23,42,.08);width:100%;max-width:calc(54px * var(--cols, 1) + var(--bgap, 8px) * (var(--cols, 1) - 1));justify-self:center}
+.hist-period.adm-1{background:linear-gradient(180deg,#64748B 0%,#475569 100%)}
+.hist-period.adm-2{background:linear-gradient(180deg,#6366F1 0%,#4338CA 100%)}
+.hist-period.adm-3{background:linear-gradient(180deg,#0F766E 0%,#115E59 100%)}
+.hist-period.adm-4{background:linear-gradient(180deg,#B45309 0%,#92400E 100%)}
+.hist-period.adm-5{background:linear-gradient(180deg,#9F1239 0%,#881337 100%)}
+.hist-period.adm-6{background:linear-gradient(180deg,var(--insti-orange) 0%,var(--insti-orange-d) 100%)}
+.hist-period-empty{visibility:hidden}
+
+/* ---------- Tooltip (edge-aware via JS) ---------- */
+.hist-tip{position:absolute;bottom:calc(100% + 14px);left:50%;transform:translateX(-50%);background:var(--slate-900);color:#fff;padding:14px 16px;border-radius:9px;font-size:12px;line-height:1.5;white-space:nowrap;z-index:50;box-shadow:0 16px 40px rgba(15,23,42,.32);opacity:0;pointer-events:none;transition:opacity .14s ease, transform .14s ease;min-width:220px;max-width:280px;text-align:left}
+.hist-tip[data-edge="left"]{left:0;transform:translateX(8px)}
+.hist-tip[data-edge="right"]{left:auto;right:0;transform:translateX(-8px)}
+.hist-bar-wrap:hover .hist-tip{opacity:1;transform:translateX(-50%) translateY(-4px)}
+.hist-bar-wrap:hover .hist-tip[data-edge="left"]{transform:translateX(8px) translateY(-4px)}
+.hist-bar-wrap:hover .hist-tip[data-edge="right"]{transform:translateX(-8px) translateY(-4px)}
+.hist-tip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:8px solid transparent;border-top-color:var(--slate-900)}
+.hist-tip[data-edge="left"]::after{left:18px;transform:none}
+.hist-tip[data-edge="right"]::after{left:auto;right:18px;transform:none}
+.hist-tip-h{font-weight:800;font-size:14px;margin-bottom:8px;color:#fff;font-family:var(--fh);letter-spacing:-.005em;display:flex;align-items:center;gap:8px}
+.hist-tip-h-dot{width:10px;height:10px;border-radius:3px}
+.hist-tip-row{display:flex;justify-content:space-between;gap:18px;font-size:11.5px;color:rgba(255,255,255,.7);font-family:var(--fh);padding:3px 0}
+.hist-tip-row strong{color:#fff;font-weight:700;font-variant-numeric:tabular-nums}
+.hist-tip-vs{margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,.14);font-size:11px;color:rgba(255,255,255,.7);font-style:italic}
+.hist-tip-vs.high{color:#FCA5A5;font-style:normal;font-weight:600}
+.hist-tip-vs.low{color:#86EFAC;font-style:normal;font-weight:600}
+.hist-tip-admin{margin-top:6px;font-size:10.5px;color:rgba(255,255,255,.6);letter-spacing:.04em;text-transform:uppercase;font-weight:600}
+
+/* ---------- Legend (plain language) ---------- */
+.hist-legend{margin-top:24px;padding:20px 22px;background:var(--slate-50);border-radius:12px;border:1px solid var(--slate-200)}
+.hist-legend-h{font-family:var(--fh);font-size:13px;font-weight:800;color:var(--slate-900);letter-spacing:-.005em;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.hist-legend-h::before{content:'?';display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;background:var(--insti-orange);color:#fff;border-radius:50%;font-size:12px;font-weight:800}
+.hist-legend-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:14px 24px}
+.hist-legend-item{display:flex;gap:11px;align-items:flex-start;font-size:13px;line-height:1.55;color:var(--slate-700)}
+.hist-legend-item-ico{flex-shrink:0;width:22px;height:22px;border-radius:6px;background:var(--insti-orange);display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:800;margin-top:1px}
+.hist-legend-item-ico.bar{background:linear-gradient(180deg,var(--insti-orange-l) 0%,var(--insti-orange-d) 100%)}
+.hist-legend-item-ico.line{background:transparent;border:0;position:relative}
+.hist-legend-item-ico.line::after{content:'';position:absolute;left:0;right:0;top:50%;height:0;border-top:2px dashed var(--avg-blue)}
+.hist-legend-item-ico.band{background:linear-gradient(180deg,#6366F1 0%,#4338CA 100%);font-size:0}
+.hist-legend-item-ico.empty{background:repeating-linear-gradient(45deg,#F1F5F9,#F1F5F9 4px,#FAFAFA 4px,#FAFAFA 8px);border:1.5px dashed var(--slate-200);font-size:0}
+.hist-legend-item strong{color:var(--slate-900);font-weight:700}
+
+/* ---------- Ranking dual ---------- */
+.hist-double{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+@media(max-width:720px){.hist-double{grid-template-columns:1fr}}
+.hist-rank-card{background:#fff;border-radius:14px;border:1px solid var(--slate-200);box-shadow:0 1px 2px rgba(15,23,42,.04),0 4px 12px rgba(15,23,42,.03);padding:24px 26px 22px}
+.hist-rank-h{font-size:14.5px;font-weight:800;color:var(--slate-900);margin-bottom:16px;display:flex;align-items:center;gap:11px;letter-spacing:-.008em;padding-bottom:14px;border-bottom:1px solid var(--slate-100)}
+.hist-rank-h-ico{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:8px;font-size:14px;font-weight:800}
+.hist-rank-list{list-style:none;display:flex;flex-direction:column;gap:0;padding:0;margin:0;counter-reset:rk}
+.hist-rank-item{display:grid;grid-template-columns:34px 1fr auto;align-items:center;gap:14px;padding:14px 4px;border-bottom:1px dashed var(--slate-100);counter-increment:rk;transition:background .12s}
+.hist-rank-item:last-child{border-bottom:none}
+.hist-rank-item:hover{background:var(--slate-50)}
+.hist-rank-item-pos{font-family:var(--fh);font-size:14px;font-weight:800;color:var(--slate-400);letter-spacing:-.02em}
+.hist-rank-item-pos::before{content:counter(rk)}
+.hist-rank-item-yr{font-family:var(--fh);font-size:15px;font-weight:700;color:var(--slate-900);letter-spacing:-.01em}
+.hist-rank-item-yr-sub{display:block;font-size:11px;font-weight:500;color:var(--slate-500);margin-top:2px;letter-spacing:0}
+.hist-rank-item-amt{font-family:var(--fh);font-size:14px;font-weight:800;color:var(--slate-900);text-align:right;font-variant-numeric:tabular-nums;letter-spacing:-.015em}
+
+/* ---------- Insights ---------- */
+
+@media(max-width:780px){
+  .hist-plot{height:320px}
+  .hist-bars,.hist-xaxis,.hist-periods{gap:4px}
+  .hist-periods{--bgap:4px}
+  .hist-bar-val{font-size:9.5px;margin-bottom:5px}
+  .hist-xaxis-yr{font-size:10px}
+  .hist-yaxis{width:46px}
+  .hist-yaxis-tick{font-size:9.5px}
+  .hist-plot,.hist-xaxis,.hist-periods{margin-left:46px}
+  .hist-tip{min-width:180px;font-size:11px}
+  .hist-card{padding:22px 18px}
+  .hist-rank-item{grid-template-columns:26px 1fr auto;gap:10px;padding:12px 2px}
+  .hist-rank-item-yr{font-size:13.5px}
+  .hist-rank-item-amt{font-size:12.5px}
+  .hist-period{font-size:9.5px;padding:6px 3px}
+}
+
+/* CHART */
+.chart-card{background:var(--wh);border-radius:var(--rad);box-shadow:var(--sh);padding:22px 24px 18px;margin-bottom:20px}
+.chart-head{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;margin-bottom:14px}
+.chart-title{font-size:16px;font-weight:700;color:var(--g900)}
+.chart-sub{font-size:12px;color:var(--g400);margin-top:3px}
+.chart-toggle{display:flex;gap:6px}
+
+/* ARCHIVOS OFICIALES POR MES */
+.archivos-fyear{padding:6px 12px;border-radius:6px;border:1.5px solid var(--g200);background:var(--wh);font-size:11.5px;font-weight:600;cursor:pointer;font-family:var(--fh);transition:all .15s;color:var(--g600)}
+.archivos-fyear:hover{border-color:var(--nr);color:var(--nr)}
+.archivos-fyear.active{background:var(--nr);color:#fff;border-color:var(--nr)}
+.arch-card{background:var(--wh);border:1.5px solid var(--g200);border-radius:8px;padding:10px 12px;cursor:pointer;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:5px;transition:all .15s;font-family:var(--fh);position:relative;overflow:hidden}
+.arch-card:hover{border-color:var(--nr);transform:translateY(-2px);box-shadow:0 4px 12px rgba(232,119,34,.15)}
+.arch-card.estado-sin{border-color:var(--g200);background:linear-gradient(135deg,#FFFBF5 0%,#FFF 70%)}
+.arch-card.estado-pendiente{border:1.5px dashed var(--g200);background:repeating-linear-gradient(45deg,#FAFAF8,#FAFAF8 6px,#F0F0EC 6px,#F0F0EC 7px);cursor:not-allowed;opacity:.7}
+.arch-card.estado-pendiente:hover{transform:none;box-shadow:none}
+.arch-head{display:flex;align-items:center;justify-content:space-between;gap:6px}
+.arch-mes-yr{font-family:var(--fm);font-size:10.5px;font-weight:700;color:var(--g600);letter-spacing:.04em;text-transform:uppercase}
+.arch-tipo-tag{display:inline-flex;align-items:center;font-size:9px;font-weight:800;letter-spacing:.06em;padding:2px 7px;border-radius:999px;text-transform:uppercase}
+.arch-tipo-tag.excel{background:#DCFCE7;color:#166534}
+.arch-tipo-tag.pdf{background:#FEE2E2;color:#991B1B}
+.arch-tipo-tag.pendiente{background:#F0F0EC;color:#5A5A55}
+.arch-monto{font-family:var(--fm);font-size:14px;font-weight:800;color:var(--nr-d);line-height:1.1}
+.arch-monto.cero{color:var(--g600);font-size:12px;font-style:italic;font-weight:600}
+.arch-monto.pendiente{color:var(--g600);font-size:11px;font-style:italic;font-weight:600}
+.arch-foot{font-size:10px;color:var(--g400);display:flex;justify-content:space-between;align-items:center;border-top:1px dashed var(--g100);padding-top:5px}
+.arch-foot-link{color:var(--nr-d);font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:9.5px}
+.arch-card.estado-pendiente .arch-foot-link{color:var(--g400)}
+
+
+/* FOOTER */
+.footer{text-align:center;padding:28px 20px;border-top:1px solid var(--g200);margin-top:20px}
+.footer p{font-size:11.5px;color:var(--g400)}
+.footer a{color:var(--nr);text-decoration:none}
+
+@media(max-width:700px){
+  .hero{padding:28px 16px 24px}.main{padding:16px 10px 40px}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hi">
+    <div class="bc">Transparencia Guadalajara &bull; Gobierno Municipal</div>
+    <div class="badge">Art. 8 &bull; Fracc. V &bull; Inc. j)</div>
+    <h1>Gastos de Comunicaci&oacute;n Social</h1>
+    <p>Cu&aacute;nto destina el Ayuntamiento de Guadalajara a <strong>difusi&oacute;n, publicidad y campa&ntilde;as institucionales</strong> &mdash; con la serie hist&oacute;rica completa de <strong>2011 a 2026</strong> y los reportes mensuales oficiales publicados por la <strong>Tesorer&iacute;a Municipal</strong>. Cada Excel contiene proveedor, RFC, factura, fecha, monto, partida y justificaci&oacute;n.</p>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- ============================================================
+       COMPARATIVO HISTÓRICO ANUAL 2011–2026
+       Datos verificados textualmente contra el portal oficial:
+       https://enlinea.guadalajara.gob.mx/tesoreria/comparativoAnteriores.php
+       ⚠️ NO MODIFICAR cifras sin re-validar contra la fuente.
+       ============================================================ -->
+
+  <!-- 3 KPIs ciudadanos -->
+  <div class="histkpi-grid">
+    <div class="histkpi histkpi-max">
+      <div class="histkpi-tag"><span class="histkpi-tag-dot"></span>Mayor gasto hist&oacute;rico</div>
+      <div class="histkpi-val" id="hk-max">$0</div>
+      <div class="histkpi-yr" id="hk-max-yr">Ejercicio fiscal &mdash;</div>
+      <div class="histkpi-admin" id="hk-max-admin">&mdash;</div>
+    </div>
+    <div class="histkpi histkpi-min">
+      <div class="histkpi-tag"><span class="histkpi-tag-dot"></span>Menor gasto hist&oacute;rico</div>
+      <div class="histkpi-val" id="hk-min">$0</div>
+      <div class="histkpi-yr" id="hk-min-yr">Ejercicio fiscal &mdash;</div>
+      <div class="histkpi-admin" id="hk-min-admin">&mdash;</div>
+    </div>
+    <div class="histkpi histkpi-avg">
+      <div class="histkpi-tag"><span class="histkpi-tag-dot"></span>Promedio anual hist&oacute;rico</div>
+      <div class="histkpi-val" id="hk-avg">$0</div>
+      <div class="histkpi-yr">Calculado sobre <strong>15 ejercicios</strong></div>
+      <div class="histkpi-admin">Periodo 2011 al 2025 con registros</div>
+    </div>
+  </div>
+
+  <!-- GRÁFICA HISTÓRICA -->
+  <div class="hist-card">
+    <div class="hist-head">
+      <div class="hist-eyebrow">Comparativo 2011 &ndash; 2026</div>
+      <h2 class="hist-title">El gasto en comunicaci&oacute;n social, a&ntilde;o por a&ntilde;o</h2>
+      <p class="hist-sub">Cada barra muestra cu&aacute;nto erog&oacute; el Ayuntamiento de Guadalajara en <strong>difusi&oacute;n, publicidad y campa&ntilde;as institucionales</strong> durante ese ejercicio fiscal. Los a&ntilde;os est&aacute;n agrupados visualmente por el periodo de la administraci&oacute;n municipal que los gestion&oacute;, sin atribuci&oacute;n a personas en particular.</p>
+    </div>
+
+    <div class="hist-chart">
+      <div class="hist-yaxis" id="hist-yaxis"></div>
+      <div class="hist-plot">
+        <div class="hist-gridlines" id="hist-gridlines"></div>
+        <div class="hist-avg-line" id="hist-avg-line" aria-label="L&iacute;nea de promedio anual hist&oacute;rico"></div>
+        <div class="hist-bars" id="hist-bars" role="list" aria-label="Gasto anual en comunicaci&oacute;n social 2011 a 2026"></div>
+      </div>
+      <div class="hist-xaxis" id="hist-xaxis"></div>
+      <div class="hist-periods" id="hist-periods" aria-label="Periodos de administraci&oacute;n municipal"></div>
+    </div>
+
+    <!-- Legend ciudadana en lenguaje plano -->
+    <div class="hist-legend">
+      <div class="hist-legend-h">C&oacute;mo leer esta gr&aacute;fica en 30 segundos</div>
+      <div class="hist-legend-grid">
+        <div class="hist-legend-item">
+          <span class="hist-legend-item-ico bar">$</span>
+          <span>Cada barra es <strong>un a&ntilde;o fiscal completo</strong> (de enero a diciembre). Su altura representa el monto total erogado ese a&ntilde;o.</span>
+        </div>
+        <div class="hist-legend-item">
+          <span class="hist-legend-item-ico band">A</span>
+          <span>El <strong>color de cada grupo de barras</strong> corresponde a la administraci&oacute;n municipal del periodo. Las bandas inferiores te indican qu&eacute; a&ntilde;os van juntos.</span>
+        </div>
+        <div class="hist-legend-item">
+          <span class="hist-legend-item-ico line"></span>
+          <span>La <strong>l&iacute;nea azul punteada</strong> marca el promedio anual de los 15 ejercicios con datos. Las barras arriba de la l&iacute;nea gastaron por encima de lo t&iacute;pico; abajo, por debajo.</span>
+        </div>
+        <div class="hist-legend-item">
+          <span class="hist-legend-item-ico empty"></span>
+          <span>La barra <strong>rayada</strong> corresponde a un ejercicio sin registros publicados (en curso o pendiente de cierre).</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RANKING + LECTURA CIUDADANA -->
+  <div class="hist-double">
+    <div class="hist-rank-card">
+      <div class="hist-rank-h">
+        <span class="hist-rank-h-ico" style="background:#FEE2E2;color:#991B1B" aria-hidden="true">&#9650;</span>
+        <span>Los 5 a&ntilde;os con <strong>mayor gasto</strong></span>
+      </div>
+      <ol class="hist-rank-list" id="hist-rank-top"></ol>
+    </div>
+    <div class="hist-rank-card">
+      <div class="hist-rank-h">
+        <span class="hist-rank-h-ico" style="background:#DCFCE7;color:#166534" aria-hidden="true">&#9660;</span>
+        <span>Los 5 a&ntilde;os con <strong>menor gasto</strong></span>
+      </div>
+      <ol class="hist-rank-list" id="hist-rank-bottom"></ol>
+    </div>
+  </div>
+
+
+
+  <!-- ============ ARCHIVOS OFICIALES POR MES (Tesorería Municipal) ============ -->
+  <div class="chart-card" style="margin-top:24px">
+    <div class="chart-head">
+      <div>
+        <div class="chart-title">Reportes mensuales descargables &middot; Tesorer&iacute;a Municipal</div>
+        <div class="chart-sub">El desglose completo del gasto (proveedor, RFC, factura, fecha, monto, partida y justificaci&oacute;n) se publica en archivos oficiales <strong>mes por mes</strong> directamente por la Tesorer&iacute;a del Ayuntamiento. Cada <strong>Excel</strong> contiene los registros del periodo y cada <strong>Oficio PDF</strong> certifica los meses sin ejercicio de gasto. Filtra por a&ntilde;o y haz clic en cualquier tarjeta para descargar el reporte. <strong>52 archivos catalogados</strong>.</div>
+      </div>
+      <div class="chart-toggle" id="archivosFiltro" role="tablist" aria-label="Filtrar archivos por a&ntilde;o">
+        <button class="archivos-fyear active" data-fyear="all">Todos</button>
+        <button class="archivos-fyear" data-fyear="2026">2026</button>
+        <button class="archivos-fyear" data-fyear="2025">2025</button>
+        <button class="archivos-fyear" data-fyear="2024">2024</button>
+        <button class="archivos-fyear" data-fyear="2023">2023</button>
+        <button class="archivos-fyear" data-fyear="2022">2022</button>
+      </div>
+    </div>
+    <div id="archivosGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,210px),1fr));gap:10px"></div>
+    <div style="margin-top:14px;padding:10px 14px;background:var(--g50);border-left:3px solid var(--nr);border-radius:6px;font-size:11.5px;color:var(--g600);line-height:1.55">
+      <strong style="color:var(--g900)">&iquest;C&oacute;mo leer estas tarjetas?</strong>
+      Cada tarjeta corresponde a <strong>un mes de un ejercicio fiscal</strong>. Una etiqueta verde &laquo;Excel&raquo; significa que ese mes hubo gasto registrado y el archivo contiene el detalle por proveedor. Una etiqueta roja &laquo;PDF&raquo; significa que la Tesorer&iacute;a emiti&oacute; un oficio certificando que en ese mes <strong>no se ejerci&oacute; gasto</strong> en comunicaci&oacute;n social. Si una tarjeta aparece con franjas grises, el reporte de ese mes a&uacute;n est&aacute; pendiente de publicaci&oacute;n.
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Gobierno Municipal de Guadalajara &bull; Portal de Transparencia &bull; <a href="https://transparencia.guadalajara.gob.mx" target="_blank">transparencia.guadalajara.gob.mx</a></p>
+    <p style="margin-top:5px">Art&iacute;culo 8, Fracci&oacute;n V, Inciso j) &mdash; Ley de Transparencia y Acceso a la Informaci&oacute;n P&uacute;blica del Estado de Jalisco y sus Municipios</p>
+    <p style="margin-top:5px">Fuente oficial &mdash; reportes mensuales: <a href="https://enlinea.guadalajara.gob.mx/tesoreria/presupuestalComunicacionSocial.php" target="_blank" rel="noopener">enlinea.guadalajara.gob.mx/tesoreria/presupuestalComunicacionSocial.php</a></p>
+    <p style="margin-top:5px">Fuente oficial &mdash; comparativo hist&oacute;rico (partida 3611): <a href="https://enlinea.guadalajara.gob.mx/tesoreria/comparativoAnteriores.php" target="_blank" rel="noopener">enlinea.guadalajara.gob.mx/tesoreria/comparativoAnteriores.php</a></p>
+    <p style="margin-top:5px;font-size:10.5px;color:var(--g400)">Si una cifra aqu&iacute; mostrada discrepa con el portal oficial, prevalece el portal oficial.</p>
+  </div>
+</div>
+
+<script>
+
+/* =================================================================
+   DATOS HISTÓRICOS ANUALES 2011–2026
+   Fuente: enlinea.guadalajara.gob.mx/tesoreria/comparativoAnteriores.php
+   Validado contra el HTML oficial el 21 de mayo de 2026.
+   ⚠️ NO MODIFICAR sin re-validar contra la fuente.
+================================================================= */
+const HIST_ANUAL = [
+  { yr:'2011', amt:106011310.07 },
+  { yr:'2012', amt:78441183.42 },
+  { yr:'2013', amt:53880425.63 },
+  { yr:'2014', amt:68211335.43 },
+  { yr:'2015', amt:50969586.73 },
+  { yr:'2016', amt:38840420.15 },
+  { yr:'2017', amt:72144894.60 },
+  { yr:'2018', amt:28353572.92 },
+  { yr:'2019', amt:28904635.71 },
+  { yr:'2020', amt:9336787.00 },
+  { yr:'2021', amt:29905880.39 },
+  { yr:'2022', amt:35208313.51 },
+  { yr:'2023', amt:52755750.25 },
+  { yr:'2024', amt:41830269.69 },
+  { yr:'2025', amt:49820711.24 },
+  { yr:'2026', amt:0.00 }
+];
+const HIST_CURRENT_YR = '2026';
+const HIST_ANIO_INCOMPLETO_NOTA = 'El ejercicio 2026 a&uacute;n est&aacute; en curso y aparece en cero porque no se han registrado erogaciones por concepto de comunicaci&oacute;n social al cierre del periodo informado en el portal oficial.';
+
+/* Periodos administrativos (información pública, SIN nombrar funcionarios). */
+const HIST_PERIODOS = [
+  { id:1, ini:2010, fin:2012, label:'Administración 2010–2012', cols:'2011 2012' },
+  { id:2, ini:2012, fin:2015, label:'Administración 2012–2015', cols:'2013 2014 2015' },
+  { id:3, ini:2015, fin:2018, label:'Administración 2015–2018', cols:'2016 2017 2018' },
+  { id:4, ini:2018, fin:2021, label:'Administración 2018–2021', cols:'2019 2020 2021' },
+  { id:5, ini:2021, fin:2024, label:'Administración 2021–2024', cols:'2022 2023 2024' },
+  { id:6, ini:2024, fin:2027, label:'Administración 2024–2027', cols:'2025 2026' }
+];
+
+function adminForYear(yr){
+  const yrNum = parseInt(yr, 10);
+  return HIST_PERIODOS.find(p => yrNum >= p.ini && yrNum < p.fin);
+}
+
+function fmtCurrency(n){
+  return n.toLocaleString('es-MX',{style:'currency',currency:'MXN',maximumFractionDigits:2});
+}
+function fmtCurrencyShort(n){
+  if(n >= 1e9) return '$' + (n/1e9).toFixed(2).replace(/\.?0+$/,'') + ' MMDP';
+  if(n >= 1e6) return '$' + (n/1e6).toFixed(2).replace(/\.?0+$/,'') + ' MDP';
+  if(n >= 1e3) return '$' + (n/1e3).toFixed(0) + 'K';
+  return '$' + n.toFixed(0);
+}
+
+/* Color de admin para tooltip dot (matches CSS .adm-N) */
+const ADMIN_TIP_COLORS = {
+  1:'#475569', 2:'#4338CA', 3:'#0F766E', 4:'#92400E', 5:'#9F1239', 6:'#C45F0A'
+};
+
+function renderHistorical(){
+  const conRegistros = HIST_ANUAL.filter(d => d.amt > 0);
+  const amounts = conRegistros.map(d => d.amt);
+  const max = Math.max(...amounts);
+  const min = Math.min(...amounts);
+  const avg = amounts.reduce((s,a) => s+a, 0) / amounts.length;
+  const maxRow = conRegistros.find(d => d.amt === max);
+  const minRow = conRegistros.find(d => d.amt === min);
+  const maxAdmin = adminForYear(maxRow.yr);
+  const minAdmin = adminForYear(minRow.yr);
+
+  // Escala Y dinámica (redondeada al múltiplo de 10M arriba)
+  const scaleTop = Math.ceil(max / 10000000) * 10000000;
+  const ticks = 5;
+  const step = scaleTop / ticks;
+
+  // KPIs (3 cards)
+  const $$$ = (id) => document.getElementById(id);
+  $$$('hk-max').textContent = fmtCurrencyShort(max);
+  $$$('hk-max').setAttribute('title', fmtCurrency(max));
+  $$$('hk-max-yr').innerHTML = 'Ejercicio fiscal <strong>' + maxRow.yr + '</strong>';
+  $$$('hk-max-admin').textContent = maxAdmin.label;
+  $$$('hk-min').textContent = fmtCurrencyShort(min);
+  $$$('hk-min').setAttribute('title', fmtCurrency(min));
+  $$$('hk-min-yr').innerHTML = 'Ejercicio fiscal <strong>' + minRow.yr + '</strong>';
+  $$$('hk-min-admin').textContent = minAdmin.label;
+  $$$('hk-avg').textContent = fmtCurrencyShort(avg);
+  $$$('hk-avg').setAttribute('title', fmtCurrency(avg));
+  // Tooltip de accesibilidad sobre la línea de promedio (sin badge visible)
+  $$$('hist-avg-line').setAttribute('title', 'Promedio anual histórico: ' + fmtCurrency(avg));
+
+  // Y axis ticks
+  let yaxisHTML = '';
+  for(let i = ticks; i >= 0; i--){
+    yaxisHTML += `<span class="hist-yaxis-tick">${fmtCurrencyShort(step * i)}</span>`;
+  }
+  $$$('hist-yaxis').innerHTML = yaxisHTML;
+
+  // Gridlines
+  let gridHTML = '';
+  for(let i = 0; i <= ticks; i++){
+    const bottomPct = (i / ticks) * 100;
+    const cls = i === 0 ? 'hist-gridline hist-gridline-zero' : 'hist-gridline';
+    gridHTML += `<div class="${cls}" style="bottom:${bottomPct}%"></div>`;
+  }
+  $$$('hist-gridlines').innerHTML = gridHTML;
+
+  // Average line
+  const avgPct = (avg / scaleTop) * 100;
+  $$$('hist-avg-line').style.bottom = avgPct + '%';
+
+  // Ranking
+  const ranked = [...conRegistros].sort((a,b) => b.amt - a.amt);
+  const rankMap = {};
+  ranked.forEach((d,i) => { rankMap[d.yr] = i + 1; });
+
+  // Bars (color por administración + tooltip edge-aware)
+  const total = HIST_ANUAL.length;
+  const barsHTML = HIST_ANUAL.map((d, idx) => {
+    const admin = adminForYear(d.yr);
+    const admCls = admin ? `adm-${admin.id}` : '';
+    const tipDotColor = admin ? ADMIN_TIP_COLORS[admin.id] : '#475569';
+
+    // Edge detection para el tooltip: izquierda en los primeros 2, derecha en los últimos 2
+    const edge = idx <= 1 ? 'left' : (idx >= total - 2 ? 'right' : 'center');
+    const edgeAttr = edge !== 'center' ? `data-edge="${edge}"` : '';
+
+    if(d.amt === 0){
+      return `
+        <div class="hist-bar-wrap" role="listitem">
+          <div class="hist-bar-val" style="opacity:.4">—</div>
+          <div class="hist-bar-empty" aria-label="${d.yr}: sin erogaciones registradas">
+            <span class="hist-bar-empty-lbl">En curso</span>
+            <div class="hist-tip" ${edgeAttr}>
+              <div class="hist-tip-h"><span class="hist-tip-h-dot" style="background:${tipDotColor}"></span>Ejercicio ${d.yr}</div>
+              <div class="hist-tip-row"><span>Monto erogado</span><strong>Sin registro</strong></div>
+              <div class="hist-tip-vs">Ejercicio en curso. Aún no se publican erogaciones por concepto de comunicación social al cierre del periodo informado.</div>
+              ${admin ? `<div class="hist-tip-admin">${admin.label}</div>` : ''}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+    const heightPct = (d.amt / scaleTop) * 100;
+    const rank = rankMap[d.yr];
+    const vsAvg = ((d.amt - avg) / avg) * 100;
+    const vsAvgClass = vsAvg >= 0 ? 'high' : 'low';
+    const vsAvgTxt = vsAvg >= 0
+      ? `▲ ${vsAvg.toFixed(1)}% sobre el promedio hist&oacute;rico`
+      : `▼ ${Math.abs(vsAvg).toFixed(1)}% bajo el promedio hist&oacute;rico`;
+
+    return `
+      <div class="hist-bar-wrap" role="listitem">
+        <div class="hist-bar-val">${fmtCurrencyShort(d.amt)}</div>
+        <div class="hist-bar ${admCls}" style="height:${heightPct}%" aria-label="${d.yr}: ${fmtCurrency(d.amt)}, ranking ${rank} de ${conRegistros.length}">
+          <div class="hist-tip" ${edgeAttr}>
+            <div class="hist-tip-h"><span class="hist-tip-h-dot" style="background:${tipDotColor}"></span>Ejercicio ${d.yr}</div>
+            <div class="hist-tip-row"><span>Erogaci&oacute;n total</span><strong>${fmtCurrency(d.amt)}</strong></div>
+            <div class="hist-tip-row"><span>Posici&oacute;n hist&oacute;rica</span><strong>${rank}&deg; de ${conRegistros.length}</strong></div>
+            <div class="hist-tip-vs ${vsAvgClass}">${vsAvgTxt}</div>
+            ${admin ? `<div class="hist-tip-admin">${admin.label}</div>` : ''}
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+  $$$('hist-bars').innerHTML = barsHTML;
+
+  // X axis (años)
+  $$$('hist-xaxis').innerHTML = HIST_ANUAL.map(d => {
+    const isCurr = d.yr === HIST_CURRENT_YR ? ' curr' : '';
+    return `<div class="hist-xaxis-yr${isCurr}">${d.yr}</div>`;
+  }).join('');
+
+  // Bandas de administración (sin nombres)
+  let periodsHTML = '';
+  HIST_ANUAL.forEach(d => {
+    const admin = adminForYear(d.yr);
+    if(!admin){ periodsHTML += `<div class="hist-period hist-period-empty"></div>`; return; }
+    const cols = admin.cols.split(' ');
+    const isFirst = cols[0] === d.yr;
+    if(isFirst){
+      const span = cols.length;
+      periodsHTML += `<div class="hist-period adm-${admin.id}" style="--cols:${span};grid-column:span ${span}">${admin.label}</div>`;
+    }
+  });
+  $$$('hist-periods').innerHTML = periodsHTML;
+
+  // Rankings (Top 5 mayor + Top 5 menor) — con admin sublabel
+  const top5 = ranked.slice(0, 5);
+  $$$('hist-rank-top').innerHTML = top5.map(d => {
+    const adm = adminForYear(d.yr);
+    return `
+      <li class="hist-rank-item">
+        <span class="hist-rank-item-pos"></span>
+        <span class="hist-rank-item-yr">${d.yr}<span class="hist-rank-item-yr-sub">${adm ? adm.label : '—'}</span></span>
+        <span class="hist-rank-item-amt">${fmtCurrency(d.amt)}</span>
+      </li>
+    `;
+  }).join('');
+
+  const bottomOrdered = [...ranked].slice(-5).reverse();
+  $$$('hist-rank-bottom').innerHTML = bottomOrdered.map(d => {
+    const adm = adminForYear(d.yr);
+    return `
+      <li class="hist-rank-item">
+        <span class="hist-rank-item-pos"></span>
+        <span class="hist-rank-item-yr">${d.yr}<span class="hist-rank-item-yr-sub">${adm ? adm.label : '—'}</span></span>
+        <span class="hist-rank-item-amt">${fmtCurrency(d.amt)}</span>
+      </li>
+    `;
+  }).join('');
+
+}
+
+renderHistorical();
+
+
+
+// ============ ARCHIVOS MENSUALES OFICIALES (Tesoreria Municipal) ============
+const ARCHIVOS_MENSUALES = [{"tipo":"PDF","estado":"sin_gasto","monto":0,"mes_nombre":"Enero","mes":1,"anio":2022,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/OficioGastosComunicacionSocialEnero2022.pdf"},{"tipo":"PDF","estado":"sin_gasto","monto":0,"mes_nombre":"Febrero","mes":2,"anio":2022,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/OficioGastosComunicacionSocialFebrero2022.pdf"},{"tipo":"PDF","estado":"sin_gasto","monto":0,"mes_nombre":"Marzo","mes":3,"anio":2022,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/OficioGastosComunicacionSocialMarzo2022.pdf"},{"tipo":"Excel","estado":"con_datos","monto":675000.01,"mes_nombre":"Abril","mes":4,"anio":2022,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Abril22.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":1999999.98,"mes_nombre":"Mayo","mes":5,"anio":2022,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Mayo22.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":2556240.43,"mes_nombre":"Junio","mes":6,"anio":2022,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Junio22.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":5927040.25,"mes_nombre":"Julio","mes":7,"anio":2022,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Julio22.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":4778899.75,"mes_nombre":"Agosto","mes":8,"anio":2022,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Agosto22.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":1990130.79,"mes_nombre":"Septiembre","mes":9,"anio":2022,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Septiembre22.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":9996836.82,"mes_nombre":"Octubre","mes":10,"anio":2022,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Octubre22.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":4643062.84,"mes_nombre":"Noviembre","mes":11,"anio":2022,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Noviembre22.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":2641102.64,"mes_nombre":"Diciembre","mes":12,"anio":2022,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Diciembre22.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":5827725.47,"mes_nombre":"Enero","mes":1,"anio":2023,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Enero23.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":2159952.92,"mes_nombre":"Febrero","mes":2,"anio":2023,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Febrero23.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":4569633.07,"mes_nombre":"Marzo","mes":3,"anio":2023,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Marzo23.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":8311630.44,"mes_nombre":"Abril","mes":4,"anio":2023,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Abril23.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":6110550.24,"mes_nombre":"Mayo","mes":5,"anio":2023,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Mayo23.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":1596489.83,"mes_nombre":"Junio","mes":6,"anio":2023,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Junio23.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":950230.63,"mes_nombre":"Julio","mes":7,"anio":2023,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Julio23.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":4518029.97,"mes_nombre":"Agosto","mes":8,"anio":2023,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Agosto23.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":2050082.38,"mes_nombre":"Septiembre","mes":9,"anio":2023,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Septiembre23.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":6369538.63,"mes_nombre":"Octubre","mes":10,"anio":2023,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Octubre23.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":4000995.24,"mes_nombre":"Noviembre","mes":11,"anio":2023,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Noviembre23.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":6290891.43,"mes_nombre":"Diciembre","mes":12,"anio":2023,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Diciembre23.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":3325481.12,"mes_nombre":"Enero","mes":1,"anio":2024,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Enero24.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":1950000.01,"mes_nombre":"Febrero","mes":2,"anio":2024,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Febrero24.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":1055555.54,"mes_nombre":"Marzo","mes":3,"anio":2024,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Marzo24.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":5728585.84,"mes_nombre":"Abril","mes":4,"anio":2024,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Abril24.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":7310418.82,"mes_nombre":"Mayo","mes":5,"anio":2024,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Mayo24.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":3457706.76,"mes_nombre":"Junio","mes":6,"anio":2024,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Junio24.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":6486753.79,"mes_nombre":"Julio","mes":7,"anio":2024,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Julio24.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":884318.71,"mes_nombre":"Agosto","mes":8,"anio":2024,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Agosto24.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":4427790.56,"mes_nombre":"Septiembre","mes":9,"anio":2024,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Septiembre24.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":7203658.54,"mes_nombre":"Octubre","mes":10,"anio":2024,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Octubre24.xlsx"},{"tipo":"PDF","estado":"sin_gasto","monto":0,"mes_nombre":"Noviembre","mes":11,"anio":2024,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/OficioGastosComunicacionSocialNoviembre24.pdf"},{"tipo":"PDF","estado":"sin_gasto","monto":0,"mes_nombre":"Diciembre","mes":12,"anio":2024,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/OficioGastosComunicacionSocialDiciembre24.pdf"},{"tipo":"Excel","estado":"con_datos","monto":1211204.94,"mes_nombre":"Enero","mes":1,"anio":2025,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Enero25.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":937375.47,"mes_nombre":"Febrero","mes":2,"anio":2025,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Febrero25.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":1649412.96,"mes_nombre":"Marzo","mes":3,"anio":2025,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Marzo25.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":2980287.3,"mes_nombre":"Abril","mes":4,"anio":2025,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Abril25.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":1998963.82,"mes_nombre":"Mayo","mes":5,"anio":2025,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Mayo25.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":8785388.75,"mes_nombre":"Junio","mes":6,"anio":2025,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Junio25.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":3660232.31,"mes_nombre":"Julio","mes":7,"anio":2025,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Julio25.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":6608403.95,"mes_nombre":"Agosto","mes":8,"anio":2025,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Agosto25.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":1009138.8,"mes_nombre":"Septiembre","mes":9,"anio":2025,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Septiembre25.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":8745790.42,"mes_nombre":"Octubre","mes":10,"anio":2025,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Octubre25.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":7747911.52,"mes_nombre":"Noviembre","mes":11,"anio":2025,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Noviembre25.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":4486601,"mes_nombre":"Diciembre","mes":12,"anio":2025,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Diciembre25.xlsx"},{"tipo":"PDF","estado":"sin_gasto","monto":0,"mes_nombre":"Enero","mes":1,"anio":2026,"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/OficioGastosComunicacionSocialEnero26.pdf"},{"tipo":"PDF","estado":"sin_gasto","monto":0,"mes_nombre":"Febrero","mes":2,"anio":2026,"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/OficioGastosComunicacionSocialFebrero26.pdf"},{"tipo":"PDF","estado":"sin_gasto","monto":0,"mes_nombre":"Marzo","mes":3,"anio":2026,"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/OficioGastosComunicacionSocialMarzo26.pdf"},{"tipo":"PDF","estado":"sin_gasto","monto":0,"mes_nombre":"Abril","mes":4,"anio":2026,"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/OficioAnalisisComunicacionEstrategicaAbril26.pdf"}];
+
+let archivosFiltroAnio = 'all';
+
+function fmtMonto(n){ if(n === 0) return ''; return '$' + n.toLocaleString('es-MX',{minimumFractionDigits:2,maximumFractionDigits:2}); }
+
+function renderArchivos(){
+  const grid = document.getElementById('archivosGrid');
+  if(!grid) return;
+  let filtrados = ARCHIVOS_MENSUALES;
+  if(archivosFiltroAnio !== 'all'){
+    filtrados = filtrados.filter(a => String(a.anio) === String(archivosFiltroAnio));
+  }
+  // Ordenar: año descendente, luego mes ascendente
+  filtrados = filtrados.slice().sort((a,b) => {
+    if(a.anio !== b.anio) return b.anio - a.anio;
+    return a.mes - b.mes;
+  });
+  if(filtrados.length === 0){
+    grid.innerHTML = '<div style="grid-column:1/-1;padding:20px;text-align:center;color:#9E9E98">No hay archivos para este año.</div>';
+    return;
+  }
+  grid.innerHTML = filtrados.map(a => {
+    const isExcel = a.tipo === 'Excel';
+    const isPending = a.estado === 'pendiente_publicacion';
+    const isCero = a.monto === 0 && !isPending;
+    const tipoTag = isPending ? 'pendiente' : (isExcel ? 'excel' : 'pdf');
+    const tipoLbl = isPending ? 'Pendiente' : (isExcel ? 'Excel' : 'PDF');
+    const cardClass = 'arch-card ' + (isPending ? 'estado-pendiente' : (isCero ? 'estado-sin' : ''));
+    const montoLbl = isPending
+      ? '<div class="arch-monto pendiente">Pendiente de publicación</div>'
+      : (isCero
+        ? '<div class="arch-monto cero">No se ejerció gasto</div>'
+        : '<div class="arch-monto">' + fmtMonto(a.monto) + '</div>');
+    const linkLbl = isPending ? 'No disponible' : (isExcel ? 'Descargar Excel →' : 'Ver Oficio PDF →');
+    const wrapper = isPending
+      ? '<div class="' + cardClass + '" title="Este archivo aún no está publicado en el portal oficial">'
+      : '<a class="' + cardClass + '" href="' + a.url + '" target="_blank" rel="noopener">';
+    const wrapperEnd = isPending ? '</div>' : '</a>';
+    return wrapper +
+      '<div class="arch-head"><span class="arch-mes-yr">' + a.mes_nombre + ' ' + a.anio + '</span><span class="arch-tipo-tag ' + tipoTag + '">' + tipoLbl + '</span></div>' +
+      montoLbl +
+      '<div class="arch-foot"><span>Oficial Tesorería</span><span class="arch-foot-link">' + linkLbl + '</span></div>' +
+      wrapperEnd;
+  }).join('');
+}
+
+document.getElementById('archivosFiltro').addEventListener('click', e => {
+  const b = e.target.closest('.archivos-fyear');
+  if(!b) return;
+  document.querySelectorAll('.archivos-fyear').forEach(x => x.classList.remove('active'));
+  b.classList.add('active');
+  archivosFiltroAnio = b.dataset.fyear;
+  renderArchivos();
+});
+
+renderArchivos();
+</script>
+</body>
+</html>
