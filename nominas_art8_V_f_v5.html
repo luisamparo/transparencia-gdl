@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Base de datos completa de remuneraciones del personal del Ayuntamiento de Guadalajara — Art. 8 Frac. V Inc. f) Ley de Transparencia Jalisco. Cubre 2023–2026.">
+<title>Remuneraciones · Base de Datos · Transparencia GDL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --o:#F26522;--od:#D4531A;--ol:#FDE8D8;--oxl:#FEF4EE;
+  --n:#1A1A1A;--ng:#3D3D3D;--nm:#6B6B6B;--nc:#F7F6F2;--nb:#E8E6DF;--w:#FFFFFF;
+  --ok:#1D9E75;--warn:#C8323F;--coord:#6450A0;--blue:#2563EB;--pink:#DB2777;--teal:#0E7490;
+  --font:'Outfit',system-ui,sans-serif;
+  --ease:cubic-bezier(.4,0,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--nc);color:var(--n);-webkit-font-smoothing:antialiased;font-size:13px;min-height:100vh}
+
+/* ── HEADER ── */
+.hdr{background:linear-gradient(135deg,var(--o) 0%,var(--od) 100%);color:#fff;padding:.85rem 1.25rem;position:relative}
+.hdr-in{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+.hdr-left{display:flex;flex-direction:column;gap:.1rem;min-width:0}
+.hdr-eye{font-size:.55rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.75}
+.hdr-title{font-size:1rem;font-weight:800;line-height:1.2}
+.hdr-badges{display:flex;gap:.3rem;flex-wrap:wrap;align-items:center;margin-top:.2rem}
+.hdr-badge{display:inline-flex;align-items:center;gap:.25rem;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);font-size:.6rem;font-weight:700;padding:.2rem .5rem;border-radius:999px;line-height:1}
+.hdr-dl{display:inline-flex;align-items:center;gap:.3rem;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.4);color:#fff;font-size:.7rem;font-weight:700;padding:.4rem .8rem;border-radius:8px;text-decoration:none;transition:background .15s}
+.hdr-dl:hover{background:rgba(255,255,255,.32)}
+
+/* ── PERIOD SELECTOR (top bar) ── */
+.period-bar{background:linear-gradient(180deg,#FEF4EE 0%,var(--w) 100%);border-bottom:1.5px solid var(--ol);padding:.7rem 1.25rem;display:flex;align-items:center;gap:.8rem;flex-wrap:wrap}
+.period-bar-lbl{font-size:.6rem;font-weight:800;color:var(--od);text-transform:uppercase;letter-spacing:.1em;display:flex;align-items:center;gap:.3rem}
+.period-bar-lbl svg{flex-shrink:0}
+.period-sel{flex:1;min-width:16rem;max-width:32rem;padding:.55rem .8rem;border:1.5px solid var(--ol);background:var(--w);color:var(--n);border-radius:8px;font-size:.85rem;font-weight:600;font-family:var(--font);cursor:pointer;transition:all .15s;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23F26522' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'/%3e%3c/svg%3e");background-repeat:no-repeat;background-position:right .8rem center;padding-right:2.2rem}
+.period-sel:focus{outline:none;border-color:var(--o);box-shadow:0 0 0 3px rgba(242,101,34,.12)}
+.period-sel optgroup{font-weight:800;color:var(--od);background:var(--oxl)}
+.period-sel option{font-weight:500;color:var(--n);padding:.3rem}
+.period-quick{display:flex;gap:.25rem;flex-wrap:wrap}
+.period-quick button{padding:.35rem .7rem;border:1.5px solid var(--ol);background:var(--w);color:var(--od);border-radius:999px;font-size:.65rem;font-weight:700;font-family:var(--font);cursor:pointer;transition:all .12s;text-transform:uppercase;letter-spacing:.04em}
+.period-quick button:hover{background:var(--oxl);border-color:var(--o)}
+.period-quick button.active{background:var(--o);border-color:var(--o);color:#fff}
+
+/* ── TOOLBAR ── */
+.toolbar{background:var(--w);border-bottom:1.5px solid var(--nb);padding:.55rem 1.25rem;position:sticky;top:0;z-index:80;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.toolbar-in{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+.srch-wrap{flex:1 1 14rem;position:relative;max-width:34rem}
+.srch-ico{position:absolute;left:.65rem;top:50%;transform:translateY(-50%);color:var(--nm);pointer-events:none}
+.srch{width:100%;padding:.5rem .75rem .5rem 2rem;border:1.5px solid var(--nb);border-radius:8px;font-size:.78rem;font-family:var(--font);background:var(--nc);color:var(--n);transition:border-color .15s,box-shadow .15s}
+.srch:focus{outline:none;border-color:var(--o);background:var(--w);box-shadow:0 0 0 3px rgba(242,101,34,.12)}
+.srch:disabled{opacity:.5;cursor:not-allowed}
+.count{font-size:.7rem;font-weight:600;color:var(--nm);white-space:nowrap}
+
+/* ── FILTROS ── */
+.filters{background:var(--w);border-bottom:1px solid var(--nb);padding:.4rem 1.25rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+.flbl{font-size:.55rem;font-weight:800;color:var(--nm);text-transform:uppercase;letter-spacing:.08em;margin-right:.15rem}
+.flt-grp{display:flex;gap:.25rem;flex-wrap:wrap;align-items:center}
+.chip{padding:.25rem .65rem;border:1.5px solid var(--nb);background:var(--w);color:var(--ng);border-radius:999px;font-size:.65rem;font-weight:600;cursor:pointer;transition:all .12s;font-family:var(--font);line-height:1.2}
+.chip:hover{border-color:var(--o);color:var(--o)}
+.chip[aria-pressed="true"]{background:var(--o);border-color:var(--o);color:#fff}
+.chip.tp-ba[aria-pressed="true"]{background:var(--blue);border-color:var(--blue)}
+.chip.tp-cf[aria-pressed="true"]{background:var(--coord);border-color:var(--coord)}
+.chip.tp-sn[aria-pressed="true"]{background:var(--teal);border-color:var(--teal)}
+.chip.tp-pt[aria-pressed="true"]{background:var(--ok);border-color:var(--ok)}
+.chip:disabled{opacity:.4;cursor:not-allowed}
+.area-sel{padding:.32rem .55rem;border:1.5px solid var(--nb);background:var(--w);color:var(--ng);border-radius:6px;font-size:.7rem;font-weight:600;cursor:pointer;font-family:var(--font);max-width:18rem}
+.area-sel:focus{outline:none;border-color:var(--o)}
+.area-sel:disabled{opacity:.5;cursor:not-allowed}
+
+/* ── TABLA ── */
+.tbl-wrap{padding:.6rem .75rem 1rem;overflow-x:auto}
+table{width:100%;border-collapse:collapse;background:var(--w);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.05);font-size:.72rem}
+thead{background:var(--nc);position:sticky;top:0;z-index:5}
+thead th{padding:.55rem .55rem;text-align:left;font-size:.6rem;font-weight:800;color:var(--nm);text-transform:uppercase;letter-spacing:.04em;border-bottom:2px solid var(--nb);cursor:default;user-select:none;white-space:nowrap}
+thead th[data-sort]{cursor:pointer}
+thead th[data-sort]:hover{color:var(--o)}
+thead th .arrow{font-size:.5rem;margin-left:.15rem;opacity:.35}
+thead th.sorted{color:var(--o)}
+thead th.sorted .arrow{opacity:1}
+thead th.numeric{text-align:right}
+tbody tr{border-bottom:1px solid var(--nb);transition:background .1s}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:var(--oxl)}
+tbody tr:nth-child(even){background:rgba(247,246,242,.4)}
+tbody tr:nth-child(even):hover{background:var(--oxl)}
+tbody td{padding:.42rem .55rem;vertical-align:middle;line-height:1.35}
+
+.td-num{color:var(--nm);font-size:.65rem;font-weight:600;text-align:right;width:3rem;font-variant-numeric:tabular-nums}
+.td-cargo{font-weight:600;color:var(--n);min-width:11rem;text-transform:capitalize}
+.td-name{color:var(--n);font-weight:600;min-width:9rem;text-transform:capitalize}
+.td-area{font-size:.66rem;color:var(--nm);min-width:11rem;text-transform:capitalize}
+.td-fecha{white-space:nowrap;color:var(--nm);font-variant-numeric:tabular-nums;font-size:.68rem}
+.td-money{font-variant-numeric:tabular-nums;text-align:right;font-weight:700;color:var(--ok);white-space:nowrap;min-width:5.5rem}
+.td-money.sueldo{color:var(--ng);font-weight:600;font-size:.68rem}
+.tp-tag{display:inline-block;padding:.08rem .4rem;border-radius:999px;font-size:.55rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
+.tp-ba{background:rgba(37,99,235,.1);color:var(--blue)}
+.tp-cf{background:rgba(100,80,160,.1);color:var(--coord)}
+.tp-sn{background:rgba(14,116,144,.1);color:var(--teal)}
+.tp-pt{background:rgba(29,158,117,.1);color:var(--ok)}
+.tp-otro{background:rgba(107,107,107,.1);color:var(--nm)}
+.muted{color:var(--nm);font-style:italic;font-size:.65rem}
+
+/* ── PAGINACIÓN ── */
+.pgn{display:flex;justify-content:space-between;align-items:center;padding:.7rem 1.25rem;flex-wrap:wrap;gap:.5rem;background:var(--w);border-top:1px solid var(--nb)}
+.pgn-info{font-size:.7rem;color:var(--nm);font-weight:600}
+.pgn-info strong{color:var(--n);font-weight:700}
+.pgn-ctrl{display:flex;gap:.25rem;align-items:center}
+.pgn-btn{padding:.3rem .55rem;border:1.5px solid var(--nb);background:var(--w);color:var(--ng);border-radius:6px;font-family:var(--font);font-size:.72rem;font-weight:700;cursor:pointer;transition:all .12s;min-width:1.9rem}
+.pgn-btn:hover:not(:disabled){border-color:var(--o);color:var(--o)}
+.pgn-btn:disabled{opacity:.3;cursor:not-allowed}
+.pgn-btn.active{background:var(--o);border-color:var(--o);color:#fff}
+.pgn-num{display:flex;gap:.2rem;flex-wrap:wrap}
+.pgn-jump{display:flex;align-items:center;gap:.3rem}
+.pgn-jump input{width:3.5rem;padding:.25rem .4rem;border:1.5px solid var(--nb);border-radius:5px;font-family:var(--font);font-size:.68rem;text-align:center}
+.pgn-jump input:focus{outline:none;border-color:var(--o)}
+.pgn-size{display:flex;align-items:center;gap:.3rem;font-size:.65rem;color:var(--nm)}
+.pgn-size select{padding:.18rem .4rem;border:1.5px solid var(--nb);border-radius:5px;font-family:var(--font);font-size:.65rem}
+
+/* ── EMPTY / LOADING / ERROR ── */
+.empty{display:none;text-align:center;padding:3rem 1rem;color:var(--nm)}
+.empty.show{display:block}
+.empty-ico{font-size:2.5rem;margin-bottom:.5rem}
+
+.loader{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4rem 1rem;color:var(--nm)}
+.loader.hidden{display:none}
+.loader-spin{width:2.5rem;height:2.5rem;border:3px solid var(--nb);border-top-color:var(--o);border-radius:50%;animation:spin 1s linear infinite;margin-bottom:1rem}
+.loader-msg{font-size:.85rem;font-weight:600;color:var(--ng);margin-bottom:.3rem}
+.loader-sub{font-size:.7rem;color:var(--nm)}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.error-box{display:none;padding:2rem 1.25rem;background:rgba(200,50,63,.06);border-bottom:1px solid rgba(200,50,63,.15);text-align:center}
+.error-box.show{display:block}
+.error-h{font-size:.95rem;font-weight:800;color:var(--warn);margin-bottom:.4rem}
+.error-msg{font-size:.75rem;color:var(--ng);line-height:1.5;max-width:60ch;margin:0 auto}
+.error-msg a{color:var(--o);font-weight:600}
+
+/* ── FOOTER ── */
+.foot{background:var(--w);border-top:1px solid var(--nb);padding:.65rem 1.25rem}
+.foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.4rem}
+.foot-legal{font-size:.62rem;color:var(--nm);line-height:1.5;max-width:80ch}
+.foot-legal strong{color:var(--ng)}
+.foot-legal a{color:var(--o);font-weight:600;text-decoration:none}
+.foot-legal a:hover{text-decoration:underline}
+.foot-update{display:flex;align-items:center;gap:.3rem;font-size:.62rem;color:var(--nm)}
+.pulse{width:.4rem;height:.4rem;border-radius:50%;background:var(--ok);animation:pulse 2s ease-in-out infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .hdr,.toolbar,.tbl-wrap,.foot,.filters,.pgn,.period-bar{padding-left:.7rem;padding-right:.7rem}
+  .hdr-in{flex-direction:column;align-items:flex-start}
+  table{font-size:.65rem}
+  .td-cargo,.td-name,.td-area{min-width:8rem}
+  .pgn{flex-direction:column;align-items:stretch}
+  .period-bar{flex-direction:column;align-items:stretch}
+  .period-sel{max-width:none}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-in">
+    <div class="hdr-left">
+      <div class="hdr-eye">Art. 8 · Frac. V · Inc. f) · Ley de Transparencia Jalisco — Base de Datos Completa 2023–2026</div>
+      <h1 class="hdr-title">Remuneraciones del personal · Ayuntamiento de Guadalajara</h1>
+      <div class="hdr-badges">
+        <span class="hdr-badge">
+          <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span id="badge-period">— Selecciona quincena —</span>
+        </span>
+        <span class="hdr-badge">
+          <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          <span id="badge-total">—</span> empleados
+        </span>
+      </div>
+    </div>
+    <a class="hdr-dl" id="hdr-dl" href="#" target="_blank" rel="noopener" style="display:none">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Descargar Excel oficial
+    </a>
+  </div>
+</header>
+
+<!-- ── PERIOD SELECTOR ── -->
+<div class="period-bar">
+  <span class="period-bar-lbl">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    Elige una quincena
+  </span>
+  <select class="period-sel" id="period-sel" aria-label="Seleccionar quincena">
+    <option value="">Cargando lista de quincenas…</option>
+  </select>
+  <div class="period-quick" id="period-quick"></div>
+</div>
+
+<div class="toolbar" role="search">
+  <div class="toolbar-in">
+    <div class="srch-wrap">
+      <svg class="srch-ico" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="search" class="srch" id="srch" placeholder="Buscar por nombre, apellido, cargo o área…" autocomplete="off" aria-label="Buscar" disabled>
+    </div>
+    <span class="count" id="count">Selecciona una quincena para empezar</span>
+  </div>
+</div>
+
+<div class="filters">
+  <div class="flt-grp">
+    <span class="flbl">Tipo de plaza:</span>
+    <button class="chip" data-tp="all" aria-pressed="true" type="button" disabled>Todas</button>
+    <button class="chip tp-ba" data-tp="BA" aria-pressed="false" type="button" disabled>Base</button>
+    <button class="chip tp-cf" data-tp="CF" aria-pressed="false" type="button" disabled>Confianza</button>
+    <button class="chip tp-sn" data-tp="SN" aria-pressed="false" type="button" disabled>Sindicalizado</button>
+    <button class="chip tp-pt" data-tp="PT" aria-pressed="false" type="button" disabled>Provisional</button>
+  </div>
+  <div class="flt-grp">
+    <span class="flbl">Dependencia:</span>
+    <select class="area-sel" id="area-sel" aria-label="Filtrar por dependencia" disabled>
+      <option value="all">Todas las dependencias</option>
+    </select>
+  </div>
+</div>
+
+<div id="error-box" class="error-box">
+  <div class="error-h">No pudimos cargar esta quincena</div>
+  <div class="error-msg" id="error-msg"></div>
+</div>
+
+<div id="loader" class="loader">
+  <div class="loader-spin"></div>
+  <div class="loader-msg" id="loader-msg">Preparando base de datos…</div>
+  <div class="loader-sub" id="loader-sub">Esto solo toma unos segundos la primera vez</div>
+</div>
+
+<div class="tbl-wrap" id="tbl-wrap" style="display:none">
+  <table id="tbl">
+    <thead>
+      <tr>
+        <th class="td-num">#</th>
+        <th data-sort="cargo">Denominación del cargo <span class="arrow">▲</span></th>
+        <th data-sort="nombres">Nombre(s) <span class="arrow">▲</span></th>
+        <th data-sort="apellido1">Primer apellido <span class="arrow">▲</span></th>
+        <th data-sort="apellido2">Segundo apellido <span class="arrow">▲</span></th>
+        <th data-sort="tipoPlaza">Tipo plaza <span class="arrow">▲</span></th>
+        <th data-sort="area">Dependencia <span class="arrow">▲</span></th>
+        <th data-sort="fechaAlta">Fecha de alta <span class="arrow">▲</span></th>
+        <th class="numeric" data-sort="sueldo">Sueldo base <span class="arrow">▲</span></th>
+        <th class="numeric" data-sort="total">Total quincenal <span class="arrow">▲</span></th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+  <div id="empty" class="empty">
+    <div class="empty-ico">🔍</div>
+    <div style="font-size:.95rem;font-weight:700;color:var(--ng)">Sin resultados</div>
+    <div style="font-size:.75rem;margin-top:.25rem">Prueba con otros términos o limpia los filtros</div>
+  </div>
+</div>
+
+<div id="pagination" class="pgn" style="display:none">
+  <div class="pgn-info">Mostrando <strong id="pg-from">1</strong>–<strong id="pg-to">100</strong> de <strong id="pg-total">—</strong></div>
+  <div class="pgn-ctrl">
+    <button class="pgn-btn" id="pg-first" type="button" aria-label="Primera página">«</button>
+    <button class="pgn-btn" id="pg-prev" type="button" aria-label="Anterior">‹</button>
+    <div class="pgn-num" id="pg-nums"></div>
+    <button class="pgn-btn" id="pg-next" type="button" aria-label="Siguiente">›</button>
+    <button class="pgn-btn" id="pg-last" type="button" aria-label="Última página">»</button>
+  </div>
+  <div class="pgn-jump">
+    <span style="font-size:.65rem;color:var(--nm)">Ir a:</span>
+    <input type="number" id="pg-jump" min="1" placeholder="Pág">
+  </div>
+  <div class="pgn-size">
+    <span>Por página:</span>
+    <select id="pg-size">
+      <option value="50">50</option>
+      <option value="100" selected>100</option>
+      <option value="250">250</option>
+      <option value="500">500</option>
+    </select>
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="foot-in">
+    <div class="foot-legal">
+      <strong>Art. 8, Frac. V, Inc. f) · Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</strong> — "Las remuneraciones mensuales por puesto, incluidas todas las prestaciones, estímulos o compensaciones". Fuente oficial: <a href="https://enlinea.guadalajara.gob.mx/consultaNomina/nomina.php" target="_blank" rel="noopener">enlinea.guadalajara.gob.mx/consultaNomina</a> · Dirección de Nómina, Tesorería Municipal. En caso de discrepancia <strong>prevalece el archivo oficial</strong>.
+    </div>
+    <div class="foot-update"><span class="pulse"></span> Actualizado: 22 may 2026</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  // ============================================================
+  // CONFIG — URLs base donde están los JSON en GitHub
+  // ============================================================
+  const REPO_BASE = 'https://raw.githack.com/luisamparo/transparencia-gdl/main/nominas_json';
+  const MANIFEST_URL = REPO_BASE + '/manifest.json';
+
+  // ============================================================
+  // STATE
+  // ============================================================
+  let MANIFEST = null;
+  let DATA = [];
+  let filtered = [];
+  let currentPage = 1;
+  let pageSize = 100;
+  let sortCol = null;
+  let sortAsc = true;
+  let filterTp = 'all';
+  let filterArea = 'all';
+  let searchQ = '';
+  let currentPeriodId = null;
+
+  // ============================================================
+  // DOM
+  // ============================================================
+  const $ = id => document.getElementById(id);
+  const tbody = $('tbody');
+  const countEl = $('count');
+  const loader = $('loader');
+  const loaderMsg = $('loader-msg');
+  const loaderSub = $('loader-sub');
+  const tblWrap = $('tbl-wrap');
+  const pgnWrap = $('pagination');
+  const empty = $('empty');
+  const tbl = $('tbl');
+  const areaSel = $('area-sel');
+  const periodSel = $('period-sel');
+  const periodQuick = $('period-quick');
+  const errBox = $('error-box');
+  const errMsg = $('error-msg');
+
+  // ============================================================
+  // HELPERS
+  // ============================================================
+  const esc = s => String(s||'').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+  const fmtN = n => n.toLocaleString('es-MX');
+  const fmtMXN = n => new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN',minimumFractionDigits:2,maximumFractionDigits:2}).format(n);
+  const cap = s => (s||'').toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
+  const tpLabel = t => ({BA:'Base',CF:'Confianza',SN:'Sindicalizado',PT:'Provisional'}[t] || (t||'—'));
+  const tpClass = t => ({BA:'tp-ba',CF:'tp-cf',SN:'tp-sn',PT:'tp-pt'}[t] || 'tp-otro');
+  const norm = s => String(s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+
+  function setEnabled(en){
+    $('srch').disabled = !en;
+    $('area-sel').disabled = !en;
+    document.querySelectorAll('.chip[data-tp]').forEach(c => c.disabled = !en);
+  }
+
+  function showError(msg){
+    errBox.classList.add('show');
+    errMsg.innerHTML = msg;
+    loader.classList.add('hidden');
+    tblWrap.style.display = 'none';
+    pgnWrap.style.display = 'none';
+  }
+
+  function hideError(){ errBox.classList.remove('show'); }
+
+  // ============================================================
+  // INIT — cargar manifest y llenar selector
+  // ============================================================
+  async function init(){
+    loaderMsg.textContent = 'Cargando lista de quincenas disponibles…';
+    loaderSub.textContent = 'Esto solo toma 1–2 segundos';
+    try {
+      const res = await fetch(MANIFEST_URL, { cache: 'default' });
+      if(!res.ok) throw new Error('HTTP ' + res.status);
+      MANIFEST = await res.json();
+    } catch(e){
+      showError('No se pudo obtener el catálogo de quincenas. Verifica tu conexión o intenta más tarde.<br><br><a href="' + esc(MANIFEST_URL) + '" target="_blank">' + esc(MANIFEST_URL) + '</a>');
+      return;
+    }
+    buildPeriodSelector();
+    // Cargar la quincena más reciente automáticamente
+    if(MANIFEST.periods && MANIFEST.periods.length){
+      const mostRecent = MANIFEST.periods[0]; // asume orden desc en manifest
+      periodSel.value = mostRecent.id;
+      loadPeriod(mostRecent.id);
+    } else {
+      showError('El catálogo de quincenas está vacío.');
+    }
+  }
+
+  function buildPeriodSelector(){
+    // Agrupar por año
+    const byYear = {};
+    MANIFEST.periods.forEach(p => {
+      if(!byYear[p.year]) byYear[p.year] = [];
+      byYear[p.year].push(p);
+    });
+    const years = Object.keys(byYear).sort().reverse();
+    let html = '<option value="">— Selecciona una quincena —</option>';
+    years.forEach(y => {
+      html += '<optgroup label="Ejercicio ' + y + '">';
+      byYear[y].forEach(p => {
+        html += '<option value="' + esc(p.id) + '">' + esc(p.label) + ' · ' + fmtN(p.count) + ' empleados</option>';
+      });
+      html += '</optgroup>';
+    });
+    periodSel.innerHTML = html;
+    periodSel.addEventListener('change', () => {
+      if(periodSel.value) loadPeriod(periodSel.value);
+    });
+
+    // Quick-access buttons: solo los 4 más recientes
+    periodQuick.innerHTML = '';
+    MANIFEST.periods.slice(0, 4).forEach(p => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = p.shortLabel || p.label;
+      b.dataset.pid = p.id;
+      b.addEventListener('click', () => {
+        periodSel.value = p.id;
+        loadPeriod(p.id);
+      });
+      periodQuick.appendChild(b);
+    });
+  }
+
+  // ============================================================
+  // CARGAR DATOS DE UNA QUINCENA
+  // ============================================================
+  async function loadPeriod(periodId){
+    if(currentPeriodId === periodId && DATA.length > 0) return; // ya cargado
+    hideError();
+    setEnabled(false);
+    loader.classList.remove('hidden');
+    tblWrap.style.display = 'none';
+    pgnWrap.style.display = 'none';
+    const period = MANIFEST.periods.find(p => p.id === periodId);
+    if(!period){ showError('Quincena no encontrada en el catálogo.'); return; }
+    loaderMsg.textContent = 'Cargando ' + period.label + '…';
+    loaderSub.textContent = fmtN(period.count) + ' empleados · ~' + (period.sizeKb || '?') + ' KB';
+
+    // Update header badges + download link inmediato
+    $('badge-period').textContent = period.label;
+    $('badge-total').textContent = fmtN(period.count);
+    const dlBtn = $('hdr-dl');
+    dlBtn.href = period.xlsxUrl;
+    dlBtn.style.display = '';
+
+    // Update quick buttons active
+    periodQuick.querySelectorAll('button').forEach(b => {
+      b.classList.toggle('active', b.dataset.pid === periodId);
+    });
+
+    try {
+      const res = await fetch(REPO_BASE + '/' + period.file, { cache: 'default' });
+      if(!res.ok) throw new Error('HTTP ' + res.status);
+      DATA = await res.json();
+    } catch(e){
+      showError('No se pudo cargar la información de esta quincena. Verifica tu conexión.<br><br>Mientras tanto, puedes descargar el <a href="' + esc(period.xlsxUrl) + '" target="_blank">Excel oficial</a> directamente.');
+      return;
+    }
+
+    // Pre-procesar
+    DATA.forEach((r,i) => {
+      r._idx = i+1;
+      r._search = ((r.cargo||'') + ' ' + (r.nombres||'') + ' ' + (r.apellido1||'') + ' ' + (r.apellido2||'') + ' ' + (r.area||'')).toLowerCase();
+    });
+    currentPeriodId = periodId;
+
+    // Rellenar dropdown de áreas
+    const areas = [...new Set(DATA.map(r=>r.area).filter(Boolean))].sort();
+    areaSel.innerHTML = '<option value="all">Todas las dependencias</option>';
+    areas.forEach(a => {
+      const opt = document.createElement('option');
+      opt.value = a;
+      opt.textContent = a + ' (' + fmtN(DATA.filter(r=>r.area===a).length) + ')';
+      areaSel.appendChild(opt);
+    });
+
+    // Reset filtros
+    filterTp = 'all';
+    filterArea = 'all';
+    searchQ = '';
+    sortCol = null;
+    sortAsc = true;
+    currentPage = 1;
+    $('srch').value = '';
+    document.querySelectorAll('.chip[data-tp]').forEach(c => c.setAttribute('aria-pressed', c.dataset.tp === 'all' ? 'true' : 'false'));
+    document.querySelectorAll('thead th').forEach(x => x.classList.remove('sorted'));
+
+    setEnabled(true);
+    loader.classList.add('hidden');
+    tblWrap.style.display = '';
+    applyFilters();
+  }
+
+  // ============================================================
+  // FILTROS + ORDEN + PAGINACIÓN
+  // ============================================================
+  function applyFilters() {
+    filtered = DATA;
+    if (filterTp !== 'all') filtered = filtered.filter(r => r.tipoPlaza === filterTp);
+    if (filterArea !== 'all') filtered = filtered.filter(r => r.area === filterArea);
+    if (searchQ) {
+      const q = norm(searchQ.trim());
+      const parts = q.split(/\s+/).filter(x => x.length > 0);
+      filtered = filtered.filter(r => parts.every(p => norm(r._search).includes(p)));
+    }
+    if (sortCol) {
+      const col = sortCol;
+      const asc = sortAsc;
+      filtered = [...filtered].sort((a,b) => {
+        const va = a[col], vb = b[col];
+        if (typeof va === 'number' && typeof vb === 'number') return asc ? va - vb : vb - va;
+        const sa = (va||'').toString().toLowerCase();
+        const sb = (vb||'').toString().toLowerCase();
+        return asc ? sa.localeCompare(sb,'es') : sb.localeCompare(sa,'es');
+      });
+    }
+    currentPage = 1;
+    render();
+  }
+
+  function render() {
+    const total = filtered.length;
+    const totalPages = Math.max(1, Math.ceil(total / pageSize));
+    if (currentPage > totalPages) currentPage = totalPages;
+    const from = (currentPage-1) * pageSize;
+    const to = Math.min(from + pageSize, total);
+    countEl.textContent = fmtN(total) + ' resultado' + (total===1?'':'s');
+
+    if (total === 0) {
+      tbody.innerHTML = '';
+      empty.classList.add('show');
+      pgnWrap.style.display = 'none';
+      return;
+    }
+    empty.classList.remove('show');
+    pgnWrap.style.display = '';
+
+    const slice = filtered.slice(from, to);
+    const html = [];
+    for (const r of slice) {
+      const tpCls = tpClass(r.tipoPlaza);
+      const tpLbl = tpLabel(r.tipoPlaza);
+      html.push(
+        '<tr>' +
+          '<td class="td-num">' + fmtN(r._idx) + '</td>' +
+          '<td class="td-cargo">' + esc(cap(r.cargo)) + '</td>' +
+          '<td class="td-name">' + esc(cap(r.nombres)) + '</td>' +
+          '<td class="td-name">' + esc(cap(r.apellido1)) + '</td>' +
+          '<td class="td-name">' + esc(cap(r.apellido2)) + '</td>' +
+          '<td><span class="tp-tag ' + tpCls + '">' + esc(tpLbl) + '</span></td>' +
+          '<td class="td-area">' + esc(cap(r.area)) + '</td>' +
+          '<td class="td-fecha">' + esc(r.fechaAlta) + '</td>' +
+          '<td class="td-money sueldo">' + fmtMXN(r.sueldo) + '</td>' +
+          '<td class="td-money">' + fmtMXN(r.total) + '</td>' +
+        '</tr>'
+      );
+    }
+    tbody.innerHTML = html.join('');
+
+    $('pg-from').textContent = fmtN(from+1);
+    $('pg-to').textContent = fmtN(to);
+    $('pg-total').textContent = fmtN(total);
+
+    const numsEl = $('pg-nums');
+    let nums = '';
+    const maxBtns = 7;
+    let start = Math.max(1, currentPage - 3);
+    let end = Math.min(totalPages, start + maxBtns - 1);
+    if (end - start < maxBtns - 1) start = Math.max(1, end - maxBtns + 1);
+    if (start > 1) nums += '<button class="pgn-btn" data-pg="1" type="button">1</button>';
+    if (start > 2) nums += '<span style="color:var(--nm);padding:0 .2rem">…</span>';
+    for (let i = start; i <= end; i++) {
+      nums += '<button class="pgn-btn ' + (i===currentPage?'active':'') + '" data-pg="' + i + '" type="button">' + i + '</button>';
+    }
+    if (end < totalPages - 1) nums += '<span style="color:var(--nm);padding:0 .2rem">…</span>';
+    if (end < totalPages) nums += '<button class="pgn-btn" data-pg="' + totalPages + '" type="button">' + totalPages + '</button>';
+    numsEl.innerHTML = nums;
+    numsEl.querySelectorAll('button[data-pg]').forEach(b => {
+      b.addEventListener('click', () => { currentPage = parseInt(b.dataset.pg,10); render(); window.scrollTo({top:tbl.offsetTop-60,behavior:'smooth'}); });
+    });
+
+    $('pg-first').disabled = currentPage <= 1;
+    $('pg-prev').disabled  = currentPage <= 1;
+    $('pg-next').disabled  = currentPage >= totalPages;
+    $('pg-last').disabled  = currentPage >= totalPages;
+  }
+
+  // ============================================================
+  // EVENT LISTENERS (filtros / búsqueda / ordenar / paginar)
+  // ============================================================
+  $('srch').addEventListener('input', (e) => {
+    searchQ = e.target.value;
+    clearTimeout(window._dbnc);
+    window._dbnc = setTimeout(applyFilters, 150);
+  });
+
+  document.querySelectorAll('.chip[data-tp]').forEach(b => {
+    b.addEventListener('click', () => {
+      if(b.disabled) return;
+      document.querySelectorAll('.chip[data-tp]').forEach(x => x.setAttribute('aria-pressed','false'));
+      b.setAttribute('aria-pressed','true');
+      filterTp = b.dataset.tp;
+      applyFilters();
+    });
+  });
+
+  areaSel.addEventListener('change', () => { filterArea = areaSel.value; applyFilters(); });
+
+  document.querySelectorAll('thead th[data-sort]').forEach(th => {
+    th.addEventListener('click', () => {
+      const col = th.dataset.sort;
+      if (sortCol === col) sortAsc = !sortAsc;
+      else { sortCol = col; sortAsc = true; }
+      document.querySelectorAll('thead th').forEach(x => x.classList.remove('sorted'));
+      th.classList.add('sorted');
+      applyFilters();
+    });
+  });
+
+  $('pg-first').addEventListener('click', () => { currentPage = 1; render(); window.scrollTo({top:tbl.offsetTop-60,behavior:'smooth'}); });
+  $('pg-prev').addEventListener('click', () => { if (currentPage > 1) { currentPage--; render(); window.scrollTo({top:tbl.offsetTop-60,behavior:'smooth'}); } });
+  $('pg-next').addEventListener('click', () => { const tp = Math.ceil(filtered.length/pageSize); if (currentPage < tp) { currentPage++; render(); window.scrollTo({top:tbl.offsetTop-60,behavior:'smooth'}); } });
+  $('pg-last').addEventListener('click', () => { currentPage = Math.ceil(filtered.length/pageSize); render(); window.scrollTo({top:tbl.offsetTop-60,behavior:'smooth'}); });
+  $('pg-jump').addEventListener('change', () => {
+    const v = parseInt($('pg-jump').value,10);
+    const tp = Math.ceil(filtered.length/pageSize);
+    if (!isNaN(v) && v >= 1 && v <= tp) { currentPage = v; render(); window.scrollTo({top:tbl.offsetTop-60,behavior:'smooth'}); }
+  });
+  $('pg-size').addEventListener('change', () => { pageSize = parseInt($('pg-size').value,10); currentPage = 1; render(); });
+
+  // ============================================================
+  // START
+  // ============================================================
+  init();
+})();
+</script>
+
+</body>
+</html>
