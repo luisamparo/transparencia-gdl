@@ -289,7 +289,16 @@ function renderYears(){
 
 function renderCalendar(){
   const yr = activeYear;
-  $('calGrid').innerHTML = MESES.map(m => {
+  // Meses con datos: orden reverso (mes más reciente primero). Próximamente: orden cronológico al final.
+  const conDatos = [];
+  const sinDatos = [];
+  MESES.forEach(m => {
+    const archivos = DATOS.filter(d => d.yr === yr && d.mes === m);
+    if(archivos.length === 0) sinDatos.push(m);
+    else conDatos.push(m);
+  });
+  const ordered = conDatos.slice().reverse().concat(sinDatos);
+  $('calGrid').innerHTML = ordered.map(m => {
     const archivos = DATOS.filter(d => d.yr === yr && d.mes === m);
     if(archivos.length === 0){
       return '<article class="cal-mes empty">' +
@@ -304,7 +313,7 @@ function renderCalendar(){
         '</article>';
     }
     const links = archivos.map(a => {
-      const lbl = a.tipo === 'general' ? 'N&oacute;mina general' : 'N&oacute;mina del Rastro';
+      const lbl = a.tipo === 'general' ? 'N&oacute;mina general' : 'Nomina del rastro';
       const icoLbl = a.tipo === 'general' ? 'GRAL' : 'RAST';
       return '<a class="cal-link ' + a.tipo + '" href="' + esc(a.url) + '" target="_blank" rel="noopener" aria-label="Descargar n&oacute;mina de ' + m + ' ' + yr + '">' +
         '<span class="cal-link-ico">' + icoLbl + '</span>' +
