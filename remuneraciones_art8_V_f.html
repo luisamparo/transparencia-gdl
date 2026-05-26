@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<meta name="description" content="Remuneraciones mensuales por puesto del Ayuntamiento de Guadalajara â€” Art. 8, FracciÃ³n V, Inciso f) de la Ley de Transparencia y Acceso a la InformaciÃ³n PÃºblica del Estado de Jalisco y sus Municipios. Ejercicios 2023, 2024, 2025 y 2026."/>
+<meta name="description" content="Remuneraciones mensuales por puesto del Ayuntamiento de Guadalajara. Art. 8, Fraccion V, Inciso f) de la Ley de Transparencia. Ejercicios 2023, 2024, 2025 y 2026."/>
 <meta name="robots" content="index,follow"/>
 <title>Remuneraciones mensuales &middot; Art. 8 Fracc. V Inc. f) &middot; Transparencia Guadalajara</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -27,9 +27,7 @@ body{font-family:var(--fh);background:var(--g50);color:var(--g900);line-height:1
 a{color:var(--nr-d)}
 button{font-family:inherit;cursor:pointer}
 
-/* ============================================================
-   HERO
-============================================================ */
+/* HERO */
 .hero{background:radial-gradient(ellipse 800px 400px at 90% 30%,rgba(255,255,255,.18) 0%,transparent 70%),linear-gradient(135deg,var(--nr-d) 0%,var(--nr) 55%,var(--nr-l) 100%);padding:48px 32px 42px;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 60px,rgba(255,255,255,.04) 60px,rgba(255,255,255,.04) 61px);pointer-events:none}
 .hero::after{content:'';position:absolute;right:-120px;top:-80px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.10) 0%,transparent 70%);pointer-events:none}
@@ -39,16 +37,13 @@ button{font-family:inherit;cursor:pointer}
 .hero h1{font-size:clamp(26px,4.2vw,42px);font-weight:800;color:#fff;line-height:1.1;margin-bottom:10px;letter-spacing:-.015em}
 .hero p{color:rgba(255,255,255,.92);font-size:clamp(13px,1.45vw,15.5px);max-width:720px;line-height:1.55}
 
-/* ============================================================
-   MAIN
-============================================================ */
+/* MAIN */
 .main{max-width:1200px;margin:0 auto;padding:30px 20px 60px}
 
-/* ============================================================
-   LEGAL BANNER
-============================================================ */
-.legal{display:grid;grid-template-columns:44px 1fr;gap:16px;background:var(--wh);border-left:4px solid var(--nr);border-radius:var(--rad);padding:18px 22px;margin-bottom:26px;box-shadow:var(--sh-sm)}
-.legal-stamp{font-family:Georgia,serif;font-size:38px;font-weight:800;color:var(--nr);line-height:1;text-align:center;align-self:start}
+/* LEGAL BANNER */
+.legal{display:grid;grid-template-columns:48px 1fr;gap:16px;background:var(--wh);border-left:4px solid var(--nr);border-radius:var(--rad);padding:18px 22px;margin-bottom:26px;box-shadow:var(--sh-sm)}
+.legal-stamp{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--nr-soft) 0%,#FFE4CC 100%);color:var(--nr-d);display:flex;align-items:center;justify-content:center;flex-shrink:0;align-self:start;box-shadow:inset 0 0 0 1px rgba(232,119,34,.18)}
+.legal-stamp svg{width:26px;height:26px;display:block}
 .legal-body{min-width:0}
 .legal-txt{font-size:14px;color:var(--g800);line-height:1.55;margin-bottom:8px}
 .legal-txt strong{color:var(--g900);font-weight:700}
@@ -56,16 +51,14 @@ button{font-family:inherit;cursor:pointer}
 .legal-cite a{font-weight:700;color:var(--nr-d);text-decoration:underline}
 .legal-cite em{font-style:italic;color:var(--g600)}
 
-/* ============================================================
-   SECCION: ELIGE EL AÃ‘O
-============================================================ */
+/* SEC HEADERS */
 .sec{margin-bottom:30px}
 .sec-h{display:flex;align-items:center;gap:11px;margin-bottom:14px}
 .sec-h-num{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--nr) 0%,var(--nr-d) 100%);color:#fff;font-family:var(--fm);font-weight:700;font-size:13px;box-shadow:0 2px 6px rgba(232,119,34,.28)}
 .sec-h-title{font-size:18px;font-weight:800;color:var(--g900);letter-spacing:-.01em}
 .sec-h-sub{font-size:13.5px;color:var(--g600);margin-left:42px;margin-top:-4px;margin-bottom:14px}
 
-/* Year buttons (4 grandes, accesibles) */
+/* YEAR BUTTONS (4 grandes, accesibles) */
 .year-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:8px}
 .year-btn{background:var(--wh);border:2px solid var(--g200);border-radius:var(--rad-lg);padding:18px 14px;cursor:pointer;transition:all .18s var(--ease);text-align:center;font-family:var(--fh);position:relative;overflow:hidden}
 .year-btn:hover{border-color:var(--nr);transform:translateY(-2px);box-shadow:0 6px 16px rgba(232,119,34,.14)}
@@ -77,13 +70,9 @@ button{font-family:inherit;cursor:pointer}
 .year-btn.active .year-btn-yr{color:#fff}
 .year-btn.active .year-btn-meta{color:rgba(255,255,255,.92)}
 .year-btn.active.vigente .year-btn-yr::after{background:#FFF}
-@media(max-width:560px){
-  .year-row{grid-template-columns:repeat(2,1fr)}
-}
+@media(max-width:560px){.year-row{grid-template-columns:repeat(2,1fr)}}
 
-/* ============================================================
-   CALENDARIO DE MESES
-============================================================ */
+/* CALENDARIO DE MESES */
 .cal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:14px;margin-top:18px}
 .cal-mes{background:var(--wh);border:1px solid var(--g200);border-radius:var(--rad-lg);padding:18px 18px 16px;display:flex;flex-direction:column;gap:12px;transition:border-color .18s var(--ease),box-shadow .18s var(--ease)}
 .cal-mes:hover{border-color:var(--nr-l);box-shadow:0 4px 14px rgba(232,119,34,.08)}
@@ -104,9 +93,7 @@ button{font-family:inherit;cursor:pointer}
 .cal-mes-empty-msg{font-size:12.5px;color:var(--g600);line-height:1.45;padding:14px 4px;text-align:center;font-style:italic}
 .cal-mes-empty-msg strong{display:block;font-style:normal;font-size:13.5px;color:var(--g800);font-weight:700;margin-bottom:4px}
 
-/* ============================================================
-   FOOTER
-============================================================ */
+/* FOOTER */
 .foot{margin-top:36px;padding:22px 24px;background:var(--wh);border-radius:var(--rad);border:1px solid var(--g200);text-align:center}
 .foot-source{font-size:12.5px;color:var(--g600);margin-bottom:6px}
 .foot-source a{font-weight:700;color:var(--nr-d);text-decoration:underline}
@@ -115,17 +102,15 @@ button{font-family:inherit;cursor:pointer}
 @media(max-width:600px){
   .hero{padding:36px 18px 32px}
   .main{padding:20px 14px 40px}
-  .legal{grid-template-columns:1fr;gap:8px;padding:16px 18px}
-  .legal-stamp{font-size:28px;text-align:left}
+  .legal{grid-template-columns:40px 1fr;gap:12px;padding:16px 18px}
+  .legal-stamp{width:40px;height:40px;border-radius:10px}
+  .legal-stamp svg{width:22px;height:22px}
   .sec-h-sub{margin-left:0}
 }
 </style>
 </head>
 <body>
 
-<!-- ============================================================
-     HERO
-============================================================ -->
 <section class="hero">
   <div class="hi">
     <div class="bc">Transparencia Guadalajara &bull; Gobierno Municipal</div>
@@ -137,20 +122,22 @@ button{font-family:inherit;cursor:pointer}
 
 <main class="main">
 
-  <!-- ============================================================
-       LEGAL BANNER (compliance)
-  ============================================================ -->
   <div class="legal">
-    <div class="legal-stamp" aria-hidden="true">&sect;</div>
+    <div class="legal-stamp" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3v18"/>
+        <path d="M7 21h10"/>
+        <path d="M3 7h3c2 0 4-.7 6-1.5 2 .8 4 1.5 6 1.5h3"/>
+        <path d="M19 7l-3 8c.87.65 1.92 1 3 1s2.13-.35 3-1l-3-8z"/>
+        <path d="M5 7l-3 8c.87.65 1.92 1 3 1s2.13-.35 3-1L5 7z"/>
+      </svg>
+    </div>
     <div class="legal-body">
       <p class="legal-txt">&ldquo;Las <strong>remuneraciones mensuales por puesto</strong>, incluidas <strong>todas las prestaciones, est&iacute;mulos o compensaciones</strong>.&rdquo;</p>
       <p class="legal-cite">&mdash; Art. 8, Fracc. V, Inc. f) &middot; <em>Ley de Transparencia y Acceso a la Informaci&oacute;n P&uacute;blica del Estado de Jalisco y sus Municipios</em>. Fuente oficial: <a href="https://transparencia.guadalajara.gob.mx/remuneracion" target="_blank" rel="noopener">transparencia.guadalajara.gob.mx/remuneracion</a>. En caso de discrepancia <strong style="color:var(--g900)">prevalece el archivo oficial</strong>.</p>
     </div>
   </div>
 
-  <!-- ============================================================
-       PASO 1 - ELIGE EL EJERCICIO FISCAL
-  ============================================================ -->
   <div class="sec">
     <div class="sec-h">
       <span class="sec-h-num">1</span>
@@ -160,9 +147,6 @@ button{font-family:inherit;cursor:pointer}
     <div class="year-row" id="yearRow" role="tablist" aria-label="Ejercicio fiscal"></div>
   </div>
 
-  <!-- ============================================================
-       PASO 2 - CALENDARIO DE MESES
-  ============================================================ -->
   <div class="sec">
     <div class="sec-h">
       <span class="sec-h-num">2</span>
@@ -172,9 +156,6 @@ button{font-family:inherit;cursor:pointer}
     <div class="cal-grid" id="calGrid"></div>
   </div>
 
-  <!-- ============================================================
-       FOOTER
-  ============================================================ -->
   <div class="foot">
     <p class="foot-source">Publicado por la <strong>Direcci&oacute;n de N&oacute;mina</strong> &middot; Tesorer&iacute;a Municipal &middot; Ayuntamiento de Guadalajara<br/>Fuente oficial: <a href="https://transparencia.guadalajara.gob.mx/remuneracion" target="_blank" rel="noopener">transparencia.guadalajara.gob.mx/remuneracion</a></p>
     <p class="foot-cite">Para ejercicios fiscales previos a 2023, consulta directamente el portal oficial de transparencia.</p>
@@ -186,15 +167,10 @@ button{font-family:inherit;cursor:pointer}
 (function(){
 'use strict';
 
-/* ============================================================
-   DATOS â€” 80 archivos verificados HTTP 200 contra el portal
-   transparencia.guadalajara.gob.mx el 22/may/2026
-============================================================ */
 const MESES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
 
-/* Cada entrada: { yr, mes, tipo:'general'|'rastro', fmt:'xlsx'|'xls', url } */
+/* 80 archivos verificados HTTP 200 contra el portal el 22/may/2026 */
 const DATOS = [
-  // 2026 (Ene-Abr)
   { yr:'2026', mes:'Enero',   tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionEnero26.xlsx' },
   { yr:'2026', mes:'Enero',   tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroEnero26.xlsx' },
   { yr:'2026', mes:'Febrero', tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionFebrero26.xlsx' },
@@ -204,7 +180,6 @@ const DATOS = [
   { yr:'2026', mes:'Abril',   tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionAbril26.xlsx' },
   { yr:'2026', mes:'Abril',   tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroAbril26.xlsx' },
 
-  // 2025 (12 meses)
   { yr:'2025', mes:'Enero',      tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionEnero25.xlsx' },
   { yr:'2025', mes:'Enero',      tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroEnero25.xlsx' },
   { yr:'2025', mes:'Febrero',    tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionFebrero25.xlsx' },
@@ -230,7 +205,6 @@ const DATOS = [
   { yr:'2025', mes:'Diciembre',  tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionDiciembre25.xlsx' },
   { yr:'2025', mes:'Diciembre',  tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroDiciembre25.xlsx' },
 
-  // 2024 (12 meses)
   { yr:'2024', mes:'Enero',      tipo:'general', fmt:'xls',  url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionEnero24.xls' },
   { yr:'2024', mes:'Enero',      tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroEnero24.xlsx' },
   { yr:'2024', mes:'Febrero',    tipo:'general', fmt:'xls',  url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionFebrero24.xls' },
@@ -256,7 +230,6 @@ const DATOS = [
   { yr:'2024', mes:'Diciembre',  tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionDiciembre24.xlsx' },
   { yr:'2024', mes:'Diciembre',  tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroDiciembre24.xlsx' },
 
-  // 2023 (12 meses)
   { yr:'2023', mes:'Enero',      tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionEnero23.xlsx' },
   { yr:'2023', mes:'Enero',      tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroEnero23.xlsx' },
   { yr:'2023', mes:'Febrero',    tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionFebrero23.xlsx' },
@@ -300,12 +273,10 @@ function renderYears(){
     const isVigente = parseInt(y,10) === CURRENT_YEAR;
     const count = countYear(y);
     const meses = monthsPub(y);
-    return `
-      <button class="year-btn ${isActive ? 'active' : ''} ${isVigente ? 'vigente' : ''}" data-year="${y}" type="button" role="tab" aria-selected="${isActive}">
-        <div class="year-btn-yr">${y}</div>
-        <div class="year-btn-meta">${meses} ${meses===1?'mes':'meses'} &middot; ${count} archivos</div>
-      </button>
-    `;
+    return '<button class="year-btn ' + (isActive ? 'active' : '') + ' ' + (isVigente ? 'vigente' : '') + '" data-year="' + y + '" type="button" role="tab" aria-selected="' + isActive + '">' +
+      '<div class="year-btn-yr">' + y + '</div>' +
+      '<div class="year-btn-meta">' + meses + ' ' + (meses===1?'mes':'meses') + ' &middot; ' + count + ' archivos</div>' +
+      '</button>';
   }).join('');
   $('yearRow').querySelectorAll('.year-btn').forEach(b => {
     b.addEventListener('click', () => {
@@ -321,42 +292,36 @@ function renderCalendar(){
   $('calGrid').innerHTML = MESES.map(m => {
     const archivos = DATOS.filter(d => d.yr === yr && d.mes === m);
     if(archivos.length === 0){
-      return `
-        <article class="cal-mes empty">
-          <header class="cal-mes-top">
-            <span class="cal-mes-name">${m}</span>
-            <span class="cal-mes-yr">${yr}</span>
-          </header>
-          <div class="cal-mes-empty-msg">
-            <strong>Pr&oacute;ximamente</strong>
-            A&uacute;n no publicado oficialmente
-          </div>
-        </article>
-      `;
+      return '<article class="cal-mes empty">' +
+        '<header class="cal-mes-top">' +
+          '<span class="cal-mes-name">' + m + '</span>' +
+          '<span class="cal-mes-yr">' + yr + '</span>' +
+        '</header>' +
+        '<div class="cal-mes-empty-msg">' +
+          '<strong>Pr&oacute;ximamente</strong>' +
+          'A&uacute;n no publicado oficialmente' +
+        '</div>' +
+        '</article>';
     }
     const links = archivos.map(a => {
-      const lbl = a.tipo === 'general' ? 'N&oacute;mina general' : 'N&oacute;mina Rastro';
+      const lbl = a.tipo === 'general' ? 'N&oacute;mina general' : 'N&oacute;mina del Rastro';
       const icoLbl = a.tipo === 'general' ? 'GRAL' : 'RAST';
-      return `
-        <a class="cal-link ${a.tipo}" href="${esc(a.url)}" target="_blank" rel="noopener" aria-label="Descargar ${lbl} de ${m} ${yr}">
-          <span class="cal-link-ico">${icoLbl}</span>
-          <span class="cal-link-info">
-            <span class="cal-link-lbl">${lbl}</span>
-            <span class="cal-link-fmt">Descargar ${a.fmt.toUpperCase()}</span>
-          </span>
-          <svg class="cal-link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/><path d="M5 21h14"/></svg>
-        </a>
-      `;
+      return '<a class="cal-link ' + a.tipo + '" href="' + esc(a.url) + '" target="_blank" rel="noopener" aria-label="Descargar n&oacute;mina de ' + m + ' ' + yr + '">' +
+        '<span class="cal-link-ico">' + icoLbl + '</span>' +
+        '<span class="cal-link-info">' +
+          '<span class="cal-link-lbl">' + lbl + '</span>' +
+          '<span class="cal-link-fmt">Descargar ' + a.fmt.toUpperCase() + '</span>' +
+        '</span>' +
+        '<svg class="cal-link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/><path d="M5 21h14"/></svg>' +
+        '</a>';
     }).join('');
-    return `
-      <article class="cal-mes">
-        <header class="cal-mes-top">
-          <span class="cal-mes-name">${m}</span>
-          <span class="cal-mes-yr">${yr}</span>
-        </header>
-        <div class="cal-mes-body">${links}</div>
-      </article>
-    `;
+    return '<article class="cal-mes">' +
+      '<header class="cal-mes-top">' +
+        '<span class="cal-mes-name">' + m + '</span>' +
+        '<span class="cal-mes-yr">' + yr + '</span>' +
+      '</header>' +
+      '<div class="cal-mes-body">' + links + '</div>' +
+      '</article>';
   }).join('');
 }
 
