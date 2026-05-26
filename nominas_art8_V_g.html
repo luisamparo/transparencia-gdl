@@ -619,7 +619,7 @@ button.nm-esp-card{border:1.5px solid var(--g200);background:var(--wh)}
     // SECCIÓN 1: Nóminas quincenales (agrupadas por mes)
     var quincenasHtml = '';
     var quincenasVisible = 0;
-    MESES.forEach(function(mes){
+    MESES.slice().reverse().forEach(function(mes){
       var quincenas = data.quincenas[mes] || [];
       if(quincenas.length === 0) return;
       // Filtro por búsqueda
