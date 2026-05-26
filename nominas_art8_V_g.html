@@ -973,13 +973,17 @@ button.nm-esp-card{border:1.5px solid var(--g200);background:var(--wh)}
     return typeof v === 'number' || (typeof v === 'string' && /^-?\d+(\.\d+)?$/.test(v.trim()));
   }
 
-  // Convierte URL del XLSX del Ayuntamiento -> URL del JSON pre-procesado en GitHub Pages
+  // Convierte URL del XLSX del Ayuntamiento -> URL del JSON pre-procesado en GitHub Pages.
+  // Usa URL ABSOLUTA para que funcione tanto si la HTML se pega directo en Strapi (donde
+  // origin es el del frontend) como si se embebe via iframe desde luisamparo.github.io.
+  // GitHub Pages manda Access-Control-Allow-Origin: * asi que el fetch cross-origin pasa.
   // ej: https://enlinea.guadalajara.gob.mx/consultaNomina/files/2026/NominaPrimeraQuincenaEnero26.xlsx
-  //  -> ./data/2026/NominaPrimeraQuincenaEnero26.json
+  //  -> https://luisamparo.github.io/transparencia-gdl/data/2026/NominaPrimeraQuincenaEnero26.json
+  var JSON_BASE = 'https://luisamparo.github.io/transparencia-gdl/data/';
   function xlsxToJsonUrl(xlsxUrl){
     var m = xlsxUrl.match(/\/consultaNomina\/files\/(\d{4})\/(.+)\.xlsx$/i);
     if(!m) return null;
-    return './data/' + m[1] + '/' + m[2] + '.json';
+    return JSON_BASE + m[1] + '/' + m[2] + '.json';
   }
 
   // Construye el cache desde el JSON pre-procesado (formato {sheet, headers, rows})
