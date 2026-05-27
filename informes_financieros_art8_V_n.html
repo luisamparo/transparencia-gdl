@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Informes Financieros del Ayuntamiento de Guadalajara. Cuentas públicas, auditorías y estados financieros mensuales, cortes semestrales y cierres anuales de 2023, 2024 y 2025. Art. 8, Fracción V, Inciso n) de la Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios."/>
+<meta name="robots" content="index,follow"/>
+<title>Informes Financieros &middot; Art. 8 Fracc. V Inc. n) &middot; Transparencia Guadalajara</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --nr:#E87722;--nr-l:#FF9A45;--nr-d:#C45F0A;--nr-deeper:#8B4308;--nr-soft:#FFF1E4;
+  --g50:#FAFAF8;--g100:#F0F0EC;--g200:#E2E2DD;--g300:#CFCFC8;--g400:#9E9E98;--g600:#5A5A55;--g800:#2D2D2A;--g900:#1A1A1A;
+  --wh:#FFF;
+  --ok:#16A34A;--ok-d:#0E6B4C;--ok-l:#DCFCE7;
+  --warn:#B45309;--warn-l:#FEF3C7;
+  --pdf:#DC2626;--pdf-d:#991B1B;
+  --xls:#16A34A;
+  --doc:#2563EB;
+  --rad:10px;--rad-lg:14px;
+  --sh:0 4px 22px rgba(0,0,0,.08);
+  --sh-sm:0 1px 3px rgba(0,0,0,.06);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --fh:'Outfit',system-ui,-apple-system,sans-serif;
+  --fm:'DM Mono','SF Mono',Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--fh);background:var(--g50);color:var(--g900);line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+a{color:var(--nr-d)}
+button{font-family:inherit;cursor:pointer}
+
+/* HERO */
+.hero{background:radial-gradient(ellipse 800px 400px at 90% 30%,rgba(255,255,255,.18) 0%,transparent 70%),linear-gradient(135deg,var(--nr-d) 0%,var(--nr) 55%,var(--nr-l) 100%);padding:48px 32px 42px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 60px,rgba(255,255,255,.04) 60px,rgba(255,255,255,.04) 61px);pointer-events:none}
+.hero::after{content:'';position:absolute;right:-120px;top:-80px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.10) 0%,transparent 70%);pointer-events:none}
+.hi{position:relative;max-width:1200px;margin:0 auto;z-index:2}
+.bc{font-size:11.5px;color:rgba(255,255,255,.85);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;font-weight:500}
+.badge{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.40);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 13px;border-radius:20px;margin-bottom:14px;backdrop-filter:blur(6px)}
+.hero h1{font-size:clamp(26px,4.2vw,42px);font-weight:800;color:#fff;line-height:1.1;margin-bottom:10px;letter-spacing:-.015em}
+.hero p{color:rgba(255,255,255,.92);font-size:clamp(13px,1.45vw,15.5px);max-width:740px;line-height:1.55}
+
+/* MAIN */
+.main{max-width:1200px;margin:0 auto;padding:30px 20px 60px}
+
+/* INTRO */
+.cd-intro{background:var(--wh);border:1px solid var(--g200);border-radius:var(--rad-lg);padding:26px 28px 22px;margin-bottom:26px;box-shadow:var(--sh-sm)}
+.cd-intro-eye{font-size:10.5px;font-weight:800;color:var(--nr-d);letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:7px}
+.cd-intro-eye::before{content:'';display:inline-block;width:18px;height:2px;background:var(--nr);border-radius:2px}
+.cd-intro h2{font-size:22px;font-weight:800;color:var(--g900);letter-spacing:-.015em;margin-bottom:10px;line-height:1.2}
+.cd-intro-lead{font-size:15px;color:var(--g800);line-height:1.6;margin-bottom:20px;max-width:78ch}
+.cd-intro-lead strong{color:var(--g900);font-weight:700}
+.cd-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:12px;margin-top:6px}
+.cd-card{background:linear-gradient(135deg,var(--nr-soft) 0%,#FFFAF3 100%);border:1.5px solid #FFD2A5;border-radius:var(--rad);padding:14px 16px;transition:transform .18s var(--ease),border-color .18s var(--ease)}
+.cd-card:hover{transform:translateY(-2px);border-color:var(--nr)}
+.cd-card-q{font-size:11px;font-weight:800;color:var(--nr-d);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+.cd-card-t{font-size:14.5px;font-weight:700;color:var(--g900);margin-bottom:4px;letter-spacing:-.005em}
+.cd-card-d{font-size:12.5px;color:var(--g600);line-height:1.5}
+
+/* LEGAL */
+.legal{display:grid;grid-template-columns:48px 1fr;gap:16px;background:var(--wh);border-left:4px solid var(--nr);border-radius:var(--rad);padding:18px 22px;margin-bottom:26px;box-shadow:var(--sh-sm)}
+.legal-stamp{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--nr-soft) 0%,#FFE4CC 100%);color:var(--nr-d);display:flex;align-items:center;justify-content:center;flex-shrink:0;align-self:start;box-shadow:inset 0 0 0 1px rgba(232,119,34,.18)}
+.legal-stamp svg{width:26px;height:26px;display:block}
+.legal-body{min-width:0}
+.legal-txt{font-size:14px;color:var(--g800);line-height:1.55;margin-bottom:8px}
+.legal-txt strong{color:var(--g900);font-weight:700}
+.legal-cite{font-size:11.5px;color:var(--g600);line-height:1.5}
+.legal-cite em{font-style:italic;color:var(--g600)}
+
+/* SEC HEADERS */
+.sec{margin-bottom:28px}
+.sec-h{display:flex;align-items:center;gap:11px;margin-bottom:14px}
+.sec-h-num{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--nr) 0%,var(--nr-d) 100%);color:#fff;font-family:var(--fm);font-weight:700;font-size:13px;box-shadow:0 2px 6px rgba(232,119,34,.28)}
+.sec-h-title{font-size:18px;font-weight:800;color:var(--g900);letter-spacing:-.01em}
+.sec-h-sub{font-size:13.5px;color:var(--g600);margin-left:42px;margin-top:-4px;margin-bottom:14px}
+
+/* YEAR BUTTONS */
+.year-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}
+.year-btn{background:var(--wh);border:2px solid var(--g200);border-radius:var(--rad-lg);padding:18px 14px;cursor:pointer;transition:all .18s var(--ease);text-align:center;font-family:var(--fh);position:relative;overflow:hidden}
+.year-btn:hover{border-color:var(--nr);transform:translateY(-2px);box-shadow:0 6px 16px rgba(232,119,34,.14)}
+.year-btn-yr{font-family:var(--fm);font-size:clamp(22px,3vw,28px);font-weight:800;color:var(--g900);letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.05}
+.year-btn-meta{font-size:11px;color:var(--g600);font-weight:600;margin-top:6px;text-transform:uppercase;letter-spacing:.04em}
+.year-btn.vigente .year-btn-yr::after{content:'';display:inline-block;width:7px;height:7px;background:var(--ok);border-radius:50%;margin-left:7px;vertical-align:middle;animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(1.2)}}
+.year-btn.active{background:linear-gradient(135deg,var(--nr) 0%,var(--nr-d) 100%);border-color:var(--nr-d);box-shadow:0 8px 22px rgba(232,119,34,.32)}
+.year-btn.active .year-btn-yr{color:#fff}
+.year-btn.active .year-btn-meta{color:rgba(255,255,255,.92)}
+.year-btn.active.vigente .year-btn-yr::after{background:#FFF}
+
+/* SUB-TABS dentro del año */
+.subtabs{display:flex;gap:6px;background:var(--wh);border:1.5px solid var(--g200);border-radius:var(--rad-lg);padding:5px;margin-bottom:18px;overflow-x:auto;scrollbar-width:thin}
+.subtab{flex:1;min-width:130px;background:transparent;border:none;padding:11px 14px;border-radius:9px;font-family:var(--fh);font-weight:700;font-size:13px;color:var(--g600);transition:all .15s var(--ease);white-space:nowrap;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px}
+.subtab:hover{background:var(--nr-soft);color:var(--nr-d)}
+.subtab.active{background:linear-gradient(135deg,var(--nr) 0%,var(--nr-d) 100%);color:#fff;box-shadow:0 4px 12px rgba(232,119,34,.28)}
+.subtab.disabled{color:var(--g300);cursor:not-allowed}
+.subtab.disabled:hover{background:transparent;color:var(--g300)}
+.subtab-count{font-family:var(--fm);font-size:10.5px;background:rgba(0,0,0,.06);padding:2px 7px;border-radius:99px;font-weight:600}
+.subtab.active .subtab-count{background:rgba(255,255,255,.22);color:#fff}
+
+/* MONTH SELECTOR (para vista mensual) */
+.month-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,82px),1fr));gap:6px;margin-bottom:18px}
+.month-btn{background:var(--wh);border:1.5px solid var(--g200);border-radius:9px;padding:11px 8px;cursor:pointer;transition:all .15s var(--ease);text-align:center;font-family:var(--fh);position:relative}
+.month-btn:hover:not(.empty){border-color:var(--nr);transform:translateY(-1px)}
+.month-btn-name{font-size:12.5px;font-weight:700;color:var(--g800);text-transform:capitalize}
+.month-btn-count{font-family:var(--fm);font-size:10px;color:var(--g400);margin-top:2px;font-weight:600}
+.month-btn.active{background:linear-gradient(135deg,var(--nr) 0%,var(--nr-d) 100%);border-color:var(--nr-d);box-shadow:0 4px 12px rgba(232,119,34,.28)}
+.month-btn.active .month-btn-name{color:#fff}
+.month-btn.active .month-btn-count{color:rgba(255,255,255,.85)}
+.month-btn.empty{background:repeating-linear-gradient(45deg,#FAFAF8,#FAFAF8 6px,#F5F5F1 6px,#F5F5F1 7px);border-style:dashed;border-color:var(--g300);cursor:not-allowed;opacity:.72}
+.month-btn.empty .month-btn-name{color:var(--g400)}
+
+/* DOC CARDS — el componente central */
+.doc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:14px}
+.doc-card{background:var(--wh);border:1.5px solid var(--g200);border-radius:var(--rad-lg);overflow:hidden;display:flex;flex-direction:column;transition:border-color .18s var(--ease),box-shadow .18s var(--ease)}
+.doc-card:hover{border-color:var(--nr-l);box-shadow:0 4px 16px rgba(232,119,34,.10)}
+.doc-card-head{padding:14px 16px 12px;background:linear-gradient(180deg,var(--g50) 0%,var(--wh) 100%);border-bottom:1px solid var(--g100)}
+.doc-card-num{font-family:var(--fm);font-size:10px;color:var(--nr-d);font-weight:700;letter-spacing:.05em;margin-bottom:3px;text-transform:uppercase}
+.doc-card-t{font-size:14.5px;font-weight:800;color:var(--g900);letter-spacing:-.005em;line-height:1.25;margin-bottom:4px}
+.doc-card-d{font-size:11.5px;color:var(--g600);line-height:1.45}
+.doc-card-body{padding:12px 16px 14px;display:flex;flex-direction:column;gap:7px;flex:1;justify-content:flex-end}
+.doc-link{display:flex;align-items:center;gap:10px;padding:9px 11px;background:var(--g50);border:1.5px solid var(--g200);border-radius:8px;text-decoration:none;color:var(--g900);transition:all .15s var(--ease);font-family:var(--fh)}
+.doc-link:hover{background:var(--nr-soft);border-color:var(--nr);transform:translateX(2px)}
+.doc-link-ico{flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:6px;color:#fff;font-family:var(--fm);font-size:9px;font-weight:800;letter-spacing:.02em}
+.doc-link-ico.pdf{background:linear-gradient(180deg,var(--pdf) 0%,var(--pdf-d) 100%)}
+.doc-link-ico.xls{background:linear-gradient(180deg,#1FA66A 0%,var(--ok-d) 100%)}
+.doc-link-ico.doc{background:linear-gradient(180deg,#3B82F6 0%,var(--doc) 100%)}
+.doc-link-lbl{flex:1;display:flex;flex-direction:column;gap:1px;min-width:0}
+.doc-link-name{font-size:12.5px;font-weight:700;color:var(--g900);line-height:1.2}
+.doc-link-fmt{font-size:10px;color:var(--g600);font-weight:500;font-family:var(--fm)}
+.doc-link-arrow{flex-shrink:0;color:var(--nr-d);opacity:.55;transition:opacity .15s,transform .15s}
+.doc-link:hover .doc-link-arrow{opacity:1;transform:translateY(2px)}
+
+/* DOC NOTA (gap) */
+.doc-gap{font-size:11px;color:var(--warn);background:var(--warn-l);border:1px solid #FCD34D;padding:8px 10px;border-radius:7px;line-height:1.45;font-style:italic}
+.doc-gap strong{font-style:normal;color:#451A03;font-weight:700;display:block;margin-bottom:2px}
+
+/* COVER NOTE (info de cobertura del periodo) */
+.cover-note{background:var(--warn-l);border:1px solid #FCD34D;border-radius:var(--rad);padding:12px 16px;margin-bottom:16px;display:flex;gap:11px;align-items:flex-start}
+.cover-note svg{flex-shrink:0;color:var(--warn);margin-top:1px}
+.cover-note-txt{font-size:12.5px;color:#78350F;line-height:1.5}
+.cover-note-txt strong{color:#451A03;font-weight:700}
+
+/* GRUPO HEADER (dentro de Anual/Semestral) */
+.grp-h{font-size:14px;font-weight:800;color:var(--nr-d);letter-spacing:.01em;text-transform:uppercase;margin:24px 0 12px;padding-bottom:6px;border-bottom:1.5px solid var(--nr-soft);display:flex;align-items:center;gap:8px}
+.grp-h::before{content:'';display:inline-block;width:6px;height:6px;background:var(--nr);border-radius:50%}
+.grp-h:first-of-type{margin-top:6px}
+
+/* FOOTER */
+.foot{margin-top:36px;padding:22px 24px;background:var(--wh);border-radius:var(--rad);border:1px solid var(--g200);text-align:center}
+.foot-source{font-size:12.5px;color:var(--g600);margin-bottom:6px;line-height:1.6}
+.foot-cite{font-size:11px;color:var(--g400);line-height:1.5}
+
+@media(max-width:680px){
+  .hero{padding:36px 18px 32px}
+  .main{padding:20px 14px 40px}
+  .cd-intro{padding:20px 18px 18px}
+  .cd-intro h2{font-size:19px}
+  .legal{grid-template-columns:40px 1fr;gap:12px;padding:16px 18px}
+  .legal-stamp{width:40px;height:40px;border-radius:10px}
+  .legal-stamp svg{width:22px;height:22px}
+  .sec-h-sub{margin-left:0}
+  .year-row{grid-template-columns:1fr;gap:8px}
+  .subtab{font-size:12px;padding:10px 12px}
+  .month-row{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hi">
+    <div class="bc">Transparencia Guadalajara &bull; Gobierno Municipal</div>
+    <div class="badge">Art. 8 &bull; Fracc. V &bull; Inc. n)</div>
+    <h1>Informes Financieros del Ayuntamiento</h1>
+    <p>El reporte oficial de <strong style="color:#fff">cu&aacute;nto dinero entr&oacute;, en qu&eacute; se gast&oacute;, qu&eacute; se tiene y qu&eacute; se debe</strong>, mes con mes. Incluye cuentas p&uacute;blicas, auditor&iacute;as y dem&aacute;s informes de gesti&oacute;n financiera del Ayuntamiento de Guadalajara.</p>
+  </div>
+</section>
+
+<main class="main">
+
+  <!-- CIUDADANIZACIÓN -->
+  <section class="cd-intro">
+    <div class="cd-intro-eye">En lenguaje sencillo</div>
+    <h2>&iquest;Qu&eacute; es la Cuenta P&uacute;blica?</h2>
+    <p class="cd-intro-lead">Piensa en la Cuenta P&uacute;blica como el <strong>estado de cuenta del Ayuntamiento</strong>, pero p&uacute;blico y obligatorio por ley. Cada mes, la Tesorer&iacute;a Municipal publica varios documentos que muestran de d&oacute;nde vino el dinero (impuestos, aportaciones federales), en qu&eacute; se gast&oacute; (sueldos, obras, servicios), <strong>qu&eacute; tiene el municipio</strong> (edificios, veh&iacute;culos, equipo) y <strong>qu&eacute; debe</strong> (cr&eacute;ditos, juicios pendientes, etc.). Estos son los reportes que cualquier persona puede revisar para entender c&oacute;mo se administra el dinero p&uacute;blico.</p>
+    <div class="cd-grid">
+      <div class="cd-card">
+        <div class="cd-card-q">Cada mes</div>
+        <div class="cd-card-t">Estados financieros mensuales</div>
+        <div class="cd-card-d">Siete documentos por mes que reportan ingresos, gastos, deuda, proveedores y patrimonio.</div>
+      </div>
+      <div class="cd-card">
+        <div class="cd-card-q">A mitad de a&ntilde;o</div>
+        <div class="cd-card-t">Corte Semestral y Primer Avance</div>
+        <div class="cd-card-d">A junio, el municipio entrega un balance acumulado del primer semestre y avance de programas.</div>
+      </div>
+      <div class="cd-card">
+        <div class="cd-card-q">A fin de a&ntilde;o</div>
+        <div class="cd-card-t">Cuenta P&uacute;blica anual</div>
+        <div class="cd-card-d">Resumen completo del ejercicio fiscal: ingresos, egresos, patrimonio y resultados de los programas.</div>
+      </div>
+      <div class="cd-card">
+        <div class="cd-card-q">&iquest;Y los formatos?</div>
+        <div class="cd-card-t">PDF para leer, Excel para analizar</div>
+        <div class="cd-card-d">Los <strong style="color:var(--pdf-d)">PDF</strong> son para consulta directa. Los <strong style="color:var(--ok-d)">Excel</strong> sirven para hacer tus propios c&aacute;lculos o auditor&iacute;as.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEGAL -->
+  <div class="legal">
+    <div class="legal-stamp" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3v18"/>
+        <path d="M7 21h10"/>
+        <path d="M3 7h3c2 0 4-.7 6-1.5 2 .8 4 1.5 6 1.5h3"/>
+        <path d="M19 7l-3 8c.87.65 1.92 1 3 1s2.13-.35 3-1l-3-8z"/>
+        <path d="M5 7l-3 8c.87.65 1.92 1 3 1s2.13-.35 3-1L5 7z"/>
+      </svg>
+    </div>
+    <div class="legal-body">
+      <p class="legal-txt">&ldquo;<strong>n)</strong> Las <strong>cuentas p&uacute;blicas</strong>, las <strong>auditor&iacute;as internas y externas</strong>, as&iacute; como los dem&aacute;s <strong>informes de gesti&oacute;n financiera</strong> del sujeto obligado, de cuando menos los <strong>&uacute;ltimos tres a&ntilde;os</strong>&rdquo;.</p>
+      <p class="legal-cite">&mdash; Art. 8, Fracc. V, Inc. n) &middot; <em>Ley de Transparencia y Acceso a la Informaci&oacute;n P&uacute;blica del Estado de Jalisco y sus Municipios</em>. Complementado por la <em>Ley General de Contabilidad Gubernamental</em>, la <em>Ley de Disciplina Financiera de las Entidades Federativas y los Municipios</em> y los Postulados B&aacute;sicos de Contabilidad Gubernamental emitidos por el CONAC.</p>
+    </div>
+  </div>
+
+  <!-- SELECTOR DE AÑO -->
+  <div class="sec">
+    <div class="sec-h">
+      <span class="sec-h-num">1</span>
+      <span class="sec-h-title">Elige el ejercicio fiscal</span>
+    </div>
+    <p class="sec-h-sub">El ejercicio vigente (en curso) aparece con un punto verde. Los ejercicios cerrados ya tienen su Cuenta P&uacute;blica anual disponible.</p>
+    <div class="year-row" id="yearRow" role="tablist" aria-label="Ejercicio fiscal"></div>
+  </div>
+
+  <!-- SUB-TABS (mensual / semestral / anual) -->
+  <div class="sec">
+    <div class="sec-h">
+      <span class="sec-h-num">2</span>
+      <span class="sec-h-title">Elige el tipo de reporte</span>
+    </div>
+    <div class="subtabs" id="subtabs" role="tablist" aria-label="Tipo de reporte"></div>
+  </div>
+
+  <!-- ÁREA DE CONTENIDO -->
+  <div class="sec" id="content-area">
+    <!-- aquí va: month selector (solo para mensual) + doc cards -->
+  </div>
+
+  <!-- FOOTER -->
+  <div class="foot">
+    <p class="foot-source">Publicado por la <strong>Tesorer&iacute;a Municipal</strong> &middot; Direcci&oacute;n de Contabilidad &middot; Ayuntamiento de Guadalajara</p>
+    <p class="foot-cite">Para ejercicios fiscales anteriores a 2023, presenta una solicitud de acceso a la informaci&oacute;n p&uacute;blica.</p>
+  </div>
+
+</main>
+
+<script>
+(function(){
+'use strict';
+
+const BASE = 'https://transparencia.guadalajara.gob.mx/sites/default/files/';
+const MESES_NUM = {1:'Enero',2:'Febrero',3:'Marzo',4:'Abril',5:'Mayo',6:'Junio',7:'Julio',8:'Agosto',9:'Septiembre',10:'Octubre',11:'Noviembre',12:'Diciembre'};
+const MES_CORTO = {1:'Ene',2:'Feb',3:'Mar',4:'Abr',5:'May',6:'Jun',7:'Jul',8:'Ago',9:'Sep',10:'Oct',11:'Nov',12:'Dic'};
+
+/* Los 7 criterios mensuales en orden oficial */
+const CRITERIOS = [
+  { id:'cd',    nombre:'Cuenta Detallada',                               descripcion:'Reporte detallado de los movimientos contables del mes.',                  prefix:'CuentaDetallada',                  tienePdf:true, tieneExcel:false, usaAnioCompleto:false },
+  { id:'esf',   nombre:'Estado de Situaci&oacute;n Financiera',          descripcion:'Lo que el Ayuntamiento tiene vs. lo que debe al cierre del mes.',          prefix:'EstadoSituacionFinanciera',        tienePdf:true, tieneExcel:true,  usaAnioCompleto:false },
+  { id:'act',   nombre:'Estado de Actividades',                          descripcion:'Ingresos recibidos y gastos ejercidos durante el mes.',                    prefix:'EstadoActividades',                tienePdf:true, tieneExcel:true,  usaAnioCompleto:false },
+  { id:'deuda', nombre:'Estado e Informe Anal&iacute;tico de Deuda P&uacute;blica y Pasivos', descripcion:'Detalle de la deuda p&uacute;blica formal y otros pasivos.', prefix:'EstadoAnaliticoDeudaPublicaPasivos', tienePdf:true, tieneExcel:true,  usaAnioCompleto:false },
+  { id:'oblig', nombre:'Informe Anal&iacute;tico de Obligaciones diferentes de Financiamiento', descripcion:'Otras obligaciones del municipio distintas a cr&eacute;ditos.', prefix:'InformeAnaliticoFinanciamiento',  tienePdf:true, tieneExcel:true,  usaAnioCompleto:false },
+  { id:'pasc',  nombre:'Informe sobre Pasivos Contingentes',             descripcion:'Deudas potenciales que pudieran activarse (juicios, fianzas, etc.).',      prefix:'InformePasivosContingentes',       tienePdf:true, tieneExcel:true,  usaAnioCompleto:false },
+  { id:'prov',  nombre:'Informativa de Proveedores',                     descripcion:'Pagos realizados a proveedores y contratistas en el mes.',                 prefix:'InformativaProveedores',           tienePdf:true, tieneExcel:true,  usaAnioCompleto:true }
+];
+
+/* Excepciones verificadas HTTP contra el portal el 27/may/2026 */
+const GAPS = {
+  '2025': {
+    5: { criterios:['prov'], formatos:{prov:{pdf:false,xlsx:true}} } /* Mayo 2025: InformativaProveedores solo XLSX, sin PDF */
+  },
+  '2024': {
+    7: { criterios:['cd'], formatos:{cd:{pdf:false}} },                                                                     /* Julio 2024: SIN CuentaDetallada (ni PDF) */
+    11:{ criterios:['esf','act','deuda','oblig','pasc'], formatos:{esf:{xlsx:false},act:{xlsx:false},deuda:{xlsx:false},oblig:{xlsx:false},pasc:{xlsx:false}} } /* Nov 2024: 5 criterios SIN Excel (solo PDF). Informativa Proveedores SÍ tiene .xlsx */
+  }
+};
+
+/* Detectar extensión Excel para cada mes (xlsx vs xlsm) */
+const EXCEL_EXT_2024 = {
+  /* Enero, Febrero, Marzo, Mayo: .xlsm */
+  1:'xlsm', 2:'xlsm', 3:'xlsm', 5:'xlsm',
+  /* Abril, Junio, Julio, Agosto, Septiembre, Octubre, Diciembre: .xlsx */
+  4:'xlsx', 6:'xlsx', 7:'xlsx', 8:'xlsx', 9:'xlsx', 10:'xlsx', 12:'xlsx',
+  /* Noviembre 2024: solo Informativa Proveedores tiene .xlsx; los demás criterios sin Excel — manejado en GAPS */
+  11:'xlsx'
+};
+
+/* Datos por año */
+const ANIOS_DATA = {
+  '2025': {
+    vigente:true,
+    mesesPublicados:[1,2,3,4,5,6,7,8,9,10,11], /* hasta Noviembre */
+    excelExt:'xlsx',
+    primerAvance:[
+      { t:'Primer Avance de Gesti&oacute;n Financiera', d:'Documento principal del primer semestre.', pdf:'PrimerAvanceGestionFinanciera25.pdf' },
+      { t:'Flujo Contable de Ingresos y Egresos (Ene&ndash;Jun)', d:'Resumen del flujo de efectivo del semestre.', pdf:'FlujoContableIngresosEgresosEne-Jun25.pdf', xlsx:'FlujoContableIngresosEgresosEne-Jun25.xlsx' },
+      { t:'Evaluaci&oacute;n de Programas (Ene&ndash;Jun)', d:'Resultados de los programas municipales del primer semestre.', pdf:'EvaluacionProgramasEne-Jun25.pdf', docx:'EvaluacionProgramasEne-Jun25.docx' },
+      { t:'Avance de Programas (Ene&ndash;Jun)', d:'Estatus de los programas en ejecuci&oacute;n.', pdf:'AvanceProgramasEne-Jun25.pdf', xlsx:'AvanceProgramasEne-Jun25.xlsx' }
+    ],
+    corteSemestral:[
+      { t:'Corte Semestral (Junio)', d:'Documento principal del cierre semestral.', pdf:'CorteSemestralJunio25.pdf' },
+      { t:'Conciliaci&oacute;n de Egresos Presupuestarios y Contables', d:'Cuadre entre egresos presupuestarios y contables.', pdf:'ConciliacionEgresoPresupuestariosContablesJunio25.pdf', xlsx:'ConciliacionEgresoPresupuestariosContablesJunio25.xlsx' },
+      { t:'Conciliaci&oacute;n de Ingresos Presupuestarios y Contables', d:'Cuadre entre ingresos presupuestarios y contables.', pdf:'ConciliacionIngresoPresupuestariosContablesJunio25.pdf', xlsx:'ConciliacionIngresoPresupuestariosContablesJunio25.xlsx' },
+      { t:'Estado Anal&iacute;tico de Ingresos por Rubro', d:'Ingresos del semestre clasificados por origen.', pdf:'EstadoAnaliticoIngresosRubroIngresoJunio25.pdf', xlsx:'EstadoAnaliticoIngresosRubroIngresoJunio25.xlsx' },
+      { t:'Estado Anal&iacute;tico de Egresos por Objeto del Gasto', d:'Egresos del semestre clasificados por concepto.', pdf:'EstadoAnaliticoEjercicioPresupuestoEgresosClasificacionObjetoGastoJunio25.pdf', xlsx:'EstadoAnaliticoEjercicioPresupuestoEgresosClasificacionObjetoGastoJunio25.xlsx' },
+      { t:'Estado de Actividades (Junio acumulado)', d:'Ingresos y gastos acumulados al cierre del semestre.', pdf:'EstadoActividadesJunio25-.pdf', xlsx:'EstadoActividadesJunio25-.xlsx' },
+      { t:'Estado de Situaci&oacute;n Financiera (Junio acumulado)', d:'Patrimonio del municipio al cierre del semestre.', pdf:'EstadoSituacionFinancieraJunio25-.pdf', xlsx:'EstadoSituacionFinancieraJunio25-.xlsx' },
+      { t:'Notas a los Estados Financieros (Ene&ndash;Jun)', d:'Aclaraciones y desglose de los estados.', pdf:'NotasEstadosFinancierosEnero-Junio25.pdf', docx:'NotasEstadosFinancierosEnero-Junio25.docx' },
+      { t:'Notas Administrativas (Ene&ndash;Jun)', d:'Notas sobre la gesti&oacute;n administrativa.', pdf:'NotasAdministrativasEnero-Junio25.pdf', docx:'NotasAdministrativasEnero-Junio25.docx' },
+      { t:'Notas de Memoria (Ene&ndash;Jun)', d:'Notas de cuentas de memoria contables.', pdf:'NotasEstadosMemoriaEnero-Junio25.pdf', docx:'NotasEstadosMemoriaEnero-Junio25.docx' }
+    ],
+    segundoAvance:null,
+    anual:null
+  },
+  '2024': {
+    vigente:false,
+    mesesPublicados:[1,2,3,4,5,6,7,8,9,10,11,12],
+    excelExt:'mixed',
+    primerAvance:[
+      { t:'Primer Avance de Gesti&oacute;n Financiera', d:'Documento principal del primer semestre.', pdf:'PrimerAvanceGestionFinanciera24.pdf' },
+      { t:'Flujo Contable de Ingresos y Egresos (Ene&ndash;Jun)', d:'Resumen del flujo de efectivo del semestre.', pdf:'FlujoContableIngresosEgresosEne-Jun24.pdf', xlsx:'FlujoContableIngresosEgresosEne-Jun24.xlsx' },
+      { t:'Evaluaci&oacute;n de Programas (Ene&ndash;Jun)', d:'Resultados de los programas municipales del primer semestre.', pdf:'EvaluacionProgramasEne-Jun24.pdf', docx:'EvaluacionProgramasEne-Jun24.docx' },
+      { t:'Avance de Programas (Ene&ndash;Jun)', d:'Estatus de los programas en ejecuci&oacute;n.', pdf:'AvanceProgramasEne-Jun24.pdf', xlsx:'AvanceProgramasEne-Jun24.xlsx' }
+    ],
+    corteSemestral:[
+      { t:'Corte Semestral (Junio)', d:'Documento principal del cierre semestral.', pdf:'CorteSemestralJunio24.pdf' },
+      { t:'Conciliaci&oacute;n de Egresos Presupuestarios y Contables', d:'Cuadre entre egresos presupuestarios y contables.', pdf:'ConciliacionEgresoPresupuestariosContablesJunio24.pdf', xlsx:'ConciliacionEgresoPresupuestariosContablesJunio24.xlsx' },
+      { t:'Conciliaci&oacute;n de Ingresos Presupuestarios y Contables', d:'Cuadre entre ingresos presupuestarios y contables.', pdf:'ConciliacionIngresoPresupuestariosContablesJunio24.pdf', xlsx:'ConciliacionIngresoPresupuestariosContablesJunio24.xlsx' },
+      { t:'Estado Anal&iacute;tico de Ingresos por Rubro', d:'Ingresos del semestre clasificados por origen.', pdf:'EstadoAnaliticoIngresosRubroIngresoJunio24.pdf', xlsx:'EstadoAnaliticoIngresosRubroIngresoJunio24.xlsx' },
+      { t:'Estado Anal&iacute;tico de Egresos por Objeto del Gasto', d:'Egresos del semestre clasificados por concepto.', pdf:'EstadoAnaliticoEjercicioPresupuestoEgresosClasificacionObjetoGastoJunio24.pdf', xlsx:'EstadoAnaliticoEjercicioPresupuestoEgresosClasificacionObjetoGastoJunio24.xlsx' },
+      { t:'Estado de Actividades (Junio acumulado)', d:'Ingresos y gastos acumulados al cierre del semestre.', pdf:'EstadoActividadesJunio24-.pdf', xlsx:'EstadoActividadesJunio24-.xlsx' },
+      { t:'Estado de Situaci&oacute;n Financiera (Junio acumulado)', d:'Patrimonio del municipio al cierre del semestre.', pdf:'EstadoSituacionFinancieraJunio24-.pdf', xlsx:'EstadoSituacionFinancieraJunio24-.xlsx' },
+      { t:'Notas a los Estados Financieros (Ene&ndash;Jun)', d:'Aclaraciones y desglose de los estados.', pdf:'NotasEstadosFinancierosEnero-Junio24.pdf', docx:'NotasEstadosFinancierosEnero-Junio24.docx' },
+      { t:'Notas Administrativas (Ene&ndash;Jun)', d:'Notas sobre la gesti&oacute;n administrativa.', pdf:'NotasAdministrativasEnero-Junio24.pdf', docx:'NotasAdministrativasEnero-Junio24.docx' },
+      { t:'Notas de Memoria (Ene&ndash;Jun)', d:'Notas de cuentas de memoria contables.', pdf:'NotasEstadosMemoriaEnero-Junio24.pdf', docx:'NotasEstadosMemoriaEnero-Junio24.docx' }
+    ],
+    segundoAvance:[
+      { t:'Segundo Avance de Gesti&oacute;n Financiera', d:'Documento principal del segundo semestre.', pdf:'SegundoAvanceGestionFinanciera24.pdf' },
+      { t:'Flujo Contable de Ingresos y Egresos (Jul&ndash;Dic)', d:'Resumen del flujo de efectivo del segundo semestre.', pdf:'FlujoContableIngresosEgresosJul-Dic24.pdf', xlsx:'FlujoContableIngresosEgresosJul-Dic24.xlsx' },
+      { t:'Evaluaci&oacute;n de Programas (Jul&ndash;Dic)', d:'Resultados de los programas del segundo semestre.', pdf:'EvaluacionProgramasJul-Dic24.pdf', docx:'EvaluacionProgramasJul-Dic24.docx' },
+      { t:'Avance de Programas (Jul&ndash;Dic)', d:'Estatus de programas al cierre del a&ntilde;o.', pdf:'AvanceProgramasJul-Dic24.pdf', xlsx:'AvanceProgramasJul-Dic24.xlsx' }
+    ],
+    anual:[
+      { grupo:'Documento integrador', items:[
+        { t:'Cuenta P&uacute;blica 2024', d:'Documento principal &iacute;ntegro del ejercicio fiscal.', pdf:'CuentaPublica2024.pdf' },
+        { t:'Cuenta P&uacute;blica Consolidada 2024', d:'Versi&oacute;n consolidada del informe.', pdf:'CuentaPublicaConsolidada2024.pdf' },
+        { t:'Corte Anual 2024', d:'Cierre contable al 31 de diciembre.', pdf:'CorteAnual2024.pdf' },
+        { t:'Informe de Desempe&ntilde;o de la Gesti&oacute;n', d:'Reporte cualitativo de logros y resultados.', pdf:'InformeDesempenoGestion2024.pdf', docx:'InformeDesempenoGestion2024.docx' }
+      ]},
+      { grupo:'Estados financieros consolidados', items:[
+        { t:'Estado de Situaci&oacute;n Financiera', d:'Patrimonio al 31 de diciembre.', pdf:'EstadoSituacionFinanciera2024.pdf', xlsx:'EstadoSituacionFinanciera2024.xlsx' },
+        { t:'Estado de Situaci&oacute;n Financiera (LDF Detallado)', d:'Versi&oacute;n detallada formato Ley de Disciplina Financiera.', pdf:'EstadoSituacionFinancieraLDFDetallado2024.pdf', xlsx:'EstadoSituacionFinancieraLDFDetallado2024.xlsx' },
+        { t:'Estado Anal&iacute;tico de la Situaci&oacute;n Financiera', d:'Desglose anal&iacute;tico de cuentas.', pdf:'EstadoAnaliticoSituacionFinanciera2024.pdf', xlsx:'EstadoAnaliticoSituacionFinanciera2024.xlsx' },
+        { t:'Estado de Actividades', d:'Ingresos y egresos del ejercicio.', pdf:'EstadoActividades2024.pdf', xlsx:'EstadoActividades2024.xlsx' },
+        { t:'Estado Anal&iacute;tico de Actividades', d:'Desglose anal&iacute;tico de ingresos y egresos.', pdf:'EstadoAnaliticoActividades2024.pdf', xlsx:'EstadoAnaliticoActividades2024.xlsx' },
+        { t:'Estado de Variaciones en la Hacienda P&uacute;blica', d:'C&oacute;mo cambi&oacute; el patrimonio durante el a&ntilde;o.', pdf:'ESTADOVARIACIONHACIENDAPUBLICA2024.pdf', xlsx:'ESTADOVARIACIONHACIENDAPUBLICA2024.xlsx' },
+        { t:'Estado de Cambios en la Situaci&oacute;n Financiera', d:'Movimientos del periodo en activos y pasivos.', pdf:'EstadoCambiosSituacionFinanciera2024.pdf', xlsx:'EstadoCambiosSituacionFinanciera2024.xlsx' },
+        { t:'Flujo de Efectivo', d:'Entradas y salidas de efectivo del ejercicio.', pdf:'FlujoEfectivo2024.pdf', xlsx:'FlujoEfectivo2024.xlsx' }
+      ]},
+      { grupo:'Ingresos', items:[
+        { t:'Estado Anal&iacute;tico de Ingresos', d:'Ingresos clasificados por concepto.', pdf:'EstadoAnaliticoIngreso2024.pdf', xlsx:'EstadoAnaliticoIngreso2024.xlsx' },
+        { t:'Ingresos por Financiamiento', d:'Ingresos provenientes de cr&eacute;ditos o financiamientos.', pdf:'EstadoAnaliticoIngresoFinanciamiento2024.pdf', xlsx:'EstadoAnaliticoIngresoFinanciamiento2024.xlsx' },
+        { t:'Ingresos Detallados (LDF)', d:'Formato Ley de Disciplina Financiera.', pdf:'EstadoAnaliticoIngresoDetalladoLDF2024.pdf', xlsx:'EstadoAnaliticoIngresoDetalladoLDF2024.xlsx' }
+      ]},
+      { grupo:'Egresos / Presupuesto de Gasto', items:[
+        { t:'Egresos por Objeto del Gasto', d:'En qu&eacute; tipo de concepto se gast&oacute;.', pdf:'EstadoAnaliticoPresupuestoEgresosObjetoGasto2024.pdf', xlsx:'EstadoAnaliticoPresupuestoEgresosObjetoGasto2024.xlsx' },
+        { t:'Egresos por Objeto del Gasto (LDF)', d:'Mismo desglose, formato LDF.', pdf:'EstadoAnaliticoPresupuestoEgresosObjetoGasto2024LDF.pdf', xlsx:'EstadoAnaliticoPresupuestoEgresosObjetoGasto2024LDF.xlsx' },
+        { t:'Egresos por Clasificaci&oacute;n del Gasto', d:'Gasto agrupado en corriente, capital y financiamiento.', pdf:'EstadoPrespuestoEgresosClasificacionGasto2024.pdf', xlsx:'EstadoPrespuestoEgresosClasificacionGasto2024.xlsx' },
+        { t:'Egresos por Clasificaci&oacute;n Administrativa', d:'Gasto por &aacute;rea u organismo del Ayuntamiento.', pdf:'EstadoPrespuestoEgresosClasificacionAdministrativa2024.pdf', xlsx:'EstadoPrespuestoEgresosClasificacionAdministrativa2024.xlsx' },
+        { t:'Egresos por Clasificaci&oacute;n Administrativa (LDF)', d:'Mismo desglose, formato LDF.', pdf:'EstadoPrespuestoEgresosClasificacionAdministrativa2024LDF.pdf', xlsx:'EstadoPrespuestoEgresosClasificacionAdministrativa2024LDF.xlsx' },
+        { t:'Egresos por Clasificaci&oacute;n Funcional', d:'Gasto por funci&oacute;n p&uacute;blica (educaci&oacute;n, seguridad, etc.).', pdf:'EstadoPrespuestoEgresosClasificacionFuncional2024.pdf', xlsx:'EstadoPrespuestoEgresosClasificacionFuncional2024.xlsx' },
+        { t:'Egresos por Clasificaci&oacute;n Funcional (LDF)', d:'Mismo desglose, formato LDF.', pdf:'EstadoPrespuestoEgresosClasificacionFuncionalLDF2024.pdf', xlsx:'EstadoPrespuestoEgresosClasificacionFuncionalLDF2024.xlsx' },
+        { t:'Egresos por Servicios Personales', d:'Gasto en sueldos y prestaciones del personal.', pdf:'EstadoPrespuestoEgresosServiciosPersonales2024.pdf', xlsx:'EstadoPrespuestoEgresosServiciosPersonales2024.xlsx' },
+        { t:'Balance Presupuestario', d:'Diferencia entre ingresos y egresos del ejercicio.', pdf:'BalancePresupuestario2024.pdf', xlsx:'BalancePresupuestario2024.xlsx' }
+      ]},
+      { grupo:'Patrimonio (activo)', items:[
+        { t:'Estado Anal&iacute;tico del Activo', d:'Desglose de lo que el municipio tiene.', pdf:'EstadoAnaliticoActivo2024-.pdf', xlsx:'EstadoAnaliticoActivo2024-.xlsx' },
+        { t:'Informativa Mensual de Obras en Proceso', d:'Obras en construcci&oacute;n al cierre del a&ntilde;o.', pdf:'InformativaMensualObrasProceso2024.pdf', xlsx:'InformativaMensualObrasProceso2024.xlsx' }
+      ]},
+      { grupo:'Deuda y conciliaciones', items:[
+        { t:'Estado e Informe Anal&iacute;tico de Deuda P&uacute;blica y Pasivos', d:'Detalle de la deuda al cierre del ejercicio.', pdf:'EstadoInformeAnaliticoDeudaPublicaPasivos2024.pdf', xlsx:'EstadoInformeAnaliticoDeudaPublicaPasivos2024.xlsx' },
+        { t:'Informe Anal&iacute;tico de Obligaciones de Financiamiento', d:'Otras obligaciones formales.', pdf:'InformeAnaliticoObligacionesFinanciamiento2024.pdf', xlsx:'InformeAnaliticoObligacionesFinanciamiento2024.xlsx' },
+        { t:'Pasivos Contingentes', d:'Deudas potenciales al cierre.', pdf:'InformesPasivosContingentes2024.pdf', xlsx:'InformesPasivosContingentes2024.xlsx' },
+        { t:'Conciliaci&oacute;n de Ingresos', d:'Cuadre contable de ingresos.', pdf:'CONCILIACIONINGRESOS2024.pdf', xlsx:'CONCILIACIONINGRESOS2024.xlsx' },
+        { t:'Conciliaci&oacute;n de Egresos', d:'Cuadre contable de egresos.', pdf:'CONCILIACIONEGRESOS2024.pdf', xlsx:'CONCILIACIONEGRESOS2024.xlsx' }
+      ]},
+      { grupo:'Proveedores y notas', items:[
+        { t:'Informativa de Proveedores (anual)', d:'Resumen anual de pagos a proveedores.', pdf:'InformativaProveedores2024.pdf', xlsx:'InformativaProveedores2024.xlsx' },
+        { t:'Notas a los Estados Financieros &mdash; Desglose', d:'Desglose de los estados financieros.', pdf:'NotaEstadosFinancierosDesglose2024.pdf', docx:'NotaEstadosFinancierosDesglose2024.docx' },
+        { t:'Notas a los Estados Financieros &mdash; Memoria', d:'Notas a cuentas de memoria.', pdf:'NotaEstadosFinancierosMemoria2024.pdf', docx:'NotaEstadosFinancierosMemoria2024.docx' },
+        { t:'Notas de Gesti&oacute;n Administrativas', d:'Notas sobre la gesti&oacute;n del a&ntilde;o.', pdf:'NotasGestionAdministrativas2024.pdf', docx:'NotasGestionAdministrativas2024.docx' }
+      ]}
+    ]
+  },
+  '2023': {
+    vigente:false,
+    mesesPublicados:[1,2,3,4,5,6,7,8,9,10,11,12],
+    excelExt:'xlsx',
+    primerAvance:[
+      { t:'Primer Avance de Gesti&oacute;n Financiera', d:'Documento principal del primer semestre.', pdf:'PrimerAvanceGestionFinanciera23.pdf' },
+      { t:'Flujo Contable de Ingresos y Egresos (Ene&ndash;Jun)', d:'Resumen del flujo de efectivo del semestre.', pdf:'FlujoContableIngresosEgresosEne-Jun23.pdf', xlsx:'FlujoContableIngresosEgresosEne-Jun23.xlsx' },
+      { t:'Evaluaci&oacute;n de Programas (Ene&ndash;Jun)', d:'Resultados de los programas del primer semestre.', pdf:'EvaluacionProgramasEne-Jun23.pdf', xlsx:'EvaluacionProgramasEne-Jun23.xlsx' },
+      { t:'Avance de Programas (Ene&ndash;Jun)', d:'Estatus de los programas en ejecuci&oacute;n.', pdf:'AvanceProgramasEne-Jun23.pdf', docx:'AvanceProgramasEne-Jun23.docx' }
+    ],
+    corteSemestral:[
+      { t:'Corte Semestral (Junio)', d:'Documento principal del cierre semestral.', pdf:'CorteSemestralJunio23.pdf' },
+      { t:'Conciliaci&oacute;n de Egresos Presupuestarios y Contables', d:'Cuadre entre egresos presupuestarios y contables.', pdf:'ConciliacionEgresoPresupuestariosContablesJunio23.pdf', xlsx:'ConciliacionEgresoPresupuestariosContablesJunio23.xlsx' },
+      { t:'Conciliaci&oacute;n de Ingresos Presupuestarios y Contables', d:'Cuadre entre ingresos presupuestarios y contables.', pdf:'ConciliacionIngresoPresupuestariosContablesJunio23.pdf', xlsx:'ConciliacionIngresoPresupuestariosContablesJunio23.xlsx' },
+      { t:'Estado Anal&iacute;tico de Actividades (Junio)', d:'Ingresos y egresos detallados al cierre del semestre.', pdf:'EstadoAnaliticoActividadesJunio23-.pdf', xlsx:'EstadoAnaliticoActividadesJunio23-.xlsx' },
+      { t:'Estado Anal&iacute;tico de Ingresos por Rubro', d:'Ingresos del semestre clasificados por origen.', pdf:'EstadoAnaliticoIngresosRubroIngresoJunio23.pdf', xlsx:'EstadoAnaliticoIngresosRubroIngresoJunio23.xlsx' },
+      { t:'Estado Anal&iacute;tico de la Situaci&oacute;n Financiera (Junio)', d:'Patrimonio al cierre del semestre, desglosado.', pdf:'EstadoAnaliticoSituacionFinancieraJunio23.pdf', xlsx:'EstadoAnaliticoSituacionFinancieraJunio23.xlsx' },
+      { t:'Estado Anal&iacute;tico de Egresos por Objeto del Gasto', d:'Egresos del semestre clasificados por concepto.', pdf:'EstadoAnaliticoEjercicioPresupuestoEgresosClasificacionObjetoGastoJunio23.pdf', xlsx:'EstadoAnaliticoEjercicioPresupuestoEgresosClasificacionObjetoGastoJunio23.xlsx' },
+      { t:'Estado de Actividades (Junio acumulado)', d:'Ingresos y gastos acumulados al cierre del semestre.', pdf:'EstadoActividadesJunio23-.pdf', xlsx:'EstadoActividadesJunio23-.xlsx' },
+      { t:'Estado de Situaci&oacute;n Financiera (Junio acumulado)', d:'Patrimonio del municipio al cierre del semestre.', pdf:'EstadoSituacionFinancieraJunio23-.pdf', xlsx:'EstadoSituacionFinancieraJunio23-.xlsx' },
+      { t:'Notas a los Estados Financieros (Ene&ndash;Jun)', d:'Aclaraciones y desglose.', pdf:'NotasEstadosFinancierosEnero-Junio23.pdf', docx:'NotasEstadosFinancierosEnero-Junio23.docx' },
+      { t:'Notas Administrativas (Ene&ndash;Jun)', d:'Notas sobre la gesti&oacute;n administrativa.', pdf:'NotasAdministrativasEnero-Junio23.pdf', docx:'NotasAdministrativasEnero-Junio23.docx' },
+      { t:'Notas de Memoria (Ene&ndash;Jun)', d:'Notas de cuentas de memoria contables.', pdf:'NotasEstadosMemoriaEnero-Junio23.pdf', docx:'NotasEstadosMemoriaEnero-Junio23.docx' }
+    ],
+    segundoAvance:[
+      { t:'Segundo Avance de Gesti&oacute;n Financiera', d:'Documento principal del segundo semestre.', pdf:'SegundoAvanceGestionFinanciera23.pdf' },
+      { t:'Flujo Contable de Ingresos y Egresos (Jul&ndash;Dic)', d:'Resumen del flujo de efectivo del segundo semestre.', pdf:'FlujoContableIngresosEgresosJul-Dic23.pdf', xlsx:'FlujoContableIngresosEgresosJul-Dic23.xlsx' },
+      { t:'Evaluaci&oacute;n de Programas (Jul&ndash;Dic)', d:'Resultados de los programas del segundo semestre.', pdf:'EvaluacionProgramasJul-Dic23.pdf', docx:'EvaluacionProgramasJul-Dic23.docx' },
+      { t:'Avance de Programas (Jul&ndash;Dic)', d:'Estatus al cierre del a&ntilde;o.', pdf:'AvanceProgramasJul-Dic23.pdf', xlsx:'AvanceProgramasJul-Dic23.xlsx' }
+    ],
+    anual:[
+      { grupo:'Documento integrador', items:[
+        { t:'Cuenta P&uacute;blica 2023', d:'Documento principal &iacute;ntegro del ejercicio fiscal.', pdf:'CuentaPublica2023.pdf' },
+        { t:'Corte Anual 2023', d:'Cierre contable al 31 de diciembre.', pdf:'CorteAnual2023.pdf' },
+        { t:'Consolidaci&oacute;n de Estados Financieros', d:'Consolidaci&oacute;n de los estados financieros.', pdf:'ConsolidacionEstadosFinancieros2023.pdf' },
+        { t:'Informe de Desempe&ntilde;o de la Gesti&oacute;n', d:'Reporte cualitativo de logros y resultados.', pdf:'InformeDesempenoGestion2023.pdf', docx:'InformeDesempenoGestion2023.docx' }
+      ]},
+      { grupo:'Estados financieros consolidados', items:[
+        { t:'Estado de Situaci&oacute;n Financiera', d:'Patrimonio al 31 de diciembre.', pdf:'EstadoSituacionFinanciera2023.pdf', xlsx:'EstadoSituacionFinanciera2023.xlsx' },
+        { t:'Estado de Situaci&oacute;n Financiera (LDF)', d:'Formato Ley de Disciplina Financiera.', pdf:'EstadoSituacionFinancieraLDF2023.pdf', xlsx:'EstadoSituacionFinancieraLDF2023.xlsx' },
+        { t:'Estado de Situaci&oacute;n Financiera (LDF Detallado)', d:'Versi&oacute;n detallada formato LDF.', pdf:'EstadoSituacionFinancieraLDFDetallado2023.pdf', xlsx:'EstadoSituacionFinancieraLDFDetallado2023.xlsx' },
+        { t:'Estado de Actividades', d:'Ingresos y egresos del ejercicio.', pdf:'EstadoActividades2023.pdf', xlsx:'EstadoActividades2023.xlsx' },
+        { t:'Estado de Actividades (Resumido)', d:'Versi&oacute;n resumida del estado de actividades.', pdf:'EstadoActividadesResumido2023.pdf', xlsx:'EstadoActividadesResumido2023.xlsx' },
+        { t:'Estado de Variaciones en la Hacienda P&uacute;blica', d:'C&oacute;mo cambi&oacute; el patrimonio durante el a&ntilde;o.', pdf:'ESTADOVARIACIONHACIENDAPUBLICA2023.pdf', xlsx:'ESTADOVARIACIONHACIENDAPUBLICA2023.xlsx' },
+        { t:'Estado de Cambios en la Situaci&oacute;n Financiera', d:'Movimientos del periodo en activos y pasivos.', pdf:'EstadoCambiosSituacionFinanciera2023.pdf', xlsx:'EstadoCambiosSituacionFinanciera2023.xlsx' },
+        { t:'Flujo de Efectivo', d:'Entradas y salidas de efectivo del ejercicio.', pdf:'FlujoEfectivo2023.pdf', xlsx:'FlujoEfectivo2023.xlsx' }
+      ]},
+      { grupo:'Ingresos', items:[
+        { t:'Estado Anal&iacute;tico de Ingresos', d:'Ingresos clasificados por concepto.', pdf:'EstadoAnaliticoIngreso2023.pdf', xlsx:'EstadoAnaliticoIngreso2023.xlsx' },
+        { t:'Ingresos por Financiamiento', d:'Ingresos provenientes de cr&eacute;ditos o financiamientos.', pdf:'EstadoAnaliticoIngresoFinanciamiento2023.pdf', xlsx:'EstadoAnaliticoIngresoFinanciamiento2023.xlsx' },
+        { t:'Ingresos Detallados (LDF)', d:'Formato Ley de Disciplina Financiera.', pdf:'EstadoAnaliticoIngresoDetalladoLDF2023.pdf', xlsx:'EstadoAnaliticoIngresoDetalladoLDF2023.xlsx' }
+      ]},
+      { grupo:'Egresos / Presupuesto de Gasto', items:[
+        { t:'Egresos por Objeto del Gasto', d:'En qu&eacute; tipo de concepto se gast&oacute;.', pdf:'EstadoAnaliticoPresupuestoEgresosObjetoGasto2023.pdf', xlsx:'EstadoAnaliticoPresupuestoEgresosObjetoGasto2023.xlsx' },
+        { t:'Egresos por Objeto del Gasto (LDF)', d:'Mismo desglose, formato LDF.', pdf:'EstadoAnaliticoPresupuestoEgresosObjetoGasto2023LDF.pdf', xlsx:'EstadoAnaliticoPresupuestoEgresosObjetoGasto2023LDF.xlsx' },
+        { t:'Egresos por Clasificaci&oacute;n del Gasto', d:'Gasto agrupado en corriente, capital y financiamiento.', pdf:'EstadoPrespuestoEgresosClasificacionGasto2023.pdf', xlsx:'EstadoPrespuestoEgresosClasificacionGasto2023.xlsx' },
+        { t:'Egresos por Clasificaci&oacute;n Administrativa', d:'Gasto por &aacute;rea u organismo del Ayuntamiento.', pdf:'EstadoPrespuestoEgresosClasificacionAdministrativa2023.pdf', xlsx:'EstadoPrespuestoEgresosClasificacionAdministrativa2023.xlsx' },
+        { t:'Egresos por Clasificaci&oacute;n Administrativa (LDF)', d:'Mismo desglose, formato LDF.', pdf:'EstadoPrespuestoEgresosClasificacionAdministrativa2023LDF.pdf', xlsx:'EstadoPrespuestoEgresosClasificacionAdministrativa2023LDF.xlsx' },
+        { t:'Egresos por Clasificaci&oacute;n Funcional', d:'Gasto por funci&oacute;n p&uacute;blica.', pdf:'EstadoPrespuestoEgresosClasificacionFuncional2023.pdf', xlsx:'EstadoPrespuestoEgresosClasificacionFuncional2023.xlsx' },
+        { t:'Egresos por Clasificaci&oacute;n Funcional (LDF)', d:'Mismo desglose, formato LDF.', pdf:'EstadoPrespuestoEgresosClasificacionFuncionalLDF2023.pdf', xlsx:'EstadoPrespuestoEgresosClasificacionFuncionalLDF2023.xlsx' },
+        { t:'Egresos por Servicios Personales', d:'Gasto en sueldos y prestaciones del personal.', pdf:'EstadoPrespuestoEgresosServiciosPersonales2023.pdf', xlsx:'EstadoPrespuestoEgresosServiciosPersonales2023.xlsx' },
+        { t:'Balance Presupuestario', d:'Diferencia entre ingresos y egresos del ejercicio.', pdf:'BalancePresupuestario2023.pdf', xlsx:'BalancePresupuestario2023.xlsx' }
+      ]},
+      { grupo:'Patrimonio (activo)', items:[
+        { t:'Estado Anal&iacute;tico del Activo', d:'Desglose de lo que el municipio tiene.', pdf:'EstadoAnaliticoActivo2023-.pdf', xlsx:'EstadoAnaliticoActivo2023-.xlsx' },
+        { t:'Informativa Mensual de Obras en Proceso', d:'Obras en construcci&oacute;n al cierre del a&ntilde;o.', pdf:'InformativaMensualObrasProceso2023.pdf', xlsx:'InformativaMensualObrasProceso2023.xlsx' },
+        { t:'Relaci&oacute;n de Bienes Inmuebles', d:'Listado de inmuebles del municipio al 31 de diciembre.', pdf:'RelacionBienesInmuebles31Dic2023.pdf', xlsx:'RelacionBienesInmuebles31Dic2023.xlsx' },
+        { t:'Relaci&oacute;n de Bienes Muebles', d:'Listado de bienes muebles al 31 de diciembre.', pdf:'RelacionBienesMuebles31Dic2023.pdf', xlsx:'RelacionBienesMuebles31Dic2023.xlsx' },
+        { t:'Relaci&oacute;n de Veh&iacute;culos', d:'Listado de veh&iacute;culos oficiales al 31 de diciembre.', pdf:'RelacionVehiculos31Dic2023.pdf', xlsx:'RelacionVehiculos31Dic2023.xlsx' }
+      ]},
+      { grupo:'Deuda y conciliaciones', items:[
+        { t:'Estado e Informe Anal&iacute;tico de Deuda P&uacute;blica y Pasivos', d:'Detalle de la deuda al cierre del ejercicio.', pdf:'EstadoInformeAnaliticoDeudaPublicaPasivos2023.pdf', xlsx:'EstadoInformeAnaliticoDeudaPublicaPasivosInformeAnaliticoObligacionesFinanciamiento2023.xlsx' },
+        { t:'Informe Anal&iacute;tico de Obligaciones de Financiamiento', d:'Otras obligaciones formales.', pdf:'InformeAnaliticoObligacionesFinanciamiento2023.pdf' },
+        { t:'Pasivos Contingentes', d:'Deudas potenciales al cierre.', pdf:'InformesPasivosContingentes2023.pdf', xlsx:'InformesPasivosContingentes2023.xlsx' },
+        { t:'Conciliaci&oacute;n de Ingresos', d:'Cuadre contable de ingresos.', pdf:'CONCILIACIONINGRESOS2023.pdf', xlsx:'CONCILIACIONINGRESOS2023.xlsx' },
+        { t:'Conciliaci&oacute;n de Egresos', d:'Cuadre contable de egresos.', pdf:'CONCILIACIONEGRESOS2023.pdf', xlsx:'CONCILIACIONEGRESOS2023.xlsx' }
+      ]},
+      { grupo:'Proveedores y notas', items:[
+        { t:'Informativa de Proveedores (anual)', d:'Resumen anual de pagos a proveedores.', pdf:'InformativaProveedores2023.pdf', xlsx:'InformativaProveedores2023.xlsx' },
+        { t:'Notas a los Estados Financieros &mdash; Desglose', d:'Desglose de los estados financieros.', pdf:'NotaEstadosFinancierosDesglose2023.pdf', docx:'NotaEstadosFinancierosDesglose2023.docx' },
+        { t:'Notas a los Estados Financieros &mdash; Memoria', d:'Notas a cuentas de memoria.', pdf:'NotaEstadosFinancierosMemoria2023.pdf', docx:'NotaEstadosFinancierosMemoria2023.docx' },
+        { t:'Notas de Gesti&oacute;n Administrativas', d:'Notas sobre la gesti&oacute;n del a&ntilde;o.', pdf:'NotasGestionAdministrativas2023.pdf', docx:'NotasGestionAdministrativas2023.docx' }
+      ]}
+    ]
+  }
+};
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+
+let activeYear = '2025';
+let activeTab = 'mensual';
+let activeMonth = 11; /* Noviembre por defecto para 2025 — se ajusta al cambiar año */
+
+/* === HELPERS === */
+function buildMonthlyUrl(yr, mes, criterio, formato){
+  const yy = yr.substring(2);
+  const mesNombre = MESES_NUM[mes];
+  const sufijo = criterio.usaAnioCompleto ? mesNombre + yr : mesNombre + yy;
+  let ext;
+  if(formato === 'pdf') ext = 'pdf';
+  else { /* excel */
+    if(yr === '2024'){ ext = EXCEL_EXT_2024[mes]; }
+    else { ext = 'xlsx'; }
+  }
+  return BASE + criterio.prefix + sufijo + '.' + ext;
+}
+
+function tieneGap(yr, mes, critId, formato){
+  const g = GAPS[yr];
+  if(!g) return false;
+  const m = g[mes];
+  if(!m) return false;
+  if(m.criterios.indexOf(critId) === -1) return false;
+  const f = m.formatos[critId];
+  if(!f) return false;
+  if(formato === 'pdf' && f.pdf === false) return true;
+  if(formato === 'xlsx' && f.xlsx === false) return true;
+  return false;
+}
+
+function archivosMensualesCount(yr, mes){
+  let n = 0;
+  CRITERIOS.forEach(c => {
+    if(c.tienePdf && !tieneGap(yr, mes, c.id, 'pdf')) n++;
+    if(c.tieneExcel && !tieneGap(yr, mes, c.id, 'xlsx')) n++;
+  });
+  return n;
+}
+
+function totalAnual(yr){
+  const d = ANIOS_DATA[yr];
+  let n = 0;
+  d.mesesPublicados.forEach(m => { n += archivosMensualesCount(yr, m); });
+  if(d.primerAvance) d.primerAvance.forEach(item => { if(item.pdf) n++; if(item.xlsx) n++; if(item.docx) n++; });
+  if(d.corteSemestral) d.corteSemestral.forEach(item => { if(item.pdf) n++; if(item.xlsx) n++; if(item.docx) n++; });
+  if(d.segundoAvance) d.segundoAvance.forEach(item => { if(item.pdf) n++; if(item.xlsx) n++; if(item.docx) n++; });
+  if(d.anual) d.anual.forEach(grp => grp.items.forEach(item => { if(item.pdf) n++; if(item.xlsx) n++; if(item.docx) n++; }));
+  return n;
+}
+
+/* === RENDER YEARS === */
+function renderYears(){
+  $('yearRow').innerHTML = ['2025','2024','2023'].map(y => {
+    const d = ANIOS_DATA[y];
+    const total = totalAnual(y);
+    return '<button class="year-btn ' + (activeYear === y ? 'active' : '') + ' ' + (d.vigente ? 'vigente' : '') + '" data-year="' + y + '" type="button">' +
+      '<div class="year-btn-yr">' + y + '</div>' +
+      '<div class="year-btn-meta">' + total + ' archivos</div>' +
+      '</button>';
+  }).join('');
+  $('yearRow').querySelectorAll('.year-btn').forEach(b => {
+    b.addEventListener('click', () => {
+      activeYear = b.dataset.year;
+      /* Ajustar mes activo al último publicado del año seleccionado */
+      const meses = ANIOS_DATA[activeYear].mesesPublicados;
+      activeMonth = meses[meses.length - 1];
+      /* Si el sub-tab activo no existe en el año, regresar a mensual */
+      const d = ANIOS_DATA[activeYear];
+      if(activeTab === 'segundoavance' && !d.segundoAvance) activeTab = 'mensual';
+      if(activeTab === 'anual' && !d.anual) activeTab = 'mensual';
+      renderYears();
+      renderSubtabs();
+      renderContent();
+    });
+  });
+}
+
+/* === RENDER SUBTABS === */
+function renderSubtabs(){
+  const d = ANIOS_DATA[activeYear];
+  const tabs = [
+    { id:'mensual', lbl:'Reportes mensuales', count:d.mesesPublicados.length + ' meses', enabled:true },
+    { id:'primeravance', lbl:'Primer Avance', count:d.primerAvance ? d.primerAvance.length : 0, enabled:!!d.primerAvance },
+    { id:'cortesemestral', lbl:'Corte Semestral', count:d.corteSemestral ? d.corteSemestral.length : 0, enabled:!!d.corteSemestral },
+    { id:'segundoavance', lbl:'Segundo Avance', count:d.segundoAvance ? d.segundoAvance.length : 0, enabled:!!d.segundoAvance },
+    { id:'anual', lbl:'Cuenta P&uacute;blica anual', count:d.anual ? d.anual.reduce((s,g) => s + g.items.length, 0) : 0, enabled:!!d.anual }
+  ];
+  $('subtabs').innerHTML = tabs.map(t => {
+    const cls = (activeTab === t.id ? ' active' : '') + (!t.enabled ? ' disabled' : '');
+    const countHtml = t.enabled ? '<span class="subtab-count">' + t.count + '</span>' : '';
+    return '<button class="subtab' + cls + '" data-tab="' + t.id + '"' + (!t.enabled ? ' disabled' : '') + '>' + t.lbl + countHtml + '</button>';
+  }).join('');
+  $('subtabs').querySelectorAll('.subtab').forEach(b => {
+    if(b.classList.contains('disabled')) return;
+    b.addEventListener('click', () => {
+      activeTab = b.dataset.tab;
+      renderSubtabs();
+      renderContent();
+    });
+  });
+}
+
+/* === RENDER DOC CARD genérico === */
+function docCardHtml(item, num){
+  const numHtml = num ? '<div class="doc-card-num">Documento ' + num + '</div>' : '';
+  const desc = item.d ? '<div class="doc-card-d">' + item.d + '</div>' : '';
+  let links = '';
+  /* Si no hay ningún formato disponible, mostrar mensaje claro de gap */
+  if(!item.pdf && !item.xlsx && !item.docx){
+    return '<article class="doc-card" style="opacity:.78;background:repeating-linear-gradient(45deg,#FAFAF8,#FAFAF8 8px,#F5F5F1 8px,#F5F5F1 9px);border-style:dashed;border-color:var(--g300)">' +
+      '<header class="doc-card-head">' + numHtml + '<div class="doc-card-t" style="color:var(--g600)">' + item.t + '</div>' + desc + '</header>' +
+      '<div class="doc-card-body"><div class="doc-gap"><strong>No publicado en este mes</strong>El portal oficial del Ayuntamiento no contiene este documento para el periodo seleccionado.</div></div>' +
+    '</article>';
+  }
+  if(item.pdf){
+    links += '<a class="doc-link" href="' + esc(BASE + item.pdf) + '" target="_blank" rel="noopener" aria-label="Abrir ' + esc(item.t) + ' en PDF">' +
+      '<span class="doc-link-ico pdf">PDF</span>' +
+      '<span class="doc-link-lbl"><span class="doc-link-name">Abrir PDF</span><span class="doc-link-fmt">Para leer</span></span>' +
+      '<svg class="doc-link-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>' +
+    '</a>';
+  }
+  if(item.xlsx){
+    const ext = item.xlsx.endsWith('.xlsm') ? 'XLSM' : 'XLSX';
+    links += '<a class="doc-link" href="' + esc(BASE + item.xlsx) + '" target="_blank" rel="noopener" aria-label="Descargar ' + esc(item.t) + ' en Excel">' +
+      '<span class="doc-link-ico xls">XLS</span>' +
+      '<span class="doc-link-lbl"><span class="doc-link-name">Descargar Excel</span><span class="doc-link-fmt">' + ext + ' &middot; Para analizar</span></span>' +
+      '<svg class="doc-link-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>' +
+    '</a>';
+  }
+  if(item.docx){
+    links += '<a class="doc-link" href="' + esc(BASE + item.docx) + '" target="_blank" rel="noopener" aria-label="Descargar ' + esc(item.t) + ' en Word">' +
+      '<span class="doc-link-ico doc">DOC</span>' +
+      '<span class="doc-link-lbl"><span class="doc-link-name">Descargar Word</span><span class="doc-link-fmt">DOCX &middot; Para editar</span></span>' +
+      '<svg class="doc-link-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>' +
+    '</a>';
+  }
+  return '<article class="doc-card">' +
+    '<header class="doc-card-head">' + numHtml + '<div class="doc-card-t">' + item.t + '</div>' + desc + '</header>' +
+    '<div class="doc-card-body">' + links + '</div>' +
+  '</article>';
+}
+
+/* === RENDER MENSUAL === */
+function renderMensual(){
+  const yr = activeYear;
+  const d = ANIOS_DATA[yr];
+  const meses = d.mesesPublicados;
+
+  /* Si activeMonth no es válido para este año, ajustar */
+  if(meses.indexOf(activeMonth) === -1) activeMonth = meses[meses.length - 1];
+
+  /* Construir orden: año en curso = meses publicados en reverso; años cerrados = orden cronológico inverso completo */
+  const isInProgress = ANIOS_DATA[yr].vigente;
+  let orden = [];
+  if(isInProgress){
+    /* Publicados en reverso, luego los no publicados al final */
+    const publicados = meses.slice().reverse();
+    const noPublicados = [];
+    for(let m = 1; m <= 12; m++) if(meses.indexOf(m) === -1) noPublicados.push(m);
+    orden = publicados.concat(noPublicados);
+  } else {
+    for(let m = 12; m >= 1; m--) orden.push(m);
+  }
+
+  /* Selector de mes */
+  let monthsHtml = '<div class="month-row">';
+  orden.forEach(m => {
+    const publicado = meses.indexOf(m) !== -1;
+    const cls = (m === activeMonth && publicado ? 'active' : '') + (!publicado ? ' empty' : '');
+    const count = publicado ? archivosMensualesCount(yr, m) : 0;
+    monthsHtml += '<button class="month-btn ' + cls + '" data-month="' + m + '"' + (!publicado ? ' disabled' : '') + '>' +
+      '<div class="month-btn-name">' + MES_CORTO[m].toLowerCase() + '</div>' +
+      (publicado ? '<div class="month-btn-count">' + count + ' arch.</div>' : '<div class="month-btn-count">&mdash;</div>') +
+    '</button>';
+  });
+  monthsHtml += '</div>';
+
+  /* Cards de los 7 criterios para el mes activo */
+  let cardsHtml = '<div class="doc-grid">';
+  CRITERIOS.forEach((c, idx) => {
+    const item = { t:c.nombre, d:c.descripcion };
+    if(c.tienePdf && !tieneGap(yr, activeMonth, c.id, 'pdf')){ item.pdf = buildMonthlyUrl(yr, activeMonth, c, 'pdf').replace(BASE, ''); }
+    if(c.tieneExcel && !tieneGap(yr, activeMonth, c.id, 'xlsx')){ item.xlsx = buildMonthlyUrl(yr, activeMonth, c, 'xlsx').replace(BASE, ''); }
+    cardsHtml += docCardHtml(item, idx + 1);
+  });
+  cardsHtml += '</div>';
+
+  /* Notas de cobertura */
+  let coverHtml = '';
+  if(yr === '2025'){
+    coverHtml = '<div class="cover-note"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg><div class="cover-note-txt"><strong>Cobertura 2025:</strong> Publicaci&oacute;n acumulada hasta noviembre 2025. Diciembre y el cierre anual a&uacute;n no han sido publicados oficialmente.</div></div>';
+  }
+
+  $('content-area').innerHTML =
+    '<div class="sec-h"><span class="sec-h-num">3</span><span class="sec-h-title">Reportes mensuales &middot; ' + yr + '</span></div>' +
+    '<p class="sec-h-sub">Elige un mes para ver sus 7 reportes oficiales. Los meses sin recuadro a&uacute;n no se han publicado.</p>' +
+    coverHtml +
+    monthsHtml +
+    cardsHtml;
+
+  $('content-area').querySelectorAll('.month-btn').forEach(b => {
+    if(b.disabled) return;
+    b.addEventListener('click', () => {
+      activeMonth = parseInt(b.dataset.month, 10);
+      renderMensual();
+    });
+  });
+}
+
+/* === RENDER LIST (Primer Avance / Corte Semestral / Segundo Avance) === */
+function renderList(titulo, subtitulo, items){
+  let cardsHtml = '<div class="doc-grid">';
+  items.forEach((item, idx) => cardsHtml += docCardHtml(item, idx + 1));
+  cardsHtml += '</div>';
+  $('content-area').innerHTML =
+    '<div class="sec-h"><span class="sec-h-num">3</span><span class="sec-h-title">' + titulo + ' &middot; ' + activeYear + '</span></div>' +
+    '<p class="sec-h-sub">' + subtitulo + '</p>' +
+    cardsHtml;
+}
+
+/* === RENDER ANUAL === */
+function renderAnual(){
+  const d = ANIOS_DATA[activeYear];
+  let html = '<div class="sec-h"><span class="sec-h-num">3</span><span class="sec-h-title">Cuenta P&uacute;blica anual &middot; ' + activeYear + '</span></div>' +
+    '<p class="sec-h-sub">Documentos del cierre anual del ejercicio fiscal ' + activeYear + ', agrupados por categor&iacute;a.</p>';
+  d.anual.forEach(grp => {
+    html += '<div class="grp-h">' + grp.grupo + '</div>';
+    html += '<div class="doc-grid">';
+    grp.items.forEach((item, idx) => html += docCardHtml(item));
+    html += '</div>';
+  });
+  $('content-area').innerHTML = html;
+}
+
+/* === RENDER CONTENT === */
+function renderContent(){
+  const d = ANIOS_DATA[activeYear];
+  if(activeTab === 'mensual') renderMensual();
+  else if(activeTab === 'primeravance') renderList('Primer Avance de Gesti&oacute;n Financiera', 'Reporte del primer semestre (enero a junio). Es el primer corte oficial del a&ntilde;o.', d.primerAvance);
+  else if(activeTab === 'cortesemestral') renderList('Corte Semestral (Junio)', 'Estados financieros acumulados al cierre de junio, con conciliaciones y notas.', d.corteSemestral);
+  else if(activeTab === 'segundoavance') renderList('Segundo Avance de Gesti&oacute;n Financiera', 'Reporte del segundo semestre (julio a diciembre).', d.segundoAvance);
+  else if(activeTab === 'anual') renderAnual();
+}
+
+function init(){
+  renderYears();
+  renderSubtabs();
+  renderContent();
+}
+
+if(document.readyState === 'loading'){
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
+})();
+</script>
+
+</body>
+</html>
