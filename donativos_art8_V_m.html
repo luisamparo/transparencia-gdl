@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Donativos otorgados por la Presidencia Municipal de Guadalajara. Listado de personas físicas o jurídicas a quienes se les asigna recursos públicos. Art. 8, Fracción V, Inciso m de la Ley de Transparencia."/>
+<meta name="robots" content="index,follow"/>
+<title>Donativos del Presidente Municipal &middot; Art. 8 Fracc. V Inc. m) &middot; Transparencia Guadalajara</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --nr:#E87722;--nr-l:#FF9A45;--nr-d:#C45F0A;--nr-deeper:#8B4308;--nr-soft:#FFF1E4;
+  --g50:#FAFAF8;--g100:#F0F0EC;--g200:#E2E2DD;--g300:#CFCFC8;--g400:#9E9E98;--g600:#5A5A55;--g800:#2D2D2A;--g900:#1A1A1A;
+  --wh:#FFF;
+  --ok:#16A34A;--ok-d:#0E6B4C;
+  --warn:#B45309;--warn-l:#FEF3C7;
+  --rad:10px;--rad-lg:14px;
+  --sh:0 4px 22px rgba(0,0,0,.08);
+  --sh-sm:0 1px 3px rgba(0,0,0,.06);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --fh:'Outfit',system-ui,-apple-system,sans-serif;
+  --fm:'DM Mono','SF Mono',Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--fh);background:var(--g50);color:var(--g900);line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+a{color:var(--nr-d)}
+button{font-family:inherit;cursor:pointer}
+
+/* HERO */
+.hero{background:radial-gradient(ellipse 800px 400px at 90% 30%,rgba(255,255,255,.18) 0%,transparent 70%),linear-gradient(135deg,var(--nr-d) 0%,var(--nr) 55%,var(--nr-l) 100%);padding:48px 32px 42px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 60px,rgba(255,255,255,.04) 60px,rgba(255,255,255,.04) 61px);pointer-events:none}
+.hero::after{content:'';position:absolute;right:-120px;top:-80px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.10) 0%,transparent 70%);pointer-events:none}
+.hi{position:relative;max-width:1200px;margin:0 auto;z-index:2}
+.bc{font-size:11.5px;color:rgba(255,255,255,.85);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;font-weight:500}
+.badge{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.40);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 13px;border-radius:20px;margin-bottom:14px;backdrop-filter:blur(6px)}
+.hero h1{font-size:clamp(26px,4.2vw,42px);font-weight:800;color:#fff;line-height:1.1;margin-bottom:10px;letter-spacing:-.015em}
+.hero p{color:rgba(255,255,255,.92);font-size:clamp(13px,1.45vw,15.5px);max-width:720px;line-height:1.55}
+
+/* MAIN */
+.main{max-width:1200px;margin:0 auto;padding:30px 20px 60px}
+
+/* CIUDADANIA: "¿Qué es esto?" */
+.cd-intro{background:var(--wh);border:1px solid var(--g200);border-radius:var(--rad-lg);padding:26px 28px 22px;margin-bottom:26px;box-shadow:var(--sh-sm)}
+.cd-intro-eye{font-size:10.5px;font-weight:800;color:var(--nr-d);letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:7px}
+.cd-intro-eye::before{content:'';display:inline-block;width:18px;height:2px;background:var(--nr);border-radius:2px}
+.cd-intro h2{font-size:22px;font-weight:800;color:var(--g900);letter-spacing:-.015em;margin-bottom:10px;line-height:1.2}
+.cd-intro-lead{font-size:15px;color:var(--g800);line-height:1.6;margin-bottom:20px;max-width:78ch}
+.cd-intro-lead strong{color:var(--g900);font-weight:700}
+.cd-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:12px;margin-top:6px}
+.cd-card{background:linear-gradient(135deg,var(--nr-soft) 0%,#FFFAF3 100%);border:1.5px solid #FFD2A5;border-radius:var(--rad);padding:14px 16px;transition:transform .18s var(--ease),border-color .18s var(--ease)}
+.cd-card:hover{transform:translateY(-2px);border-color:var(--nr)}
+.cd-card-q{font-size:11px;font-weight:800;color:var(--nr-d);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+.cd-card-t{font-size:14.5px;font-weight:700;color:var(--g900);margin-bottom:4px;letter-spacing:-.005em}
+.cd-card-d{font-size:12.5px;color:var(--g600);line-height:1.5}
+
+/* LEGAL BANNER */
+.legal{display:grid;grid-template-columns:48px 1fr;gap:16px;background:var(--wh);border-left:4px solid var(--nr);border-radius:var(--rad);padding:18px 22px;margin-bottom:26px;box-shadow:var(--sh-sm)}
+.legal-stamp{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--nr-soft) 0%,#FFE4CC 100%);color:var(--nr-d);display:flex;align-items:center;justify-content:center;flex-shrink:0;align-self:start;box-shadow:inset 0 0 0 1px rgba(232,119,34,.18)}
+.legal-stamp svg{width:26px;height:26px;display:block}
+.legal-body{min-width:0}
+.legal-txt{font-size:14px;color:var(--g800);line-height:1.55;margin-bottom:8px}
+.legal-txt strong{color:var(--g900);font-weight:700}
+.legal-cite{font-size:11.5px;color:var(--g600);line-height:1.5}
+.legal-cite a{font-weight:700;color:var(--nr-d);text-decoration:underline}
+.legal-cite em{font-style:italic;color:var(--g600)}
+
+/* SEC HEADERS */
+.sec{margin-bottom:30px}
+.sec-h{display:flex;align-items:center;gap:11px;margin-bottom:14px}
+.sec-h-num{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--nr) 0%,var(--nr-d) 100%);color:#fff;font-family:var(--fm);font-weight:700;font-size:13px;box-shadow:0 2px 6px rgba(232,119,34,.28)}
+.sec-h-title{font-size:18px;font-weight:800;color:var(--g900);letter-spacing:-.01em}
+.sec-h-sub{font-size:13.5px;color:var(--g600);margin-left:42px;margin-top:-4px;margin-bottom:14px}
+
+/* YEAR BUTTONS */
+.year-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,118px),1fr));gap:9px;margin-bottom:8px}
+.year-btn{background:var(--wh);border:2px solid var(--g200);border-radius:var(--rad-lg);padding:15px 10px 14px;cursor:pointer;transition:all .18s var(--ease);text-align:center;font-family:var(--fh);position:relative;overflow:hidden}
+.year-btn:hover{border-color:var(--nr);transform:translateY(-2px);box-shadow:0 6px 16px rgba(232,119,34,.14)}
+.year-btn-yr{font-family:var(--fm);font-size:clamp(18px,2.2vw,22px);font-weight:800;color:var(--g900);letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.05}
+.year-btn-meta{font-size:10.5px;color:var(--g600);font-weight:600;margin-top:5px;text-transform:uppercase;letter-spacing:.04em}
+.year-btn.vigente .year-btn-yr::after{content:'';display:inline-block;width:7px;height:7px;background:var(--ok);border-radius:50%;margin-left:6px;vertical-align:middle;animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(1.2)}}
+.year-btn.active{background:linear-gradient(135deg,var(--nr) 0%,var(--nr-d) 100%);border-color:var(--nr-d);box-shadow:0 8px 22px rgba(232,119,34,.32)}
+.year-btn.active .year-btn-yr{color:#fff}
+.year-btn.active .year-btn-meta{color:rgba(255,255,255,.92)}
+.year-btn.active.vigente .year-btn-yr::after{background:#FFF}
+.year-btn.parcial::before{content:'';position:absolute;top:6px;right:6px;width:6px;height:6px;background:var(--warn);border-radius:50%}
+
+/* AVISO DE COBERTURA */
+.cover-note{background:var(--warn-l);border:1px solid #FCD34D;border-radius:var(--rad);padding:12px 16px;margin-bottom:18px;display:flex;gap:11px;align-items:flex-start}
+.cover-note svg{flex-shrink:0;color:var(--warn);margin-top:1px}
+.cover-note-txt{font-size:12.5px;color:#78350F;line-height:1.5}
+.cover-note-txt strong{color:#451A03;font-weight:700}
+
+/* FILE CARDS */
+.cal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:13px;margin-top:14px}
+.cal-card{background:var(--wh);border:1.5px solid var(--g200);border-radius:var(--rad-lg);padding:0;overflow:hidden;display:flex;flex-direction:column;transition:border-color .18s var(--ease),box-shadow .18s var(--ease)}
+.cal-card:hover{border-color:var(--nr-l);box-shadow:0 4px 16px rgba(232,119,34,.10)}
+.cal-card.big{grid-column:1 / -1}
+.cal-card-top{padding:14px 16px 12px;background:linear-gradient(180deg,var(--g50) 0%,var(--wh) 100%);border-bottom:1px solid var(--g100);display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.cal-card-mes{font-size:15px;font-weight:800;color:var(--g900);letter-spacing:-.005em}
+.cal-card.big .cal-card-mes{font-size:18px}
+.cal-card-yr{font-family:var(--fm);font-size:11px;color:var(--g400);font-weight:600;font-variant-numeric:tabular-nums}
+.cal-card-body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.cal-card-meta{font-size:11.5px;color:var(--g600);line-height:1.45}
+.cal-card-meta strong{color:var(--g800);font-weight:700}
+.cal-link{display:flex;align-items:center;gap:11px;padding:11px 12px;background:var(--g50);border:1.5px solid var(--g200);border-radius:9px;text-decoration:none;color:var(--g900);transition:all .15s var(--ease);margin-top:auto}
+.cal-link:hover{background:var(--nr-soft);border-color:var(--nr);transform:translateX(2px)}
+.cal-link-ico{flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:7px;background:var(--ok);color:#fff;font-family:var(--fm);font-size:9.5px;font-weight:800;letter-spacing:.02em}
+.cal-link-info{display:flex;flex-direction:column;gap:1px;flex:1;min-width:0}
+.cal-link-lbl{font-size:13px;font-weight:700;color:var(--g900);line-height:1.25}
+.cal-link-fmt{font-size:10.5px;color:var(--g600);font-weight:500;font-family:var(--fm);letter-spacing:.01em}
+.cal-link-arrow{flex-shrink:0;color:var(--nr-d);opacity:.6;transition:opacity .15s,transform .15s}
+.cal-link:hover .cal-link-arrow{opacity:1;transform:translateY(2px)}
+
+/* MESES SIN PUBLICAR (gap) */
+.cal-card.empty{background:repeating-linear-gradient(45deg,#FAFAF8,#FAFAF8 8px,#F5F5F1 8px,#F5F5F1 9px);border-style:dashed;border-color:var(--g300);opacity:.86}
+.cal-card.empty .cal-card-body{justify-content:center;text-align:center}
+.cal-empty-msg{font-size:12.5px;color:var(--g600);line-height:1.45;font-style:italic;padding:14px 4px}
+.cal-empty-msg strong{display:block;font-style:normal;font-size:13.5px;color:var(--g800);font-weight:700;margin-bottom:4px}
+
+/* FOOTER */
+.foot{margin-top:36px;padding:22px 24px;background:var(--wh);border-radius:var(--rad);border:1px solid var(--g200);text-align:center}
+.foot-source{font-size:12.5px;color:var(--g600);margin-bottom:6px;line-height:1.6}
+.foot-source a{font-weight:700;color:var(--nr-d);text-decoration:underline}
+.foot-cite{font-size:11px;color:var(--g400);line-height:1.5}
+
+@media(max-width:600px){
+  .hero{padding:36px 18px 32px}
+  .main{padding:20px 14px 40px}
+  .cd-intro{padding:20px 18px 18px}
+  .cd-intro h2{font-size:19px}
+  .legal{grid-template-columns:40px 1fr;gap:12px;padding:16px 18px}
+  .legal-stamp{width:40px;height:40px;border-radius:10px}
+  .legal-stamp svg{width:22px;height:22px}
+  .sec-h-sub{margin-left:0}
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hi">
+    <div class="bc">Transparencia Guadalajara &bull; Gobierno Municipal</div>
+    <div class="badge">Art. 8 &bull; Fracc. V &bull; Inc. m)</div>
+    <h1>Donativos otorgados por la Presidencia Municipal</h1>
+    <p>Cuando el Ayuntamiento de Guadalajara entrega dinero, bienes o un apoyo material a una persona o asociaci&oacute;n, queda registrado aqu&iacute; &mdash; con <strong style="color:#fff">qui&eacute;n lo recibi&oacute;, cu&aacute;nto fue, por qu&eacute; motivo y en qu&eacute; fecha</strong>.</p>
+  </div>
+</section>
+
+<main class="main">
+
+  <!-- CIUDADANIZACIÓN -->
+  <section class="cd-intro">
+    <div class="cd-intro-eye">En lenguaje sencillo</div>
+    <h2>&iquest;Qu&eacute; vas a encontrar aqu&iacute;?</h2>
+    <p class="cd-intro-lead">El Presidente Municipal puede aprobar <strong>apoyos econ&oacute;micos o materiales</strong> para personas (un ciudadano) o para organizaciones (una asociaci&oacute;n civil, una empresa, un club, una iglesia, etc.). La ley exige que ese apoyo sea p&uacute;blico: por eso publicamos mes con mes la lista completa con nombre, monto, motivo y fecha. <strong>Nadie recibe dinero del Ayuntamiento en secreto.</strong></p>
+    <div class="cd-grid">
+      <div class="cd-card">
+        <div class="cd-card-q">&iquest;Qui&eacute;n aparece?</div>
+        <div class="cd-card-t">Personas y organizaciones</div>
+        <div class="cd-card-d">Cualquier persona f&iacute;sica o jur&iacute;dica que haya recibido un donativo del Presidente Municipal.</div>
+      </div>
+      <div class="cd-card">
+        <div class="cd-card-q">&iquest;Cu&aacute;nto?</div>
+        <div class="cd-card-t">El monto exacto en pesos</div>
+        <div class="cd-card-d">Ya sea en efectivo o el valor equivalente del apoyo entregado en especie.</div>
+      </div>
+      <div class="cd-card">
+        <div class="cd-card-q">&iquest;Por qu&eacute;?</div>
+        <div class="cd-card-t">El motivo del apoyo</div>
+        <div class="cd-card-d">Programa social, ayuda humanitaria, est&iacute;mulo cultural, apoyo escolar, etc.</div>
+      </div>
+      <div class="cd-card">
+        <div class="cd-card-q">&iquest;Cu&aacute;ndo?</div>
+        <div class="cd-card-t">La fecha del otorgamiento</div>
+        <div class="cd-card-d">El d&iacute;a exacto en que se autoriz&oacute; o se entreg&oacute; el donativo.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOQUE LEGAL (intacto) -->
+  <div class="legal">
+    <div class="legal-stamp" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3v18"/>
+        <path d="M7 21h10"/>
+        <path d="M3 7h3c2 0 4-.7 6-1.5 2 .8 4 1.5 6 1.5h3"/>
+        <path d="M19 7l-3 8c.87.65 1.92 1 3 1s2.13-.35 3-1l-3-8z"/>
+        <path d="M5 7l-3 8c.87.65 1.92 1 3 1s2.13-.35 3-1L5 7z"/>
+      </svg>
+    </div>
+    <div class="legal-body">
+      <p class="legal-txt">&ldquo;<strong>m)</strong> El listado de personas f&iacute;sicas o jur&iacute;dicas a quienes, por cualquier motivo, se les <strong>asigne o permita usar recursos p&uacute;blicos</strong> o, en los t&eacute;rminos de las disposiciones aplicables, realicen actos de autoridad. As&iacute; como los informes que dichas personas les entreguen sobre el uso y destino de dichos recursos&rdquo;.</p>
+      <p class="legal-cite">&mdash; Art. 8, Fracc. V, Inc. m) &middot; <em>Ley de Transparencia y Acceso a la Informaci&oacute;n P&uacute;blica del Estado de Jalisco y sus Municipios</em>. Fuente oficial: <a href="https://transparencia.guadalajara.gob.mx/donativosotorgadosporpresidente" target="_blank" rel="noopener">transparencia.guadalajara.gob.mx/donativosotorgadosporpresidente</a>. En caso de discrepancia <strong style="color:var(--g900)">prevalece el archivo oficial</strong> publicado por el Ayuntamiento de Guadalajara.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-h">
+      <span class="sec-h-num">1</span>
+      <span class="sec-h-title">Elige el ejercicio fiscal</span>
+    </div>
+    <p class="sec-h-sub">El ejercicio vigente aparece con un punto verde. Los ejercicios marcados con un punto naranja tienen publicaci&oacute;n <strong>parcial</strong> (a&uacute;n no se cierra el a&ntilde;o o no se public&oacute; el a&ntilde;o completo en el portal).</p>
+    <div class="year-row" id="yearRow" role="tablist" aria-label="Ejercicio fiscal"></div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-h">
+      <span class="sec-h-num">2</span>
+      <span class="sec-h-title">Descarga el archivo oficial</span>
+    </div>
+    <p class="sec-h-sub">Cada archivo es un Excel publicado directamente por el Ayuntamiento. Toca el bot&oacute;n verde para abrirlo o descargarlo.</p>
+    <div id="coverArea"></div>
+    <div class="cal-grid" id="calGrid"></div>
+  </div>
+
+  <div class="foot">
+    <p class="foot-source">Publicado por la <strong>Direcci&oacute;n de Finanzas</strong> &middot; Ayuntamiento de Guadalajara</p>
+    <p class="foot-cite">Para ejercicios fiscales previos a 2018, solicita la informaci&oacute;n por medio de una solicitud de acceso a la informaci&oacute;n p&uacute;blica.</p>
+  </div>
+
+</main>
+
+<script>
+(function(){
+'use strict';
+
+const BASE = 'https://transparencia.guadalajara.gob.mx/sites/default/files/';
+
+/* 40 archivos verificados HTTP 200 contra el portal el 26/may/2026 */
+const DATOS = [
+  /* 2026 — acumulado parcial Enero-Marzo */
+  { yr:'2026', orden:1, periodo:'Enero a Marzo', tipo:'acumulado', url:BASE+'DonativosOtorgadosPorPresidenteMar26.xlsx' },
+
+  /* 2025 — acumulado anual */
+  { yr:'2025', orden:1, periodo:'Enero a Diciembre', tipo:'anual', url:BASE+'DonativosOtorgadosPorPresidenteDic25.xlsx' },
+
+  /* 2024 — acumulado anual */
+  { yr:'2024', orden:1, periodo:'Enero a Diciembre', tipo:'anual', url:BASE+'DonativosOtorgadosPorPresidenteDic24.xlsx' },
+
+  /* 2023 — acumulado anual */
+  { yr:'2023', orden:1, periodo:'Enero a Diciembre', tipo:'anual', url:BASE+'DonativosOtorgadosPorPresidenteEneDic23.xlsx' },
+
+  /* 2022 — acumulado anual */
+  { yr:'2022', orden:1, periodo:'Enero a Diciembre', tipo:'anual', url:BASE+'DonativosOtorgadosPorPresidenteEneDic22.xlsx' },
+
+  /* 2021 — mensual Ene-Ago + compilado Sep-Dic */
+  { yr:'2021', orden:1,  periodo:'Enero',                tipo:'mensual',    url:BASE+'DonativosOtorgadosPorPresidenteEnero21.xlsx' },
+  { yr:'2021', orden:2,  periodo:'Febrero',              tipo:'mensual',    url:BASE+'DonativosOtorgadosPorPresidenteFebrero21.xlsx' },
+  { yr:'2021', orden:3,  periodo:'Marzo',                tipo:'mensual',    url:BASE+'DonativosOtorgadosPorPresidenteMarzo21.xlsx' },
+  { yr:'2021', orden:4,  periodo:'Abril',                tipo:'mensual',    url:BASE+'DonativosOtorgadosPorPresidenteAbril21.xlsx' },
+  { yr:'2021', orden:5,  periodo:'Mayo',                 tipo:'mensual',    url:BASE+'DonativosOtorgadosPorPresidenteMayo21.xlsx' },
+  { yr:'2021', orden:6,  periodo:'Junio',                tipo:'mensual',    url:BASE+'DonativosOtorgadosPorPresidenteJunio21.xlsx' },
+  { yr:'2021', orden:7,  periodo:'Julio',                tipo:'mensual',    url:BASE+'DonativosOtorgadosPorPresidenteJulio21.xlsx' },
+  { yr:'2021', orden:8,  periodo:'Agosto',               tipo:'mensual',    url:BASE+'DonativosOtorgadosPorPresidenteAgosto21.xlsx' },
+  { yr:'2021', orden:9,  periodo:'Septiembre a Diciembre', tipo:'compilado', url:BASE+'DonativosOtorgadosPorPresidenteSepDic21.xlsx' },
+
+  /* 2020 — mensual 12 meses */
+  { yr:'2020', orden:1,  periodo:'Enero',      tipo:'mensual', url:BASE+'DonativosOtorgadosPorPresidenteEnero20.xlsx' },
+  { yr:'2020', orden:2,  periodo:'Febrero',    tipo:'mensual', url:BASE+'DonativosOtorgadosPorPresidenteFebrero20.xlsx' },
+  { yr:'2020', orden:3,  periodo:'Marzo',      tipo:'mensual', url:BASE+'DonativosOtorgadosPorPresidenteMarzo20.xlsx' },
+  { yr:'2020', orden:4,  periodo:'Abril',      tipo:'mensual', url:BASE+'DonativosOtorgadosPorPresidenteAbril20.xlsx' },
+  { yr:'2020', orden:5,  periodo:'Mayo',       tipo:'mensual', url:BASE+'DonativosOtorgadosPorPresidenteMayo20.xlsx' },
+  { yr:'2020', orden:6,  periodo:'Junio',      tipo:'mensual', url:BASE+'DonativosOtorgadosPorPresidenteJunio20.xlsx' },
+  { yr:'2020', orden:7,  periodo:'Julio',      tipo:'mensual', url:BASE+'DonativosOtorgadosPorPresidenteJulio20.xlsx' },
+  { yr:'2020', orden:8,  periodo:'Agosto',     tipo:'mensual', url:BASE+'DonativosOtorgadosPorPresidenteAgosto20.xlsx' },
+  { yr:'2020', orden:9,  periodo:'Septiembre', tipo:'mensual', url:BASE+'DonativosOtorgadosPorPresidenteSeptiembre20.xlsx' },
+  { yr:'2020', orden:10, periodo:'Octubre',    tipo:'mensual', url:BASE+'DonativosOtorgadosPorPresidenteOctubre20.xlsx' },
+  { yr:'2020', orden:11, periodo:'Noviembre',  tipo:'mensual', url:BASE+'DonativosOtorgadosPorPresidenteNoviembre20.xlsx' },
+  { yr:'2020', orden:12, periodo:'Diciembre',  tipo:'mensual', url:BASE+'DonativosOtorgadosPorPresidenteDiciembre20.xlsx' },
+
+  /* 2019 — mensual 12 meses */
+  { yr:'2019', orden:1,  periodo:'Enero',      tipo:'mensual', url:BASE+'DonativosOtorgadosPorPresidenteEnero19.xlsx' },
+  { yr:'2019', orden:2,  periodo:'Febrero',    tipo:'mensual', url:BASE+'DonativosOtorgadosPorPresidenteFebrero19.xlsx' },
+  { yr:'2019', orden:3,  periodo:'Marzo',      tipo:'mensual', url:BASE+'DonativosOtorgadosPorPresidenteMarzo19.xlsx' },
+  { yr:'2019', orden:4,  periodo:'Abril',      tipo:'mensual', url:BASE+'DonativosOtorgadosPorPresidenteAbril19.xlsx' },
+  { yr:'2019', orden:5,  periodo:'Mayo',       tipo:'mensual', url:BASE+'DonativosOtorgadosPorPresidenteMayo19.xlsx' },
+  { yr:'2019', orden:6,  periodo:'Junio',      tipo:'mensual', url:BASE+'DonativosOtorgadosPorPresidenteJunio19.xlsx' },
+  { yr:'2019', orden:7,  periodo:'Julio',      tipo:'mensual', url:BASE+'DonativosOtorgadosPorPresidenteJulio19.xlsx' },
+  { yr:'2019', orden:8,  periodo:'Agosto',     tipo:'mensual', url:BASE+'DonativosOtorgadosPorPresidenteAgosto19.xlsx' },
+  { yr:'2019', orden:9,  periodo:'Septiembre', tipo:'mensual', url:BASE+'DonativosOtorgadosPorPresidenteSeptiembre19.xlsx' },
+  { yr:'2019', orden:10, periodo:'Octubre',    tipo:'mensual', url:BASE+'DonativosOtorgadosPorPresidenteOctubre19.xlsx' },
+  { yr:'2019', orden:11, periodo:'Noviembre',  tipo:'mensual', url:BASE+'DonativosOtorgadosPorPresidenteNoviembre19.xlsx' },
+  { yr:'2019', orden:12, periodo:'Diciembre',  tipo:'mensual', url:BASE+'DonativosOtorgadosPorPresidenteDiciembre19.xlsx' },
+
+  /* 2018 — únicamente Octubre y Diciembre publicados oficialmente */
+  { yr:'2018', orden:10, periodo:'Octubre',   tipo:'mensual', url:BASE+'FormatosPlataforma/DonativosOtorgadosPorPresidenteOctubre18.xlsx' },
+  { yr:'2018', orden:12, periodo:'Diciembre', tipo:'mensual', url:BASE+'FormatosPlataforma/DonativosOtorgadosPorPresidenteDiciembre18.xlsx' }
+];
+
+const YEARS = ['2026','2025','2024','2023','2022','2021','2020','2019','2018'];
+const CURRENT_YEAR = new Date().getFullYear();
+const MESES_NUM = {1:'Enero',2:'Febrero',3:'Marzo',4:'Abril',5:'Mayo',6:'Junio',7:'Julio',8:'Agosto',9:'Septiembre',10:'Octubre',11:'Noviembre',12:'Diciembre'};
+
+/* Cobertura por año: cuántos meses NO están publicados en el portal */
+const COBERTURA = {
+  '2026': { tipo:'parcial', txt:'Publicaci&oacute;n acumulada hasta marzo 2026. Los meses de abril en adelante a&uacute;n no se han publicado oficialmente.' },
+  '2025': { tipo:'cerrado', txt:null },
+  '2024': { tipo:'cerrado', txt:null },
+  '2023': { tipo:'cerrado', txt:null },
+  '2022': { tipo:'cerrado', txt:null },
+  '2021': { tipo:'mixto',   txt:'En este ejercicio, los meses de enero a agosto se publican individualmente y septiembre a diciembre se publican como un solo archivo compilado &mdash; tal como aparece en el portal oficial.' },
+  '2020': { tipo:'cerrado', txt:null },
+  '2019': { tipo:'cerrado', txt:null },
+  '2018': { tipo:'parcial', txt:'El portal oficial &uacute;nicamente publica los archivos de <strong>octubre</strong> y <strong>diciembre</strong> de 2018. Los dem&aacute;s meses (enero a septiembre y noviembre) no se encuentran disponibles como descarga directa.' }
+};
+
+let activeYear = '2026';
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+
+function archivosDe(y){ return DATOS.filter(d => d.yr === y).sort((a,b) => a.orden - b.orden); }
+
+function renderYears(){
+  $('yearRow').innerHTML = YEARS.map(y => {
+    const isActive = activeYear === y;
+    const isVigente = parseInt(y,10) === CURRENT_YEAR;
+    const cov = COBERTURA[y];
+    const isParcial = cov && (cov.tipo === 'parcial');
+    const count = archivosDe(y).length;
+    const lbl = count + ' archivo' + (count === 1 ? '' : 's');
+    return '<button class="year-btn ' + (isActive ? 'active' : '') + ' ' + (isVigente ? 'vigente' : '') + ' ' + (isParcial ? 'parcial' : '') + '" data-year="' + y + '" type="button" role="tab" aria-selected="' + isActive + '">' +
+      '<div class="year-btn-yr">' + y + '</div>' +
+      '<div class="year-btn-meta">' + lbl + '</div>' +
+      '</button>';
+  }).join('');
+  $('yearRow').querySelectorAll('.year-btn').forEach(b => {
+    b.addEventListener('click', () => {
+      activeYear = b.dataset.year;
+      renderYears();
+      renderCalendar();
+      window.scrollTo({ top: $('coverArea').offsetTop - 80, behavior:'smooth' });
+    });
+  });
+}
+
+function renderCoverNote(){
+  const cov = COBERTURA[activeYear];
+  if(!cov || !cov.txt){ $('coverArea').innerHTML = ''; return; }
+  $('coverArea').innerHTML =
+    '<div class="cover-note">' +
+      '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>' +
+      '<div class="cover-note-txt"><strong>Cobertura ' + activeYear + ':</strong> ' + cov.txt + '</div>' +
+    '</div>';
+}
+
+function renderCalendar(){
+  renderCoverNote();
+  const yr = activeYear;
+  const archivos = archivosDe(yr);
+  /* Calendar layout (12 meses con huecos visibles) para años de publicación mensual: 2021, 2020, 2019, 2018 */
+  const useCalendarLayout = ['2021','2020','2019','2018'].indexOf(yr) !== -1;
+
+  let html = '';
+
+  if(useCalendarLayout){
+    /* Render TODOS los 12 meses, marcando los que no existen como "no publicado" */
+    for(let m = 1; m <= 12; m++){
+      const mesNombre = MESES_NUM[m];
+      /* En 2021 el archivo de orden 9 es el compilado Sep-Dic — cubre meses 9,10,11,12 */
+      let archivo = null;
+      if(yr === '2021' && m >= 9){
+        archivo = archivos.find(a => a.orden === 9);
+      } else {
+        archivo = archivos.find(a => a.orden === m);
+      }
+      if(archivo){
+        html += '<article class="cal-card">' +
+          '<header class="cal-card-top">' +
+            '<span class="cal-card-mes">' + (yr==='2021' && m>=9 ? 'Sep&ndash;Dic' : mesNombre) + '</span>' +
+            '<span class="cal-card-yr">' + yr + '</span>' +
+          '</header>' +
+          '<div class="cal-card-body">' +
+            (yr==='2021' && m>=9
+              ? '<p class="cal-card-meta">Compilado oficial del <strong>cuarto trimestre</strong> publicado por el Ayuntamiento.</p>'
+              : '<p class="cal-card-meta">Listado mensual oficial.</p>') +
+            '<a class="cal-link" href="' + esc(archivo.url) + '" target="_blank" rel="noopener" aria-label="Descargar listado de ' + (yr==='2021' && m>=9 ? 'septiembre a diciembre' : mesNombre) + ' ' + yr + '">' +
+              '<span class="cal-link-ico">XLSX</span>' +
+              '<span class="cal-link-info">' +
+                '<span class="cal-link-lbl">Descargar Excel</span>' +
+                '<span class="cal-link-fmt">' + (yr==='2021' && m>=9 ? 'Sep&ndash;Dic ' : mesNombre + ' ') + yr + '</span>' +
+              '</span>' +
+              '<svg class="cal-link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/><path d="M5 21h14"/></svg>' +
+            '</a>' +
+          '</div>' +
+        '</article>';
+        /* Saltar los meses cubiertos por el compilado Sep-Dic 2021 */
+        if(yr === '2021' && m === 9) m = 12;
+      } else {
+        html += '<article class="cal-card empty">' +
+          '<header class="cal-card-top">' +
+            '<span class="cal-card-mes">' + mesNombre + '</span>' +
+            '<span class="cal-card-yr">' + yr + '</span>' +
+          '</header>' +
+          '<div class="cal-card-body">' +
+            '<div class="cal-empty-msg"><strong>No publicado</strong>El portal oficial no contiene este mes.</div>' +
+          '</div>' +
+        '</article>';
+      }
+    }
+  } else {
+    /* 1 archivo por año: card grande */
+    archivos.forEach(archivo => {
+      html += '<article class="cal-card big">' +
+        '<header class="cal-card-top">' +
+          '<span class="cal-card-mes">' + archivo.periodo + '</span>' +
+          '<span class="cal-card-yr">' + yr + '</span>' +
+        '</header>' +
+        '<div class="cal-card-body">' +
+          '<p class="cal-card-meta">' +
+            (archivo.tipo === 'anual'
+              ? 'Archivo <strong>acumulado anual</strong> que concentra los donativos otorgados durante todo el ejercicio fiscal.'
+              : 'Archivo <strong>acumulado</strong> publicado por el Ayuntamiento al cierre del periodo informado.') +
+          '</p>' +
+          '<a class="cal-link" href="' + esc(archivo.url) + '" target="_blank" rel="noopener" aria-label="Descargar listado de ' + archivo.periodo + ' ' + yr + '">' +
+            '<span class="cal-link-ico">XLSX</span>' +
+            '<span class="cal-link-info">' +
+              '<span class="cal-link-lbl">Descargar Excel</span>' +
+              '<span class="cal-link-fmt">' + archivo.periodo + ' ' + yr + '</span>' +
+            '</span>' +
+            '<svg class="cal-link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/><path d="M5 21h14"/></svg>' +
+          '</a>' +
+        '</div>' +
+      '</article>';
+    });
+  }
+
+  $('calGrid').innerHTML = html;
+}
+
+function init(){
+  renderYears();
+  renderCalendar();
+}
+
+if(document.readyState === 'loading'){
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
+})();
+</script>
+
+</body>
+</html>
