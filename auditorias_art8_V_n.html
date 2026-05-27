@@ -80,6 +80,10 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
 .au-section.participa{border-top-color:var(--participa)}
 .au-section.externas{border-top-color:var(--externa)}
 .au-section.actas{border-top-color:var(--actas)}
+.au-section.fondos{border-top-color:#7C3AED}
+.au-section.fondos .au-sec-icono{background:#EDE9FE;color:#5B21B6;border:1px solid #DDD6FE}
+.au-section.fondos .au-sec-eye{color:#5B21B6}
+.au-section.fondos .au-sec-count{background:#EDE9FE;color:#5B21B6}
 
 .au-sec-head{padding:22px 26px 18px;display:flex;align-items:flex-start;gap:18px;flex-wrap:wrap;background:linear-gradient(135deg,var(--wh) 0%,#FAFAF8 100%);border-bottom:1px solid var(--g100)}
 .au-sec-icono{flex-shrink:0;width:60px;height:60px;border-radius:14px;display:flex;align-items:center;justify-content:center}
@@ -356,6 +360,44 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
 .au-doc-ok.doc-informe .au-doc-ico{background:#CA8A04}
 .au-doc-ok.doc-cierre .au-doc-ico {background:#059669}
 
+/* Dashboard externas (variant azul) */
+.au-dash-ext{background:linear-gradient(135deg,#DBEAFE 0%,#FFFFFF 60%);border-color:var(--externa-border)}
+.au-dash-ext::before{background:radial-gradient(circle,rgba(30,64,175,.10) 0%,transparent 70%)}
+.au-dash-ext .au-dash-num{color:var(--externa-d)}
+.au-dash-ext .au-dash-key-num.asf{color:#1E40AF}
+.au-dash-ext .au-dash-key-num.asej{color:#4338CA}
+.au-dash-ext .au-dash-key-num.concl{color:#0E6B4C}
+.au-dash-ext .au-dash-bar-seg.asf{background:#1E40AF}
+.au-dash-ext .au-dash-bar-seg.asej{background:#4338CA}
+.au-dash-ext .au-dash-bar-seg.contraloria{background:#7C3AED}
+.au-dash-ext .au-dash-legend .asf::before{background:#1E40AF}
+.au-dash-ext .au-dash-legend .asej::before{background:#4338CA}
+.au-dash-ext .au-dash-legend .contraloria::before{background:#7C3AED}
+
+/* Tabs y badges externas */
+#auExtTabs .au-stat-tab:hover{border-color:var(--externa);color:var(--externa-d)}
+#auExtTabs .au-stat-tab.active{background:var(--externa);border-color:var(--externa);color:#fff;box-shadow:0 2px 6px rgba(30,64,175,.30)}
+
+/* Cards externas con organo destacado */
+.au-audit.ext-asf{border-left-color:#1E40AF}
+.au-audit.ext-asej{border-left-color:#4338CA}
+.au-audit.ext-contraloria{border-left-color:#7C3AED}
+.au-audit.ext-asf .au-audit-head{background:#DBEAFE}
+.au-audit.ext-asej .au-audit-head{background:#E0E7FF}
+.au-audit.ext-contraloria .au-audit-head{background:#EDE9FE}
+
+.au-org-badge{font-family:var(--fm);font-size:10px;font-weight:800;padding:3px 8px;border-radius:5px;letter-spacing:.06em;text-transform:uppercase;border:1px solid transparent}
+.au-org-badge.asf{background:#1E40AF;color:#fff;border-color:#1E3A8A}
+.au-org-badge.asej{background:#4338CA;color:#fff;border-color:#3730A3}
+.au-org-badge.contraloria{background:#7C3AED;color:#fff;border-color:#6D28D9}
+
+/* Separador entre auditorias y oficios */
+.au-ofic-sep{margin-top:10px;padding:14px 18px;background:linear-gradient(135deg,#FAFAF8 0%,#F0F0EC 100%);border-radius:var(--rad);border-left:3px solid var(--g400)}
+.au-ofic-sep-eye{font-size:10.5px;font-weight:800;color:var(--g400);letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px}
+.au-ofic-sep-title{font-size:15px;font-weight:800;color:var(--g900);letter-spacing:-.01em;margin-bottom:4px}
+.au-ofic-sep-desc{font-size:12.5px;color:var(--g600);line-height:1.5}
+.au-ofic-sep-desc strong{color:var(--g800);font-weight:600}
+
 /* TABS Y GRID DE PARTICIPATIVAS */
 .au-part-tabs{display:flex;gap:8px;flex-wrap:wrap;border-bottom:2px solid var(--g100);padding-bottom:14px}
 .au-part-tab{font-family:var(--fh);font-size:14px;font-weight:700;color:var(--g600);background:var(--wh);border:1.5px solid var(--g200);padding:8px 18px;border-radius:999px;cursor:pointer;transition:all .15s ease;font-variant-numeric:tabular-nums;display:inline-flex;align-items:center;gap:8px}
@@ -512,7 +554,7 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
     <p class="au-hero-sub">Cada peso público debe ser revisado. El Ayuntamiento de Guadalajara es auditado <strong>por su propia Contraloría</strong> (auditorías internas), <strong>por la Auditoría Superior del Estado y de la Federación</strong> (auditorías externas) y, en algunos casos, <strong>por la propia ciudadanía</strong> (auditorías participativas). Aquí están todos los documentos oficiales, ordenados por año y por tipo.</p>
     <div class="au-cifras">
       <div class="au-cifra">
-        <div class="au-cifra-num">4</div>
+        <div class="au-cifra-num">5</div>
         <div class="au-cifra-lbl">Tipos de auditoría</div>
       </div>
       <div class="au-cifra">
@@ -788,9 +830,9 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
       <div class="au-sec-meta">
         <div class="au-sec-eye">Auditorías Externas</div>
         <div class="au-sec-titulo">Auditores independientes revisando al Ayuntamiento</div>
-        <p class="au-sec-desc">Oficios y compendios de las auditorías que la <strong>Auditoría Superior del Estado de Jalisco (ASEJ)</strong>, la <strong>Auditoría Superior de la Federación (ASF)</strong> y la <strong>Contraloría del Estado</strong> han realizado a la Tesorería Municipal. Selecciona el año para ver los oficios mensuales.</p>
+        <p class="au-sec-desc"><strong>16 auditorías externas</strong> realizadas por la <strong>Auditoría Superior de la Federación (ASF)</strong> y la <strong>Auditoría Superior del Estado de Jalisco (ASEJ)</strong> entre 2020 y abril 2026. Además, <strong>44 oficios mensuales</strong> de respuesta de la Tesorería Municipal a los órganos fiscalizadores.</p>
       </div>
-      <span class="au-sec-count">44 oficios + 3 portales</span>
+      <span class="au-sec-count">16 auditorías + 44 oficios</span>
     </div>
     <div class="au-sec-body">
 
@@ -802,7 +844,7 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
         </div>
         <div class="au-master-body">
           <div class="au-master-eye">Compendio consolidado</div>
-          <div class="au-master-title">2020-2021 a Abril 2026</div>
+          <div class="au-master-title">Auditorías Externas · 2020 a Abril 2026</div>
           <div class="au-master-desc">Histórico completo de auditorías externas en un solo Excel. Cierra al mes de abril 2026.</div>
         </div>
         <div class="au-master-arrow" aria-hidden="true">
@@ -810,8 +852,52 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
         </div>
       </a>
 
-      <!-- TABS DE AÑO -->
-      <div class="au-ext-tabs" role="tablist" aria-label="Selecciona año">
+      <!-- DASHBOARD DE AUDITORÍAS EXTERNAS -->
+      <div class="au-status-block">
+        <div>
+          <div class="au-status-eye" style="color:var(--externa-d)">Estado de cada auditoría externa · 2020 - 2026</div>
+          <div class="au-status-title">¿Qué <em style="color:var(--externa-d)">órganos federales y estatales</em> han revisado a Guadalajara?</div>
+          <p class="au-status-sub">Detalle de las <strong>16 auditorías externas</strong> realizadas por la <strong>ASF</strong> (Auditoría Superior de la Federación) y la <strong>ASEJ</strong> (Auditoría Superior del Estado de Jalisco). Cada card incluye el <strong>número de auditoría, órgano fiscalizador, periodo auditado, objetivo</strong> y los <strong>3 documentos PDF</strong> que la respaldan (Acta de inicio, Notificación de resultados, Recomendaciones).</p>
+        </div>
+
+        <!-- Dashboard hero externas -->
+        <div class="au-dash au-dash-ext">
+          <div class="au-dash-top">
+            <div class="au-dash-total">
+              <div class="au-dash-num" id="auExtTotal">16</div>
+              <div class="au-dash-lbl"><strong>Auditorías externas</strong> documentadas entre 2020 y 2026</div>
+            </div>
+            <div class="au-dash-keys" id="auExtDashKeys"></div>
+          </div>
+          <div class="au-dash-bar-wrap">
+            <div class="au-dash-bar-head">
+              <span>Distribución por órgano fiscalizador</span>
+              <span id="auExtBarTotal">16 auditorías</span>
+            </div>
+            <div class="au-dash-bar" id="auExtDashBar"></div>
+            <div class="au-dash-legend" id="auExtDashLegend"></div>
+          </div>
+        </div>
+
+        <!-- Tabs por año externas -->
+        <div class="au-stat-tabs" id="auExtTabs" role="tablist" aria-label="Año de la auditoría externa"></div>
+
+        <!-- Cards de resumen de externas -->
+        <div class="au-stat-cards" id="auExtStatCards"></div>
+
+        <!-- Lista de auditorías externas -->
+        <div class="au-audit-list" id="auExtList"></div>
+      </div>
+
+      <!-- SEPARADOR -->
+      <div class="au-ofic-sep">
+        <div class="au-ofic-sep-eye">Además · Comunicación oficial mensual</div>
+        <div class="au-ofic-sep-title">44 oficios mensuales de la Tesorería Municipal</div>
+        <div class="au-ofic-sep-desc">Cartas de comunicación oficial enviadas mes a mes a los órganos fiscalizadores. No son auditorías en sí, son <strong>respuestas y entregas de información</strong> que la Tesorería remite cada mes.</div>
+      </div>
+
+      <!-- TABS DE AÑO (oficios) -->
+      <div class="au-ext-tabs" role="tablist" aria-label="Selecciona año del oficio">
         <button class="au-ext-tab active" data-year="2026" type="button" role="tab">2026 <span class="doc-count">3</span></button>
         <button class="au-ext-tab" data-year="2025" type="button" role="tab">2025 <span class="doc-count">10</span></button>
         <button class="au-ext-tab" data-year="2024" type="button" role="tab">2024 <span class="doc-count">10</span></button>
@@ -889,6 +975,54 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
           <button class="au-actas-pager-btn" id="auActasNext" type="button">Siguiente ▶</button>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SECCIÓN 5 · AUDITORÍAS A FONDOS FEDERALES                    -->
+  <!-- ============================================================ -->
+  <section class="au-section fondos" id="fondos-federales">
+    <div class="au-sec-head">
+      <div class="au-sec-icono" aria-hidden="true">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      </div>
+      <div class="au-sec-meta">
+        <div class="au-sec-eye">Auditorías a Fondos Federales</div>
+        <div class="au-sec-titulo">El dinero federal que llega al Ayuntamiento, auditado</div>
+        <p class="au-sec-desc">El gobierno federal transfiere al Ayuntamiento <strong>fondos etiquetados</strong> (FORTAMUN, FAIS, subsidios para seguridad, programas culturales y educativos, entre otros). Esas transferencias <strong>se auditan de manera separada</strong> porque el dinero tiene un destino específico marcado por ley. Aquí está el listado y el oficio oficial.</p>
+      </div>
+      <span class="au-sec-count">2 documentos</span>
+    </div>
+    <div class="au-sec-body">
+      <a class="au-master" href="https://transparencia.guadalajara.gob.mx/sites/default/files/ListadoAuditoriasFondosFederales2018-2026.xlsx" target="_blank" rel="noopener">
+        <div class="au-master-badge" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <span class="au-master-badge-ext">XLSX</span>
+        </div>
+        <div class="au-master-body">
+          <div class="au-master-eye">Listado completo</div>
+          <div class="au-master-title">Auditorías a Fondos Federales · 2018 a 2026</div>
+          <div class="au-master-desc">Listado de auditorías a fondos federales recibidos por el Ayuntamiento (FORTAMUN, FAIS, subsidios, programas), con número, dependencia, periodo, status y enlaces a documentos por auditoría.</div>
+        </div>
+        <div class="au-master-arrow" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </a>
+
+      <a class="au-master" href="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioAuditoriasFondosFederales.pdf" target="_blank" rel="noopener">
+        <div class="au-master-badge" aria-hidden="true" style="background:linear-gradient(180deg,#B91C1C 0%,#7F1D1D 100%)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <span class="au-master-badge-ext">PDF</span>
+        </div>
+        <div class="au-master-body">
+          <div class="au-master-eye">Oficio oficial</div>
+          <div class="au-master-title">Oficio de auditorías a fondos federales</div>
+          <div class="au-master-desc">Comunicación oficial de la Contraloría Ciudadana sobre las auditorías realizadas a los fondos federales transferidos al Ayuntamiento.</div>
+        </div>
+        <div class="au-master-arrow" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </a>
     </div>
   </section>
 
@@ -976,7 +1110,6 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
         b.removeAttribute('title');
       });
       if (wasActive){
-        // Toggle off: collapse the list
         oficiosGrid.innerHTML = '';
         oficiosGrid.style.display = 'none';
       } else {
@@ -987,6 +1120,137 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
       }
     });
   });
+
+  // ====================================================================
+  // SECCION EXTERNAS · DASHBOARD DE 16 AUDITORIAS (ASF + ASEJ)
+  // ====================================================================
+  var EXT_AUDITS = [{"n":1,"a":2020,"tr":"Tercer Trimestre","ea":2019,"p":"Año 2019","ru":"RECURSOS DEL FONDO DE APORTACIONES PARA EL FORTALECIMIENTO DE LOS MUNICIPIOS Y LAS DEMARCACIONES TERRITORIALES DEL DISTRITO FEDERAL","t":"Auditoría Externa ","id":"871-DS-GF/2019","o":"ASF","of":"AUDITORIA SUPERIOR DE LA FEDERACION","ob":"FISCALIZAR LA GESTIÓN DE LOS RECURSOS FEDERALES TRANSFERIDOS AL MUNICIPIO, A TRAVÉS DEL FORTAMUNDF.","inf":"https://transparencia.guadalajara.gob.mx/sites/default/files/Notificacion_de_Resultados_Auditoria_871-DS-GF-2019.pdf","ofno":"https://transparencia.guadalajara.gob.mx/sites/default/files/Notificacion_de_Resultados_Auditoria_871-DS-GF-2019.pdf","rec":"https://transparencia.guadalajara.gob.mx/sites/default/files/Acta_de_inicio_871-DS-GF2019.pdf","s":"Concluida"},{"n":2,"a":2020,"tr":"Tercer Trimestre","ea":2019,"p":"Año 2019","ru":"OBRA PÚBLICA, FRACCIONAMIENTOS Y ACCIONES URBANÍSTICAS, CONTABLE, FINANCIERA, ADMINISTRATIVA, PATRIMONIAL ","t":"Auditoría Externa ","id":"GUADALAJARA-01/2020","o":"ASEJ","of":"AUDITORIA SUPERIOR DEL ESTADO DE JALISCO","ob":"REVISION , EXAMEN Y AUDITORIA PUBLICA A LA CUENTA PUBLICA  ASI COMO EL DESTINO Y EJERCICIO DE LOS RECURSOS PUBLICOS , POR EL PERIODO DEL 01 DE ENERO AL 31 DE DICIEMBRE DEL 2019","inf":"https://transparencia.guadalajara.gob.mx/sites/default/files/Resultados_ASEJ_01_2020.pdf","ofno":"https://transparencia.guadalajara.gob.mx/sites/default/files/Resultados_ASEJ_01_2020.pdf","rec":"https://transparencia.guadalajara.gob.mx/sites/default/files/Acta_de_inicio_ASEJ_01_2020.pdf","s":"Concluida"},{"n":3,"a":2020,"tr":"Tercer Trimestre","ea":2019,"p":"Año 2019","ru":"RECURSOS DEL OTORGAMIENTO DEL SUBSIDIO PARA EL FORTALECIMIENTO DEL DESEMPEÑO EN MATERIA DE SEGURIDAD PÚBLICA A LOS MUNICIPIOS Y DEMARCACIONES TERRITORIALES DE LA CIUDAD DE MÉXICO Y, EN SU CASO, A LAS ENTIDADES FEDERATIVAS QUE EJERZAN DE MANERA DIRECTA O COORDINADA LA FUNCIÓN","t":"Auditoría Externa ","id":"872-GB-GF/2019","o":"ASF","of":"AUDITORIA SUPERIOR DE LA FEDERACION","ob":"FISCALIZAR LA GESTIÓN DE LOS RECURSOS FEDERALES TRANSFERIDOS AL MUNICIPIO, A TRAVÉS DEL SUBSIDIO, O, EN SU CASO, AL ESTADO, CUANDO EJERZAN DE MANERA DIRECTA O COORDINADA LA FUNCIÓN DE SEGURIDAD PÚBLICA, DE CONFORMIDAD CON LO ESTABLECIDO EN EL DECRETO DE PRESUPUESTO DE EGRESOS DE LA FEDERACIÓN PARA EL EJERCICIO FISCAL 2019 Y DEMÁS DISPOSICIONES JURÍDICAS APLICABLES.","inf":"https://transparencia.guadalajara.gob.mx/sites/default/files/Oficio_de_Resultados_%20DARFTB-2-153-2020.pdf","ofno":"https://transparencia.guadalajara.gob.mx/sites/default/files/Informe_Individual_de_Auditoria_OASF-355-2021.pdf","rec":"https://transparencia.guadalajara.gob.mx/sites/default/files/Acta_de_Inicio_872-GB-GF2019.pdf","s":"Concluida"},{"n":4,"a":2020,"tr":"Primer Trimestre","ea":2019,"p":"Año 2019","ru":"RECURSOS DEL PROGRAMA APOYOS A LA CULTURA, EN SU VERTIENTE APOYO A LA INFRAESTRUCTURA CULTURAL DE LOS ESTADOS","t":"Auditoría Externa ","id":"AUD/DIR/JAL/PAICE-GUADALAJARA/2020","o":"ASEJ","of":"CONTRALORÍA DEL ESTADO DE JALISCO","ob":"VERIFICAR  SI LA UTILIZACIÓN DE LOS RECURSOS DEL PROGRAMA APOYOS A LA CULTURA , EN SU VERTIENTE, APOYO A LA INFRAESTRUCTURA CULTURAL DE LOS ESTADOS, DURANTE TODO EL PERIODO DE SU APLICACIÓN SE REALIZÓ EN FORMA EFICIENTE, SI LOS OBJETIVOS Y METAS SE LOGRARON DE MANERA EFICAZ Y CONGRUENTE Y SI EN EL DESARROLLO DE LAS ACTIVIDADES SE CUMPLIERON LAS DISPOSICIONES APLICABLES","inf":"https://transparencia.guadalajara.gob.mx/sites/default/files/Oficio_Notificacion_de_Resultados_PAICE_2019.pdf","ofno":"https://transparencia.guadalajara.gob.mx/sites/default/files/Oficio_Notificacion_de_Resultados_PAICE_2019.pdf","rec":"https://transparencia.guadalajara.gob.mx/sites/default/files/Acta_de_inicio_PAICE_2019.pdf","s":"Concluida"},{"n":5,"a":2021,"tr":"Segundo Trimestre","ea":2020,"p":"Año 2020","ru":"PARTICIPACIONES FEDERALES A MUNICIPIOS ","t":"Auditoría Externa ","id":"941-DE-GF/2020","o":"ASF","of":"AUDITORIA SUPERIOR DE LA FEDERACION","ob":"FISCALIZAR QUE EL EJERCICIO DE LAS PARTICIPACIONES FEDERALES, SE REALIZÓ DE CONFORMIDAD CON LO ESTABLECIDO EN LA LEY DE COORDINACIÓN FISCAL, LAS LEYES LOCALES EN LA MATERIA Y DEMÁS DISPOSICIONES JURÍDICAS APLICABLES.","inf":"https://transparencia.guadalajara.gob.mx/sites/default/files/Acta_de_Presentacion_de_Resultados_Finales_y_Observaciones_Preliminares_01_CP_2020.pdf","ofno":"https://transparencia.guadalajara.gob.mx/sites/default/files/Informe_Final_Participaciones_Federales_01_CP_2020.pdf","rec":"https://transparencia.guadalajara.gob.mx/sites/default/files/Acta_de_Inicio_Participaciones_Federales_01_CP_2020.pdf","s":"Concluida"},{"n":6,"a":2022,"tr":"Tercer Trimestre","ea":2021,"p":"Año 2021","ru":"PARTICIPACIONES FEDERALES A MUNICIPIOS ","t":"Auditoría Externa ","id":"1095/2021","o":"ASF","of":"AUDITORIA SUPERIOR DE LA FEDERACION","ob":"Fiscalizar que las operaciones financiadas con recursos de las Participaciones Federales se realizaron de conformidad con lo dispuesto en la Ley de Coordinación Fiscal, la normatividad local aplicable en la materia y en observancia a las demás disposiciones jurídicas.","inf":"","ofno":"https://transparencia.guadalajara.gob.mx/sites/default/files/Acta_de_Presentacion_de_Resultados_Finales_Auditoria_1095_2021.pdf","rec":"https://transparencia.guadalajara.gob.mx/sites/default/files/Acta_de_Inicio_Auditoria_1095_2021.pdf","s":"Concluida"},{"n":7,"a":2022,"tr":"Tercer Trimestre (Septiembre) y Cuarto Trimestre ","ea":2021,"p":"01/10/2021 AL 31/12/2021","ru":"AUDITORÍA CONTABLE, FINANCIERA, ADMINISTRATIVA, PATRIMONIAL; DE OBRA PÚBLICA Y  FRACCIONAMIENTOS","t":"Auditoría Externa ","id":"GUADALAJARA-01/2022","o":"ASEJ","of":"AUDITORIA SUPERIOR DEL ESTADO DE JALISCO","ob":"REVISIÓN, EXÁMEN Y AUDITORÍA PÚBLICA DE LA CUENTA PÚBLICA Y EL DESTINO Y EJERCICIO DE LOS RECURSOS PÚBLICOS","inf":"https://transparencia.guadalajara.gob.mx/sites/default/files/Recomendaciones_Auditoria_Guadalajara_01_2022.pdf","ofno":"https://transparencia.guadalajara.gob.mx/sites/default/files/Resultados_Informe_Individual_Guadalajara_01_2022.pdf","rec":"https://transparencia.guadalajara.gob.mx/sites/default/files/Acta_de_Inicio_Auditoria_Guadalajara_01_2022.pdf","s":"Concluida"},{"n":8,"a":2023,"tr":"Tercer Trimestre","ea":2022,"p":2022,"ru":"Fondo de Aportaciones para el Fortalecimiento de los Municipios y de las Demarcaciones Territoriales del Distrito Federal","t":"Auditoría Externa ","id":"1143/2022","o":"ASF","of":"AUDITORIA SUPERIOR DE LA FEDERACION","ob":"Fiscalizar que las operaciones financiadas con recursos del Fondo de Aportaciones para el Fortalecimiento de los Municipios y de las Demarcaciones Territoriales del Distrito Federal, se realizaron de conformidad con lo dispuesto en la Ley de Coordinación Fiscal, el Presupuesto de Egresos de la Federación y demás disposiciones jurídicas aplicables.","inf":"https://transparencia.guadalajara.gob.mx/sites/default/files/Cedula_de_Resultados_Auditoria_1143_2023.pdf","ofno":"https://transparencia.guadalajara.gob.mx/sites/default/files/Informe_Auditoria_1143_2023.pdf","rec":"https://transparencia.guadalajara.gob.mx/sites/default/files/Acta_de_Inicio_Auditoria_1143_2023.pdf","s":"Concluida"},{"n":9,"a":2023,"tr":"Tercer Trimestre","ea":2022,"p":2022,"ru":"Fondo de Aportaciones para la Infraestructura Social Municipal y de las Demarcaciones Territoriales del Distrito Federal","t":"Auditoría Externa ","id":"1144/2022","o":"ASF","of":"AUDITORIA SUPERIOR DE LA FEDERACION","ob":"Fiscalizar que las operaciones financiadas con recursos del Fondo de Aportaciones para la Infraestructura Social Municipal y de las Demarcaciones Territoriales del Distrito Federal, se realizaron de conformidad con lo dispuesto en la Ley de Coordinación Fiscal, en el Presupuesto de Egresos de la Federación y demás disposiciones jurídicas aplicables. ","inf":"https://transparencia.guadalajara.gob.mx/sites/default/files/AEGF-5543-2024","ofno":"https://transparencia.guadalajara.gob.mx/sites/default/files/Informe ","rec":"https://transparencia.guadalajara.gob.mx/sites/default/files/Acta_de_Inicio_Auditoria_1144_2023.pdf","s":"Concluida"},{"n":10,"a":2024,"tr":"Cuarto Trimestre","ea":2023,"p":2023,"ru":"Disponibilidades de Recursos de Transferencias Federales etiquetadas a Municipios.","t":"Auditoría Externa ","id":1239,"o":"ASF","of":"AUDITORIA SUPERIOR DE LA FEDERACION","ob":"Fiscalizar que la gestión, custodia y manejo financiero de las disponibilidades de las transferencias federales etiquetadas hacia los municipios de las entidades federativas, fueron administradas conforme a los criterios y principios establecidos en los artículos 2 fracción XL y 17 de la Ley de Disciplina Financiera de las entidades Federativas y los Municipios y Séptimo Transitorio de la Ley de Ingresos de la Federación para el ejercicio fiscal de 2023, y debidamente registradas y soportadas documetalmente en términos de la Ley General de la Contabilidad Gubernamental y demás disposiciones jurídicas aplicables.","inf":"https://transparencia.guadalajara.gob.mx/sites/default/files/Informe_Auditoria_1144_2023.pdf","ofno":"https://transparencia.guadalajara.gob.mx/sites/default/files/Informe_Auditoria_1144_2023.pdf","rec":"https://transparencia.guadalajara.gob.mx/sites/default/files/Acta_de_Inicio_Auditoria_1239_2023.pdf","s":"Concluida"},{"n":11,"a":2025,"tr":"Segundo Trimestre","ea":2023,"p":2023,"ru":"Fondo de Aportaciones para el Fortalecimiento de los Municipios y de las Demarcaciones.","t":"Auditoría Externa ","id":1240,"o":"ASF","of":"AUDITORIA SUPERIOR DE LA FEDERACION","ob":"Fiscalizar que las operaciones financiadas con recursos del Fondo de Aportaciones para el Fortalecimiento de los Municipios y de las Demarcaciones Territoriales del Distrito Federal, se realizaron de conformidad con lo dispuesto en la Ley de Coordinación Fiscal, en el Presupuesto de Egresos de la Federación y demás disposiciones jurídicas aplicables.","inf":"https://transparencia.guadalajara.gob.mx/sites/default/files/InformeFinalAuditoria1240FORTAMUN.pdf","ofno":"https://transparencia.guadalajara.gob.mx/sites/default/files/InformeFinalAuditoria1240FORTAMUN.pdf","rec":"https://transparencia.guadalajara.gob.mx/sites/default/files/Acta%20Auditor%C3%ADa%201240%20VP.pdf","s":"Concluida"},{"n":12,"a":2025,"tr":"Segundo Trimestre","ea":2023,"p":2023,"ru":"Fondo de Aportaciones para la Infraestructura Social Municipal y de las Demarcaciones \nTerritoriales del Distrito Federal.","t":"Auditoría Externa ","id":1241,"o":"ASF","of":"AUDITORIA SUPERIOR DE LA FEDERACION","ob":"Fiscalizar que las operaciones financiadas con recursos del Fondo de Aportaciones para la Infraestructura Social Municipal y de las Demarcaciones Territoriales del Distrito Federal, se realizaron de conformidad con lo dispuesto en la Ley de Coordinación Fiscal, en el Presupuesto de Egresos de la Federación y demás disposiciones jurídicas aplicables.","inf":"https://transparencia.guadalajara.gob.mx/sites/default/files/InformeFinalAuditoria1241FAISMUN.pdf","ofno":"https://transparencia.guadalajara.gob.mx/sites/default/files/InformeFinalAuditoria1241FAISMUN.pdf","rec":"https://transparencia.guadalajara.gob.mx/sites/default/files/Acta%20Auditor%C3%ADa%201241%20VP.pdf","s":"Concluida"},{"n":13,"a":2025,"tr":"Segundo Trimestre","ea":2023,"p":2023,"ru":"Participaciones Federales a Municipios.","t":"Auditoría Externa ","id":1242,"o":"ASF","of":"AUDITORIA SUPERIOR DE LA FEDERACION","ob":"Fiscalizar que las operaciones financiadas con recursos de las Participaciones Federales a Municipios se realizaron de conformidad con lo dispuesto en la Ley de Coordinación Fiscal, la normatividad local aplicable en la materia y en observancia a las demás disposiciones jurídicas.","inf":"https://transparencia.guadalajara.gob.mx/sites/default/files/InformeFinalAuditoria1242Partic-Fed-Municipios.pdf","ofno":"https://transparencia.guadalajara.gob.mx/sites/default/files/InformeFinalAuditoria1242Partic-Fed-Municipios.pdf","rec":"https://transparencia.guadalajara.gob.mx/sites/default/files/Acta%20Auditor%C3%ADa%201242%20VP.pdf","s":"Concluida"},{"n":14,"a":2025,"tr":"Cuarto Trimestre","ea":2024,"p":2024,"ru":"Auditoría de Desempeño","t":"Auditoría Externa ","id":"1855/2025","o":"ASEJ","of":"AUDITORIA SUPERIOR DEL ESTADO DE JALISCO","ob":"Fiscalizar el desempeño del Ayuntamiento de Guadalajaraen la gestión de programas públicos que entregaron beneficios a la población mediante Reglas de Operación durante el ejercicio fiscal 2024.","inf":"https://transparencia.guadalajara.gob.mx/sites/default/files/Hallazgos%20VP.pdf","ofno":"https://transparencia.guadalajara.gob.mx/sites/default/files/Hallazgos%20VP.pdf","rec":"https://transparencia.guadalajara.gob.mx/sites/default/files/Aud%20Desempe%C3%B1o%20%20Acta%20de%20inicio%20VP.pdf","s":"Concluida"},{"n":15,"a":2025,"tr":"Cuarto Trimestre","ea":2024,"p":2024,"ru":"Obra Pública, Contabilidad, Finanzas, Administración, Patrimonio y Valores.","t":"Auditoría Externa ","id":"2842 y 3002/2025","o":"ASEJ","of":"AUDITORIA SUPERIOR DEL ESTADO DE JALISCO","ob":"Fiscalización de Obra Pública, así como la actividad Contable, Financiera, Administrativa, Patrimonial, Arqueo de fondos de valores y lo referente a fraccionamientos y obras urbanísticas, correspondientes al ejercicio fiscal 2024.","inf":"https://transparencia.guadalajara.gob.mx/sites/default/files/Pliego%20Observaciones%20oct-dic.pdf                                                                                https://transparencia.guadalajara.gob.mx/sites/default/files/Pliego%20Observaciones%20enero-sept.pdf","ofno":"https://transparencia.guadalajara.gob.mx/sites/default/files/Pliego%20Observaciones%20oct-dic.pdf                                                                                https://transparencia.guadalajara.gob.mx/sites/default/files/Pliego%20Observaciones%20enero-sept.pdf","rec":"https://transparencia.guadalajara.gob.mx/sites/default/files/Acta%20de%20Inicio%20de%20visita%20VP.pdf","s":"Concluida"},{"n":16,"a":2026,"tr":"Primer Trimestre","ea":2024,"p":2024,"ru":"Auditoría externa","t":"Auditoría Externa ","id":1202,"o":"ASF","of":"Auditoria Superior de la Federación","ob":" Fiscalizar que las operaciones financiadas con recursos del Gasto Federalizado, incluyendo\nlas Participaciones Federales, que se realizaron de conformidad con lo dispuesto en la Ley de\nCoordinación Fiscal, la normativa local aplicable en la materia y en observancia a las demás disposiciones jurídicas, correspondientes al ejercicio fiscal 2024.","inf":"https://transparencia.guadalajara.gob.mx/sites/default/files/Cedula%20de%20Resultados%20Finales%20VP","ofno":"https://transparencia.guadalajara.gob.mx/sites/default/files/Acta%20de%20Reuni%C3%B3n%20Entrega%20de%20Resultados%20VP","rec":"https://transparencia.guadalajara.gob.mx/sites/default/files/Acta%20de%20Reunion%20de%20Inicio%20de%20Auditoria%20VP","s":"Concluida"}];
+  var extByOrg = {};
+  var extByYear = {};
+  EXT_AUDITS.forEach(function(e){
+    extByOrg[e.o]  = (extByOrg[e.o] || 0) + 1;
+    extByYear[e.a] = (extByYear[e.a] || 0) + 1;
+  });
+
+  var auExtDashKeys = document.getElementById('auExtDashKeys');
+  var auExtDashBar = document.getElementById('auExtDashBar');
+  var auExtDashLegend = document.getElementById('auExtDashLegend');
+  if(auExtDashKeys){
+    var concluidasExt = EXT_AUDITS.filter(function(e){ return /concluid/i.test(e.s); }).length;
+    auExtDashKeys.innerHTML =
+      '<div class="au-dash-key"><div class="au-dash-key-num asf">' + (extByOrg['ASF'] || 0) + '</div><div class="au-dash-key-lbl">Por ASF</div></div>' +
+      '<div class="au-dash-key"><div class="au-dash-key-num asej">' + (extByOrg['ASEJ'] || 0) + '</div><div class="au-dash-key-lbl">Por ASEJ</div></div>' +
+      '<div class="au-dash-key"><div class="au-dash-key-num concl">' + concluidasExt + '</div><div class="au-dash-key-lbl">Concluidas</div></div>';
+
+    var totalExt = EXT_AUDITS.length;
+    var orgOrder = ['ASF','ASEJ','Contraloría Jalisco'];
+    var barHtml = '';
+    var legendHtml = '';
+    var legendNames = { ASF:'ASF (federal)', ASEJ:'ASEJ (estatal)', 'Contraloría Jalisco':'Contraloría Jalisco' };
+    var legendCls = { ASF:'asf', ASEJ:'asej', 'Contraloría Jalisco':'contraloria' };
+    orgOrder.forEach(function(org){
+      var n = extByOrg[org];
+      if(!n) return;
+      var pct = (n / totalExt * 100).toFixed(1);
+      var cls = legendCls[org];
+      barHtml += '<div class="au-dash-bar-seg ' + cls + '" style="width:' + pct + '%" title="' + legendNames[org] + ': ' + n + '"></div>';
+      legendHtml += '<span class="' + cls + '">' + legendNames[org] + ' <strong>' + n + '</strong></span>';
+    });
+    auExtDashBar.innerHTML = barHtml;
+    auExtDashLegend.innerHTML = legendHtml;
+  }
+
+  var auExtTabs = document.getElementById('auExtTabs');
+  var yearsExt = Object.keys(extByYear).sort(function(a,b){ return parseInt(b,10) - parseInt(a,10); });
+  if(auExtTabs){
+    var tabsHtml = '';
+    yearsExt.forEach(function(y, idx){
+      tabsHtml += '<button class="au-stat-tab' + (idx === 0 ? ' active' : '') + '" data-ext-year="' + y + '" type="button" role="tab">' + y + ' <span class="ct">' + extByYear[y] + '</span></button>';
+    });
+    auExtTabs.innerHTML = tabsHtml;
+  }
+
+  var auExtList = document.getElementById('auExtList');
+  var auExtStatCards = document.getElementById('auExtStatCards');
+  var currentExtYear = yearsExt[0] || '2026';
+
+  // ICONS local para esta seccion (el global esta declarado mas abajo)
+  var EXT_ICONS = {
+    period: '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
+    year:   '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>',
+    rubr:   '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>'
+  };
+
+  function renderExtList(year){
+    var items = EXT_AUDITS.filter(function(e){ return String(e.a) === String(year); });
+    items.sort(function(a, b){ return String(a.id || '').localeCompare(String(b.id || '')); });
+
+    var asfCount = items.filter(function(e){ return e.o === 'ASF'; }).length;
+    var asejCount = items.filter(function(e){ return e.o === 'ASEJ'; }).length;
+    var conclCount = items.filter(function(e){ return /concluid/i.test(e.s); }).length;
+    var cardsHtml = '';
+    if(asfCount > 0) cardsHtml += '<div class="au-stat-card programada"><div class="au-stat-num">' + asfCount + '</div><div class="au-stat-lbl">Por ASF (federal)</div></div>';
+    if(asejCount > 0) cardsHtml += '<div class="au-stat-card programada"><div class="au-stat-num">' + asejCount + '</div><div class="au-stat-lbl">Por ASEJ (estatal)</div></div>';
+    if(conclCount > 0) cardsHtml += '<div class="au-stat-card concluida"><div class="au-stat-num">' + conclCount + '</div><div class="au-stat-lbl">Concluidas</div></div>';
+    auExtStatCards.innerHTML = cardsHtml;
+
+    if(items.length === 0){
+      auExtList.innerHTML = '<div class="au-part-empty"><strong>Sin auditorías externas registradas para ' + year + '.</strong></div>';
+      return;
+    }
+
+    function extPdfBtn(url, label, kind){
+      if(!url || !/^https?:/i.test(url)){
+        return '<span class="au-doc au-doc-missing">' +
+          '<span class="au-doc-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg></span>' +
+          '<span class="au-doc-lbl">' + label + '</span></span>';
+      }
+      return '<a class="au-doc au-doc-ok ' + kind + '" href="' + escHtml(url) + '" target="_blank" rel="noopener" title="Descargar PDF">' +
+        '<span class="au-doc-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>' +
+        '<span class="au-doc-lbl">' + label + '</span></a>';
+    }
+
+    var html = '';
+    items.forEach(function(a){
+      var orgCls = a.o === 'ASF' ? 'asf' : (a.o === 'ASEJ' ? 'asej' : 'contraloria');
+      html += '<div class="au-audit ext-' + orgCls + '">' +
+        '<div class="au-audit-head">' +
+          '<div class="au-audit-head-left">' +
+            '<span class="au-audit-id">' + escHtml(a.id || '—') + '</span>' +
+            '<span class="au-org-badge ' + orgCls + '" title="' + escHtml(a.of || '') + '">' + escHtml(a.o) + '</span>' +
+          '</div>' +
+          '<span class="au-audit-badge concluida">✓ ' + escHtml(a.s || 'Concluida') + '</span>' +
+        '</div>' +
+        '<div class="au-audit-body-wrap">' +
+          (a.ob ? '<div class="au-audit-obj">' + escHtml(a.ob) + '</div>' : '') +
+          (a.ru ? '<div class="au-audit-rubr">' + EXT_ICONS.rubr + ' <span><strong>Rubros:</strong> ' + escHtml(a.ru) + '</span></div>' : '') +
+          '<div class="au-audit-meta">' +
+            (a.tr ? '<span class="au-audit-meta-item">' + EXT_ICONS.period + ' Trimestre: <strong>' + escHtml(a.tr) + '</strong></span>' : '') +
+            (a.ea ? '<span class="au-audit-meta-item">' + EXT_ICONS.year + ' Ejercicio auditado: <strong>' + escHtml(a.ea) + '</strong></span>' : '') +
+            (a.p ? '<span class="au-audit-meta-item">' + EXT_ICONS.period + ' Periodo: <strong>' + escHtml(a.p) + '</strong></span>' : '') +
+          '</div>' +
+          '<div class="au-audit-docs">' +
+            extPdfBtn(a.rec, 'Acta de inicio',           'doc-orden') +
+            extPdfBtn(a.inf, 'Notificación de resultados','doc-informe') +
+            extPdfBtn(a.ofno, 'Oficio de notificación',   'doc-cierre') +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    });
+    auExtList.innerHTML = html;
+  }
+
+  renderExtList(currentExtYear);
+  if(auExtTabs){
+    auExtTabs.querySelectorAll('.au-stat-tab').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        auExtTabs.querySelectorAll('.au-stat-tab').forEach(function(b){ b.classList.remove('active'); });
+        btn.classList.add('active');
+        currentExtYear = btn.getAttribute('data-ext-year');
+        renderExtList(currentExtYear);
+      });
+    });
+  }
 
   // ====================================================================
   // SECCION PARTICIPATIVAS · 43 documentos en 4 anios (2026 sin docs aun)
