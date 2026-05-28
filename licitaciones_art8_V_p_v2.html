@@ -814,6 +814,8 @@ function parseMoney(s){
   if(s===null||s===undefined) return null;
   const raw = String(s).trim();
   if(!raw || /^DESIERTA$|^EN FIRMA$|^N\/A$|^—$|^-$/i.test(raw)) return null;
+  // Contratos por comisión/porcentaje (ej. parquímetros): mostrar el texto tal cual, no como pesos
+  if(raw.indexOf('%')!==-1) return null;
   const t = raw.replace(/[^0-9.\-]/g,'');
   if(!t) return null;
   const n = parseFloat(t);
