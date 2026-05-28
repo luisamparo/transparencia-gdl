@@ -59,6 +59,39 @@ button{font-family:inherit;cursor:pointer}
 .cd-card-t{font-size:14.5px;font-weight:700;color:var(--g900);margin-bottom:4px;letter-spacing:-.005em}
 .cd-card-d{font-size:12.5px;color:var(--g600);line-height:1.5}
 
+/* HERO KPIs */
+.hero-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,155px),1fr));gap:12px;margin-bottom:22px}
+.hero-kpi{background:var(--wh);border:1.5px solid #FFD2A5;border-radius:var(--rad-lg);padding:18px 20px;transition:transform .15s var(--ease),border-color .15s var(--ease)}
+.hero-kpi:hover{transform:translateY(-2px);border-color:var(--nr)}
+.hero-kpi.feat{background:linear-gradient(135deg,var(--nr) 0%,var(--nr-d) 100%);border-color:var(--nr-d)}
+.hero-kpi-n{font-family:var(--fm);font-size:32px;font-weight:800;color:var(--nr-d);line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.hero-kpi.feat .hero-kpi-n{color:#fff}
+.hero-kpi-l{font-size:11px;color:var(--g600);font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-top:8px;line-height:1.3}
+.hero-kpi.feat .hero-kpi-l{color:rgba(255,255,255,.92)}
+.hero-kpi-s{font-size:10.5px;color:var(--g400);margin-top:3px;line-height:1.35}
+.hero-kpi.feat .hero-kpi-s{color:rgba(255,255,255,.78)}
+
+/* BIG CARDS */
+.big-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px;margin-bottom:22px}
+.big-card{background:var(--wh);border:1.5px solid var(--g200);border-radius:var(--rad-lg);overflow:hidden;box-shadow:var(--sh-sm);transition:transform .18s var(--ease),box-shadow .18s var(--ease)}
+.big-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(232,119,34,.12)}
+.big-card-cover{position:relative;height:96px;background:linear-gradient(135deg,var(--nr-soft) 0%,#FFE4CC 100%);display:flex;align-items:center;padding:0 22px;overflow:hidden;border-bottom:1px solid #FFD2A5}
+.big-card-ico{width:52px;height:52px;border-radius:13px;background:var(--wh);display:flex;align-items:center;justify-content:center;color:var(--nr-d);box-shadow:0 3px 10px rgba(232,119,34,.18);position:relative;z-index:1}
+.big-card-ico svg{width:26px;height:26px}
+.big-card-wm{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-family:var(--fm);font-size:62px;font-weight:800;color:var(--nr);opacity:.16;letter-spacing:-.04em;line-height:1;user-select:none;pointer-events:none}
+.big-card-body{padding:18px 22px 20px}
+.big-card-eye{font-size:10.5px;font-weight:800;color:var(--nr-d);letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+.big-card-t{font-size:17px;font-weight:800;color:var(--g900);letter-spacing:-.01em;margin-bottom:8px;line-height:1.25}
+.big-card-d{font-size:13px;color:var(--g600);line-height:1.6}
+.big-card-d strong{color:var(--g800);font-weight:700}
+
+/* HIGHLIGHT BAND */
+.hl-band{background:linear-gradient(135deg,var(--nr-soft) 0%,#FFF8F0 100%);border:1.5px solid #FFD2A5;border-left:5px solid var(--nr);border-radius:var(--rad-lg);padding:22px 26px;margin-bottom:26px;display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.hl-band-n{font-family:var(--fm);font-size:clamp(40px,7vw,58px);font-weight:800;color:var(--nr-d);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.hl-band-txt{flex:1;min-width:200px}
+.hl-band-t{font-size:15px;font-weight:800;color:var(--g900);letter-spacing:-.005em;line-height:1.3;margin-bottom:3px}
+.hl-band-s{font-size:12.5px;color:var(--g600);line-height:1.5}
+
 /* LEGAL */
 .legal{display:grid;grid-template-columns:48px 1fr;gap:16px;background:var(--wh);border-left:4px solid var(--nr);border-radius:var(--rad);padding:18px 22px;margin-bottom:26px;box-shadow:var(--sh-sm)}
 .legal-stamp{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--nr-soft) 0%,#FFE4CC 100%);color:var(--nr-d);display:flex;align-items:center;justify-content:center;flex-shrink:0;align-self:start;box-shadow:inset 0 0 0 1px rgba(232,119,34,.18)}
@@ -179,6 +212,69 @@ button{font-family:inherit;cursor:pointer}
 </section>
 
 <main class="main">
+
+  <!-- KPIs GENERALES (disponibilidad documental verificada, NO montos) -->
+  <div class="hero-kpis">
+    <div class="hero-kpi feat">
+      <div class="hero-kpi-n">683</div>
+      <div class="hero-kpi-l">Documentos publicados</div>
+      <div class="hero-kpi-s">Verificados en l&iacute;nea &middot; 2023-2025</div>
+    </div>
+    <div class="hero-kpi">
+      <div class="hero-kpi-n">3</div>
+      <div class="hero-kpi-l">Ejercicios fiscales</div>
+      <div class="hero-kpi-s">2025 vigente &middot; 2024 y 2023 cerrados</div>
+    </div>
+    <div class="hero-kpi">
+      <div class="hero-kpi-n">7</div>
+      <div class="hero-kpi-l">Reportes por mes</div>
+      <div class="hero-kpi-s">Cuenta, balance, deuda, proveedores&hellip;</div>
+    </div>
+    <div class="hero-kpi">
+      <div class="hero-kpi-n">100%</div>
+      <div class="hero-kpi-l">Acceso ciudadano</div>
+      <div class="hero-kpi-s">PDF para leer, Excel para analizar</div>
+    </div>
+  </div>
+
+  <!-- 2 TARJETAS GRANDES EXPLICATIVAS -->
+  <div class="big-cards">
+    <div class="big-card">
+      <div class="big-card-cover">
+        <div class="big-card-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+        </div>
+        <div class="big-card-wm" aria-hidden="true">$</div>
+      </div>
+      <div class="big-card-body">
+        <div class="big-card-eye">&iquest;Qu&eacute; es la Cuenta P&uacute;blica?</div>
+        <div class="big-card-t">El estado de cuenta del municipio</div>
+        <div class="big-card-d">Es el informe donde el Ayuntamiento muestra <strong>de d&oacute;nde vino el dinero</strong> (impuestos, aportaciones), <strong>en qu&eacute; se gast&oacute;</strong> (sueldos, obras, servicios), <strong>qu&eacute; tiene</strong> (edificios, veh&iacute;culos) y <strong>qu&eacute; debe</strong> (cr&eacute;ditos, juicios). P&uacute;blico y obligatorio por ley.</div>
+      </div>
+    </div>
+    <div class="big-card">
+      <div class="big-card-cover">
+        <div class="big-card-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <div class="big-card-wm" aria-hidden="true">12</div>
+      </div>
+      <div class="big-card-body">
+        <div class="big-card-eye">&iquest;Cada cu&aacute;ndo se publica?</div>
+        <div class="big-card-t">Mes con mes, sin esperar al cierre</div>
+        <div class="big-card-d">Hay reportes <strong>mensuales</strong> (cada mes del a&ntilde;o), un <strong>corte semestral</strong> a junio, y la <strong>Cuenta P&uacute;blica anual</strong> al cierre del ejercicio. As&iacute; el dinero p&uacute;blico se puede vigilar en tiempo real, no solo una vez al a&ntilde;o.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BANDA DESTACADA -->
+  <div class="hl-band">
+    <div class="hl-band-n">683</div>
+    <div class="hl-band-txt">
+      <div class="hl-band-t">documentos financieros disponibles para consulta ciudadana</div>
+      <div class="hl-band-s">Estados financieros, conciliaciones, avances de gesti&oacute;n y cuentas p&uacute;blicas de los ejercicios 2023, 2024 y 2025. Cada documento fue verificado en l&iacute;nea contra el portal oficial del Ayuntamiento de Guadalajara.</div>
+    </div>
+  </div>
 
   <!-- CIUDADANIZACIÓN -->
   <section class="cd-intro">
