@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Gaceta Municipal de Guadalajara: el diario oficial donde el Ayuntamiento publica reglamentos, decretos, acuerdos del Cabildo, presupuestos y demás normas. Archivo histórico completo 2004–2026, descargable y consultable en línea. Art. 8 Fracción II Inciso e) Ley de Transparencia Jalisco.">
+<title>Gaceta Municipal de Guadalajara · Archivo Oficial 2004–2026 · Art. 8 Frac. II Inc. e) · Transparencia GDL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=DM+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================================
+   GACETA MUNICIPAL · Art. 8 Frac. II Inc. e) · Transparencia GDL
+   Paleta institucional Movimiento Ciudadano (naranja protagonista)
+   ============================================================================ */
+:root{
+  --o:#F26522; --od:#D4531A; --ol:#FDE8D8; --oxl:#FEF4EE; --ostrong:#A8400D; --osoft:#FFF8F3;
+  --n:#1A1A1A; --ng:#3D3D3D; --nm:#6B6B6B; --nc:#F7F6F2; --nb:#E8E6DF; --n300:#D8D3C9; --w:#FFFFFF;
+  --ok:#1D9E75; --okL:#E1F5EE;
+  --font:'Inter',system-ui,-apple-system,sans-serif;
+  --fontD:'Outfit','Inter',system-ui,sans-serif;
+  --fontM:'DM Mono',ui-monospace,Menlo,Consolas,monospace;
+  --sh-sm:0 1px 2px rgba(26,26,26,.05);
+  --sh:0 1px 3px rgba(26,26,26,.06),0 1px 2px rgba(26,26,26,.04);
+  --sh-md:0 4px 12px rgba(26,26,26,.07),0 2px 4px rgba(26,26,26,.04);
+  --sh-lg:0 12px 32px rgba(26,26,26,.09),0 4px 8px rgba(26,26,26,.04);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --rad:10px; --rad-md:14px; --rad-lg:20px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--nc);color:var(--n);-webkit-font-smoothing:antialiased;font-size:14px;line-height:1.55;min-height:100vh}
+.gm-wrap{max-width:1200px;margin:0 auto;padding:18px 18px 40px}
+
+/* HERO */
+.gm-hero{background:linear-gradient(135deg,var(--oxl) 0%,#FFFFFF 58%);color:var(--n);border-radius:var(--rad-lg);padding:26px 30px;margin:0 0 18px;position:relative;overflow:hidden;border-left:5px solid var(--o);box-shadow:0 2px 14px rgba(242,101,34,.10)}
+.gm-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:210px;height:210px;border-radius:50%;background:radial-gradient(circle,rgba(242,101,34,.13) 0%,transparent 70%);pointer-events:none}
+.gm-hero-tag{display:inline-block;background:var(--o);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;position:relative;z-index:1;box-shadow:0 2px 6px rgba(242,101,34,.28)}
+.gm-hero h1{margin:0 0 8px;font-family:var(--fontD);font-size:clamp(22px,3.2vw,29px);font-weight:800;color:var(--n);letter-spacing:-.018em;line-height:1.2;position:relative;z-index:1}
+.gm-hero h1 em{font-style:normal;color:var(--od)}
+.gm-hero-sub{font-size:14.5px;color:var(--ng);max-width:82ch;margin:0 0 18px;line-height:1.62;position:relative;z-index:1}
+.gm-hero-sub strong{color:var(--n);font-weight:700}
+.gm-cifras{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px;max-width:780px;position:relative;z-index:1}
+.gm-cifra{background:var(--w);border:1.5px solid var(--ol);border-radius:var(--rad);padding:12px 14px;display:flex;flex-direction:column;gap:2px;transition:border-color .18s ease,transform .18s ease}
+.gm-cifra:hover{border-color:var(--o);transform:translateY(-2px)}
+.gm-cifra-num{font-family:var(--fontD);font-size:30px;font-weight:800;line-height:1;color:var(--od);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.gm-cifra-lbl{font-size:10.5px;font-weight:700;color:var(--ng);text-transform:uppercase;letter-spacing:.05em;margin-top:3px;line-height:1.3}
+
+/* POSTALES EDUCATIVAS */
+.gm-postales{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;margin-bottom:18px}
+.gm-postal{background:var(--w);border-radius:var(--rad-lg);box-shadow:var(--sh);overflow:hidden;display:flex;flex-direction:column;border-top:5px solid var(--o);transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+.gm-postal:hover{transform:translateY(-3px);box-shadow:var(--sh-lg)}
+.gm-postal-cover{padding:22px 24px 0;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:112px;background:linear-gradient(135deg,var(--oxl) 0%,var(--ol) 100%)}
+.gm-postal-ico{flex-shrink:0;width:58px;height:58px;border-radius:14px;background:var(--w);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.07);color:var(--od)}
+.gm-postal-ghost{flex:1;display:flex;justify-content:flex-end;opacity:.16;font-size:42px;line-height:1;font-weight:900;font-family:var(--fontD);text-align:right;color:var(--od)}
+.gm-postal-body{padding:16px 24px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.gm-postal-eye{font-size:10.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--od)}
+.gm-postal-title{font-family:var(--fontD);font-size:16px;font-weight:800;color:var(--n);letter-spacing:-.012em;line-height:1.3}
+.gm-postal-desc{font-size:13px;color:var(--ng);line-height:1.6}
+.gm-postal-desc strong{color:var(--n);font-weight:700}
+
+/* CONTROLES STICKY */
+.gm-controls{background:var(--w);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);padding:16px 20px;display:flex;flex-direction:column;gap:13px;margin-bottom:16px;position:sticky;top:0;z-index:20;border:1px solid var(--nb)}
+.gm-search-wrap{position:relative;flex:1;min-width:240px}
+.gm-search{width:100%;padding:11px 38px 11px 40px;border-radius:9px;border:1.5px solid var(--nb);font-size:14px;font-family:var(--font);background:var(--nc);color:var(--n);transition:all .15s}
+.gm-search:focus{outline:none;border-color:var(--o);background:#fff;box-shadow:0 0 0 3px rgba(242,101,34,.14)}
+.gm-search-icon{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--nm);width:17px;height:17px;pointer-events:none}
+.gm-search-clear{position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--nm);font-size:20px;cursor:pointer;line-height:1;padding:2px 6px;display:none}
+.gm-search:not(:placeholder-shown)+.gm-search-clear{display:block}
+.gm-search-clear:hover{color:var(--err,#C8323F)}
+.gm-chips-row{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.gm-chips-lbl{font-size:10.5px;font-weight:800;color:var(--nm);letter-spacing:.09em;text-transform:uppercase;margin-right:4px}
+.gm-chip{font-family:var(--font);font-size:11.5px;font-weight:700;border:1.5px solid var(--nb);background:var(--w);color:var(--ng);padding:6px 11px;border-radius:999px;cursor:pointer;transition:all .15s;display:inline-flex;align-items:center;gap:6px;font-variant-numeric:tabular-nums}
+.gm-chip:hover{border-color:var(--o);color:var(--od)}
+.gm-chip.active{background:var(--o);border-color:var(--o);color:#fff;box-shadow:0 2px 6px rgba(242,101,34,.3)}
+.gm-chip-ct{font-family:var(--fontM);font-size:10px;font-weight:800;padding:2px 6px;background:rgba(0,0,0,.06);border-radius:999px}
+.gm-chip.active .gm-chip-ct{background:rgba(255,255,255,.25);color:#fff}
+.gm-count{font-size:12px;color:var(--ng);font-weight:600;font-variant-numeric:tabular-nums}
+.gm-count strong{color:var(--n);font-weight:800}
+
+/* GRUPOS POR AÑO (colapsables) */
+.gm-groups{display:flex;flex-direction:column;gap:11px}
+.gm-group{background:var(--w);border-radius:var(--rad-lg);border:1.5px solid var(--nb);overflow:hidden;transition:border-color .15s,box-shadow .15s;border-left-width:5px;border-left-color:var(--o)}
+.gm-group:hover{border-color:var(--ol)}
+.gm-group-head{background:linear-gradient(135deg,var(--osoft) 0%,#FFFFFF 100%);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:14px;cursor:pointer;flex-wrap:wrap;transition:background .15s;user-select:none}
+.gm-group-head:hover{background:var(--oxl)}
+.gm-group.open .gm-group-head{background:var(--oxl);border-bottom:1px solid var(--ol)}
+.gm-group-left{display:flex;align-items:center;gap:12px;flex:1;min-width:0}
+.gm-group-ico{flex-shrink:0;width:40px;height:40px;border-radius:10px;background:var(--ol);color:var(--od);display:flex;align-items:center;justify-content:center;font-family:var(--fontD);font-weight:800;font-size:13px}
+.gm-group-yr{font-family:var(--fontD);font-size:19px;font-weight:800;color:var(--n);letter-spacing:-.01em;line-height:1}
+.gm-group-meta{font-size:11.5px;color:var(--nm);font-weight:500;margin-top:2px}
+.gm-group-count{font-family:var(--fontM);font-size:11px;font-weight:700;color:var(--od);background:var(--ol);padding:4px 10px;border-radius:6px;flex-shrink:0;letter-spacing:.02em}
+.gm-group-toggle{flex-shrink:0;color:var(--nm);transition:transform .2s ease;margin-left:4px}
+.gm-group.open .gm-group-toggle{transform:rotate(180deg)}
+.gm-group-body{display:none}
+.gm-group.open .gm-group-body{display:block;animation:fadeIn .25s var(--ease)}
+
+/* FILA DE GACETA */
+.gm-gaceta{display:flex;align-items:flex-start;gap:12px;padding:11px 18px;border-top:1px solid var(--nb);transition:background .12s}
+.gm-gaceta:hover{background:var(--osoft)}
+.gm-gaceta-ico{flex-shrink:0;width:32px;height:32px;border-radius:7px;background:#FEE2E2;color:#B91C1C;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.gm-gaceta-body{flex:1;min-width:0}
+.gm-gaceta-title{font-size:13.5px;font-weight:700;color:var(--n);line-height:1.35;letter-spacing:-.003em}
+.gm-gaceta-desc{font-size:12px;color:var(--ng);line-height:1.5;margin-top:3px}
+.gm-gaceta-actions{flex-shrink:0;display:flex;gap:6px;align-items:center}
+.gm-btn{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:700;padding:7px 11px;border-radius:7px;cursor:pointer;text-decoration:none;border:1.5px solid;transition:all .12s var(--ease);white-space:nowrap;font-family:var(--font)}
+.gm-btn-ver{color:#fff;background:var(--o);border-color:var(--o)}
+.gm-btn-ver:hover{background:var(--od);border-color:var(--od);transform:translateY(-1px);box-shadow:0 3px 8px rgba(242,101,34,.3)}
+.gm-btn-dl{color:var(--od);background:var(--w);border-color:var(--ol)}
+.gm-btn-dl:hover{background:var(--oxl);border-color:var(--o)}
+.gm-btn svg{flex-shrink:0}
+
+.gm-empty{padding:40px 20px;text-align:center;color:var(--nm);background:var(--w);border-radius:var(--rad-lg);border:1.5px dashed var(--nb)}
+.gm-empty-h{font-family:var(--fontD);font-size:16px;font-weight:700;color:var(--ng);margin-bottom:4px}
+.gm-loading{padding:50px 20px;text-align:center;color:var(--ng);font-size:14px}
+.gm-loading::before{content:'';display:inline-block;width:22px;height:22px;border:3px solid var(--ol);border-top-color:var(--o);border-radius:50%;vertical-align:middle;margin-right:10px;animation:gmspin 1s linear infinite}
+@keyframes gmspin{to{transform:rotate(360deg)}}
+
+/* VISOR PDF EMBEBIDO (modal) */
+.gm-modal{position:fixed;inset:0;background:rgba(26,26,26,.78);z-index:1000;display:none;align-items:center;justify-content:center;padding:18px;backdrop-filter:blur(3px)}
+.gm-modal.open{display:flex;animation:fadeIn .2s var(--ease)}
+.gm-modal-box{background:var(--w);border-radius:var(--rad-md);width:min(1000px,100%);height:min(92vh,100%);display:flex;flex-direction:column;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.4)}
+.gm-modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 18px;background:linear-gradient(135deg,var(--o) 0%,var(--od) 100%);color:#fff;flex-shrink:0}
+.gm-modal-title{font-family:var(--fontD);font-size:14px;font-weight:800;line-height:1.3;min-width:0}
+.gm-modal-title small{display:block;font-weight:500;font-size:11px;opacity:.9;margin-top:2px;font-family:var(--font)}
+.gm-modal-actions{display:flex;gap:7px;align-items:center;flex-shrink:0}
+.gm-modal-btn{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:700;padding:7px 11px;border-radius:7px;cursor:pointer;text-decoration:none;border:1.5px solid rgba(255,255,255,.4);color:#fff;background:rgba(255,255,255,.14);transition:all .12s;font-family:var(--font);white-space:nowrap}
+.gm-modal-btn:hover{background:rgba(255,255,255,.26)}
+.gm-modal-close{width:32px;height:32px;border-radius:50%;justify-content:center;padding:0;font-size:17px;line-height:1}
+.gm-modal-body{flex:1;background:var(--nc);position:relative;min-height:0}
+.gm-modal-iframe{width:100%;height:100%;border:0;display:block}
+.gm-modal-fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:24px;text-align:center;color:var(--ng);font-size:13px;pointer-events:none}
+.gm-modal-fallback a{pointer-events:auto;color:var(--od);font-weight:700}
+
+/* LEGAL */
+.gm-ley{background:var(--w);border-radius:var(--rad-lg);border:1px solid var(--nb);border-left:5px solid var(--n);padding:18px 22px;margin-top:18px}
+.gm-ley-h{font-family:var(--fontD);font-size:13px;font-weight:800;color:var(--n);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.gm-ley p{font-size:13px;color:var(--ng);line-height:1.65}
+.gm-ley p+p{margin-top:8px}
+.gm-ley strong{color:var(--n);font-weight:700}
+.gm-ley em{font-style:italic}
+.gm-foot-meta{font-size:11px;color:var(--nm);text-align:center;line-height:1.6;margin-top:16px;padding-top:14px;border-top:1px solid var(--nb)}
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* RESPONSIVE */
+@media (max-width:780px){
+  .gm-wrap{padding:12px 12px 30px}
+  .gm-hero{padding:20px 18px}
+  .gm-hero h1{font-size:21px}
+  .gm-cifras{grid-template-columns:repeat(2,1fr)}
+  .gm-cifra-num{font-size:25px}
+  .gm-controls{padding:13px 14px}
+  .gm-gaceta{flex-wrap:wrap}
+  .gm-gaceta-actions{width:100%;margin-top:6px}
+  .gm-btn{flex:1;justify-content:center}
+  .gm-modal{padding:0}
+  .gm-modal-box{height:100%;border-radius:0;width:100%}
+  .gm-modal-title small{display:none}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<div class="gm-wrap">
+
+  <!-- HERO -->
+  <section class="gm-hero">
+    <span class="gm-hero-tag">Art. 8 · Fracción II · Inciso e) · Ley de Transparencia Jalisco</span>
+    <h1>Gaceta Municipal: <em>¿dónde se publican las decisiones del gobierno?</em></h1>
+    <p class="gm-hero-sub">La <strong>Gaceta Municipal</strong> es el medio oficial donde el Ayuntamiento de Guadalajara publica todo lo que aprueba: <strong>reglamentos, decretos, acuerdos del Cabildo, presupuestos, convocatorias y nombramientos</strong>. Mientras algo no se publica aquí, no entra en vigor. Este es el <strong>archivo histórico completo desde 2004 hasta 2026</strong>: búscalo, ábrelo en pantalla o descárgalo en PDF.</p>
+    <div class="gm-cifras" id="gmCifras">
+      <div class="gm-cifra"><div class="gm-cifra-num" id="cfTotal">—</div><div class="gm-cifra-lbl">Gacetas publicadas</div></div>
+      <div class="gm-cifra"><div class="gm-cifra-num">2004–2026</div><div class="gm-cifra-lbl">Archivo histórico</div></div>
+      <div class="gm-cifra"><div class="gm-cifra-num" id="cfYears">23</div><div class="gm-cifra-lbl">Años disponibles</div></div>
+      <div class="gm-cifra"><div class="gm-cifra-num">100%</div><div class="gm-cifra-lbl">Descargable y gratuito</div></div>
+    </div>
+  </section>
+
+  <!-- POSTALES EDUCATIVAS -->
+  <div class="gm-postales">
+    <div class="gm-postal">
+      <div class="gm-postal-cover">
+        <div class="gm-postal-ico" aria-hidden="true">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8z"/></svg>
+        </div>
+        <div class="gm-postal-ghost">§</div>
+      </div>
+      <div class="gm-postal-body">
+        <div class="gm-postal-eye">¿Qué es la Gaceta Municipal?</div>
+        <h3 class="gm-postal-title">El "diario oficial" del Ayuntamiento</h3>
+        <p class="gm-postal-desc">Es la publicación oficial donde el gobierno de Guadalajara <strong>da a conocer y pone en vigor</strong> sus decisiones. Cada gaceta se identifica por <strong>Tomo y Ejemplar</strong> y trae la fecha exacta. Es el equivalente municipal del Diario Oficial: lo que no se publica aquí, no obliga a nadie.</p>
+      </div>
+    </div>
+    <div class="gm-postal">
+      <div class="gm-postal-cover">
+        <div class="gm-postal-ico" aria-hidden="true">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </div>
+        <div class="gm-postal-ghost">?</div>
+      </div>
+      <div class="gm-postal-body">
+        <div class="gm-postal-eye">¿Cómo encuentro lo que busco?</div>
+        <h3 class="gm-postal-title">Por año, o escribe lo que buscas</h3>
+        <p class="gm-postal-desc">Usa los <strong>botones de año</strong> para ver solo ese periodo, o escribe en el <strong>buscador</strong> una palabra clave (por ejemplo "presupuesto", "reglamento de movilidad" o un número de ejemplar). Cada año se abre y cierra; dentro encuentras cada gaceta con su contenido, para <strong>verla en pantalla o descargarla</strong>.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTROLES -->
+  <div class="gm-controls">
+    <div class="gm-search-wrap">
+      <svg class="gm-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="search" class="gm-search" id="gmSearch" placeholder="Buscar en todas las gacetas: tema, reglamento, número de ejemplar, fecha…" autocomplete="off" aria-label="Buscar en todas las gacetas">
+      <button class="gm-search-clear" id="gmSearchClear" type="button" aria-label="Limpiar búsqueda">&times;</button>
+    </div>
+    <div class="gm-chips-row" id="gmChips">
+      <span class="gm-chips-lbl">Filtrar por año:</span>
+    </div>
+    <div class="gm-count" id="gmCount"></div>
+  </div>
+
+  <!-- GRUPOS POR AÑO -->
+  <div class="gm-groups" id="gmGroups">
+    <div class="gm-loading">Cargando el archivo histórico de gacetas…</div>
+  </div>
+
+  <!-- LEGAL -->
+  <section class="gm-ley">
+    <div class="gm-ley-h">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M5 7h14"/><path d="m5 7-2 6h6z"/><path d="m19 7 2 6h-6z"/><path d="M7 21h10"/></svg>
+      Fundamento legal
+    </div>
+    <p><strong>Artículo 8, Fracción II, Inciso e)</strong> de la <em>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</em>: los sujetos obligados deben difundir y mantener actualizada la información sobre el marco normativo aplicable, incluidos los <strong>decretos, acuerdos, criterios, políticas, reglas de operación y demás normas jurídicas generales</strong> que se publican en la Gaceta Municipal.</p>
+    <p>La publicación en la Gaceta Municipal se rige por el <strong>Reglamento de la Administración Pública Municipal de Guadalajara</strong> y el <strong>Código de Gobierno Municipal de Guadalajara</strong>. Los documentos aquí enlazados son los archivos oficiales en formato PDF tal como fueron publicados por el Ayuntamiento; en caso de cualquier discrepancia, prevalece el documento oficial.</p>
+  </section>
+
+  <div class="gm-foot-meta" id="gmFootMeta"></div>
+
+</div>
+
+<!-- VISOR PDF EMBEBIDO -->
+<div class="gm-modal" id="gmModal" role="dialog" aria-modal="true" aria-labelledby="gmModalTitle">
+  <div class="gm-modal-box">
+    <div class="gm-modal-head">
+      <div class="gm-modal-title" id="gmModalTitle">Gaceta<small id="gmModalSub"></small></div>
+      <div class="gm-modal-actions">
+        <a class="gm-modal-btn" id="gmModalOpen" href="#" target="_blank" rel="noopener noreferrer">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+          Abrir en pestaña
+        </a>
+        <a class="gm-modal-btn" id="gmModalDl" href="#" download>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Descargar
+        </a>
+        <button class="gm-modal-btn gm-modal-close" id="gmModalClose" type="button" aria-label="Cerrar visor">&times;</button>
+      </div>
+    </div>
+    <div class="gm-modal-body">
+      <div class="gm-modal-fallback">Si el documento no se muestra aquí, usa <a id="gmModalFallback" href="#" target="_blank" rel="noopener noreferrer">abrir en pestaña nueva</a>.</div>
+      <iframe class="gm-modal-iframe" id="gmModalFrame" title="Visor de gaceta en PDF"></iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ==========================================================================
+   Gaceta Municipal · Inciso e) · JS (Vanilla, sin dependencias)
+   - Carga gacetas_data.json (4,165 gacetas 2004-2026)
+   - Grupos colapsables por año, chips de año, buscador global, visor PDF
+   - Compatible con Strapi v4 (sin template literals problemáticos, sin imports)
+   ========================================================================== */
+(function(){
+  var DATA = null;        // { "2026":[{u,t,d}], ... }
+  var YEARS = [];         // ['2026', '2025', ...]
+  var openYears = {};     // estado abierto/cerrado por año
+  var renderedYears = {}; // años cuyas filas ya se construyeron (lazy)
+  var curQuery = '';
+  var curYearFilter = 'all';
+
+  var elGroups = document.getElementById('gmGroups');
+  var elChips  = document.getElementById('gmChips');
+  var elCount  = document.getElementById('gmCount');
+  var elSearch = document.getElementById('gmSearch');
+  var elSearchClear = document.getElementById('gmSearchClear');
+
+  function esc(s){
+    if (s === null || s === undefined) return '';
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+  function norm(s){
+    return String(s == null ? '' : s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+  }
+
+  /* ----- Carga del JSON ----- */
+  fetch('gacetas_data.json')
+    .then(function(r){ if(!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+    .then(function(json){
+      DATA = json.gacetas || {};
+      YEARS = Object.keys(DATA).sort(function(a,b){ return parseInt(b,10) - parseInt(a,10); });
+      // Pre-normalizar texto de búsqueda por gaceta
+      YEARS.forEach(function(y){
+        DATA[y].forEach(function(g){ g._s = norm((g.t||'') + ' ' + (g.d||'')); });
+      });
+      var total = (json._meta && json._meta.totalGacetas) || YEARS.reduce(function(a,y){return a+DATA[y].length;},0);
+      document.getElementById('cfTotal').textContent = total.toLocaleString('es-MX');
+      document.getElementById('cfYears').textContent = YEARS.length;
+      var foot = document.getElementById('gmFootMeta');
+      if (foot && json._meta){
+        foot.textContent = 'Archivo consolidado de ' + total.toLocaleString('es-MX') + ' gacetas municipales (2004–2026). Fuente oficial: transparencia.guadalajara.gob.mx/gacetamunicipal. Los enlaces apuntan a los PDF originales publicados por el Ayuntamiento.';
+      }
+      buildChips();
+      // Abrir el año más reciente por defecto
+      if (YEARS.length){ openYears[YEARS[0]] = true; }
+      render();
+    })
+    .catch(function(err){
+      elGroups.innerHTML = '<div class="gm-empty"><div class="gm-empty-h">No se pudo cargar el archivo de gacetas</div><div>Detalle técnico: ' + esc(err.message) + '. Verifica que el archivo <strong>gacetas_data.json</strong> esté publicado junto a esta página.</div></div>';
+    });
+
+  /* ----- Chips de año ----- */
+  function buildChips(){
+    var html = '<span class="gm-chips-lbl">Filtrar por año:</span>';
+    var totalAll = YEARS.reduce(function(a,y){return a+DATA[y].length;},0);
+    html += '<button class="gm-chip active" data-year="all" type="button">Todos <span class="gm-chip-ct">' + totalAll.toLocaleString('es-MX') + '</span></button>';
+    YEARS.forEach(function(y){
+      html += '<button class="gm-chip" data-year="' + y + '" type="button">' + y + ' <span class="gm-chip-ct">' + DATA[y].length + '</span></button>';
+    });
+    elChips.innerHTML = html;
+    var btns = elChips.querySelectorAll('.gm-chip');
+    for (var i=0;i<btns.length;i++){
+      btns[i].addEventListener('click', function(e){
+        var y = e.currentTarget.getAttribute('data-year');
+        curYearFilter = y;
+        for (var j=0;j<btns.length;j++) btns[j].classList.remove('active');
+        e.currentTarget.classList.add('active');
+        if (y !== 'all'){ openYears[y] = true; }   // al elegir un año, ábrelo
+        render();
+        if (y !== 'all'){
+          var g = document.querySelector('.gm-group[data-year="' + y + '"]');
+          if (g && g.scrollIntoView){ g.scrollIntoView({behavior:'smooth',block:'start'}); }
+        }
+      });
+    }
+  }
+
+  /* ----- Filtrado ----- */
+  function visibleYears(){
+    if (curYearFilter === 'all') return YEARS;
+    return YEARS.filter(function(y){ return y === curYearFilter; });
+  }
+  function filteredGacetas(y){
+    var arr = DATA[y];
+    if (!curQuery) return arr;
+    return arr.filter(function(g){ return g._s.indexOf(curQuery) !== -1; });
+  }
+
+  /* ----- Render principal (grupos por año) ----- */
+  function render(){
+    var years = visibleYears();
+    var totalShown = 0;
+    var html = '';
+    years.forEach(function(y){
+      var matches = curQuery ? filteredGacetas(y) : DATA[y];
+      if (curQuery && matches.length === 0) return; // ocultar años sin coincidencia al buscar
+      totalShown += matches.length;
+      var isOpen = openYears[y] || (curQuery && matches.length > 0);
+      html += '<div class="gm-group' + (isOpen ? ' open' : '') + '" data-year="' + y + '">' +
+        '<div class="gm-group-head" data-year="' + y + '" role="button" tabindex="0" aria-expanded="' + (isOpen?'true':'false') + '">' +
+          '<div class="gm-group-left">' +
+            '<div class="gm-group-ico">' + y.slice(2) + '</div>' +
+            '<div><div class="gm-group-yr">' + y + '</div><div class="gm-group-meta">' + matches.length + ' gaceta' + (matches.length===1?'':'s') + (curQuery?' que coinciden':' publicadas') + '</div></div>' +
+          '</div>' +
+          '<span class="gm-group-count">' + matches.length + '</span>' +
+          '<svg class="gm-group-toggle" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>' +
+        '</div>' +
+        '<div class="gm-group-body" data-year="' + y + '">' + (isOpen ? rowsHtml(matches, y) : '') + '</div>' +
+      '</div>';
+    });
+    if (totalShown === 0){
+      html = '<div class="gm-empty"><div class="gm-empty-h">Sin resultados</div><div>No encontramos gacetas que coincidan con tu búsqueda. Prueba con otra palabra o limpia el filtro.</div></div>';
+    }
+    elGroups.innerHTML = html;
+    wireGroups();
+    updateCount(totalShown);
+  }
+
+  function rowsHtml(arr, y){
+    if (!arr.length) return '<div style="padding:14px 18px;color:var(--nm);font-size:12.5px">Sin gacetas para mostrar.</div>';
+    var pdfIco = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>';
+    var eyeIco = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>';
+    var dlIco = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>';
+    var h = '';
+    for (var i=0;i<arr.length;i++){
+      var g = arr[i];
+      var descHtml = g.d ? '<div class="gm-gaceta-desc">' + esc(g.d) + '</div>' : '';
+      h += '<div class="gm-gaceta">' +
+        '<div class="gm-gaceta-ico" aria-hidden="true">' + pdfIco + '</div>' +
+        '<div class="gm-gaceta-body">' +
+          '<div class="gm-gaceta-title">' + esc(g.t) + '</div>' + descHtml +
+        '</div>' +
+        '<div class="gm-gaceta-actions">' +
+          '<button class="gm-btn gm-btn-ver" type="button" data-u="' + esc(g.u) + '" data-t="' + esc(g.t) + '" data-y="' + y + '">' + eyeIco + 'Ver</button>' +
+          '<a class="gm-btn gm-btn-dl" href="' + esc(g.u) + '" target="_blank" rel="noopener noreferrer" download>' + dlIco + 'PDF</a>' +
+        '</div>' +
+      '</div>';
+    }
+    return h;
+  }
+
+  /* ----- Cableado de grupos (abrir/cerrar + lazy render) ----- */
+  function wireGroups(){
+    var heads = elGroups.querySelectorAll('.gm-group-head');
+    for (var i=0;i<heads.length;i++){
+      heads[i].addEventListener('click', toggleGroup);
+      heads[i].addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggleGroup(e); } });
+    }
+    var verBtns = elGroups.querySelectorAll('.gm-btn-ver');
+    for (var v=0;v<verBtns.length;v++){
+      verBtns[v].addEventListener('click', function(e){
+        var b = e.currentTarget;
+        openViewer(b.getAttribute('data-u'), b.getAttribute('data-t'), b.getAttribute('data-y'));
+      });
+    }
+  }
+  function toggleGroup(e){
+    var head = e.currentTarget;
+    var y = head.getAttribute('data-year');
+    var group = head.closest('.gm-group');
+    var body = group.querySelector('.gm-group-body');
+    var nowOpen = !group.classList.contains('open');
+    openYears[y] = nowOpen;
+    if (nowOpen){
+      // lazy: construir filas si están vacías
+      if (!body.innerHTML.trim()){
+        body.innerHTML = rowsHtml(curQuery ? filteredGacetas(y) : DATA[y], y);
+        var verBtns = body.querySelectorAll('.gm-btn-ver');
+        for (var v=0;v<verBtns.length;v++){
+          verBtns[v].addEventListener('click', function(ev){
+            var b = ev.currentTarget;
+            openViewer(b.getAttribute('data-u'), b.getAttribute('data-t'), b.getAttribute('data-y'));
+          });
+        }
+      }
+      group.classList.add('open');
+      head.setAttribute('aria-expanded','true');
+    } else {
+      group.classList.remove('open');
+      head.setAttribute('aria-expanded','false');
+    }
+  }
+
+  function updateCount(n){
+    var label = curQuery
+      ? ('<strong>' + n.toLocaleString('es-MX') + '</strong> gaceta' + (n===1?'':'s') + ' coinciden con "' + esc(elSearch.value.trim()) + '"')
+      : (curYearFilter==='all'
+          ? ('<strong>' + n.toLocaleString('es-MX') + '</strong> gacetas en el archivo histórico')
+          : ('<strong>' + n.toLocaleString('es-MX') + '</strong> gacetas en ' + curYearFilter));
+    elCount.innerHTML = label;
+  }
+
+  /* ----- Buscador ----- */
+  var searchTimer = null;
+  elSearch.addEventListener('input', function(){
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(function(){
+      curQuery = norm(elSearch.value.trim());
+      render();
+    }, 180);
+  });
+  elSearchClear.addEventListener('click', function(){
+    elSearch.value = ''; curQuery = ''; elSearch.focus(); render();
+  });
+
+  /* ----- Visor PDF embebido ----- */
+  var modal = document.getElementById('gmModal');
+  var frame = document.getElementById('gmModalFrame');
+  function openViewer(url, title, year){
+    document.getElementById('gmModalTitle').childNodes[0].nodeValue = title || 'Gaceta';
+    document.getElementById('gmModalSub').textContent = 'Gaceta Municipal ' + (year||'') + ' · PDF oficial';
+    document.getElementById('gmModalOpen').href = url;
+    document.getElementById('gmModalDl').href = url;
+    document.getElementById('gmModalFallback').href = url;
+    frame.src = url;
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeViewer(){
+    modal.classList.remove('open');
+    frame.src = 'about:blank';
+    document.body.style.overflow = '';
+  }
+  document.getElementById('gmModalClose').addEventListener('click', closeViewer);
+  modal.addEventListener('click', function(e){ if(e.target===modal) closeViewer(); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && modal.classList.contains('open')) closeViewer(); });
+})();
+</script>
+
+</body>
+</html>
