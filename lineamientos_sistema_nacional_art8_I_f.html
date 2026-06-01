@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Lineamientos generales que emite el Sistema Nacional de Transparencia, aplicables al Ayuntamiento de Guadalajara: las reglas técnicas para publicar, homologar y estandarizar la información pública en todo México. 16 documentos oficiales consultables y descargables. Art. 8 Fracción I Inciso f) Ley de Transparencia Jalisco."/>
+<title>Lineamientos del Sistema Nacional de Transparencia · Reglas técnicas para publicar la información · Art. 8 Frac. I Inc. f) · Transparencia GDL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --nr:#E87722;--nr-l:#FF9A45;--nr-d:#C45F0A;--nr-soft:#FFF1E4;
+  --ac:#E87722;--ac-l:#FFE4CC;--ac-d:#C45F0A;--ac-border:#F5C99A;--ac-soft:#FFF1E4;
+  --g50:#FAFAF8;--g100:#F0F0EC;--g200:#E2E2DD;--g300:#CFCFC8;--g400:#9E9E98;--g600:#5A5A55;--g800:#2D2D2A;--g900:#1A1A1A;
+  --wh:#FFF;
+  --lin:#2563EB;--lin-l:#DBEAFE;--lin-d:#1E3A8A;
+  --cri:#7C3AED;--cri-l:#EDE9FE;--cri-d:#5B21B6;
+  --acu:#0E7490;--acu-l:#CFFAFE;--acu-d:#155E63;
+  --dic:#B45309;--dic-l:#FEF3C7;--dic-d:#7A4E00;
+  --mod:#BE185D;--mod-l:#FCE7F3;--mod-d:#9D174D;
+  --ok:#16A34A;--ok-l:#DCFCE7;--ok-d:#0E6B4C;
+  --pdf:#DC2626;--pdf-d:#991B1B;
+  --rad:10px;--rad-lg:14px;
+  --sh:0 4px 22px rgba(0,0,0,.08);--sh-sm:0 1px 3px rgba(0,0,0,.06);--sh-md:0 6px 18px rgba(0,0,0,.07);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --fh:'Outfit',system-ui,-apple-system,sans-serif;
+  --fm:'DM Mono','SF Mono',Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--g900);line-height:1.55;-webkit-font-smoothing:antialiased}
+.ln-wrap{max-width:1140px;margin:0 auto}
+
+/* HERO */
+.ln-hero{background:linear-gradient(135deg,var(--ac-soft) 0%,#FFFFFF 55%);color:var(--g900);border-radius:var(--rad-lg);padding:26px 30px;margin:0 0 22px;position:relative;overflow:hidden;border-left:5px solid var(--ac);box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.ln-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.12) 0%,transparent 70%);pointer-events:none}
+.ln-hero-tag{display:inline-block;background:var(--ac);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;position:relative;z-index:1;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.ln-hero h1{margin:0 0 8px;font-size:clamp(22px,3.2vw,28px);font-weight:800;color:var(--g900);letter-spacing:-.015em;line-height:1.22;position:relative;z-index:1}
+.ln-hero h1 em{font-style:normal;color:var(--ac-d)}
+.ln-hero-sub{font-size:14.5px;color:var(--g600);max-width:84ch;margin:0 0 4px;line-height:1.6;position:relative;z-index:1}
+.ln-hero-sub strong{color:var(--g900);font-weight:700}
+.ln-cifras{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px;max-width:720px;position:relative;z-index:1}
+.ln-cifra{background:var(--wh);border:1.5px solid var(--ac-border);border-radius:var(--rad);padding:12px 14px;display:flex;flex-direction:column;gap:2px;transition:border-color .18s ease,transform .18s ease}
+.ln-cifra:hover{border-color:var(--ac);transform:translateY(-2px)}
+.ln-cifra-num{font-family:var(--fm);font-size:28px;font-weight:700;line-height:1;color:var(--ac-d);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.ln-cifra-lbl{font-size:10.5px;font-weight:700;color:var(--g600);text-transform:uppercase;letter-spacing:.06em;margin-top:2px;line-height:1.3}
+
+/* POSTALES */
+.ln-postales{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;margin-bottom:22px}
+.ln-postal{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh);overflow:hidden;display:flex;flex-direction:column;border-top:5px solid var(--ac);transition:transform .25s ease,box-shadow .25s ease}
+.ln-postal:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,.10)}
+.ln-postal-cover{padding:22px 24px 0;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:118px;background:linear-gradient(135deg,var(--ac-soft) 0%,#FFE4CC 100%)}
+.ln-postal-icono{flex-shrink:0;width:58px;height:58px;border-radius:14px;background:var(--wh);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.06);color:var(--ac-d)}
+.ln-postal-illus{flex:1;display:flex;justify-content:flex-end;opacity:.18;font-size:40px;line-height:1;font-weight:900;font-family:var(--fm);text-align:right;letter-spacing:-.02em;color:var(--ac-d)}
+.ln-postal-body{padding:16px 24px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.ln-postal-eye{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ac-d)}
+.ln-postal-title{font-size:16px;font-weight:800;color:var(--g900);letter-spacing:-.012em;line-height:1.3}
+.ln-postal-desc{font-size:13px;color:var(--g600);line-height:1.6}
+.ln-postal-desc strong{color:var(--g800);font-weight:600}
+
+/* BUSCADOR */
+.ln-controls{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);padding:14px 20px;margin-bottom:18px;border:1px solid var(--g200);position:sticky;top:0;z-index:20}
+.ln-search-wrap{position:relative}
+.ln-search{width:100%;padding:11px 38px 11px 40px;border-radius:9px;border:1.5px solid var(--g200);font-size:14px;font-family:var(--fh);background:var(--g50);color:var(--g900);transition:all .15s}
+.ln-search:focus{outline:none;border-color:var(--ac);background:#fff;box-shadow:0 0 0 3px rgba(232,119,34,.15)}
+.ln-search-icon{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--g400);width:17px;height:17px;pointer-events:none}
+.ln-search-clear{position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--g400);font-size:20px;cursor:pointer;line-height:1;padding:2px 6px;display:none}
+.ln-search:not(:placeholder-shown)+.ln-search-clear{display:block}
+.ln-search-clear:hover{color:var(--pdf)}
+.ln-count{font-size:11.5px;color:var(--g600);font-weight:600;font-variant-numeric:tabular-nums;margin-top:9px;padding-left:2px}
+.ln-count strong{color:var(--g900);font-weight:800}
+
+/* TARJETAS */
+.ln-list{display:flex;flex-direction:column;gap:13px}
+.ln-norma{background:var(--wh);border-radius:var(--rad-lg);border:1.5px solid var(--g200);border-left-width:5px;border-left-color:var(--ac);overflow:hidden;box-shadow:var(--sh-sm);transition:border-color .15s,box-shadow .15s,transform .15s}
+.ln-norma:hover{box-shadow:var(--sh-md);transform:translateY(-1px)}
+.ln-norma-top{padding:17px 22px 13px;display:flex;gap:15px;align-items:flex-start}
+.ln-norma-ico{flex-shrink:0;width:46px;height:46px;border-radius:11px;display:flex;align-items:center;justify-content:center;background:#FEE2E2;color:var(--pdf-d)}
+.ln-norma-main{flex:1;min-width:0}
+.ln-norma-badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:7px;align-items:center}
+.ln-badge{font-size:9.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:6px;display:inline-flex;align-items:center;gap:4px}
+.ln-badge.lin{background:var(--lin-l);color:var(--lin-d)}
+.ln-badge.cri{background:var(--cri-l);color:var(--cri-d)}
+.ln-badge.acu{background:var(--acu-l);color:var(--acu-d)}
+.ln-badge.dic{background:var(--dic-l);color:var(--dic-d)}
+.ln-badge.mod{background:var(--mod-l);color:var(--mod-d)}
+.ln-badge.num{background:var(--g100);color:var(--g600);font-family:var(--fm)}
+.ln-norma-title{font-size:15px;font-weight:800;color:var(--g900);line-height:1.32;letter-spacing:-.008em}
+.ln-norma-meta{display:flex;gap:0;flex-wrap:wrap;border-top:1px solid var(--g100);background:var(--g50)}
+.ln-meta-cell{flex:1;min-width:150px;padding:10px 22px;border-right:1px solid var(--g100)}
+.ln-meta-cell:last-of-type{border-right:none}
+.ln-meta-lbl{font-size:9.5px;font-weight:800;color:var(--g400);letter-spacing:.08em;text-transform:uppercase;margin-bottom:3px}
+.ln-meta-val{font-family:var(--fm);font-size:12.5px;font-weight:600;color:var(--g900)}
+.ln-meta-val.none{color:var(--g400);font-style:italic;font-family:var(--fh);font-weight:500}
+.ln-norma-actions{display:flex;gap:8px;padding:12px 22px;border-top:1px solid var(--g100);flex-wrap:wrap;align-items:center}
+.ln-btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--fh);font-size:12.5px;font-weight:700;padding:9px 16px;border-radius:9px;cursor:pointer;text-decoration:none;border:1.5px solid;transition:all .14s var(--ease);white-space:nowrap}
+.ln-btn-ver{color:#fff;background:var(--ac);border-color:var(--ac)}
+.ln-btn-ver:hover{background:var(--ac-d);border-color:var(--ac-d);transform:translateY(-1px);box-shadow:0 4px 10px rgba(232,119,34,.3)}
+.ln-btn-dl{color:var(--ac-d);background:var(--wh);border-color:var(--ac-border)}
+.ln-btn-dl:hover{background:var(--ac-soft);border-color:var(--ac)}
+.ln-btn svg{flex-shrink:0}
+.ln-btn-size{font-size:10.5px;color:var(--g400);font-weight:600;font-family:var(--fm);margin-left:2px}
+.ln-empty{padding:40px 20px;text-align:center;color:var(--g400);font-size:13.5px;background:var(--wh);border-radius:var(--rad-lg);border:1.5px dashed var(--g300)}
+.ln-empty strong{display:block;color:var(--g600);font-size:15px;margin-bottom:4px}
+
+/* VISOR PDF MODAL */
+.ln-modal{position:fixed;inset:0;background:rgba(26,26,26,.78);z-index:1000;display:none;align-items:center;justify-content:center;padding:18px;backdrop-filter:blur(3px)}
+.ln-modal.open{display:flex;animation:fadeIn .2s var(--ease)}
+.ln-modal-box{background:var(--wh);border-radius:var(--rad-lg);width:min(1000px,100%);height:min(92vh,100%);display:flex;flex-direction:column;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.4)}
+.ln-modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 18px;background:linear-gradient(135deg,var(--ac) 0%,var(--ac-d) 100%);color:#fff;flex-shrink:0}
+.ln-modal-title{font-family:var(--fh);font-size:13px;font-weight:800;line-height:1.3;min-width:0;flex:1}
+.ln-modal-title small{display:block;font-weight:500;font-size:11px;opacity:.92;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ln-modal-actions{display:flex;gap:7px;align-items:center;flex-shrink:0}
+.ln-modal-btn{display:inline-flex;align-items:center;gap:5px;font-family:var(--fh);font-size:11.5px;font-weight:700;padding:7px 11px;border-radius:7px;cursor:pointer;text-decoration:none;border:1.5px solid rgba(255,255,255,.4);color:#fff;background:rgba(255,255,255,.14);transition:all .12s;white-space:nowrap}
+.ln-modal-btn:hover{background:rgba(255,255,255,.26)}
+.ln-modal-close{width:32px;height:32px;border-radius:50%;justify-content:center;padding:0;font-size:17px;line-height:1}
+.ln-modal-body{flex:1;background:var(--g100);position:relative;min-height:0}
+.ln-modal-frame{width:100%;height:100%;border:0;display:block}
+.ln-modal-loading{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--g600);font-size:13px;text-align:center;padding:24px;pointer-events:none}
+.ln-modal-loading.hide{display:none}
+.ln-modal-spin{width:26px;height:26px;border:3px solid var(--ac-l);border-top-color:var(--ac);border-radius:50%;animation:lnspin 1s linear infinite}
+@keyframes lnspin{to{transform:rotate(360deg)}}
+
+/* LEY */
+.ln-ley{background:var(--wh);border-radius:var(--rad-lg);padding:22px 26px;border-left:4px solid var(--ac-d);box-shadow:var(--sh-sm);margin-top:22px}
+.ln-ley-eye{font-size:10.5px;font-weight:800;color:var(--ac-d);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.ln-ley h3{font-size:16px;font-weight:800;color:var(--g900);margin-bottom:8px;letter-spacing:-.008em}
+.ln-ley p{font-size:13px;color:var(--g600);line-height:1.65}
+.ln-ley p+p{margin-top:7px}
+.ln-ley p strong{color:var(--g800);font-weight:600}
+.ln-ley blockquote{font-size:13.5px;color:var(--g600);line-height:1.65;margin:12px 0 8px;padding:12px 18px;background:var(--ac-soft);border-left:3px solid var(--ac);border-radius:6px;font-style:italic}
+.ln-ley blockquote strong{color:var(--g900);font-style:normal;font-weight:700}
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+
+@media (max-width:780px){
+  body{padding:14px}
+  .ln-hero{padding:20px 18px}
+  .ln-hero h1{font-size:20px}
+  .ln-hero-sub{font-size:13.5px}
+  .ln-cifras{grid-template-columns:repeat(2,1fr);max-width:100%}
+  .ln-cifra-num{font-size:23px}
+  .ln-postal-cover{min-height:96px;padding:18px 20px 0}
+  .ln-norma-top{padding:15px 16px 11px;gap:12px}
+  .ln-norma-ico{width:40px;height:40px}
+  .ln-norma-title{font-size:14px}
+  .ln-meta-cell{padding:9px 16px}
+  .ln-norma-actions{padding:11px 16px}
+  .ln-btn{flex:1 1 auto;justify-content:center;min-width:130px}
+  .ln-ley{padding:18px 18px}
+  .ln-modal{padding:0}
+  .ln-modal-box{height:100%;border-radius:0;width:100%}
+  .ln-modal-head{padding:11px 12px;gap:8px}
+  .ln-modal-title small{display:none}
+  .ln-modal-btn{padding:8px 9px}
+  .ln-modal-btn span{display:none}
+}
+@media (max-width:480px){
+  body{padding:10px}
+  .ln-hero{padding:18px 15px;border-radius:12px}
+  .ln-hero h1{font-size:18px;line-height:1.25}
+  .ln-hero-tag{font-size:9.5px;padding:4px 11px}
+  .ln-cifras{grid-template-columns:1fr 1fr;gap:8px}
+  .ln-cifra{padding:10px 12px}
+  .ln-cifra-num{font-size:20px}
+  .ln-postal-title{font-size:15px}
+  .ln-norma-title{font-size:13.5px;line-height:1.35}
+  .ln-badge{font-size:9px;padding:3px 7px}
+  .ln-meta-cell{flex:1 1 100%;min-width:0;border-right:none;border-bottom:1px solid var(--g100);padding:9px 14px}
+  .ln-meta-cell:last-of-type{border-bottom:none}
+  .ln-norma-actions{padding:11px 14px;gap:7px}
+  .ln-btn{flex:1 1 100%;width:100%;padding:11px 14px;font-size:13px}
+  .ln-ley{padding:16px 15px;border-radius:12px}
+  .ln-ley blockquote{padding:11px 14px;font-size:12.5px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="ln-wrap">
+
+  <!-- HERO -->
+  <section class="ln-hero">
+    <span class="ln-hero-tag">Art. 8 · Fracción I · Inciso f) · Ley de Transparencia Jalisco</span>
+    <h1>Lineamientos del Sistema Nacional: <em>las reglas para publicar la información igual en todo México</em></h1>
+    <p class="ln-hero-sub">El <strong>Sistema Nacional de Transparencia</strong> es la instancia que reúne a los órganos garantes de todo el país. Emite <strong>lineamientos y criterios generales</strong> que indican <em>cómo</em> debe el Ayuntamiento publicar, homologar y estandarizar la información pública, garantizar la accesibilidad y proteger tus datos personales. Aquí están los <strong>16 documentos oficiales</strong> completos, para consultarlos en pantalla o descargarlos.</p>
+    <div class="ln-cifras">
+      <div class="ln-cifra"><div class="ln-cifra-num">16</div><div class="ln-cifra-lbl">Documentos oficiales</div></div>
+      <div class="ln-cifra"><div class="ln-cifra-num">12</div><div class="ln-cifra-lbl">Lineamientos generales</div></div>
+      <div class="ln-cifra"><div class="ln-cifra-num">2015–2025</div><div class="ln-cifra-lbl">Periodo de emisión</div></div>
+      <div class="ln-cifra"><div class="ln-cifra-num">100%</div><div class="ln-cifra-lbl">Consultable y descargable</div></div>
+    </div>
+  </section>
+
+  <!-- POSTALES -->
+  <div class="ln-postales">
+    <div class="ln-postal">
+      <div class="ln-postal-cover">
+        <div class="ln-postal-icono" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <div class="ln-postal-illus">§</div>
+      </div>
+      <div class="ln-postal-body">
+        <div class="ln-postal-eye">¿Qué son estos lineamientos?</div>
+        <h3 class="ln-postal-title">El manual técnico de la transparencia</h3>
+        <p class="ln-postal-desc">Son las <strong>reglas detalladas</strong> que el Sistema Nacional de Transparencia da a todos los gobiernos del país para que publiquen la información <strong>de la misma forma</strong>: mismos formatos, mismas tablas, misma estructura. Así, lo que ves en Guadalajara se puede comparar con cualquier otro municipio de México.</p>
+      </div>
+    </div>
+    <div class="ln-postal">
+      <div class="ln-postal-cover">
+        <div class="ln-postal-icono" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+        </div>
+        <div class="ln-postal-illus">?</div>
+      </div>
+      <div class="ln-postal-body">
+        <div class="ln-postal-eye">¿Para qué te sirven?</div>
+        <h3 class="ln-postal-title">Tu garantía de información ordenada</h3>
+        <p class="ln-postal-desc">Gracias a estos lineamientos, la información pública es <strong>accesible</strong> (incluso para personas con discapacidad), está <strong>clasificada correctamente</strong> y tus <strong>datos personales están protegidos</strong>. Si quieres saber exactamente qué está obligado a publicar el Municipio y cómo, estos son los documentos que lo definen.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUSCADOR -->
+  <div class="ln-controls">
+    <div class="ln-search-wrap">
+      <svg class="ln-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="search" class="ln-search" id="lnSearch" placeholder="Buscar lineamiento por tema: datos personales, archivos, clasificación, accesibilidad…" autocomplete="off" aria-label="Buscar entre los lineamientos">
+      <button class="ln-search-clear" id="lnSearchClear" type="button" aria-label="Limpiar búsqueda">&times;</button>
+    </div>
+    <div class="ln-count" id="lnCount"></div>
+  </div>
+
+  <!-- LISTA (generada por JS) -->
+  <div class="ln-list" id="lnList"></div>
+
+  <!-- LEY -->
+  <section class="ln-ley">
+    <div class="ln-ley-eye">Fundamento legal</div>
+    <h3>¿Por qué se publica esta información?</h3>
+    <p>El Ayuntamiento de Guadalajara está obligado a poner a tu disposición los lineamientos generales que emite el Sistema Nacional, conforme al siguiente fundamento:</p>
+    <blockquote>«Artículo 8. Es información fundamental, obligatoria para todos los sujetos obligados, la siguiente: <strong>(…) I.</strong> La necesaria para el ejercicio del derecho a la información pública, que comprende: <strong>f)</strong> Los lineamientos generales que emita el Sistema Nacional.»</blockquote>
+    <p>— <strong>Artículo 8, Fracción I, Inciso f)</strong> de la <em>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</em>. Los documentos enlazados son los archivos oficiales en formato PDF tal como fueron publicados por el sujeto obligado; en caso de cualquier discrepancia, prevalece el documento oficial.</p>
+  </section>
+
+</div>
+
+<!-- VISOR PDF MODAL -->
+<div class="ln-modal" id="lnModal" role="dialog" aria-modal="true" aria-labelledby="lnModalTitle">
+  <div class="ln-modal-box">
+    <div class="ln-modal-head">
+      <div class="ln-modal-title" id="lnModalTitle">Documento oficial<small id="lnModalSub"></small></div>
+      <div class="ln-modal-actions">
+        <a class="ln-modal-btn" id="lnModalOpen" href="#" target="_blank" rel="noopener noreferrer" title="Abrir en pestaña nueva">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+          <span>Abrir en pestaña</span>
+        </a>
+        <a class="ln-modal-btn" id="lnModalDl" href="#" download title="Descargar documento">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span>Descargar</span>
+        </a>
+        <button class="ln-modal-btn ln-modal-close" id="lnModalClose" type="button" aria-label="Cerrar visor">&times;</button>
+      </div>
+    </div>
+    <div class="ln-modal-body">
+      <div class="ln-modal-loading" id="lnModalLoading"><div class="ln-modal-spin"></div><div>Cargando documento…<br><span style="font-size:11.5px;color:var(--g400)">Si es un archivo grande, puede tardar unos segundos.</span></div></div>
+      <iframe class="ln-modal-frame" id="lnModalFrame" title="Visor de documento PDF"></iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ==========================================================================
+   Lineamientos del Sistema Nacional · Art. 8 Frac. I Inc. f)
+   Datos verbatim del sitio oficial (criteriosgenerales). 16 documentos.
+   ========================================================================== */
+(function(){
+  /* ----- DATOS (verbatim del scrape; URLs verificadas HTTP 200) ----- */
+  var DOCS = [
+    {t:"Lineamientos Técnicos Generales para la Publicación, Homologación y Estandarización de la Información de las Obligaciones de Transparencia", pub:"30 de diciembre de 2025", ref:"Sin reformas", u:"https://transparencia.guadalajara.gob.mx/sites/default/files/LineamientosGeneralesPublicacionHomologacionEstandarizacionInformacionObligacionesTransparencia.pdf", kb:167686},
+    {t:"Diccionario de Protección de Datos Personales", pub:"N/A", ref:"N/A", u:"https://transparencia.guadalajara.gob.mx/sites/default/files/DiccionarioProteccionDatosPersonales.pdf", kb:11091},
+    {t:"Lineamientos de la funcionalidad, operación y mejoras de la Plataforma Nacional de Transparencia", pub:"13 de agosto de 2021", ref:"Sin reformas", u:"https://transparencia.guadalajara.gob.mx/sites/default/files/LineamientosFuncionalidadOperacionMejoraPNT.pdf", kb:483},
+    {t:"Lineamientos técnicos generales para la publicación, homologación y estandarización de la información de las obligaciones establecidas en el título V y en la fracción IV del artículo 31 de la Ley General de Transparencia y Acceso a la Información Pública que deben difundir los Sujetos Obligados en los Portales de Internet y en la Plataforma Nacional de Transparencia", pub:"04 de mayo de 2016", ref:"19 de marzo de 2022", u:"https://transparencia.guadalajara.gob.mx/sites/default/files/LineamientosPublicacionHomologacionEstandarizacionPortalesInternetPlataformaNacional.pdf", kb:7814},
+    {t:"Lineamientos para la organización y conservación de los archivos", pub:"04 de mayo de 2016", ref:"Sin reformas", u:"https://transparencia.guadalajara.gob.mx/sites/default/files/LineamientosOrganizacionConservacionArchivos.pdf", kb:374},
+    {t:"Lineamientos que deberán observar los Sujetos Obligados para la atención de requerimientos, observaciones, recomendaciones y criterios que emita el Sistema Nacional de Transparencia, Acceso a la Información Pública y Protección de Datos Personales", pub:"04 de mayo de 2016", ref:"Sin reformas", u:"https://transparencia.guadalajara.gob.mx/sites/default/files/LineamientosAtencionRequerimientosObservacionesRecomendacionesCriteriosSNT.pdf", kb:210},
+    {t:"Lineamientos para la elaboración, ejecución y evaluación del Programa Nacional de Transparencia y Acceso a la Información", pub:"06 de mayo de 2016", ref:"Sin reformas", u:"https://transparencia.guadalajara.gob.mx/sites/default/files/LineamientosElaboracionEjecucionEvaluacionProgramaNacionalTransparencia.pdf", kb:277},
+    {t:"Criterios para que los Sujetos Obligados garanticen condiciones de accesibilidad que permitan el ejercicio de los Derechos Humanos a la Información y Protección de Datos Personales a grupos vulnerables", pub:"06 de mayo de 2016", ref:"Sin reformas", u:"https://transparencia.guadalajara.gob.mx/sites/default/files/CriteriosSujetosObligadosGaranticenCondicionesAccesibilidad.pdf", kb:338},
+    {t:"Lineamientos para determinar los catálogos y publicación de información de interés público; y para la emisión y evaluación de políticas de transparencia proactiva", pub:"15 de abril de 2016", ref:"21 de febrero de 2018", u:"https://transparencia.guadalajara.gob.mx/sites/default/files/LineamientosDeterminarCatalogosPublicacionInformacionInteresPublicoEmisionEvaluacionPoliticasTransparenciaProactiva.pdf", kb:366},
+    {t:"Modificación a los Lineamientos para determinar los catálogos y publicación de información de interés público; y para la emisión y evaluación de políticas de transparencia proactiva", pub:"15 de abril de 2016", ref:"21 de febrero de 2018", u:"https://transparencia.guadalajara.gob.mx/sites/default/files/ModificacionLineamientosProctivaInteresModificacion.pdf", kb:177},
+    {t:"Lineamientos generales en materia de clasificación y desclasificación de la información, así como para la elaboración de las versiones públicas", pub:"15 de abril de 2016", ref:"29 de julio de 2016", u:"https://transparencia.guadalajara.gob.mx/sites/default/files/LineamientosGeneralesMateriaClasificacionDesclasificacionInformacionElaboracion.pdf", kb:757},
+    {t:"Lineamientos generales para que el Instituto Nacional de Transparencia, Acceso a la Información y Protección de Datos Personales ejerza la facultad de atracción", pub:"16 de febrero de 2017", ref:"26 de enero de 2018", u:"https://transparencia.guadalajara.gob.mx/sites/default/files/LineamientosINAIEjerzaFacultadAtraccion.pdf", kb:180},
+    {t:"Lineamientos para la organización, coordinación y funcionamiento de las instancias de los integrantes del Sistema Nacional de Transparencia, Acceso a la Información Pública y Protección de Datos Personales", pub:"08 de octubre de 2015", ref:"30 de marzo de 2016", u:"https://transparencia.guadalajara.gob.mx/sites/default/files/LineamientosOrganizacionCoordinacionFuncionamientoInstanciasIntegrantes.pdf", kb:610},
+    {t:"Acuerdo mediante el cual se aprueban las Políticas Generales para la Difusión de Información Pública mediante las Redes Sociales Digitales", pub:"DOF: 13 de febrero de 2020", ref:"DOF: 13 de febrero de 2020", u:"https://transparencia.guadalajara.gob.mx/sites/default/files/AcuerdoPoliticasGeneralesRedesSocialesDigitales.pdf", kb:436},
+    {t:"Lineamientos Generales de Transparencia en la Rama del Sector Público de Salud", pub:"DOF: 27 de mayo de 2015", ref:"DOF: 27 de mayo de 2015", u:"https://transparencia.guadalajara.gob.mx/sites/default/files/lineamientos_salud.pdf", kb:24288},
+    {t:"Lineamientos que establecen los parámetros, modalidades y procedimientos para la portabilidad de datos personales", pub:"12 de febrero de 2018", ref:"Sin reformas", u:"https://transparencia.guadalajara.gob.mx/sites/default/files/LineamientosParametrosModalidadesProcedimientosDatosPersonales.pdf", kb:509}
+  ];
+
+  function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function norm(s){ return String(s==null?'':s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,''); }
+  function tipoDe(t){
+    var s = t.toLowerCase();
+    if (s.indexOf('diccionario') === 0) return {cls:'dic', lbl:'Diccionario'};
+    if (s.indexOf('criterios') === 0) return {cls:'cri', lbl:'Criterios'};
+    if (s.indexOf('modificación') === 0 || s.indexOf('modificacion') === 0) return {cls:'mod', lbl:'Modificación'};
+    if (s.indexOf('acuerdo') === 0) return {cls:'acu', lbl:'Acuerdo'};
+    return {cls:'lin', lbl:'Lineamiento'};
+  }
+  function fmtPeso(kb){
+    if (!kb) return '';
+    if (kb >= 1024) return (kb/1024).toFixed(kb >= 10240 ? 0 : 1) + ' MB';
+    return kb + ' KB';
+  }
+  var PDF_ICO = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>';
+  var EYE_ICO = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>';
+  var DL_ICO = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>';
+
+  // Prepara índice de búsqueda
+  DOCS.forEach(function(d){ d._s = norm(d.t); });
+
+  var listEl = document.getElementById('lnList');
+  var countEl = document.getElementById('lnCount');
+  var searchEl = document.getElementById('lnSearch');
+
+  function render(query){
+    var q = norm(query || '');
+    var shown = 0;
+    var html = '';
+    for (var i=0;i<DOCS.length;i++){
+      var d = DOCS[i];
+      if (q && d._s.indexOf(q) === -1) continue;
+      shown++;
+      var tipo = tipoDe(d.t);
+      var refNone = /^(sin reformas?|n\/a)$/i.test(d.ref.trim());
+      var pubNone = /^n\/a$/i.test(d.pub.trim());
+      var peso = fmtPeso(d.kb);
+      html += '<article class="ln-norma">' +
+        '<div class="ln-norma-top">' +
+          '<div class="ln-norma-ico" aria-hidden="true">' + PDF_ICO + '</div>' +
+          '<div class="ln-norma-main">' +
+            '<div class="ln-norma-badges">' +
+              '<span class="ln-badge num">' + (i+1) + ' / 16</span>' +
+              '<span class="ln-badge ' + tipo.cls + '">' + tipo.lbl + '</span>' +
+            '</div>' +
+            '<h2 class="ln-norma-title">' + esc(d.t) + '</h2>' +
+          '</div>' +
+        '</div>' +
+        '<div class="ln-norma-meta">' +
+          '<div class="ln-meta-cell"><div class="ln-meta-lbl">Fecha de publicación</div><div class="ln-meta-val' + (pubNone?' none':'') + '">' + esc(pubNone?'No disponible':d.pub) + '</div></div>' +
+          '<div class="ln-meta-cell"><div class="ln-meta-lbl">Última reforma</div><div class="ln-meta-val' + (refNone?' none':'') + '">' + esc(d.ref) + '</div></div>' +
+        '</div>' +
+        '<div class="ln-norma-actions">' +
+          '<button class="ln-btn ln-btn-ver" type="button" data-u="' + esc(d.u) + '" data-t="' + esc(d.t) + '">' + EYE_ICO + 'Leer en pantalla</button>' +
+          '<a class="ln-btn ln-btn-dl" href="' + esc(d.u) + '" target="_blank" rel="noopener noreferrer" download>' + DL_ICO + 'Descargar PDF' + (peso?'<span class="ln-btn-size">'+peso+'</span>':'') + '</a>' +
+        '</div>' +
+      '</article>';
+    }
+    if (shown === 0){
+      html = '<div class="ln-empty"><strong>Sin resultados</strong>No encontramos lineamientos que coincidan con tu búsqueda. Prueba con otra palabra (por ejemplo: archivos, datos personales, clasificación).</div>';
+    }
+    listEl.innerHTML = html;
+    countEl.innerHTML = q
+      ? '<strong>' + shown + '</strong> de 16 lineamientos coinciden con tu búsqueda'
+      : 'Mostrando los <strong>16</strong> lineamientos vigentes';
+    wireVerButtons();
+    reportHeight();
+  }
+
+  /* ----- Visor PDF modal ----- */
+  var modal = document.getElementById('lnModal');
+  var frame = document.getElementById('lnModalFrame');
+  var loading = document.getElementById('lnModalLoading');
+  function openViewer(url, title){
+    document.getElementById('lnModalSub').textContent = title || '';
+    document.getElementById('lnModalOpen').href = url;
+    document.getElementById('lnModalDl').href = url;
+    loading.classList.remove('hide');
+    frame.src = url;
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeViewer(){
+    modal.classList.remove('open');
+    frame.src = 'about:blank';
+    document.body.style.overflow = '';
+  }
+  frame.addEventListener('load', function(){ if (frame.src && frame.src !== 'about:blank') loading.classList.add('hide'); });
+  function wireVerButtons(){
+    listEl.querySelectorAll('.ln-btn-ver').forEach(function(b){
+      b.addEventListener('click', function(){ openViewer(b.getAttribute('data-u'), b.getAttribute('data-t')); });
+    });
+  }
+  document.getElementById('lnModalClose').addEventListener('click', closeViewer);
+  modal.addEventListener('click', function(e){ if(e.target===modal) closeViewer(); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && modal.classList.contains('open')) closeViewer(); });
+
+  /* ----- Buscador ----- */
+  var timer = null;
+  searchEl.addEventListener('input', function(){
+    clearTimeout(timer);
+    timer = setTimeout(function(){ render(searchEl.value); }, 150);
+  });
+  document.getElementById('lnSearchClear').addEventListener('click', function(){
+    searchEl.value=''; render(''); searchEl.focus();
+  });
+
+  /* ----- Auto-ajuste de altura (para el iframe padre) ----- */
+  function reportHeight(){
+    var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+    try { parent.postMessage({ type:'gdl-iframe-height', id:'lineamientos-snt-art8-I-f', height: h }, '*'); } catch(e){}
+  }
+  window.addEventListener('load', reportHeight);
+  window.addEventListener('resize', reportHeight);
+  setTimeout(reportHeight, 400);
+  setTimeout(reportHeight, 1200);
+
+  /* ----- Render inicial ----- */
+  render('');
+})();
+</script>
+
+</body>
+</html>
