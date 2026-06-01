@@ -199,9 +199,9 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
     <h1>Marco Normativo: <em>las leyes que respaldan tu derecho a saber</em></h1>
     <p class="mn-hero-sub">Aquí están los <strong>documentos oficiales completos</strong> de las leyes que obligan al gobierno a ser transparente: la <strong>Ley General</strong> (federal, base para todo el país), la <strong>Ley de Transparencia del Estado de Jalisco</strong> que aplica al Ayuntamiento, y el <strong>Reglamento</strong> que las pone en práctica. Son los textos a los que puedes acudir para entender qué información está obligado a publicar el Municipio y cómo solicitarla. Puedes leerlos en pantalla o descargarlos.</p>
     <div class="mn-cifras">
-      <div class="mn-cifra"><div class="mn-cifra-num">5</div><div class="mn-cifra-lbl">Documentos oficiales</div></div>
-      <div class="mn-cifra"><div class="mn-cifra-num">2</div><div class="mn-cifra-lbl">Ámbitos: federal y estatal</div></div>
-      <div class="mn-cifra"><div class="mn-cifra-num">4</div><div class="mn-cifra-lbl">Normas vigentes</div></div>
+      <div class="mn-cifra"><div class="mn-cifra-num">4</div><div class="mn-cifra-lbl">Documentos oficiales</div></div>
+      <div class="mn-cifra"><div class="mn-cifra-num">2</div><div class="mn-cifra-lbl">Federales</div></div>
+      <div class="mn-cifra"><div class="mn-cifra-num">2</div><div class="mn-cifra-lbl">Estatales · Jalisco</div></div>
       <div class="mn-cifra"><div class="mn-cifra-num">100%</div><div class="mn-cifra-lbl">Consultable y descargable</div></div>
     </div>
   </section>
@@ -352,45 +352,7 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
       </div>
     </article>
 
-    <!-- 4. Reglamento abrogado -->
-    <article class="mn-norma abrogado">
-      <div class="mn-norma-top">
-        <div class="mn-norma-ico pdf" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-        </div>
-        <div class="mn-norma-main">
-          <div class="mn-norma-badges">
-            <span class="mn-badge estatal">Estatal · Jalisco</span>
-            <span class="mn-badge tipo">Reglamento</span>
-            <span class="mn-badge abrogado">Abrogado · Histórico</span>
-          </div>
-          <h2 class="mn-norma-title">Reglamento de la Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios (ABROGADO)</h2>
-          <p class="mn-norma-plain">Versión <strong>anterior y ya sin vigencia</strong>, conservada como referencia histórica. Fue reemplazada por el reglamento vigente publicado en 2022. <strong>No utilizar para trámites actuales.</strong></p>
-        </div>
-      </div>
-      <div class="mn-norma-meta">
-        <div class="mn-meta-cell">
-          <div class="mn-meta-lbl">Fecha de publicación</div>
-          <div class="mn-meta-val">16 de enero de 2014</div>
-        </div>
-        <div class="mn-meta-cell">
-          <div class="mn-meta-lbl">Última reforma</div>
-          <div class="mn-meta-val">19 de febrero de 2015</div>
-        </div>
-      </div>
-      <div class="mn-norma-actions">
-        <button class="mn-btn mn-btn-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/Reg.InformacionPublicaJaliscoMunicipios.pdf" data-t="Reglamento (ABROGADO) de la Ley de Transparencia del Estado de Jalisco y sus Municipios">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
-          Leer en pantalla
-        </button>
-        <a class="mn-btn mn-btn-dl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/Reg.InformacionPublicaJaliscoMunicipios.pdf" target="_blank" rel="noopener noreferrer" download>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Descargar PDF
-        </a>
-      </div>
-    </article>
-
-    <!-- 5. Ley General de Protección de Datos -->
+    <!-- 4. Ley General de Protección de Datos -->
     <article class="mn-norma">
       <div class="mn-norma-top">
         <div class="mn-norma-ico pdf" aria-hidden="true">
@@ -495,6 +457,18 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
   document.getElementById('mnModalClose').addEventListener('click', closeViewer);
   modal.addEventListener('click', function(e){ if(e.target===modal) closeViewer(); });
   document.addEventListener('keydown', function(e){ if(e.key==='Escape' && modal.classList.contains('open')) closeViewer(); });
+
+  /* ----- Auto-ajuste de altura: comunica la altura real al iframe padre -----
+     Si el contenedor (Strapi/frontend) escucha el mensaje, ajusta la altura
+     y el contenido nunca se corta en móvil. Si no escucha, no pasa nada malo. */
+  function reportHeight(){
+    var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+    try { parent.postMessage({ type:'gdl-iframe-height', id:'marco-normativo-art8-I-a', height: h }, '*'); } catch(e){}
+  }
+  window.addEventListener('load', reportHeight);
+  window.addEventListener('resize', reportHeight);
+  setTimeout(reportHeight, 400);
+  setTimeout(reportHeight, 1200);
 })();
 </script>
 
