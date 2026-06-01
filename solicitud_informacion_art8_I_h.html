@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Dirección electrónica donde puedes presentar tus solicitudes de acceso a la información pública al Ayuntamiento de Guadalajara: correo oficial, Plataforma Nacional de Transparencia, formatos de solicitud y guía paso a paso. Trámite gratuito. Art. 8 Fracción I Inciso h) Ley de Transparencia Jalisco."/>
+<title>¿Cómo pedir información al Ayuntamiento? · Dirección electrónica para solicitudes de acceso a la información · Art. 8 Frac. I Inc. h) · Transparencia GDL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --nr:#E87722;--nr-l:#FF9A45;--nr-d:#C45F0A;--nr-soft:#FFF1E4;
+  --ac:#E87722;--ac-l:#FFE4CC;--ac-d:#C45F0A;--ac-border:#F5C99A;--ac-soft:#FFF1E4;
+  --g50:#FAFAF8;--g100:#F0F0EC;--g200:#E2E2DD;--g300:#CFCFC8;--g400:#9E9E98;--g600:#5A5A55;--g800:#2D2D2A;--g900:#1A1A1A;
+  --wh:#FFF;
+  --pnt:#7C3AED;--pnt-l:#EDE9FE;--pnt-d:#5B21B6;
+  --info:#2563EB;--info-l:#DBEAFE;--info-d:#1E3A8A;
+  --arco:#0E7490;--arco-l:#CFFAFE;--arco-d:#155E63;
+  --guia:#A8455A;--guia-l:#FAE6EB;--guia-d:#842E40;
+  --pdf:#DC2626;--pdf-d:#991B1B;
+  --ok:#16A34A;
+  --rad:10px;--rad-lg:14px;
+  --sh:0 4px 22px rgba(0,0,0,.08);--sh-sm:0 1px 3px rgba(0,0,0,.06);--sh-md:0 6px 18px rgba(0,0,0,.07);--sh-lg:0 12px 30px rgba(0,0,0,.1);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --fh:'Outfit',system-ui,-apple-system,sans-serif;
+  --fm:'DM Mono','SF Mono',Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--g900);line-height:1.55;-webkit-font-smoothing:antialiased}
+.sl-wrap{max-width:1040px;margin:0 auto}
+
+/* HERO */
+.sl-hero{background:linear-gradient(135deg,var(--ac-soft) 0%,#FFFFFF 55%);color:var(--g900);border-radius:var(--rad-lg);padding:26px 30px;margin:0 0 22px;position:relative;overflow:hidden;border-left:5px solid var(--ac);box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.sl-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.12) 0%,transparent 70%);pointer-events:none}
+.sl-hero-tag{display:inline-block;background:var(--ac);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;position:relative;z-index:1;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.sl-hero h1{margin:0 0 8px;font-size:clamp(22px,3.2vw,28px);font-weight:800;color:var(--g900);letter-spacing:-.015em;line-height:1.22;position:relative;z-index:1}
+.sl-hero h1 em{font-style:normal;color:var(--ac-d)}
+.sl-hero-sub{font-size:14.5px;color:var(--g600);max-width:84ch;margin:0;line-height:1.6;position:relative;z-index:1}
+.sl-hero-sub strong{color:var(--g900);font-weight:700}
+
+/* CORREO DESTACADO */
+.sl-correo{background:radial-gradient(circle at 94% 130%, rgba(255,255,255,.13) 0%, transparent 42%),linear-gradient(135deg,var(--ac) 0%,var(--ac-d) 100%);border-radius:var(--rad-lg);padding:24px 28px;margin-bottom:22px;color:#fff;box-shadow:0 6px 20px rgba(232,119,34,.28);position:relative}
+.sl-correo-eye{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;opacity:.92;margin-bottom:8px;position:relative;z-index:1}
+.sl-correo-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap;position:relative;z-index:1}
+.sl-correo-ico{flex-shrink:0;width:56px;height:56px;border-radius:14px;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;border:1.5px solid rgba(255,255,255,.35)}
+.sl-correo-main{flex:1;min-width:240px}
+.sl-correo-addr{font-family:var(--fm);font-size:clamp(16px,2.6vw,22px);font-weight:700;letter-spacing:-.01em;word-break:break-all;line-height:1.2}
+.sl-correo-hint{font-size:12.5px;opacity:.9;margin-top:4px}
+.sl-correo-actions{display:flex;gap:9px;flex-wrap:wrap}
+.sl-correo-btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--fh);font-size:13px;font-weight:700;padding:10px 16px;border-radius:9px;cursor:pointer;text-decoration:none;border:1.5px solid;transition:all .14s var(--ease);white-space:nowrap}
+.sl-correo-btn.primary{background:#fff;color:var(--ac-d);border-color:#fff}
+.sl-correo-btn.primary:hover{background:var(--ac-soft);transform:translateY(-1px)}
+.sl-correo-btn.ghost{background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.45)}
+.sl-correo-btn.ghost:hover{background:rgba(255,255,255,.26)}
+.sl-correo-btn svg{flex-shrink:0}
+.sl-copied{font-size:12px;font-weight:700;color:#fff;background:rgba(255,255,255,.2);padding:4px 10px;border-radius:6px;display:none;align-items:center;gap:5px}
+.sl-copied.show{display:inline-flex;animation:fadeIn .2s ease}
+/* MENÚ ELEGIR PROVEEDOR DE CORREO (Gmail / Outlook / app) */
+.sl-mail-wrap{position:relative;display:inline-block}
+.sl-mail-menu{position:absolute;top:calc(100% + 8px);right:0;background:#fff;border-radius:11px;box-shadow:0 12px 34px rgba(0,0,0,.22);border:1px solid var(--g200);padding:6px;min-width:230px;z-index:50;display:none;flex-direction:column;gap:2px}
+.sl-mail-menu.open{display:flex;animation:fadeIn .15s ease}
+.sl-mail-menu-h{font-size:10px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--g400);padding:8px 12px 6px}
+.sl-mail-opt{display:flex;align-items:center;gap:11px;padding:10px 12px;border-radius:8px;text-decoration:none;color:var(--g900);font-family:var(--fh);font-size:13.5px;font-weight:600;transition:background .12s;cursor:pointer}
+.sl-mail-opt:hover{background:var(--ac-soft)}
+.sl-mail-opt-ico{flex-shrink:0;width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-weight:800;font-size:14px;color:#fff}
+.sl-mail-opt-ico.brand{background:#fff;border:1px solid var(--g200)}
+.sl-mail-opt-ico.brand svg{width:20px;height:20px}
+.sl-mail-opt-ico.app{background:var(--ac)}
+.sl-mail-opt-sub{display:block;font-size:11px;font-weight:500;color:var(--g400);margin-top:1px}
+
+/* SECCIÓN-TÍTULO */
+.sl-sec-title{font-size:12px;font-weight:800;color:var(--g400);letter-spacing:.12em;text-transform:uppercase;margin:0 4px 14px;display:flex;align-items:center;gap:10px}
+.sl-sec-title::after{content:'';flex:1;height:1.5px;background:var(--g200);border-radius:2px}
+
+/* BOTONES CIUDADANOS GRANDES */
+.sl-acciones{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,235px),1fr));gap:14px;margin-bottom:22px}
+.sl-accion{background:var(--wh);border-radius:var(--rad-lg);border:1.5px solid var(--g200);border-top-width:5px;overflow:hidden;box-shadow:var(--sh-sm);transition:transform .18s var(--ease),box-shadow .18s var(--ease),border-color .18s;display:flex;flex-direction:column}
+.sl-accion:hover{transform:translateY(-3px);box-shadow:var(--sh-lg)}
+.sl-accion.pnt{border-top-color:var(--pnt)}
+.sl-accion.info{border-top-color:var(--info)}
+.sl-accion.arco{border-top-color:var(--arco)}
+.sl-accion.guia{border-top-color:var(--guia)}
+.sl-accion-body{padding:20px 20px 16px;flex:1;display:flex;flex-direction:column;gap:9px}
+.sl-accion-ico{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:3px}
+.sl-accion.pnt .sl-accion-ico{background:var(--pnt-l);color:var(--pnt-d)}
+.sl-accion.info .sl-accion-ico{background:var(--info-l);color:var(--info-d)}
+.sl-accion.arco .sl-accion-ico{background:var(--arco-l);color:var(--arco-d)}
+.sl-accion.guia .sl-accion-ico{background:var(--guia-l);color:var(--guia-d)}
+.sl-accion-tag{font-size:9.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;padding:3px 9px;border-radius:6px;width:fit-content}
+.sl-accion.pnt .sl-accion-tag{background:var(--pnt-l);color:var(--pnt-d)}
+.sl-accion.info .sl-accion-tag{background:var(--info-l);color:var(--info-d)}
+.sl-accion.arco .sl-accion-tag{background:var(--arco-l);color:var(--arco-d)}
+.sl-accion.guia .sl-accion-tag{background:var(--guia-l);color:var(--guia-d)}
+.sl-accion-title{font-size:16.5px;font-weight:800;color:var(--g900);letter-spacing:-.01em;line-height:1.28}
+.sl-accion-desc{font-size:13px;color:var(--g600);line-height:1.55;flex:1}
+.sl-accion-desc strong{color:var(--g800);font-weight:600}
+.sl-accion-foot{padding:0 20px 18px;display:flex;gap:8px;flex-wrap:wrap}
+.sl-btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;font-family:var(--fh);font-size:12.5px;font-weight:700;padding:10px 15px;border-radius:9px;cursor:pointer;text-decoration:none;border:1.5px solid;transition:all .14s var(--ease);white-space:nowrap}
+.sl-btn-main{color:#fff;flex:1}
+.sl-accion.pnt .sl-btn-main{background:var(--pnt);border-color:var(--pnt)}
+.sl-accion.pnt .sl-btn-main:hover{background:var(--pnt-d);border-color:var(--pnt-d)}
+.sl-accion.info .sl-btn-main{background:var(--info);border-color:var(--info)}
+.sl-accion.info .sl-btn-main:hover{background:var(--info-d);border-color:var(--info-d)}
+.sl-accion.arco .sl-btn-main{background:var(--arco);border-color:var(--arco)}
+.sl-accion.arco .sl-btn-main:hover{background:var(--arco-d);border-color:var(--arco-d)}
+.sl-accion.guia .sl-btn-main{background:var(--guia);border-color:var(--guia)}
+.sl-accion.guia .sl-btn-main:hover{background:var(--guia-d);border-color:var(--guia-d)}
+.sl-btn-2nd{background:var(--wh);color:var(--g600);border-color:var(--g200)}
+.sl-btn-2nd:hover{border-color:var(--g400);color:var(--g800)}
+.sl-btn svg{flex-shrink:0}
+.sl-btn-main:hover{transform:translateY(-1px)}
+
+/* POSTALES */
+.sl-postales{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;margin-bottom:22px}
+.sl-postal{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh);overflow:hidden;display:flex;flex-direction:column;border-top:5px solid var(--ac)}
+.sl-postal-cover{padding:20px 24px 0;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:104px;background:linear-gradient(135deg,var(--ac-soft) 0%,#FFE4CC 100%)}
+.sl-postal-icono{flex-shrink:0;width:54px;height:54px;border-radius:14px;background:var(--wh);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.06);color:var(--ac-d)}
+.sl-postal-illus{flex:1;display:flex;justify-content:flex-end;opacity:.18;font-size:38px;line-height:1;font-weight:900;font-family:var(--fm);text-align:right;color:var(--ac-d)}
+.sl-postal-body{padding:15px 24px 19px;display:flex;flex-direction:column;gap:7px;flex:1}
+.sl-postal-eye{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ac-d)}
+.sl-postal-title{font-size:16px;font-weight:800;color:var(--g900);letter-spacing:-.012em;line-height:1.3}
+.sl-postal-desc{font-size:13px;color:var(--g600);line-height:1.6}
+.sl-postal-desc strong{color:var(--g800);font-weight:600}
+
+/* VISOR PDF MODAL */
+.sl-modal{position:fixed;inset:0;background:rgba(26,26,26,.78);z-index:1000;display:none;align-items:center;justify-content:center;padding:18px;backdrop-filter:blur(3px)}
+.sl-modal.open{display:flex;animation:fadeIn .2s var(--ease)}
+.sl-modal-box{background:var(--wh);border-radius:var(--rad-lg);width:min(1000px,100%);height:min(92vh,100%);display:flex;flex-direction:column;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.4)}
+.sl-modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 18px;background:linear-gradient(135deg,var(--ac) 0%,var(--ac-d) 100%);color:#fff;flex-shrink:0}
+.sl-modal-title{font-family:var(--fh);font-size:13px;font-weight:800;line-height:1.3;min-width:0;flex:1}
+.sl-modal-title small{display:block;font-weight:500;font-size:11px;opacity:.92;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sl-modal-actions{display:flex;gap:7px;align-items:center;flex-shrink:0}
+.sl-modal-btn{display:inline-flex;align-items:center;gap:5px;font-family:var(--fh);font-size:11.5px;font-weight:700;padding:7px 11px;border-radius:7px;cursor:pointer;text-decoration:none;border:1.5px solid rgba(255,255,255,.4);color:#fff;background:rgba(255,255,255,.14);transition:all .12s;white-space:nowrap}
+.sl-modal-btn:hover{background:rgba(255,255,255,.26)}
+.sl-modal-close{width:32px;height:32px;border-radius:50%;justify-content:center;padding:0;font-size:17px;line-height:1}
+.sl-modal-body{flex:1;background:var(--g100);position:relative;min-height:0}
+.sl-modal-frame{width:100%;height:100%;border:0;display:block}
+.sl-modal-loading{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--g600);font-size:13px;text-align:center;padding:24px;pointer-events:none}
+.sl-modal-loading.hide{display:none}
+.sl-modal-spin{width:26px;height:26px;border:3px solid var(--ac-l);border-top-color:var(--ac);border-radius:50%;animation:slspin 1s linear infinite}
+@keyframes slspin{to{transform:rotate(360deg)}}
+
+/* LEY */
+.sl-ley{background:var(--wh);border-radius:var(--rad-lg);padding:22px 26px;border-left:4px solid var(--ac-d);box-shadow:var(--sh-sm);margin-top:22px}
+.sl-ley-eye{font-size:10.5px;font-weight:800;color:var(--ac-d);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.sl-ley h3{font-size:16px;font-weight:800;color:var(--g900);margin-bottom:8px;letter-spacing:-.008em}
+.sl-ley p{font-size:13px;color:var(--g600);line-height:1.65}
+.sl-ley p+p{margin-top:7px}
+.sl-ley p strong{color:var(--g800);font-weight:600}
+.sl-ley blockquote{font-size:13.5px;color:var(--g600);line-height:1.65;margin:12px 0 8px;padding:12px 18px;background:var(--ac-soft);border-left:3px solid var(--ac);border-radius:6px;font-style:italic}
+.sl-ley blockquote strong{color:var(--g900);font-style:normal;font-weight:700}
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+
+@media (max-width:780px){
+  body{padding:14px}
+  .sl-hero{padding:20px 18px}
+  .sl-hero h1{font-size:20px}
+  .sl-hero-sub{font-size:13.5px}
+  .sl-correo{padding:20px 18px}
+  .sl-correo-row{gap:14px}
+  .sl-correo-actions{width:100%}
+  .sl-correo-btn{flex:1;justify-content:center}
+  .sl-ley{padding:18px 18px}
+  .sl-modal{padding:0}
+  .sl-modal-box{height:100%;border-radius:0;width:100%}
+  .sl-modal-head{padding:11px 12px;gap:8px}
+  .sl-modal-title small{display:none}
+  .sl-modal-btn{padding:8px 9px}
+  .sl-modal-btn span{display:none}
+}
+@media (max-width:480px){
+  body{padding:10px}
+  .sl-hero{padding:18px 15px;border-radius:12px}
+  .sl-hero h1{font-size:18px;line-height:1.25}
+  .sl-hero-tag{font-size:9.5px;padding:4px 11px}
+  .sl-correo-addr{font-size:15px}
+  .sl-correo-ico{width:48px;height:48px}
+  .sl-accion-title{font-size:15px}
+  .sl-accion-foot{flex-direction:column}
+  .sl-btn{width:100%}
+  .sl-postal-title{font-size:15px}
+  .sl-ley{padding:16px 15px;border-radius:12px}
+  .sl-ley blockquote{padding:11px 14px;font-size:12.5px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="sl-wrap">
+
+  <!-- HERO -->
+  <section class="sl-hero">
+    <span class="sl-hero-tag">Art. 8 · Fracción I · Inciso h) · Ley de Transparencia Jalisco</span>
+    <h1>¿Cómo le pides información al Ayuntamiento? <em>Aquí empieza tu solicitud</em></h1>
+    <p class="sl-hero-sub">Cualquier persona —sin importar quién seas o por qué lo pidas— tiene derecho a solicitar información pública al Gobierno de Guadalajara, y el trámite es <strong>totalmente gratuito</strong>. Esta es la <strong>dirección electrónica oficial</strong> donde puedes presentar tu solicitud, junto con la plataforma en línea, los formatos oficiales y una guía paso a paso para hacerlo fácil.</p>
+  </section>
+
+  <!-- CORREO DESTACADO -->
+  <section class="sl-correo">
+    <div class="sl-correo-eye">Correo electrónico oficial para solicitudes</div>
+    <div class="sl-correo-row">
+      <div class="sl-correo-ico" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      </div>
+      <div class="sl-correo-main">
+        <div class="sl-correo-addr" id="slCorreoAddr">transparencia@guadalajara.gob.mx</div>
+        <div class="sl-correo-hint">Escribe a este correo para presentar tu solicitud de acceso a la información.</div>
+      </div>
+      <div class="sl-correo-actions">
+        <button class="sl-correo-btn primary" id="slCopiar" type="button">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copiar correo
+        </button>
+        <span class="sl-copied" id="slCopied">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          ¡Copiado!
+        </span>
+        <div class="sl-mail-wrap">
+          <button class="sl-correo-btn ghost" id="slEscribir" type="button" aria-haspopup="true" aria-expanded="false">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Escribir correo
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:1px"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="sl-mail-menu" id="slMailMenu" role="menu" aria-label="Elige tu correo">
+            <div class="sl-mail-menu-h">Abrir en…</div>
+            <a class="sl-mail-opt" role="menuitem" target="_blank" rel="noopener noreferrer" href="https://mail.google.com/mail/?view=cm&fs=1&to=transparencia@guadalajara.gob.mx&su=Solicitud%20de%20acceso%20a%20la%20informaci%C3%B3n%20p%C3%BAblica">
+              <span class="sl-mail-opt-ico brand" aria-hidden="true">
+                <svg viewBox="0 0 48 48" width="20" height="20"><path fill="#4caf50" d="M45 16.2l-5 2.75-5 4.75L35 40h7c1.657 0 3-1.343 3-3V16.2z"/><path fill="#1e88e5" d="M3 16.2l3.614 1.71L13 23.7V40H6c-1.657 0-3-1.343-3-3V16.2z"/><polygon fill="#e53935" points="35,11.2 24,19.45 13,11.2 12,17 13,23.7 24,31.95 35,23.7 36,17"/><path fill="#c62828" d="M3 12.298V16.2l10 7.5V11.2L9.876 8.859C9.132 8.301 8.228 8 7.298 8 4.924 8 3 9.924 3 12.298z"/><path fill="#fbc02d" d="M45 12.298V16.2l-10 7.5V11.2l3.124-2.341C38.868 8.301 39.772 8 40.702 8 43.076 8 45 9.924 45 12.298z"/></svg>
+              </span>
+              <span>Gmail<span class="sl-mail-opt-sub">Correo de Google</span></span>
+            </a>
+            <a class="sl-mail-opt" role="menuitem" target="_blank" rel="noopener noreferrer" href="https://outlook.live.com/mail/0/deeplink/compose?to=transparencia@guadalajara.gob.mx&subject=Solicitud%20de%20acceso%20a%20la%20informaci%C3%B3n%20p%C3%BAblica">
+              <span class="sl-mail-opt-ico brand" aria-hidden="true">
+                <svg viewBox="0 0 48 48" width="20" height="20"><path fill="#103f91" d="M44 24.07v12.43A1.5 1.5 0 0 1 42.5 38H23v-9.55l2.79 2.16a2.1 2.1 0 0 0 2.42 0L44 24.07z"/><path fill="#0364b8" d="M23 10h19.5A1.5 1.5 0 0 1 44 11.5v12.57l-15.79 9.7a2.1 2.1 0 0 1-2.42 0L23 28.45V10z"/><path fill="#28a8ea" d="M23 10v18.45l-1.5-1.16V11.5A1.5 1.5 0 0 1 23 10z"/><path fill="#0078d4" d="M4 13.5v21l16 3.5V10L4 13.5z"/><path fill="#fff" d="M12.04 18.4c-3.05 0-5.04 2.27-5.04 5.7s1.96 5.6 4.94 5.6 5.02-2.27 5.02-5.74-1.9-5.56-4.92-5.56zm-.07 9.04c-1.66 0-2.7-1.4-2.7-3.42s1.06-3.46 2.73-3.46 2.68 1.43 2.68 3.4c0 2.07-1.02 3.48-2.71 3.48z"/></svg>
+              </span>
+              <span>Outlook<span class="sl-mail-opt-sub">Correo de Microsoft / Hotmail</span></span>
+            </a>
+            <a class="sl-mail-opt" role="menuitem" href="mailto:transparencia@guadalajara.gob.mx?subject=Solicitud%20de%20acceso%20a%20la%20informaci%C3%B3n%20p%C3%BAblica">
+              <span class="sl-mail-opt-ico app">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </span>
+              <span>Mi aplicación de correo<span class="sl-mail-opt-sub">La app que uses en tu dispositivo</span></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTONES CIUDADANOS -->
+  <div class="sl-sec-title">Otras formas de presentar tu solicitud</div>
+  <div class="sl-acciones">
+
+    <!-- PNT -->
+    <article class="sl-accion pnt">
+      <div class="sl-accion-body">
+        <div class="sl-accion-ico" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <span class="sl-accion-tag">En línea · Recomendado</span>
+        <h2 class="sl-accion-title">Plataforma Nacional de Transparencia</h2>
+        <p class="sl-accion-desc">La forma <strong>más rápida</strong>: crea una cuenta gratuita y envía tu solicitud desde tu casa, sin filas ni horarios. Da seguimiento a tu trámite en línea.</p>
+      </div>
+      <div class="sl-accion-foot">
+        <a class="sl-btn sl-btn-main" href="https://www.plataformadetransparencia.org.mx/" target="_blank" rel="noopener noreferrer">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+          Abrir la Plataforma
+        </a>
+      </div>
+    </article>
+
+    <!-- FORMATO INFO -->
+    <article class="sl-accion info">
+      <div class="sl-accion-body">
+        <div class="sl-accion-ico" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>
+        </div>
+        <span class="sl-accion-tag">Formato · PDF</span>
+        <h2 class="sl-accion-title">Formato de solicitud de información</h2>
+        <p class="sl-accion-desc">El documento oficial para pedir <strong>cualquier información pública</strong> al Ayuntamiento. Llénalo y envíalo por correo o entrégalo en la Unidad de Transparencia.</p>
+      </div>
+      <div class="sl-accion-foot">
+        <button class="sl-btn sl-btn-main sl-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/solicituddeinformacionUTI.pdf" data-t="Formato de solicitud de información">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+          Ver formato
+        </button>
+        <a class="sl-btn sl-btn-2nd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/solicituddeinformacionUTI.pdf" target="_blank" rel="noopener noreferrer" download title="Descargar PDF">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </a>
+      </div>
+    </article>
+
+    <!-- FORMATO ARCO -->
+    <article class="sl-accion arco">
+      <div class="sl-accion-body">
+        <div class="sl-accion-ico" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><circle cx="12" cy="11" r="2.5"/></svg>
+        </div>
+        <span class="sl-accion-tag">Datos personales · PDF</span>
+        <h2 class="sl-accion-title">Formato de solicitud ARCO</h2>
+        <p class="sl-accion-desc">Para ejercer tus derechos sobre <strong>tus datos personales</strong>: <strong>A</strong>cceder a ellos, <strong>R</strong>ectificarlos, <strong>C</strong>ancelarlos u <strong>O</strong>ponerte a su uso.</p>
+      </div>
+      <div class="sl-accion-foot">
+        <button class="sl-btn sl-btn-main sl-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/SolicitudArco.pdf" data-t="Formato de solicitud ARCO (datos personales)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+          Ver formato
+        </button>
+        <a class="sl-btn sl-btn-2nd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/SolicitudArco.pdf" target="_blank" rel="noopener noreferrer" download title="Descargar PDF">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </a>
+      </div>
+    </article>
+
+    <!-- GUÍA -->
+    <article class="sl-accion guia">
+      <div class="sl-accion-body">
+        <div class="sl-accion-ico" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <span class="sl-accion-tag">Guía paso a paso · PDF</span>
+        <h2 class="sl-accion-title">Guía para presentar una solicitud</h2>
+        <p class="sl-accion-desc">Un <strong>manual sencillo</strong> que te explica, paso a paso, cómo llenar y enviar tu solicitud sin equivocarte. Ideal si es tu primera vez.</p>
+      </div>
+      <div class="sl-accion-foot">
+        <button class="sl-btn sl-btn-main sl-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ManualPersonaSolicitante26.pdf" data-t="Guía para presentar una solicitud (Manual de la persona solicitante)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+          Leer la guía
+        </button>
+        <a class="sl-btn sl-btn-2nd" href="https://transparencia.guadalajara.gob.mx/sites/default/files/ManualPersonaSolicitante26.pdf" target="_blank" rel="noopener noreferrer" download title="Descargar PDF">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </a>
+      </div>
+    </article>
+
+  </div>
+
+  <!-- POSTALES -->
+  <div class="sl-postales">
+    <div class="sl-postal">
+      <div class="sl-postal-cover">
+        <div class="sl-postal-icono" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+        </div>
+        <div class="sl-postal-illus">?</div>
+      </div>
+      <div class="sl-postal-body">
+        <div class="sl-postal-eye">¿Qué puedo pedir?</div>
+        <h3 class="sl-postal-title">Casi cualquier cosa que haga el gobierno</h3>
+        <p class="sl-postal-desc">Puedes solicitar <strong>contratos, sueldos, gastos, obras, permisos, estudios</strong> y prácticamente cualquier documento en poder del Ayuntamiento. <strong>No tienes que explicar para qué lo quieres</strong> ni dar tus motivos: es tu derecho.</p>
+      </div>
+    </div>
+    <div class="sl-postal">
+      <div class="sl-postal-cover">
+        <div class="sl-postal-icono" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="sl-postal-illus">✓</div>
+      </div>
+      <div class="sl-postal-body">
+        <div class="sl-postal-eye">¿Y luego qué pasa?</div>
+        <h3 class="sl-postal-title">El gobierno tiene un plazo para responderte</h3>
+        <p class="sl-postal-desc">Una vez que presentas tu solicitud, la <strong>Unidad de Transparencia</strong> tiene un <strong>plazo legal para contestarte</strong>. Si no te responden o la respuesta no te satisface, puedes inconformarte ante el órgano garante. El trámite no te cuesta nada.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEY -->
+  <section class="sl-ley">
+    <div class="sl-ley-eye">Fundamento legal</div>
+    <h3>¿Por qué se publica esta información?</h3>
+    <p>El Ayuntamiento de Guadalajara está obligado a dar a conocer la dirección electrónica donde recibe las solicitudes de acceso a la información, conforme al siguiente fundamento:</p>
+    <blockquote>«Artículo 8. Es información fundamental, obligatoria para todos los sujetos obligados, la siguiente: <strong>(…) I.</strong> La necesaria para el ejercicio del derecho a la información pública, que comprende: <strong>h)</strong> Dirección electrónica donde podrán recibirse las solicitudes de acceso a la información.»</blockquote>
+    <p>— <strong>Artículo 8, Fracción I, Inciso h)</strong> de la <em>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</em>. Los documentos y enlaces son los oficiales tal como fueron publicados por el sujeto obligado; en caso de cualquier discrepancia, prevalece el documento oficial.</p>
+  </section>
+
+</div>
+
+<!-- VISOR PDF MODAL -->
+<div class="sl-modal" id="slModal" role="dialog" aria-modal="true" aria-labelledby="slModalTitle">
+  <div class="sl-modal-box">
+    <div class="sl-modal-head">
+      <div class="sl-modal-title" id="slModalTitle">Documento oficial<small id="slModalSub"></small></div>
+      <div class="sl-modal-actions">
+        <a class="sl-modal-btn" id="slModalOpen" href="#" target="_blank" rel="noopener noreferrer" title="Abrir en pestaña nueva">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+          <span>Abrir en pestaña</span>
+        </a>
+        <a class="sl-modal-btn" id="slModalDl" href="#" download title="Descargar documento">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span>Descargar</span>
+        </a>
+        <button class="sl-modal-btn sl-modal-close" id="slModalClose" type="button" aria-label="Cerrar visor">&times;</button>
+      </div>
+    </div>
+    <div class="sl-modal-body">
+      <div class="sl-modal-loading" id="slModalLoading"><div class="sl-modal-spin"></div><div>Cargando documento…</div></div>
+      <iframe class="sl-modal-frame" id="slModalFrame" title="Visor de documento PDF"></iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ==========================================================================
+   Solicitudes de información · Art. 8 Frac. I Inc. h)
+   Datos verbatim del sitio oficial (correoelectronicosolicitudinformacion).
+   Correo + PNT + 3 PDF (formato info, ARCO, guía). Todo verificado HTTP 200.
+   ========================================================================== */
+(function(){
+  /* ----- Copiar correo ----- */
+  var CORREO = 'transparencia@guadalajara.gob.mx';
+  var btnCopiar = document.getElementById('slCopiar');
+  var copied = document.getElementById('slCopied');
+  btnCopiar.addEventListener('click', function(){
+    var done = function(){
+      copied.classList.add('show');
+      setTimeout(function(){ copied.classList.remove('show'); }, 2200);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(CORREO).then(done).catch(fallback);
+    } else { fallback(); }
+    function fallback(){
+      var ta = document.createElement('textarea');
+      ta.value = CORREO; ta.style.position='fixed'; ta.style.opacity='0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); done(); } catch(e){}
+      document.body.removeChild(ta);
+    }
+  });
+
+  /* ----- Menú "Escribir correo": elegir Gmail / Outlook / app ----- */
+  var btnEscribir = document.getElementById('slEscribir');
+  var mailMenu = document.getElementById('slMailMenu');
+  function closeMail(){ mailMenu.classList.remove('open'); btnEscribir.setAttribute('aria-expanded','false'); }
+  btnEscribir.addEventListener('click', function(e){
+    e.stopPropagation();
+    var willOpen = !mailMenu.classList.contains('open');
+    mailMenu.classList.toggle('open', willOpen);
+    btnEscribir.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+  });
+  // Al elegir una opción, cerrar el menú
+  mailMenu.querySelectorAll('.sl-mail-opt').forEach(function(opt){
+    opt.addEventListener('click', function(){ setTimeout(closeMail, 60); });
+  });
+  // Cerrar al hacer clic afuera o con Escape
+  document.addEventListener('click', function(e){ if (!mailMenu.contains(e.target) && e.target !== btnEscribir) closeMail(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeMail(); });
+
+  /* ----- Visor PDF ----- */
+  var modal = document.getElementById('slModal');
+  var frame = document.getElementById('slModalFrame');
+  var loading = document.getElementById('slModalLoading');
+  function openViewer(url, label){
+    document.getElementById('slModalSub').textContent = label || '';
+    document.getElementById('slModalOpen').href = url;
+    document.getElementById('slModalDl').href = url;
+    loading.classList.remove('hide');
+    frame.src = url;
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeViewer(){
+    modal.classList.remove('open');
+    frame.src = 'about:blank';
+    document.body.style.overflow = '';
+  }
+  frame.addEventListener('load', function(){ if (frame.src && frame.src!=='about:blank') loading.classList.add('hide'); });
+  document.querySelectorAll('.sl-ver').forEach(function(b){
+    b.addEventListener('click', function(){ openViewer(b.getAttribute('data-u'), b.getAttribute('data-t')); });
+  });
+  document.getElementById('slModalClose').addEventListener('click', closeViewer);
+  modal.addEventListener('click', function(e){ if(e.target===modal) closeViewer(); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && modal.classList.contains('open')) closeViewer(); });
+
+  /* ----- Auto-ajuste de altura ----- */
+  function reportHeight(){
+    var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+    try { parent.postMessage({ type:'gdl-iframe-height', id:'solicitud-informacion-art8-I-h', height: h }, '*'); } catch(e){}
+  }
+  window.addEventListener('load', reportHeight);
+  window.addEventListener('resize', reportHeight);
+  setTimeout(reportHeight, 400);
+  setTimeout(reportHeight, 1200);
+})();
+</script>
+
+</body>
+</html>
