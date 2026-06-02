@@ -46,6 +46,10 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
 .ck-postal-title{font-size:16px;font-weight:800;color:var(--g900);letter-spacing:-.012em;line-height:1.3}
 .ck-postal-desc{font-size:13px;color:var(--g600);line-height:1.6}
 .ck-postal-desc strong{color:var(--g800);font-weight:600}
+/* POSTAL HORIZONTAL (un solo recuadro ancho/rectangular) */
+.ck-postal-wide{display:flex;align-items:center;gap:22px;background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh);border-left:5px solid var(--ac);padding:20px 26px;margin:22px 0;flex-wrap:wrap}
+.ck-postal-wide-ico{flex-shrink:0;width:60px;height:60px;border-radius:15px;background:linear-gradient(135deg,var(--ac-soft) 0%,#FFE4CC 100%);display:flex;align-items:center;justify-content:center;color:var(--ac-d)}
+.ck-postal-wide-tx{flex:1;min-width:240px;display:flex;flex-direction:column;gap:4px}
 
 /* SECCIÓN-TÍTULO */
 .ck-sec-title{font-size:12px;font-weight:800;color:var(--g400);letter-spacing:.12em;text-transform:uppercase;margin:0 4px 14px;display:flex;align-items:center;gap:10px}
@@ -99,11 +103,6 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
 .ck-mail-opt-ico.brand{background:#fff;border:1px solid var(--g200)}
 .ck-mail-opt-ico.app{background:var(--ac)}
 .ck-mail-opt-sub{display:block;font-size:11px;font-weight:500;color:var(--g400);margin-top:1px}
-
-/* NOTA FAX */
-.ck-note{display:flex;align-items:flex-start;gap:11px;background:var(--g50);border:1px solid var(--g200);border-radius:var(--rad-lg);padding:13px 18px;margin-bottom:22px;font-size:12.5px;color:var(--g600);line-height:1.5}
-.ck-note svg{flex-shrink:0;color:var(--g400);margin-top:1px}
-.ck-note strong{color:var(--g800);font-weight:700}
 
 /* VISOR PDF MODAL */
 .ck-modal{position:fixed;inset:0;background:rgba(26,26,26,.78);z-index:1000;display:none;align-items:center;justify-content:center;padding:18px;backdrop-filter:blur(3px)}
@@ -186,44 +185,20 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
     <p class="ck-hero-sub">El <strong>Comité de Transparencia</strong> es el grupo de servidores públicos del Ayuntamiento de Guadalajara que garantiza tu <strong>derecho a la información</strong> y la <strong>protección de tus datos personales</strong>. Aquí están sus <strong>nombres, cargos y datos de contacto oficiales</strong> —teléfono, extensión, correo, domicilio y horario— para que sepas quién es responsable y puedas comunicarte directamente con cada integrante.</p>
   </section>
 
-  <!-- POSTALES EDUCATIVAS -->
-  <div class="ck-postales">
-    <div class="ck-postal">
-      <div class="ck-postal-cover">
-        <div class="ck-postal-icono" aria-hidden="true">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <div class="ck-postal-illus"></div>
-      </div>
-      <div class="ck-postal-body">
-        <div class="ck-postal-eye">¿Qué es el Comité de Transparencia?</div>
-        <h3 class="ck-postal-title">Quien decide sobre tu derecho a saber</h3>
-        <p class="ck-postal-desc">Es el órgano que <strong>revisa y resuelve</strong> los casos delicados de transparencia: cuándo una información debe <strong>reservarse</strong> o <strong>clasificarse</strong>, y cómo se atienden las solicitudes para <strong>acceder, corregir o eliminar tus datos personales</strong> (los derechos ARCO). Trabaja bajo los principios de apertura, legalidad y máxima publicidad.</p>
-      </div>
-    </div>
-    <div class="ck-postal">
-      <div class="ck-postal-cover">
-        <div class="ck-postal-icono" aria-hidden="true">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        </div>
-        <div class="ck-postal-illus">?</div>
-      </div>
-      <div class="ck-postal-body">
-        <div class="ck-postal-eye">¿Para qué te sirve conocer sus nombres?</div>
-        <h3 class="ck-postal-title">La transparencia tiene rostro y responsables</h3>
-        <p class="ck-postal-desc">Saber <strong>quiénes</strong> lo integran te permite identificar a la persona correcta, <strong>darle seguimiento</strong> a tu trámite y <strong>exigir cuentas</strong>. Puedes llamarles por teléfono, escribirles un correo o acudir a su domicilio en el horario de atención.</p>
-      </div>
-    </div>
-  </div>
-
   <!-- INTEGRANTES -->
   <div class="ck-sec-title">Integrantes del Comité de Transparencia · 2024-2027</div>
   <div class="ck-members" id="ckMembers"></div>
 
-  <!-- NOTA FAX -->
-  <div class="ck-note">
-    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-    <span>Sobre el <strong>fax</strong> que menciona el inciso k): el Comité de Transparencia <strong>no cuenta con una línea de fax</strong>. El contacto oficial es por <strong>teléfono y correo electrónico</strong>, como se muestra arriba.</span>
+  <!-- POSTAL EDUCATIVA -->
+  <div class="ck-postal-wide">
+    <div class="ck-postal-wide-ico" aria-hidden="true">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    </div>
+    <div class="ck-postal-wide-tx">
+      <div class="ck-postal-eye">¿Qué es el Comité de Transparencia?</div>
+      <h3 class="ck-postal-title">Quien decide sobre tu derecho a saber</h3>
+      <p class="ck-postal-desc">Es el órgano que <strong>revisa y resuelve</strong> los casos delicados de transparencia: cuándo una información debe <strong>reservarse</strong> o <strong>clasificarse</strong>, y cómo se atienden las solicitudes para <strong>acceder, corregir o eliminar tus datos personales</strong> (los derechos ARCO). Trabaja bajo los principios de apertura, legalidad y máxima publicidad.</p>
+    </div>
   </div>
 
   <!-- LEY -->
@@ -386,7 +361,6 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
       : '';
 
     var actions =
-      '<button class="ck-btn ck-btn-2nd ck-copy" type="button" data-copy="'+esc(m.email)+'" data-label="Correo copiado">'+I.copy+'Copiar correo</button>'+
       '<span class="ck-mail-wrap">'+
         '<button class="ck-btn ck-btn-2nd ck-escribir" type="button" data-idx="'+idx+'" aria-haspopup="true" aria-expanded="false">'+I.write+'Escribir'+I.chev+'</button>'+
         mailMenuHtml(idx, m.email)+

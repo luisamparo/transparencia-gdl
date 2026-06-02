@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Reglamento interno para el manejo de la información pública del Ayuntamiento de Guadalajara: el Reglamento de Transparencia y Acceso a la Información Pública del Municipio de Guadalajara (publicado el 28 de junio de 2016, última reforma 09 de abril de 2025), disponible para leer en pantalla y descargar. Art. 8 Fracción I Inciso b) Ley de Transparencia Jalisco."/>
+<title>¿Con qué reglas maneja Guadalajara tu información pública? · Reglamento de Transparencia del Municipio de Guadalajara, completo y a la vista · Art. 8 Frac. I Inc. b) · Transparencia GDL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ac:#E87722;--ac-l:#FFE4CC;--ac-d:#C45F0A;--ac-border:#F5C99A;--ac-soft:#FFF1E4;
+  --g50:#FAFAF8;--g100:#F0F0EC;--g200:#E2E2DD;--g300:#CFCFC8;--g400:#9E9E98;--g600:#5A5A55;--g800:#2D2D2A;--g900:#1A1A1A;
+  --wh:#FFF;
+  --pdf:#DC2626;--pdf-d:#991B1B;--ok:#16A34A;
+  --rad:10px;--rad-lg:14px;
+  --sh:0 4px 22px rgba(0,0,0,.08);--sh-sm:0 1px 3px rgba(0,0,0,.06);--sh-md:0 6px 18px rgba(0,0,0,.07);--sh-lg:0 12px 30px rgba(0,0,0,.1);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --fh:'Outfit',system-ui,-apple-system,sans-serif;
+  --fm:'DM Mono','SF Mono',Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--g900);line-height:1.55;-webkit-font-smoothing:antialiased}
+.rg-wrap{max-width:1040px;margin:0 auto}
+
+/* HERO */
+.rg-hero{background:linear-gradient(135deg,var(--ac-soft) 0%,#FFFFFF 55%);color:var(--g900);border-radius:var(--rad-lg);padding:26px 30px;margin:0 0 22px;position:relative;overflow:hidden;border-left:5px solid var(--ac);box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.rg-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.12) 0%,transparent 70%);pointer-events:none}
+.rg-hero-tag{display:inline-block;background:var(--ac);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;position:relative;z-index:1;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.rg-hero h1{margin:0 0 8px;font-size:clamp(22px,3.2vw,28px);font-weight:800;color:var(--g900);letter-spacing:-.015em;line-height:1.22;position:relative;z-index:1}
+.rg-hero h1 em{font-style:normal;color:var(--ac-d);display:block;margin-top:3px}
+.rg-hero-sub{font-size:14.5px;color:var(--g600);max-width:86ch;margin:0;line-height:1.6;position:relative;z-index:1}
+.rg-hero-sub strong{color:var(--g900);font-weight:700}
+
+/* POSTALES */
+.rg-postales{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;margin-bottom:22px}
+.rg-postal{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh);overflow:hidden;display:flex;flex-direction:column;border-top:5px solid var(--ac)}
+.rg-postal-cover{padding:18px 24px 0;display:flex;align-items:center;gap:12px;min-height:84px;background:linear-gradient(135deg,var(--ac-soft) 0%,#FFE4CC 100%)}
+.rg-postal-icono{flex-shrink:0;width:52px;height:52px;border-radius:14px;background:var(--wh);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.06);color:var(--ac-d)}
+.rg-postal-body{padding:15px 24px 19px;display:flex;flex-direction:column;gap:7px;flex:1}
+.rg-postal-eye{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ac-d)}
+.rg-postal-title{font-size:16px;font-weight:800;color:var(--g900);letter-spacing:-.012em;line-height:1.3}
+.rg-postal-desc{font-size:13px;color:var(--g600);line-height:1.6}
+.rg-postal-desc strong{color:var(--g800);font-weight:600}
+
+/* SECCIÓN-TÍTULO */
+.rg-sec-title{font-size:12px;font-weight:800;color:var(--g400);letter-spacing:.12em;text-transform:uppercase;margin:0 4px 14px;display:flex;align-items:center;gap:10px}
+.rg-sec-title::after{content:'';flex:1;height:1.5px;background:var(--g200);border-radius:2px}
+
+/* TARJETA DOCUMENTO */
+.rg-doc{background:var(--wh);border-radius:var(--rad-lg);border:1.5px solid var(--g200);border-top:5px solid var(--ac);box-shadow:var(--sh-sm);overflow:hidden;margin-bottom:22px}
+.rg-doc-head{display:flex;gap:16px;padding:20px 24px;align-items:flex-start;border-bottom:1px solid var(--g100)}
+.rg-doc-ico{flex-shrink:0;width:52px;height:52px;border-radius:13px;background:var(--ac-l);color:var(--ac-d);display:flex;align-items:center;justify-content:center}
+.rg-doc-meta{flex:1;min-width:0}
+.rg-doc-eye{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ac-d);margin-bottom:5px}
+.rg-doc-title{font-size:clamp(16px,2.4vw,20px);font-weight:800;color:var(--g900);letter-spacing:-.01em;line-height:1.3}
+.rg-doc-dates{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:9px}
+.rg-doc-date{font-size:12.5px;color:var(--g600);display:inline-flex;align-items:center;gap:6px}
+.rg-doc-date strong{color:var(--g900);font-weight:700}
+.rg-doc-date svg{color:var(--ac-d);flex-shrink:0}
+
+/* VISOR PDF EMBEBIDO (visible inline) */
+.rg-pdf{padding:16px 18px 18px;background:var(--g50)}
+.rg-pdf-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.rg-pdf-label{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:700;color:var(--g800)}
+.rg-pdf-label svg{color:var(--pdf)}
+.rg-pdf-btns{display:flex;gap:8px;flex-wrap:wrap}
+.rg-pdf-btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--fh);font-size:12.5px;font-weight:700;padding:9px 15px;border-radius:9px;cursor:pointer;text-decoration:none;border:1.5px solid;transition:all .14s var(--ease);white-space:nowrap}
+.rg-pdf-btn.main{color:#fff;background:var(--ac);border-color:var(--ac)}
+.rg-pdf-btn.main:hover{background:var(--ac-d);border-color:var(--ac-d);transform:translateY(-1px)}
+.rg-pdf-btn.ghost{background:var(--wh);color:var(--g600);border-color:var(--g200)}
+.rg-pdf-btn.ghost:hover{border-color:var(--g400);color:var(--g800)}
+.rg-pdf-btn svg{flex-shrink:0}
+.rg-pdf-viewer{position:relative;border:1.5px solid var(--g200);border-radius:11px;overflow:hidden;background:var(--g100);box-shadow:0 8px 24px rgba(0,0,0,.10)}
+.rg-pdf-frame{display:block;width:100%;height:800px;border:0;background:var(--g100);position:relative;z-index:1}
+.rg-pdf-loading{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--g600);font-size:13px;text-align:center;padding:24px;pointer-events:none;z-index:0}
+.rg-pdf-spin{width:26px;height:26px;border:3px solid var(--ac-l);border-top-color:var(--ac);border-radius:50%;animation:rgspin 1s linear infinite}
+@keyframes rgspin{to{transform:rotate(360deg)}}
+.rg-pdf-note{font-size:12px;color:var(--g600);line-height:1.5;margin-top:11px;display:flex;align-items:flex-start;gap:7px}
+.rg-pdf-note svg{flex-shrink:0;color:var(--ac-d);margin-top:1px}
+.rg-pdf-note a{color:var(--ac-d);font-weight:700;text-decoration:none;border-bottom:1px solid var(--ac-border)}
+.rg-pdf-note a:hover{border-bottom-color:var(--ac-d)}
+
+/* LEY + META */
+.rg-ley{background:var(--wh);border-radius:var(--rad-lg);padding:22px 26px;border-left:4px solid var(--ac-d);box-shadow:var(--sh-sm);margin-top:22px}
+.rg-ley-eye{font-size:10.5px;font-weight:800;color:var(--ac-d);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.rg-ley h3{font-size:16px;font-weight:800;color:var(--g900);margin-bottom:8px;letter-spacing:-.008em}
+.rg-ley p{font-size:13px;color:var(--g600);line-height:1.65}
+.rg-ley p+p{margin-top:7px}
+.rg-ley p strong{color:var(--g800);font-weight:600}
+.rg-ley blockquote{font-size:13.5px;color:var(--g600);line-height:1.65;margin:12px 0 8px;padding:12px 18px;background:var(--ac-soft);border-left:3px solid var(--ac);border-radius:6px;font-style:italic}
+.rg-ley blockquote strong{color:var(--g900);font-style:normal;font-weight:700}
+.rg-meta{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:18px;padding:16px 22px;background:var(--g50);border:1px solid var(--g200);border-radius:var(--rad-lg)}
+.rg-meta-item{display:flex;flex-direction:column;gap:2px}
+.rg-meta-k{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--g400)}
+.rg-meta-v{font-size:13px;font-weight:600;color:var(--g800)}
+.rg-meta-v a{color:var(--ac-d);text-decoration:none;border-bottom:1px solid var(--ac-border)}
+.rg-meta-v a:hover{border-bottom-color:var(--ac-d)}
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+
+@media (max-width:780px){
+  body{padding:14px}
+  .rg-hero{padding:20px 18px}
+  .rg-hero h1{font-size:20px}
+  .rg-pdf-frame{height:560px}
+  .rg-ley{padding:18px 18px}
+}
+@media (max-width:480px){
+  body{padding:10px}
+  .rg-hero{padding:18px 15px;border-radius:12px}
+  .rg-hero h1{font-size:18px;line-height:1.25}
+  .rg-hero-tag{font-size:9.5px;padding:4px 11px}
+  .rg-doc-head{padding:16px 15px}
+  .rg-pdf{padding:13px 12px 14px}
+  .rg-pdf-frame{height:440px}
+  .rg-pdf-btns{width:100%}
+  .rg-pdf-btn{flex:1;justify-content:center}
+  .rg-ley{padding:16px 15px;border-radius:12px}
+  .rg-ley blockquote{padding:11px 14px;font-size:12.5px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="rg-wrap">
+
+  <!-- HERO -->
+  <section class="rg-hero">
+    <span class="rg-hero-tag">Art. 8 · Fracción I · Inciso b) · Ley de Transparencia Jalisco</span>
+    <h1>¿Con qué reglas maneja el Ayuntamiento tu información pública? <em>El reglamento interno, completo y a la vista</em></h1>
+    <p class="rg-hero-sub">Aquí puedes <strong>leer en pantalla y descargar</strong> el reglamento interno que establece cómo el Ayuntamiento de Guadalajara maneja su información pública: los procedimientos, las áreas responsables y las reglas que garantizan tu <strong>derecho a saber</strong> y la <strong>protección de tus datos personales</strong>. No tienes que solicitarlo: está publicado y a tu disposición.</p>
+  </section>
+
+  <!-- DOCUMENTO + PDF EMBEBIDO -->
+  <div class="rg-sec-title">El reglamento, completo y a la vista</div>
+  <article class="rg-doc">
+    <div class="rg-doc-head">
+      <div class="rg-doc-ico" aria-hidden="true">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
+      </div>
+      <div class="rg-doc-meta">
+        <div class="rg-doc-eye">Documento oficial · Reglamento municipal</div>
+        <h2 class="rg-doc-title">Reglamento de Transparencia y Acceso a la Información Pública del Municipio de Guadalajara</h2>
+        <div class="rg-doc-dates">
+          <span class="rg-doc-date"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Publicado: <strong>28 de junio de 2016</strong></span>
+          <span class="rg-doc-date"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg> Última reforma: <strong>09 de abril de 2025</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="rg-pdf">
+      <div class="rg-pdf-bar">
+        <span class="rg-pdf-label">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Documento en formato PDF
+        </span>
+        <div class="rg-pdf-btns">
+          <a class="rg-pdf-btn main" href="https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/ReglamentoTransparenciaAccesoInformacionGuadalajara.pdf" target="_blank" rel="noopener noreferrer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+            Pantalla completa
+          </a>
+          <a class="rg-pdf-btn ghost" href="https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/ReglamentoTransparenciaAccesoInformacionGuadalajara.pdf" target="_blank" rel="noopener noreferrer" download>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Descargar
+          </a>
+        </div>
+      </div>
+      <div class="rg-pdf-viewer">
+        <div class="rg-pdf-loading" id="rgPdfLoading"><div class="rg-pdf-spin"></div><div>Cargando el documento…</div></div>
+        <iframe class="rg-pdf-frame" id="rgPdfFrame" title="Reglamento de Transparencia y Acceso a la Información Pública del Municipio de Guadalajara (PDF)" src="https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/ReglamentoTransparenciaAccesoInformacionGuadalajara.pdf#view=FitH" loading="lazy"></iframe>
+      </div>
+      <div class="rg-pdf-note">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+        <span>¿No se ve el documento en tu dispositivo? <a href="https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/ReglamentoTransparenciaAccesoInformacionGuadalajara.pdf" target="_blank" rel="noopener noreferrer">Ábrelo en una pestaña nueva</a> o usa el botón «Descargar».</span>
+      </div>
+    </div>
+  </article>
+
+</div>
+
+<script>
+/* ==========================================================================
+   Reglamento interno · Art. 8 Frac. I Inc. b)
+   FUENTE OFICIAL (verbatim): https://transparencia.guadalajara.gob.mx/reglamentointerno
+   PDF embebido visible: ReglamentoTransparenciaAccesoInformacionGuadalajara.pdf (HTTP 200,
+   application/pdf, 291 KB). Publicado 28/06/2016, última reforma 09/04/2025,
+   validación/actualización 04/05/2026, Dirección de Transparencia y Buenas Prácticas.
+   Vanilla JS, sin template literals, compatible con Strapi v4.
+   ========================================================================== */
+(function(){
+  /* ----- Ocultar el "Cargando…" cuando el PDF carga ----- */
+  var frame = document.getElementById('rgPdfFrame');
+  var loading = document.getElementById('rgPdfLoading');
+  if (frame){
+    frame.addEventListener('load', function(){ if (loading) loading.style.display = 'none'; });
+    setTimeout(function(){ if (loading) loading.style.display = 'none'; }, 6000);
+  }
+
+  /* ----- Auto-ajuste de altura para Strapi -----
+     Medimos SOLO el alto del contenido (no el alto del viewport del iframe),
+     con guard anti-rebote para evitar bucles/jitter. */
+  var lastReported = 0;
+  function reportHeight(){
+    var h = Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight);
+    if (h && Math.abs(h - lastReported) > 1){
+      lastReported = h;
+      try { parent.postMessage({ type:'gdl-iframe-height', id:'reglamento-interno-art8-I-b', height: h }, '*'); } catch(e){}
+    }
+  }
+  window.addEventListener('load', reportHeight);
+  window.addEventListener('resize', reportHeight);
+  setTimeout(reportHeight, 400);
+  setTimeout(reportHeight, 1200);
+})();
+</script>
+
+</body>
+</html>

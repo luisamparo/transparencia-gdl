@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Estadística de solicitudes de información pública atendidas y visitas al sistema de consulta electrónica — Art. 8 Frac. I Inc. ñ) Ley de Transparencia Jalisco — Ayuntamiento de Guadalajara">
+<title>Estadística de Transparencia · Ayuntamiento de Guadalajara</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+/* ════════════════════════════════════════════════════════════════
+   PALETA NARANJA TRANSPARENCIA GDL
+═══════════════════════════════════════════════════════════════ */
+:root{
+  --o:#E87722; --od:#C45F0A; --ol:#FFE4CC; --oxl:#FFF1E4; --ob:#F5C99A;
+  --n:#1A1A1A; --ng:#2D2D2A; --nm:#5A5A55; --nc:#f7f3ec; --nb:#E2E2DD; --w:#FFFFFF;
+  --ok:#1D9E75; --okL:#E1F5EE;
+  --warn:#D97706; --warnL:#FEF3C7;
+  --err:#C8323F; --errL:#FCE6E8;
+  --info:#2563EB; --infoL:#DBEAFE;
+  --coord:#6450A0; --coordL:#EDE7F6;
+  --pink:#DB2777; --pinkL:#FCE7F3;
+  --font:'Outfit',system-ui,-apple-system,sans-serif;
+  --fontD:'Outfit',system-ui,-apple-system,sans-serif;
+  --fm:'DM Mono','SF Mono',Menlo,monospace;
+  --shadow-sm:0 1px 2px rgba(26,26,26,.04), 0 1px 1px rgba(26,26,26,.03);
+  --shadow:0 1px 3px rgba(26,26,26,.06), 0 1px 2px rgba(26,26,26,.04);
+  --shadow-md:0 4px 12px rgba(26,26,26,.06), 0 2px 4px rgba(26,26,26,.04);
+  --shadow-lg:0 12px 32px rgba(26,26,26,.08), 0 4px 8px rgba(26,26,26,.04);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --r:10px; --r-md:14px; --r-lg:20px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--nc);color:var(--n);-webkit-font-smoothing:antialiased;font-size:14px;line-height:1.5}
+
+/* ── HEADER ── */
+.hdr{background:linear-gradient(135deg, var(--oxl) 0%, #FFFFFF 55%);color:var(--n);padding:1.6rem 1.5rem;position:relative;overflow:hidden;border-left:5px solid var(--o);box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.hdr::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle, rgba(232,119,34,.12) 0%, transparent 70%);pointer-events:none}
+.hdr-in{max-width:1400px;margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;position:relative;z-index:1}
+.hdr-left{display:flex;flex-direction:column;gap:.3rem}
+.hdr-tag{display:inline-flex;align-items:center;gap:.4rem;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--o);border:none;padding:.3rem .8rem;border-radius:999px;width:fit-content;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.hdr-title{font-family:var(--fontD);font-size:1.5rem;font-weight:800;line-height:1.15;letter-spacing:-.015em;margin-top:.3rem;color:var(--n)}
+.hdr-sub{font-size:.85rem;color:var(--nm);line-height:1.55;max-width:70ch;font-weight:400;margin-top:.15rem}
+.hdr-sub strong{color:var(--n);font-weight:700}
+.update-stamp{display:inline-flex;align-items:center;gap:.45rem;font-size:.68rem;font-weight:700;color:var(--od);background:var(--w);border:1.5px solid var(--ob);padding:.45rem .85rem;border-radius:999px;box-shadow:var(--shadow-sm)}
+.update-stamp .dot{width:.45rem;height:.45rem;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px rgba(29,158,117,.25);animation:dotPulse 2.4s ease-in-out infinite}
+@keyframes dotPulse{0%,100%{box-shadow:0 0 0 3px rgba(29,158,117,.25)}50%{box-shadow:0 0 0 5px rgba(29,158,117,.12)}}
+
+/* ── KPIs ── */
+.section{max-width:1400px;margin:0 auto;padding:1.25rem 1.5rem}
+.section + .section{padding-top:0}
+.sec-title{font-family:var(--fontD);font-size:.72rem;font-weight:800;color:var(--nm);letter-spacing:.12em;text-transform:uppercase;display:flex;align-items:center;gap:.7rem;margin-bottom:.95rem}
+.sec-title::after{content:'';flex:1;height:1.5px;background:var(--nb);border-radius:2px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit, minmax(min(100%, 200px), 1fr));gap:.85rem}
+.kpi{background:#fff;border-radius:var(--r-md);border:1.5px solid var(--nb);box-shadow:var(--shadow-md);padding:1rem 1.2rem;display:flex;align-items:center;gap:.85rem;position:relative;overflow:hidden}
+.kpi::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--o)}
+.kpi.proc::before{background:var(--ok)}
+.kpi.parc::before{background:var(--warn)}
+.kpi.improc::before{background:var(--err)}
+.kpi.vis::before{background:var(--info)}
+.kpi.arco::before{background:var(--pink)}
+.kpi.rev::before{background:var(--coord)}
+.kpi-ico{flex-shrink:0;width:2.4rem;height:2.4rem;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.05rem}
+.kpi.proc .kpi-ico{background:var(--okL);color:var(--ok)}
+.kpi.parc .kpi-ico{background:var(--warnL);color:var(--warn)}
+.kpi.improc .kpi-ico{background:var(--errL);color:var(--err)}
+.kpi.vis .kpi-ico{background:var(--infoL);color:var(--info)}
+.kpi.arco .kpi-ico{background:var(--pinkL);color:var(--pink)}
+.kpi.rev .kpi-ico{background:var(--coordL);color:var(--coord)}
+.kpi-body{display:flex;flex-direction:column;min-width:0;flex:1}
+.kpi-lbl{font-size:.62rem;font-weight:700;color:var(--nm);text-transform:uppercase;letter-spacing:.06em;line-height:1.3}
+.kpi-val{font-family:var(--fm);font-size:1.4rem;font-weight:500;color:var(--n);line-height:1.1;font-variant-numeric:tabular-nums;margin-top:.2rem;letter-spacing:-.02em}
+.kpi-sub{font-size:.65rem;color:var(--nm);font-weight:500;margin-top:.15rem;line-height:1.35}
+
+/* ── PERIODO INDICATOR ── */
+.periodo-note{max-width:1400px;margin:.85rem auto 0;padding:.55rem 1rem;font-size:.75rem;color:var(--nm);font-weight:500;display:flex;align-items:center;gap:.5rem;background:var(--oxl);border:1px solid var(--ol);border-radius:8px;width:fit-content}
+.periodo-note strong{color:var(--od);font-weight:700}
+.periodo-note svg{color:var(--o);flex-shrink:0}
+
+/* ── CHART CARDS ── */
+.chart-grid{display:grid;grid-template-columns:1fr;gap:1.25rem}
+.chart-card{background:#fff;border-radius:var(--r-md);border:1.5px solid var(--nb);border-top:4px solid var(--o);box-shadow:var(--shadow-md);padding:1.4rem 1.5rem 1.5rem;animation:fadeUp .5s var(--ease) both}
+.chart-card:nth-child(2){animation-delay:.05s}
+.chart-card:nth-child(3){animation-delay:.1s}
+.chart-card:nth-child(4){animation-delay:.15s}
+.chart-head{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.75rem;margin-bottom:1.1rem;padding-bottom:.9rem;border-bottom:1px solid var(--nb)}
+.chart-title{font-family:var(--fontD);font-size:1.05rem;font-weight:800;color:var(--n);letter-spacing:-.01em;line-height:1.2}
+.chart-desc{font-size:.78rem;color:var(--nm);margin-top:.3rem;line-height:1.5;max-width:65ch}
+.chart-desc strong{color:var(--ng);font-weight:700}
+.chart-info-pill{display:inline-flex;align-items:center;gap:.35rem;background:var(--oxl);color:var(--od);font-size:.65rem;font-weight:700;padding:.3rem .6rem;border-radius:999px;border:1px solid var(--ol);height:fit-content;letter-spacing:.02em;text-transform:uppercase}
+.chart-actions{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;height:fit-content}
+.chart-download{display:inline-flex;align-items:center;gap:.35rem;background:var(--w);color:var(--ng);font-size:.62rem;font-weight:700;padding:.35rem .7rem;border-radius:8px;border:1.5px solid var(--nb);cursor:pointer;font-family:var(--font);transition:all .15s;letter-spacing:.02em;text-transform:uppercase}
+.chart-download:hover{border-color:var(--o);color:var(--o);background:var(--oxl);transform:translateY(-1px);box-shadow:var(--shadow-sm)}
+.chart-download svg{flex-shrink:0}
+.chart-download.downloaded{background:var(--okL);border-color:var(--ok);color:var(--ok)}
+.chart-canvas-wrap{position:relative;height:380px;width:100%}
+
+/* ── LEYENDA HTML CUSTOM (más confiable que Chart.js built-in) ── */
+.custom-legend{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:flex-end;margin-bottom:.7rem;padding:.55rem 0;border-bottom:1px dashed var(--nb)}
+.legend-btn{display:inline-flex;align-items:center;gap:.45rem;background:var(--w);border:1.5px solid currentColor;border-radius:8px;padding:.32rem .7rem;font-size:.72rem;font-weight:700;cursor:pointer;font-family:var(--font);font-variant-numeric:tabular-nums;transition:opacity .15s,background .15s,transform .12s;user-select:none}
+.legend-btn:hover{transform:translateY(-1px);background:rgba(255,255,255,.96);box-shadow:var(--shadow-sm)}
+.legend-btn.off{opacity:.35;text-decoration:line-through}
+.legend-btn .legend-dot{width:.6rem;height:.6rem;border-radius:50%;background:currentColor;flex-shrink:0}
+.legend-btn .legend-current-pill{font-size:.5rem;font-weight:800;background:currentColor;color:#fff;padding:.05rem .35rem;border-radius:999px;letter-spacing:.05em;text-transform:uppercase;margin-left:.05rem}
+
+/* ── TABLA SIRES ── */
+.tbl-section{padding:1.25rem 1.5rem 2rem}
+.tbl-card{background:#fff;border-radius:var(--r-md);border:1.5px solid var(--nb);box-shadow:var(--shadow-md);overflow:hidden}
+.tbl-header{padding:1.1rem 1.25rem;border-bottom:1px solid var(--nb);background:linear-gradient(135deg, var(--oxl) 0%, var(--w) 100%)}
+.tbl-title-row{display:flex;justify-content:space-between;align-items:flex-start;gap:.6rem;flex-wrap:wrap;margin-bottom:.45rem}
+.tbl-title{font-family:var(--fontD);font-size:1rem;font-weight:800;color:var(--n);letter-spacing:-.005em}
+.tbl-sub{font-size:.72rem;color:var(--nm);line-height:1.45;max-width:75ch}
+.tbl-controls{padding:.65rem 1.25rem;display:flex;justify-content:space-between;align-items:center;gap:.6rem;flex-wrap:wrap;background:var(--nc);border-bottom:1px solid var(--nb)}
+.tbl-control-left{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;flex:1 1 auto}
+.tbl-search{position:relative;flex:1 1 13rem;max-width:20rem}
+.tbl-search input{width:100%;padding:.45rem .75rem .45rem 1.85rem;border:1.5px solid var(--nb);border-radius:7px;font-size:.75rem;font-family:var(--font);background:#fff;min-height:2.1rem;transition:border-color .15s,box-shadow .15s}
+.tbl-search input:focus{outline:none;border-color:var(--o);box-shadow:0 0 0 3px rgba(232,119,34,.12)}
+.tbl-search svg{position:absolute;left:.6rem;top:50%;transform:translateY(-50%);color:var(--nm);pointer-events:none}
+.tbl-year-select{display:flex;align-items:center;gap:.35rem;font-size:.65rem;font-weight:700;color:var(--nm);text-transform:uppercase;letter-spacing:.05em}
+.tbl-year-select select{padding:.4rem .65rem;border:1.5px solid var(--nb);border-radius:7px;background:#fff;color:var(--ng);font-size:.78rem;font-weight:700;font-family:var(--font);cursor:pointer;font-variant-numeric:tabular-nums}
+.tbl-year-select select:focus{outline:none;border-color:var(--o)}
+.tbl-count{font-size:.7rem;color:var(--nm);font-weight:600;white-space:nowrap}
+.tbl-wrap{overflow-x:auto;max-height:500px;overflow-y:auto}
+table{width:100%;border-collapse:collapse;font-size:.7rem;white-space:nowrap}
+thead{background:var(--o);color:#fff;position:sticky;top:0;z-index:5}
+thead th{padding:.55rem .55rem;text-align:left;font-weight:700;font-size:.6rem;border-bottom:2px solid var(--od);line-height:1.3;vertical-align:bottom}
+thead th.t-month{min-width:6.5rem;background:var(--od);position:sticky;left:0;z-index:6}
+thead th .th-sub{font-size:.55rem;font-weight:500;opacity:.85;display:block;margin-top:.1rem;letter-spacing:0}
+tbody tr{border-bottom:1px solid var(--nb);transition:background .12s}
+tbody tr:nth-child(even){background:var(--nc)}
+tbody tr:hover{background:var(--oxl)}
+tbody td{padding:.45rem .55rem;font-variant-numeric:tabular-nums;color:var(--ng)}
+tbody td.t-month{font-weight:700;color:var(--n);background:#fff;position:sticky;left:0;text-transform:capitalize;border-right:1.5px solid var(--nb)}
+tbody tr:nth-child(even) td.t-month{background:var(--nc)}
+tbody td.t-total{font-weight:800;color:var(--n);background:var(--oxl)}
+tbody tr.row-total{background:var(--ol)!important;font-weight:700}
+tbody tr.row-total td{color:var(--n);font-weight:700;border-top:2px solid var(--o)}
+
+/* ── FOOTER ── */
+.foot{background:#fff;border-top:3px solid var(--o);padding:1.1rem 1.5rem 1.4rem;margin-top:1.25rem}
+.foot-in{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.6rem}
+.foot-legal{font-size:.7rem;color:var(--nm);line-height:1.6;max-width:95ch}
+.foot-legal strong{color:var(--ng);font-weight:700}
+
+/* ── ANIMACIONES ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .hdr-title{font-size:1.2rem}
+  .chart-canvas-wrap{height:300px}
+}
+@media(max-width:540px){
+  .hdr,.section,.tbl-section,.foot{padding-left:.85rem;padding-right:.85rem}
+  .periodo-note{padding-left:.85rem;padding-right:.85rem}
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .kpi-val{font-size:1.15rem}
+  .chart-canvas-wrap{height:260px}
+  .chart-head{flex-direction:column;align-items:flex-start}
+  table{font-size:.62rem}
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="hdr">
+  <div class="hdr-in">
+    <div class="hdr-left">
+      <span class="hdr-tag">
+        <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Art. 8 · Frac. I · Inc. ñ) · Ley de Transparencia Jalisco
+      </span>
+      <h1 class="hdr-title">Estadística de Transparencia</h1>
+      <p class="hdr-sub">Solicitudes de información pública atendidas y visitas al sistema de consulta electrónica del Ayuntamiento de Guadalajara. Comparativa anual.</p>
+    </div>
+    <span class="update-stamp"><span class="dot"></span><span id="update-text">Actualización pendiente</span></span>
+  </div>
+</header>
+
+<!-- KPIs DEL AÑO MÁS RECIENTE -->
+<section class="section">
+  <div class="sec-title">Indicadores del año en curso</div>
+  <div class="kpis">
+    <div class="kpi proc">
+      <div class="kpi-ico">✓</div>
+      <div class="kpi-body">
+        <div class="kpi-lbl">Procedentes</div>
+        <div class="kpi-val" id="kpi-proc">—</div>
+        <div class="kpi-sub">Información entregada de forma completa</div>
+      </div>
+    </div>
+    <div class="kpi parc">
+      <div class="kpi-ico">◐</div>
+      <div class="kpi-body">
+        <div class="kpi-lbl">Parcialmente procedentes</div>
+        <div class="kpi-val" id="kpi-parc">—</div>
+        <div class="kpi-sub">Entrega parcial por reserva, confidencialidad o inexistencia</div>
+      </div>
+    </div>
+    <div class="kpi improc">
+      <div class="kpi-ico">✕</div>
+      <div class="kpi-body">
+        <div class="kpi-lbl">Improcedentes</div>
+        <div class="kpi-val" id="kpi-improc">—</div>
+        <div class="kpi-sub">No se entregó o se canalizó a otra institución</div>
+      </div>
+    </div>
+    <div class="kpi vis">
+      <div class="kpi-ico">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      </div>
+      <div class="kpi-body">
+        <div class="kpi-lbl">Visitas al portal</div>
+        <div class="kpi-val" id="kpi-vis">—</div>
+        <div class="kpi-sub">Personas que consultaron el sistema</div>
+      </div>
+    </div>
+    <div class="kpi arco">
+      <div class="kpi-ico">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="7" r="4"/><path d="M20 21a8 8 0 10-16 0"/></svg>
+      </div>
+      <div class="kpi-body">
+        <div class="kpi-lbl">Solicitudes ARCO</div>
+        <div class="kpi-val" id="kpi-arco">—</div>
+        <div class="kpi-sub">Acceso, rectificación, cancelación u oposición de datos personales</div>
+      </div>
+    </div>
+    <div class="kpi rev">
+      <div class="kpi-ico">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 3h18v18H3z"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+      </div>
+      <div class="kpi-body">
+        <div class="kpi-lbl">Recursos de revisión</div>
+        <div class="kpi-val" id="kpi-rec">—</div>
+        <div class="kpi-sub">Inconformidades presentadas por la ciudadanía</div>
+      </div>
+    </div>
+  </div>
+  <div class="periodo-note">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    <span>Cifras del año en curso · <strong id="periodo-text">—</strong></span>
+  </div>
+</section>
+
+<!-- GRÁFICAS -->
+<section class="section">
+  <div class="sec-title">Comparativas anuales · 2021–2026</div>
+  <div class="chart-grid">
+
+    <!-- 1. SOLICITUDES DE INFORMACIÓN -->
+    <article class="chart-card">
+      <div class="chart-head">
+        <div>
+          <div class="chart-title">Solicitudes de Acceso a la Información</div>
+          <div class="chart-desc">Total de solicitudes recibidas mes a mes. Cada línea representa un año (2021–2026). Pasa el cursor sobre cualquier punto para ver el desglose: procedentes, parcialmente procedentes e improcedentes.</div>
+        </div>
+        <div class="chart-actions">
+          <span class="chart-info-pill">6 años · comparativa anual</span>
+          <button class="chart-download" data-csv="solicitudes" title="Descargar datos en formato CSV">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            CSV
+          </button>
+        </div>
+      </div>
+      <div class="custom-legend" data-chart-key="solicitudes"></div>
+      <div class="chart-canvas-wrap"><canvas id="chart-solicitudes"></canvas></div>
+    </article>
+
+    <!-- 2. VISITAS AL PORTAL -->
+    <article class="chart-card">
+      <div class="chart-head">
+        <div>
+          <div class="chart-title">Visitas al portal de transparencia</div>
+          <div class="chart-desc">Personas que consultaron el sistema electrónico de consulta cada mes. Comparativa de los últimos 6 años para identificar tendencias estacionales o cambios atípicos en el uso del portal.</div>
+        </div>
+        <div class="chart-actions">
+          <span class="chart-info-pill">6 años · comparativa anual</span>
+          <button class="chart-download" data-csv="visitas" title="Descargar datos en formato CSV">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            CSV
+          </button>
+        </div>
+      </div>
+      <div class="custom-legend" data-chart-key="visitas"></div>
+      <div class="chart-canvas-wrap"><canvas id="chart-visitas"></canvas></div>
+    </article>
+
+    <!-- 3. SOLICITUDES ARCO -->
+    <article class="chart-card">
+      <div class="chart-head">
+        <div>
+          <div class="chart-title">Solicitudes ARCO (datos personales)</div>
+          <div class="chart-desc">Solicitudes de <strong>Acceso, Rectificación, Cancelación u Oposición</strong> de datos personales mes a mes. Se rigen por la Ley de Protección de Datos Personales del Estado de Jalisco y se reportan de forma complementaria a las solicitudes de información pública.</div>
+        </div>
+        <div class="chart-actions">
+          <span class="chart-info-pill">Multi-año</span>
+          <button class="chart-download" data-csv="arco" title="Descargar datos en formato CSV">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            CSV
+          </button>
+        </div>
+      </div>
+      <div class="custom-legend" data-chart-key="arco"></div>
+      <div class="chart-canvas-wrap"><canvas id="chart-arco"></canvas></div>
+    </article>
+
+    <!-- 4. RECURSOS DE REVISIÓN -->
+    <article class="chart-card">
+      <div class="chart-head">
+        <div>
+          <div class="chart-title">Recursos de Revisión</div>
+          <div class="chart-desc">Inconformidades presentadas por la ciudadanía cuando una respuesta a su solicitud de información no la satisface. Es un indicador de la calidad de las respuestas emitidas por el Ayuntamiento.</div>
+        </div>
+        <div class="chart-actions">
+          <span class="chart-info-pill">Multi-año</span>
+          <button class="chart-download" data-csv="recursos" title="Descargar datos en formato CSV">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            CSV
+          </button>
+        </div>
+      </div>
+      <div class="custom-legend" data-chart-key="recursos"></div>
+      <div class="chart-canvas-wrap"><canvas id="chart-recursos"></canvas></div>
+    </article>
+
+  </div>
+</section>
+
+<!-- TABLA SIRES -->
+<section class="tbl-section">
+  <div class="tbl-card">
+    <div class="tbl-header">
+      <div class="tbl-title-row">
+        <div>
+          <div class="tbl-title">Total de solicitudes de acceso a la información atendidas</div>
+          <div class="tbl-sub">Base de datos con los criterios oficiales del Sistema SIRES (Sistema de Información de Solicitudes), con la nomenclatura completa establecida en el formato de transparencia.</div>
+        </div>
+        <button class="chart-download" data-csv="sires" title="Descargar tabla SIRES del año seleccionado en CSV">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          CSV
+        </button>
+      </div>
+    </div>
+    <div class="tbl-controls">
+      <div class="tbl-control-left">
+        <div class="tbl-year-select">
+          <span>Año:</span>
+          <select id="tbl-year" aria-label="Filtrar tabla por año"></select>
+        </div>
+        <div class="tbl-search">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input type="search" id="tbl-q" placeholder="Buscar por mes…" autocomplete="off">
+        </div>
+      </div>
+      <span class="tbl-count" id="tbl-count"></span>
+    </div>
+    <div class="tbl-wrap" role="region" aria-label="Tabla de solicitudes" tabindex="0">
+      <table id="tbl-sires">
+        <thead>
+          <tr>
+            <th class="t-month">Fecha</th>
+            <th>Solicitudes presentadas <span class="th-sub">de forma física</span></th>
+            <th>Solicitudes presentadas <span class="th-sub">por la Plataforma Nacional de Transparencia</span></th>
+            <th>Solicitudes presentadas <span class="th-sub">de forma electrónica</span></th>
+            <th>Se canalizó <span class="th-sub">a otra institución</span></th>
+            <th>Entrega completa <span class="th-sub">de la información</span></th>
+            <th>Entrega parcial <span class="th-sub">por reserva</span></th>
+            <th>Entrega parcial <span class="th-sub">por confidencialidad</span></th>
+            <th>Entrega parcial <span class="th-sub">por inexistencia</span></th>
+            <th>No se pudo entregar <span class="th-sub">por reserva</span></th>
+            <th>No se pudo entregar <span class="th-sub">por confidencialidad</span></th>
+            <th>No se pudo entregar <span class="th-sub">por inexistencia</span></th>
+            <th>Se pidió aclaración <span class="th-sub">al solicitante</span></th>
+            <th>Ajena <span class="th-sub">al derecho de acceso</span></th>
+            <th>Tipo: <span class="th-sub">pública obligatoria</span></th>
+            <th>Tipo: <span class="th-sub">ordinaria</span></th>
+            <th>Tipo: <span class="th-sub">reservada</span></th>
+            <th>Tipo: <span class="th-sub">confidencial</span></th>
+            <th>Medio: <span class="th-sub">consulta directa</span></th>
+            <th>Medio: <span class="th-sub">consulta electrónica</span></th>
+            <th>Medio: <span class="th-sub">reproducción de documentos</span></th>
+            <th>Medio: <span class="th-sub">informe específico</span></th>
+            <th>Combinación</th>
+            <th class="t-total" style="background:var(--n)">Total</th>
+          </tr>
+        </thead>
+        <tbody id="tbl-body"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="foot-in">
+    <div class="foot-legal"><strong>Ayuntamiento de Guadalajara</strong> · Información pública conforme al Art. 8, Fracción I, Inciso ñ) de la Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco. Datos elaborados por la <strong>Dirección de Transparencia y Buenas Prácticas</strong> a partir del Sistema de Información de Solicitudes (SIRES) y los registros mensuales oficiales. Las cifras coinciden con las publicadas en <strong>transparencia.guadalajara.gob.mx/indicadoresuti</strong>.</div>
+  </div>
+</footer>
+
+<script id="data-json" type="application/json">{"2021":[{"mes_idx":1,"mes":"Enero","total":836,"procedentes":349,"parcialmente":287,"improcedentes":189,"afirmativa":349,"afirmativa_parcial":287,"negativa":82,"canalizadas":16,"prevenciones":85,"canceladas":0,"arco":11,"peticion":0,"remitida_itei":6,"total_info":825,"fisica":3,"pnt":723,"electronica":110,"canalizada_sires":16,"afi_completa":335,"afi_parcial_rs":0,"afi_parcial_cf":49,"afi_parcial_inx":238,"neg_rs":0,"neg_cf":0,"neg_inx":82,"iley":85,"ajuste":11,"libre_acceso":7,"fundamental":689,"reservada":2,"confidencial":26,"cdp":3,"cde":611,"rd":110,"eie":0,"ca":0,"sires_total":836,"recursos":1,"visitas":5570},{"mes_idx":2,"mes":"Febrero","total":665,"procedentes":237,"parcialmente":247,"improcedentes":165,"afirmativa":237,"afirmativa_parcial":247,"negativa":95,"canalizadas":3,"prevenciones":59,"canceladas":0,"arco":16,"peticion":0,"remitida_itei":8,"total_info":649,"fisica":1,"pnt":430,"electronica":234,"canalizada_sires":3,"afi_completa":245,"afi_parcial_rs":3,"afi_parcial_cf":58,"afi_parcial_inx":186,"neg_rs":5,"neg_cf":0,"neg_inx":90,"iley":59,"ajuste":16,"libre_acceso":9,"fundamental":557,"reservada":0,"confidencial":21,"cdp":1,"cde":365,"rd":221,"eie":0,"ca":0,"sires_total":665,"recursos":14,"visitas":5319},{"mes_idx":3,"mes":"Marzo","total":1299,"procedentes":545,"parcialmente":389,"improcedentes":350,"afirmativa":545,"afirmativa_parcial":389,"negativa":230,"canalizadas":18,"prevenciones":92,"canceladas":0,"arco":15,"peticion":0,"remitida_itei":10,"total_info":1284,"fisica":0,"pnt":1062,"electronica":237,"canalizada_sires":18,"afi_completa":555,"afi_parcial_rs":3,"afi_parcial_cf":85,"afi_parcial_inx":301,"neg_rs":0,"neg_cf":0,"neg_inx":230,"iley":92,"ajuste":15,"libre_acceso":14,"fundamental":1160,"reservada":0,"confidencial":0,"cdp":0,"cde":838,"rd":336,"eie":0,"ca":0,"sires_total":1299,"recursos":7,"visitas":6508},{"mes_idx":4,"mes":"Abril","total":1508,"procedentes":561,"parcialmente":579,"improcedentes":364,"afirmativa":561,"afirmativa_parcial":579,"negativa":157,"canalizadas":18,"prevenciones":189,"canceladas":0,"arco":4,"peticion":0,"remitida_itei":0,"total_info":1504,"fisica":12,"pnt":1324,"electronica":172,"canalizada_sires":18,"afi_completa":561,"afi_parcial_rs":7,"afi_parcial_cf":69,"afi_parcial_inx":503,"neg_rs":0,"neg_cf":0,"neg_inx":157,"iley":189,"ajuste":4,"libre_acceso":38,"fundamental":1026,"reservada":7,"confidencial":69,"cdp":2,"cde":649,"rd":489,"eie":0,"ca":0,"sires_total":1508,"recursos":4,"visitas":5404},{"mes_idx":5,"mes":"Mayo","total":920,"procedentes":288,"parcialmente":389,"improcedentes":235,"afirmativa":288,"afirmativa_parcial":389,"negativa":116,"canalizadas":24,"prevenciones":82,"canceladas":0,"arco":8,"peticion":0,"remitida_itei":13,"total_info":912,"fisica":11,"pnt":787,"electronica":122,"canalizada_sires":24,"afi_completa":301,"afi_parcial_rs":3,"afi_parcial_cf":0,"afi_parcial_inx":386,"neg_rs":0,"neg_cf":0,"neg_inx":116,"iley":82,"ajuste":8,"libre_acceso":13,"fundamental":768,"reservada":3,"confidencial":22,"cdp":2,"cde":499,"rd":305,"eie":0,"ca":0,"sires_total":920,"recursos":4,"visitas":5516},{"mes_idx":6,"mes":"Junio","total":1070,"procedentes":420,"parcialmente":441,"improcedentes":207,"afirmativa":420,"afirmativa_parcial":441,"negativa":89,"canalizadas":21,"prevenciones":91,"canceladas":0,"arco":2,"peticion":0,"remitida_itei":6,"total_info":1068,"fisica":8,"pnt":916,"electronica":146,"canalizada_sires":21,"afi_completa":426,"afi_parcial_rs":0,"afi_parcial_cf":57,"afi_parcial_inx":384,"neg_rs":2,"neg_cf":1,"neg_inx":86,"iley":91,"ajuste":2,"libre_acceso":47,"fundamental":849,"reservada":2,"confidencial":58,"cdp":2,"cde":502,"rd":452,"eie":0,"ca":0,"sires_total":1070,"recursos":4,"visitas":5194},{"mes_idx":7,"mes":"Julio","total":997,"procedentes":416,"parcialmente":384,"improcedentes":191,"afirmativa":416,"afirmativa_parcial":384,"negativa":74,"canalizadas":28,"prevenciones":89,"canceladas":0,"arco":6,"peticion":0,"remitida_itei":0,"total_info":991,"fisica":4,"pnt":884,"electronica":109,"canalizada_sires":28,"afi_completa":416,"afi_parcial_rs":1,"afi_parcial_cf":17,"afi_parcial_inx":367,"neg_rs":0,"neg_cf":0,"neg_inx":73,"iley":89,"ajuste":6,"libre_acceso":15,"fundamental":839,"reservada":1,"confidencial":19,"cdp":11,"cde":522,"rd":341,"eie":0,"ca":0,"sires_total":997,"recursos":2,"visitas":5221},{"mes_idx":8,"mes":"Agosto","total":1259,"procedentes":549,"parcialmente":493,"improcedentes":214,"afirmativa":549,"afirmativa_parcial":493,"negativa":111,"canalizadas":24,"prevenciones":61,"canceladas":0,"arco":3,"peticion":0,"remitida_itei":18,"total_info":1256,"fisica":15,"pnt":1096,"electronica":148,"canalizada_sires":24,"afi_completa":567,"afi_parcial_rs":6,"afi_parcial_cf":0,"afi_parcial_inx":487,"neg_rs":0,"neg_cf":1,"neg_inx":110,"iley":61,"ajuste":3,"libre_acceso":16,"fundamental":1113,"reservada":3,"confidencial":39,"cdp":0,"cde":612,"rd":559,"eie":0,"ca":0,"sires_total":1259,"recursos":13,"visitas":5647},{"mes_idx":9,"mes":"Septiembre","total":1049,"procedentes":434,"parcialmente":487,"improcedentes":186,"afirmativa":434,"afirmativa_parcial":487,"negativa":119,"canalizadas":6,"prevenciones":61,"canceladas":0,"arco":3,"peticion":0,"remitida_itei":0,"total_info":1107,"fisica":22,"pnt":911,"electronica":116,"canalizada_sires":6,"afi_completa":434,"afi_parcial_rs":0,"afi_parcial_cf":75,"afi_parcial_inx":415,"neg_rs":0,"neg_cf":0,"neg_inx":119,"iley":0,"ajuste":0,"libre_acceso":26,"fundamental":942,"reservada":0,"confidencial":75,"cdp":6,"cde":436,"rd":480,"eie":2,"ca":0,"sires_total":1049,"recursos":7,"visitas":5884},{"mes_idx":10,"mes":"Octubre","total":975,"procedentes":439,"parcialmente":385,"improcedentes":184,"afirmativa":439,"afirmativa_parcial":385,"negativa":131,"canalizadas":20,"prevenciones":33,"canceladas":0,"arco":0,"peticion":0,"remitida_itei":0,"total_info":1008,"fisica":28,"pnt":908,"electronica":39,"canalizada_sires":20,"afi_completa":439,"afi_parcial_rs":1,"afi_parcial_cf":60,"afi_parcial_inx":324,"neg_rs":0,"neg_cf":0,"neg_inx":131,"iley":0,"ajuste":0,"libre_acceso":21,"fundamental":873,"reservada":1,"confidencial":60,"cdp":5,"cde":557,"rd":392,"eie":1,"ca":0,"sires_total":975,"recursos":7,"visitas":7005},{"mes_idx":11,"mes":"Noviembre","total":1168,"procedentes":501,"parcialmente":425,"improcedentes":292,"afirmativa":501,"afirmativa_parcial":425,"negativa":216,"canalizadas":26,"prevenciones":50,"canceladas":0,"arco":1,"peticion":0,"remitida_itei":0,"total_info":1218,"fisica":27,"pnt":1040,"electronica":101,"canalizada_sires":26,"afi_completa":501,"afi_parcial_rs":0,"afi_parcial_cf":59,"afi_parcial_inx":366,"neg_rs":1,"neg_cf":1,"neg_inx":196,"iley":0,"ajuste":18,"libre_acceso":31,"fundamental":1080,"reservada":1,"confidencial":30,"cdp":1,"cde":693,"rd":448,"eie":0,"ca":0,"sires_total":1168,"recursos":18,"visitas":6550},{"mes_idx":12,"mes":"Diciembre","total":576,"procedentes":246,"parcialmente":201,"improcedentes":146,"afirmativa":246,"afirmativa_parcial":201,"negativa":118,"canalizadas":11,"prevenciones":17,"canceladas":0,"arco":2,"peticion":0,"remitida_itei":0,"total_info":593,"fisica":15,"pnt":503,"electronica":58,"canalizada_sires":11,"afi_completa":246,"afi_parcial_rs":0,"afi_parcial_cf":37,"afi_parcial_inx":163,"neg_rs":0,"neg_cf":1,"neg_inx":105,"iley":13,"ajuste":0,"libre_acceso":11,"fundamental":417,"reservada":0,"confidencial":18,"cdp":3,"cde":226,"rd":217,"eie":0,"ca":0,"sires_total":576,"recursos":16,"visitas":4452}],"2022":[{"mes_idx":1,"mes":"Enero","total":1697,"procedentes":766,"parcialmente":647,"improcedentes":284,"afirmativa":766,"afirmativa_parcial":647,"negativa":211,"canalizadas":11,"prevenciones":62,"canceladas":0,"arco":0,"peticion":0,"remitida_itei":0,"total_info":1697,"fisica":29,"pnt":1584,"electronica":84,"canalizada_sires":11,"afi_completa":766,"afi_parcial_rs":1,"afi_parcial_cf":58,"afi_parcial_inx":588,"neg_rs":0,"neg_cf":0,"neg_inx":211,"iley":62,"ajuste":0,"libre_acceso":29,"fundamental":1626,"reservada":1,"confidencial":30,"cdp":1,"cde":765,"rd":920,"eie":0,"ca":0,"sires_total":1697,"recursos":11,"visitas":7300},{"mes_idx":2,"mes":"Febrero","total":1379,"procedentes":670,"parcialmente":466,"improcedentes":243,"afirmativa":670,"afirmativa_parcial":466,"negativa":169,"canalizadas":14,"prevenciones":60,"canceladas":0,"arco":2,"peticion":0,"remitida_itei":0,"total_info":1379,"fisica":19,"pnt":1264,"electronica":96,"canalizada_sires":14,"afi_completa":670,"afi_parcial_rs":0,"afi_parcial_cf":39,"afi_parcial_inx":427,"neg_rs":1,"neg_cf":2,"neg_inx":166,"iley":60,"ajuste":0,"libre_acceso":19,"fundamental":1304,"reservada":1,"confidencial":41,"cdp":1,"cde":788,"rd":576,"eie":0,"ca":0,"sires_total":1379,"recursos":11,"visitas":6539},{"mes_idx":3,"mes":"Marzo","total":1485,"procedentes":641,"parcialmente":624,"improcedentes":282,"afirmativa":641,"afirmativa_parcial":624,"negativa":204,"canalizadas":16,"prevenciones":62,"canceladas":0,"arco":1,"peticion":0,"remitida_itei":0,"total_info":1547,"fisica":39,"pnt":1348,"electronica":98,"canalizada_sires":16,"afi_completa":641,"afi_parcial_rs":1,"afi_parcial_cf":29,"afi_parcial_inx":594,"neg_rs":1,"neg_cf":0,"neg_inx":203,"iley":0,"ajuste":0,"libre_acceso":12,"fundamental":1223,"reservada":1,"confidencial":29,"cdp":0,"cde":630,"rd":634,"eie":1,"ca":0,"sires_total":1485,"recursos":20,"visitas":7003},{"mes_idx":4,"mes":"Abril","total":1322,"procedentes":540,"parcialmente":550,"improcedentes":304,"afirmativa":540,"afirmativa_parcial":550,"negativa":222,"canalizadas":10,"prevenciones":72,"canceladas":0,"arco":0,"peticion":0,"remitida_itei":0,"total_info":1394,"fisica":18,"pnt":1131,"electronica":173,"canalizada_sires":10,"afi_completa":540,"afi_parcial_rs":0,"afi_parcial_cf":16,"afi_parcial_inx":534,"neg_rs":1,"neg_cf":0,"neg_inx":149,"iley":72,"ajuste":0,"libre_acceso":13,"fundamental":1063,"reservada":0,"confidencial":14,"cdp":1,"cde":1088,"rd":630,"eie":0,"ca":0,"sires_total":1322,"recursos":8,"visitas":5155},{"mes_idx":5,"mes":"Mayo","total":1289,"procedentes":501,"parcialmente":508,"improcedentes":280,"afirmativa":501,"afirmativa_parcial":508,"negativa":189,"canalizadas":22,"prevenciones":69,"canceladas":0,"arco":1,"peticion":0,"remitida_itei":0,"total_info":1289,"fisica":36,"pnt":1128,"electronica":125,"canalizada_sires":22,"afi_completa":501,"afi_parcial_rs":1,"afi_parcial_cf":46,"afi_parcial_inx":461,"neg_rs":0,"neg_cf":1,"neg_inx":188,"iley":69,"ajuste":0,"libre_acceso":1,"fundamental":962,"reservada":1,"confidencial":45,"cdp":0,"cde":514,"rd":493,"eie":2,"ca":0,"sires_total":1289,"recursos":15,"visitas":6388},{"mes_idx":6,"mes":"Junio","total":1520,"procedentes":628,"parcialmente":624,"improcedentes":268,"afirmativa":628,"afirmativa_parcial":624,"negativa":194,"canalizadas":37,"prevenciones":37,"canceladas":0,"arco":1,"peticion":0,"remitida_itei":0,"total_info":1520,"fisica":26,"pnt":1392,"electronica":102,"canalizada_sires":37,"afi_completa":628,"afi_parcial_rs":0,"afi_parcial_cf":53,"afi_parcial_inx":571,"neg_rs":1,"neg_cf":0,"neg_inx":193,"iley":37,"ajuste":0,"libre_acceso":0,"fundamental":1229,"reservada":0,"confidencial":23,"cdp":0,"cde":679,"rd":573,"eie":0,"ca":0,"sires_total":1520,"recursos":21,"visitas":5418},{"mes_idx":7,"mes":"Julio","total":941,"procedentes":392,"parcialmente":396,"improcedentes":153,"afirmativa":392,"afirmativa_parcial":396,"negativa":125,"canalizadas":12,"prevenciones":16,"canceladas":0,"arco":0,"peticion":0,"remitida_itei":0,"total_info":941,"fisica":35,"pnt":828,"electronica":78,"canalizada_sires":12,"afi_completa":392,"afi_parcial_rs":2,"afi_parcial_cf":39,"afi_parcial_inx":355,"neg_rs":0,"neg_cf":0,"neg_inx":125,"iley":16,"ajuste":0,"libre_acceso":20,"fundamental":743,"reservada":2,"confidencial":23,"cdp":19,"cde":769,"rd":376,"eie":0,"ca":0,"sires_total":941,"recursos":30,"visitas":5249},{"mes_idx":8,"mes":"Agosto","total":1432,"procedentes":568,"parcialmente":614,"improcedentes":250,"afirmativa":568,"afirmativa_parcial":614,"negativa":173,"canalizadas":12,"prevenciones":65,"canceladas":0,"arco":0,"peticion":0,"remitida_itei":0,"total_info":1432,"fisica":37,"pnt":97,"electronica":1298,"canalizada_sires":12,"afi_completa":568,"afi_parcial_rs":1,"afi_parcial_cf":85,"afi_parcial_inx":528,"neg_rs":0,"neg_cf":1,"neg_inx":172,"iley":65,"ajuste":0,"libre_acceso":31,"fundamental":1065,"reservada":1,"confidencial":85,"cdp":17,"cde":1150,"rd":627,"eie":0,"ca":0,"sires_total":1432,"recursos":19,"visitas":6179},{"mes_idx":9,"mes":"Septiembre","total":1131,"procedentes":425,"parcialmente":524,"improcedentes":217,"afirmativa":425,"afirmativa_parcial":524,"negativa":163,"canalizadas":19,"prevenciones":35,"canceladas":0,"arco":0,"peticion":0,"remitida_itei":0,"total_info":1166,"fisica":30,"pnt":99,"electronica":1002,"canalizada_sires":19,"afi_completa":425,"afi_parcial_rs":1,"afi_parcial_cf":74,"afi_parcial_inx":449,"neg_rs":1,"neg_cf":0,"neg_inx":157,"iley":5,"ajuste":0,"libre_acceso":44,"fundamental":830,"reservada":1,"confidencial":74,"cdp":12,"cde":936,"rd":497,"eie":1,"ca":0,"sires_total":1131,"recursos":12,"visitas":6174},{"mes_idx":10,"mes":"Octubre","total":1200,"procedentes":438,"parcialmente":552,"improcedentes":209,"afirmativa":438,"afirmativa_parcial":552,"negativa":164,"canalizadas":14,"prevenciones":31,"canceladas":0,"arco":0,"peticion":0,"remitida_itei":0,"total_info":1199,"fisica":21,"pnt":1058,"electronica":121,"canalizada_sires":14,"afi_completa":438,"afi_parcial_rs":1,"afi_parcial_cf":82,"afi_parcial_inx":469,"neg_rs":2,"neg_cf":0,"neg_inx":162,"iley":31,"ajuste":1,"libre_acceso":48,"fundamental":896,"reservada":1,"confidencial":45,"cdp":10,"cde":961,"rd":469,"eie":1,"ca":0,"sires_total":1200,"recursos":14,"visitas":6097},{"mes_idx":11,"mes":"Noviembre","total":1207,"procedentes":460,"parcialmente":526,"improcedentes":221,"afirmativa":460,"afirmativa_parcial":526,"negativa":179,"canalizadas":11,"prevenciones":31,"canceladas":0,"arco":0,"peticion":0,"remitida_itei":0,"total_info":1207,"fisica":24,"pnt":1071,"electronica":112,"canalizada_sires":11,"afi_completa":460,"afi_parcial_rs":2,"afi_parcial_cf":61,"afi_parcial_inx":463,"neg_rs":1,"neg_cf":0,"neg_inx":178,"iley":31,"ajuste":0,"libre_acceso":54,"fundamental":880,"reservada":2,"confidencial":61,"cdp":9,"cde":987,"rd":496,"eie":1,"ca":0,"sires_total":1207,"recursos":16,"visitas":5635},{"mes_idx":12,"mes":"Diciembre","total":543,"procedentes":227,"parcialmente":238,"improcedentes":96,"afirmativa":227,"afirmativa_parcial":238,"negativa":75,"canalizadas":3,"prevenciones":18,"canceladas":0,"arco":0,"peticion":0,"remitida_itei":0,"total_info":561,"fisica":12,"pnt":500,"electronica":31,"canalizada_sires":3,"afi_completa":227,"afi_parcial_rs":1,"afi_parcial_cf":29,"afi_parcial_inx":208,"neg_rs":0,"neg_cf":0,"neg_inx":57,"iley":18,"ajuste":0,"libre_acceso":29,"fundamental":414,"reservada":1,"confidencial":21,"cdp":1,"cde":464,"rd":284,"eie":0,"ca":0,"sires_total":543,"recursos":13,"visitas":3557}],"2023":[{"mes_idx":1,"mes":"Enero","total":1774,"procedentes":618,"parcialmente":791,"improcedentes":365,"afirmativa":618,"afirmativa_parcial":791,"negativa":275,"canalizadas":8,"prevenciones":82,"canceladas":0,"arco":0,"peticion":0,"remitida_itei":0,"total_info":1774,"fisica":48,"pnt":202,"electronica":1524,"canalizada_sires":8,"afi_completa":618,"afi_parcial_rs":0,"afi_parcial_cf":63,"afi_parcial_inx":728,"neg_rs":0,"neg_cf":0,"neg_inx":275,"iley":82,"ajuste":0,"libre_acceso":43,"fundamental":1334,"reservada":0,"confidencial":32,"cdp":2,"cde":712,"rd":695,"eie":0,"ca":0,"sires_total":1774,"recursos":7,"visitas":6269},{"mes_idx":2,"mes":"Febrero","total":1484,"procedentes":488,"parcialmente":676,"improcedentes":368,"afirmativa":488,"afirmativa_parcial":676,"negativa":300,"canalizadas":20,"prevenciones":48,"canceladas":0,"arco":0,"peticion":0,"remitida_itei":0,"total_info":1532,"fisica":22,"pnt":55,"electronica":1407,"canalizada_sires":20,"afi_completa":488,"afi_parcial_rs":0,"afi_parcial_cf":49,"afi_parcial_inx":627,"neg_rs":1,"neg_cf":0,"neg_inx":251,"iley":48,"ajuste":0,"libre_acceso":30,"fundamental":1098,"reservada":1,"confidencial":35,"cdp":11,"cde":1153,"rd":594,"eie":0,"ca":0,"sires_total":1484,"recursos":14,"visitas":6364},{"mes_idx":3,"mes":"Marzo","total":1609,"procedentes":637,"parcialmente":626,"improcedentes":427,"afirmativa":637,"afirmativa_parcial":626,"negativa":326,"canalizadas":20,"prevenciones":81,"canceladas":0,"arco":2,"peticion":0,"remitida_itei":0,"total_info":1690,"fisica":44,"pnt":1499,"electronica":66,"canalizada_sires":20,"afi_completa":637,"afi_parcial_rs":1,"afi_parcial_cf":69,"afi_parcial_inx":556,"neg_rs":0,"neg_cf":0,"neg_inx":280,"iley":46,"ajuste":0,"libre_acceso":31,"fundamental":1184,"reservada":1,"confidencial":47,"cdp":1,"cde":1262,"rd":655,"eie":0,"ca":0,"sires_total":1609,"recursos":18,"visitas":6417},{"mes_idx":4,"mes":"Abril","total":1139,"procedentes":437,"parcialmente":475,"improcedentes":281,"afirmativa":437,"afirmativa_parcial":475,"negativa":208,"canalizadas":19,"prevenciones":54,"canceladas":0,"arco":0,"peticion":0,"remitida_itei":0,"total_info":1193,"fisica":23,"pnt":1066,"electronica":50,"canalizada_sires":19,"afi_completa":437,"afi_parcial_rs":0,"afi_parcial_cf":25,"afi_parcial_inx":450,"neg_rs":2,"neg_cf":0,"neg_inx":152,"iley":54,"ajuste":0,"libre_acceso":12,"fundamental":886,"reservada":0,"confidencial":14,"cdp":910,"cde":1,"rd":402,"eie":0,"ca":0,"sires_total":1139,"recursos":7,"visitas":4868},{"mes_idx":5,"mes":"Mayo","total":1078,"procedentes":445,"parcialmente":429,"improcedentes":245,"afirmativa":445,"afirmativa_parcial":429,"negativa":187,"canalizadas":17,"prevenciones":41,"canceladas":0,"arco":0,"peticion":0,"remitida_itei":0,"total_info":1119,"fisica":36,"pnt":984,"electronica":58,"canalizada_sires":17,"afi_completa":445,"afi_parcial_rs":0,"afi_parcial_cf":68,"afi_parcial_inx":361,"neg_rs":0,"neg_cf":1,"neg_inx":145,"iley":41,"ajuste":0,"libre_acceso":23,"fundamental":810,"reservada":0,"confidencial":41,"cdp":1,"cde":873,"rd":471,"eie":0,"ca":0,"sires_total":1078,"recursos":32,"visitas":6285},{"mes_idx":6,"mes":"Junio","total":1348,"procedentes":516,"parcialmente":613,"improcedentes":219,"afirmativa":516,"afirmativa_parcial":613,"negativa":154,"canalizadas":16,"prevenciones":49,"canceladas":0,"arco":1,"peticion":0,"remitida_itei":0,"total_info":1348,"fisica":40,"pnt":49,"electronica":1259,"canalizada_sires":16,"afi_completa":516,"afi_parcial_rs":1,"afi_parcial_cf":63,"afi_parcial_inx":549,"neg_rs":1,"neg_cf":1,"neg_inx":152,"iley":49,"ajuste":0,"libre_acceso":52,"fundamental":1041,"reservada":1,"confidencial":35,"cdp":2,"cde":1129,"rd":553,"eie":0,"ca":0,"sires_total":1348,"recursos":28,"visitas":5642},{"mes_idx":7,"mes":"Julio","total":995,"procedentes":396,"parcialmente":438,"improcedentes":161,"afirmativa":396,"afirmativa_parcial":438,"negativa":128,"canalizadas":12,"prevenciones":21,"canceladas":0,"arco":0,"peticion":0,"remitida_itei":0,"total_info":995,"fisica":28,"pnt":907,"electronica":60,"canalizada_sires":12,"afi_completa":396,"afi_parcial_rs":0,"afi_parcial_cf":56,"afi_parcial_inx":382,"neg_rs":7,"neg_cf":0,"neg_inx":121,"iley":21,"ajuste":0,"libre_acceso":38,"fundamental":759,"reservada":0,"confidencial":37,"cdp":1,"cde":832,"rd":327,"eie":1,"ca":0,"sires_total":995,"recursos":11,"visitas":5507},{"mes_idx":8,"mes":"Agosto","total":1130,"procedentes":479,"parcialmente":465,"improcedentes":186,"afirmativa":479,"afirmativa_parcial":465,"negativa":144,"canalizadas":4,"prevenciones":38,"canceladas":0,"arco":0,"peticion":0,"remitida_itei":0,"total_info":1130,"fisica":35,"pnt":1036,"electronica":59,"canalizada_sires":4,"afi_completa":479,"afi_parcial_rs":0,"afi_parcial_cf":78,"afi_parcial_inx":387,"neg_rs":3,"neg_cf":0,"neg_inx":141,"iley":38,"ajuste":0,"libre_acceso":19,"fundamental":879,"reservada":0,"confidencial":46,"cdp":1,"cde":943,"rd":426,"eie":0,"ca":0,"sires_total":1130,"recursos":36,"visitas":6134},{"mes_idx":9,"mes":"Septiembre","total":1079,"procedentes":406,"parcialmente":427,"improcedentes":246,"afirmativa":406,"afirmativa_parcial":427,"negativa":172,"canalizadas":16,"prevenciones":58,"canceladas":0,"arco":0,"peticion":0,"remitida_itei":0,"total_info":1079,"fisica":25,"pnt":991,"electronica":63,"canalizada_sires":16,"afi_completa":406,"afi_parcial_rs":0,"afi_parcial_cf":74,"afi_parcial_inx":353,"neg_rs":4,"neg_cf":0,"neg_inx":168,"iley":58,"ajuste":0,"libre_acceso":46,"fundamental":713,"reservada":0,"confidencial":74,"cdp":3,"cde":829,"rd":348,"eie":1,"ca":0,"sires_total":1079,"recursos":24,"visitas":6036},{"mes_idx":10,"mes":"Octubre","total":1180,"procedentes":498,"parcialmente":448,"improcedentes":234,"afirmativa":498,"afirmativa_parcial":448,"negativa":182,"canalizadas":22,"prevenciones":30,"canceladas":0,"arco":0,"peticion":0,"remitida_itei":0,"total_info":1180,"fisica":32,"pnt":1068,"electronica":80,"canalizada_sires":22,"afi_completa":498,"afi_parcial_rs":0,"afi_parcial_cf":70,"afi_parcial_inx":378,"neg_rs":6,"neg_cf":4,"neg_inx":172,"iley":30,"ajuste":0,"libre_acceso":39,"fundamental":871,"reservada":0,"confidencial":36,"cdp":1,"cde":944,"rd":392,"eie":1,"ca":0,"sires_total":1180,"recursos":19,"visitas":6087},{"mes_idx":11,"mes":"Noviembre","total":1082,"procedentes":452,"parcialmente":401,"improcedentes":229,"afirmativa":452,"afirmativa_parcial":401,"negativa":162,"canalizadas":18,"prevenciones":49,"canceladas":0,"arco":0,"peticion":0,"remitida_itei":0,"total_info":1082,"fisica":32,"pnt":980,"electronica":70,"canalizada_sires":18,"afi_completa":452,"afi_parcial_rs":2,"afi_parcial_cf":52,"afi_parcial_inx":347,"neg_rs":2,"neg_cf":3,"neg_inx":157,"iley":49,"ajuste":0,"libre_acceso":22,"fundamental":797,"reservada":2,"confidencial":32,"cdp":1,"cde":852,"rd":368,"eie":0,"ca":0,"sires_total":1082,"recursos":10,"visitas":5579},{"mes_idx":12,"mes":"Diciembre","total":419,"procedentes":152,"parcialmente":137,"improcedentes":130,"afirmativa":152,"afirmativa_parcial":137,"negativa":99,"canalizadas":6,"prevenciones":25,"canceladas":0,"arco":0,"peticion":0,"remitida_itei":0,"total_info":419,"fisica":17,"pnt":380,"electronica":22,"canalizada_sires":6,"afi_completa":152,"afi_parcial_rs":0,"afi_parcial_cf":28,"afi_parcial_inx":109,"neg_rs":0,"neg_cf":0,"neg_inx":99,"iley":25,"ajuste":0,"libre_acceso":8,"fundamental":271,"reservada":0,"confidencial":10,"cdp":0,"cde":289,"rd":194,"eie":0,"ca":0,"sires_total":419,"recursos":8,"visitas":3231}],"2024":[{"mes_idx":1,"mes":"Enero","total":1668,"procedentes":658,"parcialmente":623,"improcedentes":387,"afirmativa":658,"afirmativa_parcial":623,"negativa":348,"canalizadas":16,"prevenciones":23,"canceladas":0,"arco":0,"peticion":0,"remitida_itei":0,"total_info":1668,"fisica":32,"pnt":1584,"electronica":52,"canalizada_sires":16,"afi_completa":658,"afi_parcial_rs":0,"afi_parcial_cf":62,"afi_parcial_inx":561,"neg_rs":3,"neg_cf":0,"neg_inx":345,"iley":23,"ajuste":0,"libre_acceso":21,"fundamental":1232,"reservada":0,"confidencial":28,"cdp":0,"cde":1281,"rd":612,"eie":0,"ca":0,"sires_total":1668,"recursos":8,"visitas":6145},{"mes_idx":2,"mes":"Febrero","total":1321,"procedentes":499,"parcialmente":554,"improcedentes":268,"afirmativa":499,"afirmativa_parcial":554,"negativa":224,"canalizadas":35,"prevenciones":9,"canceladas":0,"arco":0,"peticion":0,"remitida_itei":0,"total_info":1321,"fisica":47,"pnt":59,"electronica":1215,"canalizada_sires":35,"afi_completa":499,"afi_parcial_rs":0,"afi_parcial_cf":93,"afi_parcial_inx":461,"neg_rs":1,"neg_cf":0,"neg_inx":223,"iley":9,"ajuste":0,"libre_acceso":29,"fundamental":973,"reservada":0,"confidencial":51,"cdp":0,"cde":1052,"rd":430,"eie":1,"ca":0,"sires_total":1321,"recursos":13,"visitas":7791},{"mes_idx":3,"mes":"Marzo","total":972,"procedentes":386,"parcialmente":394,"improcedentes":192,"afirmativa":386,"afirmativa_parcial":394,"negativa":184,"canalizadas":4,"prevenciones":4,"canceladas":0,"arco":0,"peticion":0,"remitida_itei":0,"total_info":972,"fisica":50,"pnt":894,"electronica":28,"canalizada_sires":4,"afi_completa":386,"afi_parcial_rs":1,"afi_parcial_cf":37,"afi_parcial_inx":356,"neg_rs":3,"neg_cf":1,"neg_inx":180,"iley":4,"ajuste":0,"libre_acceso":24,"fundamental":738,"reservada":0,"confidencial":18,"cdp":1,"cde":779,"rd":399,"eie":0,"ca":0,"sires_total":972,"recursos":9,"visitas":6266},{"mes_idx":4,"mes":"Abril","total":1208,"procedentes":505,"parcialmente":454,"improcedentes":249,"afirmativa":505,"afirmativa_parcial":454,"negativa":231,"canalizadas":14,"prevenciones":4,"canceladas":0,"arco":0,"peticion":0,"remitida_itei":0,"total_info":1208,"fisica":35,"pnt":1100,"electronica":73,"canalizada_sires":14,"afi_completa":505,"afi_parcial_rs":3,"afi_parcial_cf":47,"afi_parcial_inx":404,"neg_rs":9,"neg_cf":0,"neg_inx":222,"iley":4,"ajuste":0,"libre_acceso":28,"fundamental":900,"reservada":3,"confidencial":28,"cdp":1,"cde":958,"rd":416,"eie":0,"ca":0,"sires_total":1208,"recursos":7,"visitas":6726},{"mes_idx":5,"mes":"Mayo","total":998,"procedentes":360,"parcialmente":413,"improcedentes":225,"afirmativa":360,"afirmativa_parcial":413,"negativa":205,"canalizadas":17,"prevenciones":3,"canceladas":0,"arco":0,"peticion":0,"remitida_itei":0,"total_info":998,"fisica":50,"pnt":899,"electronica":49,"canalizada_sires":17,"afi_completa":360,"afi_parcial_rs":0,"afi_parcial_cf":63,"afi_parcial_inx":350,"neg_rs":6,"neg_cf":0,"neg_inx":199,"iley":3,"ajuste":0,"libre_acceso":14,"fundamental":724,"reservada":0,"confidencial":35,"cdp":0,"cde":773,"rd":682,"eie":0,"ca":0,"sires_total":998,"recursos":28,"visitas":6691},{"mes_idx":6,"mes":"Junio","total":890,"procedentes":329,"parcialmente":373,"improcedentes":188,"afirmativa":329,"afirmativa_parcial":373,"negativa":170,"canalizadas":13,"prevenciones":5,"canceladas":0,"arco":0,"peticion":0,"remitida_itei":0,"total_info":890,"fisica":35,"pnt":812,"electronica":43,"canalizada_sires":13,"afi_completa":329,"afi_parcial_rs":0,"afi_parcial_cf":62,"afi_parcial_inx":311,"neg_rs":10,"neg_cf":1,"neg_inx":159,"iley":5,"ajuste":0,"libre_acceso":25,"fundamental":638,"reservada":0,"confidencial":39,"cdp":0,"cde":702,"rd":270,"eie":0,"ca":0,"sires_total":890,"recursos":12,"visitas":5755},{"mes_idx":7,"mes":"Julio","total":875,"procedentes":333,"parcialmente":352,"improcedentes":190,"afirmativa":333,"afirmativa_parcial":352,"negativa":179,"canalizadas":8,"prevenciones":3,"canceladas":0,"arco":0,"peticion":0,"remitida_itei":0,"total_info":875,"fisica":30,"pnt":792,"electronica":53,"canalizada_sires":8,"afi_completa":333,"afi_parcial_rs":1,"afi_parcial_cf":55,"afi_parcial_inx":296,"neg_rs":6,"neg_cf":0,"neg_inx":173,"iley":3,"ajuste":0,"libre_acceso":22,"fundamental":636,"reservada":0,"confidencial":27,"cdp":0,"cde":685,"rd":257,"eie":0,"ca":0,"sires_total":875,"recursos":19,"visitas":6798},{"mes_idx":8,"mes":"Agosto","total":997,"procedentes":342,"parcialmente":458,"improcedentes":197,"afirmativa":342,"afirmativa_parcial":458,"negativa":185,"canalizadas":6,"prevenciones":6,"canceladas":0,"arco":0,"peticion":0,"remitida_itei":0,"total_info":997,"fisica":31,"pnt":929,"electronica":37,"canalizada_sires":6,"afi_completa":342,"afi_parcial_rs":0,"afi_parcial_cf":75,"afi_parcial_inx":383,"neg_rs":8,"neg_cf":2,"neg_inx":175,"iley":6,"ajuste":0,"libre_acceso":21,"fundamental":728,"reservada":0,"confidencial":51,"cdp":4,"cde":796,"rd":323,"eie":0,"ca":0,"sires_total":997,"recursos":10,"visitas":6200},{"mes_idx":9,"mes":"Septiembre","total":860,"procedentes":333,"parcialmente":308,"improcedentes":219,"afirmativa":333,"afirmativa_parcial":308,"negativa":193,"canalizadas":14,"prevenciones":12,"canceladas":0,"arco":0,"peticion":0,"remitida_itei":0,"total_info":860,"fisica":22,"pnt":803,"electronica":35,"canalizada_sires":14,"afi_completa":333,"afi_parcial_rs":1,"afi_parcial_cf":32,"afi_parcial_inx":275,"neg_rs":1,"neg_cf":1,"neg_inx":191,"iley":12,"ajuste":0,"libre_acceso":15,"fundamental":608,"reservada":1,"confidencial":17,"cdp":0,"cde":641,"rd":301,"eie":0,"ca":0,"sires_total":860,"recursos":15,"visitas":6098},{"mes_idx":10,"mes":"Octubre","total":1060,"procedentes":377,"parcialmente":446,"improcedentes":237,"afirmativa":377,"afirmativa_parcial":446,"negativa":212,"canalizadas":14,"prevenciones":11,"canceladas":0,"arco":0,"peticion":0,"remitida_itei":0,"total_info":1060,"fisica":24,"pnt":946,"electronica":90,"canalizada_sires":14,"afi_completa":377,"afi_parcial_rs":1,"afi_parcial_cf":23,"afi_parcial_inx":422,"neg_rs":2,"neg_cf":0,"neg_inx":210,"iley":11,"ajuste":0,"libre_acceso":73,"fundamental":751,"reservada":1,"confidencial":23,"cdp":1,"cde":821,"rd":321,"eie":0,"ca":0,"sires_total":1060,"recursos":17,"visitas":7074},{"mes_idx":11,"mes":"Noviembre","total":867,"procedentes":291,"parcialmente":368,"improcedentes":197,"afirmativa":291,"afirmativa_parcial":368,"negativa":156,"canalizadas":29,"prevenciones":12,"canceladas":0,"arco":11,"peticion":0,"remitida_itei":0,"total_info":856,"fisica":46,"pnt":752,"electronica":58,"canalizada_sires":29,"afi_completa":291,"afi_parcial_rs":1,"afi_parcial_cf":36,"afi_parcial_inx":331,"neg_rs":0,"neg_cf":0,"neg_inx":156,"iley":12,"ajuste":0,"libre_acceso":34,"fundamental":791,"reservada":2,"confidencial":0,"cdp":1,"cde":822,"rd":259,"eie":3,"ca":0,"sires_total":856,"recursos":7,"visitas":6244},{"mes_idx":12,"mes":"Diciembre","total":455,"procedentes":169,"parcialmente":198,"improcedentes":84,"afirmativa":169,"afirmativa_parcial":198,"negativa":61,"canalizadas":18,"prevenciones":5,"canceladas":0,"arco":4,"peticion":0,"remitida_itei":0,"total_info":451,"fisica":12,"pnt":424,"electronica":15,"canalizada_sires":18,"afi_completa":169,"afi_parcial_rs":1,"afi_parcial_cf":10,"afi_parcial_inx":187,"neg_rs":1,"neg_cf":0,"neg_inx":60,"iley":5,"ajuste":0,"libre_acceso":11,"fundamental":420,"reservada":2,"confidencial":0,"cdp":0,"cde":430,"rd":165,"eie":0,"ca":1,"sires_total":451,"recursos":8,"visitas":4623}],"2025":[{"mes_idx":1,"mes":"Enero","total":1536,"procedentes":544,"parcialmente":636,"improcedentes":335,"afirmativa":544,"afirmativa_parcial":636,"negativa":213,"canalizadas":47,"prevenciones":75,"canceladas":0,"arco":21,"peticion":0,"remitida_itei":0,"total_info":1515,"fisica":27,"pnt":1410,"electronica":78,"canalizada_sires":47,"afi_completa":544,"afi_parcial_rs":4,"afi_parcial_cf":27,"afi_parcial_inx":605,"neg_rs":15,"neg_cf":1,"neg_inx":198,"iley":75,"ajuste":0,"libre_acceso":16,"fundamental":1447,"reservada":4,"confidencial":1,"cdp":1,"cde":945,"rd":521,"eie":1,"ca":0,"sires_total":1515,"recursos":15,"visitas":7986},{"mes_idx":2,"mes":"Febrero","total":1247,"procedentes":446,"parcialmente":485,"improcedentes":286,"afirmativa":446,"afirmativa_parcial":485,"negativa":174,"canalizadas":46,"prevenciones":66,"canceladas":0,"arco":30,"peticion":0,"remitida_itei":0,"total_info":1217,"fisica":26,"pnt":1152,"electronica":39,"canalizada_sires":46,"afi_completa":446,"afi_parcial_rs":0,"afi_parcial_cf":12,"afi_parcial_inx":473,"neg_rs":3,"neg_cf":0,"neg_inx":170,"iley":66,"ajuste":0,"libre_acceso":35,"fundamental":1134,"reservada":1,"confidencial":1,"cdp":3,"cde":734,"rd":428,"eie":1,"ca":5,"sires_total":1217,"recursos":14,"visitas":7297},{"mes_idx":3,"mes":"Marzo","total":1112,"procedentes":464,"parcialmente":347,"improcedentes":269,"afirmativa":464,"afirmativa_parcial":347,"negativa":145,"canalizadas":51,"prevenciones":73,"canceladas":0,"arco":32,"peticion":0,"remitida_itei":0,"total_info":1080,"fisica":20,"pnt":1022,"electronica":38,"canalizada_sires":51,"afi_completa":464,"afi_parcial_rs":0,"afi_parcial_cf":3,"afi_parcial_inx":344,"neg_rs":3,"neg_cf":0,"neg_inx":142,"iley":73,"ajuste":0,"libre_acceso":47,"fundamental":976,"reservada":3,"confidencial":3,"cdp":1,"cde":623,"rd":390,"eie":6,"ca":9,"sires_total":1080,"recursos":10,"visitas":6796},{"mes_idx":4,"mes":"Abril","total":817,"procedentes":341,"parcialmente":270,"improcedentes":201,"afirmativa":341,"afirmativa_parcial":270,"negativa":113,"canalizadas":37,"prevenciones":51,"canceladas":0,"arco":5,"peticion":0,"remitida_itei":0,"total_info":812,"fisica":24,"pnt":741,"electronica":47,"canalizada_sires":37,"afi_completa":341,"afi_parcial_rs":1,"afi_parcial_cf":3,"afi_parcial_inx":266,"neg_rs":0,"neg_cf":0,"neg_inx":113,"iley":51,"ajuste":0,"libre_acceso":69,"fundamental":702,"reservada":1,"confidencial":3,"cdp":16,"cde":408,"rd":285,"eie":62,"ca":4,"sires_total":812,"recursos":3,"visitas":5664},{"mes_idx":5,"mes":"Mayo","total":812,"procedentes":317,"parcialmente":281,"improcedentes":187,"afirmativa":317,"afirmativa_parcial":281,"negativa":114,"canalizadas":35,"prevenciones":38,"canceladas":0,"arco":27,"peticion":0,"remitida_itei":0,"total_info":785,"fisica":32,"pnt":690,"electronica":63,"canalizada_sires":35,"afi_completa":317,"afi_parcial_rs":0,"afi_parcial_cf":1,"afi_parcial_inx":280,"neg_rs":3,"neg_cf":0,"neg_inx":111,"iley":38,"ajuste":0,"libre_acceso":59,"fundamental":687,"reservada":3,"confidencial":1,"cdp":24,"cde":478,"rd":203,"eie":45,"ca":0,"sires_total":785,"recursos":6,"visitas":6420},{"mes_idx":6,"mes":"Junio","total":789,"procedentes":313,"parcialmente":244,"improcedentes":197,"afirmativa":313,"afirmativa_parcial":244,"negativa":103,"canalizadas":37,"prevenciones":57,"canceladas":0,"arco":35,"peticion":0,"remitida_itei":0,"total_info":754,"fisica":31,"pnt":663,"electronica":60,"canalizada_sires":37,"afi_completa":313,"afi_parcial_rs":3,"afi_parcial_cf":2,"afi_parcial_inx":239,"neg_rs":1,"neg_cf":2,"neg_inx":100,"iley":57,"ajuste":0,"libre_acceso":34,"fundamental":675,"reservada":4,"confidencial":4,"cdp":13,"cde":498,"rd":202,"eie":4,"ca":0,"sires_total":754,"recursos":4,"visitas":5247},{"mes_idx":7,"mes":"Julio","total":820,"procedentes":356,"parcialmente":229,"improcedentes":192,"afirmativa":356,"afirmativa_parcial":229,"negativa":116,"canalizadas":40,"prevenciones":36,"canceladas":0,"arco":43,"peticion":0,"remitida_itei":0,"total_info":777,"fisica":22,"pnt":705,"electronica":50,"canalizada_sires":40,"afi_completa":356,"afi_parcial_rs":1,"afi_parcial_cf":5,"afi_parcial_inx":223,"neg_rs":1,"neg_cf":0,"neg_inx":115,"iley":36,"ajuste":0,"libre_acceso":50,"fundamental":680,"reservada":2,"confidencial":5,"cdp":17,"cde":496,"rd":209,"eie":15,"ca":0,"sires_total":777,"recursos":6,"visitas":5505},{"mes_idx":8,"mes":"Agosto","total":859,"procedentes":328,"parcialmente":255,"improcedentes":246,"afirmativa":328,"afirmativa_parcial":255,"negativa":172,"canalizadas":39,"prevenciones":35,"canceladas":0,"arco":30,"peticion":0,"remitida_itei":0,"total_info":829,"fisica":28,"pnt":758,"electronica":43,"canalizada_sires":39,"afi_completa":328,"afi_parcial_rs":0,"afi_parcial_cf":3,"afi_parcial_inx":252,"neg_rs":7,"neg_cf":1,"neg_inx":164,"iley":35,"ajuste":0,"libre_acceso":41,"fundamental":739,"reservada":7,"confidencial":3,"cdp":29,"cde":557,"rd":183,"eie":19,"ca":2,"sires_total":829,"recursos":12,"visitas":5834},{"mes_idx":9,"mes":"Septiembre","total":770,"procedentes":257,"parcialmente":238,"improcedentes":233,"afirmativa":257,"afirmativa_parcial":238,"negativa":125,"canalizadas":69,"prevenciones":39,"canceladas":0,"arco":42,"peticion":0,"remitida_itei":0,"total_info":728,"fisica":42,"pnt":628,"electronica":58,"canalizada_sires":69,"afi_completa":257,"afi_parcial_rs":1,"afi_parcial_cf":1,"afi_parcial_inx":236,"neg_rs":7,"neg_cf":0,"neg_inx":118,"iley":39,"ajuste":0,"libre_acceso":23,"fundamental":627,"reservada":8,"confidencial":1,"cdp":24,"cde":433,"rd":180,"eie":22,"ca":0,"sires_total":728,"recursos":7,"visitas":5877},{"mes_idx":10,"mes":"Octubre","total":955,"procedentes":303,"parcialmente":376,"improcedentes":226,"afirmativa":303,"afirmativa_parcial":376,"negativa":122,"canalizadas":77,"prevenciones":27,"canceladas":0,"arco":50,"peticion":0,"remitida_itei":0,"total_info":905,"fisica":41,"pnt":809,"electronica":55,"canalizada_sires":77,"afi_completa":303,"afi_parcial_rs":5,"afi_parcial_cf":2,"afi_parcial_inx":369,"neg_rs":3,"neg_cf":2,"neg_inx":116,"iley":27,"ajuste":0,"libre_acceso":25,"fundamental":790,"reservada":8,"confidencial":5,"cdp":22,"cde":600,"rd":199,"eie":3,"ca":4,"sires_total":905,"recursos":9,"visitas":6561},{"mes_idx":11,"mes":"Noviembre","total":742,"procedentes":219,"parcialmente":284,"improcedentes":199,"afirmativa":219,"afirmativa_parcial":284,"negativa":103,"canalizadas":61,"prevenciones":35,"canceladas":0,"arco":40,"peticion":0,"remitida_itei":0,"total_info":702,"fisica":31,"pnt":630,"electronica":41,"canalizada_sires":61,"afi_completa":219,"afi_parcial_rs":3,"afi_parcial_cf":0,"afi_parcial_inx":281,"neg_rs":1,"neg_cf":0,"neg_inx":102,"iley":35,"ajuste":0,"libre_acceso":11,"fundamental":626,"reservada":4,"confidencial":0,"cdp":11,"cde":505,"rd":124,"eie":1,"ca":0,"sires_total":702,"recursos":13,"visitas":4715},{"mes_idx":12,"mes":"Diciembre","total":462,"procedentes":139,"parcialmente":185,"improcedentes":114,"afirmativa":139,"afirmativa_parcial":185,"negativa":67,"canalizadas":31,"prevenciones":16,"canceladas":0,"arco":24,"peticion":0,"remitida_itei":0,"total_info":438,"fisica":17,"pnt":392,"electronica":29,"canalizada_sires":31,"afi_completa":139,"afi_parcial_rs":3,"afi_parcial_cf":1,"afi_parcial_inx":181,"neg_rs":1,"neg_cf":1,"neg_inx":66,"iley":16,"ajuste":0,"libre_acceso":6,"fundamental":396,"reservada":4,"confidencial":1,"cdp":6,"cde":319,"rd":81,"eie":1,"ca":0,"sires_total":438,"recursos":0,"visitas":4388}],"2026":[{"mes_idx":1,"mes":"Enero","total":1064,"procedentes":422,"parcialmente":451,"improcedentes":191,"afirmativa":422,"afirmativa_parcial":451,"negativa":145,"canalizadas":9,"prevenciones":37,"canceladas":0,"arco":47,"peticion":0,"remitida_itei":0,"total_info":1064,"fisica":17,"pnt":989,"electronica":58,"canalizada_sires":9,"afi_completa":422,"afi_parcial_rs":6,"afi_parcial_cf":4,"afi_parcial_inx":441,"neg_rs":0,"neg_cf":1,"neg_inx":144,"iley":37,"ajuste":0,"libre_acceso":13,"fundamental":1032,"reservada":6,"confidencial":4,"cdp":19,"cde":844,"rd":158,"eie":0,"ca":34,"sires_total":1064,"recursos":0,"visitas":6894},{"mes_idx":2,"mes":"Febrero","total":708,"procedentes":286,"parcialmente":253,"improcedentes":169,"afirmativa":286,"afirmativa_parcial":253,"negativa":122,"canalizadas":9,"prevenciones":38,"canceladas":0,"arco":41,"peticion":0,"remitida_itei":0,"total_info":708,"fisica":22,"pnt":638,"electronica":48,"canalizada_sires":9,"afi_completa":286,"afi_parcial_rs":4,"afi_parcial_cf":2,"afi_parcial_inx":247,"neg_rs":2,"neg_cf":1,"neg_inx":119,"iley":38,"ajuste":0,"libre_acceso":23,"fundamental":667,"reservada":6,"confidencial":3,"cdp":22,"cde":566,"rd":106,"eie":4,"ca":1,"sires_total":708,"recursos":0,"visitas":6796},{"mes_idx":3,"mes":"Marzo","total":864,"procedentes":341,"parcialmente":290,"improcedentes":233,"afirmativa":341,"afirmativa_parcial":290,"negativa":183,"canalizadas":13,"prevenciones":37,"canceladas":0,"arco":36,"peticion":0,"remitida_itei":0,"total_info":864,"fisica":24,"pnt":790,"electronica":50,"canalizada_sires":13,"afi_completa":341,"afi_parcial_rs":2,"afi_parcial_cf":1,"afi_parcial_inx":287,"neg_rs":4,"neg_cf":3,"neg_inx":176,"iley":37,"ajuste":0,"libre_acceso":22,"fundamental":819,"reservada":6,"confidencial":4,"cdp":11,"cde":689,"rd":133,"eie":16,"ca":2,"sires_total":864,"recursos":15,"visitas":6619},{"mes_idx":4,"mes":"Abril","total":1017,"procedentes":385,"parcialmente":354,"improcedentes":278,"afirmativa":385,"afirmativa_parcial":354,"negativa":205,"canalizadas":21,"prevenciones":52,"canceladas":0,"arco":46,"peticion":0,"remitida_itei":0,"total_info":1017,"fisica":23,"pnt":906,"electronica":88,"canalizada_sires":21,"afi_completa":385,"afi_parcial_rs":3,"afi_parcial_cf":1,"afi_parcial_inx":350,"neg_rs":3,"neg_cf":0,"neg_inx":202,"iley":52,"ajuste":0,"libre_acceso":16,"fundamental":973,"reservada":6,"confidencial":1,"cdp":21,"cde":888,"rd":79,"eie":7,"ca":1,"sires_total":1017,"recursos":8,"visitas":5023},{"mes_idx":5,"mes":"Mayo","total":0,"procedentes":0,"parcialmente":0,"improcedentes":0,"afirmativa":0,"afirmativa_parcial":0,"negativa":0,"canalizadas":0,"prevenciones":0,"canceladas":0,"arco":0,"peticion":0,"remitida_itei":0,"total_info":0,"fisica":0,"pnt":0,"electronica":0,"canalizada_sires":0,"afi_completa":0,"afi_parcial_rs":0,"afi_parcial_cf":0,"afi_parcial_inx":0,"neg_rs":0,"neg_cf":0,"neg_inx":0,"iley":0,"ajuste":0,"libre_acceso":0,"fundamental":0,"reservada":0,"confidencial":0,"cdp":0,"cde":0,"rd":0,"eie":0,"ca":0,"sires_total":0,"recursos":0,"visitas":0},{"mes_idx":6,"mes":"Junio","total":0,"procedentes":0,"parcialmente":0,"improcedentes":0,"afirmativa":0,"afirmativa_parcial":0,"negativa":0,"canalizadas":0,"prevenciones":0,"canceladas":0,"arco":0,"peticion":0,"remitida_itei":0,"total_info":0,"fisica":0,"pnt":0,"electronica":0,"canalizada_sires":0,"afi_completa":0,"afi_parcial_rs":0,"afi_parcial_cf":0,"afi_parcial_inx":0,"neg_rs":0,"neg_cf":0,"neg_inx":0,"iley":0,"ajuste":0,"libre_acceso":0,"fundamental":0,"reservada":0,"confidencial":0,"cdp":0,"cde":0,"rd":0,"eie":0,"ca":0,"sires_total":0,"recursos":0,"visitas":0},{"mes_idx":7,"mes":"Julio","total":0,"procedentes":0,"parcialmente":0,"improcedentes":0,"afirmativa":0,"afirmativa_parcial":0,"negativa":0,"canalizadas":0,"prevenciones":0,"canceladas":0,"arco":0,"peticion":0,"remitida_itei":0,"total_info":0,"fisica":0,"pnt":0,"electronica":0,"canalizada_sires":0,"afi_completa":0,"afi_parcial_rs":0,"afi_parcial_cf":0,"afi_parcial_inx":0,"neg_rs":0,"neg_cf":0,"neg_inx":0,"iley":0,"ajuste":0,"libre_acceso":0,"fundamental":0,"reservada":0,"confidencial":0,"cdp":0,"cde":0,"rd":0,"eie":0,"ca":0,"sires_total":0,"recursos":0,"visitas":0},{"mes_idx":8,"mes":"Agosto","total":0,"procedentes":0,"parcialmente":0,"improcedentes":0,"afirmativa":0,"afirmativa_parcial":0,"negativa":0,"canalizadas":0,"prevenciones":0,"canceladas":0,"arco":0,"peticion":0,"remitida_itei":0,"total_info":0,"fisica":0,"pnt":0,"electronica":0,"canalizada_sires":0,"afi_completa":0,"afi_parcial_rs":0,"afi_parcial_cf":0,"afi_parcial_inx":0,"neg_rs":0,"neg_cf":0,"neg_inx":0,"iley":0,"ajuste":0,"libre_acceso":0,"fundamental":0,"reservada":0,"confidencial":0,"cdp":0,"cde":0,"rd":0,"eie":0,"ca":0,"sires_total":0,"recursos":0,"visitas":0},{"mes_idx":9,"mes":"Septiembre","total":0,"procedentes":0,"parcialmente":0,"improcedentes":0,"afirmativa":0,"afirmativa_parcial":0,"negativa":0,"canalizadas":0,"prevenciones":0,"canceladas":0,"arco":0,"peticion":0,"remitida_itei":0,"total_info":0,"fisica":0,"pnt":0,"electronica":0,"canalizada_sires":0,"afi_completa":0,"afi_parcial_rs":0,"afi_parcial_cf":0,"afi_parcial_inx":0,"neg_rs":0,"neg_cf":0,"neg_inx":0,"iley":0,"ajuste":0,"libre_acceso":0,"fundamental":0,"reservada":0,"confidencial":0,"cdp":0,"cde":0,"rd":0,"eie":0,"ca":0,"sires_total":0,"recursos":0,"visitas":0},{"mes_idx":10,"mes":"Octubre","total":0,"procedentes":0,"parcialmente":0,"improcedentes":0,"afirmativa":0,"afirmativa_parcial":0,"negativa":0,"canalizadas":0,"prevenciones":0,"canceladas":0,"arco":0,"peticion":0,"remitida_itei":0,"total_info":0,"fisica":0,"pnt":0,"electronica":0,"canalizada_sires":0,"afi_completa":0,"afi_parcial_rs":0,"afi_parcial_cf":0,"afi_parcial_inx":0,"neg_rs":0,"neg_cf":0,"neg_inx":0,"iley":0,"ajuste":0,"libre_acceso":0,"fundamental":0,"reservada":0,"confidencial":0,"cdp":0,"cde":0,"rd":0,"eie":0,"ca":0,"sires_total":0,"recursos":0,"visitas":0},{"mes_idx":11,"mes":"Noviembre","total":0,"procedentes":0,"parcialmente":0,"improcedentes":0,"afirmativa":0,"afirmativa_parcial":0,"negativa":0,"canalizadas":0,"prevenciones":0,"canceladas":0,"arco":0,"peticion":0,"remitida_itei":0,"total_info":0,"fisica":0,"pnt":0,"electronica":0,"canalizada_sires":0,"afi_completa":0,"afi_parcial_rs":0,"afi_parcial_cf":0,"afi_parcial_inx":0,"neg_rs":0,"neg_cf":0,"neg_inx":0,"iley":0,"ajuste":0,"libre_acceso":0,"fundamental":0,"reservada":0,"confidencial":0,"cdp":0,"cde":0,"rd":0,"eie":0,"ca":0,"sires_total":0,"recursos":0,"visitas":0},{"mes_idx":12,"mes":"Diciembre","total":0,"procedentes":0,"parcialmente":0,"improcedentes":0,"afirmativa":0,"afirmativa_parcial":0,"negativa":0,"canalizadas":0,"prevenciones":0,"canceladas":0,"arco":0,"peticion":0,"remitida_itei":0,"total_info":0,"fisica":0,"pnt":0,"electronica":0,"canalizada_sires":0,"afi_completa":0,"afi_parcial_rs":0,"afi_parcial_cf":0,"afi_parcial_inx":0,"neg_rs":0,"neg_cf":0,"neg_inx":0,"iley":0,"ajuste":0,"libre_acceso":0,"fundamental":0,"reservada":0,"confidencial":0,"cdp":0,"cde":0,"rd":0,"eie":0,"ca":0,"sires_total":0,"recursos":0,"visitas":0}]}</script>
+
+<script>
+(function(){
+  'use strict';
+
+  const DATA = JSON.parse(document.getElementById('data-json').textContent);
+  const YEARS = Object.keys(DATA).sort();
+  const CURRENT_YR_NUM = new Date().getFullYear();
+  const MES_LBL = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+  const MESES_FULL = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+
+  // Paleta de años (cada año un color distinguible, año actual = brand orange)
+  // Cambié 2025 (era amber casi-naranja, se confundía con 2026 brand)
+  const YEAR_COLORS = {
+    '2021':'#94A3B8',  // slate gris
+    '2022':'#0EA5E9',  // sky blue
+    '2023':'#1D9E75',  // verde
+    '2024':'#6450A0',  // morado
+    '2025':'#DB2777',  // magenta (cambiado para distinguir del brand)
+    '2026':'#E87722'   // brand orange (año actual)
+  };
+  const YEAR_COLORS_RGB = {
+    '2021':'148,163,184',
+    '2022':'14,165,233',
+    '2023':'29,158,117',
+    '2024':'100,80,160',
+    '2025':'219,39,119',
+    '2026':'232,119,34'
+  };
+
+  const $ = id => document.getElementById(id);
+  const fmtN = n => (n || 0).toLocaleString('es-MX');
+
+  // ── Detectar último mes con datos ──
+  function detectLatestUpdate() {
+    for (const yr of YEARS.slice().reverse()) {
+      for (let i = 11; i >= 0; i--) {
+        const m = DATA[yr][i];
+        if ((m.total || 0) > 0 || (m.visitas || 0) > 0) return { year: yr, idx: i };
+      }
+    }
+    return null;
+  }
+  const upd = detectLatestUpdate();
+  const currentDataYear = upd ? upd.year : YEARS[YEARS.length - 1];
+  if (upd) $('update-text').textContent = 'Actualizado a ' + MESES_FULL[upd.idx] + ' ' + upd.year;
+
+  // ── KPIs del año más reciente ──
+  function updateKPIs() {
+    const months = DATA[currentDataYear];
+    const sum = key => months.reduce((s,m) => s + (m[key] || 0), 0);
+    $('kpi-proc').textContent = fmtN(sum('procedentes'));
+    $('kpi-parc').textContent = fmtN(sum('parcialmente'));
+    $('kpi-improc').textContent = fmtN(sum('improcedentes'));
+    const vis = sum('visitas');
+    $('kpi-vis').textContent = vis > 0 ? fmtN(vis) : 'Sin datos';
+    $('kpi-arco').textContent = fmtN(sum('arco'));
+    $('kpi-rec').textContent = fmtN(sum('recursos'));
+    // Periodo
+    const activeIdx = months.map((m,i) => (m.total > 0 || m.visitas > 0) ? i : -1).filter(i => i >= 0);
+    if (activeIdx.length === 12) {
+      $('periodo-text').textContent = currentDataYear + ' · año completo';
+    } else if (activeIdx.length > 0) {
+      const lastM = activeIdx[activeIdx.length - 1];
+      $('periodo-text').textContent = currentDataYear + ' · enero – ' + MESES_FULL[lastM].toLowerCase();
+    } else {
+      $('periodo-text').textContent = currentDataYear;
+    }
+  }
+
+  // ── Construir datasets multi-año para gráficas (estilo bursátil) ──
+  function buildYearLines(metricFn, opts) {
+    opts = opts || {};
+    return YEARS.map(y => {
+      const data = DATA[y].map(m => {
+        const v = metricFn(m);
+        return v > 0 ? v : null;
+      });
+      const allEmpty = data.every(v => v === null || v === 0);
+      if (allEmpty) return null;
+      const isCurrent = parseInt(y,10) === CURRENT_YR_NUM;
+      return {
+        label: y,
+        data,
+        borderColor: YEAR_COLORS[y],
+        backgroundColor: isCurrent ? `rgba(${YEAR_COLORS_RGB[y]},.10)` : 'transparent',
+        borderWidth: isCurrent ? 3.5 : 2,
+        tension: 0,
+        fill: isCurrent && opts.fillCurrent !== false,
+        pointRadius: isCurrent ? 5 : 3,
+        pointHoverRadius: isCurrent ? 8 : 6,
+        pointBackgroundColor: isCurrent ? YEAR_COLORS[y] : '#fff',
+        pointBorderColor: isCurrent ? '#fff' : YEAR_COLORS[y],
+        pointBorderWidth: 2,
+        pointHoverBackgroundColor: YEAR_COLORS[y],
+        pointHoverBorderColor: '#fff',
+        pointHoverBorderWidth: 3,
+        pointStyle: 'circle',
+        spanGaps: false,
+        _year: y
+      };
+    }).filter(d => d !== null);
+  }
+
+  // ── Opciones base ──
+  function baseOpts(yAxisLabel, withBreakdown) {
+    return {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: 'nearest', intersect: false, axis: 'x' },
+      animation: { duration: 600, easing: 'easeOutQuart' },
+      plugins: {
+        legend: { display: false },  // Usamos leyenda HTML custom (más confiable)
+        tooltip: {
+          backgroundColor: 'rgba(26,26,26,.96)',
+          titleColor: '#fff',
+          bodyColor: '#fff',
+          titleFont: { family: "'Outfit',sans-serif", weight: '700', size: 12 },
+          bodyFont: { family: "'Outfit',sans-serif", size: 12, weight: '600' },
+          footerFont: { family: "'Outfit',sans-serif", size: 11, weight: '500' },
+          footerColor: 'rgba(255,255,255,.7)',
+          padding: 11,
+          cornerRadius: 9,
+          boxPadding: 5,
+          displayColors: true,
+          caretSize: 6,
+          callbacks: {
+            title: items => MESES_FULL[items[0].dataIndex],
+            label: function(ctx) {
+              const v = ctx.parsed.y;
+              if (v === null || v === undefined) return ctx.dataset.label + ': sin datos';
+              return '  ' + ctx.dataset.label + ':  ' + fmtN(v);
+            },
+            // Footer removido — el tooltip queda solo con la lista año:valor limpia.
+            // El desglose por categoría (procedentes/parcialmente/improcedentes)
+            // está disponible en la tabla SIRES al pie de la página.
+          }
+        }
+      },
+      scales: {
+        x: {
+          grid: { display: false },
+          ticks: { font: { family: "'Outfit',sans-serif", size: 11, weight: '600' }, color: '#2D2D2A' }
+        },
+        y: {
+          beginAtZero: true,
+          grid: { color: 'rgba(226,226,221,.7)', drawBorder: false },
+          ticks: { font: { family: "'Outfit',sans-serif", size: 10.5 }, color: '#5A5A55', callback: v => fmtN(v) }
+        }
+      }
+    };
+  }
+
+  // ── Renderizar leyenda HTML custom (garantiza que TODOS los años aparezcan) ──
+  function renderCustomLegend(chartKey, chart) {
+    const wrap = document.querySelector(`[data-chart-key="${chartKey}"]`);
+    if (!wrap) return;
+    wrap.innerHTML = '';
+    chart.data.datasets.forEach((ds, i) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'legend-btn';
+      btn.style.color = ds.borderColor;
+      const isCurrent = ds._year && parseInt(ds._year,10) === CURRENT_YR_NUM;
+      btn.innerHTML = `<span class="legend-dot"></span>${ds.label}${isCurrent ? '<span class="legend-current-pill">hoy</span>' : ''}`;
+      btn.addEventListener('click', () => {
+        const visible = chart.isDatasetVisible(i);
+        chart.setDatasetVisibility(i, !visible);
+        btn.classList.toggle('off', visible);
+        chart.update();
+      });
+      wrap.appendChild(btn);
+    });
+  }
+
+  // ── Crear gráficas ──
+  function buildChart(canvasId, chartKey, metricFn, yLabel, withBreakdown) {
+    const datasets = buildYearLines(metricFn);
+    const chart = new Chart($(canvasId), {
+      type: 'line',
+      data: { labels: MES_LBL, datasets },
+      options: baseOpts(yLabel, withBreakdown)
+    });
+    renderCustomLegend(chartKey, chart);
+    return chart;
+  }
+
+  // Solicitudes (total)
+  buildChart('chart-solicitudes', 'solicitudes', m => m.total, 'Total solicitudes', true);
+
+  // Visitas
+  buildChart('chart-visitas', 'visitas', m => m.visitas, 'Visitas', false);
+
+  // ARCO
+  buildChart('chart-arco', 'arco', m => m.arco, 'Solicitudes ARCO', false);
+
+  // Recursos de Revisión
+  buildChart('chart-recursos', 'recursos', m => m.recursos, 'Recursos', false);
+
+  // ── TABLA SIRES ──
+  let activeTblYear = currentDataYear;
+  const yearSel = $('tbl-year');
+  YEARS.slice().reverse().forEach(y => {
+    const o = document.createElement('option');
+    o.value = y;
+    o.textContent = y + (parseInt(y,10) === CURRENT_YR_NUM ? ' (actual)' : '');
+    if (y === activeTblYear) o.selected = true;
+    yearSel.appendChild(o);
+  });
+  yearSel.addEventListener('change', () => { activeTblYear = yearSel.value; renderTable(); });
+
+  function renderTable() {
+    const months = DATA[activeTblYear];
+    const tbody = $('tbl-body');
+    const q = ($('tbl-q').value || '').toLowerCase().trim();
+    const cols = ['fisica','pnt','electronica','canalizada_sires','afi_completa','afi_parcial_rs','afi_parcial_cf','afi_parcial_inx','neg_rs','neg_cf','neg_inx','iley','ajuste','libre_acceso','fundamental','reservada','confidencial','cdp','cde','rd','eie','ca'];
+    const rows = months.filter(m => !q || m.mes.toLowerCase().includes(q));
+    let html = '';
+    rows.forEach(m => {
+      html += `<tr><td class="t-month">${m.mes.toLowerCase()} ${activeTblYear}</td>`;
+      cols.forEach(c => { html += `<td>${fmtN(m[c])}</td>`; });
+      html += `<td class="t-total">${fmtN(m.sires_total)}</td></tr>`;
+    });
+    if (!q) {
+      const totals = {};
+      cols.forEach(c => totals[c] = months.reduce((s,m)=>s+(m[c]||0),0));
+      const totalSol = months.reduce((s,m)=>s+(m.sires_total||0),0);
+      html += `<tr class="row-total"><td class="t-month">Total ${activeTblYear}</td>`;
+      cols.forEach(c => { html += `<td>${fmtN(totals[c])}</td>`; });
+      html += `<td class="t-total">${fmtN(totalSol)}</td></tr>`;
+    }
+    tbody.innerHTML = html;
+    $('tbl-count').textContent = `${rows.length} ${rows.length===1?'mes':'meses'} mostrados`;
+  }
+  let qTimer;
+  $('tbl-q').addEventListener('input', () => { clearTimeout(qTimer); qTimer = setTimeout(renderTable, 150); });
+
+  // ── DESCARGAR CSV ──
+  function downloadCSV(filename, headers, rows) {
+    const escape = c => {
+      const s = String(c == null ? '' : c);
+      if (s.includes(',') || s.includes('"') || s.includes('\n')) {
+        return '"' + s.replace(/"/g, '""') + '"';
+      }
+      return s;
+    };
+    const csv = [
+      headers.map(escape).join(','),
+      ...rows.map(row => row.map(escape).join(','))
+    ].join('\r\n');
+    // UTF-8 BOM para que Excel respete acentos
+    const blob = new Blob(['﻿' + csv], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 200);
+  }
+
+  function buildCSVByType(type) {
+    let headers, rows = [], filename;
+    if (type === 'solicitudes') {
+      headers = ['Año', 'Mes', 'Total', 'Procedentes', 'Parcialmente procedentes', 'Improcedentes', 'Solicitudes ARCO', 'Derecho de petición', 'Remitida ITEI'];
+      YEARS.forEach(y => {
+        DATA[y].forEach((m, i) => {
+          if (m.total > 0) {
+            rows.push([y, MESES_FULL[i], m.total, m.procedentes, m.parcialmente, m.improcedentes, m.arco, m.peticion, m.remitida_itei]);
+          }
+        });
+      });
+      filename = 'Solicitudes_de_Acceso_a_la_Informacion_Guadalajara_2021-2026.csv';
+    } else if (type === 'visitas') {
+      headers = ['Año', 'Mes', 'Visitas al portal de transparencia'];
+      YEARS.forEach(y => {
+        DATA[y].forEach((m, i) => {
+          if (m.visitas > 0) {
+            rows.push([y, MESES_FULL[i], m.visitas]);
+          }
+        });
+      });
+      filename = 'Visitas_al_Portal_de_Transparencia_Guadalajara_2021-2026.csv';
+    } else if (type === 'arco') {
+      headers = ['Año', 'Mes', 'Solicitudes ARCO'];
+      YEARS.forEach(y => {
+        DATA[y].forEach((m, i) => {
+          if (m.arco > 0) {
+            rows.push([y, MESES_FULL[i], m.arco]);
+          }
+        });
+      });
+      filename = 'Solicitudes_ARCO_Guadalajara_2021-2025.csv';
+    } else if (type === 'recursos') {
+      headers = ['Año', 'Mes', 'Recursos de Revisión'];
+      YEARS.forEach(y => {
+        DATA[y].forEach((m, i) => {
+          if (m.recursos > 0) {
+            rows.push([y, MESES_FULL[i], m.recursos]);
+          }
+        });
+      });
+      filename = 'Recursos_de_Revision_Guadalajara_2021-2025.csv';
+    } else if (type === 'sires') {
+      const yr = activeTblYear;
+      headers = [
+        'Fecha',
+        'Solicitudes presentadas de forma física',
+        'Solicitudes presentadas por la Plataforma Nacional de Transparencia',
+        'Solicitudes presentadas de forma electrónica',
+        'Se canalizó a otra institución',
+        'Entrega completa de la información',
+        'Entrega parcial por reserva',
+        'Entrega parcial por confidencialidad',
+        'Entrega parcial por inexistencia',
+        'No se pudo entregar por reserva',
+        'No se pudo entregar por confidencialidad',
+        'No se pudo entregar por inexistencia',
+        'Se pidió aclaración al solicitante',
+        'Ajena al derecho de acceso',
+        'Tipo: pública obligatoria',
+        'Tipo: ordinaria',
+        'Tipo: reservada',
+        'Tipo: confidencial',
+        'Medio: consulta directa',
+        'Medio: consulta electrónica',
+        'Medio: reproducción de documentos',
+        'Medio: informe específico',
+        'Combinación',
+        'Total'
+      ];
+      const cols = ['fisica','pnt','electronica','canalizada_sires','afi_completa','afi_parcial_rs','afi_parcial_cf','afi_parcial_inx','neg_rs','neg_cf','neg_inx','iley','ajuste','libre_acceso','fundamental','reservada','confidencial','cdp','cde','rd','eie','ca'];
+      DATA[yr].forEach(m => {
+        const row = [m.mes + ' ' + yr];
+        cols.forEach(c => row.push(m[c] || 0));
+        row.push(m.sires_total || 0);
+        rows.push(row);
+      });
+      filename = 'SIRES_Solicitudes_de_Informacion_Guadalajara_' + yr + '.csv';
+    }
+    downloadCSV(filename, headers, rows);
+  }
+
+  document.querySelectorAll('.chart-download').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const type = this.dataset.csv;
+      buildCSVByType(type);
+      this.classList.add('downloaded');
+      const txt = this.querySelector('svg').nextSibling;
+      const origLabel = this.lastChild.textContent;
+      setTimeout(() => { this.classList.remove('downloaded'); }, 2000);
+    });
+  });
+
+  // ── Init ──
+  updateKPIs();
+  renderTable();
+})();
+</script>
+<script>
+/* Auto-ajuste de altura para el iframe en Strapi */
+(function(){
+  var lastReported = 0;
+  function reportHeight(){
+    var h = Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight);
+    if (Math.abs(h - lastReported) < 2) return;
+    lastReported = h;
+    try { parent.postMessage({ type:'gdl-iframe-height', id:'estadistica-art8-I-n', height: h }, '*'); } catch(e){}
+  }
+  window.addEventListener('load', reportHeight);
+  window.addEventListener('resize', reportHeight);
+  setTimeout(reportHeight, 600);
+  setTimeout(reportHeight, 1600);
+  setTimeout(reportHeight, 3000);
+})();
+</script>
+</body>
+</html>

@@ -210,16 +210,8 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
         <div class="sl-correo-hint">Escribe a este correo para presentar tu solicitud de acceso a la información.</div>
       </div>
       <div class="sl-correo-actions">
-        <button class="sl-correo-btn primary" id="slCopiar" type="button">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-          Copiar correo
-        </button>
-        <span class="sl-copied" id="slCopied">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          ¡Copiado!
-        </span>
         <div class="sl-mail-wrap">
-          <button class="sl-correo-btn ghost" id="slEscribir" type="button" aria-haspopup="true" aria-expanded="false">
+          <button class="sl-correo-btn primary" id="slEscribir" type="button" aria-haspopup="true" aria-expanded="false">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             Escribir correo
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="margin-left:1px"><polyline points="6 9 12 15 18 9"/></svg>
@@ -409,27 +401,6 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
    Correo + PNT + 3 PDF (formato info, ARCO, guía). Todo verificado HTTP 200.
    ========================================================================== */
 (function(){
-  /* ----- Copiar correo ----- */
-  var CORREO = 'transparencia@guadalajara.gob.mx';
-  var btnCopiar = document.getElementById('slCopiar');
-  var copied = document.getElementById('slCopied');
-  btnCopiar.addEventListener('click', function(){
-    var done = function(){
-      copied.classList.add('show');
-      setTimeout(function(){ copied.classList.remove('show'); }, 2200);
-    };
-    if (navigator.clipboard && navigator.clipboard.writeText){
-      navigator.clipboard.writeText(CORREO).then(done).catch(fallback);
-    } else { fallback(); }
-    function fallback(){
-      var ta = document.createElement('textarea');
-      ta.value = CORREO; ta.style.position='fixed'; ta.style.opacity='0';
-      document.body.appendChild(ta); ta.select();
-      try { document.execCommand('copy'); done(); } catch(e){}
-      document.body.removeChild(ta);
-    }
-  });
-
   /* ----- Menú "Escribir correo": elegir Gmail / Outlook / app ----- */
   var btnEscribir = document.getElementById('slEscribir');
   var mailMenu = document.getElementById('slMailMenu');

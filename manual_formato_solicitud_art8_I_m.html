@@ -124,7 +124,9 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
 .ms-tarifas th{background:linear-gradient(135deg,var(--ac) 0%,var(--ac-d) 100%);color:#fff;font-size:13px;font-weight:800;letter-spacing:.03em;text-transform:uppercase;padding:12px 16px;text-align:left}
 .ms-tarifas td{padding:11px 16px;font-size:14.5px;color:var(--g800);border-top:1px solid var(--g100)}
 .ms-tarifas tbody tr:nth-child(even){background:var(--g50)}
-.ms-tarifas td:last-child{font-family:var(--fm);font-weight:600;color:var(--g900);white-space:nowrap}
+.ms-tarifas td:last-child{font-family:var(--fh);white-space:nowrap}
+.ms-tarifas .ms-precio{font-weight:800;color:var(--g900);font-size:16px;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.ms-tarifas .ms-precio-u{font-weight:500;color:var(--g600);font-size:13.5px}
 
 /* VISOR PDF MODAL */
 .ms-modal{position:fixed;inset:0;background:rgba(26,26,26,.78);z-index:1000;display:none;align-items:center;justify-content:center;padding:18px;backdrop-filter:blur(3px)}
@@ -383,11 +385,11 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
         <tr><th>Rubro</th><th>Costo</th></tr>
       </thead>
       <tbody>
-        <tr><td>Copia simple</td><td>$1.00 por hoja</td></tr>
-        <tr><td>Copia certificada</td><td>$25.00 por hoja</td></tr>
-        <tr><td>Certificación de plano</td><td>$432.00 por firma</td></tr>
-        <tr><td>Disco compacto</td><td>$12.00 por disco</td></tr>
-        <tr><td>Memoria USB (8 gb)</td><td>$84.00 por unidad</td></tr>
+        <tr><td>Copia simple</td><td><span class="ms-precio">$1.00</span> <span class="ms-precio-u">por hoja</span></td></tr>
+        <tr><td>Copia certificada</td><td><span class="ms-precio">$25.00</span> <span class="ms-precio-u">por hoja</span></td></tr>
+        <tr><td>Certificación de plano</td><td><span class="ms-precio">$432.00</span> <span class="ms-precio-u">por firma</span></td></tr>
+        <tr><td>Disco compacto</td><td><span class="ms-precio">$12.00</span> <span class="ms-precio-u">por disco</span></td></tr>
+        <tr><td>Memoria USB (8 gb)</td><td><span class="ms-precio">$84.00</span> <span class="ms-precio-u">por unidad</span></td></tr>
       </tbody>
     </table>
   </div>
