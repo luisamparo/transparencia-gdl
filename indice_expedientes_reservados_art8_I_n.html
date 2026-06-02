@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Índice oficial de los expedientes clasificados como reservados por el Comité de Transparencia del Ayuntamiento de Guadalajara, por área responsable de la información y tema: número de sesión, número de expediente, información reservada, fecha de sesión, área responsable, fundamento legal y periodo de reserva. Art. 8 Fracción I Inciso n) Ley de Transparencia Jalisco."/>
+<title>¿Qué expedientes reservó el Ayuntamiento de Guadalajara y por qué? · Índice de expedientes clasificados como reservados, por área responsable y tema · Art. 8 Frac. I Inc. n) · Transparencia GDL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ac:#E87722;--ac-l:#FFE4CC;--ac-d:#C45F0A;--ac-border:#F5C99A;--ac-soft:#FFF1E4;
+  --g50:#FAFAF8;--g100:#F0F0EC;--g200:#E2E2DD;--g300:#CFCFC8;--g400:#9E9E98;--g600:#5A5A55;--g800:#2D2D2A;--g900:#1A1A1A;
+  --wh:#FFF;
+  --per:#7A4E00;--per-l:#FEF3C7;
+  --rad:10px;--rad-lg:14px;
+  --sh:0 4px 22px rgba(0,0,0,.08);--sh-sm:0 1px 3px rgba(0,0,0,.06);--sh-md:0 6px 18px rgba(0,0,0,.07);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --fh:'Outfit',system-ui,-apple-system,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--g900);line-height:1.55;-webkit-font-smoothing:antialiased}
+.in-wrap{max-width:1180px;margin:0 auto}
+
+/* HERO */
+.in-hero{background:linear-gradient(135deg,var(--ac-soft) 0%,#FFFFFF 55%);color:var(--g900);border-radius:var(--rad-lg);padding:26px 30px;margin:0 0 22px;position:relative;overflow:hidden;border-left:5px solid var(--ac);box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.in-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.12) 0%,transparent 70%);pointer-events:none}
+.in-hero-tag{display:inline-block;background:var(--ac);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;position:relative;z-index:1;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.in-hero h1{margin:0 0 8px;font-size:clamp(22px,3.2vw,28px);font-weight:800;color:var(--g900);letter-spacing:-.015em;line-height:1.22;position:relative;z-index:1}
+.in-hero h1 em{font-style:normal;color:var(--ac-d)}
+.in-hero-sub{font-size:14.5px;color:var(--g600);max-width:90ch;margin:0;line-height:1.62;position:relative;z-index:1}
+.in-hero-sub strong{color:var(--g900);font-weight:700}
+.in-cifras{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px;max-width:720px;position:relative;z-index:1}
+.in-cifra{background:var(--wh);border:1.5px solid var(--ac-border);border-radius:var(--rad);padding:12px 14px;display:flex;flex-direction:column;gap:2px;transition:border-color .18s ease,transform .18s ease}
+.in-cifra:hover{border-color:var(--ac);transform:translateY(-2px)}
+.in-cifra-num{font-size:27px;font-weight:800;line-height:1;color:var(--ac-d);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.in-cifra-lbl{font-size:10.5px;font-weight:700;color:var(--g600);text-transform:uppercase;letter-spacing:.06em;margin-top:3px;line-height:1.3}
+
+/* POSTALES */
+.in-postales{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px;margin-bottom:22px}
+.in-postal{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh);overflow:hidden;display:flex;gap:15px;padding:20px 22px;border-top:5px solid var(--ac)}
+.in-postal-ico{flex-shrink:0;width:48px;height:48px;border-radius:13px;background:var(--ac-soft);color:var(--ac-d);display:flex;align-items:center;justify-content:center}
+.in-postal-body{display:flex;flex-direction:column;gap:6px}
+.in-postal-eye{font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ac-d)}
+.in-postal-title{font-size:15.5px;font-weight:800;color:var(--g900);letter-spacing:-.012em;line-height:1.3}
+.in-postal-desc{font-size:13px;color:var(--g600);line-height:1.6}
+.in-postal-desc strong{color:var(--g800);font-weight:700}
+
+/* SECCIÓN TÍTULO */
+.in-sec-title{font-size:13px;font-weight:800;color:var(--g400);letter-spacing:.1em;text-transform:uppercase;margin:0 4px 14px;display:flex;align-items:center;gap:10px}
+.in-sec-title::after{content:'';flex:1;height:1.5px;background:var(--g200);border-radius:2px}
+
+/* CONTROLES */
+.in-controls{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);padding:15px 20px;margin-bottom:16px;border:1px solid var(--g200);display:flex;flex-direction:column;gap:13px}
+.in-search-wrap{position:relative}
+.in-search{width:100%;padding:11px 38px 11px 40px;border-radius:9px;border:1.5px solid var(--g200);font-size:14px;font-family:var(--fh);background:var(--g50);color:var(--g900);transition:all .15s}
+.in-search:focus{outline:none;border-color:var(--ac);background:#fff;box-shadow:0 0 0 3px rgba(232,119,34,.15)}
+.in-search-icon{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--g400);width:17px;height:17px;pointer-events:none}
+.in-search-clear{position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--g400);font-size:20px;cursor:pointer;line-height:1;padding:2px 6px;display:none}
+.in-search-clear:hover{color:var(--ac-d)}
+.in-chips-row{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.in-chips-lbl{font-size:10.5px;font-weight:800;color:var(--g400);letter-spacing:.09em;text-transform:uppercase;margin-right:2px}
+.in-areachip,.in-allchip{font-family:var(--fh);font-size:12px;font-weight:700;border:1.5px solid var(--g200);background:var(--wh);color:var(--g600);padding:6px 12px;border-radius:999px;cursor:pointer;transition:all .15s;display:inline-flex;align-items:center;gap:6px;line-height:1.3;text-align:left}
+.in-areachip:hover,.in-allchip:hover{border-color:var(--ac);color:var(--ac-d)}
+.in-areachip.active,.in-allchip.active{background:var(--ac);border-color:var(--ac);color:#fff;box-shadow:0 2px 6px rgba(232,119,34,.30)}
+.in-areachip-ct,.in-allchip-ct{font-size:10px;font-weight:800;padding:2px 6px;background:rgba(0,0,0,.06);border-radius:999px;font-variant-numeric:tabular-nums}
+.in-areachip.active .in-areachip-ct,.in-allchip.active .in-allchip-ct{background:rgba(255,255,255,.25);color:#fff}
+.in-yearchip{font-family:var(--fh);font-size:12.5px;font-weight:700;border:1.5px solid var(--g200);background:var(--wh);color:var(--g600);padding:6px 14px;border-radius:999px;cursor:pointer;transition:all .15s;display:inline-flex;align-items:center;gap:6px;line-height:1.3;font-variant-numeric:tabular-nums}
+.in-yearchip:hover{border-color:var(--ac);color:var(--ac-d)}
+.in-yearchip.active{background:var(--ac);border-color:var(--ac);color:#fff;box-shadow:0 2px 6px rgba(232,119,34,.30)}
+.in-yearchip-ct{font-size:10px;font-weight:800;padding:2px 6px;background:rgba(0,0,0,.06);border-radius:999px}
+.in-yearchip.active .in-yearchip-ct{background:rgba(255,255,255,.25);color:#fff}
+.in-count{font-size:11.5px;color:var(--g600);font-weight:600;font-variant-numeric:tabular-nums}
+.in-count strong{color:var(--g900);font-weight:800}
+
+/* TABLA */
+.in-tablewrap{background:var(--wh);border:1.5px solid var(--g200);border-top:4px solid var(--ac);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);overflow-x:auto;margin-bottom:22px}
+.in-tabla{width:100%;min-width:900px;border-collapse:collapse;table-layout:fixed}
+.in-tabla thead th{background:linear-gradient(135deg,var(--ac) 0%,var(--ac-d) 100%);color:#fff;font-size:12px;font-weight:800;letter-spacing:.005em;padding:12px 11px;text-align:left;vertical-align:top;line-height:1.3;overflow-wrap:break-word;word-break:normal;hyphens:none;position:sticky;top:0}
+.in-tabla tbody td{padding:14px;font-size:13px;color:var(--g800);border-top:1px solid var(--g100);vertical-align:top;line-height:1.55;word-wrap:break-word;overflow-wrap:break-word}
+.in-tabla tbody tr.in-row:hover td{background:var(--ac-soft)}
+.in-c-ses{font-weight:700;color:var(--g900)}
+.in-exp{font-weight:700;color:var(--ac-d);font-size:12.5px;letter-spacing:.01em;word-break:break-word}
+.in-c-info{color:var(--g600)}
+.in-c-fecha{font-weight:600;color:var(--g800);font-variant-numeric:tabular-nums}
+.in-c-fund{color:var(--g600);font-size:12.5px}
+.in-chip{display:inline-block;font-weight:700;border-radius:7px;padding:4px 10px;line-height:1.35;font-size:12px}
+.in-chip-area{background:var(--ac-soft);color:var(--ac-d);border:1px solid var(--ac-border)}
+.in-chip-per{background:var(--per-l);color:var(--per);border:1px solid #F2D98E;white-space:nowrap;font-variant-numeric:tabular-nums}
+.in-noterow td.in-note{background:var(--g50);color:var(--g600);font-style:italic;font-weight:600;font-size:12.5px;text-align:center;padding:11px 16px;border-top:1px solid var(--g100)}
+.in-empty{padding:40px 20px;text-align:center;color:var(--g400);font-size:13.5px}
+.in-empty strong{display:block;color:var(--g600);font-size:15px;margin-bottom:4px}
+
+/* LEY + META */
+.in-ley{background:var(--wh);border-radius:var(--rad-lg);padding:22px 26px;border-left:4px solid var(--ac-d);box-shadow:var(--sh-sm);margin-top:22px}
+.in-ley-eye{font-size:10.5px;font-weight:800;color:var(--ac-d);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.in-ley h3{font-size:16px;font-weight:800;color:var(--g900);margin-bottom:8px;letter-spacing:-.008em}
+.in-ley p{font-size:13px;color:var(--g600);line-height:1.65}
+.in-ley p+p{margin-top:7px}
+.in-ley p strong{color:var(--g800);font-weight:600}
+.in-ley blockquote{font-size:13.5px;color:var(--g600);line-height:1.65;margin:12px 0 8px;padding:12px 18px;background:var(--ac-soft);border-left:3px solid var(--ac);border-radius:6px;font-style:italic}
+.in-ley blockquote strong{color:var(--g900);font-style:normal;font-weight:700}
+.in-meta{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:18px;padding:16px 22px;background:var(--g50);border:1px solid var(--g200);border-radius:var(--rad-lg)}
+.in-meta-item{display:flex;flex-direction:column;gap:2px}
+.in-meta-k{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--g400)}
+.in-meta-v{font-size:13px;font-weight:600;color:var(--g800)}
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+
+@media (max-width:880px){
+  body{padding:14px}
+  .in-hero{padding:20px 18px}
+  .in-hero h1{font-size:20px}
+  .in-cifras{grid-template-columns:repeat(2,1fr);max-width:100%}
+  .in-cifra-num{font-size:23px}
+  /* La tabla se convierte en tarjetas */
+  .in-tablewrap{overflow-x:visible;border-top-width:1.5px;background:transparent;border:none;box-shadow:none;padding:0}
+  .in-tabla{min-width:0;display:block}
+  .in-tabla thead{display:none}
+  .in-tabla tbody{display:block}
+  .in-tabla tbody tr.in-row{display:block;background:var(--wh);border:1.5px solid var(--g200);border-top:4px solid var(--ac);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);margin-bottom:14px;padding:6px 4px}
+  .in-tabla tbody tr.in-row:hover td{background:transparent}
+  .in-tabla tbody td{display:flex;flex-direction:column;gap:4px;border-top:none;padding:9px 16px;font-size:13.5px}
+  .in-tabla tbody td::before{content:attr(data-label);font-size:9.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ac-d);line-height:1.3}
+  .in-noterow{display:block}
+  .in-noterow td.in-note{display:block;border-radius:var(--rad-lg);border:1.5px dashed var(--g300);margin-bottom:14px}
+  .in-noterow td.in-note::before{display:none}
+}
+@media (max-width:480px){
+  body{padding:10px}
+  .in-hero{padding:18px 15px;border-radius:12px}
+  .in-hero h1{font-size:18px;line-height:1.25}
+  .in-cifras{grid-template-columns:1fr 1fr;gap:8px}
+  .in-postal{padding:16px 16px}
+  .in-ley{padding:16px 15px;border-radius:12px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="in-wrap">
+
+  <!-- HERO -->
+  <section class="in-hero">
+    <span class="in-hero-tag">Art. 8 · Fracción I · Inciso n) · Ley de Transparencia Jalisco</span>
+    <h1>Expedientes reservados: <em>qué información se reservó y por qué</em></h1>
+    <p class="in-hero-sub">A veces, por ley, cierta información se <strong>reserva temporalmente</strong> —por ejemplo, cuando difundirla podría afectar una investigación en curso, la seguridad o los datos personales de alguien. Este es el <strong>índice oficial de los expedientes clasificados como reservados</strong> por el Comité de Transparencia, ordenado <strong>por área responsable y por tema</strong>: aquí puedes ver qué se reservó, quién lo decidió, con qué <strong>fundamento legal</strong> y por cuánto tiempo. Reservar <strong>no es ocultar</strong>: cada reserva tiene un <strong>plazo definido</strong> y, al cumplirse, la información vuelve a evaluarse.</p>
+    <div class="in-cifras">
+      <div class="in-cifra"><div class="in-cifra-num">30</div><div class="in-cifra-lbl">Expedientes reservados</div></div>
+      <div class="in-cifra"><div class="in-cifra-num">9</div><div class="in-cifra-lbl">Áreas responsables</div></div>
+      <div class="in-cifra"><div class="in-cifra-num">16</div><div class="in-cifra-lbl">Sesiones con reserva</div></div>
+      <div class="in-cifra"><div class="in-cifra-num">2&ndash;10</div><div class="in-cifra-lbl">Años de reserva</div></div>
+    </div>
+  </section>
+
+  <!-- CONTROLES -->
+  <div class="in-sec-title">Consulta el índice</div>
+  <div class="in-controls">
+    <div class="in-search-wrap">
+      <svg class="in-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="search" class="in-search" id="inSearch" placeholder="Buscar por expediente, tema, área, fecha o fundamento…" autocomplete="off" aria-label="Buscar entre los expedientes reservados">
+      <button class="in-search-clear" id="inSearchClear" type="button" aria-label="Limpiar búsqueda">&times;</button>
+    </div>
+    <div class="in-chips-row">
+      <span class="in-chips-lbl">Año:</span>
+      <button class="in-yearchip active" id="inYearAll" type="button">Todos<span class="in-yearchip-ct">30</span></button>
+      <button class="in-yearchip" type="button" data-year="2026">2026<span class="in-yearchip-ct">8</span></button>
+      <button class="in-yearchip" type="button" data-year="2025">2025<span class="in-yearchip-ct">21</span></button>
+      <button class="in-yearchip" type="button" data-year="2024">2024<span class="in-yearchip-ct">1</span></button>
+    </div>
+    <div class="in-chips-row">
+      <span class="in-chips-lbl">Área:</span>
+      <button class="in-allchip active" id="inChipAll" type="button">Todas<span class="in-allchip-ct">30</span></button>
+      <button class="in-areachip" type="button" data-area="Direcci&#243;n de Licencias de Construcci&#243;n">Direcci&#243;n de Licencias de Construcci&#243;n<span class="in-areachip-ct">12</span></button>
+      <button class="in-areachip" type="button" data-area="Comisar&#237;a de Seguridad Ciudadana">Comisar&#237;a de Seguridad Ciudadana<span class="in-areachip-ct">7</span></button>
+      <button class="in-areachip" type="button" data-area="Direcci&#243;n de lo Jur&#237;dico Contencioso">Direcci&#243;n de lo Jur&#237;dico Contencioso<span class="in-areachip-ct">4</span></button>
+      <button class="in-areachip" type="button" data-area="Sindicatura Municipal">Sindicatura Municipal<span class="in-areachip-ct">2</span></button>
+      <button class="in-areachip" type="button" data-area="Coordinaci&#243;n Municipal de Gesti&#243;n Integral de Riesgos, Protecci&#243;n Civil y Bomberos">Coordinaci&#243;n Municipal de Gesti&#243;n Integral de Riesgos, Protecci&#243;n Civil y Bomberos<span class="in-areachip-ct">1</span></button>
+      <button class="in-areachip" type="button" data-area="Direcci&#243;n de Asuntos Internos">Direcci&#243;n de Asuntos Internos<span class="in-areachip-ct">1</span></button>
+      <button class="in-areachip" type="button" data-area="Contralor&#237;a Ciudadana">Contralor&#237;a Ciudadana<span class="in-areachip-ct">1</span></button>
+      <button class="in-areachip" type="button" data-area="Coordinaci&#243;n Municipal de Cuidamos Guadalajara">Coordinaci&#243;n Municipal de Cuidamos Guadalajara<span class="in-areachip-ct">1</span></button>
+      <button class="in-areachip" type="button" data-area="Direcci&#243;n de Obras P&#250;blicas">Direcci&#243;n de Obras P&#250;blicas<span class="in-areachip-ct">1</span></button>
+    </div>
+    <div class="in-count" id="inCount"></div>
+  </div>
+
+  <!-- TABLA -->
+  <div class="in-tablewrap">
+    <table class="in-tabla">
+      <colgroup>
+        <col style="width:10%"/><col style="width:10%"/><col style="width:24%"/><col style="width:11%"/><col style="width:13%"/><col style="width:21%"/><col style="width:11%"/>
+      </colgroup>
+      <thead>
+        <tr>
+          <th scope="col">Número de sesión</th>
+          <th scope="col">Número de expediente interno</th>
+          <th scope="col">Información a reservar</th>
+          <th scope="col">Fecha en que sesionó el Comité de Transparencia</th>
+          <th scope="col">Área responsable de la reserva de la información</th>
+          <th scope="col">Fundamento legal</th>
+          <th scope="col">Periodo de reserva de la información</th>
+        </tr>
+      </thead>
+      <tbody id="inBody">
+      <tr class="in-row" data-year="2026" data-area="Contralor&#237;a Ciudadana" data-text="quincuagesima sesion ordinaria dai/2278/2026 informacion relativa a procedimientos de verificacion o auditoria practicados respecto de la obra publica identificada como “dop-reh-mun-esp-lp-059-25”, incluyendo resultados y copia del expediente correspondiente, cuya difusion podria comprometer procesos de fiscalizacion, verificacion, auditoria y posibles procedimientos administrativos o de responsabilidad aun en tramite. 17 de abril de 2026 contraloria ciudadana hipotesis de reserva prevista en el articulo 17 fraccion i incisos l), g), y 17.1 fraccion iii, de la ley de transparencia y acceso a la informacion publica del estado de jalisco y sus municipios. 05 anos">
+        <td data-label="Número de sesión" class="in-c-ses">Quincuag&#233;sima Sesi&#243;n Ordinaria</td>
+        <td data-label="Número de expediente interno" class="in-c-exp"><span class="in-exp">DAI/2278/2026</span></td>
+        <td data-label="Información a reservar" class="in-c-info">Informaci&#243;n relativa a procedimientos de verificaci&#243;n o auditor&#237;a practicados respecto de la obra p&#250;blica identificada como “DOP-REH-MUN-ESP-LP-059-25”, incluyendo resultados y copia del expediente correspondiente, cuya difusi&#243;n podr&#237;a comprometer procesos de fiscalizaci&#243;n, verificaci&#243;n, auditor&#237;a y posibles procedimientos administrativos o de responsabilidad a&#250;n en tr&#225;mite.</td>
+        <td data-label="Fecha en que sesionó el Comité de Transparencia" class="in-c-fecha">17 de abril de 2026</td>
+        <td data-label="Área responsable de la reserva de la información" class="in-c-area"><span class="in-chip in-chip-area">Contralor&#237;a Ciudadana</span></td>
+        <td data-label="Fundamento legal" class="in-c-fund">Hip&#243;tesis de reserva prevista en el art&#237;culo 17 fracci&#243;n I incisos l), g), y 17.1 fracci&#243;n III, de la Ley de Transparencia y Acceso a la Informaci&#243;n P&#250;blica del Estado de Jalisco y sus Municipios.</td>
+        <td data-label="Periodo de reserva de la información" class="in-c-per"><span class="in-chip in-chip-per">05 a&#241;os</span></td>
+      </tr>
+      <tr class="in-row" data-year="2026" data-area="Comisar&#237;a de Seguridad Ciudadana" data-text="quincuagesima sesion ordinaria dai/2212/2026 expediente laboral de una persona servidora publica identificable, el cual contiene informacion relacionada con datos personales, documentos administrativos y antecedentes laborales, cuya difusion podria vulnerar la privacidad y proteccion de datos personales de la persona titular del expediente. 17 de abril de 2026 comisaria de seguridad ciudadana hipotesis de reserva prevista en el articulo 17 fraccion i incisos l), g), y 17.1 fraccion iii, de la ley de transparencia y acceso a la informacion publica del estado de jalisco y sus municipios. 05 anos">
+        <td data-label="Número de sesión" class="in-c-ses">Quincuag&#233;sima Sesi&#243;n Ordinaria</td>
+        <td data-label="Número de expediente interno" class="in-c-exp"><span class="in-exp">DAI/2212/2026</span></td>
+        <td data-label="Información a reservar" class="in-c-info">Expediente laboral de una persona servidora p&#250;blica identificable, el cual contiene informaci&#243;n relacionada con datos personales, documentos administrativos y antecedentes laborales, cuya difusi&#243;n podr&#237;a vulnerar la privacidad y protecci&#243;n de datos personales de la persona titular del expediente.</td>
+        <td data-label="Fecha en que sesionó el Comité de Transparencia" class="in-c-fecha">17 de abril de 2026</td>
+        <td data-label="Área responsable de la reserva de la información" class="in-c-area"><span class="in-chip in-chip-area">Comisar&#237;a de Seguridad Ciudadana</span></td>
+        <td data-label="Fundamento legal" class="in-c-fund">Hip&#243;tesis de reserva prevista en el art&#237;culo 17 fracci&#243;n I incisos l), g), y 17.1 fracci&#243;n III, de la Ley de Transparencia y Acceso a la Informaci&#243;n P&#250;blica del Estado de Jalisco y sus Municipios.</td>
+        <td data-label="Periodo de reserva de la información" class="in-c-per"><span class="in-chip in-chip-per">05 a&#241;os</span></td>
+      </tr>
+      <tr class="in-row" data-year="2026" data-area="Coordinaci&#243;n Municipal de Cuidamos Guadalajara" data-text="cuadragesima novena sesion ordinaria dai/1818/2026 diversa informacion relacionada con un vehiculo presuntamente adscrito al parque vehicular del municipio de guadalajara, incluyendo registros de geolocalizacion (gps), recorridos, reportes de percances viales, accidentes, descomposturas, perdidas totales, informes de aseguradoras, avisos a autoridades, imagenes, datos sobre servidores publicos involucrados y posibles responsabilidades administrativas o patrimoniales, cuya difusion podria comprometer procedimientos administrativos, de responsabilidad, seguridad institucional y datos vinculados a investigaciones o actuaciones oficiales en tramite. 27 de marzo de 2026 coordinacion municipal de cuidamos guadalajara hipotesis de reserva prevista en el articulo 17 fraccion i incisos l), g), y 17.1 fraccion iii, de la ley de transparencia y acceso a la informacion publica del estado de jalisco y sus municipios. 05 anos">
+        <td data-label="Número de sesión" class="in-c-ses">Cuadrag&#233;sima Novena Sesi&#243;n Ordinaria</td>
+        <td data-label="Número de expediente interno" class="in-c-exp"><span class="in-exp">DAI/1818/2026</span></td>
+        <td data-label="Información a reservar" class="in-c-info">Diversa informaci&#243;n relacionada con un veh&#237;culo presuntamente adscrito al parque vehicular del Municipio de Guadalajara, incluyendo registros de geolocalizaci&#243;n (GPS), recorridos, reportes de percances viales, accidentes, descomposturas, p&#233;rdidas totales, informes de aseguradoras, avisos a autoridades, im&#225;genes, datos sobre servidores p&#250;blicos involucrados y posibles responsabilidades administrativas o patrimoniales, cuya difusi&#243;n podr&#237;a comprometer procedimientos administrativos, de responsabilidad, seguridad institucional y datos vinculados a investigaciones o actuaciones oficiales en tr&#225;mite.</td>
+        <td data-label="Fecha en que sesionó el Comité de Transparencia" class="in-c-fecha">27 de marzo de 2026</td>
+        <td data-label="Área responsable de la reserva de la información" class="in-c-area"><span class="in-chip in-chip-area">Coordinaci&#243;n Municipal de Cuidamos Guadalajara</span></td>
+        <td data-label="Fundamento legal" class="in-c-fund">Hip&#243;tesis de reserva prevista en el art&#237;culo 17 fracci&#243;n I incisos l), g), y 17.1 fracci&#243;n III, de la Ley de Transparencia y Acceso a la Informaci&#243;n P&#250;blica del Estado de Jalisco y sus Municipios.</td>
+        <td data-label="Periodo de reserva de la información" class="in-c-per"><span class="in-chip in-chip-per">05 a&#241;os</span></td>
+      </tr>
+      <tr class="in-row" data-year="2026" data-area="Sindicatura Municipal" data-text="cuadragesima octava sesion ordinaria dai/1771/2026 diversa documentacion relacionada con el incidente de suspension 896/2022 tramitado ante la primera sala unitaria del tribunal de justicia administrativa del estado de jalisco, incluyendo oficios, acuerdos jurisdiccionales, medidas cautelares, documentacion relativa a su cumplimiento, criterios tecnicos y juridicos, asi como informacion sobre solicitudes de permisos y el estado procesal del expediente, cuya difusion podria comprometer estrategias juridicas, procedimientos administrativos y actuaciones vinculadas a litigios y procesos jurisdiccionales en tramite del municipio de guadalajara. 20 de marzo de 2026 sindicatura municipal hipotesis de reserva prevista en el articulo 17 fraccion i incisos l), g), y 17.1 fraccion iii, de la ley de transparencia y acceso a la informacion publica del estado de jalisco y sus municipios. 02 anos">
+        <td data-label="Número de sesión" class="in-c-ses">Cuadrag&#233;sima Octava Sesi&#243;n Ordinaria</td>
+        <td data-label="Número de expediente interno" class="in-c-exp"><span class="in-exp">DAI/1771/2026</span></td>
+        <td data-label="Información a reservar" class="in-c-info">Diversa documentaci&#243;n relacionada con el Incidente de Suspensi&#243;n 896/2022 tramitado ante la Primera Sala Unitaria del Tribunal de Justicia Administrativa del Estado de Jalisco, incluyendo oficios, acuerdos jurisdiccionales, medidas cautelares, documentaci&#243;n relativa a su cumplimiento, criterios t&#233;cnicos y jur&#237;dicos, as&#237; como informaci&#243;n sobre solicitudes de permisos y el estado procesal del expediente, cuya difusi&#243;n podr&#237;a comprometer estrategias jur&#237;dicas, procedimientos administrativos y actuaciones vinculadas a litigios y procesos jurisdiccionales en tr&#225;mite del Municipio de Guadalajara.</td>
+        <td data-label="Fecha en que sesionó el Comité de Transparencia" class="in-c-fecha">20 de marzo de 2026</td>
+        <td data-label="Área responsable de la reserva de la información" class="in-c-area"><span class="in-chip in-chip-area">Sindicatura Municipal</span></td>
+        <td data-label="Fundamento legal" class="in-c-fund">Hip&#243;tesis de reserva prevista en el art&#237;culo 17 fracci&#243;n I incisos l), g), y 17.1 fracci&#243;n III, de la Ley de Transparencia y Acceso a la Informaci&#243;n P&#250;blica del Estado de Jalisco y sus Municipios.</td>
+        <td data-label="Periodo de reserva de la información" class="in-c-per"><span class="in-chip in-chip-per">02 a&#241;os</span></td>
+      </tr>
+      <tr class="in-row" data-year="2026" data-area="Coordinaci&#243;n Municipal de Gesti&#243;n Integral de Riesgos, Protecci&#243;n Civil y Bomberos" data-text="cuadragesima octava sesion ordinaria dai/1657/2026 informacion estadistica relativa al personal adscrito al centro de operaciones de emergencia, radiocomunicacion, despacho de emergencias, cabina de radio, centro de mando o areas equivalentes de la coordinacion municipal de gestion integral de riesgos, proteccion civil y bomberos del municipio de guadalajara, correspondiente a los ultimos 24 meses, cuya difusion podria comprometer la operatividad, capacidad de respuesta y estrategias de atencion de emergencias de dicha dependencia. 20 de marzo de 2026 coordinacion municipal de gestion integral de riesgos, proteccion civil y bomberos hipotesis de reserva prevista en el articulo 17 fraccion i incisos l), g), y 17.1 fraccion iii, de la ley de transparencia y acceso a la informacion publica del estado de jalisco y sus municipios. 05 anos">
+        <td data-label="Número de sesión" class="in-c-ses">Cuadrag&#233;sima Octava Sesi&#243;n Ordinaria</td>
+        <td data-label="Número de expediente interno" class="in-c-exp"><span class="in-exp">DAI/1657/2026</span></td>
+        <td data-label="Información a reservar" class="in-c-info">Informaci&#243;n estad&#237;stica relativa al personal adscrito al Centro de Operaciones de Emergencia, radiocomunicaci&#243;n, despacho de emergencias, cabina de radio, centro de mando o &#225;reas equivalentes de la Coordinaci&#243;n Municipal de Gesti&#243;n Integral de Riesgos, Protecci&#243;n Civil y Bomberos del Municipio de Guadalajara, correspondiente a los &#250;ltimos 24 meses, cuya difusi&#243;n podr&#237;a comprometer la operatividad, capacidad de respuesta y estrategias de atenci&#243;n de emergencias de dicha dependencia.</td>
+        <td data-label="Fecha en que sesionó el Comité de Transparencia" class="in-c-fecha">20 de marzo de 2026</td>
+        <td data-label="Área responsable de la reserva de la información" class="in-c-area"><span class="in-chip in-chip-area">Coordinaci&#243;n Municipal de Gesti&#243;n Integral de Riesgos, Protecci&#243;n Civil y Bomberos</span></td>
+        <td data-label="Fundamento legal" class="in-c-fund">Hip&#243;tesis de reserva prevista en el art&#237;culo 17 fracci&#243;n I incisos l), g), y 17.1 fracci&#243;n III, de la Ley de Transparencia y Acceso a la Informaci&#243;n P&#250;blica del Estado de Jalisco y sus Municipios.</td>
+        <td data-label="Periodo de reserva de la información" class="in-c-per"><span class="in-chip in-chip-per">05 a&#241;os</span></td>
+      </tr>
+      <tr class="in-row" data-year="2026" data-area="Direcci&#243;n de Licencias de Construcci&#243;n" data-text="cuadragesima septima sesion ordinaria dai/1535/2026 documentacion administrativa que conforma el “expediente unico”, relativa a licencias, permisos, certificados, dictamenes, anuencias y vistos buenos exigidos por la normativa de construccion aplicable para la ejecucion de un proyecto inmobiliario en un predio plenamente identificado en el municipio de guadalajara. 13 de marzo de 2026 direccion de licencias de construccion hipotesis de reserva prevista en el articulo 17 fraccion i incisos l), g), y 17.1 fraccion iii, de la ley de transparencia y acceso a la informacion publica del estado de jalisco y sus municipios. 02 anos">
+        <td data-label="Número de sesión" class="in-c-ses">Cuadrag&#233;sima S&#233;ptima Sesi&#243;n Ordinaria</td>
+        <td data-label="Número de expediente interno" class="in-c-exp"><span class="in-exp">DAI/1535/2026</span></td>
+        <td data-label="Información a reservar" class="in-c-info">Documentaci&#243;n administrativa que conforma el “Expediente &#218;nico”, relativa a licencias, permisos, certificados, dict&#225;menes, anuencias y vistos buenos exigidos por la normativa de construcci&#243;n aplicable para la ejecuci&#243;n de un proyecto inmobiliario en un predio plenamente identificado en el municipio de Guadalajara.</td>
+        <td data-label="Fecha en que sesionó el Comité de Transparencia" class="in-c-fecha">13 de marzo de 2026</td>
+        <td data-label="Área responsable de la reserva de la información" class="in-c-area"><span class="in-chip in-chip-area">Direcci&#243;n de Licencias de Construcci&#243;n</span></td>
+        <td data-label="Fundamento legal" class="in-c-fund">Hip&#243;tesis de reserva prevista en el art&#237;culo 17 fracci&#243;n I incisos l), g), y 17.1 fracci&#243;n III, de la Ley de Transparencia y Acceso a la Informaci&#243;n P&#250;blica del Estado de Jalisco y sus Municipios.</td>
+        <td data-label="Periodo de reserva de la información" class="in-c-per"><span class="in-chip in-chip-per">02 a&#241;os</span></td>
+      </tr>
+      <tr class="in-row" data-year="2026" data-area="Direcci&#243;n de Obras P&#250;blicas" data-text="cuadragesima tercera sesion ordinaria dtb/1028/2026 documentacion administrativa que conforma el “expediente de contratacion y construccion”, relativo al dop-pol-mun-c5-lp-184-22 en el municipio de guadalajara. 12 de febrero de 2026 direccion de obras publicas hipotesis de reserva prevista en el articulo 17 fraccion i incisos l), g), y 17.1 fraccion iii, de la ley de transparencia y acceso a la informacion publica del estado de jalisco y sus municipios. 05 anos">
+        <td data-label="Número de sesión" class="in-c-ses">Cuadrag&#233;sima Tercera Sesi&#243;n Ordinaria</td>
+        <td data-label="Número de expediente interno" class="in-c-exp"><span class="in-exp">DTB/1028/2026</span></td>
+        <td data-label="Información a reservar" class="in-c-info">Documentaci&#243;n administrativa que conforma el “Expediente de contrataci&#243;n y construcci&#243;n”, relativo al DOP-POL-MUN-C5-LP-184-22 en el municipio de Guadalajara.</td>
+        <td data-label="Fecha en que sesionó el Comité de Transparencia" class="in-c-fecha">12 de febrero de 2026</td>
+        <td data-label="Área responsable de la reserva de la información" class="in-c-area"><span class="in-chip in-chip-area">Direcci&#243;n de Obras P&#250;blicas</span></td>
+        <td data-label="Fundamento legal" class="in-c-fund">Hip&#243;tesis de reserva prevista en el art&#237;culo 17 fracci&#243;n I incisos l), g), y 17.1 fracci&#243;n III, de la Ley de Transparencia y Acceso a la Informaci&#243;n P&#250;blica del Estado de Jalisco y sus Municipios.</td>
+        <td data-label="Periodo de reserva de la información" class="in-c-per"><span class="in-chip in-chip-per">05 a&#241;os</span></td>
+      </tr>
+      <tr class="in-row" data-year="2026" data-area="Direcci&#243;n de Licencias de Construcci&#243;n" data-text="cuadragesima primera sesion ordinaria dtb/124/2026 documentacion administrativa que conforma el “expediente unico”, relativa a licencias, permisos, certificados, dictamenes, anuencias y vistos buenos exigidos por la normativa de construccion aplicable para la ejecucion de un proyecto inmobiliario en un predio plenamente identificado en el municipio de guadalajara. 29 de enero de 2026 direccion de licencias de construccion hipotesis de reserva prevista en el articulo 17 fraccion i incisos l), g), y 17.1 fraccion iii, de la ley de transparencia y acceso a la informacion publica del estado de jalisco y sus municipios. 02 anos">
+        <td data-label="Número de sesión" class="in-c-ses">Cuadrag&#233;sima Primera Sesi&#243;n Ordinaria</td>
+        <td data-label="Número de expediente interno" class="in-c-exp"><span class="in-exp">DTB/124/2026</span></td>
+        <td data-label="Información a reservar" class="in-c-info">Documentaci&#243;n administrativa que conforma el “Expediente &#218;nico”, relativa a licencias, permisos, certificados, dict&#225;menes, anuencias y vistos buenos exigidos por la normativa de construcci&#243;n aplicable para la ejecuci&#243;n de un proyecto inmobiliario en un predio plenamente identificado en el municipio de Guadalajara.</td>
+        <td data-label="Fecha en que sesionó el Comité de Transparencia" class="in-c-fecha">29 de enero de 2026</td>
+        <td data-label="Área responsable de la reserva de la información" class="in-c-area"><span class="in-chip in-chip-area">Direcci&#243;n de Licencias de Construcci&#243;n</span></td>
+        <td data-label="Fundamento legal" class="in-c-fund">Hip&#243;tesis de reserva prevista en el art&#237;culo 17 fracci&#243;n I incisos l), g), y 17.1 fracci&#243;n III, de la Ley de Transparencia y Acceso a la Informaci&#243;n P&#250;blica del Estado de Jalisco y sus Municipios.</td>
+        <td data-label="Periodo de reserva de la información" class="in-c-per"><span class="in-chip in-chip-per">02 a&#241;os</span></td>
+      </tr>
+      <tr class="in-row" data-year="2025" data-area="Sindicatura Municipal" data-text="trigesima septima sesion ordinaria dtb/9690/2025 informacion y documentacion consistente en la actualizacion de reserva de informacion de apercibimiento y reporte de licencias de construccion a domicilio particular. 03 de diciembre de 2025 sindicatura municipal hipotesis de reserva prevista en el articulo 17 fraccion i incisos l), g), y 17.1 fraccion iii, de la ley de transparencia y acceso a la informacion publica del estado de jalisco y sus municipios. 02 anos">
+        <td data-label="Número de sesión" class="in-c-ses">Trig&#233;sima S&#233;ptima Sesi&#243;n Ordinaria</td>
+        <td data-label="Número de expediente interno" class="in-c-exp"><span class="in-exp">DTB/9690/2025</span></td>
+        <td data-label="Información a reservar" class="in-c-info">Informaci&#243;n y documentaci&#243;n consistente en la actualizacion de reserva de informaci&#243;n de apercibimiento y reporte de Licencias de Construcci&#243;n a domicilio particular.</td>
+        <td data-label="Fecha en que sesionó el Comité de Transparencia" class="in-c-fecha">03 de diciembre de 2025</td>
+        <td data-label="Área responsable de la reserva de la información" class="in-c-area"><span class="in-chip in-chip-area">Sindicatura Municipal</span></td>
+        <td data-label="Fundamento legal" class="in-c-fund">Hip&#243;tesis de reserva prevista en el art&#237;culo 17 fracci&#243;n I incisos l), g), y 17.1 fracci&#243;n III, de la Ley de Transparencia y Acceso a la Informaci&#243;n P&#250;blica del Estado de Jalisco y sus Municipios.</td>
+        <td data-label="Periodo de reserva de la información" class="in-c-per"><span class="in-chip in-chip-per">02 a&#241;os</span></td>
+      </tr>
+      <tr class="in-row" data-year="2025" data-area="Direcci&#243;n de Licencias de Construcci&#243;n" data-text="trigesima quinta sesion ordinaria dtb/9498/2025 informacion y documentacion consistente en la totalidad de procedimientos, ordenes y resoluciones de cualquier naturaleza, administrativas o jurisdiccionales, dictadas en relacion con predios plenamente identificados. 21 de noviembre de 2025 direccion de licencias de construccion hipotesis de reserva prevista en el articulo 17 fraccion i incisos l), g), y 17.1 fraccion iii, de la ley de transparencia y acceso a la informacion publica del estado de jalisco y sus municipios. 02 anos">
+        <td data-label="Número de sesión" class="in-c-ses">Trig&#233;sima Quinta Sesi&#243;n Ordinaria</td>
+        <td data-label="Número de expediente interno" class="in-c-exp"><span class="in-exp">DTB/9498/2025</span></td>
+        <td data-label="Información a reservar" class="in-c-info">Informaci&#243;n y documentaci&#243;n consistente en la totalidad de procedimientos, &#243;rdenes y resoluciones de cualquier naturaleza, administrativas o jurisdiccionales, dictadas en relaci&#243;n con predios plenamente identificados.</td>
+        <td data-label="Fecha en que sesionó el Comité de Transparencia" class="in-c-fecha">21 de noviembre de 2025</td>
+        <td data-label="Área responsable de la reserva de la información" class="in-c-area"><span class="in-chip in-chip-area">Direcci&#243;n de Licencias de Construcci&#243;n</span></td>
+        <td data-label="Fundamento legal" class="in-c-fund">Hip&#243;tesis de reserva prevista en el art&#237;culo 17 fracci&#243;n I incisos l), g), y 17.1 fracci&#243;n III, de la Ley de Transparencia y Acceso a la Informaci&#243;n P&#250;blica del Estado de Jalisco y sus Municipios.</td>
+        <td data-label="Periodo de reserva de la información" class="in-c-per"><span class="in-chip in-chip-per">02 a&#241;os</span></td>
+      </tr>
+      <tr class="in-row" data-year="2025" data-area="Direcci&#243;n de Licencias de Construcci&#243;n" data-text="trigesima quinta sesion ordinaria dtb/9482/2025 documentacion administrativa que conforma el “expediente unico”, relativa a licencias, permisos, certificados, dictamenes, anuencias y vistos buenos exigidos por la normativa de construccion aplicable para la ejecucion de un proyecto inmobiliario en un predio plenamente identificado en el municipio de guadalajara. 21 de noviembre de 2025 direccion de licencias de construccion hipotesis de reserva prevista en el articulo 17 fraccion i incisos l), g), y 17.1 fraccion iii, de la ley de transparencia y acceso a la informacion publica del estado de jalisco y sus municipios. 02 anos">
+        <td data-label="Número de sesión" class="in-c-ses">Trig&#233;sima Quinta Sesi&#243;n Ordinaria</td>
+        <td data-label="Número de expediente interno" class="in-c-exp"><span class="in-exp">DTB/9482/2025</span></td>
+        <td data-label="Información a reservar" class="in-c-info">Documentaci&#243;n administrativa que conforma el “Expediente &#218;nico”, relativa a licencias, permisos, certificados, dict&#225;menes, anuencias y vistos buenos exigidos por la normativa de construcci&#243;n aplicable para la ejecuci&#243;n de un proyecto inmobiliario en un predio plenamente identificado en el municipio de Guadalajara.</td>
+        <td data-label="Fecha en que sesionó el Comité de Transparencia" class="in-c-fecha">21 de noviembre de 2025</td>
+        <td data-label="Área responsable de la reserva de la información" class="in-c-area"><span class="in-chip in-chip-area">Direcci&#243;n de Licencias de Construcci&#243;n</span></td>
+        <td data-label="Fundamento legal" class="in-c-fund">Hip&#243;tesis de reserva prevista en el art&#237;culo 17 fracci&#243;n I incisos l), g), y 17.1 fracci&#243;n III, de la Ley de Transparencia y Acceso a la Informaci&#243;n P&#250;blica del Estado de Jalisco y sus Municipios.</td>
+        <td data-label="Periodo de reserva de la información" class="in-c-per"><span class="in-chip in-chip-per">02 a&#241;os</span></td>
+      </tr>
+      <tr class="in-row" data-year="2025" data-area="Comisar&#237;a de Seguridad Ciudadana" data-text="trigesima tercera sesion ordinaria dtb/8867/2025 informacion y documentacion administrativa relacionada con el nombramiento, cargo actual, fecha de designacion y soporte documental de la adscripcion del comandante o encargado de una comisaria de la policia preventiva ubicada en un inmueble especifico. 06 de noviembre de 2025 comisaria de seguridad ciudadana hipotesis de reserva prevista en las fracciones i y v del articulo 112 y 113 de la ley general de transparencia y acceso a la informacion publica, los articulos 17 y 19 fraccion i de la ley de transparencia y acceso a la informacion publica del estado de jalisco y sus municipios y el articulo 158 de la ley del sistema de seguridad publica para el estado de jalisco. 02 anos">
+        <td data-label="Número de sesión" class="in-c-ses">Trig&#233;sima Tercera Sesi&#243;n Ordinaria</td>
+        <td data-label="Número de expediente interno" class="in-c-exp"><span class="in-exp">DTB/8867/2025</span></td>
+        <td data-label="Información a reservar" class="in-c-info">Informaci&#243;n y documentaci&#243;n administrativa relacionada con el nombramiento, cargo actual, fecha de designaci&#243;n y soporte documental de la adscripci&#243;n del comandante o encargado de una comisar&#237;a de la polic&#237;a preventiva ubicada en un inmueble espec&#237;fico.</td>
+        <td data-label="Fecha en que sesionó el Comité de Transparencia" class="in-c-fecha">06 de noviembre de 2025</td>
+        <td data-label="Área responsable de la reserva de la información" class="in-c-area"><span class="in-chip in-chip-area">Comisar&#237;a de Seguridad Ciudadana</span></td>
+        <td data-label="Fundamento legal" class="in-c-fund">Hip&#243;tesis de reserva prevista en las fracciones I y V del art&#237;culo 112 y 113 de la Ley General de Transparencia y Acceso a la Informaci&#243;n P&#250;blica, los art&#237;culos 17 y 19 fracci&#243;n I de la Ley de Transparencia y Acceso a la Informaci&#243;n P&#250;blica del Estado de Jalisco y sus Municipios y el art&#237;culo 158 de la Ley del Sistema de Seguridad P&#250;blica para el Estado de Jalisco.</td>
+        <td data-label="Periodo de reserva de la información" class="in-c-per"><span class="in-chip in-chip-per">02 a&#241;os</span></td>
+      </tr>
+      <tr class="in-noterow" data-year="2025" data-note="1"><td colspan="7" class="in-note">Durante el mes de octubre de 2025 el Comit&#233; de Transparencia del Municipio de Guadalajara no aprob&#243; reservas de informaci&#243;n</td></tr>
+      <tr class="in-row" data-year="2025" data-area="Direcci&#243;n de Licencias de Construcci&#243;n" data-text="vigesima octava sesion ordinaria dtb/7891/2025 informacion y documentacion relativa a licencias de construccion, dictamenes de trazo, usos y destinos del suelo, asi como acciones urbanisticas y procedimientos administrativos y jurisdiccionales vinculados, incluyendo recursos de revision y expedientes de juicios de nulidad, lesividad y amparo, correspondientes a predios plenamente identificados. 25 de septiembre de 2025 direccion de licencias de construccion hipotesis de reserva prevista en el articulo 17.1.i.g) y 17.1.ii, de la ley de transparencia y acceso a la informacion publica del estado de jalisco y sus municipios. 02 anos">
+        <td data-label="Número de sesión" class="in-c-ses">Vig&#233;sima Octava Sesi&#243;n Ordinaria</td>
+        <td data-label="Número de expediente interno" class="in-c-exp"><span class="in-exp">DTB/7891/2025</span></td>
+        <td data-label="Información a reservar" class="in-c-info">Informaci&#243;n y documentaci&#243;n relativa a licencias de construcci&#243;n, dict&#225;menes de trazo, usos y destinos del suelo, as&#237; como acciones urban&#237;sticas y procedimientos administrativos y jurisdiccionales vinculados, incluyendo recursos de revisi&#243;n y expedientes de juicios de nulidad, lesividad y amparo, correspondientes a predios plenamente identificados.</td>
+        <td data-label="Fecha en que sesionó el Comité de Transparencia" class="in-c-fecha">25 de septiembre de 2025</td>
+        <td data-label="Área responsable de la reserva de la información" class="in-c-area"><span class="in-chip in-chip-area">Direcci&#243;n de Licencias de Construcci&#243;n</span></td>
+        <td data-label="Fundamento legal" class="in-c-fund">Hip&#243;tesis de reserva prevista en el art&#237;culo 17.1.I.g) y 17.1.II, de la Ley de Transparencia y Acceso a la Informaci&#243;n P&#250;blica del Estado de Jalisco y sus Municipios.</td>
+        <td data-label="Periodo de reserva de la información" class="in-c-per"><span class="in-chip in-chip-per">02 a&#241;os</span></td>
+      </tr>
+      <tr class="in-row" data-year="2025" data-area="Direcci&#243;n de Licencias de Construcci&#243;n" data-text="vigesima octava sesion ordinaria dtb/8114/2025 informacion y documentacion administrativa emitida por las areas de ordenamiento territorial y licencias de construccion, consistente en dictamenes de trazo, usos y destinos del suelo, licencias de construccion y la totalidad de sus antecedentes administrativos, relativos a un predio plenamente identificado en el municipio de guadalajara. 25 de septiembre de 2025 direccion de licencias de construccion hipotesis de reserva prevista en el articulo 17.1.i.g) y 17.1.ii, de la ley de transparencia y acceso a la informacion publica del estado de jalisco y sus municipios. 02 anos">
+        <td data-label="Número de sesión" class="in-c-ses">Vig&#233;sima Octava Sesi&#243;n Ordinaria</td>
+        <td data-label="Número de expediente interno" class="in-c-exp"><span class="in-exp">DTB/8114/2025</span></td>
+        <td data-label="Información a reservar" class="in-c-info">Informaci&#243;n y documentaci&#243;n administrativa emitida por las &#225;reas de ordenamiento territorial y licencias de construcci&#243;n, consistente en dict&#225;menes de trazo, usos y destinos del suelo, licencias de construcci&#243;n y la totalidad de sus antecedentes administrativos, relativos a un predio plenamente identificado en el municipio de Guadalajara.</td>
+        <td data-label="Fecha en que sesionó el Comité de Transparencia" class="in-c-fecha">25 de septiembre de 2025</td>
+        <td data-label="Área responsable de la reserva de la información" class="in-c-area"><span class="in-chip in-chip-area">Direcci&#243;n de Licencias de Construcci&#243;n</span></td>
+        <td data-label="Fundamento legal" class="in-c-fund">Hip&#243;tesis de reserva prevista en el art&#237;culo 17.1.I.g) y 17.1.II, de la Ley de Transparencia y Acceso a la Informaci&#243;n P&#250;blica del Estado de Jalisco y sus Municipios.</td>
+        <td data-label="Periodo de reserva de la información" class="in-c-per"><span class="in-chip in-chip-per">02 a&#241;os</span></td>
+      </tr>
+      <tr class="in-row" data-year="2025" data-area="Direcci&#243;n de Licencias de Construcci&#243;n" data-text="vigesima octava sesion ordinaria dtb/8068/2025 informacion y documentacion administrativa emitida por areas de ordenamiento territorial y licencias de construccion, consistente en dictamenes de trazo, usos y destinos del suelo, licencias de construccion y la totalidad de sus antecedentes administrativos, relativos a un inmueble plenamente identificado en el municipio de guadalajara. 25 de septiembre de 2025 direccion de licencias de construccion hipotesis de reserva prevista en el articulo 17.1.i.g) y 17.1.ii, de la ley de transparencia y acceso a la informacion publica del estado de jalisco y sus municipios. 02 anos">
+        <td data-label="Número de sesión" class="in-c-ses">Vig&#233;sima Octava Sesi&#243;n Ordinaria</td>
+        <td data-label="Número de expediente interno" class="in-c-exp"><span class="in-exp">DTB/8068/2025</span></td>
+        <td data-label="Información a reservar" class="in-c-info">Informaci&#243;n y documentaci&#243;n administrativa emitida por &#225;reas de ordenamiento territorial y licencias de construcci&#243;n, consistente en dict&#225;menes de trazo, usos y destinos del suelo, licencias de construcci&#243;n y la totalidad de sus antecedentes administrativos, relativos a un inmueble plenamente identificado en el municipio de Guadalajara.</td>
+        <td data-label="Fecha en que sesionó el Comité de Transparencia" class="in-c-fecha">25 de septiembre de 2025</td>
+        <td data-label="Área responsable de la reserva de la información" class="in-c-area"><span class="in-chip in-chip-area">Direcci&#243;n de Licencias de Construcci&#243;n</span></td>
+        <td data-label="Fundamento legal" class="in-c-fund">Hip&#243;tesis de reserva prevista en el art&#237;culo 17.1.I.g) y 17.1.II, de la Ley de Transparencia y Acceso a la Informaci&#243;n P&#250;blica del Estado de Jalisco y sus Municipios.</td>
+        <td data-label="Periodo de reserva de la información" class="in-c-per"><span class="in-chip in-chip-per">02 a&#241;os</span></td>
+      </tr>
+      <tr class="in-row" data-year="2025" data-area="Direcci&#243;n de Licencias de Construcci&#243;n" data-text="vigesima octava sesion ordinaria dtb/8029/2025 documentacion administrativa y tecnica, incluyendo licencias de construccion, certificados de alineamiento, dictamenes de trazo, usos y destinos del suelo, asi como la totalidad de expedientes administrativos vinculados a un proyecto inmobiliario en un predio plenamente identificado del municipio de guadalajara. 25 de septiembre de 2025 direccion de licencias de construccion hipotesis de reserva prevista en el articulo 17.1.i.g) y 17.1.ii, de la ley de transparencia y acceso a la informacion publica del estado de jalisco y sus municipios. 02 anos">
+        <td data-label="Número de sesión" class="in-c-ses">Vig&#233;sima Octava Sesi&#243;n Ordinaria</td>
+        <td data-label="Número de expediente interno" class="in-c-exp"><span class="in-exp">DTB/8029/2025</span></td>
+        <td data-label="Información a reservar" class="in-c-info">Documentaci&#243;n administrativa y t&#233;cnica, incluyendo licencias de construcci&#243;n, certificados de alineamiento, dict&#225;menes de trazo, usos y destinos del suelo, as&#237; como la totalidad de expedientes administrativos vinculados a un proyecto inmobiliario en un predio plenamente identificado del municipio de Guadalajara.</td>
+        <td data-label="Fecha en que sesionó el Comité de Transparencia" class="in-c-fecha">25 de septiembre de 2025</td>
+        <td data-label="Área responsable de la reserva de la información" class="in-c-area"><span class="in-chip in-chip-area">Direcci&#243;n de Licencias de Construcci&#243;n</span></td>
+        <td data-label="Fundamento legal" class="in-c-fund">Hip&#243;tesis de reserva prevista en el art&#237;culo 17.1.I.g) y 17.1.II, de la Ley de Transparencia y Acceso a la Informaci&#243;n P&#250;blica del Estado de Jalisco y sus Municipios.</td>
+        <td data-label="Periodo de reserva de la información" class="in-c-per"><span class="in-chip in-chip-per">02 a&#241;os</span></td>
+      </tr>
+      <tr class="in-row" data-year="2025" data-area="Direcci&#243;n de Licencias de Construcci&#243;n" data-text="vigesima octava sesion ordinaria dtb/7893/2025 documentacion administrativa que conforma el “expediente unico”, relativa a licencias, permisos, certificados, dictamenes, anuencias y vistos buenos exigidos por la normativa de construccion aplicable para la ejecucion de un proyecto inmobiliario en un predio identificado. 25 de septiembre de 2025 direccion de licencias de construccion hipotesis de reserva prevista en el articulo 17.1.i.g) y 17.1.ii, de la ley de transparencia y acceso a la informacion publica del estado de jalisco y sus municipios. 02 anos">
+        <td data-label="Número de sesión" class="in-c-ses">Vig&#233;sima Octava Sesi&#243;n Ordinaria</td>
+        <td data-label="Número de expediente interno" class="in-c-exp"><span class="in-exp">DTB/7893/2025</span></td>
+        <td data-label="Información a reservar" class="in-c-info">Documentaci&#243;n administrativa que conforma el “Expediente &#218;nico”, relativa a licencias, permisos, certificados, dict&#225;menes, anuencias y vistos buenos exigidos por la normativa de construcci&#243;n aplicable para la ejecuci&#243;n de un proyecto inmobiliario en un predio identificado.</td>
+        <td data-label="Fecha en que sesionó el Comité de Transparencia" class="in-c-fecha">25 de septiembre de 2025</td>
+        <td data-label="Área responsable de la reserva de la información" class="in-c-area"><span class="in-chip in-chip-area">Direcci&#243;n de Licencias de Construcci&#243;n</span></td>
+        <td data-label="Fundamento legal" class="in-c-fund">Hip&#243;tesis de reserva prevista en el art&#237;culo 17.1.I.g) y 17.1.II, de la Ley de Transparencia y Acceso a la Informaci&#243;n P&#250;blica del Estado de Jalisco y sus Municipios.</td>
+        <td data-label="Periodo de reserva de la información" class="in-c-per"><span class="in-chip in-chip-per">02 a&#241;os</span></td>
+      </tr>
+      <tr class="in-row" data-year="2025" data-area="Direcci&#243;n de Licencias de Construcci&#243;n" data-text="vigesima octava sesion ordinaria dtb/7892/2025 documentacion administrativa que conforma el “expediente unico”, relativa a licencias, permisos, certificados, dictamenes, anuencias y vistos buenos exigidos por la normativa de construccion para el desarrollo de un proyecto inmobiliario en un predio identificado. 25 de septiembre de 2025 direccion de licencias de construccion hipotesis de reserva prevista en el articulo 17.1.i.g) y 17.1.ii, de la ley de transparencia y acceso a la informacion publica del estado de jalisco y sus municipios. 02 anos">
+        <td data-label="Número de sesión" class="in-c-ses">Vig&#233;sima Octava Sesi&#243;n Ordinaria</td>
+        <td data-label="Número de expediente interno" class="in-c-exp"><span class="in-exp">DTB/7892/2025</span></td>
+        <td data-label="Información a reservar" class="in-c-info">Documentaci&#243;n administrativa que conforma el “Expediente &#218;nico”, relativa a licencias, permisos, certificados, dict&#225;menes, anuencias y vistos buenos exigidos por la normativa de construcci&#243;n para el desarrollo de un proyecto inmobiliario en un predio identificado.</td>
+        <td data-label="Fecha en que sesionó el Comité de Transparencia" class="in-c-fecha">25 de septiembre de 2025</td>
+        <td data-label="Área responsable de la reserva de la información" class="in-c-area"><span class="in-chip in-chip-area">Direcci&#243;n de Licencias de Construcci&#243;n</span></td>
+        <td data-label="Fundamento legal" class="in-c-fund">Hip&#243;tesis de reserva prevista en el art&#237;culo 17.1.I.g) y 17.1.II, de la Ley de Transparencia y Acceso a la Informaci&#243;n P&#250;blica del Estado de Jalisco y sus Municipios.</td>
+        <td data-label="Periodo de reserva de la información" class="in-c-per"><span class="in-chip in-chip-per">02 a&#241;os</span></td>
+      </tr>
+      <tr class="in-row" data-year="2025" data-area="Comisar&#237;a de Seguridad Ciudadana" data-text="vigesima octava sesion ordinaria dtb/7821/2025 datos tecnicos y operativos vinculados a una unidad policial identificada, incluyendo radios moviles y portatiles, grabaciones y traducciones de comunicaciones, asi como fatiga, despliegue operativo y recorridos correspondientes a una fecha determinada. 25 de septiembre de 2025 comisaria de seguridad ciudadana hipotesis de reserva prevista en el articulo 17.1.i.a), c), d), f) y g) y 17.1. ii, iii y x, 18, 19, 20, 21, 24, 25 fraccion xv y xvii, de la ley de transparencia y acceso a la informacion publica del estado de jalisco y sus municipios. 03 anos">
+        <td data-label="Número de sesión" class="in-c-ses">Vig&#233;sima Octava Sesi&#243;n Ordinaria</td>
+        <td data-label="Número de expediente interno" class="in-c-exp"><span class="in-exp">DTB/7821/2025</span></td>
+        <td data-label="Información a reservar" class="in-c-info">Datos t&#233;cnicos y operativos vinculados a una unidad policial identificada, incluyendo radios m&#243;viles y port&#225;tiles, grabaciones y traducciones de comunicaciones, as&#237; como fatiga, despliegue operativo y recorridos correspondientes a una fecha determinada.</td>
+        <td data-label="Fecha en que sesionó el Comité de Transparencia" class="in-c-fecha">25 de septiembre de 2025</td>
+        <td data-label="Área responsable de la reserva de la información" class="in-c-area"><span class="in-chip in-chip-area">Comisar&#237;a de Seguridad Ciudadana</span></td>
+        <td data-label="Fundamento legal" class="in-c-fund">Hip&#243;tesis de reserva prevista en el art&#237;culo 17.1.I.a), c), d), f) y g) y 17.1. II, III y X, 18, 19, 20, 21, 24, 25 fracci&#243;n XV y XVII, de la Ley de Transparencia y Acceso a la Informaci&#243;n P&#250;blica del Estado de Jalisco y sus Municipios.</td>
+        <td data-label="Periodo de reserva de la información" class="in-c-per"><span class="in-chip in-chip-per">03 a&#241;os</span></td>
+      </tr>
+      <tr class="in-row" data-year="2025" data-area="Comisar&#237;a de Seguridad Ciudadana" data-text="vigesima octava sesion ordinaria dtb/7806/2025 datos operativos y de personal correspondientes a una unidad policial identificada, incluyendo servicios realizados y programados, horarios y elementos asignados en una fecha determinada. 25 de septiembre de 2025 comisaria de seguridad ciudadana hipotesis de reserva prevista en el articulo 17.1.i.a), c), d), f) y g) y 17.1. ii, iii y x, 18, 19, 20, 21, 24, 25 fraccion xv y xvii, de la ley de transparencia y acceso a la informacion publica del estado de jalisco y sus municipios. 03 anos">
+        <td data-label="Número de sesión" class="in-c-ses">Vig&#233;sima Octava Sesi&#243;n Ordinaria</td>
+        <td data-label="Número de expediente interno" class="in-c-exp"><span class="in-exp">DTB/7806/2025</span></td>
+        <td data-label="Información a reservar" class="in-c-info">Datos operativos y de personal correspondientes a una unidad policial identificada, incluyendo servicios realizados y programados, horarios y elementos asignados en una fecha determinada.</td>
+        <td data-label="Fecha en que sesionó el Comité de Transparencia" class="in-c-fecha">25 de septiembre de 2025</td>
+        <td data-label="Área responsable de la reserva de la información" class="in-c-area"><span class="in-chip in-chip-area">Comisar&#237;a de Seguridad Ciudadana</span></td>
+        <td data-label="Fundamento legal" class="in-c-fund">Hip&#243;tesis de reserva prevista en el art&#237;culo 17.1.I.a), c), d), f) y g) y 17.1. II, III y X, 18, 19, 20, 21, 24, 25 fracci&#243;n XV y XVII, de la Ley de Transparencia y Acceso a la Informaci&#243;n P&#250;blica del Estado de Jalisco y sus Municipios.</td>
+        <td data-label="Periodo de reserva de la información" class="in-c-per"><span class="in-chip in-chip-per">03 a&#241;os</span></td>
+      </tr>
+      <tr class="in-row" data-year="2025" data-area="Direcci&#243;n de Licencias de Construcci&#243;n" data-text="vigesima septima sesion ordinaria dtb/7723/2025 documentacion administrativa que conforma el “expediente unico”, relativa a licencias, permisos, certificados, dictamenes, anuencias y vistos buenos exigidos por la normativa de construccion para el desarrollo de un proyecto inmobiliario en un predio plenamente identificado. 12 de septiembre de 2025 direccion de licencias de construccion hipotesis de reserva prevista en el articulo 17 fraccion i inciso, lg) y 17.1 iii, de la ley de transparencia y acceso a la informacion publica del estado de jalisco y sus municipios. 02 anos">
+        <td data-label="Número de sesión" class="in-c-ses">Vig&#233;sima S&#233;ptima Sesi&#243;n Ordinaria</td>
+        <td data-label="Número de expediente interno" class="in-c-exp"><span class="in-exp">DTB/7723/2025</span></td>
+        <td data-label="Información a reservar" class="in-c-info">Documentaci&#243;n administrativa que conforma el “Expediente &#218;nico”, relativa a licencias, permisos, certificados, dict&#225;menes, anuencias y vistos buenos exigidos por la normativa de construcci&#243;n para el desarrollo de un proyecto inmobiliario en un predio plenamente identificado.</td>
+        <td data-label="Fecha en que sesionó el Comité de Transparencia" class="in-c-fecha">12 de septiembre de 2025</td>
+        <td data-label="Área responsable de la reserva de la información" class="in-c-area"><span class="in-chip in-chip-area">Direcci&#243;n de Licencias de Construcci&#243;n</span></td>
+        <td data-label="Fundamento legal" class="in-c-fund">Hip&#243;tesis de reserva prevista en el art&#237;culo 17 fracci&#243;n I inciso, lg) y 17.1 III, de la Ley de Transparencia y Acceso a la Informaci&#243;n P&#250;blica del Estado de Jalisco y sus Municipios.</td>
+        <td data-label="Periodo de reserva de la información" class="in-c-per"><span class="in-chip in-chip-per">02 a&#241;os</span></td>
+      </tr>
+      <tr class="in-row" data-year="2025" data-area="Direcci&#243;n de lo Jur&#237;dico Contencioso" data-text="segunda sesion extraordinaria dtb/7767/2025 informacion y documentacion relativa a acciones legales, administrativas y de proteccion ambiental emprendidas para la conservacion del area natural protegida bosque los colomos, en relacion con procesos de urbanizacion y un proyecto inmobiliario determinado. 04 de septiembre de 2025 direccion de lo juridico contencioso hipotesis de reserva prevista en el articulo 17 fraccion i inciso, lg) y 17.1 iii, de la ley de transparencia y acceso a la informacion publica del estado de jalisco y sus municipios. 02 anos">
+        <td data-label="Número de sesión" class="in-c-ses">Segunda Sesi&#243;n Extraordinaria</td>
+        <td data-label="Número de expediente interno" class="in-c-exp"><span class="in-exp">DTB/7767/2025</span></td>
+        <td data-label="Información a reservar" class="in-c-info">Informaci&#243;n y documentaci&#243;n relativa a acciones legales, administrativas y de protecci&#243;n ambiental emprendidas para la conservaci&#243;n del &#193;rea Natural Protegida Bosque Los Colomos, en relaci&#243;n con procesos de urbanizaci&#243;n y un proyecto inmobiliario determinado.</td>
+        <td data-label="Fecha en que sesionó el Comité de Transparencia" class="in-c-fecha">04 de septiembre de 2025</td>
+        <td data-label="Área responsable de la reserva de la información" class="in-c-area"><span class="in-chip in-chip-area">Direcci&#243;n de lo Jur&#237;dico Contencioso</span></td>
+        <td data-label="Fundamento legal" class="in-c-fund">Hip&#243;tesis de reserva prevista en el art&#237;culo 17 fracci&#243;n I inciso, lg) y 17.1 III, de la Ley de Transparencia y Acceso a la Informaci&#243;n P&#250;blica del Estado de Jalisco y sus Municipios.</td>
+        <td data-label="Periodo de reserva de la información" class="in-c-per"><span class="in-chip in-chip-per">02 a&#241;os</span></td>
+      </tr>
+      <tr class="in-row" data-year="2025" data-area="Direcci&#243;n de lo Jur&#237;dico Contencioso" data-text="segunda sesion extraordinaria dtb/7757/2025 informacion y documentacion relativa a acciones legales, administrativas y de proteccion ambiental emprendidas para la conservacion del area natural protegida bosque los colomos, en relacion con procesos de urbanizacion y un proyecto inmobiliario determinado. 04 de septiembre de 2025 direccion de lo juridico contencioso hipotesis de reserva prevista en el articulo 17 fraccion i inciso, lg) y 17.1 iii, de la ley de transparencia y acceso a la informacion publica del estado de jalisco y sus municipios. 02 anos">
+        <td data-label="Número de sesión" class="in-c-ses">Segunda Sesi&#243;n Extraordinaria</td>
+        <td data-label="Número de expediente interno" class="in-c-exp"><span class="in-exp">DTB/7757/2025</span></td>
+        <td data-label="Información a reservar" class="in-c-info">Informaci&#243;n y documentaci&#243;n relativa a acciones legales, administrativas y de protecci&#243;n ambiental emprendidas para la conservaci&#243;n del &#193;rea Natural Protegida Bosque Los Colomos, en relaci&#243;n con procesos de urbanizaci&#243;n y un proyecto inmobiliario determinado.</td>
+        <td data-label="Fecha en que sesionó el Comité de Transparencia" class="in-c-fecha">04 de septiembre de 2025</td>
+        <td data-label="Área responsable de la reserva de la información" class="in-c-area"><span class="in-chip in-chip-area">Direcci&#243;n de lo Jur&#237;dico Contencioso</span></td>
+        <td data-label="Fundamento legal" class="in-c-fund">Hip&#243;tesis de reserva prevista en el art&#237;culo 17 fracci&#243;n I inciso, lg) y 17.1 III, de la Ley de Transparencia y Acceso a la Informaci&#243;n P&#250;blica del Estado de Jalisco y sus Municipios.</td>
+        <td data-label="Periodo de reserva de la información" class="in-c-per"><span class="in-chip in-chip-per">02 a&#241;os</span></td>
+      </tr>
+      <tr class="in-row" data-year="2025" data-area="Direcci&#243;n de lo Jur&#237;dico Contencioso" data-text="segunda sesion extraordinaria dtb/7726/2025 informacion y documentacion relativa a acciones legales, administrativas y de proteccion ambiental emprendidas para la conservacion del area natural protegida bosque los colomos, en relacion con procesos de urbanizacion y un proyecto inmobiliario determinado. 04 de septiembre de 2025 direccion de lo juridico contencioso hipotesis de reserva prevista en el articulo 17 fraccion i inciso, lg) y 17.1 iii, de la ley de transparencia y acceso a la informacion publica del estado de jalisco y sus municipios. 02 anos">
+        <td data-label="Número de sesión" class="in-c-ses">Segunda Sesi&#243;n Extraordinaria</td>
+        <td data-label="Número de expediente interno" class="in-c-exp"><span class="in-exp">DTB/7726/2025</span></td>
+        <td data-label="Información a reservar" class="in-c-info">Informaci&#243;n y documentaci&#243;n relativa a acciones legales, administrativas y de protecci&#243;n ambiental emprendidas para la conservaci&#243;n del &#193;rea Natural Protegida Bosque Los Colomos, en relaci&#243;n con procesos de urbanizaci&#243;n y un proyecto inmobiliario determinado.</td>
+        <td data-label="Fecha en que sesionó el Comité de Transparencia" class="in-c-fecha">04 de septiembre de 2025</td>
+        <td data-label="Área responsable de la reserva de la información" class="in-c-area"><span class="in-chip in-chip-area">Direcci&#243;n de lo Jur&#237;dico Contencioso</span></td>
+        <td data-label="Fundamento legal" class="in-c-fund">Hip&#243;tesis de reserva prevista en el art&#237;culo 17 fracci&#243;n I inciso, lg) y 17.1 III, de la Ley de Transparencia y Acceso a la Informaci&#243;n P&#250;blica del Estado de Jalisco y sus Municipios.</td>
+        <td data-label="Periodo de reserva de la información" class="in-c-per"><span class="in-chip in-chip-per">02 a&#241;os</span></td>
+      </tr>
+      <tr class="in-row" data-year="2025" data-area="Direcci&#243;n de lo Jur&#237;dico Contencioso" data-text="segunda sesion extraordinaria dtb/7667/2025 informacion y documentacion relativa a acciones legales, administrativas y de proteccion ambiental emprendidas para la conservacion del area natural protegida bosque los colomos, en relacion con procesos de urbanizacion y un proyecto inmobiliario determinado. 04 de septiembre de 2025 direccion de lo juridico contencioso hipotesis de reserva prevista en el articulo 17 fraccion i inciso, lg) y 17.1 iii, de la ley de transparencia y acceso a la informacion publica del estado de jalisco y sus municipios. 02 anos">
+        <td data-label="Número de sesión" class="in-c-ses">Segunda Sesi&#243;n Extraordinaria</td>
+        <td data-label="Número de expediente interno" class="in-c-exp"><span class="in-exp">DTB/7667/2025</span></td>
+        <td data-label="Información a reservar" class="in-c-info">Informaci&#243;n y documentaci&#243;n relativa a acciones legales, administrativas y de protecci&#243;n ambiental emprendidas para la conservaci&#243;n del &#193;rea Natural Protegida Bosque Los Colomos, en relaci&#243;n con procesos de urbanizaci&#243;n y un proyecto inmobiliario determinado.</td>
+        <td data-label="Fecha en que sesionó el Comité de Transparencia" class="in-c-fecha">04 de septiembre de 2025</td>
+        <td data-label="Área responsable de la reserva de la información" class="in-c-area"><span class="in-chip in-chip-area">Direcci&#243;n de lo Jur&#237;dico Contencioso</span></td>
+        <td data-label="Fundamento legal" class="in-c-fund">Hip&#243;tesis de reserva prevista en el art&#237;culo 17 fracci&#243;n I inciso, lg) y 17.1 III, de la Ley de Transparencia y Acceso a la Informaci&#243;n P&#250;blica del Estado de Jalisco y sus Municipios.</td>
+        <td data-label="Periodo de reserva de la información" class="in-c-per"><span class="in-chip in-chip-per">02 a&#241;os</span></td>
+      </tr>
+      <tr class="in-row" data-year="2025" data-area="Comisar&#237;a de Seguridad Ciudadana" data-text="primera sesion extraordinaria n/a servicio de arrendamiento puro de vehiculo blindado para la proteccion de autoridades municipales del ayuntamiento de guadalajara” numero ad-gdl-040-2025 07 de agosto de 2025 comisaria de seguridad ciudadana hipotesis de reserva prevista en las fracciones i y v del articulo 112 y 113 de la ley general de transparencia y acceso a la informacion publica, los articulos 17 y 19 fraccion i de la ley de transparencia y acceso a la informacion publica del estado de jalisco y sus municipios y el articulo 158 de la ley del sistema de seguridad publica para el estado de jalisco. 10 anos">
+        <td data-label="Número de sesión" class="in-c-ses">Primera Sesi&#243;n Extraordinaria</td>
+        <td data-label="Número de expediente interno" class="in-c-exp"><span class="in-exp">N/A</span></td>
+        <td data-label="Información a reservar" class="in-c-info">Servicio de arrendamiento puro de veh&#237;culo blindado para la protecci&#243;n de autoridades municipales del Ayuntamiento de Guadalajara” n&#250;mero AD-GDL-040-2025</td>
+        <td data-label="Fecha en que sesionó el Comité de Transparencia" class="in-c-fecha">07 de agosto de 2025</td>
+        <td data-label="Área responsable de la reserva de la información" class="in-c-area"><span class="in-chip in-chip-area">Comisar&#237;a de Seguridad Ciudadana</span></td>
+        <td data-label="Fundamento legal" class="in-c-fund">Hip&#243;tesis de reserva prevista en las fracciones I y V del art&#237;culo 112 y 113 de la Ley General de Transparencia y Acceso a la Informaci&#243;n P&#250;blica, los art&#237;culos 17 y 19 fracci&#243;n I de la Ley de Transparencia y Acceso a la Informaci&#243;n P&#250;blica del Estado de Jalisco y sus Municipios y el art&#237;culo 158 de la Ley del Sistema de Seguridad P&#250;blica para el Estado de Jalisco.</td>
+        <td data-label="Periodo de reserva de la información" class="in-c-per"><span class="in-chip in-chip-per">10 a&#241;os</span></td>
+      </tr>
+      <tr class="in-row" data-year="2025" data-area="Direcci&#243;n de Licencias de Construcci&#243;n" data-text="vigesima tercera sesion ordinaria dtb/6393/2025 documentacion administrativa explained con licencias, permisos, certificados, dictamenes y autorizaciones necesarias para el desarrollo de un proyecto inmobiliario en un inmueble plenamente identificado. 23 de julio de 2025 direccion de licencias de construccion hipotesis de reserva prevista en los articulos 17.1.i.g) y 17.1.iii de la ley estatal referida, la informacion relacionada con procedimientos judiciales en tramite debe mantenerse reservada cuando su divulgacion pueda afectar el curso del proceso o la posicion juridica de las partes. 02 anos">
+        <td data-label="Número de sesión" class="in-c-ses">Vig&#233;sima Tercera Sesi&#243;n Ordinaria</td>
+        <td data-label="Número de expediente interno" class="in-c-exp"><span class="in-exp">DTB/6393/2025</span></td>
+        <td data-label="Información a reservar" class="in-c-info">Documentaci&#243;n administrativa explained con licencias, permisos, certificados, dict&#225;menes y autorizaciones necesarias para el desarrollo de un proyecto inmobiliario en un inmueble plenamente identificado.</td>
+        <td data-label="Fecha en que sesionó el Comité de Transparencia" class="in-c-fecha">23 de julio de 2025</td>
+        <td data-label="Área responsable de la reserva de la información" class="in-c-area"><span class="in-chip in-chip-area">Direcci&#243;n de Licencias de Construcci&#243;n</span></td>
+        <td data-label="Fundamento legal" class="in-c-fund">Hip&#243;tesis de reserva prevista en los art&#237;culos 17.1.I.g) y 17.1.III de la ley estatal referida, la informaci&#243;n relacionada con procedimientos judiciales en tr&#225;mite debe mantenerse reservada cuando su divulgaci&#243;n pueda afectar el curso del proceso o la posici&#243;n jur&#237;dica de las partes.</td>
+        <td data-label="Periodo de reserva de la información" class="in-c-per"><span class="in-chip in-chip-per">02 a&#241;os</span></td>
+      </tr>
+      <tr class="in-row" data-year="2025" data-area="Comisar&#237;a de Seguridad Ciudadana" data-text="vigesima tercera sesion ordinaria dtb/6126/2025 informacion laboral y salarial de un servidor publico identificado, relativa a su nombramiento, adscripcion, antiguedad, percepciones ordinarias y extraordinarias, asi como prestaciones y apoyos economicos. 23 de julio de 2025 comisaria de seguridad ciudadana hipotesis de reserva prevista en el articulo 17 fraccion i incisos d), g), ii, iv y v, de la ley de transparencia y acceso a la informacion publica del estado de jalisco y sus municipios. 05 anos">
+        <td data-label="Número de sesión" class="in-c-ses">Vig&#233;sima Tercera Sesi&#243;n Ordinaria</td>
+        <td data-label="Número de expediente interno" class="in-c-exp"><span class="in-exp">DTB/6126/2025</span></td>
+        <td data-label="Información a reservar" class="in-c-info">Informaci&#243;n laboral y salarial de un servidor p&#250;blico identificado, relativa a su nombramiento, adscripci&#243;n, antig&#252;edad, percepciones ordinarias y extraordinarias, as&#237; como prestaciones y apoyos econ&#243;micos.</td>
+        <td data-label="Fecha en que sesionó el Comité de Transparencia" class="in-c-fecha">23 de julio de 2025</td>
+        <td data-label="Área responsable de la reserva de la información" class="in-c-area"><span class="in-chip in-chip-area">Comisar&#237;a de Seguridad Ciudadana</span></td>
+        <td data-label="Fundamento legal" class="in-c-fund">Hip&#243;tesis de reserva prevista en el art&#237;culo 17 fracci&#243;n I incisos d), g), II, IV y V, de la Ley de Transparencia y Acceso a la Informaci&#243;n P&#250;blica del Estado de Jalisco y sus Municipios.</td>
+        <td data-label="Periodo de reserva de la información" class="in-c-per"><span class="in-chip in-chip-per">05 a&#241;os</span></td>
+      </tr>
+      <tr class="in-row" data-year="2025" data-area="Comisar&#237;a de Seguridad Ciudadana" data-text="vigesima primera sesion ordinaria dtb/5377/2025 informe policial homologado #166148 27 de junio de 2025 comisaria de seguridad ciudadana hipotesis de reserva prevista en el articulo 17 fraccion i incisos d), g), ii, iv y v, de la ley de transparencia y acceso a la informacion publica del estado de jalisco y sus municipios. 05 anos">
+        <td data-label="Número de sesión" class="in-c-ses">Vig&#233;sima Primera Sesi&#243;n Ordinaria</td>
+        <td data-label="Número de expediente interno" class="in-c-exp"><span class="in-exp">DTB/5377/2025</span></td>
+        <td data-label="Información a reservar" class="in-c-info">Informe policial homologado #166148</td>
+        <td data-label="Fecha en que sesionó el Comité de Transparencia" class="in-c-fecha">27 de junio de 2025</td>
+        <td data-label="Área responsable de la reserva de la información" class="in-c-area"><span class="in-chip in-chip-area">Comisar&#237;a de Seguridad Ciudadana</span></td>
+        <td data-label="Fundamento legal" class="in-c-fund">Hip&#243;tesis de reserva prevista en el art&#237;culo 17 fracci&#243;n I incisos d), g), II, IV y V, de la Ley de Transparencia y Acceso a la Informaci&#243;n P&#250;blica del Estado de Jalisco y sus Municipios.</td>
+        <td data-label="Periodo de reserva de la información" class="in-c-per"><span class="in-chip in-chip-per">05 a&#241;os</span></td>
+      </tr>
+      <tr class="in-noterow" data-year="2025" data-note="1"><td colspan="7" class="in-note">Durante el mes de abril de 2025 el Comit&#233; de Transparencia del Municipio de Guadalajara no aprob&#243; reservas de informaci&#243;n</td></tr>
+      <tr class="in-noterow" data-year="2025" data-note="1"><td colspan="7" class="in-note">Durante el mes de marzo de 2025 el Comit&#233; de Transparencia del Municipio de Guadalajara no aprob&#243; reservas de informaci&#243;n</td></tr>
+      <tr class="in-noterow" data-year="2025" data-note="1"><td colspan="7" class="in-note">Durante el mes de febrero de 2025 el Comit&#233; de Transparencia del Municipio de Guadalajara no aprob&#243; reservas de informaci&#243;n</td></tr>
+      <tr class="in-noterow" data-year="2025" data-note="1"><td colspan="7" class="in-note">Durante el mes de enero de 2025 el Comit&#233; de Transparencia del Municipio de Guadalajara no aprob&#243; reservas de informaci&#243;n</td></tr>
+      <tr class="in-noterow" data-year="2024" data-note="1"><td colspan="7" class="in-note">Durante el mes de diciembre de 2024 el Comit&#233; de Transparencia del Municipio de Guadalajara no aprob&#243; reservas de informaci&#243;n</td></tr>
+      <tr class="in-row" data-year="2024" data-area="Direcci&#243;n de Asuntos Internos" data-text="decima octava sesion ordinaria dtb/4594/2025 estadistica y documentacion relacionada con denuncias por tortura atribuida a personal policial, numero de personas detenidas, policias dados de baja por dichos actos, casos de reparacion del dano a victimas, asi como expedientes de investigacion y denuncias recientes por tortura policial, correspondientes al periodo 2018–2025, desagregados por ano. 15 de noviembre de 2024 direccion de asuntos internos hipotesis de reserva prevista en el articulo 17 fraccion i incisos d), g), ii, iv y v, de la ley de transparencia y acceso a la informacion publica del estado de jalisco y sus municipios. 04 anos">
+        <td data-label="Número de sesión" class="in-c-ses">D&#233;cima Octava Sesi&#243;n Ordinaria</td>
+        <td data-label="Número de expediente interno" class="in-c-exp"><span class="in-exp">DTB/4594/2025</span></td>
+        <td data-label="Información a reservar" class="in-c-info">Estad&#237;stica y documentaci&#243;n relacionada con denuncias por tortura atribuida a personal policial, n&#250;mero de personas detenidas, polic&#237;as dados de baja por dichos actos, casos de reparaci&#243;n del da&#241;o a v&#237;ctimas, as&#237; como expedientes de investigaci&#243;n y denuncias recientes por tortura policial, correspondientes al periodo 2018–2025, desagregados por a&#241;o.</td>
+        <td data-label="Fecha en que sesionó el Comité de Transparencia" class="in-c-fecha">15 de noviembre de 2024</td>
+        <td data-label="Área responsable de la reserva de la información" class="in-c-area"><span class="in-chip in-chip-area">Direcci&#243;n de Asuntos Internos</span></td>
+        <td data-label="Fundamento legal" class="in-c-fund">Hip&#243;tesis de reserva prevista en el art&#237;culo 17 fracci&#243;n I incisos d), g), II, IV y V, de la Ley de Transparencia y Acceso a la Informaci&#243;n P&#250;blica del Estado de Jalisco y sus Municipios.</td>
+        <td data-label="Periodo de reserva de la información" class="in-c-per"><span class="in-chip in-chip-per">04 a&#241;os</span></td>
+      </tr>
+      <tr class="in-noterow" data-year="2024" data-note="1"><td colspan="7" class="in-note">Durante el mes de octubre de 2024 el Comit&#233; de Transparencia del Municipio de Guadalajara no aprob&#243; reservas de informaci&#243;n</td></tr>
+      <tr class="in-noterow" data-year="2024" data-note="1"><td colspan="7" class="in-note">Sesi&#243;n de Instalaci&#243;n &#183; 09 de octubre de 2024 — sin reservas de informaci&#243;n registradas (n/a en la fuente).</td></tr>
+      </tbody>
+    </table>
+    <div class="in-empty" id="inEmpty" hidden><strong>No se encontraron expedientes</strong>Prueba con otras palabras o vuelve a la opción “Todas”.</div>
+  </div>
+
+  <!-- ¿QUÉ ES? / ¿CÓMO LEER? (contexto, antes de la fundamentación) -->
+  <div class="in-postales">
+    <div class="in-postal">
+      <div class="in-postal-ico" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+      <div class="in-postal-body">
+        <div class="in-postal-eye">¿Qué es un expediente reservado?</div>
+        <h3 class="in-postal-title">Información que la ley protege por un tiempo</h3>
+        <p class="in-postal-desc">No toda la información puede hacerse pública de inmediato. La ley permite <strong>reservar temporalmente</strong> ciertos expedientes cuando difundirlos podría, por ejemplo, <strong>comprometer una investigación, la seguridad o la privacidad de las personas</strong>. La reserva siempre es <strong>por tiempo limitado</strong> y debe estar <strong>fundada en la ley</strong>.</p>
+      </div>
+    </div>
+    <div class="in-postal">
+      <div class="in-postal-ico" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></div>
+      <div class="in-postal-body">
+        <div class="in-postal-eye">¿Cómo leer este índice?</div>
+        <h3 class="in-postal-title">Siete datos por cada expediente</h3>
+        <p class="in-postal-desc">Cada fila te dice: en qué <strong>sesión</strong> se decidió, el <strong>número de expediente</strong>, <strong>qué información</strong> se reservó, la <strong>fecha</strong>, el <strong>área responsable</strong>, el <strong>fundamento legal</strong> y el <strong>periodo de reserva</strong>. Usa el buscador o filtra por área para encontrar lo que te interesa.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEY -->
+  <section class="in-ley">
+    <div class="in-ley-eye">Fundamento legal</div>
+    <h3>¿Por qué se publica esta información?</h3>
+    <p>El Ayuntamiento de Guadalajara está obligado a poner a tu disposición el índice de sus expedientes clasificados como reservados, conforme al siguiente fundamento:</p>
+    <blockquote>«Artículo 8. Es información fundamental, obligatoria para todos los sujetos obligados, la siguiente: <strong>(…) I.</strong> La necesaria para el ejercicio del derecho a la información pública, que comprende: <strong>n)</strong> El índice de los expedientes clasificados como reservados, por área responsable de la información y tema.»</blockquote>
+    <p>— <strong>Artículo 8, Fracción I, Inciso n)</strong> de la <em>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</em>. El fundamento legal específico de cada reserva se indica en la columna correspondiente de la tabla. Los datos son los oficiales tal como fueron publicados por el sujeto obligado; en caso de cualquier discrepancia, prevalece el documento oficial.</p>
+    <div class="in-meta">
+      <div class="in-meta-item">
+        <span class="in-meta-k">Órgano responsable</span>
+        <span class="in-meta-v">Comité de Transparencia del Ayuntamiento de Guadalajara</span>
+      </div>
+      <div class="in-meta-item">
+        <span class="in-meta-k">Última sesión registrada en el índice</span>
+        <span class="in-meta-v">17 de abril de 2026</span>
+      </div>
+      <div class="in-meta-item">
+        <span class="in-meta-k">Expedientes reservados</span>
+        <span class="in-meta-v">30 registros</span>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+/* ==========================================================================
+   Índice de expedientes clasificados como reservados · Art. 8 Frac. I Inc. n)
+   FUENTE OFICIAL: https://transparencia.guadalajara.gob.mx/indice-expedientes-clasificados
+   Datos verbatim del portal (30 expedientes reservados + 8 notas de contexto:
+   1 Sesión de Instalación sin reservas y 7 meses sin reservas aprobadas).
+   Columnas en el orden oficial, de izquierda a derecha. Búsqueda + filtro por
+   área responsable. Vanilla JS, sin template literals, compatible con Strapi v4.
+   ========================================================================== */
+(function(){
+  function norm(s){
+    s = (s == null ? '' : String(s)).toLowerCase();
+    if (s.normalize) { s = s.normalize('NFD').replace(/[\u0300-\u036f]/g, ''); }
+    return s;
+  }
+  var body = document.getElementById('inBody');
+  var rows = Array.prototype.slice.call(body.querySelectorAll('tr.in-row'));
+  var notes = Array.prototype.slice.call(body.querySelectorAll('tr.in-noterow'));
+  var search = document.getElementById('inSearch');
+  var clearBtn = document.getElementById('inSearchClear');
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.in-allchip, .in-areachip'));
+  var yearChips = Array.prototype.slice.call(document.querySelectorAll('.in-yearchip'));
+  var countEl = document.getElementById('inCount');
+  var emptyEl = document.getElementById('inEmpty');
+  var curArea = 'all';
+  var curYear = 'all';
+  var curQ = '';
+
+  function apply(){
+    var q = norm(curQ);
+    var shown = 0;
+    for (var i = 0; i < rows.length; i++){
+      var r = rows[i];
+      var okArea = (curArea === 'all') || (r.getAttribute('data-area') === curArea);
+      var okYear = (curYear === 'all') || (r.getAttribute('data-year') === curYear);
+      var okQ = !q || (r.getAttribute('data-text').indexOf(q) !== -1);
+      var show = okArea && okYear && okQ;
+      r.style.display = show ? '' : 'none';
+      if (show) { shown++; }
+    }
+    var notesVisible = (curArea === 'all' && !q);
+    for (var j = 0; j < notes.length; j++){
+      var ny = (curYear === 'all') || (notes[j].getAttribute('data-year') === curYear);
+      notes[j].style.display = (notesVisible && ny) ? '' : 'none';
+    }
+    countEl.innerHTML = 'Mostrando <strong>' + shown + '</strong> de <strong>' + rows.length + '</strong> expedientes reservados';
+    emptyEl.hidden = (shown !== 0);
+    reportHeight();
+  }
+
+  search.addEventListener('input', function(){
+    curQ = search.value;
+    clearBtn.style.display = curQ ? 'block' : 'none';
+    apply();
+  });
+  clearBtn.addEventListener('click', function(){
+    search.value = ''; curQ = ''; clearBtn.style.display = 'none'; apply(); search.focus();
+  });
+  chips.forEach(function(ch){
+    ch.addEventListener('click', function(){
+      chips.forEach(function(x){ x.classList.remove('active'); });
+      ch.classList.add('active');
+      curArea = ch.getAttribute('data-area') || 'all';
+      apply();
+    });
+  });
+  yearChips.forEach(function(ch){
+    ch.addEventListener('click', function(){
+      yearChips.forEach(function(x){ x.classList.remove('active'); });
+      ch.classList.add('active');
+      curYear = ch.getAttribute('data-year') || 'all';
+      apply();
+    });
+  });
+
+  /* ----- Auto-ajuste de altura para Strapi ----- */
+  function reportHeight(){
+    var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+    try { parent.postMessage({ type:'gdl-iframe-height', id:'indice-expedientes-reservados-art8-I-n', height: h }, '*'); } catch(e){}
+  }
+  window.addEventListener('load', reportHeight);
+  window.addEventListener('resize', reportHeight);
+  setTimeout(reportHeight, 400);
+  setTimeout(reportHeight, 1200);
+
+  apply();
+})();
+</script>
+
+</body>
+</html>
