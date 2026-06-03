@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Directorio ciudadano de las leyes federales y estatales que rigen al Ayuntamiento de Guadalajara: leyes de transparencia y protección de datos personales (locales y federales), la Ley de Ingresos del municipio y el resto del marco legal aplicable, cada una con su fecha de publicación, última reforma y documento PDF. Con buscador. Art. 8 Fracción II Inciso c) Ley de Transparencia Jalisco."/>
+<title>¿Qué leyes federales y estatales obligan al Ayuntamiento de Guadalajara? · Transparencia, protección de datos, Ley de Ingresos y todo el marco legal, con buscador y documentos · Art. 8 Frac. II Inc. c)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ac:#E87722;--ac-l:#FFE4CC;--ac-d:#C45F0A;--ac-border:#F5C99A;--ac-soft:#FFF1E4;
+  --g50:#FAFAF8;--g100:#F0F0EC;--g200:#E2E2DD;--g300:#CFCFC8;--g400:#9E9E98;--g600:#5A5A55;--g800:#2D2D2A;--g900:#1A1A1A;
+  --wh:#FFF;--pdf:#DC2626;--pdf-d:#991B1B;--ok:#16A34A;
+  --est:#C45F0A;--est-l:#FFE4CC;--fed:#0E7490;--fed-l:#CFFAFE;
+  --rad:10px;--rad-lg:14px;
+  --sh:0 4px 22px rgba(0,0,0,.08);--sh-sm:0 1px 3px rgba(0,0,0,.06);--sh-md:0 6px 18px rgba(0,0,0,.07);--sh-lg:0 12px 30px rgba(0,0,0,.1);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --fh:'Outfit',system-ui,-apple-system,sans-serif;
+  --fm:'DM Mono','SF Mono',Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:var(--g900);line-height:1.55;-webkit-font-smoothing:antialiased}
+.lf-wrap{max-width:1040px;margin:0 auto}
+
+/* HERO */
+.lf-hero{background:linear-gradient(135deg,var(--ac-soft) 0%,#FFFFFF 55%);color:var(--g900);border-radius:var(--rad-lg);padding:26px 30px;margin:0 0 22px;position:relative;overflow:hidden;border-left:5px solid var(--ac);box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.lf-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.12) 0%,transparent 70%);pointer-events:none}
+.lf-hero-tag{display:inline-block;background:var(--ac);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;position:relative;z-index:1;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.lf-hero h1{margin:0 0 8px;font-size:clamp(22px,3.2vw,28px);font-weight:800;color:var(--g900);letter-spacing:-.015em;line-height:1.22;position:relative;z-index:1}
+.lf-hero h1 em{font-style:normal;color:var(--ac-d);display:block;margin-top:3px}
+.lf-hero-sub{font-size:14.5px;color:var(--g600);max-width:90ch;margin:0;line-height:1.6;position:relative;z-index:1}
+.lf-hero-sub strong{color:var(--g900);font-weight:700}
+
+/* BUSCADOR */
+.lf-search-wrap{margin:0 0 24px}
+.lf-search{position:relative;display:flex;align-items:center;background:var(--wh);border:1.5px solid var(--g200);border-radius:12px;box-shadow:var(--sh-sm);transition:border-color .15s,box-shadow .15s}
+.lf-search:focus-within{border-color:var(--ac);box-shadow:0 0 0 3px rgba(232,119,34,.12)}
+.lf-search>svg{position:absolute;left:15px;color:var(--g400);pointer-events:none}
+.lf-search input{flex:1;width:100%;border:0;outline:0;background:transparent;font-family:var(--fh);font-size:14.5px;color:var(--g900);padding:13px 46px}
+.lf-search input::placeholder{color:var(--g400)}
+.lf-search input::-webkit-search-cancel-button{display:none}
+.lf-clear{position:absolute;right:8px;width:30px;height:30px;border:0;background:var(--g100);color:var(--g600);border-radius:50%;font-size:19px;line-height:1;cursor:pointer;display:none;align-items:center;justify-content:center;transition:background .14s;font-family:var(--fh)}
+.lf-clear:hover{background:var(--g200);color:var(--g900)}
+.lf-search.has-q .lf-clear{display:flex}
+.lf-count{font-size:12px;color:var(--g600);font-weight:600;margin:9px 6px 0}
+.lf-count b{color:var(--ac-d);font-family:var(--fm);font-weight:600}
+
+/* SECCIÓN-TÍTULO */
+.lf-sec-title{font-size:12.5px;font-weight:800;color:var(--g400);letter-spacing:.1em;text-transform:uppercase;margin:0 4px 12px;display:flex;align-items:center;gap:10px}
+.lf-sec-title.feat{color:var(--ac-d)}
+.lf-sec-title::after{content:'';flex:1;height:1.5px;background:var(--g200);border-radius:2px}
+.lf-group{margin-bottom:26px}
+.lf-group.hide{display:none}
+
+/* TABLA */
+.lf-table-wrap{border:1.5px solid var(--g200);border-radius:var(--rad-lg);overflow:hidden;box-shadow:var(--sh-sm);background:var(--wh)}
+.lf-table{width:100%;border-collapse:collapse;font-size:13px}
+.lf-table thead th{background:var(--ac);color:#fff;text-align:left;font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:12px 16px;white-space:nowrap}
+.lf-table thead th.c-doc{text-align:center;width:1%}
+.lf-table thead th.c-date{width:1%;white-space:nowrap}
+.lf-table tbody td{padding:13px 16px;border-top:1px solid var(--g100);vertical-align:top;color:var(--g800)}
+.lf-table tbody tr:hover{background:var(--ac-soft)}
+.lf-td-name{line-height:1.35}
+.lf-td-name .lf-name-t{font-weight:700;color:var(--g900)}
+.lf-td-name b{font-weight:700;color:var(--g900);font-family:var(--fm)}
+.lf-td-desc{font-size:11.5px;color:var(--g600);font-weight:400;margin-top:4px;line-height:1.5;max-width:62ch}
+.lf-td-date{font-family:var(--fm);font-size:12px;color:var(--g800);white-space:nowrap;vertical-align:middle}
+.lf-td-doc{text-align:center;vertical-align:middle;white-space:nowrap}
+.lf-badge{display:inline-flex;align-items:center;font-size:9.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:20px;white-space:nowrap;vertical-align:middle;margin-right:6px}
+.lf-badge.E{background:var(--est-l);color:var(--est)}
+.lf-badge.F{background:var(--fed-l);color:var(--fed)}
+
+/* BOTÓN PDF / SIN PDF */
+.lf-doc-btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--fh);font-size:12.5px;font-weight:700;padding:9px 15px;border-radius:9px;cursor:pointer;text-decoration:none;border:1.5px solid var(--ac);background:var(--ac);color:#fff;transition:all .14s var(--ease);white-space:nowrap}
+.lf-doc-btn:hover{background:var(--ac-d);border-color:var(--ac-d);transform:translateY(-1px)}
+.lf-doc-btn svg{flex-shrink:0}
+.lf-doc-none{font-size:11px;color:var(--g400);font-weight:600;white-space:nowrap;font-style:italic}
+
+/* DESPLEGABLE LEY DE INGRESOS */
+.lf-details{border:1.5px solid var(--g200);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);background:var(--wh);overflow:hidden}
+.lf-summary{list-style:none;cursor:pointer;padding:16px 20px;display:flex;align-items:center;gap:14px;user-select:none}
+.lf-summary::-webkit-details-marker{display:none}
+.lf-summary-ico{flex-shrink:0;width:40px;height:40px;border-radius:11px;background:var(--ac-soft);color:var(--ac-d);display:flex;align-items:center;justify-content:center}
+.lf-summary-tx{flex:1;display:flex;flex-direction:column;gap:2px;min-width:0}
+.lf-summary-t{font-size:14.5px;font-weight:800;color:var(--g900);letter-spacing:-.01em}
+.lf-summary-tx small{font-size:12px;color:var(--g600);font-weight:500}
+.lf-summary-chev{flex-shrink:0;color:var(--ac-d);transition:transform .2s var(--ease)}
+.lf-details[open] .lf-summary-chev{transform:rotate(180deg)}
+.lf-details[open] .lf-summary{border-bottom:1px solid var(--g200)}
+.lf-details .lf-table-wrap{border:0;border-radius:0;box-shadow:none}
+
+/* SIN RESULTADOS */
+.lf-noresults{display:none;background:var(--ac-soft);border:1.5px solid var(--ac-border);border-radius:var(--rad-lg);padding:22px 24px;font-size:13.5px;color:var(--g800);line-height:1.6;text-align:center;margin-bottom:26px}
+.lf-noresults.show{display:block}
+.lf-noresults strong{color:var(--ac-d);font-weight:700}
+
+/* FOOTER: BLOQUES CIUDADANOS */
+.lf-foot-title{font-size:12.5px;font-weight:800;color:var(--g400);letter-spacing:.1em;text-transform:uppercase;margin:30px 4px 14px;display:flex;align-items:center;gap:10px}
+.lf-foot-title::after{content:'';flex:1;height:1.5px;background:var(--g200);border-radius:2px}
+.lf-info{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:14px;margin-bottom:8px}
+.lf-info-card{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);border-top:5px solid var(--ac);padding:18px 20px;display:flex;flex-direction:column;gap:8px}
+.lf-info-ico{width:42px;height:42px;border-radius:11px;background:var(--ac-soft);color:var(--ac-d);display:flex;align-items:center;justify-content:center;margin-bottom:2px}
+.lf-info-card h3{font-size:14.5px;font-weight:800;color:var(--g900);letter-spacing:-.01em;line-height:1.3}
+.lf-info-card p{font-size:12.5px;color:var(--g600);line-height:1.6}
+.lf-info-card p strong{color:var(--g800);font-weight:600}
+
+/* FUNDAMENTO LEGAL */
+.lf-ley{background:var(--wh);border-radius:var(--rad-lg);padding:22px 26px;border-left:4px solid var(--ac-d);box-shadow:var(--sh-sm);margin-top:22px}
+.lf-ley-eye{font-size:10.5px;font-weight:800;color:var(--ac-d);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.lf-ley h3{font-size:16px;font-weight:800;color:var(--g900);margin-bottom:8px;letter-spacing:-.008em}
+.lf-ley p{font-size:13px;color:var(--g600);line-height:1.65}
+.lf-ley p+p{margin-top:7px}
+.lf-ley p strong{color:var(--g800);font-weight:600}
+.lf-ley blockquote{font-size:13.5px;color:var(--g600);line-height:1.65;margin:12px 0 8px;padding:12px 18px;background:var(--ac-soft);border-left:3px solid var(--ac);border-radius:6px;font-style:italic}
+.lf-ley blockquote strong{color:var(--g900);font-style:normal;font-weight:700}
+
+@media (max-width:780px){
+  body{padding:14px}
+  .lf-hero{padding:20px 18px}
+  .lf-hero h1{font-size:20px}
+  .lf-ley{padding:18px 18px}
+}
+/* TABLA RESPONSIVA: en móvil cada fila se apila con etiquetas */
+@media (max-width:620px){
+  body{padding:10px}
+  .lf-hero{padding:18px 15px;border-radius:12px}
+  .lf-hero h1{font-size:18px;line-height:1.25}
+  .lf-hero-tag{font-size:9.5px;padding:4px 11px}
+  .lf-table-wrap{border-radius:12px}
+  .lf-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .lf-table tbody td{display:flex;justify-content:space-between;gap:14px;align-items:baseline;padding:8px 16px;border-top:0;text-align:right}
+  .lf-table tbody td::before{content:attr(data-label);font-size:9.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--g400);flex-shrink:0;text-align:left}
+  .lf-table tbody tr{display:block;border-top:1px solid var(--g200);padding:8px 0}
+  .lf-table tbody tr:first-child{border-top:0}
+  .lf-td-name{text-align:left;display:block;padding-top:12px}
+  .lf-td-name::before{display:none}
+  .lf-td-desc{max-width:none;text-align:left}
+  .lf-td-doc{padding-top:6px;padding-bottom:12px}
+  .lf-ley{padding:16px 15px;border-radius:12px}
+  .lf-ley blockquote{padding:11px 14px;font-size:12.5px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="lf-wrap">
+
+  <!-- HERO -->
+  <section class="lf-hero">
+    <span class="lf-hero-tag">Art. 8 · Fracción II · Inciso c) · Ley de Transparencia Jalisco</span>
+    <h1>¿Qué leyes obligan al Ayuntamiento de Guadalajara? <em>Las leyes federales y estatales que lo rigen, con sus documentos a la mano</em></h1>
+    <p class="lf-hero-sub">El Ayuntamiento no actúa por su cuenta: obedece leyes de <strong>todo México</strong> (federales) y de <strong>Jalisco</strong> (estatales). Aquí las tienes en una tabla, con su <strong>documento completo</strong>. Usa el buscador o empieza por las que más te protegen: las de <strong>transparencia</strong> y <strong>protección de tus datos personales</strong>.</p>
+  </section>
+
+  <!-- BUSCADOR -->
+  <div class="lf-search-wrap">
+    <div class="lf-search">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="lfQ" type="search" autocomplete="off" placeholder="Busca una ley por su nombre… (ej.: transparencia, datos, archivos, ingresos)" aria-label="Buscar una ley"/>
+      <button type="button" class="lf-clear" id="lfClear" aria-label="Limpiar búsqueda" title="Limpiar">&times;</button>
+    </div>
+    <div class="lf-count" id="lfCount"></div>
+  </div>
+
+  <!-- DESTACADAS: TRANSPARENCIA Y DATOS -->
+  <section class="lf-group" id="grpFeat">
+    <div class="lf-sec-title feat">Lo más importante para ti: transparencia y protección de datos</div>
+    <div class="lf-table-wrap">
+      <table class="lf-table">
+        <thead><tr><th>Ley</th><th class="c-date">Publicación</th><th class="c-date">Última reforma</th><th class="c-doc">Documento</th></tr></thead>
+        <tbody id="lfFeat"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- LEGISLACIÓN ESTATAL -->
+  <section class="lf-group" id="grpEst">
+    <div class="lf-sec-title">Legislación estatal (Jalisco)</div>
+    <div class="lf-table-wrap">
+      <table class="lf-table">
+        <thead><tr><th>Ley</th><th class="c-date">Publicación</th><th class="c-date">Última reforma</th><th class="c-doc">Documento</th></tr></thead>
+        <tbody id="lfEst"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- LEY DE INGRESOS (DESPLEGABLE) -->
+  <section class="lf-group" id="grpIng">
+    <div class="lf-sec-title">Ley de Ingresos del Municipio de Guadalajara</div>
+    <details class="lf-details" id="lfIngDetails">
+      <summary class="lf-summary">
+        <span class="lf-summary-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
+        <span class="lf-summary-tx"><span class="lf-summary-t">Ley de Ingresos del Municipio de Guadalajara</span><small>Define qué cobra el municipio cada año (predial, derechos, multas). Ábrelo para ver los ejercicios fiscales disponibles, 2023 a 2026.</small></span>
+        <svg class="lf-summary-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="lf-table-wrap">
+        <table class="lf-table">
+          <thead><tr><th>Ejercicio fiscal</th><th class="c-date">Publicación</th><th class="c-date">Última reforma</th><th class="c-doc">Documento</th></tr></thead>
+          <tbody id="lfIng"></tbody>
+        </table>
+      </div>
+    </details>
+  </section>
+
+  <!-- LEGISLACIÓN FEDERAL -->
+  <section class="lf-group" id="grpFed">
+    <div class="lf-sec-title">Legislación federal</div>
+    <div class="lf-table-wrap">
+      <table class="lf-table">
+        <thead><tr><th>Ley</th><th class="c-date">Publicación</th><th class="c-date">Última reforma</th><th class="c-doc">Documento</th></tr></thead>
+        <tbody id="lfFed"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- SIN RESULTADOS -->
+  <div class="lf-noresults" id="lfNoRes">No encontramos ninguna ley que coincida con <strong id="lfNoResQ"></strong>. Revisa la ortografía o intenta con una palabra más corta.</div>
+
+  <!-- ====== FOOTER: BLOQUES CIUDADANOS EXPLICATIVOS ====== -->
+  <div class="lf-foot-title">Para entenderlo mejor</div>
+  <div class="lf-info">
+    <div class="lf-info-card">
+      <div class="lf-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+      <h3>¿Federal o estatal?</h3>
+      <p>Las leyes <strong>federales</strong> aplican en todo el país; las <strong>estatales</strong>, solo en Jalisco. El Ayuntamiento de Guadalajara debe cumplir <strong>ambas</strong> al mismo tiempo.</p>
+    </div>
+    <div class="lf-info-card">
+      <div class="lf-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+      <h3>¿Por qué se publican aquí?</h3>
+      <p>Para que sepas <strong>con qué reglas actúa tu gobierno</strong> y puedas exigir que las cumpla. Conocer la ley es el primer paso para hacer valer tus derechos.</p>
+    </div>
+    <div class="lf-info-card">
+      <div class="lf-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+      <h3>¿Qué significa «Sin reformas»?</h3>
+      <p>Que la ley <strong>no ha cambiado</strong> desde que se publicó. La «última reforma» es la fecha del cambio más reciente, cuando lo hubo.</p>
+    </div>
+  </div>
+
+  <!-- FUNDAMENTO LEGAL -->
+  <section class="lf-ley">
+    <div class="lf-ley-eye">Fundamento legal</div>
+    <h3>¿Por qué el Ayuntamiento publica estas leyes?</h3>
+    <p>El Ayuntamiento de Guadalajara está obligado a dar a conocer el marco jurídico que lo rige, incluidas las leyes federales y estatales, conforme al siguiente fundamento:</p>
+    <blockquote>«Artículo 8. Es información fundamental, obligatoria para todos los sujetos obligados, la siguiente: <strong>(…) II.</strong> La información sobre el marco jurídico aplicable al y por el sujeto obligado, que comprende: <strong>c)</strong> Las leyes federales y estatales;»</blockquote>
+    <p>— <strong>Artículo 8, Fracción II, Inciso c)</strong> de la <em>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</em>. Los nombres, fechas y documentos son los oficiales tal como fueron publicados por el sujeto obligado; en caso de cualquier discrepancia, prevalece el documento oficial.</p>
+  </section>
+
+</div>
+
+<script>
+/* ==========================================================================
+   Leyes federales y estatales · Art. 8 Frac. II Inc. c)
+   Datos verbatim de los registros oficiales del sujeto obligado.
+   22 documentos PDF verificados HTTP 200 (application/pdf). 7 leyes sin PDF en
+   línea en la fuente: se listan SIN documento (no se inventa enlace).
+   Ley de Ingresos: solo ejercicios 2023-2026 (en desplegable).
+   PDF_BASE centralizado: si se re-alojan los PDF, basta cambiar esta constante.
+   ========================================================================== */
+(function(){
+  var PDF_BASE = 'https://transparencia.guadalajara.gob.mx/sites/default/files/';
+
+  var FEAT = [
+    {a:'E',t:'transp',n:'Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios',p:'8 de agosto de 2013',r:'3 de agosto de 2023',f:'Ley_Transparencia_Acceso_Informacion_Publica_Estado_Jalisco_Municipios.pdf',d:'Te garantiza el derecho a pedir y recibir información pública del gobierno de Jalisco y sus municipios, como Guadalajara.'},
+    {a:'F',t:'transp',n:'Ley General de Transparencia y Acceso a la Información Pública',p:'4 de mayo de 2015',r:'20 de marzo de 2025',f:'LeyGeneralTransparenciaAccesoInformacionPublica.pdf',d:'Es la base nacional del derecho a saber: fija las reglas mínimas de transparencia para todas las autoridades del país.'},
+    {a:'E',t:'transp',n:'Reglamento de la Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco',p:'19 de marzo de 2022',r:'Sin reformas',f:'',d:'Detalla cómo se aplica en la práctica la Ley de Transparencia del estado.'},
+    {a:'E',t:'datos',n:'Ley de Protección de Datos Personales en Posesión de Sujetos Obligados del Estado de Jalisco y sus Municipios',p:'26 de julio de 2017',r:'15 de mayo de 2021',f:'Ley_de_Proteccion_de_Datos_Personales_en_Posesion_de_Sujeros_Obligados.pdf',d:'Protege tus datos personales cuando los tiene una autoridad de Jalisco, y te deja acceder, corregir o eliminar esa información (derechos ARCO).'},
+    {a:'F',t:'datos',n:'Ley General de Protección de Datos Personales en Posesión de Sujetos Obligados',p:'26 de enero de 2017',r:'20 de marzo de 2025',f:'LeyDatosPersonalesPosesion.pdf',d:'Protege tus datos personales cuando están en manos de cualquier autoridad del país.'},
+    {a:'F',t:'datos',n:'Ley Federal de Protección de Datos Personales en Posesión de los Particulares',p:'5 de julio de 2010',r:'20 de marzo de 2025',f:'LeyProteccionDatosPersonales.pdf',d:'Protege tus datos cuando los tienen empresas y particulares (bancos, tiendas, escuelas privadas), no el gobierno.'}
+  ];
+
+  var EST = [
+    {n:'Ley de Hacienda Municipal del Estado de Jalisco',p:'3 de abril de 1984',r:'30 de septiembre de 2023',f:'LeyHaciendaMunicipalEstadoJalisco.pdf'},
+    {n:'Ley del Gobierno y la Administración Pública Municipal del Estado de Jalisco',p:'5 de octubre de 2000',r:'3 de julio de 2025',f:'LeyGobiernoAdministracionPublicaMunicipalEstadoJalisco.pdf'},
+    {n:'Ley de Deuda Pública y Disciplina Financiera del Estado de Jalisco y sus Municipios',p:'26 de noviembre de 2016',r:'6 de julio de 2021',f:'LeyDeudaPublicaDisciplinaFinancieraEstadoJaliscoMunicipios.pdf'},
+    {n:'Ley del Procedimiento Administrativo del Estado de Jalisco',p:'15 de julio de 2000',r:'1 de junio de 2023',f:'LeyProcedimientoAdministrativoEstadoJalisco.pdf'},
+    {n:'Ley para los Servidores Públicos del Estado de Jalisco y sus Municipios',p:'7 de abril de 1984',r:'1 de junio de 2023',f:'ley_servidores_publicos.pdf'},
+    {n:'Ley de Justicia Administrativa del Estado de Jalisco',p:'18 de enero de 2000',r:'1 de junio de 2023',f:'LeyJusticiaAdministrativaEstadoJalisco.pdf'},
+    {n:'Ley de Archivos del Estado de Jalisco y sus Municipios',p:'19 de noviembre de 2019',r:'19 de diciembre de 2023',f:'LeyArchivosEstadoJalisco.pdf'},
+    {n:'Ley de Entrega-Recepción del Estado de Jalisco y sus Municipios',p:'13 de octubre de 2012',r:'21 de abril de 2020',f:'LeyEntregaRecepcionJalisco.pdf'},
+    {n:'Ley de Obra Pública del Estado de Jalisco y sus Municipios',p:'30 de enero de 2018',r:'9 de septiembre de 2021',f:'LeyObrasPublicasJalisco.pdf'},
+    {n:'Ley de los Derechos de Niñas, Niños y Adolescentes en el Estado de Jalisco',p:'5 de septiembre de 2015',r:'25 de noviembre de 2025',f:'LeyDerechosNinasNinosJalisco.pdf'},
+    {n:'Ley de Planeación Participativa para el Estado de Jalisco y sus Municipios',p:'20 de diciembre de 2018',r:'29 de agosto de 2020',f:''},
+    {n:'Ley de Responsabilidades Políticas y Administrativas del Estado de Jalisco y sus Municipios',p:'26 de septiembre de 2017',r:'14 de marzo de 2023',f:''},
+    {n:'Ley de Fiscalización Superior y Rendición de Cuentas del Estado de Jalisco y sus Municipios',p:'26 de septiembre de 2017',r:'31 de mayo de 2022',f:''},
+    {n:'Ley del Sistema Anticorrupción del Estado de Jalisco',p:'18 de julio de 2017',r:'8 de junio de 2023',f:''},
+    {n:'Ley de Compras Gubernamentales, Enajenaciones y Contratación de Servicios del Estado de Jalisco y sus Municipios',p:'27 de octubre de 2016',r:'7 de octubre de 2023',f:''},
+    {n:'Ley del Sistema de Participación Ciudadana y Popular para la Gobernanza del Estado de Jalisco',p:'9 de abril de 2019',r:'11 de mayo de 2021',f:''}
+  ];
+
+  var ING = [
+    {y:'2026',p:'25 de diciembre de 2025',r:'Sin reformas',f:'LeyIngresos2026.pdf'},
+    {y:'2025',p:'20 de noviembre de 2024',r:'Sin reformas',f:'LeyIngresos2025.pdf'},
+    {y:'2024',p:'19 de diciembre de 2023',r:'Sin reformas',f:'LeyIngresos2024.pdf'},
+    {y:'2023',p:'20 de diciembre de 2022',r:'Sin reformas',f:'LeyIngresos2023.pdf'}
+  ];
+
+  var FED = [
+    {n:'Ley General de Contabilidad Gubernamental',p:'31 de diciembre de 2008',r:'16 de julio de 2025',f:'LeyGeneralContabilidadGubernamental.pdf'},
+    {n:'Ley General de Archivos',p:'15 de junio de 2018',r:'14 de noviembre de 2025',f:'LeyGeneralArchivo.pdf'},
+    {n:'Ley del Servicio Militar',p:'11 de septiembre de 1940',r:'18 de mayo de 2022',f:'97.pdf'}
+  ];
+
+  function esc(s){ if(s===null||s===undefined) return ''; return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function norm(s){ return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,''); }
+  var PDFICO = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>';
+  function docBtn(f){
+    if(f){ return '<a class="lf-doc-btn" href="'+PDF_BASE+esc(f)+'" target="_blank" rel="noopener noreferrer">'+PDFICO+'Ver PDF</a>'; }
+    return '<span class="lf-doc-none">Sin PDF en línea</span>';
+  }
+
+  /* Destacadas (con ámbito + descripción ciudadana) */
+  var featHtml='';
+  for(var i=0;i<FEAT.length;i++){ var m=FEAT[i];
+    var amb = (m.a==='F') ? 'Federal' : 'Estatal';
+    var tg = (m.t==='datos') ? 'datos personales' : 'transparencia';
+    featHtml += '<tr data-search="'+esc(norm(m.n+' '+tg+' '+amb+' '+m.d))+'">'+
+      '<td class="lf-td-name" data-label="Ley"><span class="lf-badge '+m.a+'">'+amb+'</span><span class="lf-name-t">'+esc(m.n)+'</span><div class="lf-td-desc">'+esc(m.d)+'</div></td>'+
+      '<td class="lf-td-date" data-label="Publicación">'+esc(m.p)+'</td>'+
+      '<td class="lf-td-date" data-label="Última reforma">'+esc(m.r)+'</td>'+
+      '<td class="lf-td-doc" data-label="Documento">'+docBtn(m.f)+'</td>'+
+    '</tr>';
+  }
+  document.getElementById('lfFeat').innerHTML = featHtml;
+
+  /* Filas simples (estatal / federal) */
+  function rowsSimple(arr){
+    var s='';
+    for(var i=0;i<arr.length;i++){ var o=arr[i];
+      s += '<tr data-search="'+esc(norm(o.n))+'">'+
+        '<td class="lf-td-name" data-label="Ley"><span class="lf-name-t">'+esc(o.n)+'</span></td>'+
+        '<td class="lf-td-date" data-label="Publicación">'+esc(o.p)+'</td>'+
+        '<td class="lf-td-date" data-label="Última reforma">'+esc(o.r)+'</td>'+
+        '<td class="lf-td-doc" data-label="Documento">'+docBtn(o.f)+'</td>'+
+      '</tr>';
+    }
+    return s;
+  }
+  document.getElementById('lfEst').innerHTML = rowsSimple(EST);
+  document.getElementById('lfFed').innerHTML = rowsSimple(FED);
+
+  /* Ley de Ingresos (ejercicios) */
+  var ingHtml='';
+  for(var j=0;j<ING.length;j++){ var g=ING[j];
+    ingHtml += '<tr data-search="'+esc(norm('ley de ingresos del municipio de guadalajara ejercicio fiscal '+g.y))+'">'+
+      '<td class="lf-td-name" data-label="Ejercicio">Ejercicio fiscal <b>'+esc(g.y)+'</b></td>'+
+      '<td class="lf-td-date" data-label="Publicación">'+esc(g.p)+'</td>'+
+      '<td class="lf-td-date" data-label="Última reforma">'+esc(g.r)+'</td>'+
+      '<td class="lf-td-doc" data-label="Documento">'+docBtn(g.f)+'</td>'+
+    '</tr>';
+  }
+  document.getElementById('lfIng').innerHTML = ingHtml;
+
+  /* ----- Auto-ajuste de altura para Strapi (mide contenido, anti-rebote) ----- */
+  var lastReported = 0;
+  function reportHeight(){
+    var h = Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight);
+    if (h && Math.abs(h - lastReported) > 1){
+      lastReported = h;
+      try { parent.postMessage({ type:'gdl-iframe-height', id:'leyes-federales-estatales-art8-II-c', height: h }, '*'); } catch(e){}
+    }
+  }
+
+  /* ----- Buscador: filtra todas las leyes en vivo (sin acentos, por palabras) ----- */
+  var lfInput = document.getElementById('lfQ');
+  var lfClearBtn = document.getElementById('lfClear');
+  var lfBox = document.querySelector('.lf-search');
+  var lfCount = document.getElementById('lfCount');
+  var lfNoRes = document.getElementById('lfNoRes');
+  var lfNoResQ = document.getElementById('lfNoResQ');
+  var lfDetails = document.getElementById('lfIngDetails');
+  var lfGroups = [document.getElementById('grpFeat'), document.getElementById('grpEst'), document.getElementById('grpIng'), document.getElementById('grpFed')];
+  var lfItems = [].slice.call(document.querySelectorAll('tr[data-search]'));
+  var LF_TOTAL = lfItems.length;
+  function applyFilter(){
+    var raw = lfInput.value.replace(/^\s+|\s+$/g, '');
+    var toks = norm(raw).split(/\s+/);
+    var clean = [];
+    for (var t=0;t<toks.length;t++){ if (toks[t]) clean.push(toks[t]); }
+    lfBox.classList.toggle('has-q', raw.length>0);
+    if (lfDetails) lfDetails.open = (clean.length>0);
+    var vis = 0;
+    for (var i=0;i<lfItems.length;i++){
+      var ds = lfItems[i].getAttribute('data-search'), ok = true;
+      for (var c=0;c<clean.length;c++){ if (ds.indexOf(clean[c]) === -1){ ok = false; break; } }
+      lfItems[i].style.display = ok ? '' : 'none';
+      if (ok) vis++;
+    }
+    for (var gi=0;gi<lfGroups.length;gi++){
+      var its = lfGroups[gi].querySelectorAll('tr[data-search]'), any = false;
+      for (var k=0;k<its.length;k++){ if (its[k].style.display !== 'none'){ any = true; break; } }
+      lfGroups[gi].className = any ? 'lf-group' : 'lf-group hide';
+    }
+    if (clean.length === 0){ lfCount.innerHTML = '<b>'+LF_TOTAL+'</b> leyes y ordenamientos publicados'; lfNoRes.className = 'lf-noresults'; }
+    else if (vis === 0){ lfCount.innerHTML = '<b>0</b> resultados'; lfNoResQ.textContent = '«'+raw+'»'; lfNoRes.className = 'lf-noresults show'; }
+    else { lfCount.innerHTML = '<b>'+vis+'</b> de '+LF_TOTAL+' leyes'; lfNoRes.className = 'lf-noresults'; }
+    reportHeight();
+  }
+  lfInput.addEventListener('input', applyFilter);
+  lfClearBtn.addEventListener('click', function(){ lfInput.value = ''; applyFilter(); lfInput.focus(); });
+  if (lfDetails) lfDetails.addEventListener('toggle', reportHeight);
+  applyFilter();
+
+  window.addEventListener('load', reportHeight);
+  window.addEventListener('resize', reportHeight);
+  setTimeout(reportHeight, 400);
+  setTimeout(reportHeight, 1200);
+})();
+</script>
+
+</body>
+</html>
