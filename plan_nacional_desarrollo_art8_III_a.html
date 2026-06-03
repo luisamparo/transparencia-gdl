@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Plan Nacional de Desarrollo 2025-2030: el documento oficial de planeación del país, consultable y descargable, organizado en 4 ejes generales, 14 Repúblicas y 100 compromisos, con el que el Ayuntamiento de Guadalajara alinea su planeación. Art. 8 Fracción III Inciso a) Ley de Transparencia Jalisco."/>
+<title>¿Qué es el Plan Nacional de Desarrollo 2025-2030 y cómo guía a Guadalajara? · 4 ejes, 14 Repúblicas y 100 compromisos · Documento oficial completo · Art. 8 Frac. III Inc. a) · Transparencia GDL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ac:#E87722;--ac-l:#FFE4CC;--ac-d:#C45F0A;--ac-border:#F5C99A;--ac-soft:#FFF1E4;
+  --g50:#FAFAF8;--g100:#F0F0EC;--g200:#E2E2DD;--g300:#CFCFC8;--g400:#9E9E98;--g600:#5A5A55;--g800:#2D2D2A;--g900:#1A1A1A;
+  --wh:#FFF;
+  --pdf:#DC2626;--pdf-d:#991B1B;
+  --mar:#7E1F2B;--mar-d:#5B1420;--mar-l:#F6E3E5;--mar-border:#D9A7AD;
+  --rad:10px;--rad-lg:14px;
+  --sh:0 4px 22px rgba(0,0,0,.08);--sh-sm:0 1px 3px rgba(0,0,0,.06);--sh-md:0 6px 18px rgba(0,0,0,.07);--sh-lg:0 12px 30px rgba(0,0,0,.1);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --fh:'Outfit',system-ui,-apple-system,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--g900);line-height:1.55;-webkit-font-smoothing:antialiased}
+.pn-wrap{max-width:1040px;margin:0 auto}
+
+/* HERO */
+.pn-hero{background:linear-gradient(135deg,var(--ac-soft) 0%,#FFFFFF 55%);color:var(--g900);border-radius:var(--rad-lg);padding:26px 30px;margin:0 0 22px;position:relative;overflow:hidden;border-left:5px solid var(--ac);box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.pn-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.12) 0%,transparent 70%);pointer-events:none}
+.pn-hero-tag{display:inline-block;background:var(--ac);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;position:relative;z-index:1;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.pn-hero h1{margin:0 0 8px;font-size:clamp(22px,3.2vw,28px);font-weight:800;color:var(--g900);letter-spacing:-.015em;line-height:1.22;position:relative;z-index:1}
+.pn-hero h1 em{font-style:normal;color:var(--ac-d)}
+.pn-hero-sub{font-size:14.5px;color:var(--g600);max-width:92ch;margin:0;line-height:1.62;position:relative;z-index:1}
+.pn-hero-sub strong{color:var(--g900);font-weight:700}
+
+/* SECCIÓN TÍTULO */
+.pn-sec-title{font-size:13px;font-weight:800;color:var(--g400);letter-spacing:.1em;text-transform:uppercase;margin:0 4px 14px;display:flex;align-items:center;gap:10px}
+.pn-sec-title::after{content:'';flex:1;height:1.5px;background:var(--g200);border-radius:2px}
+
+/* VISOR PDF EMBEBIDO (super visible) */
+.pn-viewer{background:var(--wh);border:1.5px solid var(--g200);border-top:4px solid var(--ac);border-radius:var(--rad-lg);box-shadow:var(--sh);overflow:hidden;margin-bottom:24px}
+.pn-viewer-head{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 20px;background:linear-gradient(135deg,var(--ac) 0%,var(--ac-d) 100%);color:#fff;flex-wrap:wrap}
+.pn-viewer-title{display:flex;align-items:center;gap:12px;min-width:0}
+.pn-viewer-title svg{flex-shrink:0}
+.pn-viewer-title b{font-size:15px;font-weight:800;line-height:1.25}
+.pn-viewer-title small{display:block;font-size:11px;font-weight:500;opacity:.92;margin-top:2px}
+.pn-viewer-actions{display:flex;gap:8px;align-items:center;flex-shrink:0}
+.pn-vbtn{display:inline-flex;align-items:center;justify-content:center;gap:6px;font-family:var(--fh);font-size:12.5px;font-weight:700;padding:8px 14px;border-radius:8px;cursor:pointer;text-decoration:none;border:1.5px solid rgba(255,255,255,.45);color:#fff;background:rgba(255,255,255,.16);transition:all .13s;white-space:nowrap}
+.pn-vbtn:hover{background:rgba(255,255,255,.30)}
+.pn-vbtn svg{flex-shrink:0}
+.pn-dl[data-busy="1"]{opacity:.6;pointer-events:none}
+.pn-viewer-body{position:relative;background:var(--g100);height:780px}
+.pn-frame{width:100%;height:100%;border:0;display:block;position:relative;z-index:1}
+.pn-viewer-loading{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;color:var(--g600);font-size:13px;text-align:center;padding:24px;z-index:0}
+.pn-viewer-loading.hide{display:none}
+.pn-spin{width:28px;height:28px;border:3px solid var(--ac-l);border-top-color:var(--ac);border-radius:50%;animation:pnspin 1s linear infinite}
+@keyframes pnspin{to{transform:rotate(360deg)}}
+.pn-hint{font-size:12px;color:var(--g600);background:var(--g50);padding:10px 20px;border-top:1px solid var(--g100);display:flex;align-items:center;gap:8px;line-height:1.5}
+.pn-hint svg{flex-shrink:0;color:var(--ac-d)}
+.pn-hint strong{color:var(--g800);font-weight:700}
+
+/* INTRO "UNA SOLA RUTA" */
+.pn-intro{background:var(--wh);border:1.5px solid var(--g200);border-left:5px solid var(--ac);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);padding:24px 28px;margin-bottom:18px}
+.pn-intro-tag{display:inline-block;background:var(--mar);color:#fff;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:5px 13px;border-radius:20px;margin-bottom:12px}
+.pn-intro-h{font-size:clamp(19px,2.7vw,24px);font-weight:800;color:var(--g900);letter-spacing:-.015em;line-height:1.25;margin-bottom:8px}
+.pn-intro-h em{font-style:normal;color:var(--ac-d)}
+.pn-intro-sub{font-size:14px;color:var(--g600);line-height:1.62;max-width:92ch}
+.pn-intro-sub strong{color:var(--g900);font-weight:700}
+.pn-intro-cifras{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px;max-width:560px}
+.pn-icf{background:var(--wh);border:1.5px solid var(--ac-border);border-radius:var(--rad);padding:13px 16px;text-align:center}
+.pn-icf b{display:block;font-size:28px;font-weight:800;color:var(--ac-d);line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.pn-icf span{display:block;font-size:10.5px;font-weight:700;color:var(--g600);text-transform:uppercase;letter-spacing:.05em;margin-top:5px}
+
+/* EJES GENERALES (con sus Repúblicas) */
+.pn-ejes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px;align-items:start;margin-bottom:18px}
+.pn-eje{background:var(--wh);border:1.5px solid var(--g200);border-top:4px solid var(--ac);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);padding:18px 20px;transition:transform .15s var(--ease),box-shadow .15s var(--ease)}
+.pn-eje:hover{transform:translateY(-2px);box-shadow:var(--sh-md)}
+.pn-eje-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:11px}
+.pn-eje-n{flex-shrink:0;width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--ac) 0%,var(--ac-d) 100%);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:19px;box-shadow:0 3px 8px rgba(232,119,34,.3)}
+.pn-eje-ico{width:38px;height:38px;border-radius:10px;background:var(--ac-soft);color:var(--ac-d);display:flex;align-items:center;justify-content:center}
+.pn-eje-k{font-size:9.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ac-d)}
+.pn-eje-h{font-size:16px;font-weight:800;color:var(--g900);line-height:1.28;letter-spacing:-.01em;margin:3px 0 12px}
+.pn-eje-rcount{font-size:10px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--g400);display:flex;align-items:center;gap:8px;margin-bottom:9px}
+.pn-eje-rcount::before{content:'';width:16px;height:2px;background:var(--ac);border-radius:2px;flex-shrink:0}
+.pn-eje-reps{display:flex;flex-direction:column;gap:7px}
+.pn-rep{background:var(--ac-soft);border:1px solid var(--ac-border);border-left:3px solid var(--ac);border-radius:7px;padding:8px 12px;font-size:12.5px;font-weight:600;color:var(--g800);line-height:1.35}
+
+/* EJES TRANSVERSALES */
+.pn-trans-banner{background:linear-gradient(135deg,var(--mar) 0%,var(--mar-d) 100%);color:#fff;border-radius:var(--rad-lg);padding:20px 26px;margin-bottom:14px;box-shadow:0 4px 16px rgba(91,20,32,.28)}
+.pn-trans-eye{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ac-l);margin-bottom:5px}
+.pn-trans-banner h3{font-size:17px;font-weight:800;letter-spacing:-.01em;margin-bottom:6px}
+.pn-trans-banner p{font-size:13px;color:rgba(255,255,255,.82);line-height:1.6;max-width:88ch}
+.pn-tcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:12px;margin-bottom:18px}
+.pn-tcard{background:var(--wh);border:1.5px solid var(--g200);border-left:4px solid var(--mar);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);padding:16px 18px}
+.pn-tcard-eye{display:inline-flex;align-items:center;gap:6px;font-size:9.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--mar);margin-bottom:6px}
+.pn-tcard-eye::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--mar)}
+.pn-tcard h4{font-size:14px;font-weight:800;color:var(--g900);line-height:1.3;letter-spacing:-.01em;margin-bottom:5px}
+.pn-tcard p{font-size:12.5px;color:var(--g600);line-height:1.55}
+
+/* CALLOUT GUADALAJARA */
+.pn-gdl{display:flex;gap:15px;align-items:flex-start;background:var(--ac-soft);border:1.5px solid var(--ac-border);border-left:5px solid var(--ac);border-radius:var(--rad-lg);padding:18px 22px;margin-bottom:22px}
+.pn-gdl-ico{flex-shrink:0;width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--ac) 0%,var(--ac-d) 100%);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 9px rgba(232,119,34,.32)}
+.pn-gdl h3{font-size:15.5px;font-weight:800;color:var(--g900);letter-spacing:-.01em;margin-bottom:5px}
+.pn-gdl p{font-size:13px;color:var(--g800);line-height:1.6}
+.pn-gdl p strong{color:var(--ac-d);font-weight:700}
+
+/* LEY + META */
+.pn-ley{background:var(--wh);border-radius:var(--rad-lg);padding:22px 26px;border-left:4px solid var(--ac-d);box-shadow:var(--sh-sm);margin-top:22px}
+.pn-ley-eye{font-size:10.5px;font-weight:800;color:var(--ac-d);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.pn-ley h3{font-size:16px;font-weight:800;color:var(--g900);margin-bottom:8px;letter-spacing:-.008em}
+.pn-ley p{font-size:13px;color:var(--g600);line-height:1.65}
+.pn-ley p+p{margin-top:7px}
+.pn-ley p strong{color:var(--g800);font-weight:600}
+.pn-ley blockquote{font-size:13.5px;color:var(--g600);line-height:1.65;margin:12px 0 8px;padding:12px 18px;background:var(--ac-soft);border-left:3px solid var(--ac);border-radius:6px;font-style:italic}
+.pn-ley blockquote strong{color:var(--g900);font-style:normal;font-weight:700}
+.pn-meta{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:18px;padding:16px 22px;background:var(--g50);border:1px solid var(--g200);border-radius:var(--rad-lg)}
+.pn-meta-item{display:flex;flex-direction:column;gap:2px}
+.pn-meta-k{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--g400)}
+.pn-meta-v{font-size:13px;font-weight:600;color:var(--g800)}
+
+@media (max-width:780px){
+  body{padding:14px}
+  .pn-hero{padding:20px 18px}
+  .pn-hero h1{font-size:20px}
+  .pn-viewer-head{padding:12px 14px}
+  .pn-viewer-actions{width:100%}
+  .pn-vbtn{flex:1}
+  .pn-viewer-body{height:560px}
+  .pn-intro{padding:20px 18px}
+  .pn-intro-cifras{max-width:100%}
+  .pn-ley{padding:18px 18px}
+}
+@media (max-width:480px){
+  .pn-hero{padding:18px 15px;border-radius:12px}
+  .pn-hero h1{font-size:18px;line-height:1.25}
+  .pn-viewer-title b{font-size:14px}
+  .pn-viewer-body{height:500px}
+  .pn-intro-cifras{grid-template-columns:1fr 1fr}
+  .pn-icf b{font-size:24px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="pn-wrap">
+
+  <!-- HERO -->
+  <section class="pn-hero">
+    <span class="pn-hero-tag">Art. 8 · Fracción III · Inciso a) · Ley de Transparencia Jalisco</span>
+    <h1>Plan Nacional de Desarrollo <em>2025–2030</em></h1>
+    <p class="pn-hero-sub">Es el documento donde el <strong>Gobierno de México</strong> define las <strong>prioridades, objetivos y estrategias del país</strong> para estos seis años. El Ayuntamiento de Guadalajara <strong>alinea su propia planeación</strong> con él, para que lo que se hace en la ciudad apunte en la misma dirección que las metas nacionales. Aquí puedes <strong>leerlo completo</strong> en pantalla o <strong>descargarlo</strong>.</p>
+  </section>
+
+  <!-- VISOR EMBEBIDO -->
+  <div class="pn-sec-title">Consulta el documento completo</div>
+  <div class="pn-viewer">
+    <div class="pn-viewer-head">
+      <div class="pn-viewer-title">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
+        <span><b>Plan Nacional de Desarrollo 2025–2030</b><small>Documento oficial · PDF</small></span>
+      </div>
+      <div class="pn-viewer-actions">
+        <a class="pn-vbtn" id="pnOpen" href="https://transparencia.guadalajara.gob.mx/sites/default/files/Plan_Nacional_de_Desarrollo_2025_2030.pdf" target="_blank" rel="noopener noreferrer">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+          Abrir en pestaña
+        </a>
+        <button class="pn-vbtn pn-dl" id="pnDl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/Plan_Nacional_de_Desarrollo_2025_2030.pdf">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span class="pn-dl-tx">Descargar</span>
+        </button>
+      </div>
+    </div>
+    <div class="pn-viewer-body">
+      <div class="pn-viewer-loading" id="pnLoading"><div class="pn-spin"></div><div>Cargando el documento…</div></div>
+      <iframe class="pn-frame" id="pnFrame" src="https://transparencia.guadalajara.gob.mx/sites/default/files/Plan_Nacional_de_Desarrollo_2025_2030.pdf#view=FitH" title="Plan Nacional de Desarrollo 2025-2030 (documento PDF)"></iframe>
+    </div>
+    <div class="pn-hint">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+      <span>Usa la barra del visor para <strong>acercar, buscar o cambiar de página</strong>. Para verlo más grande, abre <strong>“Abrir en pestaña”</strong>.</span>
+    </div>
+  </div>
+
+  <!-- INTRO: UNA SOLA RUTA -->
+  <div class="pn-sec-title">Cómo está organizado el Plan</div>
+  <div class="pn-intro">
+    <span class="pn-intro-tag">Plan Nacional de Desarrollo 2025–2030</span>
+    <h2 class="pn-intro-h">Una sola ruta para México: <em>4 ejes, 14 Repúblicas, 100 compromisos</em></h2>
+    <p class="pn-intro-sub">Así organiza el <strong>Gobierno de México</strong> su trabajo durante los próximos seis años. Lo presentamos en lenguaje claro para que cualquier persona pueda entender hacia dónde va el país. El documento oficial completo está en el <strong>visor de arriba</strong>.</p>
+    <div class="pn-intro-cifras">
+      <div class="pn-icf"><b>4</b><span>Ejes generales</span></div>
+      <div class="pn-icf"><b>14</b><span>Repúblicas</span></div>
+      <div class="pn-icf"><b>100</b><span>Compromisos</span></div>
+    </div>
+  </div>
+
+  <!-- EJES GENERALES -->
+  <div class="pn-ejes">
+    <article class="pn-eje">
+      <div class="pn-eje-top">
+        <span class="pn-eje-n">1</span>
+        <span class="pn-eje-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+      </div>
+      <div class="pn-eje-k">Eje general</div>
+      <h3 class="pn-eje-h">Gobernanza con justicia y participación ciudadana</h3>
+      <div class="pn-eje-rcount">2 Repúblicas que integran este eje</div>
+      <div class="pn-eje-reps">
+        <span class="pn-rep">República democrática, justa, honesta, libre, participativa y responsable</span>
+        <span class="pn-rep">República segura y con justicia</span>
+      </div>
+    </article>
+    <article class="pn-eje">
+      <div class="pn-eje-top">
+        <span class="pn-eje-n">2</span>
+        <span class="pn-eje-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.06-1.1a5.5 5.5 0 0 0-7.78 7.78L12 21.2l8.84-8.82a5.5 5.5 0 0 0-.04-7.78z"/></svg></span>
+      </div>
+      <div class="pn-eje-k">Eje general</div>
+      <h3 class="pn-eje-h">Desarrollo con bienestar y humanismo</h3>
+      <div class="pn-eje-rcount">6 Repúblicas que integran este eje</div>
+      <div class="pn-eje-reps">
+        <span class="pn-rep">República fraterna</span>
+        <span class="pn-rep">República educadora, humanista y científica</span>
+        <span class="pn-rep">República cultural y lectora</span>
+        <span class="pn-rep">República sana</span>
+        <span class="pn-rep">República con acceso a la vivienda</span>
+        <span class="pn-rep">República de y para las mujeres</span>
+      </div>
+    </article>
+    <article class="pn-eje">
+      <div class="pn-eje-top">
+        <span class="pn-eje-n">3</span>
+        <span class="pn-eje-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+      </div>
+      <div class="pn-eje-k">Eje general</div>
+      <h3 class="pn-eje-h">Economía moral y trabajo</h3>
+      <div class="pn-eje-rcount">3 Repúblicas que integran este eje</div>
+      <div class="pn-eje-reps">
+        <span class="pn-rep">República con trabajo y salario justo</span>
+        <span class="pn-rep">República rural justa y soberana</span>
+        <span class="pn-rep">República próspera y conectada</span>
+      </div>
+    </article>
+    <article class="pn-eje">
+      <div class="pn-eje-top">
+        <span class="pn-eje-n">4</span>
+        <span class="pn-eje-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg></span>
+      </div>
+      <div class="pn-eje-k">Eje general</div>
+      <h3 class="pn-eje-h">Desarrollo sustentable</h3>
+      <div class="pn-eje-rcount">3 Repúblicas que integran este eje</div>
+      <div class="pn-eje-reps">
+        <span class="pn-rep">República soberana y con energía sustentable</span>
+        <span class="pn-rep">República con derecho al agua</span>
+        <span class="pn-rep">República que protege el medio ambiente y sus recursos naturales</span>
+      </div>
+    </article>
+  </div>
+
+  <!-- EJES TRANSVERSALES -->
+  <div class="pn-trans-banner">
+    <div class="pn-trans-eye">Ejes transversales</div>
+    <h3>Principios que cruzan todo el Plan</h3>
+    <p>Estos enfoques se aplican en cada eje y en cada política pública del Gobierno de México. Son la mirada compartida de toda la planeación.</p>
+  </div>
+  <div class="pn-tcards">
+    <article class="pn-tcard">
+      <div class="pn-tcard-eye">Transversal</div>
+      <h4>Igualdad sustantiva y derechos de las mujeres</h4>
+      <p>Cerrar las brechas de género en derechos, oportunidades y vida pública.</p>
+    </article>
+    <article class="pn-tcard">
+      <div class="pn-tcard-eye">Transversal</div>
+      <h4>Innovación pública para el desarrollo tecnológico nacional</h4>
+      <p>Ciencia, tecnología e innovación al servicio del bienestar del país.</p>
+    </article>
+    <article class="pn-tcard">
+      <div class="pn-tcard-eye">Transversal</div>
+      <h4>Derechos de las comunidades indígenas y afromexicanas</h4>
+      <p>Reconocimiento, derechos colectivos y desarrollo con identidad cultural.</p>
+    </article>
+  </div>
+
+  <!-- CALLOUT GUADALAJARA -->
+  <div class="pn-gdl">
+    <div class="pn-gdl-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+    <div>
+      <h3>Guadalajara alinea sus prioridades con este Plan</h3>
+      <p>El Ayuntamiento de Guadalajara coordina su <strong>Plan Municipal de Desarrollo</strong> y sus programas sectoriales con los ejes, Repúblicas y compromisos del PND, especialmente en lo relativo a sus atribuciones municipales (servicios públicos, seguridad, desarrollo urbano, bienestar y cultura). El documento oficial está en el visor de arriba.</p>
+    </div>
+  </div>
+
+  <!-- LEY -->
+  <section class="pn-ley">
+    <div class="pn-ley-eye">Fundamento legal</div>
+    <h3>¿Por qué se publica esta información?</h3>
+    <p>El Ayuntamiento de Guadalajara está obligado a poner a tu disposición los apartados del Plan Nacional de Desarrollo, conforme al siguiente fundamento:</p>
+    <blockquote>«Artículo 8. Es información fundamental, obligatoria para todos los sujetos obligados, la siguiente: <strong>(…) III.</strong> La información sobre la planeación del desarrollo, que comprende: <strong>(…) a)</strong> Los apartados del Plan Nacional de Desarrollo.»</blockquote>
+    <p>— <strong>Artículo 8, Fracción III, Inciso a)</strong> de la <em>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</em>. El documento es el oficial tal como fue publicado por el sujeto obligado; en caso de cualquier discrepancia, prevalece el documento oficial.</p>
+    <div class="pn-meta">
+      <div class="pn-meta-item">
+        <span class="pn-meta-k">Documento</span>
+        <span class="pn-meta-v">Plan Nacional de Desarrollo 2025–2030</span>
+      </div>
+      <div class="pn-meta-item">
+        <span class="pn-meta-k">Periodo de vigencia</span>
+        <span class="pn-meta-v">2025 a 2030</span>
+      </div>
+      <div class="pn-meta-item">
+        <span class="pn-meta-k">Formato</span>
+        <span class="pn-meta-v">PDF (642 KB)</span>
+      </div>
+      <div class="pn-meta-item">
+        <span class="pn-meta-k">Fecha de actualización</span>
+        <span class="pn-meta-v">04 de mayo de 2026</span>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+/* ==========================================================================
+   Plan Nacional de Desarrollo 2025-2030 · Art. 8 Fracción III Inciso a)
+   PDF oficial embebido (permite iframe: X-Frame-Options ausente). Descarga
+   real vía fetch + blob (CORS *). Estructura del Plan (4 ejes, 14 Repúblicas,
+   3 transversales): textos verbatim del documento; el agrupamiento eje->
+   República proviene del diagrama de vinculación del propio Plan.
+   Vanilla JS, sin template literals, compatible con Strapi v4.
+   ========================================================================== */
+(function(){
+  var frame = document.getElementById('pnFrame');
+  var loading = document.getElementById('pnLoading');
+  frame.addEventListener('load', function(){ loading.classList.add('hide'); });
+  setTimeout(function(){ loading.classList.add('hide'); }, 6000);
+
+  function nombreArchivo(u){
+    try { var p = u.split('?')[0].split('#')[0].split('/'); var n = decodeURIComponent(p[p.length - 1]); return n || 'documento.pdf'; } catch(e){ return 'documento.pdf'; }
+  }
+  var dl = document.getElementById('pnDl');
+  if (dl){
+    dl.addEventListener('click', function(){
+      if (dl.getAttribute('data-busy') === '1') return;
+      var url = dl.getAttribute('data-u');
+      var tx = dl.querySelector('.pn-dl-tx');
+      var label = tx ? tx.textContent : '';
+      dl.setAttribute('data-busy', '1');
+      if (tx) { tx.textContent = 'Descargando…'; }
+      fetch(url).then(function(res){ if (!res.ok) { throw new Error('http'); } return res.blob(); }).then(function(blob){
+        var burl = URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = burl; a.download = nombreArchivo(url);
+        document.body.appendChild(a); a.click(); document.body.removeChild(a);
+        setTimeout(function(){ URL.revokeObjectURL(burl); }, 6000);
+        dl.removeAttribute('data-busy'); if (tx) { tx.textContent = label; }
+      }).catch(function(){
+        window.open(url, '_blank', 'noopener');
+        dl.removeAttribute('data-busy'); if (tx) { tx.textContent = label; }
+      });
+    });
+  }
+
+  function reportHeight(){
+    var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+    try { parent.postMessage({ type:'gdl-iframe-height', id:'plan-nacional-desarrollo-art8-III-a', height: h }, '*'); } catch(e){}
+  }
+  window.addEventListener('load', reportHeight);
+  window.addEventListener('resize', reportHeight);
+  setTimeout(reportHeight, 400);
+  setTimeout(reportHeight, 1200);
+})();
+</script>
+
+</body>
+</html>
