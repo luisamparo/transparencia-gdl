@@ -76,7 +76,11 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
 .in-count strong{color:var(--g900);font-weight:800}
 
 /* TABLA */
-.in-tablewrap{background:var(--wh);border:1.5px solid var(--g200);border-top:4px solid var(--ac);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);overflow-x:auto;margin-bottom:22px}
+.in-tablewrap{background:var(--wh);border:1.5px solid var(--g200);border-top:4px solid var(--ac);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);overflow:auto;max-height:700px;-webkit-overflow-scrolling:touch;margin-bottom:22px}
+.in-tabla thead th{position:sticky;top:0;z-index:2}
+.in-scrollhint{display:none;align-items:center;justify-content:center;gap:7px;font-size:11.5px;font-weight:700;color:var(--ac-d);background:var(--ac-soft);border:1px solid var(--ac-border);border-radius:999px;padding:6px 14px;width:fit-content;margin:0 auto 14px}
+.in-scrollhint svg{animation:inbob 1.4s ease-in-out infinite}
+@keyframes inbob{0%,100%{transform:translateY(0)}50%{transform:translateY(3px)}}
 .in-tabla{width:100%;min-width:900px;border-collapse:collapse;table-layout:fixed}
 .in-tabla thead th{background:linear-gradient(135deg,var(--ac) 0%,var(--ac-d) 100%);color:#fff;font-size:12px;font-weight:800;letter-spacing:.005em;padding:12px 11px;text-align:left;vertical-align:top;line-height:1.3;overflow-wrap:break-word;word-break:normal;hyphens:none;position:sticky;top:0}
 .in-tabla tbody td{padding:14px;font-size:13px;color:var(--g800);border-top:1px solid var(--g100);vertical-align:top;line-height:1.55;word-wrap:break-word;overflow-wrap:break-word}
@@ -116,7 +120,8 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
   .in-cifras{grid-template-columns:repeat(2,1fr);max-width:100%}
   .in-cifra-num{font-size:23px}
   /* La tabla se convierte en tarjetas */
-  .in-tablewrap{overflow-x:visible;border-top-width:1.5px;background:transparent;border:none;box-shadow:none;padding:0}
+  .in-tablewrap{overflow:visible;max-height:none;border-top-width:1.5px;background:transparent;border:none;box-shadow:none;padding:0}
+  .in-scrollhint{display:none}
   .in-tabla{min-width:0;display:block}
   .in-tabla thead{display:none}
   .in-tabla tbody{display:block}
@@ -187,6 +192,10 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
   </div>
 
   <!-- TABLA -->
+  <div class="in-scrollhint" id="inScrollHint">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    Desplázate dentro de la tabla para ver todos los expedientes
+  </div>
   <div class="in-tablewrap">
     <table class="in-tabla">
       <colgroup>
@@ -556,6 +565,8 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
   var yearChips = Array.prototype.slice.call(document.querySelectorAll('.in-yearchip'));
   var countEl = document.getElementById('inCount');
   var emptyEl = document.getElementById('inEmpty');
+  var hint = document.getElementById('inScrollHint');
+  var scrollBox = document.querySelector('.in-tablewrap');
   var curArea = 'all';
   var curYear = 'all';
   var curQ = '';
@@ -579,6 +590,7 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
     }
     countEl.innerHTML = 'Mostrando <strong>' + shown + '</strong> de <strong>' + rows.length + '</strong> expedientes reservados';
     emptyEl.hidden = (shown !== 0);
+    if (hint && scrollBox){ hint.style.display = (scrollBox.scrollHeight > scrollBox.clientHeight + 4) ? 'flex' : 'none'; }
     reportHeight();
   }
 
