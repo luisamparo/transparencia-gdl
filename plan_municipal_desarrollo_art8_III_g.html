@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="El Plan Municipal de Desarrollo de Guadalajara y los demás instrumentos de planeación del municipio (planes institucionales y programas municipales), del vigente al histórico desde 2007, para consultar y descargar sin trámite. Art. 8 Fracción III Inciso g) de la Ley de Transparencia de Jalisco."/>
+<title>¿Cuáles son los planes y programas con que se gobierna Guadalajara? · Plan Municipal de Desarrollo, planes institucionales y programas municipales, para consultar y descargar · Art. 8 Frac. III Inc. g) · Transparencia GDL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ac:#E87722;--ac-l:#FFE4CC;--ac-d:#C45F0A;--ac-border:#F5C99A;--ac-soft:#FFF1E4;
+  --g50:#FAFAF8;--g100:#F0F0EC;--g200:#E2E2DD;--g300:#CFCFC8;--g400:#9E9E98;--g600:#5A5A55;--g800:#2D2D2A;--g900:#1A1A1A;
+  --wh:#FFF;
+  --rad:10px;--rad-lg:14px;
+  --sh:0 4px 22px rgba(0,0,0,.08);--sh-sm:0 1px 3px rgba(0,0,0,.06);--sh-md:0 6px 18px rgba(0,0,0,.07);--sh-lg:0 12px 30px rgba(0,0,0,.1);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --fh:'Outfit',system-ui,-apple-system,sans-serif;
+  --fm:'DM Mono','SF Mono',Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--g900);line-height:1.55;-webkit-font-smoothing:antialiased}
+.rg-wrap{max-width:1040px;margin:0 auto}
+
+/* Barras de scroll con estilo (en lugar del gris del sistema) */
+*{scrollbar-width:thin;scrollbar-color:var(--ac-border) transparent}
+*::-webkit-scrollbar{width:12px;height:12px}
+*::-webkit-scrollbar-track{background:transparent}
+*::-webkit-scrollbar-thumb{background:var(--ac-border);border-radius:20px;border:3px solid transparent;background-clip:content-box}
+*::-webkit-scrollbar-thumb:hover{background:var(--ac);background-clip:content-box}
+/* El visor de PDF: barra un poco más marcada para que se note sobre el fondo gris */
+.rg-pdf-scroll{scrollbar-color:var(--ac) var(--g300)}
+.rg-pdf-scroll::-webkit-scrollbar-track{background:var(--g300)}
+.rg-pdf-scroll::-webkit-scrollbar-thumb{background:var(--ac);border:3px solid var(--g300)}
+.rg-pdf-scroll::-webkit-scrollbar-thumb:hover{background:var(--ac-d)}
+
+/* HERO */
+.rg-hero{background:linear-gradient(135deg,var(--ac-soft) 0%,#FFFFFF 55%);color:var(--g900);border-radius:var(--rad-lg);padding:26px 30px;margin:0 0 22px;position:relative;overflow:hidden;border-left:5px solid var(--ac);box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.rg-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.12) 0%,transparent 70%);pointer-events:none}
+.rg-hero-tag{display:inline-block;background:var(--ac);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;position:relative;z-index:1;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.rg-hero h1{margin:0 0 8px;font-size:clamp(22px,3.2vw,28px);font-weight:800;color:var(--g900);letter-spacing:-.015em;line-height:1.22;position:relative;z-index:1}
+.rg-hero h1 em{font-style:normal;color:var(--ac-d);display:block;margin-top:2px}
+.rg-hero-sub{font-size:14.5px;color:var(--g600);max-width:92ch;margin:0;line-height:1.62;position:relative;z-index:1}
+.rg-hero-sub strong{color:var(--g900);font-weight:700}
+.rg-cifras{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px;max-width:720px;position:relative;z-index:1}
+.rg-cifra{background:var(--wh);border:1.5px solid var(--ac-border);border-radius:var(--rad);padding:12px 14px;display:flex;flex-direction:column;gap:2px;transition:border-color .18s ease,transform .18s ease}
+.rg-cifra:hover{border-color:var(--ac);transform:translateY(-2px)}
+.rg-cifra-num{font-size:25px;font-weight:800;line-height:1.05;color:var(--ac-d);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.rg-cifra-lbl{font-size:10.5px;font-weight:700;color:var(--g600);text-transform:uppercase;letter-spacing:.05em;margin-top:3px;line-height:1.3}
+
+/* SECCIÓN TÍTULO */
+.rg-sec-title{font-size:13px;font-weight:800;color:var(--g400);letter-spacing:.1em;text-transform:uppercase;margin:22px 4px 14px;display:flex;align-items:center;gap:10px}
+.rg-sec-title.first{margin-top:0}
+.rg-sec-title::after{content:'';flex:1;height:1.5px;background:var(--g200);border-radius:2px}
+
+/* LISTA POR SECCIÓN */
+.rg-seclist{background:var(--wh);border:1.5px solid var(--g200);border-top:4px solid var(--ac);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);overflow:hidden;margin-bottom:6px}
+.rg-row{display:flex;align-items:center;gap:14px;padding:13px 18px;border-top:1px solid var(--g100);transition:background .12s}
+.rg-row:first-child{border-top:none}
+.rg-row:hover{background:var(--ac-soft)}
+.rg-ico{flex-shrink:0;width:42px;height:42px;border-radius:11px;background:var(--ac-l);color:var(--ac-d);display:flex;align-items:center;justify-content:center}
+.rg-main{flex:1;min-width:0}
+.rg-star{display:inline-flex;align-items:center;gap:5px;font-size:9px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--ac-d);background:#fff;border:1px solid var(--ac-border);border-radius:6px;padding:2px 8px;margin-bottom:5px}
+.rg-star svg{color:var(--ac)}
+.rg-name{font-size:14.5px;font-weight:700;color:var(--g900);line-height:1.32;letter-spacing:-.005em}
+.rg-date{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--g600);margin-top:4px}
+.rg-date svg{color:var(--ac-d);flex-shrink:0}
+.rg-actions{flex-shrink:0;display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.rg-btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;font-family:var(--fh);font-size:13.5px;font-weight:700;padding:11px 20px;border-radius:9px;cursor:pointer;text-decoration:none;border:1.5px solid;transition:all .14s var(--ease);white-space:nowrap;flex-shrink:0;min-width:124px}
+.rg-btn svg{width:16px;height:16px}
+.rg-btn svg{flex-shrink:0}
+.rg-btn-2nd{background:var(--wh);color:var(--g800);border-color:var(--g200)}
+.rg-btn-2nd svg{color:var(--ac-d)}
+.rg-btn-2nd:hover{border-color:var(--ac);color:var(--ac-d);background:var(--ac-soft)}
+
+/* POSTALES */
+.rg-postales{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px;margin:22px 0}
+.rg-postal{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh);overflow:hidden;display:flex;gap:15px;padding:20px 22px;border-top:5px solid var(--ac)}
+.rg-postal-ico{flex-shrink:0;width:48px;height:48px;border-radius:13px;background:var(--ac-soft);color:var(--ac-d);display:flex;align-items:center;justify-content:center}
+.rg-postal-body{display:flex;flex-direction:column;gap:6px}
+.rg-postal-eye{font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ac-d)}
+.rg-postal-title{font-size:15.5px;font-weight:800;color:var(--g900);letter-spacing:-.012em;line-height:1.3}
+.rg-postal-desc{font-size:13px;color:var(--g600);line-height:1.6}
+.rg-postal-desc strong{color:var(--g800);font-weight:700}
+
+/* VISOR PDF MODAL */
+.rg-modal{position:fixed;inset:0;background:rgba(26,26,26,.78);z-index:1000;display:none;align-items:center;justify-content:center;padding:18px;backdrop-filter:blur(3px)}
+.rg-modal.open{display:flex;animation:rgFade .2s var(--ease)}
+@keyframes rgFade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+.rg-modal-box{background:var(--wh);border-radius:var(--rad-lg);width:min(1000px,100%);height:min(92vh,100%);display:flex;flex-direction:column;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.4)}
+.rg-modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 18px;background:linear-gradient(135deg,var(--ac) 0%,var(--ac-d) 100%);color:#fff;flex-shrink:0}
+.rg-modal-title{font-family:var(--fh);font-size:13px;font-weight:800;line-height:1.3;min-width:0;flex:1}
+.rg-modal-title small{display:block;font-weight:500;font-size:11px;opacity:.92;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rg-modal-actions{display:flex;gap:7px;align-items:center;flex-shrink:0}
+.rg-modal-btn{display:inline-flex;align-items:center;gap:5px;font-family:var(--fh);font-size:11.5px;font-weight:700;padding:7px 11px;border-radius:7px;cursor:pointer;text-decoration:none;border:1.5px solid rgba(255,255,255,.4);color:#fff;background:rgba(255,255,255,.14);transition:all .12s;white-space:nowrap}
+.rg-modal-btn:hover{background:rgba(255,255,255,.26)}
+.rg-modal-close{width:32px;height:32px;border-radius:50%;justify-content:center;padding:0;font-size:17px;line-height:1}
+.rg-modal-body{flex:1;background:var(--g100);position:relative;min-height:0}
+.rg-modal-frame{width:100%;height:100%;border:0;display:block;position:relative;z-index:1}
+.rg-modal-frame[hidden]{display:none}
+.rg-modal-loading{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--g600);font-size:13px;text-align:center;padding:24px;pointer-events:none;z-index:2;background:var(--g100)}
+.rg-modal-loading.hide{display:none}
+.rg-modal-spin{width:26px;height:26px;border:3px solid var(--ac-l);border-top-color:var(--ac);border-radius:50%;animation:rgspin 1s linear infinite}
+@keyframes rgspin{to{transform:rotate(360deg)}}
+.rg-modal-zoom{display:inline-flex;align-items:center;gap:1px;background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.4);border-radius:7px;padding:2px;margin-right:3px}
+.rg-zoom-btn{width:27px;height:26px;border:0;background:transparent;color:#fff;font-size:18px;font-weight:700;cursor:pointer;border-radius:5px;line-height:1;display:flex;align-items:center;justify-content:center;font-family:var(--fh)}
+.rg-zoom-btn:hover{background:rgba(255,255,255,.22)}
+.rg-zoom-lvl{min-width:48px;height:26px;border:0;background:transparent;color:#fff;font-size:11.5px;font-weight:700;cursor:pointer;border-radius:5px;font-family:var(--fh);padding:0 4px}
+.rg-zoom-lvl:hover{background:rgba(255,255,255,.22)}
+.rg-pdf-scroll{position:absolute;inset:0;overflow:auto;background:var(--g200);z-index:1;-webkit-overflow-scrolling:touch}
+.rg-pdf-scroll[hidden]{display:none}
+.rg-pdf-inner{padding:14px 0;margin:0 auto;box-sizing:border-box}
+.rg-pdf-page{position:relative;margin:0 auto 14px;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.20)}
+.rg-pdf-page:last-child{margin-bottom:0}
+.rg-pdf-page canvas{display:block;width:100%;height:100%}
+.rg-pdf-pnum{position:absolute;top:6px;right:8px;background:rgba(26,26,26,.55);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:10px;font-family:var(--fh);pointer-events:none;opacity:0;transition:opacity .15s}
+.rg-pdf-page:hover .rg-pdf-pnum{opacity:1}
+@media (max-width:780px){
+  .rg-modal{padding:0}
+  .rg-modal-box{height:100%;border-radius:0;width:100%}
+  .rg-modal-head{padding:11px 12px;gap:8px}
+  .rg-modal-title small{display:none}
+  .rg-modal-btn span{display:none}
+}
+
+/* LEY + META */
+.rg-ley{background:var(--wh);border-radius:var(--rad-lg);padding:22px 26px;border-left:4px solid var(--ac-d);box-shadow:var(--sh-sm);margin-top:22px}
+.rg-ley-eye{font-size:10.5px;font-weight:800;color:var(--ac-d);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.rg-ley h3{font-size:16px;font-weight:800;color:var(--g900);margin-bottom:8px;letter-spacing:-.008em}
+.rg-ley p{font-size:13px;color:var(--g600);line-height:1.65}
+.rg-ley p+p{margin-top:7px}
+.rg-ley p strong{color:var(--g800);font-weight:600}
+.rg-ley blockquote{font-size:13.5px;color:var(--g600);line-height:1.65;margin:12px 0 8px;padding:12px 18px;background:var(--ac-soft);border-left:3px solid var(--ac);border-radius:6px;font-style:italic}
+.rg-ley blockquote strong{color:var(--g900);font-style:normal;font-weight:700}
+.rg-meta{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:18px;padding:16px 22px;background:var(--g50);border:1px solid var(--g200);border-radius:var(--rad-lg)}
+.rg-meta-item{display:flex;flex-direction:column;gap:2px}
+.rg-meta-k{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--g400)}
+.rg-meta-v{font-size:13px;font-weight:600;color:var(--g800)}
+
+@media (max-width:780px){
+  body{padding:14px}
+  .rg-hero{padding:20px 18px}
+  .rg-hero h1{font-size:20px}
+  .rg-cifras{grid-template-columns:repeat(2,1fr);max-width:100%}
+  .rg-row{flex-wrap:wrap}
+  .rg-actions{width:100%;padding-left:56px;justify-content:flex-start}
+  .rg-actions .rg-btn{flex:1}
+  .rg-ley{padding:18px 18px}
+}
+@media (max-width:480px){
+  body{padding:10px}
+  .rg-hero{padding:18px 15px;border-radius:12px}
+  .rg-hero h1{font-size:18px;line-height:1.25}
+  .rg-cifras{grid-template-columns:1fr 1fr;gap:8px}
+  .rg-actions{padding-left:0}
+  .rg-ley{padding:16px 15px;border-radius:12px}
+  .rg-ley blockquote{padding:11px 14px;font-size:12.5px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="rg-wrap">
+
+  <!-- HERO -->
+  <section class="rg-hero">
+    <span class="rg-hero-tag">Art. 8 · Fracción III · Inciso g) · Ley de Transparencia Jalisco</span>
+    <h1>Los planes y programas con que se gobierna Guadalajara <em>El Plan Municipal de Desarrollo y los demás instrumentos de planeación</em></h1>
+    <p class="rg-hero-sub">Son los documentos donde el Gobierno de Guadalajara define <strong>hacia dónde va la ciudad y cómo piensa lograrlo</strong>: el Plan Municipal de Desarrollo, los planes institucionales y los programas. Aquí los puedes <strong>consultar y descargar</strong>, sin trámite ni solicitud.</p>
+    <div class="rg-cifras">
+      <div class="rg-cifra"><span class="rg-cifra-num">15</span><span class="rg-cifra-lbl">Documentos oficiales</span></div>
+      <div class="rg-cifra"><span class="rg-cifra-num">3</span><span class="rg-cifra-lbl">Tipos de instrumento</span></div>
+      <div class="rg-cifra"><span class="rg-cifra-num">2007</span><span class="rg-cifra-lbl">Histórico desde</span></div>
+      <div class="rg-cifra"><span class="rg-cifra-num">100%</span><span class="rg-cifra-lbl">Acceso ciudadano</span></div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 1: PLAN MUNICIPAL DE DESARROLLO -->
+  <div class="rg-sec-title first">Plan Municipal de Desarrollo · del vigente al más antiguo</div>
+  <div class="rg-seclist" id="secPmd"></div>
+
+  <!-- SECCIÓN 2: PLANES INSTITUCIONALES -->
+  <div class="rg-sec-title">Planes Institucionales</div>
+  <div class="rg-seclist" id="secInst"></div>
+
+  <!-- SECCIÓN 3: PROGRAMAS MUNICIPALES -->
+  <div class="rg-sec-title">Programas Municipales</div>
+  <div class="rg-seclist" id="secProg"></div>
+
+  <!-- POSTALES EDUCATIVAS -->
+  <div class="rg-postales">
+    <div class="rg-postal">
+      <div class="rg-postal-ico" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 11 22 2 13 21 11 13 3 11"/></svg>
+      </div>
+      <div class="rg-postal-body">
+        <div class="rg-postal-eye">¿Qué es el Plan Municipal de Desarrollo?</div>
+        <div class="rg-postal-title">El rumbo de la ciudad, por escrito</div>
+        <p class="rg-postal-desc">Es el documento donde el Ayuntamiento define, para su periodo de gobierno, <strong>las metas y prioridades</strong> de Guadalajara: hacia dónde quiere llevar a la ciudad y cómo. De ahí se desprenden los planes y programas que ejecuta.</p>
+      </div>
+    </div>
+    <div class="rg-postal">
+      <div class="rg-postal-ico" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
+      </div>
+      <div class="rg-postal-body">
+        <div class="rg-postal-eye">¿Qué encuentras aquí?</div>
+        <div class="rg-postal-title">El plan vigente y el histórico</div>
+        <p class="rg-postal-desc">El plan en curso y los de administraciones anteriores <strong>desde 2007</strong>, además de los planes institucionales y los programas municipales. Ábrelos o descárgalos directamente, sin solicitud.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FUNDAMENTO LEGAL -->
+  <section class="rg-ley">
+    <div class="rg-ley-eye">Fundamento legal</div>
+    <h3>¿Por qué el Ayuntamiento publica estos instrumentos de planeación?</h3>
+    <p>El Ayuntamiento de Guadalajara está obligado a poner a tu disposición la información sobre la planeación del desarrollo, conforme al siguiente fundamento:</p>
+    <blockquote>«Artículo 8. Es información fundamental, obligatoria para todos los sujetos obligados, la siguiente: <strong>(…) III.</strong> La información sobre la planeación del desarrollo, aplicable al y por el sujeto obligado, que comprende: <strong>(…) g)</strong> Los demás instrumentos de planeación no comprendidos en los incisos anteriores;»</blockquote>
+    <p>— <strong>Artículo 8, Fracción III, Inciso g)</strong> de la <em>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</em>. Los documentos, fechas y enlaces corresponden a los publicados oficialmente; en caso de cualquier discrepancia, prevalece el documento oficial.</p>
+    <div class="rg-meta">
+      <div class="rg-meta-item">
+        <span class="rg-meta-k">Fecha de actualización</span>
+        <span class="rg-meta-v">04 de mayo de 2026</span>
+      </div>
+      <div class="rg-meta-item">
+        <span class="rg-meta-k">Administración vigente</span>
+        <span class="rg-meta-v">2024 – 2027</span>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- VISOR PDF MODAL -->
+<div class="rg-modal" id="rgModal" role="dialog" aria-modal="true" aria-labelledby="rgModalTitle">
+  <div class="rg-modal-box">
+    <div class="rg-modal-head">
+      <div class="rg-modal-title" id="rgModalTitle">Documento oficial<small id="rgModalSub"></small></div>
+      <div class="rg-modal-actions">
+        <div class="rg-modal-zoom" id="rgZoomCtl" hidden>
+          <button class="rg-zoom-btn" id="rgZoomOut" type="button" title="Alejar" aria-label="Alejar">&#8722;</button>
+          <button class="rg-zoom-lvl" id="rgZoomFit" type="button" title="Ajustar al ancho">100%</button>
+          <button class="rg-zoom-btn" id="rgZoomIn" type="button" title="Acercar" aria-label="Acercar">+</button>
+        </div>
+        <a class="rg-modal-btn" id="rgModalOpen" href="#" target="_blank" rel="noopener noreferrer" title="Abrir en pestaña nueva">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+          <span>Abrir en pestaña</span>
+        </a>
+        <button class="rg-modal-btn" id="rgModalDl" type="button" title="Descargar documento">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span>Descargar</span>
+        </button>
+        <button class="rg-modal-btn rg-modal-close" id="rgModalClose" type="button" aria-label="Cerrar visor">&times;</button>
+      </div>
+    </div>
+    <div class="rg-modal-body">
+      <div class="rg-modal-loading" id="rgModalLoading"><div class="rg-modal-spin"></div><div>Cargando documento…</div></div>
+      <div class="rg-pdf-scroll" id="rgPdfScroll" hidden><div class="rg-pdf-inner" id="rgPdfInner"></div></div>
+      <iframe class="rg-modal-frame" id="rgModalFrame" title="Visor de documento PDF" hidden></iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ==========================================================================
+   Plan Municipal de Desarrollo y demás instrumentos de planeación
+   Art. 8, Fracción III, Inciso g) · Ley de Transparencia y Acceso a la
+   Información Pública del Estado de Jalisco y sus Municipios.
+   Datos y enlaces tomados VERBATIM del registro oficial del sujeto obligado.
+   Fecha de actualización del registro: 04/05/2026.
+   Los 15 documentos fueron verificados: HTTP 200 y tipo correcto (PDF / DOCX).
+   2 PDFs muy grandes (Anticorrupción ~324 MB, Residuos ~54 MB) abren en el
+   visor del navegador (pestaña nueva), más estable para archivos enormes.
+   Estilo y visor (PDF.js, zoom centrado) armonizados con el inciso de Reglamentos.
+   Vanilla JS, sin template literals, compatible con Strapi v4.
+   ========================================================================== */
+(function(){
+  var BASE = 'https://transparencia.guadalajara.gob.mx/sites/default/files/';
+
+  /* SECCIÓN 1: Plan Municipal de Desarrollo (vigente -> histórico). Enlaces EXACTOS. */
+  var SEC_PMD = [
+    { t:'pdf', f:'PlanMunicipalDesarrollo2024-2027.pdf', n:'Plan Municipal de Desarrollo y Gobernanza Guadalajara 2024-2027 · Visión 2042', size:'27 MB', recent:true },
+    { t:'pdf', f:'PlanMunicipalDesarrollo2021-2024.pdf', n:'Plan Municipal de Desarrollo y Gobernanza Guadalajara 2021-2024 · Visión 2042 / 500', size:'4 MB' },
+    { t:'pdf', f:'OficioPlaneacionPlanMunicipal22.pdf', n:'Oficio de seguimiento · Plan Municipal de Desarrollo y Gobernanza 2021-2024', size:'0.5 MB' },
+    { t:'pdf', f:'OficioPlanMunicipalDesarrolloGobernanzaPoliticasPublicas2021.pdf', n:'Oficio · Plan Municipal de Desarrollo y Gobernanza 2021-2024', size:'70 KB' },
+    { t:'pdf', f:'PMDGGuadalajara2018-2021.pdf', n:'Plan Municipal de Desarrollo y Gobernanza Guadalajara 500 / Visión 2042 (2018-2021) · PDF', size:'7.5 MB' },
+    { t:'docx', f:'PMDGGuadalajara2018-2021.docx', n:'Plan Municipal de Desarrollo y Gobernanza Guadalajara 500 / Visión 2042 (2018-2021) · Word', size:'7 MB' },
+    { t:'pdf', f:'GacetaTomoIIEjemplar17Secc1raAbril14-2016.pdf', n:'Plan Municipal de Desarrollo Guadalajara 500 / Visión 2042 (2015-2018)', size:'2.7 MB' },
+    { t:'pdf', f:'PMDGuadalajara2012-2015.pdf', n:'Plan Municipal de Desarrollo Guadalajara 2012-2015', size:'5.8 MB' },
+    { t:'pdf', f:'PMDGuadalajara2010-2012.pdf', n:'Plan Municipal de Desarrollo Guadalajara 2010-2012', size:'6.3 MB' },
+    { t:'pdf', f:'20070627_PMD_GDL_1.pdf', n:'Plan Municipal de Desarrollo Guadalajara 2007-2009', size:'3.1 MB' }
+  ];
+  /* SECCIÓN 2: Planes Institucionales. */
+  var SEC_INST = [
+    { t:'pdf', f:'PlanInstitucionalGuadalajara24-27.pdf', n:'Plan Institucional del Municipio de Guadalajara 2024-2027', size:'3.5 MB', recent:true },
+    { t:'pdf', f:'PlanInstitucionalGuadalajara21-24.pdf', n:'Plan Institucional del Municipio de Guadalajara 2021-2024', size:'3.9 MB' },
+    { t:'pdf', f:'GacetaTomoIIIEjemplar13Junio22-2020.pdf', n:'Plan Institucional del Municipio de Guadalajara 2018-2021', size:'1.3 MB' }
+  ];
+  /* SECCIÓN 3: Programas Municipales (2 PDFs muy grandes -> abrir en pestaña). */
+  var SEC_PROG = [
+    { t:'pdf', f:'ProgramaInstitucionalAnticorrupcion2024-2027.pdf', n:'Programa Institucional Anticorrupción 2024-2027', size:'324 MB', big:true, recent:true },
+    { t:'pdf', f:'ProgramaMunicipalGestionIntegralResiduosSolidosBaseCero.pdf', n:'Programa Municipal para la Gestión Integral de Residuos Sólidos Base Cero', size:'54 MB', big:true }
+  ];
+
+  var ICO_FILE = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>';
+  var ICO_TYPE = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>';
+  var ICO_EYE = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>';
+  var ICO_DL = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>';
+  var ICO_STAR = '<svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';
+
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+  function rowHtml(d){
+    var url = BASE + d.f;
+    var isDocx = (d.t === 'docx');
+    var isBig = !!d.big;
+    var typeTxt = (isDocx ? 'Documento Word' : 'Documento PDF') + (d.size ? ' · ' + d.size : '');
+    var star = d.recent ? '<span class="rg-star">' + ICO_STAR + ' Vigente</span>' : '';
+    var actions;
+    if (isDocx){
+      var officeUrl = 'https://view.officeapps.live.com/op/view.aspx?src=' + encodeURIComponent(url);
+      actions = '<a class="rg-btn rg-btn-2nd" href="' + esc(officeUrl) + '" target="_blank" rel="noopener noreferrer">' + ICO_EYE + 'Ver en línea</a>' +
+                '<button class="rg-btn rg-btn-2nd rg-dl" type="button" data-u="' + esc(url) + '">' + ICO_DL + '<span class="rg-dl-tx">Descargar</span></button>';
+    } else if (isBig){
+      actions = '<a class="rg-btn rg-btn-2nd" href="' + esc(url) + '" target="_blank" rel="noopener noreferrer">' + ICO_EYE + 'Abrir</a>';
+    } else {
+      actions = '<button class="rg-btn rg-btn-2nd rg-ver" type="button" data-u="' + esc(url) + '">' + ICO_EYE + 'Ver</button>' +
+                '<button class="rg-btn rg-btn-2nd rg-dl" type="button" data-u="' + esc(url) + '">' + ICO_DL + '<span class="rg-dl-tx">Descargar</span></button>';
+    }
+    return '<div class="rg-row">' +
+      '<div class="rg-ico" aria-hidden="true">' + ICO_FILE + '</div>' +
+      '<div class="rg-main">' + star +
+        '<div class="rg-name">' + esc(d.n) + '</div>' +
+        '<div class="rg-date">' + ICO_TYPE + '<span>' + typeTxt + '</span></div>' +
+      '</div>' +
+      '<div class="rg-actions">' + actions + '</div>' +
+    '</div>';
+  }
+  function renderSec(id, arr){ var h=''; for(var i=0;i<arr.length;i++){ h+=rowHtml(arr[i]); } document.getElementById(id).innerHTML = h; }
+  renderSec('secPmd', SEC_PMD);
+  renderSec('secInst', SEC_INST);
+  renderSec('secProg', SEC_PROG);
+
+  /* ===== Descargar archivo (fetch + blob: guarda de verdad, aunque sea de otro dominio y dentro de un iframe) ===== */
+  function nombreArchivo(u){
+    try { var p = u.split('?')[0].split('#')[0].split('/'); var n = decodeURIComponent(p[p.length - 1]); return n || 'documento'; } catch(e){ return 'documento'; }
+  }
+  var EN_IFRAME = (function(){ try { return window.self !== window.top; } catch(e){ return true; } })();
+  function descargarArchivo(url, btn){
+    if (!url) return;
+    var tx = btn ? btn.querySelector('.rg-dl-tx') : null;
+    var label = tx ? tx.textContent : '';
+    function restore(){ if (btn){ btn.removeAttribute('data-busy'); if (tx) { tx.textContent = label; } } }
+    if (btn){ if (btn.getAttribute('data-busy') === '1') return; btn.setAttribute('data-busy', '1'); if (tx) { tx.textContent = 'Descargando…'; } }
+    fetch(url).then(function(res){ if (!res.ok) { throw new Error('http'); } return res.blob(); }).then(function(blob){
+      var burl = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = burl; a.download = nombreArchivo(url);
+      if (EN_IFRAME){ a.target = '_blank'; a.rel = 'noopener'; }
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      setTimeout(function(){ URL.revokeObjectURL(burl); }, EN_IFRAME ? 60000 : 6000);
+      restore();
+    }).catch(function(){ window.open(url, '_blank', 'noopener'); restore(); });
+  }
+
+  /* ===== Visor PDF propio (PDF.js) con zoom centrado; fallback al visor nativo ===== */
+  var modal = document.getElementById('rgModal');
+  var frame = document.getElementById('rgModalFrame');
+  var loading = document.getElementById('rgModalLoading');
+  var pdfScroll = document.getElementById('rgPdfScroll');
+  var pdfInner = document.getElementById('rgPdfInner');
+  var zoomCtl = document.getElementById('rgZoomCtl');
+  var zoomLvl = document.getElementById('rgZoomFit');
+  var curUrl = '';
+  var modalBox = modal ? modal.querySelector('.rg-modal-box') : null;
+
+  var PDFJS_VER = '3.11.174';
+  var pdfjsPromise = null;
+  function loadPdfJs(){
+    if (pdfjsPromise) return pdfjsPromise;
+    pdfjsPromise = new Promise(function(resolve, reject){
+      if (window.pdfjsLib){ resolve(window.pdfjsLib); return; }
+      var s = document.createElement('script');
+      s.src = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@' + PDFJS_VER + '/build/pdf.min.js';
+      s.onload = function(){
+        if (window.pdfjsLib){
+          try { window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@' + PDFJS_VER + '/build/pdf.worker.min.js'; } catch(e){}
+          resolve(window.pdfjsLib);
+        } else { reject(new Error('pdfjsLib no disponible')); }
+      };
+      s.onerror = function(){ reject(new Error('No se pudo cargar pdf.js')); };
+      document.head.appendChild(s);
+    });
+    return pdfjsPromise;
+  }
+
+  var V = { token:0, doc:null, numPages:0, baseW:0, baseH:0, fitScale:1, scale:1, pages:[], io:null };
+  function clearViewer(){
+    V.token++;
+    if (V.io){ try { V.io.disconnect(); } catch(e){} V.io = null; }
+    for (var i=0;i<V.pages.length;i++){ var pp=V.pages[i]; if(pp.task){try{pp.task.cancel();}catch(e){}} }
+    if (V.doc){ try { V.doc.destroy(); } catch(e){} V.doc = null; }
+    V.pages = []; V.numPages = 0;
+    if (pdfInner) pdfInner.innerHTML = '';
+  }
+  function setZoomLabel(){ if (zoomLvl){ zoomLvl.textContent = Math.round(V.scale / V.fitScale * 100) + '%'; } }
+  function computeFitScale(){ var a = (pdfScroll.clientWidth || 700) - 28; if (a < 200) a = 200; return a / V.baseW; }
+  function layoutPages(){
+    var pw = Math.round(V.baseW * V.scale), ph = Math.round(V.baseH * V.scale);
+    pdfInner.style.width = pw + 'px';
+    for (var i=0;i<V.pages.length;i++){ V.pages[i].div.style.width = pw + 'px'; V.pages[i].div.style.height = ph + 'px'; }
+  }
+  function centerH(){ pdfScroll.scrollLeft = Math.max(0, (pdfInner.offsetWidth - pdfScroll.clientWidth) / 2); }
+  function renderPage(i){
+    var p = V.pages[i];
+    if (!p || p.canvas || p.rendering || !V.doc) return;
+    var myToken = V.token; p.rendering = true;
+    V.doc.getPage(i+1).then(function(page){
+      if (myToken !== V.token){ p.rendering=false; return; }
+      var dpr = window.devicePixelRatio || 1;
+      var vp = page.getViewport({ scale: V.scale * dpr });
+      var canvas = document.createElement('canvas');
+      canvas.width = Math.round(vp.width); canvas.height = Math.round(vp.height);
+      var ctx = canvas.getContext('2d', { alpha:false });
+      p.canvas = canvas; p.div.appendChild(canvas);
+      p.task = page.render({ canvasContext: ctx, viewport: vp });
+      p.task.promise.then(function(){ p.rendering=false; }, function(){ p.rendering=false; });
+    }, function(){ p.rendering=false; });
+  }
+  function unrenderPage(i){
+    var p = V.pages[i]; if (!p || !p.canvas) return;
+    if (p.task){ try { p.task.cancel(); } catch(e){} }
+    if (p.canvas.parentNode) p.canvas.parentNode.removeChild(p.canvas);
+    p.canvas = null; p.task = null; p.rendering = false;
+  }
+  function buildPages(){
+    pdfInner.innerHTML = ''; V.pages = [];
+    for (var i=0;i<V.numPages;i++){
+      var div = document.createElement('div'); div.className = 'rg-pdf-page'; div.setAttribute('data-i', i);
+      var num = document.createElement('div'); num.className = 'rg-pdf-pnum'; num.textContent = (i+1) + ' / ' + V.numPages;
+      div.appendChild(num); pdfInner.appendChild(div);
+      V.pages.push({ div:div, canvas:null, task:null, rendering:false });
+    }
+    layoutPages();
+    V.io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        var idx = parseInt(en.target.getAttribute('data-i'), 10);
+        if (en.isIntersecting) renderPage(idx); else unrenderPage(idx);
+      });
+    }, { root: pdfScroll, rootMargin: '900px 0px' });
+    for (var j=0;j<V.pages.length;j++) V.io.observe(V.pages[j].div);
+  }
+  function renderVisibleNow(){
+    var top = pdfScroll.scrollTop - 900, bot = pdfScroll.scrollTop + pdfScroll.clientHeight + 900;
+    for (var i=0;i<V.pages.length;i++){
+      var d = V.pages[i].div, dt = d.offsetTop, db = dt + d.offsetHeight;
+      if (db >= top && dt <= bot) renderPage(i); else unrenderPage(i);
+    }
+  }
+  function setScale(newScale){
+    if (!V.doc) return;
+    newScale = Math.max(V.fitScale*0.5, Math.min(newScale, V.fitScale*4));
+    var sh = pdfScroll.scrollHeight, ratio = sh>0 ? pdfScroll.scrollTop / sh : 0;
+    for (var i=0;i<V.pages.length;i++) unrenderPage(i);
+    V.scale = newScale; layoutPages(); setZoomLabel();
+    pdfScroll.scrollTop = ratio * pdfScroll.scrollHeight;
+    centerH(); renderVisibleNow();
+  }
+  function loadDocIntoViewer(url){
+    var myToken = ++V.token;
+    frame.hidden = true; frame.src = 'about:blank';
+    pdfScroll.hidden = false; if (zoomCtl) zoomCtl.hidden = false;
+    loading.classList.remove('hide'); if (pdfInner) pdfInner.innerHTML = '';
+    loadPdfJs().then(function(pdfjsLib){
+      if (myToken !== V.token) throw 'cancel';
+      return pdfjsLib.getDocument({ url: url }).promise;
+    }).then(function(doc){
+      if (myToken !== V.token){ try{doc.destroy();}catch(e){} return; }
+      V.doc = doc; V.numPages = doc.numPages; return doc.getPage(1);
+    }).then(function(page){
+      if (!page || myToken !== V.token) return;
+      var vp1 = page.getViewport({ scale: 1 });
+      V.baseW = vp1.width; V.baseH = vp1.height;
+      V.fitScale = computeFitScale(); V.scale = V.fitScale; setZoomLabel();
+      buildPages(); centerH(); renderVisibleNow();
+      loading.classList.add('hide');
+    }).catch(function(err){
+      if (err === 'cancel') return;
+      if (zoomCtl) zoomCtl.hidden = true; pdfScroll.hidden = true;
+      frame.hidden = false; frame.src = url + (url.indexOf('#') > -1 ? '' : '#view=FitH');
+    });
+  }
+  function openViewer(url, label, anchorEl){
+    curUrl = url;
+    document.getElementById('rgModalSub').textContent = label || '';
+    document.getElementById('rgModalOpen').href = url;
+    if (EN_IFRAME && modalBox){
+      var sh = (window.screen && window.screen.availHeight) ? window.screen.availHeight : 850;
+      var H = Math.max(600, Math.min(Math.round(sh * 0.82), 880));
+      var docH = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+      modal.style.position = 'absolute';
+      modal.style.top = '0'; modal.style.left = '0'; modal.style.right = 'auto'; modal.style.bottom = 'auto';
+      modal.style.width = '100%'; modal.style.height = docH + 'px';
+      modal.style.alignItems = 'flex-start';
+      modal.style.padding = '10px';
+      modalBox.style.height = H + 'px';
+      var topPx = 16;
+      if (anchorEl && anchorEl.getBoundingClientRect){
+        var rect = anchorEl.getBoundingClientRect();
+        var anchorTop = rect.top + window.pageYOffset - 8;
+        topPx = Math.max(10, Math.min(anchorTop, docH - H - 10));
+      }
+      modalBox.style.marginTop = topPx + 'px';
+    }
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    loadDocIntoViewer(url);
+  }
+  function closeViewer(){
+    modal.classList.remove('open');
+    clearViewer();
+    pdfScroll.hidden = true; frame.hidden = true; frame.src = 'about:blank';
+    if (zoomCtl) zoomCtl.hidden = true;
+    loading.classList.remove('hide');
+    document.body.style.overflow = '';
+    if (EN_IFRAME && modalBox){
+      modal.style.position = ''; modal.style.top = ''; modal.style.left = ''; modal.style.right = '';
+      modal.style.bottom = ''; modal.style.width = ''; modal.style.height = ''; modal.style.alignItems = '';
+      modal.style.padding = '';
+      modalBox.style.height = ''; modalBox.style.marginTop = '';
+    }
+  }
+  frame.addEventListener('load', function(){ if (!frame.hidden && frame.src && frame.src!=='about:blank') loading.classList.add('hide'); });
+  var zIn = document.getElementById('rgZoomIn'), zOut = document.getElementById('rgZoomOut');
+  if (zIn) zIn.addEventListener('click', function(){ setScale(V.scale * 1.25); });
+  if (zOut) zOut.addEventListener('click', function(){ setScale(V.scale / 1.25); });
+  if (zoomLvl) zoomLvl.addEventListener('click', function(){ V.fitScale = computeFitScale(); setScale(V.fitScale); });
+  document.getElementById('rgModalDl').addEventListener('click', function(){ descargarArchivo(curUrl, null); });
+  document.getElementById('rgModalClose').addEventListener('click', closeViewer);
+  modal.addEventListener('click', function(e){ if(e.target===modal) closeViewer(); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && modal.classList.contains('open')) closeViewer(); });
+
+  /* ----- Cablear botones de todas las filas ----- */
+  Array.prototype.slice.call(document.querySelectorAll('.rg-ver')).forEach(function(v){
+    v.addEventListener('click', function(){
+      var row = v.parentNode && v.parentNode.parentNode;
+      var nm = row ? row.querySelector('.rg-name') : null;
+      openViewer(v.getAttribute('data-u'), nm ? nm.textContent : '', v);
+    });
+  });
+  Array.prototype.slice.call(document.querySelectorAll('.rg-dl')).forEach(function(dl){
+    dl.addEventListener('click', function(){ descargarArchivo(dl.getAttribute('data-u'), dl); });
+  });
+
+  /* ----- Auto-ajuste de altura para Strapi ----- */
+  var last = 0;
+  function reportHeight(){
+    var h = Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight);
+    if (h && Math.abs(h - last) > 1){
+      last = h;
+      try { parent.postMessage({ type:'gdl-iframe-height', id:'plan-municipal-desarrollo-art8-III-g', height: h }, '*'); } catch(e){}
+    }
+  }
+  window.addEventListener('load', reportHeight);
+  window.addEventListener('resize', reportHeight);
+  setTimeout(reportHeight, 300);
+  setTimeout(reportHeight, 1200);
+})();
+</script>
+
+</body>
+</html>
