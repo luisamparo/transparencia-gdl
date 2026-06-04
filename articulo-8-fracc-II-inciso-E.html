@@ -27,7 +27,7 @@ body{font-family:'Outfit',system-ui,-apple-system,sans-serif;color:#2D2D2A;backg
 .section-head::after{content:"▾";margin-left:auto;transition:transform .2s}
 details[open]>.section-head::after{transform:rotate(180deg)}
 .section-body{padding:18px 20px}
-.intro{padding:0 20px 16px;color:#6b7280;font-size:0.9rem;font-style:italic;border-bottom:1px solid #f3f4f6;margin:-2px 0 14px;padding-bottom:12px}
+.intro{padding:15px 20px 4px;color:#5A5A55;font-size:0.95rem;line-height:1.55}
 .direct-link{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;background:#FFF1E4;border:1.5px solid #E87722;color:#C45F0A;font-weight:600;text-decoration:none;border-radius:8px;transition:all .15s}
 .direct-link:hover{background:#FFE4CC;border-color:#C45F0A;color:#C45F0A;transform:translateY(-1px);box-shadow:0 2px 4px rgba(243,146,0,.15)}
 .direct-link .icon{font-size:1.2rem}
@@ -39,7 +39,7 @@ details[open]>.section-head::after{transform:rotate(180deg)}
 details[open]>.year-head::after{transform:rotate(180deg)}
 .year-head:hover{background:#FFF1E4}
 .count{color:#6b7280;font-weight:500;font-size:.85rem;background:#fff;padding:2px 8px;border-radius:10px;border:1px solid #e5e7eb}
-.gaceta-list{list-style:none;padding:6px 0;background:#fff}
+.gaceta-list{list-style:none;padding:6px 0;background:#fff;max-height:620px;overflow-y:auto}
 .gaceta-list li{border-bottom:1px solid #f3f4f6}
 .gaceta-list li:last-child{border-bottom:none}
 .gaceta-list a{display:block;padding:12px 16px 12px 42px;position:relative;color:#2D2D2A;text-decoration:none;transition:background .15s}
@@ -77,6 +77,12 @@ details[open]>.year-head::after{transform:rotate(180deg)}
 .year-empty{padding:28px 16px;text-align:center;color:#9ca3af;font-style:italic;font-size:.88rem;background:#fafafa;border-top:1px solid #f3f4f6;display:none}
 .year-empty.show{display:block}
 mark{background:linear-gradient(180deg,transparent 50%,#fde68a 50%);color:inherit;padding:0 1px;font-weight:700}
+/* BOTÓN "VOLVER ARRIBA" (solo en listas largas: gacetas y comunicados) */
+.to-top-btn{position:absolute;bottom:14px;right:18px;z-index:6;display:inline-flex;align-items:center;gap:6px;background:#E87722;color:#fff;border:0;border-radius:22px;padding:9px 15px 9px 12px;font-family:'Outfit',sans-serif;font-size:12.5px;font-weight:700;cursor:pointer;box-shadow:0 5px 16px rgba(232,119,34,.45);opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .2s ease,transform .2s ease,visibility .2s ease}
+.to-top-btn.show{opacity:1;visibility:visible;transform:translateY(0)}
+.to-top-btn:hover{background:#C45F0A;box-shadow:0 7px 20px rgba(196,95,10,.5);transform:translateY(-2px)}
+.to-top-btn:active{transform:translateY(0)}
+.to-top-btn svg{flex-shrink:0}
 /* FOOTER CIUDADANO + LEGAL */
 .ie-foot-title{font-size:12.5px;font-weight:800;color:#9E9E98;letter-spacing:.1em;text-transform:uppercase;margin:30px 4px 14px;display:flex;align-items:center;gap:10px}
 .ie-foot-title::after{content:'';flex:1;height:1.5px;background:#E2E2DD;border-radius:2px}
@@ -93,8 +99,8 @@ mark{background:linear-gradient(180deg,transparent 50%,#fde68a 50%);color:inheri
 .ie-ley p strong{color:#2D2D2A;font-weight:600}
 .ie-ley blockquote{font-size:13.5px;color:#5A5A55;line-height:1.65;margin:12px 0 8px;padding:12px 18px;background:#FFF1E4;border-left:3px solid #E87722;border-radius:6px;font-style:italic}
 .ie-ley blockquote strong{color:#1A1A1A;font-style:normal;font-weight:700}
+/* Buscador por año/sección: VISIBLE (mejorado). Queda arriba de su lista, que tiene scroll propio. */
 /* BUSCADOR GLOBAL (estilo familia) */
-.year-search{display:none}
 .gsearch-wrap{margin:0 0 22px}
 .gsearch{position:relative;display:flex;align-items:center;background:#fff;border:1.5px solid #E2E2DD;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.06);transition:border-color .15s,box-shadow .15s}
 .gsearch:focus-within{border-color:#E87722;box-shadow:0 0 0 3px rgba(232,119,34,.12)}
@@ -874,6 +880,12 @@ mark{background:linear-gradient(180deg,transparent 50%,#fde68a 50%);color:inheri
 <summary class="section-head">📢 Comunicados Oficiales</summary>
 <div class="intro">Circulares y comunicados emitidos por las dependencias del Gobierno Municipal de Guadalajara.</div>
 <div class="section-body">
+<div class="year-search list-search">
+<svg class="year-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+<input type="search" class="year-search-input" placeholder="Buscar comunicado (dependencia, tema, fecha...)" autocomplete="off" spellcheck="false">
+<span class="year-search-counter" hidden></span>
+<button class="year-search-clear" type="button" title="Limpiar búsqueda">✕</button>
+</div>
 <ul class="com-list">
 <li><a href="https://transparencia.guadalajara.gob.mx/sites/default/files/ComunicadosOficiales/CircularDIG-06-26.pdf">Se realizará mantenimiento a la infraestructura tecnológica</a><span class="date">14 May 2026</span></li>
 <li><a href="https://transparencia.guadalajara.gob.mx/sites/default/files/ComunicadosOficiales/CircularDEPE-06-26.pdf">Encargado de despacho de la Dirección de Emprendimiento y Promoción Económica</a><span class="date">13 May 2026</span></li>
@@ -1183,6 +1195,12 @@ mark{background:linear-gradient(180deg,transparent 50%,#fde68a 50%);color:inheri
 <summary class="section-head">📋 Lineamientos Municipales</summary>
 <div class="intro">Lineamientos vigentes que rigen los procedimientos y actividades del Gobierno Municipal de Guadalajara.</div>
 <div class="section-body">
+<div class="year-search list-search">
+<svg class="year-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+<input type="search" class="year-search-input" placeholder="Buscar lineamiento (tema, dependencia, fecha...)" autocomplete="off" spellcheck="false">
+<span class="year-search-counter" hidden></span>
+<button class="year-search-clear" type="button" title="Limpiar búsqueda">✕</button>
+</div>
 <ul class="lin-list">
 <li><a href="https://transparencia.guadalajara.gob.mx/sites/default/files/Lineamientos_para_la_Realizacion_de_Auditorias_de_Obra_Publica.pdf" target="_blank" rel="noopener">Lineamientos para la Realización de Auditorías de Obra Pública y Servicios Relacionados con la Misma de la Administración Pública Municipal de Guadalajara</a><span class="date">28 Oct 2024</span></li>
 <li><a href="https://transparencia.guadalajara.gob.mx/sites/default/files/LineamientosAuditoriasVisitasInspeccionGuadalajara.pdf" target="_blank" rel="noopener">Lineamientos para la Realización de Auditorías y Visitas de Inspección a las Dependencias y Entidades de la Administración Pública Municipal de Guadalajara</a><span class="date">28 Oct 2024</span></li>
@@ -1234,6 +1252,7 @@ mark{background:linear-gradient(180deg,transparent 50%,#fde68a 50%);color:inheri
     const counter=box.querySelector('.year-search-counter');
     const clearBtn=box.querySelector('.year-search-clear');
     const yearBlock=box.closest('.year-block');
+    if(!yearBlock) return; /* los buscadores .list-search (Comunicados/Lineamientos) se manejan aparte */
     const list=yearBlock.querySelector('.gaceta-list');
     const items=Array.from(list.querySelectorAll('li'));
 
@@ -1320,6 +1339,49 @@ mark{background:linear-gradient(180deg,transparent 50%,#fde68a 50%);color:inheri
 })();
 </script>
 <script>
+/* Buscador por sección para listas simples (Comunicados, Lineamientos) */
+(function(){
+  document.querySelectorAll('.list-search').forEach(function(box){
+    var input=box.querySelector('.year-search-input');
+    var counter=box.querySelector('.year-search-counter');
+    var clearBtn=box.querySelector('.year-search-clear');
+    var body=box.closest('.section-body');
+    if(!body) return;
+    var list=body.querySelector('.com-list, .lin-list');
+    if(!list) return;
+    var items=Array.prototype.slice.call(list.querySelectorAll('li'));
+    var cache=items.map(function(li){ return {li:li, lower:(li.textContent||'').toLowerCase()}; });
+    var total=cache.length;
+    var emptyMsg=document.createElement('div');
+    emptyMsg.className='year-empty';
+    emptyMsg.textContent='Sin coincidencias. Prueba con otra palabra clave, dependencia o fecha.';
+    list.parentNode.insertBefore(emptyMsg, list.nextSibling);
+    var timer;
+    function filter(raw){
+      var q=raw.trim().toLowerCase();
+      var visible=0;
+      cache.forEach(function(c){
+        var ok=!q||c.lower.indexOf(q)!==-1;
+        c.li.style.display=ok?'':'none';
+        if(ok)visible++;
+      });
+      if(q){
+        box.classList.add('active');
+        counter.hidden=false; counter.textContent=visible+' / '+total;
+        counter.classList.toggle('empty',visible===0);
+        emptyMsg.classList.toggle('show',visible===0);
+      }else{
+        box.classList.remove('active');
+        counter.hidden=true; emptyMsg.classList.remove('show');
+      }
+    }
+    input.addEventListener('input',function(e){ clearTimeout(timer); timer=setTimeout(function(){filter(e.target.value);},100); });
+    clearBtn.addEventListener('click',function(){ input.value=''; filter(''); input.focus(); });
+    input.addEventListener('keydown',function(e){ if(e.key==='Escape'){ input.value=''; filter(''); input.blur(); } });
+  });
+})();
+</script>
+<script>
 /* Buscador global: filtra TODOS los documentos (sin acentos, por palabras) y abre solo las secciones/años con coincidencias */
 (function(){
   function norm(s){return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'')}
@@ -1369,6 +1431,33 @@ mark{background:linear-gradient(180deg,transparent 50%,#fde68a 50%);color:inheri
   input.addEventListener('input', function(){ clearTimeout(timer); timer=setTimeout(apply,120); });
   clearBtn.addEventListener('click', function(){ input.value=''; apply(); input.focus(); });
   apply();
+})();
+</script>
+<script>
+/* Botón "volver arriba" en listas largas (gacetas y comunicados). Las listas cortas (Códigos, Lineamientos) no scrollean, por eso no llevan. */
+(function(){
+  var ARROW='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>';
+  var lists=document.querySelectorAll('.gaceta-list, .com-list');
+  Array.prototype.forEach.call(lists,function(list){
+    var parent=list.parentNode;
+    if(parent && getComputedStyle(parent).position==='static') parent.style.position='relative';
+    var btn=document.createElement('button');
+    btn.type='button';
+    btn.className='to-top-btn';
+    btn.title='Volver al inicio de la lista';
+    btn.setAttribute('aria-label','Volver al inicio de la lista');
+    btn.innerHTML=ARROW+'<span>Arriba</span>';
+    parent.appendChild(btn);
+    btn.addEventListener('click',function(){
+      var start=list.scrollTop;
+      try{ list.scrollTo({top:0,behavior:'smooth'}); }catch(e){ list.scrollTop=0; }
+      /* Garantía: si el scroll suave no arranca en algún entorno, lo forzamos al instante. */
+      setTimeout(function(){ if(start>0 && list.scrollTop>=start){ list.scrollTop=0; } btn.classList.remove('show'); },320);
+    });
+    list.addEventListener('scroll',function(){
+      if(list.scrollTop>140){ btn.classList.add('show'); } else { btn.classList.remove('show'); }
+    });
+  });
 })();
 </script>
 <script>
