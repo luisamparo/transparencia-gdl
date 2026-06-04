@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Los programas estatales en Guadalajara, año por año (2013 a 2025): los programas sociales del Gobierno del Estado de Jalisco —como Jalisco Incluyente y Mujeres Líderes del Hogar— que llegan al municipio, con sus documentos oficiales en Excel y PDF para leer y descargar. Art. 8 Fracción III Inciso d) de la Ley de Transparencia de Jalisco."/>
+<title>¿Qué programas estatales llegan a Guadalajara? · Jalisco Incluyente, Mujeres Líderes del Hogar y más, año por año (2013–2025) · Art. 8 Frac. III Inc. d)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ac:#E87722;--ac-d:#C45F0A;--ac-l:#FFE4CC;--ac-soft:#FFF1E4;--ac-border:#F5C99A;
+  --ink:#2a241d;--ink2:#5a4d3e;--muted:#6f5c47;
+  --bg:#f7f3ec;--card:#ffffff;--line:#e8dec9;
+  --fh:'Outfit',system-ui,-apple-system,sans-serif;--fm:'DM Mono','SF Mono',Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+.pe-wrap{max-width:1080px;margin:0 auto}
+
+/* HERO */
+.pe-hero{background:linear-gradient(135deg,#FFF4E8 0%,#FFFFFF 55%);border-radius:14px;padding:24px 28px;margin:0 0 18px;position:relative;overflow:hidden;border-left:5px solid var(--ac);box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.pe-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.12) 0%,transparent 70%);pointer-events:none}
+.pe-tag{display:inline-block;background:var(--ac);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;position:relative;z-index:1;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.pe-hero h1{margin:0 0 8px;font-size:clamp(22px,3.2vw,29px);font-weight:800;color:var(--ink);letter-spacing:-.015em;line-height:1.18;position:relative;z-index:1}
+.pe-hero h1 em{font-style:normal;color:var(--ac-d)}
+.pe-hero-sub{font-size:14.5px;color:var(--ink2);max-width:90ch;margin:0;line-height:1.6;position:relative;z-index:1}
+.pe-hero-sub strong{color:var(--ink);font-weight:700}
+.pe-cifras{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px;max-width:680px;position:relative;z-index:1}
+.pe-cifra{background:#fff;border:1.5px solid var(--ac-border);border-radius:10px;padding:13px 15px;display:flex;flex-direction:column;gap:2px;transition:border-color .18s,transform .18s}
+.pe-cifra:hover{border-color:var(--ac);transform:translateY(-2px)}
+.pe-cifra-num{font-size:32px;font-weight:800;line-height:1;color:var(--ac-d);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.pe-cifra-lbl{font-size:10.5px;font-weight:700;color:var(--ink2);text-transform:uppercase;letter-spacing:.05em;margin-top:4px;line-height:1.35}
+
+/* TOOLBAR / buscador */
+.pe-toolbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 16px;position:sticky;top:0;background:var(--bg);padding:9px 0;z-index:20}
+.pe-search{position:relative;flex:1;min-width:230px}
+.pe-search svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none}
+.pe-search input{width:100%;padding:12px 14px 12px 40px;border:1.5px solid var(--ac-border);border-radius:10px;font-family:var(--fh);font-size:14px;color:var(--ink);background:#fff;transition:border-color .15s,box-shadow .15s}
+.pe-search input:focus{outline:none;border-color:var(--ac);box-shadow:0 0 0 3px rgba(232,119,34,.14)}
+.pe-count{font-size:12.5px;font-weight:600;color:var(--muted);white-space:nowrap}
+.pe-count b{color:var(--ac-d);font-weight:800;font-family:var(--fm)}
+
+/* LISTA */
+.pe-list{display:flex;flex-direction:column;gap:10px}
+.pe-row{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:0 1px 6px rgba(42,36,29,.04);transition:border-color .15s,box-shadow .15s,background .15s}
+.pe-row:hover{border-color:var(--ac-border);box-shadow:0 6px 18px rgba(42,36,29,.09)}
+.pe-row.is-note{background:var(--ac-soft);border-color:var(--ac-border)}
+.pe-row-ico{flex-shrink:0;width:44px;height:44px;border-radius:11px;background:var(--ac-soft);color:var(--ac-d);display:flex;align-items:center;justify-content:center;border:1px solid var(--ac-border)}
+.pe-row.is-note .pe-row-ico{background:#fff}
+.pe-row-main{flex:1;min-width:0}
+.pe-badge{display:inline-flex;align-items:center;gap:5px;background:#fff;color:var(--ac-d);border:1px solid var(--ac-border);font-size:9.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:20px;margin-bottom:7px}
+.pe-badge svg{flex-shrink:0}
+.pe-row-title{font-size:14.5px;font-weight:700;color:var(--ink);line-height:1.35;letter-spacing:-.005em}
+.pe-row-desc{font-size:12px;color:var(--muted);line-height:1.5;margin-top:5px}
+.pe-row-desc strong{color:var(--ink2);font-weight:700}
+.pe-row-meta{display:flex;align-items:center;gap:9px;margin-top:7px;flex-wrap:wrap;font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.pe-row-meta .pe-m{display:inline-flex;align-items:center;gap:5px}
+.pe-row-meta .pe-m svg{color:var(--ac);flex-shrink:0}
+.pe-type{font-size:10px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:2px 7px;border-radius:5px;background:#efe9df;color:var(--muted)}
+.pe-row-actions{display:flex;gap:7px;flex-shrink:0;flex-wrap:wrap;justify-content:flex-end}
+.pe-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;font-family:var(--fh);font-size:12.5px;font-weight:700;padding:8px 13px;border-radius:8px;cursor:pointer;border:1.5px solid var(--ac-border);transition:all .13s;white-space:nowrap;text-decoration:none}
+.pe-btn svg{flex-shrink:0}
+.pe-btn-ghost{background:#fff;color:var(--ac-d)}
+.pe-btn-ghost:hover{background:var(--ac-soft);border-color:var(--ac)}
+.pe-btn-solid{background:#fff;color:var(--ac-d);border-color:var(--ac-border)}
+.pe-btn-solid:hover{background:var(--ac);color:#fff;border-color:var(--ac)}
+.pe-btn-solid:hover svg{stroke:#fff}
+.pe-dl[data-busy="1"]{opacity:.55;pointer-events:none}
+
+.pe-empty{display:none;text-align:center;padding:40px 20px;color:var(--muted);font-size:14px}
+.pe-empty.show{display:block}
+.pe-empty strong{color:var(--ac-d)}
+
+/* FOOTER legal */
+.pe-legal{margin:26px 0 0;background:#fff;border:1px solid var(--line);border-top:4px solid var(--ac);border-radius:14px;padding:22px 26px;box-shadow:0 2px 10px rgba(42,36,29,.05)}
+.pe-legal-eyebrow{font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--ac-d);margin-bottom:10px}
+.pe-legal h3{margin:0 0 10px;font-size:16px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+.pe-legal p{margin:0 0 9px;font-size:13px;color:var(--ink2);line-height:1.65}
+.pe-legal p strong{color:var(--ink);font-weight:700}
+.pe-cita{background:var(--bg);border-left:3px solid var(--ac-border);border-radius:0 8px 8px 0;padding:13px 16px;font-size:12.5px;color:var(--muted);line-height:1.6;margin-top:4px}
+.pe-cita b{color:var(--ink);font-weight:700}
+.pe-cita .pe-hl{color:var(--ac-d);font-weight:800;background:var(--ac-soft);padding:1px 4px;border-radius:4px}
+.pe-meta{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:16px;padding:14px 18px;background:var(--bg);border:1px solid var(--line);border-radius:10px}
+.pe-meta-item{display:flex;flex-direction:column;gap:2px}
+.pe-meta-k{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.pe-meta-v{font-size:13px;font-weight:700;color:var(--ink)}
+
+/* BACK TO TOP */
+.pe-totop{position:fixed;right:20px;bottom:20px;width:46px;height:46px;border-radius:50%;background:var(--ac);color:#fff;border:none;box-shadow:0 4px 14px rgba(232,119,34,.45);cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:50}
+.pe-totop.show{opacity:1;pointer-events:auto}
+.pe-totop:hover{transform:translateY(-3px);background:var(--ac-d)}
+
+/* MODAL (solo vista standalone; en Strapi abre pestaña nueva) */
+.pe-modal{position:fixed;inset:0;background:rgba(42,36,29,.72);display:none;align-items:center;justify-content:center;padding:24px;z-index:100;-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
+.pe-modal.open{display:flex}
+.pe-modal-box{background:#fff;border-radius:14px;width:min(980px,100%);height:min(90vh,920px);display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.pe-modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 18px;background:linear-gradient(135deg,var(--ac) 0%,var(--ac-d) 100%);color:#fff}
+.pe-modal-head b{font-size:14px;font-weight:700;line-height:1.3;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pe-modal-x{background:rgba(255,255,255,.18);border:none;color:#fff;width:32px;height:32px;border-radius:8px;cursor:pointer;font-size:18px;line-height:1;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.pe-modal-x:hover{background:rgba(255,255,255,.32)}
+.pe-modal-body{flex:1;background:#f0f0ec;min-height:0}
+.pe-modal-body iframe{width:100%;height:100%;border:0;display:block}
+
+@media (max-width:680px){
+  body{padding:14px}
+  .pe-hero{padding:20px 18px}
+  .pe-cifras{gap:8px}
+  .pe-cifra{padding:10px 9px}
+  .pe-cifra-num{font-size:25px}
+  .pe-cifra-lbl{font-size:9px}
+  .pe-row{flex-wrap:wrap}
+  .pe-row-actions{width:100%;justify-content:flex-start}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<div class="pe-wrap">
+
+  <!-- HERO -->
+  <section class="pe-hero">
+    <span class="pe-tag">Art. 8 · Fracción III · inciso d) · Ley de Transparencia Jalisco</span>
+    <h1>Los <em>programas estatales</em> en Guadalajara</h1>
+    <p class="pe-hero-sub">Son los programas sociales del <strong>Gobierno del Estado de Jalisco</strong> que llegan a las y los habitantes de Guadalajara —en los años recientes, <strong>Jalisco Incluyente</strong>, <strong>Mujeres Líderes del Hogar</strong> y <strong>Jalisco Te Reconoce</strong>—. Los opera el Estado (Secretaría de Asistencia Social) y el municipio <strong>colabora</strong> con tareas como actualizar el padrón, logística y convocatoria. Aquí está, <strong>año por año (2013–2025)</strong>, la información oficial de cada ejercicio para leer y descargar.</p>
+    <div class="pe-cifras">
+      <div class="pe-cifra"><div class="pe-cifra-num">13</div><div class="pe-cifra-lbl">Años publicados (2013–2025)</div></div>
+      <div class="pe-cifra"><div class="pe-cifra-num">16</div><div class="pe-cifra-lbl">Documentos disponibles (Excel y PDF)</div></div>
+      <div class="pe-cifra"><div class="pe-cifra-num">2</div><div class="pe-cifra-lbl">Programas estatales recurrentes (2022–2024)</div></div>
+    </div>
+  </section>
+
+  <!-- TOOLBAR -->
+  <div class="pe-toolbar">
+    <div class="pe-search">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" id="peSearch" placeholder="Busca por año (ej. 2023) o por palabra (ej. Jalisco Incluyente, oficio, Excel)…" aria-label="Buscar"/>
+    </div>
+    <div class="pe-count" id="peCount">Mostrando <b>16</b> de 16 documentos</div>
+  </div>
+
+  <!-- LISTA (generada por JS) -->
+  <div class="pe-list" id="peList"></div>
+
+  <div class="pe-empty" id="peEmpty">No encontramos documentos para tu búsqueda. Intenta con un año (por ejemplo, <strong>2023</strong>) o un programa (por ejemplo, <strong>Jalisco Incluyente</strong>).</div>
+
+  <!-- FUNDAMENTO LEGAL -->
+  <footer class="pe-legal">
+    <div class="pe-legal-eyebrow">Fundamento legal</div>
+    <h3>¿Por qué se publica esta información?</h3>
+    <p>La <strong>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</strong> obliga a los sujetos obligados a difundir la información sobre la planeación del desarrollo. Esta página corresponde, de forma íntegra, al siguiente fundamento:</p>
+    <div class="pe-cita">
+      <b>Artículo 8.</b> Es información fundamental, obligatoria para todos los sujetos obligados, la siguiente: [&hellip;]<br/>
+      <b>III.</b> La información sobre la planeación del desarrollo, aplicable al y por el sujeto obligado, que comprende:<br/>
+      a) Los apartados del Plan Nacional de Desarrollo&hellip;; b) Los apartados de los programas federales; c) Los apartados del Plan Estatal de Desarrollo; <span class="pe-hl">d) Los programas estatales;</span> e) Los programas regionales; f) Las evaluaciones y encuestas que hagan los sujetos obligados a programas financiados con recursos públicos; y g) Los demás instrumentos de planeación no comprendidos en los incisos anteriores.
+    </div>
+    <p style="margin-top:12px">Los documentos, fechas y datos son los oficiales tal como fueron publicados por el sujeto obligado; en caso de cualquier discrepancia, prevalece el documento oficial.</p>
+    <div class="pe-meta">
+      <div class="pe-meta-item"><span class="pe-meta-k">Periodo documentado</span><span class="pe-meta-v">2013 a 2025</span></div>
+      <div class="pe-meta-item"><span class="pe-meta-k">Unidad responsable</span><span class="pe-meta-v">Coordinación General de Combate a la Desigualdad</span></div>
+      <div class="pe-meta-item"><span class="pe-meta-k">Operación de los programas</span><span class="pe-meta-v">Gobierno del Estado de Jalisco (Secretaría de Asistencia Social)</span></div>
+    </div>
+  </footer>
+
+</div>
+
+<button class="pe-totop" id="peToTop" type="button" aria-label="Volver arriba"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg></button>
+
+<!-- MODAL (solo en vista standalone; en Strapi abre pestaña nueva) -->
+<div class="pe-modal" id="peModal" role="dialog" aria-modal="true">
+  <div class="pe-modal-box">
+    <div class="pe-modal-head">
+      <b id="peModalTitle">Documento</b>
+      <button class="pe-modal-x" id="peModalX" type="button" aria-label="Cerrar">&times;</button>
+    </div>
+    <div class="pe-modal-body"><iframe id="peModalFrame" src="about:blank" title="Vista del documento"></iframe></div>
+  </div>
+</div>
+
+<script>
+/* ==========================================================================
+   Los programas estatales · Art. 8 Frac. III Inc. d) · Ley de Transparencia Jalisco
+   16 documentos con enlaces EXACTOS del origen, verificados HTTP 200 (7 PDF + 9 Excel).
+   Programas operados por el Gobierno del Estado de Jalisco (Secretaría de Asistencia
+   Social); el municipio colabora. Programas tomados de los oficios oficiales:
+   2024 -> Mujeres Líderes del Hogar, Jalisco Incluyente, Jalisco Te Reconoce;
+   2023 y 2022 -> Jalisco Incluyente, Mujeres Líderes del Hogar;
+   2025 -> sin colaboración que requiera intervención municipal a la fecha del oficio.
+   Vanilla JS, sin template literals, compatible con Strapi v4.
+   ========================================================================== */
+(function(){
+  var BASE = 'https://transparencia.guadalajara.gob.mx/sites/default/files/';
+
+  /* Del año más reciente al más antiguo. n = título, d = descripción ciudadana (puede llevar <strong>). */
+  var DOCS = [
+    {y:'2025',t:'pdf',f:'OficioProgramasFederalesEstatalesMixtosRegionales25.pdf',kb:'75 KB',note:true,
+      n:'Información relativa 2025 — Oficio UEP/001/2025',
+      d:'En 2025, los programas sociales del estado los opera directamente el Gobierno de Jalisco (Secretaría de Asistencia Social). A la fecha del oficio, el municipio no mantiene una colaboración que requiera su intervención. Incluye una nota sobre el fondo FAISMUN (infraestructura social).'},
+    {y:'2024',t:'xls',f:'ProgramasSocialesEstatales2024.xlsx',kb:'83 KB',
+      n:'Programas sociales estatales 2024 (enero–diciembre)',
+      d:'Listado en Excel de los programas del estado aplicables en Guadalajara durante 2024.'},
+    {y:'2024',t:'pdf',f:'OficioProgramasSocialesEstatales2024.pdf',kb:'362 KB',
+      n:'Información relativa 2024 — Oficio UEP/059/24',
+      d:'Programas estatales vigentes en 2024: <strong>Mujeres Líderes del Hogar</strong>, <strong>Jalisco Incluyente</strong> y <strong>Jalisco Te Reconoce</strong>. Los opera el Gobierno de Jalisco; el municipio colabora con revalidación de padrón, logística y convocatoria.'},
+    {y:'2023',t:'xls',f:'ProgramasSocialesEstatales2023.xlsx',kb:'33 KB',
+      n:'Programas sociales estatales 2023 (enero–diciembre)',
+      d:'Listado en Excel de los programas del estado aplicables en Guadalajara durante 2023.'},
+    {y:'2023',t:'pdf',f:'ProgramasSocialesEstatales2023.pdf',kb:'271 KB',
+      n:'Información relativa 2023',
+      d:'Programas estatales vigentes en 2023: <strong>Mujeres Líderes del Hogar</strong> y <strong>Jalisco Incluyente</strong>, operados por el Gobierno de Jalisco con apoyo del municipio.'},
+    {y:'2022',t:'xls',f:'ProgramasSocialesEstatales2022.xlsx',kb:'26 KB',
+      n:'Programas sociales estatales 2022 (enero–diciembre)',
+      d:'Listado en Excel de los programas del estado aplicables en Guadalajara durante 2022.'},
+    {y:'2022',t:'pdf',f:'ProgramasSocialesEstatales2022.pdf',kb:'3.5 MB',
+      n:'Información relativa 2022 (enero a diciembre)',
+      d:'Informes mensuales del ejercicio 2022 sobre los programas estatales <strong>Jalisco Incluyente</strong> y <strong>Mujeres Líderes del Hogar</strong>, en los que el municipio funge como apoyo del Gobierno del Estado.'},
+    {y:'2021',t:'xls',f:'ProgramasSocialesEstatales2021.xlsx',kb:'42 KB',
+      n:'Programas sociales estatales 2021',
+      d:'Listado en Excel de los programas del estado aplicables en Guadalajara durante 2021.'},
+    {y:'2020',t:'xls',f:'ProgramasSocialesEstatales2020.xlsx',kb:'42 KB',
+      n:'Programas sociales estatales 2020',
+      d:'Listado en Excel de los programas del estado aplicables en Guadalajara durante 2020.'},
+    {y:'2019',t:'xls',f:'ProgramasSocialesEstatales2019.xlsx',kb:'34 KB',
+      n:'Programas sociales estatales 2019',
+      d:'Listado en Excel de los programas del estado aplicables en Guadalajara durante 2019.'},
+    {y:'2018',t:'xls',f:'ProgramasSocialesEstatales2018.xlsx',kb:'15 KB',
+      n:'Programas sociales estatales 2018',
+      d:'Listado en Excel de los programas del estado aplicables en Guadalajara durante 2018.'},
+    {y:'2017',t:'xls',f:'ProgramasSocialesEstatales2017.xlsx',kb:'32 KB',
+      n:'Programas sociales estatales 2017',
+      d:'Listado en Excel de los programas del estado aplicables en Guadalajara durante 2017.'},
+    {y:'2016',t:'xls',f:'FormatosPlataforma/Art8FraccionIII-Inciso-b-Programas-Operativos-Anuales.xlsx',kb:'41 KB',
+      n:'Programas operativos anuales 2016',
+      d:'Programas operativos anuales del ejercicio 2016, en el formato de la plataforma de transparencia.'},
+    {y:'2015',t:'pdf',f:'ProgramasFederalesEstatalesRegionales2015.pdf',kb:'56 KB',
+      n:'Programas federales, estatales y regionales 2015',
+      d:'Documento del ejercicio 2015 con los programas federales, estatales y regionales aplicables al municipio.'},
+    {y:'2014',t:'pdf',f:'ProgramasFederalesEstatalesRegionales2014.pdf',kb:'57 KB',
+      n:'Programas federales, estatales y regionales 2014',
+      d:'Documento del ejercicio 2014 con los programas federales, estatales y regionales aplicables al municipio.'},
+    {y:'2013',t:'pdf',f:'ProgramasFederalesEstatalesRegionales2013.pdf',kb:'48 KB',
+      n:'Programas federales, estatales y regionales 2013',
+      d:'Documento del ejercicio 2013 con los programas federales, estatales y regionales aplicables al municipio.'}
+  ];
+
+  var ICO_PDF='<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>';
+  var ICO_XLS='<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h8"/><path d="M12 11v10"/></svg>';
+  var ICO_CAL='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>';
+  var ICO_EYE='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>';
+  var ICO_DL='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>';
+  var ICO_INFO='<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>';
+
+  var COMB = new RegExp('[' + String.fromCharCode(768) + '-' + String.fromCharCode(879) + ']', 'g');
+  function norm(s){ return (s||'').toLowerCase().normalize('NFD').replace(COMB, ''); }
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function stripTags(s){ return String(s).replace(/<[^>]+>/g,''); }
+
+  function rowHtml(d){
+    var url = BASE + d.f;
+    var isPdf = (d.t === 'pdf');
+    var ico = isPdf ? ICO_PDF : ICO_XLS;
+    var typeTxt = isPdf ? 'PDF' : 'Excel';
+    var badge = d.note ? '<span class="pe-badge">' + ICO_INFO + 'Operado por el Estado</span>' : '';
+    var verBtn;
+    if (isPdf){
+      verBtn = '<button class="pe-btn pe-btn-ghost pe-ver" type="button" data-u="' + esc(url) + '" data-title="' + esc(d.n) + '">' + ICO_EYE + 'Ver</button>';
+    } else {
+      /* Excel: "Ver en línea" con el visor de Microsoft Office (no requiere tener Excel instalado) */
+      var officeUrl = 'https://view.officeapps.live.com/op/view.aspx?src=' + encodeURIComponent(url);
+      verBtn = '<a class="pe-btn pe-btn-ghost" href="' + esc(officeUrl) + '" target="_blank" rel="noopener noreferrer">' + ICO_EYE + 'Ver en línea</a>';
+    }
+    var dlBtn = '<button class="pe-btn pe-btn-solid pe-dl" type="button" data-u="' + esc(url) + '">' + ICO_DL + '<span class="pe-dl-tx">Descargar</span></button>';
+    var dataText = esc(norm(d.y + ' ' + d.n + ' ' + stripTags(d.d) + ' ' + typeTxt));
+    return '<div class="pe-row' + (d.note ? ' is-note' : '') + '" data-text="' + dataText + '">' +
+      '<span class="pe-row-ico" aria-hidden="true">' + ico + '</span>' +
+      '<div class="pe-row-main">' + badge +
+        '<div class="pe-row-title">' + esc(d.n) + '</div>' +
+        '<div class="pe-row-desc">' + d.d + '</div>' +
+        '<div class="pe-row-meta"><span class="pe-m">' + ICO_CAL + 'Ejercicio fiscal ' + esc(d.y) + '</span><span class="pe-type">' + typeTxt + '</span><span>' + esc(d.kb) + '</span></div>' +
+      '</div>' +
+      '<div class="pe-row-actions">' + verBtn + dlBtn + '</div>' +
+    '</div>';
+  }
+
+  var html = '';
+  for (var i=0;i<DOCS.length;i++){ html += rowHtml(DOCS[i]); }
+  document.getElementById('peList').innerHTML = html;
+
+  /* ---- Buscador (sin acentos, multi-palabra) ---- */
+  var input = document.getElementById('peSearch');
+  var rows = Array.prototype.slice.call(document.querySelectorAll('.pe-row'));
+  var total = rows.length;
+  var count = document.getElementById('peCount');
+  var empty = document.getElementById('peEmpty');
+  function filtrar(){
+    var toks = norm(input.value.trim()).split(/\s+/).filter(Boolean);
+    var vis = 0;
+    for (var i=0;i<rows.length;i++){
+      var t = rows[i].getAttribute('data-text') || '';
+      var ok = true;
+      for (var j=0;j<toks.length;j++){ if (t.indexOf(toks[j]) === -1){ ok = false; break; } }
+      rows[i].style.display = ok ? '' : 'none';
+      if (ok) vis++;
+    }
+    count.innerHTML = 'Mostrando <b>' + vis + '</b> de ' + total + ' documentos';
+    empty.className = 'pe-empty' + (vis === 0 ? ' show' : '');
+    reportHeight();
+  }
+  if (input){ input.addEventListener('input', filtrar); }
+
+  /* ---- Nombre de archivo ---- */
+  function nombreArchivo(u){
+    try { var p = u.split('?')[0].split('#')[0].split('/'); var n = decodeURIComponent(p[p.length - 1]); return n || 'documento'; }
+    catch (e){ return 'documento'; }
+  }
+
+  /* ---- Descargar (fetch+blob; respaldo a pestaña nueva) ---- */
+  var EN_IFRAME = (function(){ try { return window.self !== window.top; } catch(e){ return true; } })();
+  function descargar(btn){
+    if (btn.getAttribute('data-busy') === '1') return;
+    var url = btn.getAttribute('data-u');
+    var tx = btn.querySelector('.pe-dl-tx');
+    var label = tx ? tx.textContent : '';
+    btn.setAttribute('data-busy','1'); if (tx){ tx.textContent = 'Descargando…'; }
+    fetch(url).then(function(res){ if (!res.ok){ throw new Error('http'); } return res.blob(); }).then(function(blob){
+      var burl = URL.createObjectURL(blob);
+      var a = document.createElement('a'); a.href = burl; a.download = nombreArchivo(url);
+      if (EN_IFRAME){ a.target = '_blank'; a.rel = 'noopener'; }
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      setTimeout(function(){ URL.revokeObjectURL(burl); }, EN_IFRAME ? 60000 : 6000);
+      btn.removeAttribute('data-busy'); if (tx){ tx.textContent = label; }
+    }).catch(function(){
+      window.open(url, '_blank', 'noopener');
+      btn.removeAttribute('data-busy'); if (tx){ tx.textContent = label; }
+    });
+  }
+
+  /* ---- Ver PDF (modal en standalone / pestaña nueva dentro de Strapi) ---- */
+  var modal = document.getElementById('peModal');
+  var modalFrame = document.getElementById('peModalFrame');
+  var modalTitle = document.getElementById('peModalTitle');
+  function cerrarModal(){ if (modal){ modal.classList.remove('open'); if (modalFrame){ modalFrame.src = 'about:blank'; } } }
+  function ver(btn){
+    var url = btn.getAttribute('data-u');
+    if (EN_IFRAME){ window.open(url, '_blank', 'noopener'); return; }
+    if (modalFrame){ modalFrame.src = url; }
+    if (modalTitle){ modalTitle.textContent = btn.getAttribute('data-title') || 'Documento'; }
+    if (modal){ modal.classList.add('open'); }
+  }
+  var mx = document.getElementById('peModalX');
+  if (mx){ mx.addEventListener('click', cerrarModal); }
+  if (modal){ modal.addEventListener('click', function(e){ if (e.target === modal){ cerrarModal(); } }); }
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ cerrarModal(); } });
+
+  /* ---- Delegación de clics ---- */
+  document.addEventListener('click', function(e){
+    var dl = e.target.closest ? e.target.closest('.pe-dl') : null;
+    if (dl){ descargar(dl); return; }
+    var v = e.target.closest ? e.target.closest('.pe-ver') : null;
+    if (v){ ver(v); return; }
+  });
+
+  /* ---- Volver arriba ---- */
+  var toTop = document.getElementById('peToTop');
+  function onScroll(){ if (!toTop) return; var y = window.pageYOffset || document.documentElement.scrollTop; toTop.className = 'pe-totop' + (y > 500 ? ' show' : ''); }
+  window.addEventListener('scroll', onScroll);
+  if (toTop){ toTop.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: 'smooth' }); }); }
+
+  /* ---- Auto-altura para Strapi ---- */
+  function reportHeight(){
+    var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight);
+    try { parent.postMessage({ type: 'gdl-iframe-height', id: 'programas-estatales-art8-III-d', height: h }, '*'); } catch (e){}
+  }
+  window.addEventListener('load', reportHeight);
+  window.addEventListener('resize', reportHeight);
+  setTimeout(reportHeight, 400); setTimeout(reportHeight, 1200); setTimeout(reportHeight, 2500);
+})();
+</script>
+
+</body>
+</html>
