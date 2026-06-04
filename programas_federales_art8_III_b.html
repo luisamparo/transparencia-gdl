@@ -410,18 +410,28 @@ body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:va
       /* Dentro de un iframe (Strapi) "position:fixed" y "vh" no son fiables: el iframe
          está dimensionado a su contenido. Usamos position:absolute con alto fijo y
          anclamos el visor a la posición del botón tocado para que SIEMPRE quede a la vista. */
-      var sh = (window.screen && window.screen.availHeight) ? window.screen.availHeight : 850;
-      var H = Math.max(600, Math.min(Math.round(sh * 0.82), 880));
-      var docH = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+      /* Medimos el alto REALMENTE visible (innerHeight = alto del iframe, acotado por
+         pantalla) y centramos el visor en lo que se ve, para que SIEMPRE quepa completo
+         y se pueda navegar. (Antes usaba screen.availHeight y salía cortado/sin scroll.) */
+      var iv = window.innerHeight || 700;
+      var sCap = (window.screen && window.screen.availHeight) ? Math.round(window.screen.availHeight * 0.85) : 99999;
+      var docH = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight, iv);
+      var internalScroll = docH > iv + 4;
+      var PAD = 10;
+      var H = Math.max(340, Math.min(iv - 2*PAD - 16, sCap, 980));
       modal.style.position='absolute'; modal.style.top='0'; modal.style.left='0'; modal.style.right='auto'; modal.style.bottom='auto';
-      modal.style.width='100%'; modal.style.height=docH+'px'; modal.style.alignItems='flex-start'; modal.style.padding='10px';
+      modal.style.width='100%'; modal.style.height=docH+'px'; modal.style.alignItems='flex-start'; modal.style.padding=PAD+'px';
       modalBox.style.height=H+'px';
-      var topPx = 16;
-      if (anchorEl && anchorEl.getBoundingClientRect){
-        var rect = anchorEl.getBoundingClientRect();
-        var anchorTop = rect.top + window.pageYOffset - 8;
-        topPx = Math.max(10, Math.min(anchorTop, docH - H - 10));
+      var topPx;
+      if (internalScroll){
+        topPx = (window.pageYOffset || 0) + Math.max(0, (iv - H) / 2 - PAD);
+      } else if (anchorEl && anchorEl.getBoundingClientRect){
+        topPx = anchorEl.getBoundingClientRect().top + (window.pageYOffset || 0) - PAD - 8;
+      } else {
+        topPx = (window.pageYOffset || 0) + 8;
       }
+      if (PAD + topPx + H > docH) topPx = Math.max(0, docH - H - 2*PAD);
+      if (topPx < 0) topPx = 0;
       modalBox.style.marginTop = topPx + 'px';
     }
     loading.classList.remove('hide');
