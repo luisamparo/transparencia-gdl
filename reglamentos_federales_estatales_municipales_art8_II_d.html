@@ -1212,11 +1212,33 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
   var frame = document.getElementById('rgModalFrame');
   var loading = document.getElementById('rgModalLoading');
   var curUrl = '';
-  function openViewer(url, label){
+  var modalBox = modal ? modal.querySelector('.rg-modal-box') : null;
+  function openViewer(url, label, anchorEl){
     curUrl = url;
     document.getElementById('rgModalSub').textContent = label || '';
     document.getElementById('rgModalOpen').href = url;
-    if (window.self !== window.top){ window.open(url, '_blank', 'noopener'); return; }
+    if (EN_IFRAME && modalBox){
+      /* Dentro de un iframe (Strapi) "position:fixed" y "vh" no son fiables porque
+         el iframe no tiene un viewport propio (está dimensionado a su contenido).
+         Usamos position:absolute con alto fijo, anclando el visor a la posición del
+         botón que se acaba de tocar, para que SIEMPRE aparezca a la vista del usuario. */
+      var H = 560;
+      var docH = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+      modal.style.position = 'absolute';
+      modal.style.top = '0'; modal.style.left = '0'; modal.style.right = 'auto'; modal.style.bottom = 'auto';
+      modal.style.width = '100%'; modal.style.height = docH + 'px';
+      modal.style.alignItems = 'flex-start';
+      modalBox.style.height = H + 'px';
+      var topPx = 16;
+      if (anchorEl && anchorEl.getBoundingClientRect){
+        var rect = anchorEl.getBoundingClientRect();
+        /* Abrir el visor justo arriba del botón tocado: así el encabezado (cerrar /
+           descargar) queda siempre a la vista, incluso si el botón está pegado al borde. */
+        var anchorTop = rect.top + window.pageYOffset - 24;
+        topPx = Math.max(12, Math.min(anchorTop, docH - H - 12));
+      }
+      modalBox.style.marginTop = topPx + 'px';
+    }
     loading.classList.remove('hide');
     frame.src = url;
     modal.classList.add('open');
@@ -1226,11 +1248,16 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
     modal.classList.remove('open');
     frame.src = 'about:blank';
     document.body.style.overflow = '';
+    if (EN_IFRAME && modalBox){
+      modal.style.position = ''; modal.style.top = ''; modal.style.left = ''; modal.style.right = '';
+      modal.style.bottom = ''; modal.style.width = ''; modal.style.height = ''; modal.style.alignItems = '';
+      modalBox.style.height = ''; modalBox.style.marginTop = '';
+    }
   }
   frame.addEventListener('load', function(){ if (frame.src && frame.src!=='about:blank') loading.classList.add('hide'); });
   rows.forEach(function(row){
     var v = row.querySelector('.rg-ver');
-    if (v){ v.addEventListener('click', function(){ var nm = row.querySelector('.rg-name'); openViewer(v.getAttribute('data-u'), nm ? nm.textContent : ''); }); }
+    if (v){ v.addEventListener('click', function(){ var nm = row.querySelector('.rg-name'); openViewer(v.getAttribute('data-u'), nm ? nm.textContent : '', v); }); }
   });
   document.getElementById('rgModalDl').addEventListener('click', function(){ descargarPdf(curUrl, null); });
   document.getElementById('rgModalClose').addEventListener('click', closeViewer);
