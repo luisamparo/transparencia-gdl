@@ -109,10 +109,24 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
 .rg-modal-close{width:32px;height:32px;border-radius:50%;justify-content:center;padding:0;font-size:17px;line-height:1}
 .rg-modal-body{flex:1;background:var(--g100);position:relative;min-height:0}
 .rg-modal-frame{width:100%;height:100%;border:0;display:block;position:relative;z-index:1}
-.rg-modal-loading{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--g600);font-size:13px;text-align:center;padding:24px;pointer-events:none;z-index:0}
+.rg-modal-loading{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--g600);font-size:13px;text-align:center;padding:24px;pointer-events:none;z-index:2;background:var(--g100)}
 .rg-modal-loading.hide{display:none}
 .rg-modal-spin{width:26px;height:26px;border:3px solid var(--ac-l);border-top-color:var(--ac);border-radius:50%;animation:rgspin 1s linear infinite}
 @keyframes rgspin{to{transform:rotate(360deg)}}
+/* Visor PDF propio (PDF.js) con zoom centrado */
+.rg-modal-zoom{display:inline-flex;align-items:center;gap:1px;background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.4);border-radius:7px;padding:2px;margin-right:3px}
+.rg-zoom-btn{width:27px;height:26px;border:0;background:transparent;color:#fff;font-size:18px;font-weight:700;cursor:pointer;border-radius:5px;line-height:1;display:flex;align-items:center;justify-content:center;font-family:var(--fh)}
+.rg-zoom-btn:hover{background:rgba(255,255,255,.22)}
+.rg-zoom-lvl{min-width:48px;height:26px;border:0;background:transparent;color:#fff;font-size:11.5px;font-weight:700;cursor:pointer;border-radius:5px;font-family:var(--fh);padding:0 4px}
+.rg-zoom-lvl:hover{background:rgba(255,255,255,.22)}
+.rg-pdf-scroll{position:absolute;inset:0;overflow:auto;background:var(--g200);z-index:1;-webkit-overflow-scrolling:touch}
+.rg-pdf-scroll[hidden]{display:none}
+.rg-pdf-inner{padding:14px 0;margin:0 auto;box-sizing:border-box}
+.rg-pdf-page{position:relative;margin:0 auto 14px;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.20)}
+.rg-pdf-page:last-child{margin-bottom:0}
+.rg-pdf-page canvas{display:block;width:100%;height:100%}
+.rg-pdf-pnum{position:absolute;top:6px;right:8px;background:rgba(26,26,26,.55);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:10px;font-family:var(--fh);pointer-events:none;opacity:0;transition:opacity .15s}
+.rg-pdf-page:hover .rg-pdf-pnum{opacity:1}
 @media (max-width:780px){
   .rg-modal{padding:0}
   .rg-modal-box{height:100%;border-radius:0;width:100%}
@@ -1097,6 +1111,11 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
     <div class="rg-modal-head">
       <div class="rg-modal-title" id="rgModalTitle">Documento oficial<small id="rgModalSub"></small></div>
       <div class="rg-modal-actions">
+        <div class="rg-modal-zoom" id="rgZoomCtl" hidden>
+          <button class="rg-zoom-btn" id="rgZoomOut" type="button" title="Alejar" aria-label="Alejar">&#8722;</button>
+          <button class="rg-zoom-lvl" id="rgZoomFit" type="button" title="Ajustar al ancho">100%</button>
+          <button class="rg-zoom-btn" id="rgZoomIn" type="button" title="Acercar" aria-label="Acercar">+</button>
+        </div>
         <a class="rg-modal-btn" id="rgModalOpen" href="#" target="_blank" rel="noopener noreferrer" title="Abrir en pestaña nueva">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
           <span>Abrir en pestaña</span>
@@ -1110,7 +1129,8 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
     </div>
     <div class="rg-modal-body">
       <div class="rg-modal-loading" id="rgModalLoading"><div class="rg-modal-spin"></div><div>Cargando documento…</div></div>
-      <iframe class="rg-modal-frame" id="rgModalFrame" title="Visor de documento PDF"></iframe>
+      <div class="rg-pdf-scroll" id="rgPdfScroll" hidden><div class="rg-pdf-inner" id="rgPdfInner"></div></div>
+      <iframe class="rg-modal-frame" id="rgModalFrame" title="Visor de documento PDF" hidden></iframe>
     </div>
   </div>
 </div>
@@ -1207,12 +1227,136 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
     if (dl){ dl.addEventListener('click', function(){ descargarPdf(dl.getAttribute('data-u'), dl); }); }
   });
 
-  /* ----- Visor PDF (preview embebida; en Strapi abre pestaña nueva) ----- */
+  /* ----- Visor PDF propio (PDF.js) con zoom centrado; fallback al visor nativo ----- */
   var modal = document.getElementById('rgModal');
   var frame = document.getElementById('rgModalFrame');
   var loading = document.getElementById('rgModalLoading');
+  var pdfScroll = document.getElementById('rgPdfScroll');
+  var pdfInner = document.getElementById('rgPdfInner');
+  var zoomCtl = document.getElementById('rgZoomCtl');
+  var zoomLvl = document.getElementById('rgZoomFit');
   var curUrl = '';
   var modalBox = modal ? modal.querySelector('.rg-modal-box') : null;
+
+  /* Carga diferida de PDF.js desde CDN (jsDelivr). Solo al abrir el primer documento. */
+  var PDFJS_VER = '3.11.174';
+  var pdfjsPromise = null;
+  function loadPdfJs(){
+    if (pdfjsPromise) return pdfjsPromise;
+    pdfjsPromise = new Promise(function(resolve, reject){
+      if (window.pdfjsLib){ resolve(window.pdfjsLib); return; }
+      var s = document.createElement('script');
+      s.src = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@' + PDFJS_VER + '/build/pdf.min.js';
+      s.onload = function(){
+        if (window.pdfjsLib){
+          try { window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@' + PDFJS_VER + '/build/pdf.worker.min.js'; } catch(e){}
+          resolve(window.pdfjsLib);
+        } else { reject(new Error('pdfjsLib no disponible')); }
+      };
+      s.onerror = function(){ reject(new Error('No se pudo cargar pdf.js')); };
+      document.head.appendChild(s);
+    });
+    return pdfjsPromise;
+  }
+
+  /* Estado y motor del visor (render bajo demanda = virtualización para muchas páginas) */
+  var V = { token:0, doc:null, numPages:0, baseW:0, baseH:0, fitScale:1, scale:1, pages:[], io:null };
+  function clearViewer(){
+    V.token++;
+    if (V.io){ try { V.io.disconnect(); } catch(e){} V.io = null; }
+    for (var i=0;i<V.pages.length;i++){ var pp=V.pages[i]; if(pp.task){try{pp.task.cancel();}catch(e){}} }
+    if (V.doc){ try { V.doc.destroy(); } catch(e){} V.doc = null; }
+    V.pages = []; V.numPages = 0;
+    if (pdfInner) pdfInner.innerHTML = '';
+  }
+  function setZoomLabel(){ if (zoomLvl){ zoomLvl.textContent = Math.round(V.scale / V.fitScale * 100) + '%'; } }
+  function computeFitScale(){ var a = (pdfScroll.clientWidth || 700) - 28; if (a < 200) a = 200; return a / V.baseW; }
+  function layoutPages(){
+    var pw = Math.round(V.baseW * V.scale), ph = Math.round(V.baseH * V.scale);
+    pdfInner.style.width = pw + 'px';
+    for (var i=0;i<V.pages.length;i++){ V.pages[i].div.style.width = pw + 'px'; V.pages[i].div.style.height = ph + 'px'; }
+  }
+  function centerH(){ pdfScroll.scrollLeft = Math.max(0, (pdfInner.offsetWidth - pdfScroll.clientWidth) / 2); }
+  function renderPage(i){
+    var p = V.pages[i];
+    if (!p || p.canvas || p.rendering || !V.doc) return;
+    var myToken = V.token; p.rendering = true;
+    V.doc.getPage(i+1).then(function(page){
+      if (myToken !== V.token){ p.rendering=false; return; }
+      var dpr = window.devicePixelRatio || 1;
+      var vp = page.getViewport({ scale: V.scale * dpr });
+      var canvas = document.createElement('canvas');
+      canvas.width = Math.round(vp.width); canvas.height = Math.round(vp.height);
+      var ctx = canvas.getContext('2d', { alpha:false });
+      p.canvas = canvas; p.div.appendChild(canvas);
+      p.task = page.render({ canvasContext: ctx, viewport: vp });
+      p.task.promise.then(function(){ p.rendering=false; }, function(){ p.rendering=false; });
+    }, function(){ p.rendering=false; });
+  }
+  function unrenderPage(i){
+    var p = V.pages[i]; if (!p || !p.canvas) return;
+    if (p.task){ try { p.task.cancel(); } catch(e){} }
+    if (p.canvas.parentNode) p.canvas.parentNode.removeChild(p.canvas);
+    p.canvas = null; p.task = null; p.rendering = false;
+  }
+  function buildPages(){
+    pdfInner.innerHTML = ''; V.pages = [];
+    for (var i=0;i<V.numPages;i++){
+      var div = document.createElement('div'); div.className = 'rg-pdf-page'; div.setAttribute('data-i', i);
+      var num = document.createElement('div'); num.className = 'rg-pdf-pnum'; num.textContent = (i+1) + ' / ' + V.numPages;
+      div.appendChild(num); pdfInner.appendChild(div);
+      V.pages.push({ div:div, canvas:null, task:null, rendering:false });
+    }
+    layoutPages();
+    V.io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        var idx = parseInt(en.target.getAttribute('data-i'), 10);
+        if (en.isIntersecting) renderPage(idx); else unrenderPage(idx);
+      });
+    }, { root: pdfScroll, rootMargin: '900px 0px' });
+    for (var j=0;j<V.pages.length;j++) V.io.observe(V.pages[j].div);
+  }
+  function renderVisibleNow(){
+    var top = pdfScroll.scrollTop - 900, bot = pdfScroll.scrollTop + pdfScroll.clientHeight + 900;
+    for (var i=0;i<V.pages.length;i++){
+      var d = V.pages[i].div, dt = d.offsetTop, db = dt + d.offsetHeight;
+      if (db >= top && dt <= bot) renderPage(i); else unrenderPage(i);
+    }
+  }
+  function setScale(newScale){
+    if (!V.doc) return;
+    newScale = Math.max(V.fitScale*0.5, Math.min(newScale, V.fitScale*4));
+    var sh = pdfScroll.scrollHeight, ratio = sh>0 ? pdfScroll.scrollTop / sh : 0;
+    for (var i=0;i<V.pages.length;i++) unrenderPage(i);
+    V.scale = newScale; layoutPages(); setZoomLabel();
+    pdfScroll.scrollTop = ratio * pdfScroll.scrollHeight;
+    centerH(); renderVisibleNow();
+  }
+  function loadDocIntoViewer(url){
+    var myToken = ++V.token;
+    frame.hidden = true; frame.src = 'about:blank';
+    pdfScroll.hidden = false; if (zoomCtl) zoomCtl.hidden = false;
+    loading.classList.remove('hide'); if (pdfInner) pdfInner.innerHTML = '';
+    loadPdfJs().then(function(pdfjsLib){
+      if (myToken !== V.token) throw 'cancel';
+      return pdfjsLib.getDocument({ url: url }).promise;
+    }).then(function(doc){
+      if (myToken !== V.token){ try{doc.destroy();}catch(e){} return; }
+      V.doc = doc; V.numPages = doc.numPages; return doc.getPage(1);
+    }).then(function(page){
+      if (!page || myToken !== V.token) return;
+      var vp1 = page.getViewport({ scale: 1 });
+      V.baseW = vp1.width; V.baseH = vp1.height;
+      V.fitScale = computeFitScale(); V.scale = V.fitScale; setZoomLabel();
+      buildPages(); centerH(); renderVisibleNow();
+      loading.classList.add('hide');
+    }).catch(function(err){
+      if (err === 'cancel') return;
+      /* Fallback: si pdf.js falla (CDN, red), usar el visor nativo del navegador */
+      if (zoomCtl) zoomCtl.hidden = true; pdfScroll.hidden = true;
+      frame.hidden = false; frame.src = url + (url.indexOf('#') > -1 ? '' : '#view=FitH');
+    });
+  }
   function openViewer(url, label, anchorEl){
     curUrl = url;
     document.getElementById('rgModalSub').textContent = label || '';
@@ -1222,39 +1366,54 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
          el iframe no tiene un viewport propio (está dimensionado a su contenido).
          Usamos position:absolute con alto fijo, anclando el visor a la posición del
          botón que se acaba de tocar, para que SIEMPRE aparezca a la vista del usuario. */
-      var H = 560;
+      /* Alto del visor adaptado a la pantalla del usuario: entre más alto, más grande
+         se ve el PDF (el visor del navegador ajusta la página al alto de la caja). */
+      var sh = (window.screen && window.screen.availHeight) ? window.screen.availHeight : 850;
+      var H = Math.max(600, Math.min(Math.round(sh * 0.82), 880));
       var docH = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
       modal.style.position = 'absolute';
       modal.style.top = '0'; modal.style.left = '0'; modal.style.right = 'auto'; modal.style.bottom = 'auto';
       modal.style.width = '100%'; modal.style.height = docH + 'px';
       modal.style.alignItems = 'flex-start';
+      modal.style.padding = '10px';
       modalBox.style.height = H + 'px';
       var topPx = 16;
       if (anchorEl && anchorEl.getBoundingClientRect){
         var rect = anchorEl.getBoundingClientRect();
-        /* Abrir el visor justo arriba del botón tocado: así el encabezado (cerrar /
-           descargar) queda siempre a la vista, incluso si el botón está pegado al borde. */
-        var anchorTop = rect.top + window.pageYOffset - 24;
-        topPx = Math.max(12, Math.min(anchorTop, docH - H - 12));
+        /* Anclar el visor un poco arriba del botón tocado: así aprovecha el espacio
+           superior y el encabezado (cerrar / descargar) queda a la vista. */
+        var anchorTop = rect.top + window.pageYOffset - 8;
+        topPx = Math.max(10, Math.min(anchorTop, docH - H - 10));
       }
       modalBox.style.marginTop = topPx + 'px';
     }
-    loading.classList.remove('hide');
-    frame.src = url;
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
+    /* Cargar el documento en el visor propio (PDF.js); requiere el modal ya visible
+       para medir el ancho disponible y calcular el ajuste. */
+    loadDocIntoViewer(url);
   }
   function closeViewer(){
     modal.classList.remove('open');
-    frame.src = 'about:blank';
+    clearViewer();
+    pdfScroll.hidden = true; frame.hidden = true; frame.src = 'about:blank';
+    if (zoomCtl) zoomCtl.hidden = true;
+    loading.classList.remove('hide');
     document.body.style.overflow = '';
     if (EN_IFRAME && modalBox){
       modal.style.position = ''; modal.style.top = ''; modal.style.left = ''; modal.style.right = '';
       modal.style.bottom = ''; modal.style.width = ''; modal.style.height = ''; modal.style.alignItems = '';
+      modal.style.padding = '';
       modalBox.style.height = ''; modalBox.style.marginTop = '';
     }
   }
-  frame.addEventListener('load', function(){ if (frame.src && frame.src!=='about:blank') loading.classList.add('hide'); });
+  /* Fallback nativo: ocultar el "Cargando…" cuando el iframe (si se usa) termina de cargar */
+  frame.addEventListener('load', function(){ if (!frame.hidden && frame.src && frame.src!=='about:blank') loading.classList.add('hide'); });
+  /* Controles de zoom (centrado) */
+  var zIn = document.getElementById('rgZoomIn'), zOut = document.getElementById('rgZoomOut');
+  if (zIn) zIn.addEventListener('click', function(){ setScale(V.scale * 1.25); });
+  if (zOut) zOut.addEventListener('click', function(){ setScale(V.scale / 1.25); });
+  if (zoomLvl) zoomLvl.addEventListener('click', function(){ V.fitScale = computeFitScale(); setScale(V.fitScale); });
   rows.forEach(function(row){
     var v = row.querySelector('.rg-ver');
     if (v){ v.addEventListener('click', function(){ var nm = row.querySelector('.rg-name'); openViewer(v.getAttribute('data-u'), nm ? nm.textContent : '', v); }); }
