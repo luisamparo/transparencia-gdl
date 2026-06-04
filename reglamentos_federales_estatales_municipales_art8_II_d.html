@@ -1176,21 +1176,30 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
   function nombreArchivo(u){
     try { var p = u.split('?')[0].split('#')[0].split('/'); var n = decodeURIComponent(p[p.length - 1]); return n || 'documento.pdf'; } catch(e){ return 'documento.pdf'; }
   }
+  var EN_IFRAME = (function(){ try { return window.self !== window.top; } catch(e){ return true; } })();
   function descargarPdf(url, btn){
     if (!url) return;
     var tx = btn ? btn.querySelector('.rg-dl-tx') : null;
     var label = tx ? tx.textContent : '';
+    function restore(){ if (btn){ btn.removeAttribute('data-busy'); if (tx) { tx.textContent = label; } } }
     if (btn){ if (btn.getAttribute('data-busy') === '1') return; btn.setAttribute('data-busy', '1'); if (tx) { tx.textContent = 'Descargando…'; } }
     fetch(url).then(function(res){ if (!res.ok) { throw new Error('http'); } return res.blob(); }).then(function(blob){
       var burl = URL.createObjectURL(blob);
       var a = document.createElement('a');
       a.href = burl; a.download = nombreArchivo(url);
+      if (EN_IFRAME){
+        /* Dentro de un iframe (p.ej. Strapi) el navegador bloquea la descarga directa
+           cuando el PDF es de otro dominio. Con target="_blank" la guardamos en un
+           contexto de nivel superior, donde sí se permite "Guardar como…". */
+        a.target = '_blank'; a.rel = 'noopener';
+      }
       document.body.appendChild(a); a.click(); document.body.removeChild(a);
-      setTimeout(function(){ URL.revokeObjectURL(burl); }, 6000);
-      if (btn){ btn.removeAttribute('data-busy'); if (tx) { tx.textContent = label; } }
+      setTimeout(function(){ URL.revokeObjectURL(burl); }, EN_IFRAME ? 60000 : 6000);
+      restore();
     }).catch(function(){
+      /* Último recurso (sin CORS o error de red): abrir el PDF para que el usuario lo guarde desde el visor */
       window.open(url, '_blank', 'noopener');
-      if (btn){ btn.removeAttribute('data-busy'); if (tx) { tx.textContent = label; } }
+      restore();
     });
   }
   rows.forEach(function(row){
