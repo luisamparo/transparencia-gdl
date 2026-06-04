@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Los programas regionales · Artículo 8, Fracción III, inciso e) · Vista ciudadana</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ac:#E87722;--ac-d:#C45F0A;--ac-l:#FFE4CC;--ac-soft:#FFF1E4;--ac-border:#F5C99A;
+  --ink:#2a241d;--ink2:#5a4d3e;--muted:#6f5c47;
+  --bg:#f7f3ec;--card:#ffffff;--line:#e8dec9;
+}
+*{box-sizing:border-box}
+body{margin:0;padding:24px;background:var(--bg);font-family:Outfit,Arial,Helvetica,sans-serif;color:var(--ink);line-height:1.55}
+.pr-wrap{max-width:1080px;margin:0 auto}
+
+/* HERO */
+.pr-hero{background:linear-gradient(135deg,#FFF4E8 0%,#FFFFFF 55%);border-radius:14px;padding:24px 28px;margin:0 0 18px;position:relative;overflow:hidden;border-left:5px solid var(--ac);box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.pr-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.12) 0%,transparent 70%);pointer-events:none}
+.pr-tag{display:inline-block;background:var(--ac);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;position:relative;z-index:1;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.pr-hero h1{margin:0 0 8px;font-size:clamp(22px,3.2vw,29px);font-weight:800;color:var(--ink);letter-spacing:-.015em;line-height:1.18;position:relative;z-index:1}
+.pr-hero h1 em{font-style:normal;color:var(--ac-d)}
+.pr-hero-sub{font-size:14.5px;color:var(--ink2);max-width:80ch;margin:0;line-height:1.6;position:relative;z-index:1}
+.pr-hero-sub strong{color:var(--ink);font-weight:700}
+.pr-cifras{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px;max-width:640px;position:relative;z-index:1}
+.pr-cifra{background:#fff;border:1.5px solid var(--ac-border);border-radius:10px;padding:13px 15px;display:flex;flex-direction:column;gap:2px;transition:border-color .18s,transform .18s}
+.pr-cifra:hover{border-color:var(--ac);transform:translateY(-2px)}
+.pr-cifra-num{font-size:34px;font-weight:800;line-height:1;color:var(--ac-d);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.pr-cifra-lbl{font-size:10.5px;font-weight:700;color:var(--ink2);text-transform:uppercase;letter-spacing:.06em;margin-top:3px;line-height:1.3}
+
+/* TOOLBAR / buscador */
+.pr-toolbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 16px;position:sticky;top:0;background:var(--bg);padding:8px 0;z-index:20}
+.pr-search{position:relative;flex:1;min-width:230px}
+.pr-search svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none}
+.pr-search input{width:100%;padding:12px 14px 12px 40px;border:1.5px solid var(--ac-border);border-radius:10px;font-family:Outfit,sans-serif;font-size:14px;color:var(--ink);background:#fff;transition:border-color .15s,box-shadow .15s}
+.pr-search input:focus{outline:none;border-color:var(--ac);box-shadow:0 0 0 3px rgba(232,119,34,.14)}
+.pr-count{font-size:12.5px;font-weight:600;color:var(--muted);white-space:nowrap}
+.pr-count b{color:var(--ac-d);font-weight:800}
+
+/* LISTA de documentos (armonizada con el inciso de reglamentos) */
+.pr-list{display:flex;flex-direction:column;gap:10px}
+.pr-row{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:0 1px 6px rgba(42,36,29,.04);transition:border-color .15s,box-shadow .15s,background .15s}
+.pr-row:hover{border-color:var(--ac-border);box-shadow:0 6px 18px rgba(42,36,29,.09)}
+.pr-row.is-none{background:var(--ac-soft);border-color:var(--ac-border)}
+.pr-row-ico{flex-shrink:0;width:44px;height:44px;border-radius:11px;background:var(--ac-soft);color:var(--ac-d);display:flex;align-items:center;justify-content:center;border:1px solid var(--ac-border)}
+.pr-row.is-none .pr-row-ico{background:#fff}
+.pr-row-main{flex:1;min-width:0}
+.pr-badge-none{display:inline-flex;align-items:center;gap:5px;background:#fff;color:var(--ac-d);border:1px solid var(--ac-border);font-size:9.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:20px;margin-bottom:7px}
+.pr-badge-none svg{flex-shrink:0}
+.pr-row-title{font-size:14.5px;font-weight:700;color:var(--ink);line-height:1.35;letter-spacing:-.005em}
+.pr-row-desc{font-size:12px;color:var(--muted);line-height:1.5;margin-top:5px}
+.pr-row-meta{display:flex;align-items:center;gap:9px;margin-top:7px;flex-wrap:wrap;font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.pr-row-meta .pr-m{display:inline-flex;align-items:center;gap:5px}
+.pr-row-meta .pr-m svg{color:var(--ac);flex-shrink:0}
+.pr-type{font-size:10px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:2px 7px;border-radius:5px;background:#efe9df;color:var(--muted)}
+.pr-row-actions{display:flex;gap:7px;flex-shrink:0;flex-wrap:wrap;justify-content:flex-end}
+.pr-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;font-family:Outfit,sans-serif;font-size:12.5px;font-weight:700;padding:8px 13px;border-radius:8px;cursor:pointer;border:1.5px solid var(--ac-border);transition:all .13s;white-space:nowrap;text-decoration:none}
+.pr-btn svg{flex-shrink:0}
+.pr-btn-ghost{background:#fff;color:var(--ac-d)}
+.pr-btn-ghost:hover{background:var(--ac-soft);border-color:var(--ac)}
+.pr-btn-solid{background:#fff;color:var(--ac-d);border-color:var(--ac-border)}
+.pr-btn-solid:hover{background:var(--ac);color:#fff;border-color:var(--ac)}
+.pr-btn-solid:hover svg{stroke:#fff}
+.pr-dl[data-busy="1"]{opacity:.55;pointer-events:none}
+
+.pr-empty{display:none;text-align:center;padding:40px 20px;color:var(--muted);font-size:14px}
+.pr-empty.show{display:block}
+
+/* FOOTER legal */
+.pr-legal{margin:26px 0 0;background:#fff;border:1px solid var(--line);border-top:4px solid var(--ac);border-radius:14px;padding:22px 26px;box-shadow:0 2px 10px rgba(42,36,29,.05)}
+.pr-legal-eyebrow{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ac-d);margin-bottom:10px}
+.pr-legal h3{margin:0 0 10px;font-size:16px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+.pr-legal p{margin:0 0 9px;font-size:13px;color:var(--ink2);line-height:1.65}
+.pr-legal .pr-cita{background:var(--bg);border-left:3px solid var(--ac-border);border-radius:0 8px 8px 0;padding:13px 16px;font-size:12.5px;color:var(--muted);line-height:1.6}
+.pr-legal .pr-cita b{color:var(--ink);font-weight:700}
+.pr-legal .pr-cita .pr-hl{color:var(--ac-d);font-weight:800}
+
+/* BACK TO TOP */
+.pr-totop{position:fixed;right:20px;bottom:20px;width:46px;height:46px;border-radius:50%;background:var(--ac);color:#fff;border:none;box-shadow:0 4px 14px rgba(232,119,34,.4);cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:50}
+.pr-totop.show{opacity:1;pointer-events:auto}
+.pr-totop:hover{transform:translateY(-3px)}
+
+/* MODAL (vista standalone) */
+.pr-modal{position:fixed;inset:0;background:rgba(42,36,29,.72);display:none;align-items:center;justify-content:center;padding:24px;z-index:100}
+.pr-modal.open{display:flex}
+.pr-modal-box{background:#fff;border-radius:14px;width:min(960px,100%);height:min(88vh,900px);display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.pr-modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 18px;background:linear-gradient(135deg,var(--ac) 0%,var(--ac-d) 100%);color:#fff}
+.pr-modal-head b{font-size:14px;font-weight:700;line-height:1.3;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pr-modal-x{background:rgba(255,255,255,.18);border:none;color:#fff;width:32px;height:32px;border-radius:8px;cursor:pointer;font-size:18px;line-height:1;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.pr-modal-x:hover{background:rgba(255,255,255,.32)}
+.pr-modal-body{flex:1;background:#f0f0ec}
+.pr-modal-body iframe{width:100%;height:100%;border:0;display:block}
+
+@media (max-width:680px){
+  body{padding:14px}
+  .pr-hero{padding:20px 18px}
+  .pr-cifras{gap:8px}
+  .pr-cifra{padding:10px 9px}
+  .pr-cifra-num{font-size:26px}
+  .pr-cifra-lbl{font-size:9px}
+  .pr-row{flex-wrap:wrap}
+  .pr-row-actions{width:100%;justify-content:flex-start}
+}
+</style>
+</head>
+<body>
+
+<div class="pr-wrap">
+
+  <!-- HERO -->
+  <section class="pr-hero">
+    <span class="pr-tag">Artículo 8 · Fracción III, inciso e)</span>
+    <h1>Los <em>programas regionales</em> de Guadalajara</h1>
+    <p class="pr-hero-sub">Aquí está, <strong>año por año (de 2013 a 2025)</strong>, la información pública sobre los programas que atienden una región o zona específica del municipio. Cuando en algún año <strong>no se implementó ningún programa regional</strong>, el Ayuntamiento también lo informa oficialmente por oficio: eso también es transparencia y aquí lo puedes consultar.</p>
+    <div class="pr-cifras">
+      <div class="pr-cifra"><div class="pr-cifra-num">13</div><div class="pr-cifra-lbl">Años publicados (2013&ndash;2025)</div></div>
+      <div class="pr-cifra"><div class="pr-cifra-num">18</div><div class="pr-cifra-lbl">Documentos disponibles</div></div>
+      <div class="pr-cifra"><div class="pr-cifra-num">3</div><div class="pr-cifra-lbl">Años con declaración de no implementación (2022&ndash;2024)</div></div>
+    </div>
+  </section>
+
+  <!-- TOOLBAR -->
+  <div class="pr-toolbar">
+    <div class="pr-search">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" id="prSearch" placeholder="Busca por año (ej. 2019) o por palabra (ej. oficio, Excel)…" aria-label="Buscar"/>
+    </div>
+    <div class="pr-count" id="prCount">Mostrando <b>18</b> de 18 documentos</div>
+  </div>
+
+  <!-- LISTA -->
+  <div class="pr-list" id="prList">
+
+    <!-- 2025 -->
+    <div class="pr-row" data-text="2025 oficio uep 001 2025 faismun fondo aportacion infraestructura social municipal programas estatales federales mixtos regionales combate desigualdad pdf">
+      <span class="pr-row-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg></span>
+      <div class="pr-row-main">
+        <div class="pr-row-title">Programas federales, estatales y regionales 2025 &mdash; Oficio UEP/001/2025</div>
+        <div class="pr-row-desc">Informa sobre el fondo FAISMUN (infraestructura social municipal) y la colaboración con programas estatales durante el ejercicio fiscal 2025.</div>
+        <div class="pr-row-meta"><span class="pr-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>Ejercicio fiscal 2025</span><span class="pr-type">PDF</span><span>75 KB</span></div>
+      </div>
+      <div class="pr-row-actions">
+        <button class="pr-btn pr-btn-ghost pr-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioProgramasFederalesEstatalesMixtosRegionales25.pdf" data-title="Oficio UEP/001/2025 — Programas 2025"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="pr-btn pr-btn-solid pr-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioProgramasFederalesEstatalesMixtosRegionales25.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="pr-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <!-- 2024 · oficio (no implementación) -->
+    <div class="pr-row is-none" data-text="2024 oficio uep 059 24 no cuentan sin implementados declaracion programas sociales regionales pdf">
+      <span class="pr-row-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg></span>
+      <div class="pr-row-main">
+        <span class="pr-badge-none"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/></svg>Sin programas regionales</span>
+        <div class="pr-row-title">Oficio UEP/059/24 &mdash; declaración de no implementación 2024</div>
+        <div class="pr-row-desc">&ldquo;Se hace de su conocimiento que mediante el oficio UEP/059/24 girado por la Lic. Paola Maryel Arellano Montoya adscrita a la Unidad de Enlace de Programas se informa que para el ejercicio fiscal 2024 no cuentan con programas sociales regionales.&rdquo;</div>
+        <div class="pr-row-meta"><span class="pr-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>Ejercicio fiscal 2024</span><span class="pr-type">PDF</span><span>206 KB</span></div>
+      </div>
+      <div class="pr-row-actions">
+        <button class="pr-btn pr-btn-ghost pr-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioProgramasFederalesEstatalesMixtosRegionales24.pdf" data-title="Oficio UEP/059/24 — 2024"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="pr-btn pr-btn-solid pr-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioProgramasFederalesEstatalesMixtosRegionales24.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="pr-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <!-- 2024 · formato Excel -->
+    <div class="pr-row" data-text="2024 enero diciembre programas sociales regionales formato excel">
+      <span class="pr-row-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h8"/><path d="M12 11v10"/></svg></span>
+      <div class="pr-row-main">
+        <div class="pr-row-title">Programas sociales regionales 2024 (enero&ndash;diciembre)</div>
+        <div class="pr-row-meta"><span class="pr-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>Ejercicio fiscal 2024</span><span class="pr-type">Excel</span><span>60 KB</span></div>
+      </div>
+      <div class="pr-row-actions">
+        <button class="pr-btn pr-btn-solid pr-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramasSocialesRegionales-Diciembre2024.xlsx"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="pr-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <!-- 2023 · oficio (no implementación) -->
+    <div class="pr-row is-none" data-text="2023 oficio cgcd uep 045 2023 no seran implementados sin declaracion programas sociales regionales pdf">
+      <span class="pr-row-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg></span>
+      <div class="pr-row-main">
+        <span class="pr-badge-none"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/></svg>Sin programas regionales</span>
+        <div class="pr-row-title">Oficio CGCD/UEP/045/2023 &mdash; declaración de no implementación 2023</div>
+        <div class="pr-row-desc">&ldquo;Se pone a su alcance el oficio CGCD/UEP/045/2023 girado por la Lic. Paola Maryel Arellano Montoya adscrita a la Unidad de Enlace de Programas mediante el cual señala que durante el ejercicio fiscal 2023 no serán implementados programas sociales regionales.&rdquo;</div>
+        <div class="pr-row-meta"><span class="pr-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>Ejercicio fiscal 2023</span><span class="pr-type">PDF</span><span>127 KB</span></div>
+      </div>
+      <div class="pr-row-actions">
+        <button class="pr-btn pr-btn-ghost pr-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioProgramasFederalesRegionalesMixtos23.pdf" data-title="Oficio CGCD/UEP/045/2023 — 2023"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="pr-btn pr-btn-solid pr-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioProgramasFederalesRegionalesMixtos23.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="pr-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <!-- 2023 · formato Excel -->
+    <div class="pr-row" data-text="2023 enero diciembre programas sociales regionales formato excel">
+      <span class="pr-row-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h8"/><path d="M12 11v10"/></svg></span>
+      <div class="pr-row-main">
+        <div class="pr-row-title">Programas sociales regionales 2023 (enero&ndash;diciembre)</div>
+        <div class="pr-row-meta"><span class="pr-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>Ejercicio fiscal 2023</span><span class="pr-type">Excel</span><span>31 KB</span></div>
+      </div>
+      <div class="pr-row-actions">
+        <button class="pr-btn pr-btn-solid pr-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramasSocialesRegionales-Diciembre2023.xlsx"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="pr-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <!-- 2022 · oficio (no implementación) -->
+    <div class="pr-row is-none" data-text="2022 oficio uep 23 2022 ramo 33 inapam mixtos no seran implementados sin declaracion programas sociales regionales pdf">
+      <span class="pr-row-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg></span>
+      <div class="pr-row-main">
+        <span class="pr-badge-none"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/></svg>Sin programas regionales</span>
+        <div class="pr-row-title">Oficio UEP/23/2022 &mdash; declaración de no implementación 2022</div>
+        <div class="pr-row-desc">&ldquo;Se pone a su alcance el oficio UEP/23/2022 girado por la Lic. Paola Maryel Arellano Montoya adscrita a la Unidad de Enlace de Programas mediante el cual señala que durante el ejercicio fiscal 2022 no serán implementados programas sociales regionales.&rdquo;</div>
+        <div class="pr-row-meta"><span class="pr-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>Ejercicio fiscal 2022</span><span class="pr-type">PDF</span><span>398 KB</span></div>
+      </div>
+      <div class="pr-row-actions">
+        <button class="pr-btn pr-btn-ghost pr-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioTransparenciaRamo33ProgramasINAPAMMixtosRegionales.pdf" data-title="Oficio UEP/23/2022 — 2022"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="pr-btn pr-btn-solid pr-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioTransparenciaRamo33ProgramasINAPAMMixtosRegionales.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="pr-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <!-- 2022 · formato Excel -->
+    <div class="pr-row" data-text="2022 enero diciembre programas sociales regionales formato excel">
+      <span class="pr-row-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h8"/><path d="M12 11v10"/></svg></span>
+      <div class="pr-row-main">
+        <div class="pr-row-title">Programas sociales regionales 2022 (enero&ndash;diciembre)</div>
+        <div class="pr-row-meta"><span class="pr-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>Ejercicio fiscal 2022</span><span class="pr-type">Excel</span><span>31 KB</span></div>
+      </div>
+      <div class="pr-row-actions">
+        <button class="pr-btn pr-btn-solid pr-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramasSocialesRegionales-Diciembre2022.xlsx"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="pr-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <!-- 2021 · formato Excel -->
+    <div class="pr-row" data-text="2021 enero diciembre programas sociales regionales formato excel">
+      <span class="pr-row-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h8"/><path d="M12 11v10"/></svg></span>
+      <div class="pr-row-main">
+        <div class="pr-row-title">Programas sociales regionales 2021 (enero&ndash;diciembre)</div>
+        <div class="pr-row-meta"><span class="pr-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>Ejercicio fiscal 2021</span><span class="pr-type">Excel</span><span>31 KB</span></div>
+      </div>
+      <div class="pr-row-actions">
+        <button class="pr-btn pr-btn-solid pr-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramasSocialesRegionales-Diciembre2021.xlsx"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="pr-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <!-- 2020 · formato Excel -->
+    <div class="pr-row" data-text="2020 enero diciembre programas sociales regionales formato excel">
+      <span class="pr-row-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h8"/><path d="M12 11v10"/></svg></span>
+      <div class="pr-row-main">
+        <div class="pr-row-title">Programas sociales regionales 2020 (enero&ndash;diciembre)</div>
+        <div class="pr-row-meta"><span class="pr-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>Ejercicio fiscal 2020</span><span class="pr-type">Excel</span><span>12 KB</span></div>
+      </div>
+      <div class="pr-row-actions">
+        <button class="pr-btn pr-btn-solid pr-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramasSocialesRegionales-Diciembre2020.xlsx"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="pr-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <!-- 2019 · PDF -->
+    <div class="pr-row" data-text="2019 programas federales estatales regionales pdf">
+      <span class="pr-row-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg></span>
+      <div class="pr-row-main">
+        <div class="pr-row-title">Programas federales, estatales y regionales 2019</div>
+        <div class="pr-row-meta"><span class="pr-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>Ejercicio fiscal 2019</span><span class="pr-type">PDF</span><span>278 KB</span></div>
+      </div>
+      <div class="pr-row-actions">
+        <button class="pr-btn pr-btn-ghost pr-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramasFederalesEstatalesRegionales2019.pdf" data-title="Programas federales, estatales y regionales 2019"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="pr-btn pr-btn-solid pr-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramasFederalesEstatalesRegionales2019.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="pr-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <!-- 2019 · formato Excel -->
+    <div class="pr-row" data-text="2019 enero diciembre programas sociales regionales formato excel">
+      <span class="pr-row-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h8"/><path d="M12 11v10"/></svg></span>
+      <div class="pr-row-main">
+        <div class="pr-row-title">Programas sociales regionales 2019 (enero&ndash;diciembre)</div>
+        <div class="pr-row-meta"><span class="pr-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>Ejercicio fiscal 2019</span><span class="pr-type">Excel</span><span>10 KB</span></div>
+      </div>
+      <div class="pr-row-actions">
+        <button class="pr-btn pr-btn-solid pr-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramasSocialesRegionales2019.xlsx"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="pr-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <!-- 2018 · PDF -->
+    <div class="pr-row" data-text="2018 programas federales estatales regionales pdf">
+      <span class="pr-row-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg></span>
+      <div class="pr-row-main">
+        <div class="pr-row-title">Programas federales, estatales y regionales 2018</div>
+        <div class="pr-row-meta"><span class="pr-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>Ejercicio fiscal 2018</span><span class="pr-type">PDF</span><span>189 KB</span></div>
+      </div>
+      <div class="pr-row-actions">
+        <button class="pr-btn pr-btn-ghost pr-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramasFederalesEstatalesRegionales2018.pdf" data-title="Programas federales, estatales y regionales 2018"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="pr-btn pr-btn-solid pr-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramasFederalesEstatalesRegionales2018.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="pr-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <!-- 2018 · formato Excel -->
+    <div class="pr-row" data-text="2018 enero diciembre programas sociales regionales formato excel">
+      <span class="pr-row-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h8"/><path d="M12 11v10"/></svg></span>
+      <div class="pr-row-main">
+        <div class="pr-row-title">Programas sociales regionales 2018 (enero&ndash;diciembre)</div>
+        <div class="pr-row-meta"><span class="pr-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>Ejercicio fiscal 2018</span><span class="pr-type">Excel</span><span>14 KB</span></div>
+      </div>
+      <div class="pr-row-actions">
+        <button class="pr-btn pr-btn-solid pr-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/FormatosPlataforma/ProgramasSocialesRegionales-Diciembre2018.xlsx"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="pr-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <!-- 2017 · PDF -->
+    <div class="pr-row" data-text="2017 programas federales estatales regionales pdf">
+      <span class="pr-row-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg></span>
+      <div class="pr-row-main">
+        <div class="pr-row-title">Programas federales, estatales y regionales 2017</div>
+        <div class="pr-row-meta"><span class="pr-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>Ejercicio fiscal 2017</span><span class="pr-type">PDF</span><span>156 KB</span></div>
+      </div>
+      <div class="pr-row-actions">
+        <button class="pr-btn pr-btn-ghost pr-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramasFederalesEstatalesRegionales2017.pdf" data-title="Programas federales, estatales y regionales 2017"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="pr-btn pr-btn-solid pr-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramasFederalesEstatalesRegionales2017.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="pr-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <!-- 2016 · PDF -->
+    <div class="pr-row" data-text="2016 programas federales estatales regionales pdf">
+      <span class="pr-row-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg></span>
+      <div class="pr-row-main">
+        <div class="pr-row-title">Programas federales, estatales y regionales 2016</div>
+        <div class="pr-row-meta"><span class="pr-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>Ejercicio fiscal 2016</span><span class="pr-type">PDF</span><span>1.4 MB</span></div>
+      </div>
+      <div class="pr-row-actions">
+        <button class="pr-btn pr-btn-ghost pr-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramasFederalesEstatalesRegionales2016.pdf" data-title="Programas federales, estatales y regionales 2016"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="pr-btn pr-btn-solid pr-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramasFederalesEstatalesRegionales2016.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="pr-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <!-- 2015 · PDF -->
+    <div class="pr-row" data-text="2015 programas federales estatales regionales pdf">
+      <span class="pr-row-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg></span>
+      <div class="pr-row-main">
+        <div class="pr-row-title">Programas federales, estatales y regionales 2015</div>
+        <div class="pr-row-meta"><span class="pr-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>Ejercicio fiscal 2015</span><span class="pr-type">PDF</span><span>56 KB</span></div>
+      </div>
+      <div class="pr-row-actions">
+        <button class="pr-btn pr-btn-ghost pr-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramasFederalesEstatalesRegionales2015.pdf" data-title="Programas federales, estatales y regionales 2015"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="pr-btn pr-btn-solid pr-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramasFederalesEstatalesRegionales2015.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="pr-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <!-- 2014 · PDF -->
+    <div class="pr-row" data-text="2014 programas federales estatales regionales pdf">
+      <span class="pr-row-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg></span>
+      <div class="pr-row-main">
+        <div class="pr-row-title">Programas federales, estatales y regionales 2014</div>
+        <div class="pr-row-meta"><span class="pr-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>Ejercicio fiscal 2014</span><span class="pr-type">PDF</span><span>57 KB</span></div>
+      </div>
+      <div class="pr-row-actions">
+        <button class="pr-btn pr-btn-ghost pr-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramasFederalesEstatalesRegionales2014.pdf" data-title="Programas federales, estatales y regionales 2014"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="pr-btn pr-btn-solid pr-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramasFederalesEstatalesRegionales2014.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="pr-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <!-- 2013 · PDF -->
+    <div class="pr-row" data-text="2013 programas federales estatales regionales pdf">
+      <span class="pr-row-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg></span>
+      <div class="pr-row-main">
+        <div class="pr-row-title">Programas federales, estatales y regionales 2013</div>
+        <div class="pr-row-meta"><span class="pr-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>Ejercicio fiscal 2013</span><span class="pr-type">PDF</span><span>48 KB</span></div>
+      </div>
+      <div class="pr-row-actions">
+        <button class="pr-btn pr-btn-ghost pr-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramasFederalesEstatalesRegionales2013.pdf" data-title="Programas federales, estatales y regionales 2013"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="pr-btn pr-btn-solid pr-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramasFederalesEstatalesRegionales2013.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="pr-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="pr-empty" id="prEmpty">No encontramos documentos para tu búsqueda. Intenta con un año (por ejemplo, <strong>2019</strong>).</div>
+
+  <!-- FUNDAMENTO LEGAL -->
+  <footer class="pr-legal">
+    <div class="pr-legal-eyebrow">Fundamento legal</div>
+    <h3>¿Por qué se publica esta información?</h3>
+    <p>La <strong>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</strong> obliga a los sujetos obligados a difundir la información sobre la planeación del desarrollo. Esta página corresponde, de forma íntegra, al siguiente fundamento:</p>
+    <div class="pr-cita">
+      <b>Artículo 8.</b> Es información fundamental para el sujeto obligado y para sus dependencias, la siguiente: [&hellip;]<br/>
+      <b>III.</b> La información sobre la planeación del desarrollo, aplicable al y por el sujeto obligado, que comprende:<br/>
+      a) Los apartados del Plan Nacional de Desarrollo&hellip;; b) Los apartados de los programas federales; c) Los apartados del Plan Estatal de Desarrollo; d) Los programas estatales; <span class="pr-hl">e) Los programas regionales;</span> f) Las evaluaciones y encuestas que hagan los sujetos obligados a programas financiados con recursos públicos; y g) Los demás instrumentos de planeación no comprendidos en los incisos anteriores.
+    </div>
+  </footer>
+
+</div>
+
+<button class="pr-totop" id="prToTop" type="button" aria-label="Volver arriba"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg></button>
+
+<!-- MODAL (vista en página, solo fuera de iframe) -->
+<div class="pr-modal" id="prModal" role="dialog" aria-modal="true">
+  <div class="pr-modal-box">
+    <div class="pr-modal-head">
+      <b id="prModalTitle">Documento</b>
+      <button class="pr-modal-x" id="prModalX" type="button" aria-label="Cerrar">&times;</button>
+    </div>
+    <div class="pr-modal-body"><iframe id="prModalFrame" src="about:blank" title="Vista del documento"></iframe></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var COMB = new RegExp('[' + String.fromCharCode(768) + '-' + String.fromCharCode(879) + ']', 'g');
+  function norm(s){ return (s||'').toLowerCase().normalize('NFD').replace(COMB, ''); }
+
+  /* ---- Buscador ---- */
+  var input = document.getElementById('prSearch');
+  var rows = Array.prototype.slice.call(document.querySelectorAll('.pr-row'));
+  var total = rows.length;
+  var count = document.getElementById('prCount');
+  var empty = document.getElementById('prEmpty');
+  function filtrar(){
+    var q = norm(input.value.trim());
+    var vis = 0;
+    for (var i=0;i<rows.length;i++){
+      var t = norm(rows[i].getAttribute('data-text') || '');
+      var show = (q === '' || t.indexOf(q) !== -1);
+      rows[i].style.display = show ? '' : 'none';
+      if (show) vis++;
+    }
+    count.innerHTML = 'Mostrando <b>' + vis + '</b> de ' + total + ' documentos';
+    empty.className = 'pr-empty' + (vis === 0 ? ' show' : '');
+    reportHeight();
+  }
+  if (input){ input.addEventListener('input', filtrar); }
+
+  /* ---- Nombre de archivo ---- */
+  function nombreArchivo(u){
+    try { var p = u.split('?')[0].split('#')[0].split('/'); var n = decodeURIComponent(p[p.length - 1]); return n || 'documento'; }
+    catch (e){ return 'documento'; }
+  }
+
+  /* ---- Descargar (fetch+blob con respaldo) ---- */
+  function descargar(btn){
+    if (btn.getAttribute('data-busy') === '1') return;
+    var url = btn.getAttribute('data-u');
+    var tx = btn.querySelector('.pr-dl-tx');
+    var label = tx ? tx.textContent : '';
+    btn.setAttribute('data-busy','1'); if (tx){ tx.textContent = 'Descargando…'; }
+    fetch(url).then(function(res){ if (!res.ok){ throw new Error('http'); } return res.blob(); }).then(function(blob){
+      var burl = URL.createObjectURL(blob);
+      var a = document.createElement('a'); a.href = burl; a.download = nombreArchivo(url);
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      setTimeout(function(){ URL.revokeObjectURL(burl); }, 6000);
+      btn.removeAttribute('data-busy'); if (tx){ tx.textContent = label; }
+    }).catch(function(){
+      window.open(url, '_blank', 'noopener');
+      btn.removeAttribute('data-busy'); if (tx){ tx.textContent = label; }
+    });
+  }
+
+  /* ---- Ver (modal en standalone / pestaña nueva en iframe) ---- */
+  var modal = document.getElementById('prModal');
+  var modalFrame = document.getElementById('prModalFrame');
+  var modalTitle = document.getElementById('prModalTitle');
+  function cerrarModal(){ if (modal){ modal.classList.remove('open'); if (modalFrame){ modalFrame.src = 'about:blank'; } } }
+  function ver(btn){
+    var url = btn.getAttribute('data-u');
+    if (window.self !== window.top){ window.open(url, '_blank', 'noopener'); return; }
+    if (modalFrame){ modalFrame.src = url; }
+    if (modalTitle){ modalTitle.textContent = btn.getAttribute('data-title') || 'Documento'; }
+    if (modal){ modal.classList.add('open'); }
+  }
+  var mx = document.getElementById('prModalX');
+  if (mx){ mx.addEventListener('click', cerrarModal); }
+  if (modal){ modal.addEventListener('click', function(e){ if (e.target === modal){ cerrarModal(); } }); }
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ cerrarModal(); } });
+
+  /* ---- Delegación de clics ---- */
+  document.addEventListener('click', function(e){
+    var dl = e.target.closest ? e.target.closest('.pr-dl') : null;
+    if (dl){ descargar(dl); return; }
+    var v = e.target.closest ? e.target.closest('.pr-ver') : null;
+    if (v){ ver(v); return; }
+  });
+
+  /* ---- Volver arriba ---- */
+  var toTop = document.getElementById('prToTop');
+  function onScroll(){ if (!toTop) return; var y = window.pageYOffset || document.documentElement.scrollTop; toTop.className = 'pr-totop' + (y > 500 ? ' show' : ''); }
+  window.addEventListener('scroll', onScroll);
+  if (toTop){ toTop.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: 'smooth' }); }); }
+
+  /* ---- Auto-altura para Strapi ---- */
+  function reportHeight(){
+    var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight);
+    try { parent.postMessage({ type: 'gdl-iframe-height', id: 'programas-regionales-art8-III-e', height: h }, '*'); } catch (e){}
+  }
+  window.addEventListener('load', reportHeight);
+  window.addEventListener('resize', reportHeight);
+  setTimeout(reportHeight, 400); setTimeout(reportHeight, 1200); setTimeout(reportHeight, 2500);
+})();
+</script>
+
+</body>
+</html>
