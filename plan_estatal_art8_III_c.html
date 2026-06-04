@@ -24,17 +24,39 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:Outfit,Arial,Helvetica
 .pej-cifra-num{font-family:Outfit,sans-serif;font-size:38px;font-weight:800;line-height:1;color:#C45F0A;letter-spacing:-.02em;font-feature-settings:'tnum'}
 .pej-cifra-lbl{font-size:11px;font-weight:700;color:#5a4d3e;text-transform:uppercase;letter-spacing:.08em;margin-top:2px;line-height:1.3}
 
+/* VISOR PDF EMBEBIDO (super visible) */
+.pej-viewer{background:#fff;border:1.5px solid #e8dec9;border-top:4px solid #E87722;border-radius:16px;box-shadow:0 4px 20px rgba(42,36,29,.06);overflow:hidden;margin:0 0 26px}
+.pej-viewer-head{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 20px;background:linear-gradient(135deg,#E87722 0%,#C45F0A 100%);color:#fff;flex-wrap:wrap}
+.pej-viewer-title{display:flex;align-items:center;gap:12px;min-width:0}
+.pej-viewer-title svg{flex-shrink:0}
+.pej-viewer-title b{font-size:15px;font-weight:800;line-height:1.25}
+.pej-viewer-title small{display:block;font-size:11px;font-weight:500;opacity:.92;margin-top:2px}
+.pej-viewer-actions{display:flex;gap:8px;align-items:center;flex-shrink:0}
+.pej-vbtn{display:inline-flex;align-items:center;justify-content:center;gap:6px;font-family:Outfit,sans-serif;font-size:12.5px;font-weight:700;padding:8px 14px;border-radius:8px;cursor:pointer;text-decoration:none;border:1.5px solid rgba(255,255,255,.45);color:#fff;background:rgba(255,255,255,.16);transition:all .13s;white-space:nowrap}
+.pej-vbtn:hover{background:rgba(255,255,255,.30)}
+.pej-vbtn svg{flex-shrink:0}
+.pej-dl[data-busy="1"]{opacity:.6;pointer-events:none}
+.pej-viewer-body{position:relative;background:#f0f0ec;height:800px}
+.pej-frame{width:100%;height:100%;border:0;display:block;position:relative;z-index:1}
+.pej-viewer-loading{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;color:#5a4d3e;font-size:13px;text-align:center;padding:24px;z-index:0}
+.pej-viewer-loading.hide{display:none}
+.pej-spin{width:28px;height:28px;border:3px solid #FFE4CC;border-top-color:#E87722;border-radius:50%;animation:pejspin 1s linear infinite}
+@keyframes pejspin{to{transform:rotate(360deg)}}
+.pej-hint{font-size:12px;color:#5a4d3e;background:#FAFAF8;padding:10px 20px;border-top:1px solid #f0f0ec;display:flex;align-items:center;gap:8px;line-height:1.5}
+.pej-hint svg{flex-shrink:0;color:#C45F0A}
+.pej-hint strong{color:#2a241d;font-weight:700}
+
 /* SECCIÓN: 5 cards ejes sectoriales */
 .pej-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:18px;margin:0 0 30px}
 .pej-card{position:relative;overflow:hidden;border-radius:16px;padding:24px 24px 22px;background:#fff;box-shadow:0 4px 20px rgba(42,36,29,.06);transition:transform .25s ease,box-shadow .25s ease;display:flex;flex-direction:column;border-top:5px solid currentColor}
 .pej-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(42,36,29,.12)}
 .pej-card::before{content:'';position:absolute;top:-60px;right:-60px;width:180px;height:180px;border-radius:50%;background:currentColor;opacity:.06;transition:opacity .25s ease}
 .pej-card:hover::before{opacity:.1}
-.pej-card.eje-1{color:#5a5a55}
+.pej-card.eje-1{color:#C45F0A}
 .pej-card.eje-2{color:#C45F0A}
-.pej-card.eje-3{color:#7a5d23}
-.pej-card.eje-4{color:#3f6b48}
-.pej-card.eje-5{color:#3a5a7a}
+.pej-card.eje-3{color:#C45F0A}
+.pej-card.eje-4{color:#C45F0A}
+.pej-card.eje-5{color:#C45F0A}
 .pej-card-top{display:flex;align-items:center;gap:14px;margin-bottom:14px;position:relative;z-index:1}
 .pej-card-num{font-family:Outfit,sans-serif;font-size:46px;font-weight:800;line-height:1;letter-spacing:-.04em;color:currentColor;font-feature-settings:'tnum'}
 .pej-card-icono{width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.04);border-radius:12px;color:currentColor;flex-shrink:0}
@@ -61,18 +83,7 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:Outfit,Arial,Helvetica
 .pej-tematica-tag{font-size:10.5px;font-weight:700;color:var(--c);letter-spacing:.14em;text-transform:uppercase;font-family:Outfit,sans-serif;font-variant-numeric:tabular-nums}
 .pej-tematica h4{margin:0;font-size:14.5px;font-weight:700;color:#2a241d;line-height:1.3;letter-spacing:-.005em;position:relative;z-index:1}
 .pej-tematica p{margin:0;font-size:12.5px;color:#5a4d3e;line-height:1.55;position:relative;z-index:1}
-/* Colores por temática transversal */
-.pej-tematica.tt-a{--c:#2563EB;--cbg:rgba(37,99,235,.10)}
-.pej-tematica.tt-b{--c:#8E44AD;--cbg:rgba(142,68,173,.12)}
-.pej-tematica.tt-c{--c:#6B5A4A;--cbg:rgba(107,90,74,.10)}
-.pej-tematica.tt-d{--c:#3f6b48;--cbg:rgba(63,107,72,.12)}
-.pej-tematica.tt-e{--c:#0EA5C7;--cbg:rgba(14,165,199,.12)}
-.pej-tematica.tt-f{--c:#B7421C;--cbg:rgba(183,66,28,.12)}
-/* Colores por temática especial */
-.pej-tematica.te-g{--c:#8E44AD;--cbg:rgba(142,68,173,.12)}
-.pej-tematica.te-h{--c:#5A6E80;--cbg:rgba(90,110,128,.12)}
-.pej-tematica.te-i{--c:#D97706;--cbg:rgba(217,119,6,.12)}
-.pej-tematica.te-j{--c:#1D7A8C;--cbg:rgba(29,122,140,.12)}
+/* Temáticas armonizadas al naranja institucional (todas usan el --c base) */
 
 /* CTA */
 .pej-cta{background:#fff;border-radius:14px;padding:22px 26px;border-left:5px solid #b35a1f;display:flex;align-items:center;gap:18px;flex-wrap:wrap;box-shadow:0 2px 10px rgba(42,36,29,.05)}
@@ -94,6 +105,10 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:Outfit,Arial,Helvetica
   .pej-card-num{font-size:38px}
   .pej-card-titulo{font-size:16.5px}
   .pej-seccion-banda{padding:18px}
+  .pej-viewer-body{height:62vh;min-height:440px}
+  .pej-viewer-head{padding:12px 14px}
+  .pej-viewer-actions{width:100%}
+  .pej-vbtn{flex:1}
 }
 </style>
 </head>
@@ -121,6 +136,34 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:Outfit,Arial,Helvetica
       </div>
     </div>
   </section>
+
+  <!-- VISOR PDF · documento oficial del Plan Estatal (super visible) -->
+  <div class="pej-viewer">
+    <div class="pej-viewer-head">
+      <div class="pej-viewer-title">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+        <span><b>Plan Estatal de Desarrollo y Gobernanza · Jalisco 2024&ndash;2030</b><small>Documento oficial completo &middot; PDF</small></span>
+      </div>
+      <div class="pej-viewer-actions">
+        <a class="pej-vbtn" id="pejOpen" href="https://plan.jalisco.gob.mx/wp-content/uploads/2025/09/Plan-Estatal-de-Desarrollo-y-Gobernanza-V0.25.pdf" target="_blank" rel="noopener noreferrer">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+          Abrir en pestaña
+        </a>
+        <button class="pej-vbtn pej-dl" id="pejDl" type="button" data-u="https://plan.jalisco.gob.mx/wp-content/uploads/2025/09/Plan-Estatal-de-Desarrollo-y-Gobernanza-V0.25.pdf">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+          <span class="pej-dl-tx">Descargar</span>
+        </button>
+      </div>
+    </div>
+    <div class="pej-viewer-body">
+      <div class="pej-viewer-loading" id="pejLoading"><span class="pej-spin" aria-hidden="true"></span>Cargando el documento oficial&hellip;</div>
+      <iframe class="pej-frame" id="pejFrame" src="https://plan.jalisco.gob.mx/wp-content/uploads/2025/09/Plan-Estatal-de-Desarrollo-y-Gobernanza-V0.25.pdf#view=FitH" title="Plan Estatal de Desarrollo y Gobernanza Jalisco 2024-2030 (PDF oficial)" loading="lazy"></iframe>
+    </div>
+    <div class="pej-hint">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+      <span>Usa la barra del visor para <strong>acercar, buscar o cambiar de página</strong>. Para verlo m&aacute;s grande, abre <strong>&ldquo;Abrir en pesta&ntilde;a&rdquo;</strong>.</span>
+    </div>
+  </div>
 
   <!-- 5 EJES SECTORIALES -->
   <div class="pej-grid">
@@ -342,6 +385,48 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:Outfit,Arial,Helvetica
   </div>
 
 </div>
+
+<script>
+(function(){
+  var frame = document.getElementById('pejFrame');
+  var loading = document.getElementById('pejLoading');
+  if (frame){
+    frame.addEventListener('load', function(){ if (loading){ loading.classList.add('hide'); } });
+    setTimeout(function(){ if (loading){ loading.classList.add('hide'); } }, 6000);
+  }
+  function nombreArchivo(u){
+    try { var p = u.split('?')[0].split('#')[0].split('/'); var n = decodeURIComponent(p[p.length - 1]); return n || 'documento.pdf'; }
+    catch (e){ return 'documento.pdf'; }
+  }
+  var dl = document.getElementById('pejDl');
+  if (dl){
+    dl.addEventListener('click', function(){
+      if (dl.getAttribute('data-busy') === '1') return;
+      var url = dl.getAttribute('data-u');
+      var tx = dl.querySelector('.pej-dl-tx');
+      var label = tx ? tx.textContent : '';
+      dl.setAttribute('data-busy', '1'); if (tx){ tx.textContent = 'Descargando…'; }
+      fetch(url).then(function(res){ if (!res.ok){ throw new Error('http'); } return res.blob(); }).then(function(blob){
+        var burl = URL.createObjectURL(blob);
+        var a = document.createElement('a'); a.href = burl; a.download = nombreArchivo(url);
+        document.body.appendChild(a); a.click(); document.body.removeChild(a);
+        setTimeout(function(){ URL.revokeObjectURL(burl); }, 6000);
+        dl.removeAttribute('data-busy'); if (tx){ tx.textContent = label; }
+      }).catch(function(){
+        window.open(url, '_blank', 'noopener');
+        dl.removeAttribute('data-busy'); if (tx){ tx.textContent = label; }
+      });
+    });
+  }
+  function reportHeight(){
+    var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight);
+    try { parent.postMessage({ type: 'gdl-iframe-height', id: 'plan-estatal-desarrollo-art8-III-c', height: h }, '*'); } catch (e){}
+  }
+  window.addEventListener('load', reportHeight);
+  window.addEventListener('resize', reportHeight);
+  setTimeout(reportHeight, 400); setTimeout(reportHeight, 1200); setTimeout(reportHeight, 2500);
+})();
+</script>
 
 </body>
 </html>
