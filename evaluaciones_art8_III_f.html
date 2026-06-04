@@ -1,437 +1,214 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Exámenes a los programas públicos del Ayuntamiento de Guadalajara: cómo se gasta tu dinero, en qué funciona y qué se está corrigiendo — Art. 8 Fracción III Inciso f) Ley de Transparencia Jalisco">
-<title>Exámenes a los Programas Públicos · ¿Cómo se gasta y cómo mejora tu dinero? · Transparencia GDL</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Las evaluaciones y encuestas a los programas públicos · Artículo 8, Fracción III, inciso f) · Vista ciudadana</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
 :root{
-  --o:#F26522; --od:#D4531A; --ol:#FDE8D8; --oxl:#FEF4EE;
-  --n:#1A1A1A; --ng:#3D3D3D; --nm:#6B6B6B; --nc:#F7F6F2; --nb:#E8E6DF; --w:#FFFFFF;
-  --ok:#1D9E75; --okL:#E1F5EE;
-  --warn:#D97706; --warnL:#FEF3C7;
-  --err:#C8323F; --errL:#FCE6E8;
-  --info:#2563EB; --infoL:#DBEAFE;
-  --coord:#6450A0; --coordL:#EDE7F6;
-  --pink:#DB2777; --pinkL:#FCE7F3;
-  --font:'Inter',system-ui,sans-serif;
-  --fontD:'Outfit','Inter',system-ui,sans-serif;
-  --shadow-sm:0 1px 2px rgba(26,26,26,.04), 0 1px 1px rgba(26,26,26,.03);
-  --shadow:0 1px 3px rgba(26,26,26,.06), 0 1px 2px rgba(26,26,26,.04);
-  --shadow-md:0 4px 12px rgba(26,26,26,.06), 0 2px 4px rgba(26,26,26,.04);
-  --shadow-lg:0 12px 32px rgba(26,26,26,.08), 0 4px 8px rgba(26,26,26,.04);
-  --ease:cubic-bezier(.4,0,.2,1);
-  --r:10px; --r-md:14px; --r-lg:20px;
+  --ac:#E87722;--ac-d:#C45F0A;--ac-l:#FFE4CC;--ac-soft:#FFF1E4;--ac-border:#F5C99A;
+  --ink:#2a241d;--ink2:#5a4d3e;--muted:#6f5c47;
+  --bg:#f7f3ec;--card:#ffffff;--line:#e8dec9;
 }
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:var(--font);background:var(--nc);color:var(--n);-webkit-font-smoothing:antialiased;font-size:14px;line-height:1.55}
-
-/* HEADER */
-.hdr{background:linear-gradient(135deg, var(--o) 0%, var(--od) 100%);color:#fff;padding:1.6rem 1.5rem 1.4rem;position:relative;overflow:hidden}
-.hdr::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 20% 20%, rgba(255,255,255,.08) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(255,255,255,.06) 0%, transparent 50%);pointer-events:none}
-.hdr-in{max-width:1400px;margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;position:relative;z-index:1}
-.hdr-left{display:flex;flex-direction:column;gap:.3rem;max-width:82ch}
-.hdr-tag{display:inline-flex;align-items:center;gap:.4rem;font-size:.65rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;opacity:.92;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);padding:.28rem .75rem;border-radius:999px;width:fit-content}
-.hdr-title{font-family:var(--fontD);font-size:1.5rem;font-weight:800;line-height:1.15;letter-spacing:-.018em;margin-top:.25rem}
-.hdr-sub{font-size:.85rem;opacity:.9;line-height:1.55;font-weight:400;max-width:78ch;margin-top:.2rem}
-.hdr-meta{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.6rem}
-.hdr-pill{display:inline-flex;align-items:center;gap:.35rem;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.26);font-size:.62rem;font-weight:700;padding:.32rem .75rem;border-radius:999px;color:#fff}
-.hdr-pill .pulse{width:.42rem;height:.42rem;border-radius:50%;background:#A7F3D0;box-shadow:0 0 0 3px rgba(167,243,208,.3);animation:pulse 2.4s ease-in-out infinite}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 3px rgba(167,243,208,.3)}50%{box-shadow:0 0 0 5px rgba(167,243,208,.15)}}
+*{box-sizing:border-box}
+body{margin:0;padding:24px;background:var(--bg);font-family:Outfit,Arial,Helvetica,sans-serif;color:var(--ink);line-height:1.55}
+.ev-wrap{max-width:1080px;margin:0 auto}
 
 /* HERO */
-.hero-cit{max-width:1400px;margin:1rem auto 0;padding:0 1.5rem}
-.hero-cit-card{background:linear-gradient(135deg, var(--oxl) 0%, var(--w) 100%);border:1px solid var(--ol);border-radius:var(--r-md);padding:1rem 1.2rem;display:flex;align-items:flex-start;gap:1rem}
-.hero-cit-ico{flex-shrink:0;width:2.6rem;height:2.6rem;border-radius:10px;background:var(--o);color:#fff;display:flex;align-items:center;justify-content:center}
-.hero-cit-body{flex:1;min-width:0}
-.hero-cit-h{font-family:var(--fontD);font-size:.95rem;font-weight:800;color:var(--n);letter-spacing:-.005em;line-height:1.3;margin-bottom:.25rem}
-.hero-cit-txt{font-size:.8rem;color:var(--ng);line-height:1.55}
-.hero-cit-txt strong{color:var(--od);font-weight:700}
+.ev-hero{background:linear-gradient(135deg,#FFF4E8 0%,#FFFFFF 55%);border-radius:14px;padding:24px 28px;margin:0 0 18px;position:relative;overflow:hidden;border-left:5px solid var(--ac);box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.ev-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.12) 0%,transparent 70%);pointer-events:none}
+.ev-tag{display:inline-block;background:var(--ac);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;position:relative;z-index:1;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.ev-hero h1{margin:0 0 8px;font-size:clamp(21px,3.1vw,28px);font-weight:800;color:var(--ink);letter-spacing:-.015em;line-height:1.18;position:relative;z-index:1}
+.ev-hero h1 em{font-style:normal;color:var(--ac-d)}
+.ev-hero-sub{font-size:14.5px;color:var(--ink2);max-width:82ch;margin:0;line-height:1.6;position:relative;z-index:1}
+.ev-hero-sub strong{color:var(--ink);font-weight:700}
+.ev-cifras{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px;max-width:600px;position:relative;z-index:1}
+.ev-cifra{background:#fff;border:1.5px solid var(--ac-border);border-radius:10px;padding:13px 15px;display:flex;flex-direction:column;gap:2px;transition:border-color .18s,transform .18s}
+.ev-cifra:hover{border-color:var(--ac);transform:translateY(-2px)}
+.ev-cifra-num{font-size:32px;font-weight:800;line-height:1;color:var(--ac-d);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.ev-cifra-lbl{font-size:10.5px;font-weight:700;color:var(--ink2);text-transform:uppercase;letter-spacing:.06em;margin-top:3px;line-height:1.3}
 
-/* CONTROLS */
-.controls{background:rgba(247,246,242,.94);backdrop-filter:blur(8px);padding:.85rem 1.5rem;position:sticky;top:0;z-index:40;border-bottom:1px solid var(--nb);margin-top:1.25rem}
-.controls-in{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.85rem}
-.ctrl-left{display:flex;flex-direction:column;gap:.35rem;flex:1 1 auto}
-.ctrl-lbl{font-size:.6rem;font-weight:700;color:var(--nm);text-transform:uppercase;letter-spacing:.08em}
-.segctrl{display:inline-flex;background:#fff;border:1.5px solid var(--nb);border-radius:12px;padding:.25rem;box-shadow:var(--shadow-sm);gap:.2rem;flex-wrap:wrap;max-width:100%}
-.segctrl-btn{border:none;background:transparent;padding:.5rem .85rem;border-radius:8px;font-size:.72rem;font-weight:700;cursor:pointer;font-family:var(--font);color:var(--nm);transition:all .2s var(--ease);display:inline-flex;align-items:center;gap:.4rem;white-space:nowrap}
-.segctrl-btn:hover{color:var(--od);background:var(--oxl)}
-.segctrl-btn.active{background:var(--o);color:#fff;box-shadow:0 1px 3px rgba(242,101,34,.35), inset 0 1px 0 rgba(255,255,255,.1)}
-.segctrl-btn .badge-count{font-size:.6rem;font-weight:800;background:rgba(255,255,255,.25);padding:.08rem .38rem;border-radius:999px;color:inherit;font-variant-numeric:tabular-nums}
-.segctrl-btn:not(.active) .badge-count{background:var(--nc);color:var(--nm);border:1px solid var(--nb)}
-.ctrl-right{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
-.srch-wrap{position:relative;flex:1 1 14rem;max-width:24rem}
-.srch-wrap svg{position:absolute;left:.7rem;top:50%;transform:translateY(-50%);color:var(--nm);pointer-events:none}
-.srch-wrap input{width:100%;padding:.5rem .85rem .5rem 2.1rem;border:1.5px solid var(--nb);border-radius:9px;font-size:.8rem;font-family:var(--font);background:#fff;min-height:2.4rem;transition:border-color .15s,box-shadow .15s}
-.srch-wrap input:focus{outline:none;border-color:var(--o);box-shadow:0 0 0 3px rgba(242,101,34,.12)}
+/* TOOLBAR (tabs + search) */
+.ev-toolbar{position:sticky;top:0;background:var(--bg);z-index:30;padding:8px 0 6px;margin:0 0 4px}
+.ev-tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:18px;scrollbar-width:auto;scrollbar-color:var(--ac) var(--ac-soft);-webkit-overflow-scrolling:touch}
+.ev-tabs::-webkit-scrollbar{height:15px}
+.ev-tabs::-webkit-scrollbar-track{background:var(--ac-soft);border-radius:20px}
+.ev-tabs::-webkit-scrollbar-thumb{background:var(--ac);border-radius:20px;border:3px solid var(--ac-soft)}
+.ev-tabs::-webkit-scrollbar-thumb:hover{background:var(--ac-d)}
+.ev-tab{flex-shrink:0;display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--ac-border);background:#fff;color:var(--ink2);font-family:Outfit,sans-serif;font-size:14px;font-weight:700;padding:11px 18px;border-radius:11px;cursor:pointer;white-space:nowrap;transition:all .14s}
+.ev-tab:hover{border-color:var(--ac);color:var(--ac-d);background:var(--ac-soft)}
+.ev-tab.active{background:var(--ac);color:#fff;border-color:var(--ac);box-shadow:0 2px 8px rgba(232,119,34,.3)}
+.ev-tab .ev-tab-n{font-size:11.5px;font-weight:800;background:var(--ac-soft);color:var(--ac-d);padding:2px 9px;border-radius:20px;font-variant-numeric:tabular-nums}
+.ev-tab.active .ev-tab-n{background:rgba(255,255,255,.28);color:#fff}
+.ev-search{position:relative;margin-top:9px}
+.ev-search svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none}
+.ev-search input{width:100%;padding:11px 14px 11px 40px;border:1.5px solid var(--ac-border);border-radius:10px;font-family:Outfit,sans-serif;font-size:14px;color:var(--ink);background:#fff;transition:border-color .15s,box-shadow .15s}
+.ev-search input:focus{outline:none;border-color:var(--ac);box-shadow:0 0 0 3px rgba(232,119,34,.14)}
 
-/* SECTION */
-.section{max-width:1400px;margin:0 auto;padding:1.25rem 1.5rem}
-.section + .section{padding-top:0}
-.sec-h{font-family:var(--fontD);font-size:1rem;font-weight:800;color:var(--n);letter-spacing:-.005em;margin:0 0 .35rem;display:flex;align-items:center;gap:.55rem;flex-wrap:wrap}
-.sec-h-tag{font-size:.65rem;font-weight:700;color:var(--nm);background:var(--nc);border:1px solid var(--nb);padding:.2rem .6rem;border-radius:999px;letter-spacing:.04em;text-transform:uppercase}
-.sec-sub{font-size:.78rem;color:var(--nm);line-height:1.55;margin-bottom:1rem;max-width:80ch}
-.sec-sub strong{color:var(--ng);font-weight:700}
+/* SUBBAR: título de sección + conteo + subfiltros */
+.ev-secbar{margin:14px 0 12px}
+.ev-sec-h{font-size:17px;font-weight:800;color:var(--ink);letter-spacing:-.01em;margin:0 0 3px;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.ev-sec-sub{font-size:13px;color:var(--muted);line-height:1.5;margin:0}
+.ev-count{font-size:12.5px;font-weight:600;color:var(--muted);margin-top:8px}
+.ev-count b{color:var(--ac-d);font-weight:800}
+.ev-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}
+.ev-chip{display:inline-flex;align-items:center;gap:5px;border:1.3px solid var(--ac-border);background:#fff;color:var(--ink2);font-family:Outfit,sans-serif;font-size:11.5px;font-weight:700;padding:5px 11px;border-radius:20px;cursor:pointer;transition:all .13s;white-space:nowrap}
+.ev-chip:hover{border-color:var(--ac);color:var(--ac-d);background:var(--ac-soft)}
+.ev-chip.active{background:var(--ac-d);color:#fff;border-color:var(--ac-d)}
+.ev-chip .ev-chip-n{font-size:10px;font-weight:800;opacity:.85;font-variant-numeric:tabular-nums}
 
-/* KPIs */
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:.85rem}
-.kpi{background:#fff;border-radius:var(--r-md);box-shadow:var(--shadow-md);padding:1rem 1.15rem;position:relative;overflow:hidden;animation:fadeUp .4s var(--ease)}
-.kpi::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%}
-.kpi.a::before{background:var(--ok)}
-.kpi.b::before{background:var(--info)}
-.kpi.c::before{background:var(--coord)}
-.kpi.d::before{background:var(--warn)}
-.kpi-lbl{font-size:.6rem;font-weight:700;color:var(--nm);text-transform:uppercase;letter-spacing:.07em;line-height:1.3}
-.kpi-val{font-family:var(--fontD);font-size:1.5rem;font-weight:800;color:var(--n);line-height:1.05;font-variant-numeric:tabular-nums;margin-top:.2rem;letter-spacing:-.02em}
-.kpi.a .kpi-val{color:var(--ok)}
-.kpi.b .kpi-val{color:var(--info)}
-.kpi.c .kpi-val{color:var(--coord)}
-.kpi.d .kpi-val{color:var(--warn)}
-.kpi-sub{font-size:.65rem;color:var(--nm);font-weight:500;margin-top:.15rem;line-height:1.4}
+/* GRID de documentos */
+.ev-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));gap:11px}
+.ev-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 15px;box-shadow:0 1px 6px rgba(42,36,29,.04);display:flex;gap:12px;align-items:flex-start;transition:border-color .15s,box-shadow .15s}
+.ev-card:hover{border-color:var(--ac-border);box-shadow:0 6px 16px rgba(42,36,29,.09)}
+.ev-card-ico{flex-shrink:0;width:40px;height:40px;border-radius:10px;background:var(--ac-soft);color:var(--ac-d);display:flex;align-items:center;justify-content:center;border:1px solid var(--ac-border)}
+.ev-card-main{flex:1;min-width:0}
+.ev-card-title{font-size:13.5px;font-weight:700;color:var(--ink);line-height:1.32;letter-spacing:-.004em;word-break:break-word}
+.ev-card-meta{display:flex;align-items:center;gap:7px;margin-top:6px;flex-wrap:wrap;font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
+.ev-card-meta .ev-m{display:inline-flex;align-items:center;gap:4px}
+.ev-card-meta .ev-m svg{color:var(--ac);flex-shrink:0}
+.ev-type{font-size:9.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:2px 6px;border-radius:5px;background:#efe9df;color:var(--muted)}
+.ev-card-extra{font-size:11px;color:var(--muted);line-height:1.45;margin-top:5px}
+.ev-card-actions{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.ev-btn{display:inline-flex;align-items:center;justify-content:center;gap:5px;font-family:Outfit,sans-serif;font-size:11.5px;font-weight:700;padding:6px 11px;border-radius:7px;cursor:pointer;border:1.5px solid var(--ac-border);transition:all .13s;white-space:nowrap;text-decoration:none;background:#fff;color:var(--ac-d)}
+.ev-btn svg{flex-shrink:0}
+.ev-btn.ghost:hover{background:var(--ac-soft);border-color:var(--ac)}
+.ev-btn.solid:hover{background:var(--ac);color:#fff;border-color:var(--ac)}
+.ev-btn.solid:hover svg{stroke:#fff}
+.ev-dl[data-busy="1"]{opacity:.55;pointer-events:none}
 
-/* DOC CARDS */
-.doc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,21rem),1fr));gap:.95rem}
-.doc-card{background:#fff;border-radius:var(--r-md);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:transform .15s,box-shadow .15s,border-color .15s;border:1.5px solid transparent;animation:fadeUp .45s var(--ease) both}
-.doc-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--ol)}
-.doc-card-top{padding:.95rem 1.1rem .75rem;display:flex;justify-content:space-between;align-items:flex-start;gap:.65rem;border-bottom:1px dashed var(--nb)}
-.doc-card-top.plan{background:linear-gradient(135deg, var(--coordL) 0%, var(--w) 90%)}
-.doc-card-top.matriz{background:linear-gradient(135deg, var(--infoL) 0%, var(--w) 90%)}
-.doc-card-top.pae{background:linear-gradient(135deg, var(--okL) 0%, var(--w) 90%)}
-.doc-card-top.tdr{background:linear-gradient(135deg, var(--warnL) 0%, var(--w) 90%)}
-.doc-card-top.lin{background:linear-gradient(135deg, var(--pinkL) 0%, var(--w) 90%)}
-.doc-card-top.res{background:linear-gradient(135deg, var(--oxl) 0%, var(--w) 90%)}
-.doc-card-top.asm{background:linear-gradient(135deg, var(--errL) 0%, var(--w) 90%)}
-.doc-card-top.enc{background:linear-gradient(135deg, #FFF7E6 0%, var(--w) 90%)}
-.doc-card-top.com{background:linear-gradient(135deg, var(--nc) 0%, var(--w) 90%)}
-.doc-card-tag{display:inline-flex;align-items:center;gap:.3rem;font-size:.55rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:.22rem .55rem;border-radius:999px;flex-shrink:0}
-.doc-card-tag.plan{background:var(--coord);color:#fff}
-.doc-card-tag.matriz{background:var(--info);color:#fff}
-.doc-card-tag.pae{background:var(--ok);color:#fff}
-.doc-card-tag.tdr{background:var(--warn);color:#fff}
-.doc-card-tag.lin{background:var(--pink);color:#fff}
-.doc-card-tag.res{background:var(--o);color:#fff}
-.doc-card-tag.asm{background:var(--err);color:#fff}
-.doc-card-tag.enc{background:#B7791F;color:#fff}
-.doc-card-tag.com{background:var(--ng);color:#fff}
-.doc-card-yr{font-family:var(--fontD);font-size:.95rem;font-weight:800;color:var(--n);font-variant-numeric:tabular-nums;line-height:1;letter-spacing:-.01em}
-.doc-card-body{padding:.75rem 1.1rem .85rem;flex:1;display:flex;flex-direction:column;gap:.35rem}
-.doc-card-title{font-family:var(--fontD);font-size:.85rem;font-weight:700;color:var(--n);line-height:1.35;letter-spacing:-.005em}
-.doc-card-sub{font-size:.66rem;color:var(--nm);line-height:1.45;font-weight:500}
-.doc-card-meta{font-size:.6rem;color:var(--nm);font-style:italic;margin-top:.15rem;line-height:1.4}
-.doc-card-foot{padding:.55rem 1.1rem .8rem;display:flex;justify-content:space-between;align-items:center;gap:.5rem;border-top:1px dashed var(--nb);background:var(--nc)}
-.doc-card-foot-l{display:flex;align-items:center;gap:.35rem;font-size:.62rem;font-weight:700;color:var(--ng);text-transform:uppercase;letter-spacing:.04em}
-.doc-card-foot-l svg{color:var(--o)}
-.doc-card-arrow{display:flex;align-items:center;gap:.25rem;color:var(--od);font-size:.65rem;font-weight:700;transition:transform .15s;text-transform:uppercase;letter-spacing:.04em}
-.doc-card:hover .doc-card-arrow{transform:translateX(3px)}
+/* PROGRAMA group card (programas sociales) */
+.ev-prog{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:15px 17px;box-shadow:0 1px 6px rgba(42,36,29,.04);transition:border-color .15s,box-shadow .15s}
+.ev-prog:hover{border-color:var(--ac-border);box-shadow:0 6px 16px rgba(42,36,29,.08)}
+.ev-prog-head{display:flex;align-items:flex-start;gap:11px;margin-bottom:11px}
+.ev-prog-ico{flex-shrink:0;width:40px;height:40px;border-radius:10px;background:var(--ac);color:#fff;display:flex;align-items:center;justify-content:center}
+.ev-prog-name{font-size:15px;font-weight:800;color:var(--ink);line-height:1.25;letter-spacing:-.01em}
+.ev-prog-cat{font-size:11px;font-weight:700;color:var(--ac-d);text-transform:uppercase;letter-spacing:.04em;margin-top:3px}
+.ev-prog-docs{display:flex;flex-direction:column;gap:7px}
+.ev-pdoc{display:flex;align-items:center;gap:10px;padding:9px 11px;border:1px solid var(--line);border-radius:9px;background:#fff;transition:border-color .13s,background .13s;min-width:0}
+.ev-pdoc:hover{border-color:var(--ac-border);background:var(--ac-soft)}
+.ev-pdoc-ico{flex-shrink:0;width:30px;height:30px;border-radius:7px;background:var(--ac-soft);color:var(--ac-d);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800}
+.ev-pdoc-main{flex:1;min-width:0}
+.ev-pdoc-name{font-size:12.5px;font-weight:700;color:var(--ink);line-height:1.3}
+.ev-pdoc-meta{font-size:10.5px;color:var(--muted);margin-top:2px}
+.ev-pdoc-actions{display:flex;gap:5px;flex-shrink:0}
+.ev-pbtn{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:7px;border:1.4px solid var(--ac-border);background:#fff;color:var(--ac-d);cursor:pointer;transition:all .13s}
+.ev-pbtn:hover{background:var(--ac);color:#fff;border-color:var(--ac)}
+.ev-pbtn:hover svg{stroke:#fff}
+.ev-pbtn[data-busy="1"]{opacity:.5;pointer-events:none}
 
-/* TIMELINE (sesiones del Comité) */
-.timeline{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,17rem),1fr));gap:.7rem}
-.tl-card{background:#fff;border-radius:10px;box-shadow:var(--shadow-sm);padding:.75rem .9rem;display:flex;gap:.65rem;align-items:flex-start;text-decoration:none;color:inherit;border:1.5px solid var(--nb);transition:all .15s;animation:fadeUp .4s var(--ease) both}
-.tl-card:hover{border-color:var(--o);transform:translateX(2px);box-shadow:var(--shadow)}
-.tl-date{flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--oxl);border:1px solid var(--ol);border-radius:8px;padding:.4rem .5rem;min-width:3.2rem;text-align:center}
-.tl-date .tl-day{font-family:var(--fontD);font-size:1rem;font-weight:800;color:var(--od);line-height:1;font-variant-numeric:tabular-nums}
-.tl-date .tl-mes{font-size:.55rem;font-weight:700;color:var(--nm);text-transform:uppercase;letter-spacing:.07em;margin-top:.15rem}
-.tl-date .tl-yr{font-size:.55rem;font-weight:700;color:var(--nm);margin-top:.05rem}
-.tl-body{flex:1;min-width:0}
-.tl-tipo{font-size:.55rem;font-weight:800;color:var(--ng);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.18rem}
-.tl-tit{font-size:.78rem;color:var(--n);font-weight:600;line-height:1.4}
-.tl-periodo{font-size:.6rem;color:var(--nm);margin-top:.2rem;font-style:italic}
+.ev-empty{display:none;text-align:center;padding:40px 20px;color:var(--muted);font-size:14px;background:#fff;border:1.5px dashed var(--line);border-radius:12px}
+.ev-empty.show{display:block}
 
-/* ALERT */
-.alert{display:flex;gap:.7rem;align-items:flex-start;background:var(--warnL);border:1px solid var(--warn);border-left:4px solid var(--warn);border-radius:var(--r);padding:.85rem 1.1rem;margin-bottom:1rem}
-.alert-ico{flex-shrink:0;color:var(--warn);margin-top:1px}
-.alert-body{flex:1;min-width:0}
-.alert-h{font-family:var(--fontD);font-size:.82rem;font-weight:800;color:#7A4E00;letter-spacing:-.005em;margin-bottom:.2rem}
-.alert-txt{font-size:.72rem;color:#7A4E00;line-height:1.55}
+/* Scroll interno acotado de la lista (para que el alto del iframe sea ~constante entre pestañas) */
+#evContent{max-height:680px;overflow-y:auto;overscroll-behavior:contain;padding:2px 5px 2px 2px;border-radius:12px}
+#evContent::-webkit-scrollbar{width:8px}
+#evContent::-webkit-scrollbar-track{background:transparent}
+#evContent::-webkit-scrollbar-thumb{background:var(--ac-border);border-radius:9px}
+#evContent::-webkit-scrollbar-thumb:hover{background:var(--ac)}
+.ev-hint{display:none;align-items:center;gap:6px;font-size:11.5px;font-weight:600;color:var(--ac-d);background:var(--ac-soft);border:1px solid var(--ac-border);border-radius:20px;padding:5px 12px;margin-top:11px}
+.ev-hint svg{flex-shrink:0;animation:evbob 1.8s ease-in-out infinite}
+@keyframes evbob{0%,100%{transform:translateY(0)}50%{transform:translateY(2px)}}
+@media (max-width:680px){#evContent{max-height:620px}}
 
-/* EMPTY */
-.empty{padding:2.5rem 1rem;text-align:center;color:var(--nm);background:#fff;border-radius:var(--r-md);border:1.5px dashed var(--nb)}
-.empty-ico{font-size:2rem;margin-bottom:.5rem}
-.empty-h{font-size:.95rem;font-weight:700;color:var(--ng);margin-bottom:.2rem}
-.empty-txt{font-size:.75rem;color:var(--nm)}
+/* FUNDAMENTO LEGAL */
+.ev-legal{margin:26px 0 0;background:#fff;border:1px solid var(--line);border-top:4px solid var(--ac);border-radius:14px;padding:22px 26px;box-shadow:0 2px 10px rgba(42,36,29,.05)}
+.ev-legal-eyebrow{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ac-d);margin-bottom:10px}
+.ev-legal h3{margin:0 0 10px;font-size:16px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+.ev-legal p{margin:0 0 9px;font-size:13px;color:var(--ink2);line-height:1.65}
+.ev-legal .ev-cita{background:var(--bg);border-left:3px solid var(--ac-border);border-radius:0 8px 8px 0;padding:13px 16px;font-size:12.5px;color:var(--muted);line-height:1.6}
+.ev-legal .ev-cita b{color:var(--ink);font-weight:700}
+.ev-legal .ev-cita .ev-hl{color:var(--ac-d);font-weight:800}
 
-/* EXTERNAL LINK CARDS */
-.ext-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}
-@media(max-width:640px){.ext-grid{grid-template-columns:1fr}}
-.ext-card{background:linear-gradient(135deg, var(--oxl) 0%, var(--w) 100%);border:1.5px solid var(--ol);border-radius:var(--r-md);padding:1.1rem 1.25rem;display:flex;gap:.85rem;align-items:flex-start;text-decoration:none;color:inherit;transition:all .15s}
-.ext-card:hover{border-color:var(--o);transform:translateY(-2px);box-shadow:var(--shadow-md)}
-.ext-card-ico{flex-shrink:0;width:2.6rem;height:2.6rem;border-radius:10px;background:var(--o);color:#fff;display:flex;align-items:center;justify-content:center}
-.ext-card-body{flex:1;min-width:0}
-.ext-card-h{font-family:var(--fontD);font-size:.92rem;font-weight:800;color:var(--n);letter-spacing:-.005em;line-height:1.25}
-.ext-card-sub{font-size:.72rem;color:var(--nm);margin-top:.25rem;line-height:1.5}
-.ext-card-arrow{flex-shrink:0;align-self:center;color:var(--o);transition:transform .15s}
-.ext-card:hover .ext-card-arrow{transform:translateX(3px)}
+/* BACK TO TOP */
+.ev-totop{position:fixed;right:20px;bottom:20px;width:46px;height:46px;border-radius:50%;background:var(--ac);color:#fff;border:none;box-shadow:0 4px 14px rgba(232,119,34,.4);cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:50}
+.ev-totop.show{opacity:1;pointer-events:auto}
+.ev-totop:hover{transform:translateY(-3px)}
 
-/* FOOTER */
-.foot{background:#fff;border-top:1px solid var(--nb);padding:1rem 1.5rem;margin-top:1.5rem}
-.foot-in{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.6rem}
-.foot-legal{font-size:.66rem;color:var(--nm);line-height:1.55;max-width:80ch}
-.foot-legal strong{color:var(--ng);font-weight:700}
+/* MODAL (vista standalone) */
+.ev-modal{position:fixed;inset:0;background:rgba(42,36,29,.72);display:none;align-items:center;justify-content:center;padding:24px;z-index:100}
+.ev-modal.open{display:flex}
+.ev-modal-box{background:#fff;border-radius:14px;width:min(980px,100%);height:min(88vh,920px);display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.ev-modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 18px;background:linear-gradient(135deg,var(--ac) 0%,var(--ac-d) 100%);color:#fff}
+.ev-modal-head b{font-size:14px;font-weight:700;line-height:1.3;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ev-modal-x{background:rgba(255,255,255,.18);border:none;color:#fff;width:32px;height:32px;border-radius:8px;cursor:pointer;font-size:18px;line-height:1;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.ev-modal-x:hover{background:rgba(255,255,255,.32)}
+.ev-modal-body{flex:1;background:#f0f0ec}
+.ev-modal-body iframe{width:100%;height:100%;border:0;display:block}
 
-@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-
-/* ================ MODAL VIEWER ================ */
-.viewer{position:fixed;inset:0;z-index:9999;display:none;align-items:stretch;justify-content:center}
-.viewer.open{display:flex;animation:vFade .2s var(--ease)}
-.viewer-backdrop{position:absolute;inset:0;background:rgba(20,16,12,.72);backdrop-filter:blur(4px);cursor:pointer}
-.viewer-dialog{position:relative;z-index:1;background:#fff;width:min(1280px, calc(100vw - 2rem));max-width:100%;margin:1rem auto;border-radius:var(--r-md);box-shadow:0 25px 50px -12px rgba(0,0,0,.45);display:flex;flex-direction:column;overflow:hidden;animation:vRise .25s var(--ease)}
-.viewer-header{flex-shrink:0;background:linear-gradient(135deg, var(--o) 0%, var(--od) 100%);color:#fff;padding:.9rem 1.1rem;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap}
-.viewer-meta{flex:1;min-width:0;display:flex;flex-direction:column;gap:.22rem}
-.viewer-tag{display:inline-flex;align-items:center;gap:.4rem;font-size:.58rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.32);padding:.2rem .6rem;border-radius:999px;width:fit-content}
-.viewer-title{font-family:var(--fontD);font-size:.95rem;font-weight:800;color:#fff;line-height:1.3;letter-spacing:-.005em;margin:0}
-.viewer-sub{font-size:.7rem;color:rgba(255,255,255,.85);font-weight:500;line-height:1.4}
-.viewer-actions{display:flex;gap:.4rem;flex-wrap:wrap;align-items:center;flex-shrink:0}
-.viewer-btn{display:inline-flex;align-items:center;gap:.32rem;font-size:.66rem;font-weight:700;padding:.45rem .75rem;border-radius:7px;cursor:pointer;text-decoration:none;border:1.5px solid rgba(255,255,255,.4);background:rgba(255,255,255,.14);color:#fff;font-family:var(--font);transition:all .15s;text-transform:uppercase;letter-spacing:.04em}
-.viewer-btn:hover{background:#fff;color:var(--od);border-color:#fff}
-.viewer-btn.close{background:rgba(255,255,255,.18);border:1.5px solid rgba(255,255,255,.4);min-width:2.2rem;justify-content:center;font-size:1rem;padding:.4rem .65rem}
-.viewer-body{flex:1;min-height:0;background:#f4f3ee;position:relative;display:flex;flex-direction:column;overflow:hidden}
-.viewer-iframe{flex:1;width:100%;border:0;background:#fff;min-height:60vh}
-.viewer-loading{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#fff;z-index:2;gap:.7rem}
-.viewer-loading-spinner{width:36px;height:36px;border:3px solid var(--ol);border-top-color:var(--o);border-radius:50%;animation:spin .85s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-.viewer-loading-txt{font-size:.78rem;color:var(--nm);font-weight:600}
-.viewer-fallback{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2.5rem 1.5rem;text-align:center;gap:.85rem;background:#fff}
-.viewer-fallback-ico{width:4.5rem;height:4.5rem;border-radius:14px;background:var(--oxl);color:var(--od);display:flex;align-items:center;justify-content:center}
-.viewer-fallback-h{font-family:var(--fontD);font-size:1.05rem;font-weight:800;color:var(--n);letter-spacing:-.005em}
-.viewer-fallback-txt{font-size:.8rem;color:var(--nm);max-width:55ch;line-height:1.5}
-.viewer-fallback-actions{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;margin-top:.5rem}
-.viewer-fallback-btn{display:inline-flex;align-items:center;gap:.4rem;font-size:.72rem;font-weight:700;padding:.6rem 1.1rem;border-radius:9px;cursor:pointer;text-decoration:none;border:1.5px solid var(--o);background:var(--o);color:#fff;font-family:var(--font);transition:all .15s;text-transform:uppercase;letter-spacing:.04em}
-.viewer-fallback-btn:hover{background:var(--od);border-color:var(--od)}
-.viewer-fallback-btn.secondary{background:#fff;color:var(--od)}
-.viewer-fallback-btn.secondary:hover{background:var(--oxl)}
-
-.viewer-footer{flex-shrink:0;background:var(--nc);border-top:1px solid var(--nb);padding:.55rem 1.1rem;display:flex;align-items:center;justify-content:space-between;gap:.7rem;flex-wrap:wrap}
-.viewer-source{font-size:.6rem;color:var(--nm);font-family:'Courier New',monospace;word-break:break-all;flex:1;min-width:0;line-height:1.4}
-.viewer-source strong{color:var(--ng);font-family:var(--font);font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:.58rem;margin-right:.4rem}
-body.viewer-open{overflow:hidden}
-
-/* GALERIA NATIVA DENTRO DEL MODAL */
-.viewer-gallery{flex:1;display:flex;flex-direction:column;background:#fff;min-height:0;overflow:hidden}
-.viewer-gallery-controls{flex-shrink:0;padding:.75rem 1.1rem;border-bottom:1px solid var(--nb);background:var(--nc);display:flex;gap:.7rem;align-items:center;flex-wrap:wrap}
-.viewer-gallery-info{flex:1;min-width:0;font-size:.72rem;color:var(--ng);font-weight:600}
-.viewer-gallery-info strong{color:var(--od);font-weight:800;font-variant-numeric:tabular-nums}
-.viewer-gallery-search-wrap{position:relative;flex:1 1 12rem;max-width:22rem}
-.viewer-gallery-search-wrap svg{position:absolute;left:.55rem;top:50%;transform:translateY(-50%);color:var(--nm);pointer-events:none}
-.viewer-gallery-search{width:100%;padding:.42rem .7rem .42rem 1.8rem;border:1.5px solid var(--nb);border-radius:7px;font-size:.72rem;font-family:var(--font);background:#fff;min-height:2.1rem}
-.viewer-gallery-search:focus{outline:none;border-color:var(--o);box-shadow:0 0 0 3px rgba(242,101,34,.12)}
-.viewer-gallery-filters{display:flex;flex-wrap:wrap;gap:.3rem;padding:.5rem 1.1rem;border-bottom:1px solid var(--nb);background:#fff;flex-shrink:0}
-.vgf-chip{display:inline-flex;align-items:center;gap:.25rem;padding:.28rem .65rem;border:1.3px solid var(--nb);border-radius:999px;font-size:.62rem;font-weight:700;cursor:pointer;background:#fff;color:var(--nm);font-family:var(--font);transition:all .12s;text-transform:uppercase;letter-spacing:.04em}
-.vgf-chip:hover{border-color:var(--ol);color:var(--od);background:var(--oxl)}
-.vgf-chip.active{background:var(--o);color:#fff;border-color:var(--o);box-shadow:0 1px 2px rgba(242,101,34,.3)}
-.vgf-chip .count{font-size:.55rem;background:rgba(255,255,255,.3);padding:.06rem .35rem;border-radius:999px;font-weight:800}
-.vgf-chip:not(.active) .count{background:var(--nc);color:var(--nm);border:1px solid var(--nb)}
-.viewer-gallery-grid{flex:1;overflow-y:auto;padding:.85rem 1.1rem 1.1rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,16rem),1fr));grid-auto-rows:min-content;align-content:start;align-items:stretch;gap:.6rem;background:#fafaf7}
-.vg-card{background:#fff;border:1.3px solid var(--nb);border-radius:9px;padding:.7rem .85rem;cursor:pointer;display:flex;flex-direction:column;gap:.4rem;text-align:left;color:inherit;font-family:var(--font);transition:all .14s;animation:fadeUp .35s var(--ease) both;min-width:0;overflow:hidden;align-self:start}
-.vg-card:hover{border-color:var(--o);transform:translateY(-2px);box-shadow:var(--shadow)}
-.vg-card-meta{display:flex;align-items:center;gap:.35rem;flex-wrap:wrap;min-width:0}
-.vg-card-tag{display:inline-flex;align-items:center;font-size:.55rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:.16rem .5rem;border-radius:999px;background:var(--oxl);color:var(--od);border:1px solid var(--ol);flex-shrink:0;line-height:1.3;white-space:nowrap}
-.vg-card-tag.excel{background:#DCFCE7;color:#166534;border-color:#86EFAC}
-.vg-card-tag.pdf{background:#FEE2E2;color:#991B1B;border-color:#FCA5A5}
-.vg-card-tag.year{background:var(--infoL);color:var(--info);border-color:#93C5FD}
-.vg-card-tag.cat{background:var(--coordL);color:var(--coord);border-color:#C7B8E0}
-.vg-card-title{font-size:.76rem;font-weight:700;color:var(--n);line-height:1.35;letter-spacing:-.003em;min-width:0;word-break:break-word;overflow-wrap:anywhere;hyphens:auto}
-.vg-card-prog{font-size:.62rem;color:var(--nm);font-weight:500;line-height:1.4;min-width:0;word-break:break-word;overflow-wrap:anywhere}
-.viewer-back-btn{display:inline-flex;align-items:center;gap:.3rem;background:rgba(255,255,255,.2);border:1.3px solid rgba(255,255,255,.4);color:#fff;padding:.3rem .6rem;border-radius:6px;font-size:.6rem;font-weight:700;cursor:pointer;font-family:var(--font);transition:all .12s;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.3rem}
-.viewer-back-btn:hover{background:#fff;color:var(--od)}
-.vg-empty{grid-column:1/-1;padding:2.5rem 1rem;text-align:center;color:var(--nm)}
-.vg-empty-h{font-size:.92rem;font-weight:700;color:var(--ng);margin-bottom:.2rem}
-.vg-empty-txt{font-size:.72rem}
-
-/* CARDS AGRUPADAS POR PROGRAMA (Programas Sociales) */
-.vg-prog-card{background:#fff;border:1.3px solid var(--nb);border-radius:11px;padding:.85rem .95rem;display:flex;flex-direction:column;gap:.55rem;animation:fadeUp .35s var(--ease) both;min-width:0;transition:border-color .15s,box-shadow .15s}
-.vg-prog-card:hover{border-color:var(--ol);box-shadow:var(--shadow-sm)}
-.vg-prog-header{display:flex;flex-direction:column;gap:.32rem;min-width:0}
-.vg-prog-tags{display:flex;flex-wrap:wrap;gap:.32rem;align-items:center}
-.vg-prog-cat{display:inline-flex;align-items:center;font-size:.55rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:.16rem .55rem;border-radius:999px;background:var(--coordL);color:var(--coord);border:1px solid #C7B8E0;line-height:1.2}
-.vg-prog-year{display:inline-flex;align-items:center;font-size:.55rem;font-weight:800;letter-spacing:.05em;padding:.16rem .55rem;border-radius:999px;background:var(--infoL);color:var(--info);border:1px solid #93C5FD;font-variant-numeric:tabular-nums}
-.vg-prog-name{font-family:var(--fontD);font-size:.92rem;font-weight:800;color:var(--n);line-height:1.3;letter-spacing:-.005em;margin:0;word-break:break-word;overflow-wrap:anywhere;hyphens:auto;min-width:0}
-.vg-prog-docs{display:grid;grid-template-columns:1fr;gap:.32rem;margin-top:.15rem}
-.vg-prog-doc{display:flex;align-items:center;gap:.45rem;padding:.5rem .7rem;border:1px solid var(--nb);border-radius:7px;cursor:pointer;background:#fff;color:var(--ng);font-family:var(--font);font-size:.71rem;font-weight:600;text-align:left;transition:all .14s;min-width:0}
-.vg-prog-doc:hover{background:var(--oxl);border-color:var(--o);color:var(--od);transform:translateX(2px)}
-.vg-prog-doc:hover .vg-prog-doc-arrow{transform:translateX(2px);opacity:1}
-.vg-prog-doc-ico{flex-shrink:0;width:1.4rem;height:1.4rem;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:.5rem;font-weight:800;letter-spacing:.04em}
-.vg-prog-doc-ico.reglas{background:#FEE2E2;color:#991B1B}
-.vg-prog-doc-ico.padron{background:#DCFCE7;color:#166534}
-.vg-prog-doc-ico.aviso{background:#FEF3C7;color:#92400E}
-.vg-prog-doc-ico.reporte{background:var(--infoL);color:var(--info)}
-.vg-prog-doc-ico.otro{background:var(--nc);color:var(--nm)}
-.vg-prog-doc-label{flex:1;min-width:0;line-height:1.3;display:flex;flex-direction:column;gap:.05rem;font-weight:600}
-.vg-prog-doc-name{font-weight:700;color:inherit;font-size:.7rem;line-height:1.25}
-.vg-prog-doc-meta{font-size:.55rem;color:var(--nm);font-weight:500;letter-spacing:.02em}
-.vg-prog-doc-arrow{flex-shrink:0;color:inherit;opacity:.6;transition:all .14s}
-
-/* SUB-FILTROS de categoría (segundo nivel) */
-.viewer-gallery-subfilters{display:flex;flex-wrap:wrap;gap:.3rem;padding:0 1.1rem .5rem;background:#fff;flex-shrink:0;border-bottom:1px solid var(--nb)}
-.viewer-gallery-subfilters-lbl{font-size:.55rem;font-weight:800;color:var(--nm);text-transform:uppercase;letter-spacing:.08em;width:100%;margin-bottom:.15rem}
-.vgsf-chip{display:inline-flex;align-items:center;gap:.25rem;padding:.22rem .55rem;border:1.2px solid var(--nb);border-radius:999px;font-size:.58rem;font-weight:700;cursor:pointer;background:#fff;color:var(--nm);font-family:var(--font);transition:all .12s;letter-spacing:.03em}
-.vgsf-chip:hover{border-color:var(--coord);color:var(--coord);background:var(--coordL)}
-.vgsf-chip.active{background:var(--coord);color:#fff;border-color:var(--coord)}
-.vgsf-chip .count{font-size:.5rem;background:rgba(255,255,255,.3);padding:.06rem .3rem;border-radius:999px;font-weight:800}
-.vgsf-chip:not(.active) .count{background:var(--nc);color:var(--nm);border:1px solid var(--nb)}
-
-@keyframes vFade{from{opacity:0}to{opacity:1}}
-@keyframes vRise{from{opacity:0;transform:translateY(15px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
-
-/* doc-card y tl-card como botones */
-button.doc-card, button.tl-card{font-family:inherit;text-align:left;cursor:pointer;width:100%}
-button.doc-card{background:#fff;border-radius:var(--r-md);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;color:inherit;transition:transform .15s,box-shadow .15s,border-color .15s;border:1.5px solid transparent;animation:fadeUp .45s var(--ease) both;padding:0}
-button.doc-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--ol)}
-button.tl-card{display:flex;gap:.65rem;align-items:flex-start;color:inherit;border:1.5px solid var(--nb);background:#fff;border-radius:10px;box-shadow:var(--shadow-sm);padding:.75rem .9rem;transition:all .15s;animation:fadeUp .4s var(--ease) both}
-button.tl-card:hover{border-color:var(--o);transform:translateX(2px);box-shadow:var(--shadow)}
-
-@media(max-width:540px){
-  .hdr,.hero-cit,.controls,.section,.foot{padding-left:.85rem;padding-right:.85rem}
-  .hdr-title{font-size:1.2rem}
-  .kpis{grid-template-columns:repeat(2,1fr)}
-  .kpi-val{font-size:1.15rem}
-  .controls-in{flex-direction:column;align-items:stretch}
+@media (max-width:680px){
+  body{padding:14px}
+  .ev-hero{padding:20px 18px}
+  .ev-cifras{gap:8px}
+  .ev-cifra{padding:10px 9px}
+  .ev-cifra-num{font-size:25px}
+  .ev-cifra-lbl{font-size:9px}
+  .ev-grid{grid-template-columns:1fr}
 }
-@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<header class="hdr">
-  <div class="hdr-in">
-    <div class="hdr-left">
-      <span class="hdr-tag">
-        <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-        Art. 8 · Fracción III · Inciso f)
-      </span>
-      <h1 class="hdr-title">Exámenes a los programas públicos<br><span style="font-size:.7em;font-weight:600;opacity:.92;letter-spacing:-.01em">¿Cómo se gasta y cómo mejora tu dinero?</span></h1>
-      <p class="hdr-sub">Aquí encuentras los <strong>exámenes a fondo</strong> que se hacen cada año a los programas y obras del Ayuntamiento. Sirven para verificar si lo que se hizo con tu dinero <strong>realmente ayuda a la gente</strong>, y para obligar al gobierno a corregir lo que no funciona.</p>
-      <div class="hdr-meta">
-        <span class="hdr-pill"><span class="pulse"></span><span id="hdr-update">Actualizado el 18 de mayo de 2026</span></span>
-        <span class="hdr-pill">
-          <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          <span id="hdr-doc-count">502</span> documentos públicos
-        </span>
-        <span class="hdr-pill">Dirección de Planeación</span>
-      </div>
+<div class="ev-wrap">
+
+  <!-- HERO -->
+  <section class="ev-hero">
+    <span class="ev-tag">Artículo 8 · Fracción III, inciso f)</span>
+    <h1>¿Cómo se evalúa que <em>tu dinero público</em> sí funcione?</h1>
+    <p class="ev-hero-sub">Cada año, el Ayuntamiento <strong>se hace exámenes a sí mismo</strong>: revisa si sus programas cumplen, mide resultados con indicadores y publica qué está corrigiendo. Aquí están todos esos documentos &mdash;<strong>de 2016 a 2026</strong>&mdash; para que cualquier persona pueda revisarlos.</p>
+    <div class="ev-cifras">
+      <div class="ev-cifra"><div class="ev-cifra-num" id="evCifraDocs">453</div><div class="ev-cifra-lbl">Documentos públicos en línea</div></div>
+      <div class="ev-cifra"><div class="ev-cifra-num">2016&ndash;2026</div><div class="ev-cifra-lbl">Años con información publicada</div></div>
+      <div class="ev-cifra"><div class="ev-cifra-num">43</div><div class="ev-cifra-lbl">Programas sociales con reglas y padrones</div></div>
+    </div>
+  </section>
+
+  <!-- TOOLBAR -->
+  <div class="ev-toolbar">
+    <div class="ev-tabs" id="evTabs"></div>
+    <div class="ev-search">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" id="evSearch" placeholder="Busca dentro de esta sección (programa, año, tema…)" aria-label="Buscar"/>
     </div>
   </div>
-</header>
 
-<!-- HERO CIUDADANO -->
-<div class="hero-cit">
-  <div class="hero-cit-card">
-    <div class="hero-cit-ico">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></svg>
+  <!-- SECCIÓN ACTIVA -->
+  <div class="ev-secbar">
+    <h2 class="ev-sec-h" id="evSecH">&nbsp;</h2>
+    <p class="ev-sec-sub" id="evSecSub"></p>
+    <div class="ev-chips" id="evChips"></div>
+    <div class="ev-count" id="evCount"></div>
+    <div class="ev-hint" id="evHint"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m7 13 5 5 5-5"/><path d="m7 6 5 5 5-5"/></svg>Desplázate dentro de la lista para ver todos los documentos</div>
+  </div>
+
+  <div id="evContent"></div>
+  <div class="ev-empty" id="evEmpty">No encontramos documentos con ese filtro. Prueba con otra palabra o limpia la búsqueda.</div>
+
+  <!-- FUNDAMENTO LEGAL -->
+  <footer class="ev-legal">
+    <div class="ev-legal-eyebrow">Fundamento legal</div>
+    <h3>¿Por qué se publican estas evaluaciones?</h3>
+    <p>La <strong>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</strong> obliga a los sujetos obligados a difundir la información sobre la planeación del desarrollo. Esta página corresponde, de forma íntegra, al siguiente fundamento:</p>
+    <div class="ev-cita">
+      <b>Artículo 8.</b> Es información fundamental para el sujeto obligado y para sus dependencias, la siguiente: [&hellip;]<br/>
+      <b>III.</b> La información sobre la planeación del desarrollo, aplicable al y por el sujeto obligado, que comprende:<br/>
+      a) Los apartados del Plan Nacional de Desarrollo&hellip;; b) Los apartados de los programas federales; c) Los apartados del Plan Estatal de Desarrollo; d) Los programas estatales; e) Los programas regionales; <span class="ev-hl">f) Las evaluaciones y encuestas que hagan los sujetos obligados a programas financiados con recursos públicos;</span> y g) Los demás instrumentos de planeación no comprendidos en los incisos anteriores.
     </div>
-    <div class="hero-cit-body">
-      <div class="hero-cit-h">¿Cómo usar esta página para vigilar el dinero público?</div>
-      <div class="hero-cit-txt"><strong>1.</strong> Revisa los <strong>resultados</strong> del año que te interese para ver la calificación que obtuvo cada programa o fondo federal. <strong>2.</strong> Lee los <strong>compromisos de mejora</strong> para saber qué prometió corregir el Ayuntamiento. <strong>3.</strong> Consulta las <strong>encuestas a vecinos</strong> para conocer la opinión de quienes recibieron las obras o apoyos. Toda la información es oficial y descargable, desde 2016 hasta hoy.</div>
-    </div>
+  </footer>
+
+</div>
+
+<button class="ev-totop" id="evToTop" type="button" aria-label="Volver arriba"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg></button>
+
+<div class="ev-modal" id="evModal" role="dialog" aria-modal="true">
+  <div class="ev-modal-box">
+    <div class="ev-modal-head"><b id="evModalTitle">Documento</b><button class="ev-modal-x" id="evModalX" type="button" aria-label="Cerrar">&times;</button></div>
+    <div class="ev-modal-body"><iframe id="evModalFrame" src="about:blank" title="Vista del documento"></iframe></div>
   </div>
 </div>
 
-<!-- AVISO DE SCOPE LEGAL -->
-<div class="hero-cit" style="margin-top:.6rem">
-  <div class="hero-cit-card" style="background:#FEF3C7;border-color:#FCD34D">
-    <div class="hero-cit-ico" style="background:#92400E">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-    </div>
-    <div class="hero-cit-body">
-      <div class="hero-cit-h" style="color:#7A4E00">Nota para auditores y consultas técnicas</div>
-      <div class="hero-cit-txt" style="color:#7A4E00">Por claridad ciudadana, aquí reunimos en un solo lugar los documentos de evaluación del Ayuntamiento, aunque <strong>formalmente</strong> pertenezcan a distintos artículos de la Ley: las <strong>matrices de indicadores</strong> corresponden al Art. 8 Frac. IV inc. b), los <strong>informes de fondos federales</strong> al Art. 8 Frac. V inc. f) y los <strong>padrones de programas sociales</strong> al Art. 8 Frac. V inc. p). Cada sección señala su inciso de origen para facilitar la auditoría.</div>
-    </div>
-  </div>
-</div>
-
-<!-- CONTROLS -->
-<div class="controls">
-  <div class="controls-in">
-    <div class="ctrl-left">
-      <span class="ctrl-lbl">Sección</span>
-      <div class="segctrl" id="segctrl" role="tablist"></div>
-    </div>
-    <div class="ctrl-right">
-      <div class="srch-wrap">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        <input type="search" id="srch" placeholder="Buscar por año, fondo, tipo, fecha…" autocomplete="off">
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- KPIs -->
-<section class="section">
-  <div class="kpis" id="kpis"></div>
-</section>
-
-<!-- CONTENT -->
-<section class="section">
-  <h2 class="sec-h" id="sec-title-h"><span id="sec-title">Cargando…</span><span class="sec-h-tag" id="sec-tag">—</span></h2>
-  <p class="sec-sub" id="sec-sub"></p>
-  <div id="alert-wrap"></div>
-  <div id="content-wrap"></div>
-</section>
-
-<!-- EXTERNAL LINKS -->
-<section class="section">
-  <h2 class="sec-h">Información relacionada</h2>
-  <p class="sec-sub">Estos temas están técnicamente en otras secciones del portal, pero forman parte de cómo el Ayuntamiento mide y rinde cuentas. Te dejamos los enlaces directos:</p>
-  <div class="ext-grid">
-    <a class="ext-card" href="https://transparencia.guadalajara.gob.mx/informestrimestralesfondosfederales" data-ext-key="programas_federales" target="_blank" rel="noopener">
-      <div class="ext-card-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
-      <div class="ext-card-body">
-        <div class="ext-card-h">Dinero del Gobierno Federal</div>
-        <span style="display:inline-block;font-size:.55rem;font-weight:700;color:var(--info);background:var(--infoL);border:1px solid #93C5FD;padding:.12rem .5rem;border-radius:999px;letter-spacing:.04em;text-transform:uppercase;margin-top:.3rem">Art. 8 · Frac. V inc. f)</span>
-        <div class="ext-card-sub">Reportes que entrega Guadalajara cada tres meses sobre cómo gastó los fondos federales que recibe. Útil para seguirle la pista al dinero.</div>
-      </div>
-      <svg class="ext-card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-    </a>
-    <a class="ext-card" href="https://transparencia.guadalajara.gob.mx/programassociales" data-ext-key="programas_sociales" target="_blank" rel="noopener">
-      <div class="ext-card-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
-      <div class="ext-card-body">
-        <div class="ext-card-h">Programas sociales y sus beneficiarios</div>
-        <span style="display:inline-block;font-size:.55rem;font-weight:700;color:var(--info);background:var(--infoL);border:1px solid #93C5FD;padding:.12rem .5rem;border-radius:999px;letter-spacing:.04em;text-transform:uppercase;margin-top:.3rem">Art. 8 · Frac. V inc. p)</span>
-        <div class="ext-card-sub">Listas oficiales de personas atendidas, reglas para participar y avisos de privacidad. Solo está publicado lo correspondiente a 2024-2026.</div>
-      </div>
-      <svg class="ext-card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-    </a>
-  </div>
-</section>
-
-<!-- VIEWER MODAL -->
-<div id="viewer" class="viewer" role="dialog" aria-modal="true" aria-labelledby="viewer-title" aria-hidden="true">
-  <div class="viewer-backdrop" data-close="1"></div>
-  <div class="viewer-dialog">
-    <header class="viewer-header">
-      <div class="viewer-meta">
-        <span class="viewer-tag" id="viewer-tag">Documento</span>
-        <h3 class="viewer-title" id="viewer-title">—</h3>
-        <div class="viewer-sub" id="viewer-sub"></div>
-      </div>
-      <div class="viewer-actions">
-        <a class="viewer-btn" id="viewer-dl" href="#" download target="_blank" rel="noopener" title="Descargar archivo">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Descargar
-        </a>
-        <button class="viewer-btn close" data-close="1" type="button" aria-label="Cerrar visor">✕</button>
-      </div>
-    </header>
-    <div class="viewer-body" id="viewer-body"></div>
-    <div class="viewer-footer">
-      <div class="viewer-source"><strong>Fuente oficial:</strong> <span id="viewer-url">—</span></div>
-    </div>
-  </div>
-</div>
-
-<!-- FOOTER -->
-<footer class="foot">
-  <div class="foot-in">
-    <div class="foot-legal">
-      <strong>Ayuntamiento de Guadalajara</strong> · Información pública obligatoria conforme al <strong>Art. 8, Fracción III, Inciso f)</strong> de la Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios. Documentos generados por la <strong>Dirección de Planeación</strong> de la Tesorería Municipal, en cumplimiento del Sistema de Evaluación del Desempeño y los lineamientos del Consejo Nacional de Armonización Contable (CONAC). Los archivos originales (PDF y Excel) viven en el sitio oficial <strong>transparencia.guadalajara.gob.mx</strong>; esta página solo los organiza para que tú los encuentres más fácil.
-    </div>
-  </div>
-</footer>
 
 <script id="data-json" type="application/json">{"plan_municipal":[{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/PlanMunicipalDesarrollo2024-2027.pdf","periodo":"2024–2027","titulo":"Plan Municipal de Desarrollo y Gobernanza Guadalajara 2024-2027 · Visión 2042","tipo":"PDF"}],"matrices":[
 {"url":"https://transparencia.guadalajara.gob.mx/matrices-indicadores-24-27","periodo":"Administración 2024-2027","titulo":"Matrices de los Indicadores para Resultados","tipo":"Portal","subdocs":[
@@ -647,696 +424,187 @@ button.tl-card:hover{border-color:var(--o);transform:translateX(2px);box-shadow:
 {"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/FondosFederalesInformesTrimestralesCuartoTrimestreNivelFinanciero2024.xlsx","titulo":"Cuarto Trimestre 2024 — Informe del Ejercicio del Gasto","trimestre":"4T 2024","tipo":"Excel","categoria":"Financiero"},
 {"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/FondosFederalesInformesTrimestralesCuartoTrimestreNivelProyectos2024.xlsx","titulo":"Cuarto Trimestre 2024 — Informe del Destino del Gasto","trimestre":"4T 2024","tipo":"Excel","categoria":"Proyectos"}
 ]},"programas_sociales":{"url":"https://transparencia.guadalajara.gob.mx/programassociales","titulo":"Programas Sociales","descripcion":"Programas presupuestarios sujetos de evaluación. Padrones, reglas de operación y avisos de privacidad","tipo":"Portal","subdocs":[{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramasSocialesFebrero26.xlsx","titulo":"Programas Sociales 2026 — Reporte Consolidado","programa":"Consolidado General","tipo_doc":"Reporte","anio":"2026","tipo":"Excel","categoria":"General"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf","titulo":"Reglas de Operación — Cuidamos con Inclusión","programa":"Cuidamos con Inclusión","tipo_doc":"Reglas de Operación","anio":"2026","tipo":"PDF","categoria":"Atención a Personas con Discapacidad","gaceta":"Tomo I Ejemplar 13 Secc 2da · 30 Enero 2026"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialCuidamosConInclusion2026.xlsx","titulo":"Padrón de Beneficiarios — Cuidamos con Inclusión","programa":"Cuidamos con Inclusión","tipo_doc":"Padrón","anio":"2026","tipo":"Excel","categoria":"Atención a Personas con Discapacidad"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadCuidamosInclusionIntegral2025.pdf","titulo":"Aviso de Privacidad — Cuidamos con Inclusión","programa":"Cuidamos con Inclusión","tipo_doc":"Aviso de Privacidad","anio":"2026","tipo":"PDF","categoria":"Atención a Personas con Discapacidad"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf","titulo":"Reglas de Operación — Juntas nos Cuidamos","programa":"Juntas nos Cuidamos","tipo_doc":"Reglas de Operación","anio":"2026","tipo":"PDF","categoria":"Atención a Organizaciones de la Sociedad Civil","gaceta":"Tomo I Ejemplar 13 Secc 2da · 30 Enero 2026"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialJuntasNosCuidamos2026.xlsx","titulo":"Padrón de Beneficiarios — Juntas nos Cuidamos","programa":"Juntas nos Cuidamos","tipo_doc":"Padrón","anio":"2026","tipo":"Excel","categoria":"Atención a Organizaciones de la Sociedad Civil"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadJuntasCuidamosIntegral2025.pdf","titulo":"Aviso de Privacidad — Juntas nos Cuidamos","programa":"Juntas nos Cuidamos","tipo_doc":"Aviso de Privacidad","anio":"2026","tipo":"PDF","categoria":"Atención a Organizaciones de la Sociedad Civil"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf","titulo":"Reglas de Operación — Guardianes de Guadalajara","programa":"Guardianes de Guadalajara","tipo_doc":"Reglas de Operación","anio":"2026","tipo":"PDF","categoria":"Programas Sociales Municipales","gaceta":"Tomo I Ejemplar 13 Secc 2da · 30 Enero 2026"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialGuardianesGuadalajara2026.xlsx","titulo":"Padrón de Beneficiarios — Guardianes de Guadalajara","programa":"Guardianes de Guadalajara","tipo_doc":"Padrón","anio":"2026","tipo":"Excel","categoria":"Programas Sociales Municipales"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadProgramaSocialGuardianes21-24.pdf","titulo":"Aviso de Privacidad — Guardianes de Guadalajara","programa":"Guardianes de Guadalajara","tipo_doc":"Aviso de Privacidad","anio":"2026","tipo":"PDF","categoria":"Programas Sociales Municipales"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf","titulo":"Reglas de Operación — Cuidamos a tu familia","programa":"Cuidamos a tu familia","tipo_doc":"Reglas de Operación","anio":"2026","tipo":"PDF","categoria":"Programas Sociales Municipales","gaceta":"Tomo I Ejemplar 13 Secc 2da · 30 Enero 2026"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialCuidamosTuFamilia2026.xlsx","titulo":"Padrón de Beneficiarios — Cuidamos a tu familia","programa":"Cuidamos a tu familia","tipo_doc":"Padrón","anio":"2026","tipo":"Excel","categoria":"Programas Sociales Municipales"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadCuidamosTuFamilia2025.pdf","titulo":"Aviso de Privacidad — Cuidamos a tu familia","programa":"Cuidamos a tu familia","tipo_doc":"Aviso de Privacidad","anio":"2026","tipo":"PDF","categoria":"Programas Sociales Municipales"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf","titulo":"Reglas de Operación — Corazón Contento","programa":"Corazón Contento","tipo_doc":"Reglas de Operación","anio":"2026","tipo":"PDF","categoria":"Programas Sociales Municipales","gaceta":"Tomo I Ejemplar 13 Secc 2da · 30 Enero 2026"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialCorazonContento2026.xlsx","titulo":"Padrón de Beneficiarios — Corazón Contento","programa":"Corazón Contento","tipo_doc":"Padrón","anio":"2026","tipo":"Excel","categoria":"Programas Sociales Municipales"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadCorazonContento2025.pdf","titulo":"Aviso de Privacidad — Corazón Contento","programa":"Corazón Contento","tipo_doc":"Aviso de Privacidad","anio":"2026","tipo":"PDF","categoria":"Programas Sociales Municipales"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf","titulo":"Reglas de Operación — Guadalajara Te Cuida","programa":"Guadalajara Te Cuida","tipo_doc":"Reglas de Operación","anio":"2026","tipo":"PDF","categoria":"Programas Sociales Municipales","gaceta":"Tomo I Ejemplar 13 Secc 2da · 30 Enero 2026"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialGuadalajaraTeCuida2026.xlsx","titulo":"Padrón de Beneficiarios — Guadalajara Te Cuida","programa":"Guadalajara Te Cuida","tipo_doc":"Padrón","anio":"2026","tipo":"Excel","categoria":"Programas Sociales Municipales"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadGuadalajaraTeCuida2025.pdf","titulo":"Aviso de Privacidad — Guadalajara Te Cuida","programa":"Guadalajara Te Cuida","tipo_doc":"Aviso de Privacidad","anio":"2026","tipo":"PDF","categoria":"Programas Sociales Municipales"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf","titulo":"Reglas de Operación — Guadalajara Cuida a las Mujeres","programa":"Guadalajara Cuida a las Mujeres","tipo_doc":"Reglas de Operación","anio":"2026","tipo":"PDF","categoria":"Programas Sociales Municipales","gaceta":"Tomo I Ejemplar 13 Secc 2da · 30 Enero 2026"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialGuadalajaraCuidaALasMujeres2026.xlsx","titulo":"Padrón de Beneficiarios — Guadalajara Cuida a las Mujeres","programa":"Guadalajara Cuida a las Mujeres","tipo_doc":"Padrón","anio":"2026","tipo":"Excel","categoria":"Programas Sociales Municipales"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadGuadalajaraCuidaALasMujeres2025.pdf","titulo":"Aviso de Privacidad — Guadalajara Cuida a las Mujeres","programa":"Guadalajara Cuida a las Mujeres","tipo_doc":"Aviso de Privacidad","anio":"2026","tipo":"PDF","categoria":"Programas Sociales Municipales"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf","titulo":"Reglas de Operación — Cuidamos a quien nos cuida","programa":"Cuidamos a quien nos cuida","tipo_doc":"Reglas de Operación","anio":"2026","tipo":"PDF","categoria":"Programas Sociales Municipales","gaceta":"Tomo I Ejemplar 13 Secc 2da · 30 Enero 2026"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialGuadalajaraCuidamosAQuienNosCuida2026.xlsx","titulo":"Padrón de Beneficiarios — Cuidamos a quien nos cuida","programa":"Cuidamos a quien nos cuida","tipo_doc":"Padrón","anio":"2026","tipo":"Excel","categoria":"Programas Sociales Municipales"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadCuidamosAQuienNosCuida2025.pdf","titulo":"Aviso de Privacidad — Cuidamos a quien nos cuida","programa":"Cuidamos a quien nos cuida","tipo_doc":"Aviso de Privacidad","anio":"2026","tipo":"PDF","categoria":"Programas Sociales Municipales"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIIEjemplar15Marzo25-2026.pdf","titulo":"Reglas de Operación — Listas y listos para la escuela","programa":"Listas y listos para la escuela","tipo_doc":"Reglas de Operación","anio":"2026","tipo":"PDF","categoria":"Programas Sociales Municipales","gaceta":"Tomo II Ejemplar 15 · 25 Marzo 2026"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialListasListosEscuela2026.xlsx","titulo":"Padrón de Beneficiarios — Listas y listos para la escuela","programa":"Listas y listos para la escuela","tipo_doc":"Padrón","anio":"2026","tipo":"Excel","categoria":"Programas Sociales Municipales"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadProgramaSocialListasListosEscuela2026.pdf","titulo":"Aviso de Privacidad — Listas y listos para la escuela","programa":"Listas y listos para la escuela","tipo_doc":"Aviso de Privacidad","anio":"2026","tipo":"PDF","categoria":"Programas Sociales Municipales"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf","titulo":"Reglas de Operación — Listas y listos para la Universidad","programa":"Listas y listos para la Universidad","tipo_doc":"Reglas de Operación","anio":"2026","tipo":"PDF","categoria":"Juventudes","gaceta":"Tomo I Ejemplar 13 Secc 2da · 30 Enero 2026"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialListasListosUniversidad2026.xlsx","titulo":"Padrón de Beneficiarios — Listas y listos para la Universidad","programa":"Listas y listos para la Universidad","tipo_doc":"Padrón","anio":"2026","tipo":"Excel","categoria":"Juventudes"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadListasListosUniversidadIntegral2025.pdf","titulo":"Aviso de Privacidad — Listas y listos para la Universidad","programa":"Listas y listos para la Universidad","tipo_doc":"Aviso de Privacidad","anio":"2026","tipo":"PDF","categoria":"Juventudes"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf","titulo":"Reglas de Operación — Escuelas con Corazón","programa":"Escuelas con Corazón","tipo_doc":"Reglas de Operación","anio":"2026","tipo":"PDF","categoria":"Apoyo a la Niñez","gaceta":"Tomo I Ejemplar 13 Secc 2da · 30 Enero 2026"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialEscuelaCorazon2026.xlsx","titulo":"Padrón de Beneficiarios — Escuelas con Corazón","programa":"Escuelas con Corazón","tipo_doc":"Padrón","anio":"2026","tipo":"Excel","categoria":"Apoyo a la Niñez"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadEscuelaCorazonIntegral2025.pdf","titulo":"Aviso de Privacidad — Escuelas con Corazón","programa":"Escuelas con Corazón","tipo_doc":"Aviso de Privacidad","anio":"2026","tipo":"PDF","categoria":"Apoyo a la Niñez"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf","titulo":"Reglas de Operación — Cuidando Nuestras Comunidades","programa":"Cuidando Nuestras Comunidades","tipo_doc":"Reglas de Operación","anio":"2026","tipo":"PDF","categoria":"Educación","gaceta":"Tomo I Ejemplar 13 Secc 2da · 30 Enero 2026"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialCuidandoNuestrasComunidades2026.xlsx","titulo":"Padrón de Beneficiarios — Cuidando Nuestras Comunidades","programa":"Cuidando Nuestras Comunidades","tipo_doc":"Padrón","anio":"2026","tipo":"Excel","categoria":"Educación"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadCuidandoNuestrasComunidades2025.pdf","titulo":"Aviso de Privacidad — Cuidando Nuestras Comunidades","programa":"Cuidando Nuestras Comunidades","tipo_doc":"Aviso de Privacidad","anio":"2026","tipo":"PDF","categoria":"Educación"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf","titulo":"Reglas de Operación — Listas y Listos para Estudiar","programa":"Listas y Listos para Estudiar","tipo_doc":"Reglas de Operación","anio":"2026","tipo":"PDF","categoria":"Educación","gaceta":"Tomo I Ejemplar 13 Secc 2da · 30 Enero 2026"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialListasListosParaEstudiar2026.xlsx","titulo":"Padrón de Beneficiarios — Listas y Listos para Estudiar","programa":"Listas y Listos para Estudiar","tipo_doc":"Padrón","anio":"2026","tipo":"Excel","categoria":"Educación"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadListasListosEstudiar2025.pdf","titulo":"Aviso de Privacidad — Listas y Listos para Estudiar","programa":"Listas y Listos para Estudiar","tipo_doc":"Aviso de Privacidad","anio":"2026","tipo":"PDF","categoria":"Educación"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf","titulo":"Reglas de Operación — Pequeños Guardianes de Guadalajara","programa":"Pequeños Guardianes de Guadalajara","tipo_doc":"Reglas de Operación","anio":"2026","tipo":"PDF","categoria":"Educación","gaceta":"Tomo I Ejemplar 13 Secc 2da · 30 Enero 2026"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialPequenosGuardianesGuadalajara2026.xlsx","titulo":"Padrón de Beneficiarios — Pequeños Guardianes de Guadalajara","programa":"Pequeños Guardianes de Guadalajara","tipo_doc":"Padrón","anio":"2026","tipo":"Excel","categoria":"Educación"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadPequenosGuardianesGuadalajara2025.pdf","titulo":"Aviso de Privacidad — Pequeños Guardianes de Guadalajara","programa":"Pequeños Guardianes de Guadalajara","tipo_doc":"Aviso de Privacidad","anio":"2026","tipo":"PDF","categoria":"Educación"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf","titulo":"Reglas de Operación — Jóvenes Guardianes de Guadalajara","programa":"Jóvenes Guardianes de Guadalajara","tipo_doc":"Reglas de Operación","anio":"2026","tipo":"PDF","categoria":"Educación","gaceta":"Tomo I Ejemplar 13 Secc 2da · 30 Enero 2026"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialJovenesGuardianesGuadalajara2026.xlsx","titulo":"Padrón de Beneficiarios — Jóvenes Guardianes de Guadalajara","programa":"Jóvenes Guardianes de Guadalajara","tipo_doc":"Padrón","anio":"2026","tipo":"Excel","categoria":"Educación"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadJovenesGuardianesGuadalajara2025.pdf","titulo":"Aviso de Privacidad — Jóvenes Guardianes de Guadalajara","programa":"Jóvenes Guardianes de Guadalajara","tipo_doc":"Aviso de Privacidad","anio":"2026","tipo":"PDF","categoria":"Educación"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf","titulo":"Reglas de Operación — La Cultura Late","programa":"La Cultura Late","tipo_doc":"Reglas de Operación","anio":"2026","tipo":"PDF","categoria":"Cultura","gaceta":"Tomo I Ejemplar 13 Secc 2da · 30 Enero 2026"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialLaCulturaLate2026.xlsx","titulo":"Padrón de Beneficiarios — La Cultura Late","programa":"La Cultura Late","tipo_doc":"Padrón","anio":"2026","tipo":"Excel","categoria":"Cultura"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadLaCulturaLate2025.pdf","titulo":"Aviso de Privacidad — La Cultura Late","programa":"La Cultura Late","tipo_doc":"Aviso de Privacidad","anio":"2026","tipo":"PDF","categoria":"Cultura"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf","titulo":"Reglas de Operación — Cuidemos la Cultura","programa":"Cuidemos la Cultura","tipo_doc":"Reglas de Operación","anio":"2026","tipo":"PDF","categoria":"Cultura","gaceta":"Tomo I Ejemplar 13 Secc 2da · 30 Enero 2026"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialCuidemosLaCultura2026.xlsx","titulo":"Padrón de Beneficiarios — Cuidemos la Cultura","programa":"Cuidemos la Cultura","tipo_doc":"Padrón","anio":"2026","tipo":"Excel","categoria":"Cultura"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadCuidemosLaCultura2025.pdf","titulo":"Aviso de Privacidad — Cuidemos la Cultura","programa":"Cuidemos la Cultura","tipo_doc":"Aviso de Privacidad","anio":"2026","tipo":"PDF","categoria":"Cultura"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf","titulo":"Reglas de Operación — Guadalajara Lee","programa":"Guadalajara Lee","tipo_doc":"Reglas de Operación","anio":"2026","tipo":"PDF","categoria":"Cultura","gaceta":"Tomo I Ejemplar 13 Secc 2da · 30 Enero 2026"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialGuadalajaraLee2026.xlsx","titulo":"Padrón de Beneficiarios — Guadalajara Lee","programa":"Guadalajara Lee","tipo_doc":"Padrón","anio":"2026","tipo":"Excel","categoria":"Cultura"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadGuadalajaraLee2025.pdf","titulo":"Aviso de Privacidad — Guadalajara Lee","programa":"Guadalajara Lee","tipo_doc":"Aviso de Privacidad","anio":"2026","tipo":"PDF","categoria":"Cultura"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ReglasOperacionCuidamosGuadalajara2026.pdf","titulo":"Reglas de Operación — Cuidamos Guadalajara","programa":"Cuidamos Guadalajara","tipo_doc":"Reglas de Operación","anio":"2026","tipo":"PDF","categoria":"Innovación Social"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialCuidamosGuadalajara2026.xlsx","titulo":"Padrón de Beneficiarios — Cuidamos Guadalajara","programa":"Cuidamos Guadalajara","tipo_doc":"Padrón","anio":"2026","tipo":"Excel","categoria":"Innovación Social"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadIntegralDireccionInnovacionSocial2025.pdf","titulo":"Aviso de Privacidad — Cuidamos Guadalajara (Dirección de Innovación Social)","programa":"Cuidamos Guadalajara","tipo_doc":"Aviso de Privacidad","anio":"2026","tipo":"PDF","categoria":"Innovación Social"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf","titulo":"Reglas de Operación — Guardianes de la Ciudad","programa":"Guardianes de la Ciudad","tipo_doc":"Reglas de Operación","anio":"2026","tipo":"PDF","categoria":"Innovación Social","gaceta":"Tomo I Ejemplar 13 Secc 2da · 30 Enero 2026"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialGuardianesCiudad2026.xlsx","titulo":"Padrón de Beneficiarios — Guardianes de la Ciudad","programa":"Guardianes de la Ciudad","tipo_doc":"Padrón","anio":"2026","tipo":"Excel","categoria":"Innovación Social"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadIntegralDireccionInnovacionSocial2025.pdf","titulo":"Aviso de Privacidad — Guardianes de la Ciudad (Dirección de Innovación Social)","programa":"Guardianes de la Ciudad","tipo_doc":"Aviso de Privacidad","anio":"2026","tipo":"PDF","categoria":"Innovación Social"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf","titulo":"Reglas de Operación — Hogares con Corazón","programa":"Hogares con Corazón","tipo_doc":"Reglas de Operación","anio":"2026","tipo":"PDF","categoria":"Agencia Municipal de Vivienda","gaceta":"Tomo I Ejemplar 13 Secc 2da · 30 Enero 2026"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialHogaresCorazon2026.xlsx","titulo":"Padrón de Beneficiarios — Hogares con Corazón","programa":"Hogares con Corazón","tipo_doc":"Padrón","anio":"2026","tipo":"Excel","categoria":"Agencia Municipal de Vivienda"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadHogaresCorazon2026.pdf","titulo":"Aviso de Privacidad — Hogares con Corazón","programa":"Hogares con Corazón","tipo_doc":"Aviso de Privacidad","anio":"2026","tipo":"PDF","categoria":"Agencia Municipal de Vivienda"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf","titulo":"Reglas de Operación — Apoyo de Renta para Jóvenes","programa":"Apoyo de Renta para Jóvenes","tipo_doc":"Reglas de Operación","anio":"2026","tipo":"PDF","categoria":"Agencia Municipal de Vivienda","gaceta":"Tomo I Ejemplar 13 Secc 2da · 30 Enero 2026"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialRentaJovenes2026.xlsx","titulo":"Padrón de Beneficiarios — Apoyo de Renta para Jóvenes","programa":"Apoyo de Renta para Jóvenes","tipo_doc":"Padrón","anio":"2026","tipo":"Excel","categoria":"Agencia Municipal de Vivienda"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadApoyoRentaJovenes2026.pdf","titulo":"Aviso de Privacidad — Apoyo de Renta para Jóvenes","programa":"Apoyo de Renta para Jóvenes","tipo_doc":"Aviso de Privacidad","anio":"2026","tipo":"PDF","categoria":"Agencia Municipal de Vivienda"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIIEjemplar13Marzo28-2025.pdf","titulo":"Reglas de Operación — Reconocimiento al esfuerzo escolar 2026","programa":"Reconocimiento al esfuerzo escolar 2026","tipo_doc":"Reglas de Operación","anio":"2026","tipo":"PDF","categoria":"Recursos Humanos","gaceta":"Tomo II Ejemplar 13 · 28 Marzo 2025"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialReconocimientoEsfuerzoEscolar2026.xlsx","titulo":"Padrón de Beneficiarios — Reconocimiento al esfuerzo escolar 2026","programa":"Reconocimiento al esfuerzo escolar 2026","tipo_doc":"Padrón","anio":"2026","tipo":"Excel","categoria":"Recursos Humanos"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadRecursosHumanos2025.pdf","titulo":"Aviso de Privacidad — Reconocimiento al esfuerzo escolar (Recursos Humanos)","programa":"Reconocimiento al esfuerzo escolar 2026","tipo_doc":"Aviso de Privacidad","anio":"2026","tipo":"PDF","categoria":"Recursos Humanos"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadCuidamosInclusionIntegral2025.pdf","titulo":"Aviso de Privacidad — Cuidamos con Inclusión","programa":"Cuidamos con Inclusión","tipo_doc":"Aviso de Privacidad","anio":"2025","tipo":"PDF"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadJuntasCuidamosIntegral2025.pdf","titulo":"Aviso de Privacidad — Juntas nos Cuidamos","programa":"Juntas nos Cuidamos","tipo_doc":"Aviso de Privacidad","anio":"2025","tipo":"PDF"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadProgramaSocialGuardianes21-24.pdf","titulo":"Aviso de Privacidad — Guardianes de Guadalajara (2021-2024)","programa":"Guardianes de Guadalajara","tipo_doc":"Aviso de Privacidad","anio":"2021-2024","tipo":"PDF"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadCuidamosTuFamilia2025.pdf","titulo":"Aviso de Privacidad — Cuidamos a tu familia","programa":"Cuidamos a tu familia","tipo_doc":"Aviso de Privacidad","anio":"2025","tipo":"PDF"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadCorazonContento2025.pdf","titulo":"Aviso de Privacidad — Corazón Contento","programa":"Corazón Contento","tipo_doc":"Aviso de Privacidad","anio":"2025","tipo":"PDF"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadGuadalajaraTeCuida2025.pdf","titulo":"Aviso de Privacidad — Guadalajara Te Cuida","programa":"Guadalajara Te Cuida","tipo_doc":"Aviso de Privacidad","anio":"2025","tipo":"PDF"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadGuadalajaraCuidaALasMujeres2025.pdf","titulo":"Aviso de Privacidad — Guadalajara Cuida a las Mujeres","programa":"Guadalajara Cuida a las Mujeres","tipo_doc":"Aviso de Privacidad","anio":"2025","tipo":"PDF"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadCuidamosAQuienNosCuida2025.pdf","titulo":"Aviso de Privacidad — Cuidamos a quien nos cuida","programa":"Cuidamos a quien nos cuida","tipo_doc":"Aviso de Privacidad","anio":"2025","tipo":"PDF"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadListasListosUniversidadIntegral2025.pdf","titulo":"Aviso de Privacidad — Listas y Listos para la Universidad","programa":"Listas y listos para la Universidad","tipo_doc":"Aviso de Privacidad","anio":"2025","tipo":"PDF"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadEscuelaCorazonIntegral2025.pdf","titulo":"Aviso de Privacidad — Escuelas con Corazón","programa":"Escuelas con Corazón","tipo_doc":"Aviso de Privacidad","anio":"2025","tipo":"PDF"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadCuidandoNuestrasComunidades2025.pdf","titulo":"Aviso de Privacidad — Cuidando Nuestras Comunidades","programa":"Cuidando Nuestras Comunidades","tipo_doc":"Aviso de Privacidad","anio":"2025","tipo":"PDF"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadListasListosEstudiar2025.pdf","titulo":"Aviso de Privacidad — Listas y Listos para Estudiar","programa":"Listas y Listos para Estudiar","tipo_doc":"Aviso de Privacidad","anio":"2025","tipo":"PDF"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadPequenosGuardianesGuadalajara2025.pdf","titulo":"Aviso de Privacidad — Pequeños Guardianes de Guadalajara","programa":"Pequeños Guardianes de Guadalajara","tipo_doc":"Aviso de Privacidad","anio":"2025","tipo":"PDF"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadJovenesGuardianesGuadalajara2025.pdf","titulo":"Aviso de Privacidad — Jóvenes Guardianes de Guadalajara","programa":"Jóvenes Guardianes de Guadalajara","tipo_doc":"Aviso de Privacidad","anio":"2025","tipo":"PDF"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadLaCulturaLate2025.pdf","titulo":"Aviso de Privacidad — La Cultura Late","programa":"La Cultura Late","tipo_doc":"Aviso de Privacidad","anio":"2025","tipo":"PDF"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadCuidemosLaCultura2025.pdf","titulo":"Aviso de Privacidad — Cuidemos la Cultura","programa":"Cuidemos la Cultura","tipo_doc":"Aviso de Privacidad","anio":"2025","tipo":"PDF"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadGuadalajaraLee2025.pdf","titulo":"Aviso de Privacidad — Guadalajara Lee","programa":"Guadalajara Lee","tipo_doc":"Aviso de Privacidad","anio":"2025","tipo":"PDF"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadIntegralDireccionInnovacionSocial2025.pdf","titulo":"Aviso de Privacidad — Dirección de Innovación Social (Cuidamos Guadalajara y Guardianes de la Ciudad)","programa":"Cuidamos Guadalajara / Guardianes de la Ciudad","tipo_doc":"Aviso de Privacidad","anio":"2025","tipo":"PDF"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadRecursosHumanos2025.pdf","titulo":"Aviso de Privacidad — Recursos Humanos (Reconocimiento al esfuerzo escolar)","programa":"Reconocimiento al esfuerzo escolar","tipo_doc":"Aviso de Privacidad","anio":"2025","tipo":"PDF"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar15Secc1aFebrero4-2025.pdf","titulo":"Gaceta Tomo I Ejemplar 15 Secc 1a (04 Feb 2025) — Reglas de Operación Múltiples Programas 2025","programa":"Múltiples programas","tipo_doc":"Reglas de Operación","anio":"2025","tipo":"PDF"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar27Febrero28-2025.pdf","titulo":"Gaceta Tomo I Ejemplar 27 (28 Feb 2025) — Reglas de Operación \u0027Listas y Listos para la Escuela\u0027 2025","programa":"Listas y listos para la escuela","tipo_doc":"Reglas de Operación","anio":"2025","tipo":"PDF"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialGuardianesGuadalajara2025.xlsx","titulo":"Guardianes de Guadalajara — Padrón 2025","programa":"Guardianes de Guadalajara","tipo_doc":"Padrón","anio":"2025","tipo":"Excel"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialListasListosEscuela2025.xlsx","titulo":"Listas y Listos para la Escuela — Padrón 2025","programa":"Listas y listos para la escuela","tipo_doc":"Padrón","anio":"2025","tipo":"Excel"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialCuidamosConInclusion2025.xlsx","titulo":"Cuidamos con Inclusión — Padrón 2025","programa":"Cuidamos con Inclusión","tipo_doc":"Padrón","anio":"2025","tipo":"Excel"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialJuntasNosCuidamos2025.xlsx","titulo":"Juntas nos Cuidamos — Padrón 2025","programa":"Juntas nos Cuidamos","tipo_doc":"Padrón","anio":"2025","tipo":"Excel"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialCuidamosTuFamilia2025.xlsx","titulo":"Cuidamos a tu familia — Padrón 2025","programa":"Cuidamos a tu familia","tipo_doc":"Padrón","anio":"2025","tipo":"Excel"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialCorazonContento2025.xlsx","titulo":"Corazón Contento — Padrón 2025","programa":"Corazón Contento","tipo_doc":"Padrón","anio":"2025","tipo":"Excel"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialGuadalajaraTeCuida2025.xlsx","titulo":"Guadalajara Te Cuida — Padrón 2025","programa":"Guadalajara Te Cuida","tipo_doc":"Padrón","anio":"2025","tipo":"Excel"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialGuadalajaraCuidaALasMujeres2025.xlsx","titulo":"Guadalajara Cuida a las Mujeres — Padrón 2025","programa":"Guadalajara Cuida a las Mujeres","tipo_doc":"Padrón","anio":"2025","tipo":"Excel"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialGuadalajaraCuidamosAQuienNosCuida2025.xlsx","titulo":"Cuidamos a quien nos cuida — Padrón 2025","programa":"Cuidamos a quien nos cuida","tipo_doc":"Padrón","anio":"2025","tipo":"Excel"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialGuardianesCuidados2025.xlsx","titulo":"Guardianes de Cuidados — Padrón 2025","programa":"Guardianes de Cuidados","tipo_doc":"Padrón","anio":"2025","tipo":"Excel"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadGuardianesCuidados2025.pdf","titulo":"Aviso de Privacidad — Guardianes de Cuidados","programa":"Guardianes de Cuidados","tipo_doc":"Aviso de Privacidad","anio":"2025","tipo":"PDF"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialListasListosUniversidad2025.xlsx","titulo":"Listas y listos para la Universidad — Padrón 2025","programa":"Listas y listos para la Universidad","tipo_doc":"Padrón","anio":"2025","tipo":"Excel"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialEscuelaSegura2025.xlsx","titulo":"Escuela Segura — Padrón 2025","programa":"Escuela Segura","tipo_doc":"Padrón","anio":"2025","tipo":"Excel"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadEscuelaSeguraIntegral2025.pdf","titulo":"Aviso de Privacidad — Escuela Segura","programa":"Escuela Segura","tipo_doc":"Aviso de Privacidad","anio":"2025","tipo":"PDF"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialEscuelaCorazonDigital2025.xlsx","titulo":"Escuelas con Corazón. Equipamiento Digital — Padrón 2025","programa":"Escuelas con Corazón Digital","tipo_doc":"Padrón","anio":"2025","tipo":"Excel"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialLimpiaGuadalajaraReciclaTecha2025.xlsx","titulo":"Limpia Guadalajara, Recicla y Techa — Padrón 2025","programa":"Limpia Guadalajara, Recicla y Techa","tipo_doc":"Padrón","anio":"2025","tipo":"Excel"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadReciclaTechaIntegral2025.pdf","titulo":"Aviso de Privacidad — Limpia Guadalajara, Recicla y Techa","programa":"Limpia Guadalajara, Recicla y Techa","tipo_doc":"Aviso de Privacidad","anio":"2025","tipo":"PDF"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialCuidandoNuestrasComunidades2025.xlsx","titulo":"Cuidando Nuestras Comunidades — Padrón 2025","programa":"Cuidando Nuestras Comunidades","tipo_doc":"Padrón","anio":"2025","tipo":"Excel"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialListasListosParaEstudiar2025.xlsx","titulo":"Listas y Listos para Estudiar — Padrón 2025","programa":"Listas y Listos para Estudiar","tipo_doc":"Padrón","anio":"2025","tipo":"Excel"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialPequenosGuardianesGuadalajara2025.xlsx","titulo":"Pequeños Guardianes de Guadalajara — Padrón 2025","programa":"Pequeños Guardianes de Guadalajara","tipo_doc":"Padrón","anio":"2025","tipo":"Excel"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialJovenesGuardianesGuadalajara2025.xlsx","titulo":"Jóvenes Guardianes de Guadalajara — Padrón 2025","programa":"Jóvenes Guardianes de Guadalajara","tipo_doc":"Padrón","anio":"2025","tipo":"Excel"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialLaCulturaLate2025.xlsx","titulo":"La Cultura Late — Padrón 2025","programa":"La Cultura Late","tipo_doc":"Padrón","anio":"2025","tipo":"Excel"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialCuidemosLaCultura2025.xlsx","titulo":"Cuidemos la Cultura — Padrón 2025","programa":"Cuidemos la Cultura","tipo_doc":"Padrón","anio":"2025","tipo":"Excel"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialGuadalajaraLee2025.xlsx","titulo":"Guadalajara Lee — Padrón 2025","programa":"Guadalajara Lee","tipo_doc":"Padrón","anio":"2025","tipo":"Excel"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialCuidamosGuadalajara2025.xlsx","titulo":"Cuidamos Guadalajara — Padrón 2025","programa":"Cuidamos Guadalajara","tipo_doc":"Padrón","anio":"2025","tipo":"Excel"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialGuadalajaraCiudad2025.xlsx","titulo":"Guardianes de la Ciudad — Padrón 2025","programa":"Guardianes de la Ciudad","tipo_doc":"Padrón","anio":"2025","tipo":"Excel"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialHogaresCorazon2025.xlsx","titulo":"Hogares con Corazón — Padrón 2025","programa":"Hogares con Corazón","tipo_doc":"Padrón","anio":"2025","tipo":"Excel"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadHogaresCorazon2025.pdf","titulo":"Aviso de Privacidad — Hogares con Corazón 2025","programa":"Hogares con Corazón","tipo_doc":"Aviso de Privacidad","anio":"2025","tipo":"PDF"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialReconocimientoEsfuerzoEscolar2025.xlsx","titulo":"Reconocimiento al Esfuerzo Escolar 2025 — Padrón","programa":"Reconocimiento al Esfuerzo Escolar","tipo_doc":"Padrón","anio":"2025","tipo":"Excel"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIIEjemplar13Marzo28-2025.pdf","titulo":"Gaceta Tomo II Ejemplar 13 (28 Marzo 2025) — Reglas Reconocimiento Esfuerzo Escolar","programa":"Reconocimiento al Esfuerzo Escolar","tipo_doc":"Reglas de Operación","anio":"2025","tipo":"PDF"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialGuadalajaraBilingue2025.xlsx","titulo":"Guadalajara Bilingüe — Padrón 2025","programa":"Guadalajara Bilingüe","tipo_doc":"Padrón","anio":"2025","tipo":"Excel"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadGuadalajaraBilingue2025.pdf","titulo":"Aviso de Privacidad — Guadalajara Bilingüe","programa":"Guadalajara Bilingüe","tipo_doc":"Aviso de Privacidad","anio":"2025","tipo":"PDF"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIIIEjemplar26Secc1aJunio20-2025.pdf","titulo":"Gaceta Tomo III Ejemplar 26 Secc 1a (20 Jun 2025) — Reglas Programas Emprendimiento/Económico","programa":"Múltiples programas Emprendimiento","tipo_doc":"Reglas de Operación","anio":"2025","tipo":"PDF"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialCreativaGDL2025.xlsx","titulo":"Creativa GDL — Padrón 2025","programa":"Creativa GDL","tipo_doc":"Padrón","anio":"2025","tipo":"Excel"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadCreativaGDL2025.pdf","titulo":"Aviso de Privacidad — Creativa GDL","programa":"Creativa GDL","tipo_doc":"Aviso de Privacidad","anio":"2025","tipo":"PDF"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialCuidamosTuNegocio2025.xlsx","titulo":"Cuidamos tu negocio — Padrón 2025","programa":"Cuidamos tu negocio","tipo_doc":"Padrón","anio":"2025","tipo":"Excel"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadCuidamosTuNegocio2025.pdf","titulo":"Aviso de Privacidad — Cuidamos tu negocio","programa":"Cuidamos tu negocio","tipo_doc":"Aviso de Privacidad","anio":"2025","tipo":"PDF"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialMercadosConCorazon2025.xlsx","titulo":"Mercados con corazón — Padrón 2025","programa":"Mercados con corazón","tipo_doc":"Padrón","anio":"2025","tipo":"Excel"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadMercadosConCorazon2025.pdf","titulo":"Aviso de Privacidad — Mercados con corazón","programa":"Mercados con corazón","tipo_doc":"Aviso de Privacidad","anio":"2025","tipo":"PDF"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialHechoPorTapatias2025.xlsx","titulo":"Hechos por tapatías — Padrón 2025","programa":"Hechos por tapatías","tipo_doc":"Padrón","anio":"2025","tipo":"Excel"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadHechaPorTapatias2025.pdf","titulo":"Aviso de Privacidad — Hechos por tapatías","programa":"Hechos por tapatías","tipo_doc":"Aviso de Privacidad","anio":"2025","tipo":"PDF"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIVEjemplar9Julio17-2025.pdf","titulo":"Gaceta Tomo IV Ejemplar 9 (17 Jul 2025) — Reglas Corazones en Acción","programa":"Corazones en Acción","tipo_doc":"Reglas de Operación","anio":"2025","tipo":"PDF"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialCorazonesEnAccion2025.xlsx","titulo":"Corazones en acción — Padrón 2025","programa":"Corazones en Acción","tipo_doc":"Padrón","anio":"2025","tipo":"Excel"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadCorazonesAcccion2025.pdf","titulo":"Aviso de Privacidad — Corazones en Acción","programa":"Corazones en Acción","tipo_doc":"Aviso de Privacidad","anio":"2025","tipo":"PDF"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramasSocialesNoviembre25.xlsx","titulo":"Programas Sociales 2025 — Consolidado","programa":"Consolidado","tipo_doc":"Padrón","anio":"2025","tipo":"Excel"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/OficioCostosOperacion2024.pdf","titulo":"Información Relativa a Costos de Operación 2024","programa":"General","tipo_doc":"Oficio","anio":"2024","tipo":"PDF"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramasSociales2024.pdf","titulo":"Información Relativa Enero a Diciembre 2024 — Programas Sociales","programa":"Consolidado","tipo_doc":"Reporte","anio":"2024","tipo":"PDF"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramasSocialesDiciembre24.xlsx","titulo":"Programas Sociales 2024 — Consolidado (Diciembre)","programa":"Consolidado","tipo_doc":"Padrón","anio":"2024","tipo":"Excel"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialApoyoNinezDiciembre24.pdf","titulo":"Apoyo a la Niñez — Información Relativa Diciembre 2024","programa":"Apoyo a la Niñez","tipo_doc":"Reporte","anio":"2024","tipo":"PDF"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramasSocialesApoyoNinezDiciembre24.xlsx","titulo":"Apoyo a la Niñez — Padrón Diciembre 2024","programa":"Apoyo a la Niñez","tipo_doc":"Padrón","anio":"2024","tipo":"Excel"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramasSocialesMixtos2024.xlsx","titulo":"Programas Sociales Mixtos — Padrón 2024","programa":"Mixtos","tipo_doc":"Padrón","anio":"2024","tipo":"Excel"},{"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/OficioProgramasFederalesEstatalesMixtosRegionales24.pdf","titulo":"Oficio UEP/059/24 — Programas Federales, Estatales, Mixtos y Regionales 2024","programa":"General","tipo_doc":"Oficio","anio":"2024","tipo":"PDF"}]}}</script>
-
 <script>
 (function(){
-  'use strict';
-  const DATA = JSON.parse(document.getElementById('data-json').textContent);
-  const $ = id => document.getElementById(id);
-  const esc = s => String(s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
-  const fmtN = n => (n || 0).toLocaleString('es-MX');
+  var COMB = new RegExp('[' + String.fromCharCode(768) + '-' + String.fromCharCode(879) + ']', 'g');
+  function norm(s){ return (s==null?'':String(s)).toLowerCase().normalize('NFD').replace(COMB,''); }
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
 
-  let activeTab = 'plan';
-  let activeQuery = '';
+  var DATA = {};
+  try { DATA = JSON.parse(document.getElementById('data-json').textContent); } catch(e){ DATA = {}; }
+  function arr(k){ return (DATA[k] && DATA[k].length) ? DATA[k] : []; }
+  function sub(k){ var o = DATA[k]; return (o && o.subdocs) ? o.subdocs : []; }
+  function matricesSub(){ var out=[]; (DATA.matrices||[]).forEach(function(m){ if(m.subdocs){ m.subdocs.forEach(function(s){ out.push(s); }); } }); return out; }
 
-  const TABS = [
-    { id:'plan',    label:'Plan municipal',          ico:'📋', count:DATA.plan_municipal.length },
-    { id:'matriz',  label:'Reglas de medición',      ico:'🎯', count:DATA.matrices.length, sub:'Matrices de Indicadores (MIR)' },
-    { id:'pae',     label:'Calendario anual',        ico:'📅', count:DATA.pae.length, sub:'Programa Anual de Evaluación (PAE)' },
-    { id:'tdr',     label:'Reglas de la revisión',   ico:'📐', count:DATA.tdr.length, sub:'Términos de Referencia (TDR)' },
-    { id:'lin',     label:'Normas internas',         ico:'⚖️', count:DATA.lineamientos.length },
-    { id:'res',     label:'Resultados',              ico:'📊', count:DATA.resultados.length },
-    { id:'asm',     label:'Compromisos de mejora',   ico:'🔄', count:DATA.aspectos_mejora.length, sub:'Aspectos Susceptibles de Mejora (ASM)' },
-    { id:'enc',     label:'Voz de los vecinos',      ico:'💬', count:DATA.encuestas.length },
-    { id:'com',     label:'Comité Técnico',          ico:'👥', count:DATA.comite.length }
+  var ICO_PDF='<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>';
+  var ICO_XLS='<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h8"/><path d="M12 11v10"/></svg>';
+  var ICO_CAL='<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>';
+  var ICO_EYE='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>';
+  var ICO_DL='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>';
+  var ICO_PROG='<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg>';
+
+  function docType(d){
+    if(d.tipo==='Excel'||d.tipo==='PDF'||d.tipo==='Portal') return d.tipo;
+    var u=(d.url||'').toLowerCase();
+    if(u.indexOf('.xlsx')>-1||u.indexOf('.xls')>-1) return 'Excel';
+    if(u.indexOf('.doc')>-1) return 'Word';
+    return 'PDF';
+  }
+  function isViewable(ty){ return ty==='PDF'; }
+
+  var TABS = [
+    {id:'plan', label:'Plan Municipal', sub:'El plan de gobierno que todas las evaluaciones toman como referencia.', docs:function(){ return arr('plan_municipal'); }},
+    {id:'reglas', label:'Reglas de evaluación', sub:'Qué se evalúa cada año y con qué reglas: Programa Anual de Evaluación (PAE), Términos de Referencia (TdR) y Lineamientos.', docs:function(){ return arr('pae').concat(arr('tdr')).concat(arr('lineamientos')); }},
+    {id:'mir', label:'Indicadores (MIR)', sub:'Las Matrices de Indicadores para Resultados: cómo cada área mide, trimestre a trimestre, si cumple sus metas.', chipKey:'trimestre', docs:function(){ return matricesSub(); }},
+    {id:'resultados', label:'Resultados y encuestas', sub:'Lo que encontraron las evaluaciones a los programas financiados con recursos públicos, y las encuestas aplicadas.', docs:function(){ return arr('resultados').concat(arr('encuestas')); }},
+    {id:'mejora', label:'Qué se está mejorando', sub:'Los Aspectos Susceptibles de Mejora: los compromisos de corrección que dejó cada evaluación.', docs:function(){ return arr('aspectos_mejora'); }},
+    {id:'sociales', label:'Programas sociales', sub:'Reglas de operación, padrones de beneficiarios y avisos de privacidad de los programas sociales municipales.', chipKey:'categoria', grouped:true, docs:function(){ return sub('programas_sociales'); }},
+    {id:'federales', label:'Programas federales', sub:'Informes trimestrales de los fondos federales que recibe y ejerce el municipio.', docs:function(){ return sub('programas_federales'); }},
+    {id:'comite', label:'Comité de Evaluación', sub:'Las sesiones, actas y órdenes del día del órgano que coordina la evaluación del desempeño.', chipKey:'tipo_doc', docs:function(){ return arr('comite'); }}
   ];
 
-  const SEC_TITLES = {
-    plan:   { t:'Plan municipal: la promesa contra la que se mide todo', inciso:'Art. 8 · Frac. III inc. f) — base del sistema de evaluación', sub:'Es la <strong>hoja de ruta del Ayuntamiento</strong> para los seis años de administración. Contiene la visión, los grandes objetivos y las metas que el gobierno se compromete a cumplir. Sin este documento, no hay forma de saber si después se cumplió o no.' },
-    matriz: { t:'Reglas de medición de cada programa', inciso:'Art. 8 · Frac. IV inc. b) — Programas Operativos Anuales', sub:'<strong>La regla de medición inicial</strong> que se usa para saber si un programa público realmente está dando resultados. Aquí se definen, en una matriz, las metas concretas: cuántas personas se atenderán, cuántas obras se terminarán y en qué tiempo. Se reporta trimestre por trimestre. <strong>Esta sección pertenece formalmente al Frac. IV inc. b)</strong>; se incluye aquí porque sin ella no hay evaluación posible.' },
-    pae:    { t:'Calendario anual de evaluaciones (PAE)', inciso:'Art. 8 · Frac. III inc. f)', sub:'El <strong>calendario y plan anual con el que el Ayuntamiento revisa a fondo el dinero de sus programas</strong>. Cada año se publica en la Gaceta Municipal una lista oficial con qué se va a evaluar, cuándo, cómo y quién hará la revisión. Es el "anuncio público" de las auditorías de impacto.' },
-    tdr:    { t:'Reglas de la revisión (Términos de Referencia)', inciso:'Art. 8 · Frac. III inc. f)', sub:'<strong>Las reglas y requisitos bajo los cuales se contrata y realiza cada evaluación.</strong> Antes de revisar un programa se firma un documento que define qué preguntas se van a responder, qué método se usará y qué resultados debe entregar quien evalúa. Sirve para que ninguna evaluación se haga "al gusto".' },
-    lin:    { t:'Normas internas que rigen las evaluaciones', inciso:'Art. 8 · Frac. III inc. f)', sub:'Las <strong>reglas internas del Ayuntamiento</strong> que dicen quién evalúa, cómo se aprueba lo evaluado y qué obligaciones nacen tras la revisión. Conocidas técnicamente como Lineamientos del Presupuesto basado en Resultados (PbR) y del Sistema de Evaluación del Desempeño (SED).' },
-    res:    { t:'Resultados: la calificación oficial de cada programa', inciso:'Art. 8 · Frac. III inc. f)', sub:'Aquí están los <strong>informes finales</strong> que muestran la calificación que obtuvo cada fondo federal y los problemas detectados. Los fondos evaluados son FAISMUN (infraestructura social), FORTAMUN (fortalecimiento del municipio), FORTASEG (seguridad pública) y FISM-DF. Cada año se evalúa el ejercicio del año anterior. Si quieres saber si el dinero rindió, empieza aquí.' },
-    asm:    { t:'Compromisos de mejora (ASM): la lista de pendientes del gobierno', inciso:'Art. 8 · Frac. III inc. f)', sub:'<strong>Los compromisos obligatorios que asume el Ayuntamiento para corregir y mejorar un programa después de ser revisado.</strong> Cuando una evaluación encuentra problemas, el gobierno se compromete por escrito a arreglarlos, con plazos y responsables. Es la "lista de pendientes" oficial. También se les llama Agendas de Mejora.' },
-    enc:    { t:'La voz de los vecinos: encuestas de satisfacción', inciso:'Art. 8 · Frac. III inc. f)', sub:'Después de entregar una obra, un apoyo o un servicio, el Ayuntamiento <strong>le pregunta directamente a la gente</strong> si quedó conforme y qué cambiaría. Aquí están los resultados sin filtros: la opinión real de quienes vivieron el programa.' },
-    com:    { t:'Comité Técnico de Evaluación del Desempeño', inciso:'Art. 8 · Frac. III inc. f)', sub:'El <strong>grupo de funcionarios y técnicos</strong> que revisa, aprueba y da seguimiento a todas las evaluaciones. Se reúne periódicamente desde 2017 y cada sesión queda documentada en acta pública con orden del día y versión estenográfica. Aquí están todas.' }
-  };
+  var activeTab='plan', activeChip='*', query='';
 
-  // Segmented control
-  const seg = $('segctrl');
-  TABS.forEach(t => {
-    const b = document.createElement('button');
-    b.type = 'button';
-    b.className = 'segctrl-btn';
-    if(t.id === activeTab) b.classList.add('active');
-    b.dataset.tab = t.id;
-    b.innerHTML = `<span style="font-size:.95rem">${t.ico}</span>${t.label}<span class="badge-count">${fmtN(t.count)}</span>`;
-    b.setAttribute('role','tab');
-    b.setAttribute('aria-selected', t.id === activeTab ? 'true' : 'false');
-    seg.appendChild(b);
+  // Cifra real (URLs únicas)
+  (function(){
+    var seen={}, n=0;
+    TABS.forEach(function(t){ t.docs().forEach(function(d){ if(docType(d)!=='Portal' && d.url && !seen[d.url]){ seen[d.url]=1; n++; } }); });
+    var el=document.getElementById('evCifraDocs'); if(el && n>0) el.textContent=n;
+  })();
+
+  var tabsEl=document.getElementById('evTabs');
+  TABS.forEach(function(t){
+    var n=t.docs().filter(function(d){return docType(d)!=='Portal';}).length;
+    var b=document.createElement('button');
+    b.className='ev-tab'+(t.id===activeTab?' active':'');
+    b.setAttribute('data-id',t.id);
+    b.innerHTML=esc(t.label)+' <span class="ev-tab-n">'+n+'</span>';
+    b.addEventListener('click',function(){ activeTab=t.id; activeChip='*'; query=''; document.getElementById('evSearch').value=''; sync(); render(); window.scrollTo({top:0,behavior:'smooth'}); });
+    tabsEl.appendChild(b);
   });
-  seg.addEventListener('click', e => {
-    const btn = e.target.closest('.segctrl-btn');
-    if(!btn || btn.dataset.tab === activeTab) return;
-    activeTab = btn.dataset.tab;
-    document.querySelectorAll('.segctrl-btn').forEach(x => { x.classList.remove('active'); x.setAttribute('aria-selected','false'); });
-    btn.classList.add('active');
-    btn.setAttribute('aria-selected','true');
-    $('srch').value = '';
-    activeQuery = '';
-    render();
-  });
+  function sync(){ Array.prototype.forEach.call(tabsEl.children,function(b){ b.className='ev-tab'+(b.getAttribute('data-id')===activeTab?' active':''); }); }
 
-  // KPIs (globales — mismos siempre)
-  function renderKPIs() {
-    const totalDirectos = TABS.reduce((s,t) => s + t.count, 0);
-    // Sumar subdocs migrados nativamente (Matrices con subdocs + Programas Federales + Sociales)
-    const subdocsMatrices = (DATA.matrices || []).reduce((s,m) => s + ((m.subdocs && m.subdocs.length) || 0), 0);
-    const subdocsPF = (DATA.programas_federales && DATA.programas_federales.subdocs) ? DATA.programas_federales.subdocs.length : 0;
-    const subdocsPS = (DATA.programas_sociales && DATA.programas_sociales.subdocs) ? DATA.programas_sociales.subdocs.length : 0;
-    const total = totalDirectos + subdocsMatrices + subdocsPF + subdocsPS;
-    const aniosCubiertos = '2016–2026';
-    const fondosFed = DATA.resultados.length;
-    const actas = DATA.comite.length;
-    // Actualizar también el pill del header
-    const hdrCount = $('hdr-doc-count');
-    if(hdrCount) hdrCount.textContent = fmtN(total);
-    // La fecha de actualización del catálogo es fija (vive en el HTML).
-    // Debe actualizarse manualmente cuando se re-scrapea el catálogo desde el portal.
-    $('kpis').innerHTML = `
-      <div class="kpi a"><div class="kpi-lbl">Documentos a tu alcance</div><div class="kpi-val">${fmtN(total)}</div><div class="kpi-sub">Listos para consultar y descargar</div></div>
-      <div class="kpi b"><div class="kpi-lbl">Histórico disponible</div><div class="kpi-val">${aniosCubiertos}</div><div class="kpi-sub">Diez años de exámenes públicos</div></div>
-      <div class="kpi c"><div class="kpi-lbl">Fondos federales revisados</div><div class="kpi-val">${fmtN(fondosFed)}</div><div class="kpi-sub">Dinero del Gobierno Federal auditado cada año</div></div>
-      <div class="kpi d"><div class="kpi-lbl">Reuniones del Comité</div><div class="kpi-val">${fmtN(actas)}</div><div class="kpi-sub">Sesiones públicas documentadas desde 2017</div></div>
-    `;
+  function chipVal(tab,d){ if(!tab.chipKey) return null; var v=d[tab.chipKey]; if(v===undefined||v===null||v==='') return 'General'; return v; }
+
+  function metaHTML(d){
+    var ty=docType(d), h='<div class="ev-card-meta">';
+    var per=d.periodo||d.anio||d.trimestre||d.fecha||'';
+    if(per) h+='<span class="ev-m">'+ICO_CAL+esc(per)+'</span>';
+    h+='<span class="ev-type">'+esc(ty)+'</span>';
+    if(d.fondo) h+='<span class="ev-type">'+esc(d.fondo)+'</span>';
+    if(d.tipo_doc) h+='<span class="ev-type">'+esc(d.tipo_doc)+'</span>';
+    h+='</div>';
+    return h;
+  }
+  function cardHTML(d){
+    var ty=docType(d), v=isViewable(ty);
+    var acts='<div class="ev-card-actions">';
+    if(v) acts+='<button class="ev-btn ghost ev-ver" type="button" data-u="'+esc(d.url)+'" data-title="'+esc(d.titulo)+'">'+ICO_EYE+'Ver</button>';
+    acts+='<button class="ev-btn solid ev-dl" type="button" data-u="'+esc(d.url)+'">'+ICO_DL+'<span class="ev-dl-tx">Descargar</span></button></div>';
+    var extra=d.gaceta?'<div class="ev-card-extra">Publicado en Gaceta: '+esc(d.gaceta)+'</div>':'';
+    return '<div class="ev-card"><span class="ev-card-ico">'+(ty==='Excel'?ICO_XLS:ICO_PDF)+'</span><div class="ev-card-main"><div class="ev-card-title">'+esc(d.titulo)+'</div>'+metaHTML(d)+extra+acts+'</div></div>';
+  }
+  function progHTML(prog,cat,docs){
+    var rows=docs.map(function(d){
+      var ty=docType(d), v=isViewable(ty);
+      var b=(v?'<button class="ev-pbtn ev-ver" type="button" data-u="'+esc(d.url)+'" data-title="'+esc(d.titulo)+'" aria-label="Ver">'+ICO_EYE+'</button>':'')
+        +'<button class="ev-pbtn ev-dl" type="button" data-u="'+esc(d.url)+'" aria-label="Descargar">'+ICO_DL+'</button>';
+      var meta=(d.anio?esc(d.anio):'')+(d.gaceta?(' · '+esc(d.gaceta)):'');
+      return '<div class="ev-pdoc"><span class="ev-pdoc-ico">'+(ty==='Excel'?'XLS':'PDF')+'</span><div class="ev-pdoc-main"><div class="ev-pdoc-name">'+esc(d.tipo_doc||d.titulo)+'</div><div class="ev-pdoc-meta">'+meta+'</div></div><div class="ev-pdoc-actions">'+b+'</div></div>';
+    }).join('');
+    return '<div class="ev-prog"><div class="ev-prog-head"><span class="ev-prog-ico">'+ICO_PROG+'</span><div><div class="ev-prog-name">'+esc(prog)+'</div>'+(cat&&cat!=='General'?'<div class="ev-prog-cat">'+esc(cat)+'</div>':'')+'</div></div><div class="ev-prog-docs">'+rows+'</div></div>';
   }
 
-  function getDataForTab() {
-    return { plan:DATA.plan_municipal, matriz:DATA.matrices, pae:DATA.pae, tdr:DATA.tdr, lin:DATA.lineamientos, res:DATA.resultados, asm:DATA.aspectos_mejora, enc:DATA.encuestas, com:DATA.comite }[activeTab];
+  function renderChips(tab,all){
+    var box=document.getElementById('evChips');
+    if(!tab.chipKey){ box.innerHTML=''; return; }
+    var counts={}, order=[];
+    all.forEach(function(d){ var v=chipVal(tab,d); if(!counts[v]){counts[v]=0;order.push(v);} counts[v]++; });
+    order.sort(function(a,b){ return counts[b]-counts[a]; });
+    var html='<button class="ev-chip'+(activeChip==='*'?' active':'')+'" data-chip="*">Todos <span class="ev-chip-n">'+all.length+'</span></button>';
+    order.forEach(function(v){ html+='<button class="ev-chip'+(activeChip===v?' active':'')+'" data-chip="'+esc(v)+'">'+esc(v)+' <span class="ev-chip-n">'+counts[v]+'</span></button>'; });
+    box.innerHTML=html;
   }
 
-  function filtrar(rows, query) {
-    if(!query) return rows;
-    const q = query.toLowerCase().trim();
-    return rows.filter(r => Object.values(r).some(v => String(v||'').toLowerCase().includes(q)));
-  }
-
-  function render() {
-    const info = SEC_TITLES[activeTab];
-    $('sec-title').textContent = info.t;
-    const tab = TABS.find(t => t.id === activeTab);
-    $('sec-tag').textContent = tab.count + (tab.count === 1 ? ' documento' : ' documentos');
-    const incisoPill = info.inciso ? `<span style="display:inline-block;font-size:.58rem;font-weight:700;color:var(--info);background:var(--infoL);border:1px solid #93C5FD;padding:.15rem .55rem;border-radius:999px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:.4rem">${esc(info.inciso)}</span><br>` : '';
-    $('sec-sub').innerHTML = incisoPill + info.sub;
-
-    const rows = getDataForTab();
-    const filtered = filtrar(rows, activeQuery);
-
-    // Alert específico por sección
-    let alertHTML = '';
-    if(activeTab === 'asm') {
-      alertHTML = `
-        <div class="alert">
-          <svg class="alert-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          <div class="alert-body">
-            <div class="alert-h">Nota sobre URLs compartidas</div>
-            <div class="alert-txt">Las "Agendas de Mejora" de los años <strong>2022 en adelante</strong> apuntan al mismo PDF que el reporte de evaluación correspondiente — el documento oficial integra ambas secciones en un solo archivo. Para los años 2016-2021 sí hay archivos separados. Esta es la estructura publicada oficialmente por el portal de Transparencia GDL.</div>
-          </div>
-        </div>
-      `;
-    }
-    $('alert-wrap').innerHTML = alertHTML;
-
-    if(filtered.length === 0) {
-      $('content-wrap').innerHTML = `<div class="empty"><div class="empty-ico">🔍</div><div class="empty-h">Sin resultados${activeQuery ? ' para "' + esc(activeQuery) + '"' : ''}</div><div class="empty-txt">Intenta con otro término o limpia la búsqueda.</div></div>`;
-      return;
-    }
-
-    // Guardar items actuales para el viewer
-    CURRENT_ITEMS = filtered.slice();
-
-    // Para comité usamos timeline, para los demás usamos doc-grid
-    if(activeTab === 'com') {
-      $('content-wrap').innerHTML = `<div class="timeline">${filtered.map((d,i) => docTimelineCard(d,i)).join('')}</div>`;
+  function render(){
+    var tab=null; for(var i=0;i<TABS.length;i++){ if(TABS[i].id===activeTab){ tab=TABS[i]; break; } }
+    document.getElementById('evSecH').textContent=tab.label;
+    document.getElementById('evSecSub').textContent=tab.sub;
+    var all=tab.docs().filter(function(d){ return docType(d)!=='Portal'; });
+    renderChips(tab,all);
+    var byChip=(activeChip==='*')?all:all.filter(function(d){ return chipVal(tab,d)===activeChip; });
+    var q=norm(query);
+    var shown=q===''?byChip:byChip.filter(function(d){ return norm([d.titulo,d.programa,d.categoria,d.tipo_doc,d.periodo,d.anio,d.trimestre,d.fondo,d.gaceta].join(' ')).indexOf(q)>-1; });
+    document.getElementById('evCount').innerHTML='Mostrando <b>'+shown.length+'</b> de '+all.length+' documentos'+(activeChip!=='*'?(' · filtro: '+esc(activeChip)):'');
+    var content=document.getElementById('evContent'), empty=document.getElementById('evEmpty');
+    if(shown.length===0){ content.innerHTML=''; empty.className='ev-empty show'; toggleHint(); reportHeight(); return; }
+    empty.className='ev-empty';
+    var inner;
+    if(tab.grouped){
+      var groups={}, ord=[];
+      shown.forEach(function(d){ var p=d.programa||'Otros'; if(!groups[p]){groups[p]=[];ord.push(p);} groups[p].push(d); });
+      inner=ord.map(function(p){ return progHTML(p,(groups[p][0].categoria||''),groups[p]); }).join('');
     } else {
-      $('content-wrap').innerHTML = `<div class="doc-grid">${filtered.map((d,i) => docCard(d,i)).join('')}</div>`;
+      inner=shown.map(cardHTML).join('');
     }
+    content.innerHTML='<div class="ev-grid">'+inner+'</div>';
+    content.scrollTop=0;
+    toggleHint();
+    reportHeight();
   }
+  function toggleHint(){ var h=document.getElementById('evHint'), c=document.getElementById('evContent'); if(!h||!c) return; h.style.display=(c.scrollHeight>c.clientHeight+4)?'inline-flex':'none'; }
 
-  // Almacén global para que openViewer encuentre los items por índice
-  let CURRENT_ITEMS = [];
-
-  function docCard(d, idx) {
-    const tag = activeTab;
-    const yr = d.periodo || d.ejercicio || '';
-    const meta = d.gaceta ? `<div class="doc-card-meta">Publicado en Gaceta: ${esc(d.gaceta)}</div>` : '';
-    const sub = d.subtitulo || d.descripcion || d.fondo || '';
-    const tipoLbl = d.tipo === 'Portal' ? 'Página web' : (d.tipo === 'Excel' ? 'Hoja Excel' : 'PDF oficial');
-    const accion = d.tipo === 'Portal' ? 'Ver portal' : (d.tipo === 'Excel' ? 'Ver archivo' : 'Ver PDF');
-    return `
-      <button type="button" class="doc-card" data-idx="${idx}" aria-label="Abrir visor: ${esc(d.titulo)}">
-        <div class="doc-card-top ${tag}">
-          <span class="doc-card-tag ${tag}">${TABS.find(t=>t.id===activeTab).label}</span>
-          <span class="doc-card-yr">${esc(yr)}</span>
-        </div>
-        <div class="doc-card-body">
-          <div class="doc-card-title">${esc(d.titulo)}</div>
-          ${sub ? `<div class="doc-card-sub">${esc(sub)}</div>` : ''}
-          ${meta}
-        </div>
-        <div class="doc-card-foot">
-          <span class="doc-card-foot-l">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">${d.tipo === 'Portal' ? '<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>' : (d.tipo === 'Excel' ? '<path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/><line x1="10" y1="9" x2="14" y2="9"/>' : '<path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/>')}</svg>
-            ${tipoLbl}
-          </span>
-          <span class="doc-card-arrow">
-            ${accion}
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-          </span>
-        </div>
-      </button>
-    `;
-  }
-
-  function docTimelineCard(d, idx) {
-    const dateParts = parseDate(d.fecha);
-    return `
-      <button type="button" class="tl-card" data-idx="${idx}" aria-label="Abrir visor: ${esc(d.titulo)}">
-        <div class="tl-date">
-          <span class="tl-day">${dateParts.day}</span>
-          <span class="tl-mes">${dateParts.mes}</span>
-          <span class="tl-yr">${dateParts.yr}</span>
-        </div>
-        <div class="tl-body">
-          <div class="tl-tipo">${esc(d.tipo_doc || 'Documento')}</div>
-          <div class="tl-tit">${esc(d.titulo)}</div>
-          ${d.periodo ? `<div class="tl-periodo">Período: ${esc(d.periodo)}</div>` : ''}
-        </div>
-      </button>
-    `;
-  }
-
-  // ============ MODAL VIEWER ============
-  const viewer = $('viewer');
-  const vBody = $('viewer-body');
-  const vTag = $('viewer-tag');
-  const vTitle = $('viewer-title');
-  const vSub = $('viewer-sub');
-  const vDl = $('viewer-dl');
-  const vUrl = $('viewer-url');
-
-  function openViewer(item) {
-    if(!item || !item.url) return;
-    const tag = TABS.find(t => t.id === activeTab);
-    const tabLabel = tag ? tag.label : 'Documento';
-    const yr = item.periodo || item.ejercicio || item.fecha || '';
-    vTag.textContent = `${tabLabel}${yr ? ' · ' + yr : ''}`;
-    vTitle.textContent = item.titulo || '—';
-    const subParts = [];
-    if(item.fondo) subParts.push(item.fondo);
-    if(item.gaceta) subParts.push('Gaceta: ' + item.gaceta);
-    if(item.tipo_doc) subParts.push(item.tipo_doc);
-    vSub.textContent = subParts.join(' · ');
-    vSub.style.display = subParts.length ? 'block' : 'none';
-    vDl.href = item.url;
-    vUrl.textContent = item.url;
-
-    // Render según tipo
-    vBody.innerHTML = '';
-    const tipo = item.tipo || 'PDF';
-
-    if(tipo === 'PDF') {
-      // PDF: iframe nativo del browser
-      vDl.style.display = 'inline-flex';
-      vBody.innerHTML = `
-        <div class="viewer-loading" id="viewer-loading">
-          <div class="viewer-loading-spinner"></div>
-          <div class="viewer-loading-txt">Cargando documento PDF…</div>
-        </div>
-        <iframe class="viewer-iframe" src="${esc(item.url)}#view=FitH" title="${esc(item.titulo)}" allow="fullscreen"></iframe>
-      `;
-      const iframe = vBody.querySelector('iframe');
-      const loading = vBody.querySelector('#viewer-loading');
-      iframe.addEventListener('load', () => { if(loading) loading.style.display = 'none'; });
-      // Si en 8s no carga, ocultar loader igual
-      setTimeout(() => { if(loading) loading.style.display = 'none'; }, 8000);
-    }
-    else if(tipo === 'Excel') {
-      vDl.style.display = 'inline-flex';
-      renderExcelView(item);
-    }
-    else if(tipo === 'Portal') {
-      // Páginas HTML: renderizamos galería nativa con los subdocs reales (sin iframe del portal viejo)
-      vDl.style.display = 'none';
-      if(item.subdocs && item.subdocs.length > 0){
-        renderGallery(item);
-      } else if(item.subdocs_status === 'pending_historic'){
-        vBody.innerHTML = `
-          <div class="viewer-fallback">
-            <div class="viewer-fallback-ico" style="background:#FEF3C7;color:#92400E">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            </div>
-            <div class="viewer-fallback-h">Información histórica · administración anterior</div>
-            <div class="viewer-fallback-txt">Las Matrices de Indicadores para Resultados (MIR) de <strong>${esc(item.periodo)}</strong> corresponden a una administración municipal anterior. Los archivos están alojados en el repositorio institucional del Ayuntamiento (transparencia.guadalajara.gob.mx) y se conservan como información pública histórica. Para consultas específicas, la Dirección de Planeación de la Tesorería Municipal puede orientarte vía solicitud de información en la PNT.</div>
-            <div class="viewer-fallback-txt" style="font-size:.68rem;color:var(--nm);margin-top:.6rem">Las MIR son indicadores de gestión; corresponden al Art. 8, Fracción IV, Inciso b) de la Ley de Transparencia (Programas Operativos Anuales).</div>
-          </div>
-        `;
-      } else {
-        // Tipo Portal sin subdocs y sin status histórico: placeholder neutral en migración nativa
-        vBody.innerHTML = `
-          <div class="viewer-fallback">
-            <div class="viewer-fallback-ico" style="background:var(--infoL);color:var(--info)">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
-            </div>
-            <div class="viewer-fallback-h">Sección en migración nativa</div>
-            <div class="viewer-fallback-txt">El contenido de <strong>${esc(item.titulo)}</strong> se está reconstruyendo directamente dentro del nuevo portal de Transparencia, sin depender del sitio anterior.</div>
-          </div>
-        `;
-      }
-    }
-    else {
-      // Tipo desconocido: fallback a "abrir en pestaña nueva"
-      vDl.style.display = 'inline-flex';
-      vBody.innerHTML = `
-        <div class="viewer-fallback">
-          <div class="viewer-fallback-ico">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          </div>
-          <div class="viewer-fallback-h">Archivo: ${esc(item.titulo)}</div>
-          <div class="viewer-fallback-txt">Este tipo de archivo no tiene previsualización integrada. Descárgalo o ábrelo en una pestaña nueva.</div>
-          <div class="viewer-fallback-actions">
-            <a class="viewer-fallback-btn" href="${esc(item.url)}" target="_blank" rel="noopener">Abrir archivo</a>
-          </div>
-        </div>
-      `;
-    }
-
-    viewer.classList.add('open');
-    viewer.setAttribute('aria-hidden', 'false');
-    document.body.classList.add('viewer-open');
-    // Focus accessible close button
-    setTimeout(() => { const cb = viewer.querySelector('.viewer-btn.close'); if(cb) cb.focus(); }, 50);
-  }
-
-  function closeViewer() {
-    viewer.classList.remove('open');
-    viewer.setAttribute('aria-hidden', 'true');
-    document.body.classList.remove('viewer-open');
-    galleryContext = null;
-    // Limpiar iframe para detener carga
-    setTimeout(() => { vBody.innerHTML = ''; }, 200);
-  }
-
-  // ============ GALERÍA NATIVA (cuando un item tipo Portal tiene subdocs) ============
-  let galleryContext = null;       // { item, filter, query } cuando estamos viendo una galería
-  let galleryCurrentSubdocs = [];  // subdocs filtrados actualmente visibles
-
-  function renderGallery(item, opts) {
-    opts = opts || {};
-    galleryContext = {
-      item: item,
-      filter: opts.filter || 'all',
-      subfilter: opts.subfilter || 'all',
-      query: opts.query || ''
-    };
-    const subdocs = item.subdocs || [];
-
-    // Detectar modo: agrupado por programa si la mayoría tiene campo 'programa', plano si no
-    const itemsConPrograma = subdocs.filter(d => d.programa).length;
-    const modoAgrupado = itemsConPrograma >= Math.floor(subdocs.length * 0.5) && subdocs.length > 0;
-
-    // Determinar la clave principal (primer nivel de filtros)
-    let groupKey = null;
-    if(subdocs.length && subdocs[0].trimestre) groupKey = 'trimestre';
-    else if(subdocs.length && subdocs[0].anio) groupKey = 'anio';
-    else if(subdocs.length && subdocs[0].categoria) groupKey = 'categoria';
-
-    // Grupos del primer nivel
-    const groups = [];
-    const seen = new Set();
-    subdocs.forEach(d => {
-      const v = groupKey ? d[groupKey] : null;
-      if(v && !seen.has(v)){ seen.add(v); groups.push(v); }
-    });
-
-    const q = (galleryContext.query || '').toLowerCase().trim();
-    const filter = galleryContext.filter;
-    const subfilter = galleryContext.subfilter;
-
-    // Aplicar primer filtro (año/trimestre/categoría principal)
-    let filtradosNivel1 = subdocs.filter(d => {
-      if(filter !== 'all' && groupKey && d[groupKey] !== filter) return false;
-      return true;
-    });
-
-    // Detectar sub-categorías disponibles dentro del filtro actual (segundo nivel)
-    let subcategorias = [];
-    if(modoAgrupado && filter !== 'all'){
-      const seenCat = new Set();
-      filtradosNivel1.forEach(d => {
-        if(d.categoria && d.categoria !== 'General' && !seenCat.has(d.categoria)){
-          seenCat.add(d.categoria);
-          subcategorias.push(d.categoria);
-        }
-      });
-    }
-
-    // Aplicar sub-filtro de categoría
-    let filtrados = filtradosNivel1.filter(d => {
-      if(subfilter !== 'all' && d.categoria !== subfilter) return false;
-      if(q){
-        const blob = Object.values(d).map(v => String(v||'').toLowerCase()).join(' ');
-        if(!blob.includes(q)) return false;
-      }
-      return true;
-    });
-
-    galleryCurrentSubdocs = filtrados;
-
-    // HTML de filtros principales (chips de año/trimestre)
-    const filtersHTML = groups.length > 1 ? `
-      <div class="viewer-gallery-filters">
-        <button type="button" class="vgf-chip ${filter==='all'?'active':''}" data-vgf="all">Todos <span class="count">${subdocs.length}</span></button>
-        ${groups.map(g => {
-          const cnt = subdocs.filter(d => d[groupKey] === g).length;
-          return `<button type="button" class="vgf-chip ${filter===g?'active':''}" data-vgf="${esc(g)}">${esc(g)} <span class="count">${cnt}</span></button>`;
-        }).join('')}
-      </div>
-    ` : '';
-
-    // HTML de sub-filtros por categoría (solo si modo agrupado y hay categorías)
-    const subfiltersHTML = (modoAgrupado && subcategorias.length > 0) ? `
-      <div class="viewer-gallery-subfilters">
-        <div class="viewer-gallery-subfilters-lbl">Filtrar por área temática</div>
-        <button type="button" class="vgsf-chip ${subfilter==='all'?'active':''}" data-vgsf="all">Todas <span class="count">${filtradosNivel1.length}</span></button>
-        ${subcategorias.map(c => {
-          const cnt = filtradosNivel1.filter(d => d.categoria === c).length;
-          return `<button type="button" class="vgsf-chip ${subfilter===c?'active':''}" data-vgsf="${esc(c)}">${esc(c)} <span class="count">${cnt}</span></button>`;
-        }).join('')}
-      </div>
-    ` : '';
-
-    // Renderizado de cards
-    let cardsHTML;
-    if(filtrados.length === 0){
-      cardsHTML = `<div class="vg-empty"><div class="vg-empty-h">Sin resultados</div><div class="vg-empty-txt">Ajusta los filtros o limpia la búsqueda.</div></div>`;
-    } else if(modoAgrupado){
-      // Agrupar por programa + año (un programa puede aparecer en varios años; cada año es su propia card)
-      const porPrograma = new Map();
-      filtrados.forEach((d, idx) => {
-        const prog = d.programa || 'Sin clasificar';
-        const anioKey = d.anio || d.trimestre || 'sin-anio';
-        const key = prog + '||' + anioKey;
-        if(!porPrograma.has(key)) porPrograma.set(key, { programa: prog, anio: anioKey, docs: [] });
-        porPrograma.get(key).docs.push({d, idx});
-      });
-
-      // Ordenar: más reciente primero (por anio descendente), luego alfabético por programa
-      const entradas = Array.from(porPrograma.values()).sort((a, b) => {
-        if(a.anio !== b.anio) return String(b.anio).localeCompare(String(a.anio));
-        return a.programa.localeCompare(b.programa);
-      });
-
-      cardsHTML = entradas.map(({programa, anio, docs}) => {
-        const primero = docs[0].d;
-        const cat = primero.categoria || '';
-        const tagsHeader = `
-          ${anio && anio !== 'sin-anio' ? `<span class="vg-prog-year">${esc(anio)}</span>` : ''}
-          ${cat && cat !== 'General' ? `<span class="vg-prog-cat">${esc(cat)}</span>` : ''}
-        `;
-        const docButtons = docs.map(({d, idx}) => {
-          const td = (d.tipo_doc || 'Documento').toLowerCase();
-          let icoCls = 'otro';
-          let icoTxt = '📄';
-          if(td.includes('regla')){ icoCls = 'reglas'; icoTxt = '§'; }
-          else if(td.includes('padr')){ icoCls = 'padron'; icoTxt = '👥'; }
-          else if(td.includes('aviso')){ icoCls = 'aviso'; icoTxt = '🔒'; }
-          else if(td.includes('reporte') || td.includes('consolidado')){ icoCls = 'reporte'; icoTxt = '📊'; }
-          const fmtTxt = d.tipo === 'Excel' ? 'Excel · .xlsx' : 'PDF';
-          return `
-            <button type="button" class="vg-prog-doc" data-subidx="${idx}">
-              <span class="vg-prog-doc-ico ${icoCls}">${icoTxt}</span>
-              <span class="vg-prog-doc-label">
-                <span class="vg-prog-doc-name">${esc(d.tipo_doc || 'Documento')}</span>
-                <span class="vg-prog-doc-meta">${fmtTxt}${d.gaceta ? ' · ' + esc(d.gaceta) : ''}</span>
-              </span>
-              <svg class="vg-prog-doc-arrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </button>
-          `;
-        }).join('');
-
-        return `
-          <div class="vg-prog-card">
-            <div class="vg-prog-header">
-              <div class="vg-prog-tags">${tagsHeader}</div>
-              <h4 class="vg-prog-name">${esc(programa)}</h4>
-            </div>
-            <div class="vg-prog-docs">${docButtons}</div>
-          </div>
-        `;
-      }).join('');
-    } else {
-      // Modo plano (Matrices, Fondos Federales)
-      cardsHTML = filtrados.map((d, i) => {
-        const tipoCls = (d.tipo === 'Excel') ? 'excel' : (d.tipo === 'PDF' ? 'pdf' : '');
-        const tagMain = d.trimestre || d.anio || d.categoria || d.tipo || '';
-        const tagCat = d.categoria && d.categoria !== tagMain ? `<span class="vg-card-tag cat">${esc(d.categoria)}</span>` : '';
-        const tagTipoDoc = d.tipo_doc ? `<span class="vg-card-tag cat">${esc(d.tipo_doc)}</span>` : '';
-        const prog = d.programa ? `<div class="vg-card-prog">${esc(d.programa)}</div>` : '';
-        return `
-          <button type="button" class="vg-card" data-subidx="${i}">
-            <div class="vg-card-meta">
-              <span class="vg-card-tag ${tipoCls}">${esc(d.tipo || '')}</span>
-              <span class="vg-card-tag year">${esc(tagMain)}</span>
-              ${tagCat}${tagTipoDoc}
-            </div>
-            <div class="vg-card-title">${esc(d.titulo)}</div>
-            ${prog}
-          </button>
-        `;
-      }).join('');
-    }
-
-    // Conteo de cards visibles (programa + año combinado)
-    const totalCardsMostradas = modoAgrupado
-      ? new Set(filtrados.map(d => (d.programa || 'Sin') + '||' + (d.anio || d.trimestre || ''))).size
-      : 0;
-    const totalProgramasUnicos = modoAgrupado
-      ? new Set(filtrados.map(d => d.programa || 'Sin clasificar')).size
-      : 0;
-    const infoTxt = modoAgrupado
-      ? `Mostrando <strong>${totalProgramasUnicos}</strong> programa${totalProgramasUnicos !== 1 ? 's' : ''} (<strong>${filtrados.length}</strong> documentos${totalCardsMostradas !== totalProgramasUnicos ? ' · '+totalCardsMostradas+' tarjetas por período' : ''})${q ? ` para "${esc(q)}"` : ''}`
-      : `Mostrando <strong>${filtrados.length}</strong> de <strong>${subdocs.length}</strong> documentos${q ? ` para "${esc(q)}"` : ''}`;
-
-    vBody.innerHTML = `
-      <div class="viewer-gallery">
-        <div class="viewer-gallery-controls">
-          <div class="viewer-gallery-info">${infoTxt}</div>
-          <div class="viewer-gallery-search-wrap">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-            <input type="search" class="viewer-gallery-search" placeholder="Buscar programa o documento…" value="${esc(q)}">
-          </div>
-        </div>
-        ${filtersHTML}
-        ${subfiltersHTML}
-        <div class="viewer-gallery-grid">${cardsHTML}</div>
-      </div>
-    `;
-
-    vTag.textContent = (item.periodo || item.titulo) + ' · Galería nativa';
-    vTitle.textContent = item.titulo;
-    vSub.textContent = item.descripcion || (item.periodo || '');
-    vSub.style.display = vSub.textContent ? 'block' : 'none';
-    vUrl.textContent = item.url;
-
-    const searchInput = vBody.querySelector('.viewer-gallery-search');
-    if(searchInput){
-      let qt;
-      searchInput.addEventListener('input', e => {
-        clearTimeout(qt);
-        qt = setTimeout(() => { renderGallery(item, { filter: galleryContext.filter, subfilter: galleryContext.subfilter, query: e.target.value }); }, 180);
-      });
-    }
-    vBody.querySelectorAll('.vgf-chip').forEach(chip => {
-      chip.addEventListener('click', () => {
-        // Al cambiar filtro principal, resetear subfilter
-        renderGallery(item, { filter: chip.dataset.vgf, subfilter: 'all', query: galleryContext.query });
-      });
-    });
-    vBody.querySelectorAll('.vgsf-chip').forEach(chip => {
-      chip.addEventListener('click', () => {
-        renderGallery(item, { filter: galleryContext.filter, subfilter: chip.dataset.vgsf, query: galleryContext.query });
-      });
-    });
-    // Click handlers para cards planas
-    vBody.querySelectorAll('.vg-card').forEach(card => {
-      card.addEventListener('click', () => {
-        const idx = parseInt(card.dataset.subidx, 10);
-        const sub = galleryCurrentSubdocs[idx];
-        if(sub) openSubdoc(sub);
-      });
-    });
-    // Click handlers para mini-botones de cada doc en modo agrupado
-    vBody.querySelectorAll('.vg-prog-doc').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const idx = parseInt(btn.dataset.subidx, 10);
-        const sub = galleryCurrentSubdocs[idx];
-        if(sub) openSubdoc(sub);
-      });
-    });
-  }
-
-  function openSubdoc(sub){
-    // Mantener galleryContext intacto para el botón "Volver"
-    const tipo = sub.tipo || 'PDF';
-    vDl.style.display = 'inline-flex';
-    vDl.href = sub.url;
-    vUrl.textContent = sub.url;
-    vTag.textContent = (sub.trimestre || sub.anio || sub.tipo_doc || tipo);
-    vTitle.textContent = sub.titulo;
-    const subParts = [];
-    if(sub.programa) subParts.push(sub.programa);
-    if(sub.tipo_doc) subParts.push(sub.tipo_doc);
-    if(sub.categoria) subParts.push(sub.categoria);
-    if(sub.fondo) subParts.push(sub.fondo);
-    vSub.textContent = subParts.join(' · ');
-    vSub.style.display = subParts.length ? 'block' : 'none';
-
-    if(tipo === 'PDF'){
-      vBody.innerHTML = `
-        <button type="button" class="viewer-back-btn" data-back-gallery="1" style="position:absolute;top:.6rem;left:.6rem;z-index:3;background:rgba(255,255,255,.95);color:var(--od);border-color:var(--o);box-shadow:var(--shadow-sm)">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-          Volver a la galería
-        </button>
-        <div class="viewer-loading" id="viewer-loading"><div class="viewer-loading-spinner"></div><div class="viewer-loading-txt">Cargando documento PDF…</div></div>
-        <iframe class="viewer-iframe" src="${esc(sub.url)}#view=FitH" title="${esc(sub.titulo)}" allow="fullscreen"></iframe>
-      `;
-      const iframe = vBody.querySelector('iframe');
-      const loading = vBody.querySelector('#viewer-loading');
-      iframe.addEventListener('load', () => { if(loading) loading.style.display = 'none'; });
-      setTimeout(() => { if(loading) loading.style.display = 'none'; }, 8000);
-    } else if(tipo === 'Excel'){
-      renderExcelView(sub, /*conBackBtn*/ true);
-    }
-  }
-
-  // ============ RENDER EXCEL VIEW (decide entre preview inline u opción de descarga según sensibilidad de datos) ============
-  function tieneDatosPersonales(d){
-    // Padrones de beneficiarios y avisos vinculados a personas → NO embeber en Office Online (datos pasan por Microsoft)
-    const td = (d.tipo_doc || '').toLowerCase();
-    const tit = (d.titulo || '').toLowerCase();
-    if(td.includes('padrón') || td.includes('padron')) return true;
-    if(/padr[oó]n|beneficiari/i.test(tit)) return true;
-    return false;
-  }
-
-  function renderExcelView(d, conBackBtn){
-    const backBtnHTML = conBackBtn ? `
-      <button type="button" class="viewer-back-btn" data-back-gallery="1" style="position:absolute;top:.6rem;left:.6rem;z-index:3;background:rgba(255,255,255,.95);color:var(--od);border-color:var(--o);box-shadow:var(--shadow-sm)">
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-        Volver a la galería
-      </button>
-    ` : '';
-
-    if(tieneDatosPersonales(d)){
-      // Padrones: NO embeber. Solo descarga (datos personales no deben pasar por Microsoft)
-      const backBtnFallback = conBackBtn ? `
-        <button type="button" class="viewer-back-btn" data-back-gallery="1" style="align-self:flex-start;background:var(--oxl);color:var(--od);border-color:var(--ol)">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-          Volver a la galería
-        </button>
-      ` : '';
-      vBody.innerHTML = `
-        <div class="viewer-fallback">
-          ${backBtnFallback}
-          <div class="viewer-fallback-ico" style="background:#FEF3C7;color:#92400E">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l9 4.5v9L12 20l-9-4.5v-9L12 2z"/><path d="M12 7v5l3 2"/></svg>
-          </div>
-          <div class="viewer-fallback-h">Archivo con datos personales</div>
-          <div class="viewer-fallback-txt">Este archivo es un <strong>padrón de beneficiarios</strong> y puede contener nombres, CURPs parciales y otros datos personales. Por protección de datos, no se previsualiza dentro del navegador con servicios de terceros — solo se ofrece la descarga directa desde el repositorio institucional del Ayuntamiento.</div>
-          <div class="viewer-fallback-actions">
-            <a class="viewer-fallback-btn" href="${esc(d.url)}" download target="_blank" rel="noopener">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Descargar archivo
-            </a>
-          </div>
-          <div class="viewer-fallback-txt" style="font-size:.65rem;color:var(--nm);margin-top:.5rem;max-width:50ch">Acuerdo con la Ley General de Protección de Datos Personales en Posesión de Sujetos Obligados. Versión pública del padrón conforme a la disociación realizada por el sujeto obligado.</div>
-        </div>
-      `;
-    } else {
-      // Excel sin datos personales (Fondos Federales, MIRs, Encuestas agregadas, Reportes): preview con Office Online Viewer
-      vBody.innerHTML = `
-        ${backBtnHTML}
-        <div class="viewer-loading" id="viewer-loading">
-          <div class="viewer-loading-spinner"></div>
-          <div class="viewer-loading-txt">Renderizando hoja de cálculo… (puede tardar 5-10s la primera vez)</div>
-        </div>
-        <iframe class="viewer-iframe" src="https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(d.url)}" title="${esc(d.titulo)}" allow="fullscreen"></iframe>
-      `;
-      const iframe = vBody.querySelector('iframe');
-      const loading = vBody.querySelector('#viewer-loading');
-      iframe.addEventListener('load', () => { if(loading) loading.style.display = 'none'; });
-      setTimeout(() => { if(loading) loading.style.display = 'none'; }, 12000);
-    }
-  }
-
-  // Handler global del botón "Volver a la galería" (delegación)
-  document.addEventListener('click', e => {
-    const back = e.target.closest('[data-back-gallery="1"]');
-    if(back && galleryContext){
-      renderGallery(galleryContext.item, { filter:galleryContext.filter, subfilter:galleryContext.subfilter, query:galleryContext.query });
-    }
+  // Chips (delegado)
+  document.getElementById('evChips').addEventListener('click',function(e){
+    var c=e.target.closest?e.target.closest('.ev-chip'):null; if(!c) return;
+    activeChip=c.getAttribute('data-chip'); render();
   });
 
-  // Delegación de eventos: clicks en tarjetas
-  document.addEventListener('click', e => {
-    const closeBtn = e.target.closest('[data-close="1"]');
-    if(closeBtn) { closeViewer(); return; }
-    const card = e.target.closest('.doc-card[data-idx], .tl-card[data-idx]');
-    if(card) {
-      const idx = parseInt(card.dataset.idx, 10);
-      const item = CURRENT_ITEMS[idx];
-      if(item) openViewer(item);
-      return;
-    }
-    // External-link cards (Programas Federales / Sociales) — abrir galería nativa con subdocs
-    const extCard = e.target.closest('.ext-card[data-ext-key]');
-    if(extCard) {
-      e.preventDefault();
-      const key = extCard.dataset.extKey;
-      const item = DATA[key];
-      if(item) openViewer(item);
-    }
-  });
+  // Buscador
+  document.getElementById('evSearch').addEventListener('input',function(e){ query=e.target.value; render(); });
 
-  // ESC para cerrar
-  document.addEventListener('keydown', e => {
-    if(e.key === 'Escape' && viewer.classList.contains('open')) closeViewer();
-  });
-
-  function parseDate(fecha) {
-    if(!fecha) return {day:'—',mes:'',yr:''};
-    const meses = {'enero':'ENE','febrero':'FEB','marzo':'MAR','abril':'ABR','mayo':'MAY','junio':'JUN','julio':'JUL','agosto':'AGO','septiembre':'SEP','octubre':'OCT','noviembre':'NOV','diciembre':'DIC'};
-    const m = fecha.toLowerCase().match(/(\d+)\s+(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre)\s+(20\d{2})/);
-    if(m) return { day:m[1].padStart(2,'0'), mes:meses[m[2]], yr:m[3] };
-    const m2 = fecha.match(/(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre)\s+(20\d{2})/i);
-    if(m2) return { day:'—', mes:meses[m2[1].toLowerCase()], yr:m2[2] };
-    return {day:'—',mes:'',yr:fecha};
+  // ---- Descargar / Ver ----
+  function nombreArchivo(u){ try{ var p=u.split('?')[0].split('#')[0].split('/'); return decodeURIComponent(p[p.length-1])||'documento'; }catch(e){ return 'documento'; } }
+  function descargar(btn){
+    if(btn.getAttribute('data-busy')==='1') return;
+    var url=btn.getAttribute('data-u'), tx=btn.querySelector('.ev-dl-tx'), label=tx?tx.textContent:'';
+    btn.setAttribute('data-busy','1'); if(tx) tx.textContent='Descargando…';
+    fetch(url).then(function(r){ if(!r.ok) throw new Error('http'); return r.blob(); }).then(function(b){
+      var bu=URL.createObjectURL(b), a=document.createElement('a'); a.href=bu; a.download=nombreArchivo(url);
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      setTimeout(function(){ URL.revokeObjectURL(bu); },6000);
+      btn.removeAttribute('data-busy'); if(tx) tx.textContent=label;
+    }).catch(function(){ window.open(url,'_blank','noopener'); btn.removeAttribute('data-busy'); if(tx) tx.textContent=label; });
   }
-
-  // Search
-  let qTimer;
-  $('srch').addEventListener('input', e => {
-    clearTimeout(qTimer);
-    qTimer = setTimeout(() => { activeQuery = e.target.value; render(); }, 150);
+  var modal=document.getElementById('evModal'), mFrame=document.getElementById('evModalFrame'), mTitle=document.getElementById('evModalTitle');
+  function cerrar(){ modal.classList.remove('open'); mFrame.src='about:blank'; }
+  function ver(btn){
+    var url=btn.getAttribute('data-u');
+    if(window.self!==window.top){ window.open(url,'_blank','noopener'); return; }
+    mFrame.src=url; mTitle.textContent=btn.getAttribute('data-title')||'Documento'; modal.classList.add('open');
+  }
+  document.getElementById('evModalX').addEventListener('click',cerrar);
+  modal.addEventListener('click',function(e){ if(e.target===modal) cerrar(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') cerrar(); });
+  document.addEventListener('click',function(e){
+    var dl=e.target.closest?e.target.closest('.ev-dl'):null; if(dl){ descargar(dl); return; }
+    var v=e.target.closest?e.target.closest('.ev-ver'):null; if(v){ ver(v); return; }
   });
 
-  // Init
-  renderKPIs();
-  render();
+  // Volver arriba
+  var toTop=document.getElementById('evToTop');
+  window.addEventListener('scroll',function(){ var y=window.pageYOffset||document.documentElement.scrollTop; toTop.className='ev-totop'+(y>600?' show':''); });
+  toTop.addEventListener('click',function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+
+  // Auto-altura
+  function reportHeight(){ var h=Math.max(document.body.scrollHeight,document.documentElement.scrollHeight,document.body.offsetHeight); try{ parent.postMessage({type:'gdl-iframe-height',id:'evaluaciones-encuestas-art8-III-f',height:h},'*'); }catch(e){} }
+  window.addEventListener('load',reportHeight);
+  window.addEventListener('resize',reportHeight);
+  setTimeout(reportHeight,400); setTimeout(reportHeight,1200); setTimeout(reportHeight,2600);
+
+  sync(); render();
 })();
 </script>
+
 </body>
 </html>
-
