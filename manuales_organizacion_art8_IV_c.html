@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Los manuales de organización del Ayuntamiento de Guadalajara: el documento que explica cómo está organizada cada dependencia (estructura, áreas, niveles de mando y funciones), más los perfiles de puestos de cada área, para leer y descargar. Art. 8 Fracción IV Inciso c) de la Ley de Transparencia de Jalisco."/>
+<title>¿Cómo está organizada cada oficina del Ayuntamiento de Guadalajara? · Manuales de organización y perfiles de puestos de cada dependencia · Art. 8 Frac. IV Inc. c)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ac:#E87722;--ac-d:#C45F0A;--ac-l:#FFE4CC;--ac-soft:#FFF1E4;--ac-border:#F5C99A;
+  --ink:#2a241d;--ink2:#5a4d3e;--muted:#6f5c47;
+  --bg:#f7f3ec;--card:#ffffff;--line:#e8dec9;
+  --fh:'Outfit',system-ui,-apple-system,sans-serif;--fm:'DM Mono','SF Mono',Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+.mo-wrap{max-width:1080px;margin:0 auto}
+
+/* HERO */
+.mo-hero{background:linear-gradient(135deg,#FFF4E8 0%,#FFFFFF 55%);border-radius:14px;padding:24px 28px;margin:0 0 18px;position:relative;overflow:hidden;border-left:5px solid var(--ac);box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.mo-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.12) 0%,transparent 70%);pointer-events:none}
+.mo-tag{display:inline-block;background:var(--ac);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;position:relative;z-index:1;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.mo-hero h1{margin:0 0 8px;font-size:clamp(22px,3.2vw,29px);font-weight:800;color:var(--ink);letter-spacing:-.015em;line-height:1.18;position:relative;z-index:1}
+.mo-hero h1 em{font-style:normal;color:var(--ac-d)}
+.mo-hero-sub{font-size:14.5px;color:var(--ink2);max-width:90ch;margin:0;line-height:1.6;position:relative;z-index:1}
+.mo-hero-sub strong{color:var(--ink);font-weight:700}
+.mo-cifras{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px;max-width:680px;position:relative;z-index:1}
+.mo-cifra{background:#fff;border:1.5px solid var(--ac-border);border-radius:10px;padding:13px 15px;display:flex;flex-direction:column;gap:2px;transition:border-color .18s,transform .18s}
+.mo-cifra:hover{border-color:var(--ac);transform:translateY(-2px)}
+.mo-cifra-num{font-size:32px;font-weight:800;line-height:1;color:var(--ac-d);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.mo-cifra-lbl{font-size:10.5px;font-weight:700;color:var(--ink2);text-transform:uppercase;letter-spacing:.05em;margin-top:4px;line-height:1.35}
+
+/* TOOLBAR / buscador */
+.mo-toolbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 16px;position:sticky;top:0;background:var(--bg);padding:9px 0;z-index:20}
+.mo-search{position:relative;flex:1;min-width:230px}
+.mo-search svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none}
+.mo-search input{width:100%;padding:12px 14px 12px 40px;border:1.5px solid var(--ac-border);border-radius:10px;font-family:var(--fh);font-size:14px;color:var(--ink);background:#fff;transition:border-color .15s,box-shadow .15s}
+.mo-search input:focus{outline:none;border-color:var(--ac);box-shadow:0 0 0 3px rgba(232,119,34,.14)}
+.mo-count{font-size:12.5px;font-weight:600;color:var(--muted);white-space:nowrap}
+.mo-count b{color:var(--ac-d);font-weight:800;font-family:var(--fm)}
+
+/* SECCIÓN */
+.mo-sec-head{display:flex;align-items:center;gap:11px;margin:22px 2px 12px}
+.mo-sec-ico{flex-shrink:0;width:34px;height:34px;border-radius:9px;background:var(--ac);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 7px rgba(232,119,34,.28)}
+.mo-sec-title{font-size:16px;font-weight:800;color:var(--ink);letter-spacing:-.01em;line-height:1.2}
+.mo-sec-title span{display:block;font-size:11.5px;font-weight:600;color:var(--muted);letter-spacing:0;text-transform:none;margin-top:1px}
+.mo-sec-head::after{content:'';flex:1;height:1.5px;background:var(--line);border-radius:2px;margin-left:4px}
+
+/* LISTA */
+.mo-list{display:flex;flex-direction:column;gap:10px}
+.mo-row{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:0 1px 6px rgba(42,36,29,.04);transition:border-color .15s,box-shadow .15s,background .15s}
+.mo-row:hover{border-color:var(--ac-border);box-shadow:0 6px 18px rgba(42,36,29,.09)}
+.mo-row-ico{flex-shrink:0;width:44px;height:44px;border-radius:11px;background:var(--ac-soft);color:var(--ac-d);display:flex;align-items:center;justify-content:center;border:1px solid var(--ac-border)}
+.mo-row-main{flex:1;min-width:0}
+.mo-row-title{font-size:14.5px;font-weight:700;color:var(--ink);line-height:1.35;letter-spacing:-.005em}
+.mo-row-meta{display:flex;align-items:center;gap:8px 14px;margin-top:7px;flex-wrap:wrap;font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.mo-row-meta .mo-m{display:inline-flex;align-items:center;gap:5px}
+.mo-row-meta .mo-m svg{color:var(--ac);flex-shrink:0}
+.mo-row-meta .mo-m b{color:var(--ink2);font-weight:700}
+.mo-type{font-size:10px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:5px;background:#efe9df;color:var(--muted);white-space:nowrap}
+.mo-row-actions{display:flex;gap:7px;flex-shrink:0;flex-wrap:wrap;justify-content:flex-end}
+.mo-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;font-family:var(--fh);font-size:12.5px;font-weight:700;padding:8px 13px;border-radius:8px;cursor:pointer;border:1.5px solid var(--ac-border);transition:all .13s;white-space:nowrap;text-decoration:none}
+.mo-btn svg{flex-shrink:0}
+.mo-btn-ghost{background:#fff;color:var(--ac-d)}
+.mo-btn-ghost:hover{background:var(--ac-soft);border-color:var(--ac)}
+.mo-btn-solid{background:#fff;color:var(--ac-d);border-color:var(--ac-border)}
+.mo-btn-solid:hover{background:var(--ac);color:#fff;border-color:var(--ac)}
+.mo-btn-solid:hover svg{stroke:#fff}
+.mo-dl[data-busy="1"]{opacity:.55;pointer-events:none}
+
+.mo-empty{display:none;text-align:center;padding:40px 20px;color:var(--muted);font-size:14px}
+.mo-empty.show{display:block}
+.mo-empty strong{color:var(--ac-d)}
+
+/* FOOTER legal */
+.mo-legal{margin:26px 0 0;background:#fff;border:1px solid var(--line);border-top:4px solid var(--ac);border-radius:14px;padding:22px 26px;box-shadow:0 2px 10px rgba(42,36,29,.05)}
+.mo-legal-eyebrow{font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--ac-d);margin-bottom:10px}
+.mo-legal h3{margin:0 0 10px;font-size:16px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+.mo-legal p{margin:0 0 9px;font-size:13px;color:var(--ink2);line-height:1.65}
+.mo-legal p strong{color:var(--ink);font-weight:700}
+.mo-cita{background:var(--bg);border-left:3px solid var(--ac-border);border-radius:0 8px 8px 0;padding:13px 16px;font-size:12.5px;color:var(--muted);line-height:1.6;margin-top:4px}
+.mo-cita b{color:var(--ink);font-weight:700}
+.mo-cita .mo-hl{color:var(--ac-d);font-weight:800;background:var(--ac-soft);padding:1px 4px;border-radius:4px}
+.mo-meta{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:16px;padding:14px 18px;background:var(--bg);border:1px solid var(--line);border-radius:10px}
+.mo-meta-item{display:flex;flex-direction:column;gap:2px}
+.mo-meta-k{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.mo-meta-v{font-size:13px;font-weight:700;color:var(--ink)}
+
+/* BACK TO TOP */
+.mo-totop{position:fixed;right:20px;bottom:20px;width:46px;height:46px;border-radius:50%;background:var(--ac);color:#fff;border:none;box-shadow:0 4px 14px rgba(232,119,34,.45);cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:50}
+.mo-totop.show{opacity:1;pointer-events:auto}
+.mo-totop:hover{transform:translateY(-3px);background:var(--ac-d)}
+
+/* MODAL (solo vista standalone; en Strapi abre pestaña nueva) */
+.mo-modal{position:fixed;inset:0;background:rgba(42,36,29,.72);display:none;align-items:center;justify-content:center;padding:24px;z-index:100;-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
+.mo-modal.open{display:flex}
+.mo-modal-box{background:#fff;border-radius:14px;width:min(980px,100%);height:min(90vh,920px);display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.mo-modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 18px;background:linear-gradient(135deg,var(--ac) 0%,var(--ac-d) 100%);color:#fff}
+.mo-modal-head b{font-size:14px;font-weight:700;line-height:1.3;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mo-modal-x{background:rgba(255,255,255,.18);border:none;color:#fff;width:32px;height:32px;border-radius:8px;cursor:pointer;font-size:18px;line-height:1;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.mo-modal-x:hover{background:rgba(255,255,255,.32)}
+.mo-modal-body{flex:1;background:#f0f0ec;min-height:0}
+.mo-modal-body iframe{width:100%;height:100%;border:0;display:block}
+
+@media (max-width:680px){
+  body{padding:14px}
+  .mo-hero{padding:20px 18px}
+  .mo-cifras{gap:8px}
+  .mo-cifra{padding:10px 9px}
+  .mo-cifra-num{font-size:25px}
+  .mo-cifra-lbl{font-size:9px}
+  .mo-row{flex-wrap:wrap}
+  .mo-row-actions{width:100%;justify-content:flex-start}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<div class="mo-wrap">
+
+  <!-- HERO -->
+  <section class="mo-hero">
+    <span class="mo-tag">Art. 8 · Fracción IV · inciso c) · Ley de Transparencia Jalisco</span>
+    <h1>Los <em>manuales de organización</em> del Ayuntamiento</h1>
+    <p class="mo-hero-sub">¿Cómo está armada cada oficina del Ayuntamiento de Guadalajara? Un <strong>manual de organización</strong> describe la estructura de una dependencia: sus áreas, sus niveles de mando y para qué sirve cada una —es el &laquo;esqueleto&raquo; de cada oficina, explicado a detalle—. Aquí puedes <strong>consultar y descargar</strong> el manual de cada dependencia y, además, los <strong>perfiles de puestos</strong> (qué le toca hacer a cada puesto).</p>
+    <div class="mo-cifras">
+      <div class="mo-cifra"><div class="mo-cifra-num">14</div><div class="mo-cifra-lbl">Manuales de organización</div></div>
+      <div class="mo-cifra"><div class="mo-cifra-num">13</div><div class="mo-cifra-lbl">Perfiles de puestos</div></div>
+      <div class="mo-cifra"><div class="mo-cifra-num">27</div><div class="mo-cifra-lbl">Documentos en total</div></div>
+    </div>
+  </section>
+
+  <!-- TOOLBAR -->
+  <div class="mo-toolbar">
+    <div class="mo-search">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" id="moSearch" placeholder="Busca tu dependencia (ej. Tesorería, Comisaría, Sindicatura)…" aria-label="Buscar dependencia"/>
+    </div>
+    <div class="mo-count" id="moCount">Mostrando <b>27</b> de 27 documentos</div>
+  </div>
+
+  <!-- ============ SECCIÓN 1: MANUALES DE ORGANIZACIÓN ============ -->
+  <div class="mo-sec-head" data-sec="manual">
+    <span class="mo-sec-ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01"/><path d="M9 12v.01"/><path d="M9 15v.01"/><path d="M9 18v.01"/></svg></span>
+    <div class="mo-sec-title">Manuales de organización<span>Cómo está estructurada cada dependencia · 14 documentos</span></div>
+  </div>
+  <div class="mo-list" data-list="manual">
+
+    <div class="mo-row" data-text="presidencia municipal manual organizacion version 04 mayo 2016 actualizado julio 2025">
+      <span class="mo-row-ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg></span>
+      <div class="mo-row-main">
+        <div class="mo-row-title">Presidencia Municipal</div>
+        <div class="mo-row-meta"><span class="mo-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Versión <b>04</b></span><span class="mo-m">Elaborado: <b>Mayo 2016</b></span><span class="mo-m">Actualizado: <b>Julio 2025</b></span><span class="mo-type">PDF · 15 MB</span></div>
+      </div>
+      <div class="mo-row-actions">
+        <button class="mo-btn mo-btn-ghost mo-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ManualOrganizacionPresidenciaMunicipal2025.pdf" data-title="Manual de organización — Presidencia Municipal"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="mo-btn mo-btn-solid mo-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ManualOrganizacionPresidenciaMunicipal2025.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="mo-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <div class="mo-row" data-text="sindicatura manual organizacion version 04 mayo 2016 actualizado abril 2025">
+      <span class="mo-row-ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg></span>
+      <div class="mo-row-main">
+        <div class="mo-row-title">Sindicatura</div>
+        <div class="mo-row-meta"><span class="mo-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Versión <b>04</b></span><span class="mo-m">Elaborado: <b>Mayo 2016</b></span><span class="mo-m">Actualizado: <b>Abril 2025</b></span><span class="mo-type">PDF · 8 MB</span></div>
+      </div>
+      <div class="mo-row-actions">
+        <button class="mo-btn mo-btn-ghost mo-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ManualOrganizacionSindicatura24-27.pdf" data-title="Manual de organización — Sindicatura"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="mo-btn mo-btn-solid mo-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ManualOrganizacionSindicatura24-27.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="mo-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <div class="mo-row" data-text="secretaria general manual organizacion version 04 mayo 2016 actualizado marzo 2025">
+      <span class="mo-row-ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg></span>
+      <div class="mo-row-main">
+        <div class="mo-row-title">Secretaría General</div>
+        <div class="mo-row-meta"><span class="mo-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Versión <b>04</b></span><span class="mo-m">Elaborado: <b>Mayo 2016</b></span><span class="mo-m">Actualizado: <b>Marzo 2025</b></span><span class="mo-type">PDF · 40 MB</span></div>
+      </div>
+      <div class="mo-row-actions">
+        <button class="mo-btn mo-btn-ghost mo-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ManualOrganizacionSecretariaGeneral24-27.pdf" data-title="Manual de organización — Secretaría General"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="mo-btn mo-btn-solid mo-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ManualOrganizacionSecretariaGeneral24-27.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="mo-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <div class="mo-row" data-text="tesoreria manual organizacion version 05 mayo 2016 actualizado abril 2025">
+      <span class="mo-row-ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg></span>
+      <div class="mo-row-main">
+        <div class="mo-row-title">Tesorería</div>
+        <div class="mo-row-meta"><span class="mo-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Versión <b>05</b></span><span class="mo-m">Elaborado: <b>Mayo 2016</b></span><span class="mo-m">Actualizado: <b>Abril 2025</b></span><span class="mo-type">PDF · 5 MB</span></div>
+      </div>
+      <div class="mo-row-actions">
+        <button class="mo-btn mo-btn-ghost mo-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ManualOrganizacionTesoreria24-27.pdf" data-title="Manual de organización — Tesorería"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="mo-btn mo-btn-solid mo-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ManualOrganizacionTesoreria24-27.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="mo-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <div class="mo-row" data-text="contraloria ciudadana manual organizacion version 06 mayo 2016 actualizado octubre 2025">
+      <span class="mo-row-ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg></span>
+      <div class="mo-row-main">
+        <div class="mo-row-title">Contraloría Ciudadana</div>
+        <div class="mo-row-meta"><span class="mo-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Versión <b>06</b></span><span class="mo-m">Elaborado: <b>Mayo 2016</b></span><span class="mo-m">Actualizado: <b>Octubre 2025</b></span><span class="mo-type">PDF · 9 MB</span></div>
+      </div>
+      <div class="mo-row-actions">
+        <button class="mo-btn mo-btn-ghost mo-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ManualOrganizacionContraloriaCiudadana2025.pdf" data-title="Manual de organización — Contraloría Ciudadana"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="mo-btn mo-btn-solid mo-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ManualOrganizacionContraloriaCiudadana2025.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="mo-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <div class="mo-row" data-text="comisaria de seguridad ciudadana de guadalajara manual organizacion version 08 julio 2017 actualizado abril 2025 policia">
+      <span class="mo-row-ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg></span>
+      <div class="mo-row-main">
+        <div class="mo-row-title">Comisaría de Seguridad Ciudadana de Guadalajara</div>
+        <div class="mo-row-meta"><span class="mo-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Versión <b>08</b></span><span class="mo-m">Elaborado: <b>Julio 2017</b></span><span class="mo-m">Actualizado: <b>Abril 2025</b></span><span class="mo-type">PDF · 28 MB</span></div>
+      </div>
+      <div class="mo-row-actions">
+        <button class="mo-btn mo-btn-ghost mo-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ManualOrganizacionComisaria24-27.pdf" data-title="Manual de organización — Comisaría de Seguridad Ciudadana"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="mo-btn mo-btn-solid mo-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ManualOrganizacionComisaria24-27.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="mo-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <div class="mo-row" data-text="coordinacion de administracion e innovacion gubernamental manual organizacion version 06 mayo 2016 actualizado febrero 2025">
+      <span class="mo-row-ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg></span>
+      <div class="mo-row-main">
+        <div class="mo-row-title">Coordinación de Administración e Innovación Gubernamental</div>
+        <div class="mo-row-meta"><span class="mo-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Versión <b>06</b></span><span class="mo-m">Elaborado: <b>Mayo 2016</b></span><span class="mo-m">Actualizado: <b>Febrero 2025</b></span><span class="mo-type">PDF · 19 MB</span></div>
+      </div>
+      <div class="mo-row-actions">
+        <button class="mo-btn mo-btn-ghost mo-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ManualOrganizacionCoordinacionGeneralAdministracionInnovacionGubernamental24-27.pdf" data-title="Manual de organización — Administración e Innovación Gubernamental"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="mo-btn mo-btn-solid mo-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ManualOrganizacionCoordinacionGeneralAdministracionInnovacionGubernamental24-27.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="mo-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <div class="mo-row" data-text="coordinacion general de servicios publicos municipales manual organizacion version 05 mayo 2016 actualizado febrero 2025 basura alumbrado parques">
+      <span class="mo-row-ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg></span>
+      <div class="mo-row-main">
+        <div class="mo-row-title">Coordinación General de Servicios Públicos Municipales</div>
+        <div class="mo-row-meta"><span class="mo-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Versión <b>05</b></span><span class="mo-m">Elaborado: <b>Mayo 2016</b></span><span class="mo-m">Actualizado: <b>Febrero 2025</b></span><span class="mo-type">PDF · 17 MB</span></div>
+      </div>
+      <div class="mo-row-actions">
+        <button class="mo-btn mo-btn-ghost mo-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ManualOrganizacionCoordinacionGeneralServiciosMunicipales24-27.pdf" data-title="Manual de organización — Servicios Públicos Municipales"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="mo-btn mo-btn-solid mo-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ManualOrganizacionCoordinacionGeneralServiciosMunicipales24-27.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="mo-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <div class="mo-row" data-text="coordinacion general de combate a la desigualdad manual organizacion version 03 febrero 2022 actualizado febrero 2025 programas sociales">
+      <span class="mo-row-ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg></span>
+      <div class="mo-row-main">
+        <div class="mo-row-title">Coordinación General de Combate a la Desigualdad</div>
+        <div class="mo-row-meta"><span class="mo-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Versión <b>03</b></span><span class="mo-m">Elaborado: <b>Febrero 2022</b></span><span class="mo-m">Actualizado: <b>Febrero 2025</b></span><span class="mo-type">PDF · 14 MB</span></div>
+      </div>
+      <div class="mo-row-actions">
+        <button class="mo-btn mo-btn-ghost mo-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ManualOrganizacionCoordinacionGeneralCombateDesigualdad24-27.pdf" data-title="Manual de organización — Combate a la Desigualdad"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="mo-btn mo-btn-solid mo-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ManualOrganizacionCoordinacionGeneralCombateDesigualdad24-27.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="mo-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <div class="mo-row" data-text="coordinacion general de desarrollo economico manual organizacion version 04 mayo 2016 actualizado junio 2025">
+      <span class="mo-row-ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg></span>
+      <div class="mo-row-main">
+        <div class="mo-row-title">Coordinación General de Desarrollo Económico</div>
+        <div class="mo-row-meta"><span class="mo-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Versión <b>04</b></span><span class="mo-m">Elaborado: <b>Mayo 2016</b></span><span class="mo-m">Actualizado: <b>Junio 2025</b></span><span class="mo-type">PDF · 43 MB</span></div>
+      </div>
+      <div class="mo-row-actions">
+        <button class="mo-btn mo-btn-ghost mo-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ManualOrganizacionCoordinacionGeneralDesarrolloEconomico24-27.pdf" data-title="Manual de organización — Desarrollo Económico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="mo-btn mo-btn-solid mo-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ManualOrganizacionCoordinacionGeneralDesarrolloEconomico24-27.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="mo-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <div class="mo-row" data-text="coordinacion general de gestion integral de la ciudad manual organizacion version 04 mayo 2016 actualizado mayo 2025 obras movilidad">
+      <span class="mo-row-ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg></span>
+      <div class="mo-row-main">
+        <div class="mo-row-title">Coordinación General de Gestión Integral de la Ciudad</div>
+        <div class="mo-row-meta"><span class="mo-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Versión <b>04</b></span><span class="mo-m">Elaborado: <b>Mayo 2016</b></span><span class="mo-m">Actualizado: <b>Mayo 2025</b></span><span class="mo-type">PDF · 92 MB</span></div>
+      </div>
+      <div class="mo-row-actions">
+        <button class="mo-btn mo-btn-ghost mo-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ManualOrganizacionCoordinacionGeneralGestionIntegralCiudad24-27.pdf" data-title="Manual de organización — Gestión Integral de la Ciudad"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="mo-btn mo-btn-solid mo-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ManualOrganizacionCoordinacionGeneralGestionIntegralCiudad24-27.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="mo-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <div class="mo-row" data-text="coordinacion general de construccion de comunidad manual organizacion version 04 mayo 2016 actualizado septiembre 2025 cultura deporte">
+      <span class="mo-row-ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg></span>
+      <div class="mo-row-main">
+        <div class="mo-row-title">Coordinación General de Construcción de Comunidad</div>
+        <div class="mo-row-meta"><span class="mo-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Versión <b>04</b></span><span class="mo-m">Elaborado: <b>Mayo 2016</b></span><span class="mo-m">Actualizado: <b>Septiembre 2025</b></span><span class="mo-type">PDF · 12 MB</span></div>
+      </div>
+      <div class="mo-row-actions">
+        <button class="mo-btn mo-btn-ghost mo-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ManualOrganizacionCoordinacionConstruccionComunidad2025.pdf" data-title="Manual de organización — Construcción de Comunidad"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="mo-btn mo-btn-solid mo-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ManualOrganizacionCoordinacionConstruccionComunidad2025.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="mo-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <div class="mo-row" data-text="coordinacion general cuidamos guadalajara manual organizacion version 00 mayo 2025 sin actualizacion nuevo">
+      <span class="mo-row-ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg></span>
+      <div class="mo-row-main">
+        <div class="mo-row-title">Coordinación General Cuidamos Guadalajara</div>
+        <div class="mo-row-meta"><span class="mo-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Versión <b>00</b></span><span class="mo-m">Elaborado: <b>Mayo 2025</b></span><span class="mo-m">Sin actualización posterior</span><span class="mo-type">PDF · 8 MB</span></div>
+      </div>
+      <div class="mo-row-actions">
+        <button class="mo-btn mo-btn-ghost mo-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ManualOrganizacionCoordinacionCuidamosGuadalajara24-27.pdf" data-title="Manual de organización — Cuidamos Guadalajara"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="mo-btn mo-btn-solid mo-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ManualOrganizacionCoordinacionCuidamosGuadalajara24-27.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="mo-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <div class="mo-row" data-text="coordinacion general de superintendencia del centro historico manual organizacion version 00 mayo 2025 sin actualizacion nuevo">
+      <span class="mo-row-ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg></span>
+      <div class="mo-row-main">
+        <div class="mo-row-title">Coordinación General de Superintendencia del Centro Histórico</div>
+        <div class="mo-row-meta"><span class="mo-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Versión <b>00</b></span><span class="mo-m">Elaborado: <b>Mayo 2025</b></span><span class="mo-m">Sin actualización posterior</span><span class="mo-type">PDF · 11 MB</span></div>
+      </div>
+      <div class="mo-row-actions">
+        <button class="mo-btn mo-btn-ghost mo-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ManualOrganizacionCoordinacionSuperintendenciaCentroHistorico24-27.pdf" data-title="Manual de organización — Superintendencia del Centro Histórico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="mo-btn mo-btn-solid mo-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/ManualOrganizacionCoordinacionSuperintendenciaCentroHistorico24-27.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="mo-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============ SECCIÓN 2: PERFILES DE PUESTOS ============ -->
+  <div class="mo-sec-head" data-sec="perfil">
+    <span class="mo-sec-ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+    <div class="mo-sec-title">Perfiles de puestos<span>Qué le toca hacer a cada puesto · 13 documentos</span></div>
+  </div>
+  <div class="mo-list" data-list="perfil">
+
+    <div class="mo-row" data-text="comisaria de seguridad ciudadana de guadalajara perfil de puestos descripcion version 00 febrero 2018 policia">
+      <span class="mo-row-ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+      <div class="mo-row-main">
+        <div class="mo-row-title">Comisaría de Seguridad Ciudadana de Guadalajara</div>
+        <div class="mo-row-meta"><span class="mo-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Versión <b>00</b></span><span class="mo-m">Elaborado: <b>Febrero 2018</b></span><span class="mo-m">Sin actualización posterior</span><span class="mo-type">PDF · 18 MB</span></div>
+      </div>
+      <div class="mo-row-actions">
+        <button class="mo-btn mo-btn-ghost mo-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/DescripcionPuestosComisaria.pdf" data-title="Perfil de puestos — Comisaría de Seguridad Ciudadana"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="mo-btn mo-btn-solid mo-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/DescripcionPuestosComisaria.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="mo-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <div class="mo-row" data-text="jefatura de gabinete perfil de puestos descripcion version 00 marzo 2018">
+      <span class="mo-row-ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+      <div class="mo-row-main">
+        <div class="mo-row-title">Jefatura de Gabinete</div>
+        <div class="mo-row-meta"><span class="mo-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Versión <b>00</b></span><span class="mo-m">Elaborado: <b>Marzo 2018</b></span><span class="mo-m">Sin actualización posterior</span><span class="mo-type">PDF · 7 MB</span></div>
+      </div>
+      <div class="mo-row-actions">
+        <button class="mo-btn mo-btn-ghost mo-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/DescripcionPuestosJefaturaGabinete.pdf" data-title="Perfil de puestos — Jefatura de Gabinete"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="mo-btn mo-btn-solid mo-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/DescripcionPuestosJefaturaGabinete.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="mo-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <div class="mo-row" data-text="sindicatura perfil de puestos descripcion version 00 marzo 2018">
+      <span class="mo-row-ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+      <div class="mo-row-main">
+        <div class="mo-row-title">Sindicatura</div>
+        <div class="mo-row-meta"><span class="mo-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Versión <b>00</b></span><span class="mo-m">Elaborado: <b>Marzo 2018</b></span><span class="mo-m">Sin actualización posterior</span><span class="mo-type">PDF · 21 MB</span></div>
+      </div>
+      <div class="mo-row-actions">
+        <button class="mo-btn mo-btn-ghost mo-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/DescripcionPuestosSindicatura.pdf" data-title="Perfil de puestos — Sindicatura"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="mo-btn mo-btn-solid mo-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/DescripcionPuestosSindicatura.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="mo-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <div class="mo-row" data-text="secretaria general perfil de puestos descripcion version 00 mayo 2018">
+      <span class="mo-row-ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+      <div class="mo-row-main">
+        <div class="mo-row-title">Secretaría General</div>
+        <div class="mo-row-meta"><span class="mo-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Versión <b>00</b></span><span class="mo-m">Elaborado: <b>Mayo 2018</b></span><span class="mo-m">Sin actualización posterior</span><span class="mo-type">PDF · 42 MB</span></div>
+      </div>
+      <div class="mo-row-actions">
+        <button class="mo-btn mo-btn-ghost mo-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/DescripcionPuestosSecretariaGeneral.pdf" data-title="Perfil de puestos — Secretaría General"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="mo-btn mo-btn-solid mo-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/DescripcionPuestosSecretariaGeneral.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="mo-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <div class="mo-row" data-text="secretaria particular perfil de puestos descripcion version 00 agosto 2018">
+      <span class="mo-row-ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+      <div class="mo-row-main">
+        <div class="mo-row-title">Secretaría Particular</div>
+        <div class="mo-row-meta"><span class="mo-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Versión <b>00</b></span><span class="mo-m">Elaborado: <b>Agosto 2018</b></span><span class="mo-m">Sin actualización posterior</span><span class="mo-type">PDF · 13 MB</span></div>
+      </div>
+      <div class="mo-row-actions">
+        <button class="mo-btn mo-btn-ghost mo-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/DescripcionPuestosSecretariaParticular.pdf" data-title="Perfil de puestos — Secretaría Particular"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="mo-btn mo-btn-solid mo-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/DescripcionPuestosSecretariaParticular.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="mo-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <div class="mo-row" data-text="tesoreria perfil de puestos descripcion version 00 julio 2018">
+      <span class="mo-row-ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+      <div class="mo-row-main">
+        <div class="mo-row-title">Tesorería</div>
+        <div class="mo-row-meta"><span class="mo-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Versión <b>00</b></span><span class="mo-m">Elaborado: <b>Julio 2018</b></span><span class="mo-m">Sin actualización posterior</span><span class="mo-type">PDF · 22 MB</span></div>
+      </div>
+      <div class="mo-row-actions">
+        <button class="mo-btn mo-btn-ghost mo-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/DescripcionPuestosTesoreria.pdf" data-title="Perfil de puestos — Tesorería"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="mo-btn mo-btn-solid mo-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/DescripcionPuestosTesoreria.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="mo-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <div class="mo-row" data-text="contraloria ciudadana perfil de puestos descripcion version 00 febrero 2018">
+      <span class="mo-row-ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+      <div class="mo-row-main">
+        <div class="mo-row-title">Contraloría Ciudadana</div>
+        <div class="mo-row-meta"><span class="mo-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Versión <b>00</b></span><span class="mo-m">Elaborado: <b>Febrero 2018</b></span><span class="mo-m">Sin actualización posterior</span><span class="mo-type">PDF · 13 MB</span></div>
+      </div>
+      <div class="mo-row-actions">
+        <button class="mo-btn mo-btn-ghost mo-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/DescripcionPuestosContraloria.pdf" data-title="Perfil de puestos — Contraloría Ciudadana"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="mo-btn mo-btn-solid mo-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/DescripcionPuestosContraloria.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="mo-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <div class="mo-row" data-text="coordinacion de administracion e innovacion gubernamental perfil de puestos descripcion version 00 abril 2018">
+      <span class="mo-row-ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+      <div class="mo-row-main">
+        <div class="mo-row-title">Coordinación de Administración e Innovación Gubernamental</div>
+        <div class="mo-row-meta"><span class="mo-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Versión <b>00</b></span><span class="mo-m">Elaborado: <b>Abril 2018</b></span><span class="mo-m">Sin actualización posterior</span><span class="mo-type">PDF · 52 MB</span></div>
+      </div>
+      <div class="mo-row-actions">
+        <button class="mo-btn mo-btn-ghost mo-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/DescripcionPuestosAdministracionInnovacion.pdf" data-title="Perfil de puestos — Administración e Innovación Gubernamental"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="mo-btn mo-btn-solid mo-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/DescripcionPuestosAdministracionInnovacion.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="mo-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <div class="mo-row" data-text="coordinacion general de servicios publicos municipales perfil de puestos descripcion version 00 febrero 2018">
+      <span class="mo-row-ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+      <div class="mo-row-main">
+        <div class="mo-row-title">Coordinación General de Servicios Públicos Municipales</div>
+        <div class="mo-row-meta"><span class="mo-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Versión <b>00</b></span><span class="mo-m">Elaborado: <b>Febrero 2018</b></span><span class="mo-m">Sin actualización posterior</span><span class="mo-type">PDF · 77 MB</span></div>
+      </div>
+      <div class="mo-row-actions">
+        <button class="mo-btn mo-btn-ghost mo-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/DescripcionPuestosServiciosMunicipales.pdf" data-title="Perfil de puestos — Servicios Públicos Municipales"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="mo-btn mo-btn-solid mo-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/DescripcionPuestosServiciosMunicipales.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="mo-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <div class="mo-row" data-text="coordinacion general de desarrollo economico y combate a la desigualdad perfil de puestos descripcion version 00 mayo 2018">
+      <span class="mo-row-ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+      <div class="mo-row-main">
+        <div class="mo-row-title">Coordinación General de Desarrollo Económico y Combate a la Desigualdad</div>
+        <div class="mo-row-meta"><span class="mo-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Versión <b>00</b></span><span class="mo-m">Elaborado: <b>Mayo 2018</b></span><span class="mo-m">Sin actualización posterior</span><span class="mo-type">PDF · 48 MB</span></div>
+      </div>
+      <div class="mo-row-actions">
+        <button class="mo-btn mo-btn-ghost mo-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/DescripcionPuestosDesarrolloEconomico.pdf" data-title="Perfil de puestos — Desarrollo Económico y Combate a la Desigualdad"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="mo-btn mo-btn-solid mo-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/DescripcionPuestosDesarrolloEconomico.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="mo-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <div class="mo-row" data-text="coordinacion general de gestion integral de la ciudad perfil de puestos descripcion version 00 junio 2018">
+      <span class="mo-row-ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+      <div class="mo-row-main">
+        <div class="mo-row-title">Coordinación General de Gestión Integral de la Ciudad</div>
+        <div class="mo-row-meta"><span class="mo-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Versión <b>00</b></span><span class="mo-m">Elaborado: <b>Junio 2018</b></span><span class="mo-m">Sin actualización posterior</span><span class="mo-type">PDF · 57 MB</span></div>
+      </div>
+      <div class="mo-row-actions">
+        <button class="mo-btn mo-btn-ghost mo-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/DescripcionPuestosGestionIntegralCiudad.pdf" data-title="Perfil de puestos — Gestión Integral de la Ciudad"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="mo-btn mo-btn-solid mo-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/DescripcionPuestosGestionIntegralCiudad.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="mo-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <div class="mo-row" data-text="coordinacion general de construccion de comunidad perfil de puestos descripcion version 00 febrero 2018">
+      <span class="mo-row-ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+      <div class="mo-row-main">
+        <div class="mo-row-title">Coordinación General de Construcción de Comunidad</div>
+        <div class="mo-row-meta"><span class="mo-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Versión <b>00</b></span><span class="mo-m">Elaborado: <b>Febrero 2018</b></span><span class="mo-m">Sin actualización posterior</span><span class="mo-type">PDF · 61 MB</span></div>
+      </div>
+      <div class="mo-row-actions">
+        <button class="mo-btn mo-btn-ghost mo-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/DescripcionPuestosConstruccionComunidad.pdf" data-title="Perfil de puestos — Construcción de Comunidad"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="mo-btn mo-btn-solid mo-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/DescripcionPuestosConstruccionComunidad.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="mo-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <div class="mo-row" data-text="coordinacion de comunicacion y analisis estrategico perfil de puestos descripcion version 00 marzo 2018">
+      <span class="mo-row-ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+      <div class="mo-row-main">
+        <div class="mo-row-title">Coordinación de Comunicación y Análisis Estratégico</div>
+        <div class="mo-row-meta"><span class="mo-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Versión <b>00</b></span><span class="mo-m">Elaborado: <b>Marzo 2018</b></span><span class="mo-m">Sin actualización posterior</span><span class="mo-type">PDF · 12 MB</span></div>
+      </div>
+      <div class="mo-row-actions">
+        <button class="mo-btn mo-btn-ghost mo-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/DescripcionPuestosComunicacionAnalisisEstrategico.pdf" data-title="Perfil de puestos — Comunicación y Análisis Estratégico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="mo-btn mo-btn-solid mo-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/DescripcionPuestosComunicacionAnalisisEstrategico.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="mo-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="mo-empty" id="moEmpty">No encontramos ninguna dependencia con esa búsqueda. Intenta con otro nombre (por ejemplo, <strong>Tesorería</strong> o <strong>Comisaría</strong>).</div>
+
+  <!-- FUNDAMENTO LEGAL -->
+  <footer class="mo-legal">
+    <div class="mo-legal-eyebrow">Fundamento legal</div>
+    <h3>¿Por qué se publica esta información?</h3>
+    <p>La <strong>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</strong> obliga a los sujetos obligados a difundir su información de planeación estratégica. Esta página corresponde, de forma íntegra, al siguiente fundamento:</p>
+    <div class="mo-cita">
+      <b>Artículo 8.</b> Es información fundamental, obligatoria para todos los sujetos obligados, la siguiente: [&hellip;]<br/>
+      <b>IV.</b> La información sobre la planeación estratégica gubernamental aplicable al y por el sujeto obligado, que comprende:<br/>
+      a) El Plan General Institucional del poder, organismo o municipio correspondiente, con las modificaciones de cuando menos los últimos tres años; b) Los programas operativos anuales, de cuando menos los últimos tres años; <span class="mo-hl">c) Los manuales de organización;</span> d) Los manuales de operación; e) Los manuales de procedimientos; f) Los manuales de servicios; g) Los protocolos; h) Los indicadores que permitan rendir cuenta de sus objetivos y resultados; y i) Los demás instrumentos normativos internos aplicables.
+    </div>
+    <p style="margin-top:12px">Junto con los manuales de organización, en este apartado el sujeto obligado también pone a disposición los <strong>perfiles de puestos</strong> de sus dependencias. Los documentos, versiones, fechas y datos son los oficiales tal como fueron publicados por el sujeto obligado; en caso de cualquier discrepancia, prevalece el documento oficial.</p>
+    <div class="mo-meta">
+      <div class="mo-meta-item"><span class="mo-meta-k">Unidad administrativa responsable</span><span class="mo-meta-v">Dirección de Innovación Gubernamental</span></div>
+      <div class="mo-meta-item"><span class="mo-meta-k">Fecha de validación y actualización</span><span class="mo-meta-v">04 de mayo de 2026</span></div>
+      <div class="mo-meta-item"><span class="mo-meta-k">Documentos publicados</span><span class="mo-meta-v">14 manuales de organización · 13 perfiles de puestos</span></div>
+    </div>
+  </footer>
+
+</div>
+
+<button class="mo-totop" id="moToTop" type="button" aria-label="Volver arriba"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg></button>
+
+<!-- MODAL (solo vista standalone; en Strapi abre pestaña nueva) -->
+<div class="mo-modal" id="moModal" role="dialog" aria-modal="true">
+  <div class="mo-modal-box">
+    <div class="mo-modal-head">
+      <b id="moModalTitle">Documento</b>
+      <button class="mo-modal-x" id="moModalX" type="button" aria-label="Cerrar">&times;</button>
+    </div>
+    <div class="mo-modal-body"><iframe id="moModalFrame" src="about:blank" title="Vista del documento"></iframe></div>
+  </div>
+</div>
+
+<script>
+/* ==========================================================================
+   Los manuales de organización · Art. 8 Frac. IV Inc. c) · Ley de Transparencia Jalisco
+   27 documentos verificados HTTP 200: 14 Manuales de Organización + 13 Perfiles de
+   Puestos. Dependencias, versiones, fechas y enlaces tomados verbatim de la fuente
+   /manualesorganizacion. Unidad responsable: Dirección de Innovación Gubernamental.
+   Filas escritas fijas en el HTML (no generadas por JS) para que siempre se muestren.
+   Vanilla JS, sin template literals, compatible con Strapi v4.
+   ========================================================================== */
+(function(){
+  var COMB = new RegExp('[' + String.fromCharCode(768) + '-' + String.fromCharCode(879) + ']', 'g');
+  function norm(s){ return (s||'').toLowerCase().normalize('NFD').replace(COMB, ''); }
+
+  /* ---- Buscador (filtra por dependencia en ambas secciones) ---- */
+  var input = document.getElementById('moSearch');
+  var rows = Array.prototype.slice.call(document.querySelectorAll('.mo-row'));
+  var lists = Array.prototype.slice.call(document.querySelectorAll('.mo-list'));
+  var secHeads = Array.prototype.slice.call(document.querySelectorAll('.mo-sec-head'));
+  var total = rows.length;
+  var count = document.getElementById('moCount');
+  var empty = document.getElementById('moEmpty');
+  function filtrar(){
+    var q = norm(input.value.trim());
+    var toks = q.split(/\s+/).filter(Boolean);
+    var vis = 0;
+    for (var i=0;i<rows.length;i++){
+      var t = norm(rows[i].getAttribute('data-text') || '');
+      var ok = true;
+      for (var j=0;j<toks.length;j++){ if (t.indexOf(toks[j]) === -1){ ok = false; break; } }
+      rows[i].style.display = ok ? '' : 'none';
+      if (ok) vis++;
+    }
+    /* ocultar el encabezado de una sección si todas sus filas quedaron ocultas */
+    lists.forEach(function(list, k){
+      var any = list.querySelector('.mo-row:not([style*="display: none"])');
+      var visibleInList = Array.prototype.slice.call(list.querySelectorAll('.mo-row')).some(function(r){ return r.style.display !== 'none'; });
+      list.style.display = visibleInList ? '' : 'none';
+      if (secHeads[k]) secHeads[k].style.display = visibleInList ? '' : 'none';
+    });
+    count.innerHTML = 'Mostrando <b>' + vis + '</b> de ' + total + ' documentos';
+    empty.className = 'mo-empty' + (vis === 0 ? ' show' : '');
+    reportHeight();
+  }
+  if (input){ input.addEventListener('input', filtrar); }
+
+  /* ---- Nombre de archivo ---- */
+  function nombreArchivo(u){
+    try { var p = u.split('?')[0].split('#')[0].split('/'); var n = decodeURIComponent(p[p.length - 1]); return n || 'documento'; }
+    catch (e){ return 'documento'; }
+  }
+
+  /* ---- Descargar (fetch+blob con respaldo a pestaña nueva) ---- */
+  var EN_IFRAME = (function(){ try { return window.self !== window.top; } catch(e){ return true; } })();
+  function descargar(btn){
+    if (btn.getAttribute('data-busy') === '1') return;
+    var url = btn.getAttribute('data-u');
+    var tx = btn.querySelector('.mo-dl-tx');
+    var label = tx ? tx.textContent : '';
+    btn.setAttribute('data-busy','1'); if (tx){ tx.textContent = 'Descargando…'; }
+    fetch(url).then(function(res){ if (!res.ok){ throw new Error('http'); } return res.blob(); }).then(function(blob){
+      var burl = URL.createObjectURL(blob);
+      var a = document.createElement('a'); a.href = burl; a.download = nombreArchivo(url);
+      if (EN_IFRAME){ a.target = '_blank'; a.rel = 'noopener'; }
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      setTimeout(function(){ URL.revokeObjectURL(burl); }, EN_IFRAME ? 60000 : 6000);
+      btn.removeAttribute('data-busy'); if (tx){ tx.textContent = label; }
+    }).catch(function(){
+      window.open(url, '_blank', 'noopener');
+      btn.removeAttribute('data-busy'); if (tx){ tx.textContent = label; }
+    });
+  }
+
+  /* ---- Ver (modal en standalone / pestaña nueva dentro de Strapi) ---- */
+  var modal = document.getElementById('moModal');
+  var modalFrame = document.getElementById('moModalFrame');
+  var modalTitle = document.getElementById('moModalTitle');
+  function cerrarModal(){ if (modal){ modal.classList.remove('open'); if (modalFrame){ modalFrame.src = 'about:blank'; } } }
+  function ver(btn){
+    var url = btn.getAttribute('data-u');
+    if (EN_IFRAME){ window.open(url, '_blank', 'noopener'); return; }
+    if (modalFrame){ modalFrame.src = url; }
+    if (modalTitle){ modalTitle.textContent = btn.getAttribute('data-title') || 'Documento'; }
+    if (modal){ modal.classList.add('open'); }
+  }
+  var mx = document.getElementById('moModalX');
+  if (mx){ mx.addEventListener('click', cerrarModal); }
+  if (modal){ modal.addEventListener('click', function(e){ if (e.target === modal){ cerrarModal(); } }); }
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ cerrarModal(); } });
+
+  /* ---- Delegación de clics ---- */
+  document.addEventListener('click', function(e){
+    var dl = e.target.closest ? e.target.closest('.mo-dl') : null;
+    if (dl){ descargar(dl); return; }
+    var v = e.target.closest ? e.target.closest('.mo-ver') : null;
+    if (v){ ver(v); return; }
+  });
+
+  /* ---- Volver arriba ---- */
+  var toTop = document.getElementById('moToTop');
+  function onScroll(){ if (!toTop) return; var y = window.pageYOffset || document.documentElement.scrollTop; toTop.className = 'mo-totop' + (y > 500 ? ' show' : ''); }
+  window.addEventListener('scroll', onScroll);
+  if (toTop){ toTop.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: 'smooth' }); }); }
+
+  /* ---- Auto-altura para Strapi ---- */
+  function reportHeight(){
+    var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight);
+    try { parent.postMessage({ type: 'gdl-iframe-height', id: 'manuales-organizacion-art8-IV-c', height: h }, '*'); } catch (e){}
+  }
+  window.addEventListener('load', reportHeight);
+  window.addEventListener('resize', reportHeight);
+  setTimeout(reportHeight, 400); setTimeout(reportHeight, 1200); setTimeout(reportHeight, 2500);
+})();
+</script>
+
+</body>
+</html>
