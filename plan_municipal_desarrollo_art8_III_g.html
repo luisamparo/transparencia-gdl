@@ -493,30 +493,130 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
       frame.hidden = false; frame.src = url + (url.indexOf('#') > -1 ? '' : '#view=FitH');
     });
   }
+  /* ===== Posicionar el visor en la franja REALMENTE visible =====
+     En Strapi el iframe se expande a la altura total del contenido (auto-alto):
+     no tiene scroll propio, así que position:fixed cubriría TODO el documento en
+     vez de la pantalla, y el visor terminaba apareciendo lejos de donde el
+     usuario hizo clic. Para abrirlo justo donde se está mirando, por orden:
+       1) si el contenedor (Strapi) nos manda su viewport (gdl-viewport), lo
+          usamos y el visor incluso sigue el scroll de la página;
+       2) si no, medimos la franja visible con IntersectionObserver, que SÍ
+          cruza la frontera del iframe (aunque sea de otro dominio);
+       3) si nada responde, lo anclamos al botón con una altura prudente.
+     Fuera de un iframe se usa el centrado normal (position:fixed del CSS).        */
+  var PARENT_VP = null;   // { bandTop, bandH } enviado por el contenedor, si lo hace
+  var _sentinel = null;   // medidor invisible de altura completa para IntersectionObserver
+
+  function docHeight(){ return Math.max(document.documentElement.scrollHeight, document.body.scrollHeight); }
+
+  function applyBand(band){
+    if (!modalBox || !band) return;
+    var docH = docHeight();
+    var m = 12;
+    var H = band.bandH - m * 2;
+    if (H > 900) H = 900;                       // no estirarlo de más en pantallas altas
+    if (H < 300) H = Math.max(260, band.bandH - m * 2);
+    var top = band.bandTop + Math.max(m, (band.bandH - H) / 2);
+    if (top + H > docH) top = docH - H - m;
+    if (top < 0) top = 0;
+    modal.style.position = 'absolute';
+    modal.style.top = '0'; modal.style.left = '0'; modal.style.right = 'auto'; modal.style.bottom = 'auto';
+    modal.style.width = '100%'; modal.style.height = docH + 'px';
+    modal.style.alignItems = 'flex-start';
+    modal.style.padding = '0 10px';
+    modalBox.style.height = Math.round(H) + 'px';
+    modalBox.style.marginTop = Math.round(top) + 'px';
+  }
+
+  function provisionalBand(anchorEl){
+    var docH = docHeight();
+    var top = 16;
+    if (anchorEl && anchorEl.getBoundingClientRect){
+      var r = anchorEl.getBoundingClientRect();
+      top = (r.top + (window.pageYOffset || 0)) - 80;   // un poco arriba del botón pulsado
+    }
+    if (top < 0) top = 0;
+    applyBand({ bandTop: top, bandH: Math.min(620, docH) });
+  }
+
+  /* La franja medida sólo es de fiar si contiene al botón que el usuario pulsó
+     (ese botón estaba visible, así que la franja visible real lo incluye). Si no,
+     se descarta y se mantiene la posición provisional anclada al botón. */
+  function bandPlausible(band, anchorY){
+    if (!band) return false;
+    if (!(band.bandH > 120 && band.bandH < 4000)) return false;
+    if (!(band.bandTop >= 0)) return false;
+    if (anchorY != null && isFinite(anchorY)){
+      if (anchorY < band.bandTop - 80 || anchorY > band.bandTop + band.bandH + 80) return false;
+    }
+    return true;
+  }
+
+  function measureBandIO(cb){
+    if (!('IntersectionObserver' in window)){ cb(null); return; }
+    var docH = docHeight();
+    if (!_sentinel){
+      _sentinel = document.createElement('div');
+      _sentinel.setAttribute('aria-hidden', 'true');
+      _sentinel.style.cssText = 'position:absolute;left:0;top:0;width:1px;pointer-events:none;opacity:0;z-index:-1';
+      document.body.appendChild(_sentinel);
+    }
+    _sentinel.style.height = docH + 'px';
+    var done = false, io;
+    function finish(band){ if (done) return; done = true; try { io.disconnect(); } catch(e){} cb(band); }
+    try {
+      io = new IntersectionObserver(function(entries){
+        var e = entries[entries.length - 1]; if (!e) return;
+        var br = e.boundingClientRect, ir = e.intersectionRect;
+        var h = ir.height, topDoc = ir.top - br.top;   // franja visible en coords del documento
+        if (h > 60 && isFinite(topDoc)) finish({ bandTop: Math.max(0, topDoc), bandH: h });
+        else finish(null);
+      }, { threshold: [0, 0.0001, 0.25, 0.5, 0.75, 1] });
+      io.observe(_sentinel);
+      setTimeout(function(){ finish(null); }, 180);     // por si IO no responde
+    } catch(e){ cb(null); }
+  }
+
+  /* Si el contenedor (Strapi) coopera y nos envía su viewport, lo usamos:
+     el visor queda perfecto y además sigue el scroll de la página. */
+  window.addEventListener('message', function(e){
+    var d = e && e.data;
+    if (!d || d.type !== 'gdl-viewport') return;
+    if (d.id && d.id !== 'plan-municipal-desarrollo-art8-III-g') return;
+    var bandTop = +d.bandTop, bandH = +d.bandH;
+    if (isFinite(bandTop) && isFinite(bandH) && bandH > 60){
+      PARENT_VP = { bandTop: bandTop, bandH: bandH };
+      if (modal.classList.contains('open')) applyBand(PARENT_VP);
+    }
+  });
+
   function openViewer(url, label, anchorEl){
     curUrl = url;
     document.getElementById('rgModalSub').textContent = label || '';
     document.getElementById('rgModalOpen').href = url;
-    if (EN_IFRAME && modalBox){
-      var sh = (window.screen && window.screen.availHeight) ? window.screen.availHeight : 850;
-      var H = Math.max(600, Math.min(Math.round(sh * 0.82), 880));
-      var docH = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
-      modal.style.position = 'absolute';
-      modal.style.top = '0'; modal.style.left = '0'; modal.style.right = 'auto'; modal.style.bottom = 'auto';
-      modal.style.width = '100%'; modal.style.height = docH + 'px';
-      modal.style.alignItems = 'flex-start';
-      modal.style.padding = '10px';
-      modalBox.style.height = H + 'px';
-      var topPx = 16;
-      if (anchorEl && anchorEl.getBoundingClientRect){
-        var rect = anchorEl.getBoundingClientRect();
-        var anchorTop = rect.top + window.pageYOffset - 8;
-        topPx = Math.max(10, Math.min(anchorTop, docH - H - 10));
-      }
-      modalBox.style.marginTop = topPx + 'px';
-    }
+
+    var EXPANDED = EN_IFRAME && (window.innerHeight >= (docHeight() - 16));
+
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
+
+    if (EXPANDED){
+      var anchorY = (anchorEl && anchorEl.getBoundingClientRect)
+        ? (anchorEl.getBoundingClientRect().top + (window.pageYOffset || 0)) : null;
+      if (PARENT_VP && bandPlausible(PARENT_VP, anchorY)){
+        applyBand(PARENT_VP);                       // dato fresco del contenedor: perfecto
+      } else {
+        provisionalBand(anchorEl);                 // algo aparece ya, anclado al botón
+        measureBandIO(function(band){              // y se afina a la franja visible real
+          if (!modal.classList.contains('open')) return;
+          if (bandPlausible(band, anchorY)) applyBand(band);
+          else if (PARENT_VP && bandPlausible(PARENT_VP, anchorY)) applyBand(PARENT_VP);
+          // si no, se mantiene la posición provisional (ya aplicada)
+        });
+      }
+      try { parent.postMessage({ type:'gdl-request-viewport', id:'plan-municipal-desarrollo-art8-III-g' }, '*'); } catch(e){}
+    }
+
     loadDocIntoViewer(url);
   }
   function closeViewer(){
@@ -532,6 +632,7 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
       modal.style.padding = '';
       modalBox.style.height = ''; modalBox.style.marginTop = '';
     }
+    if (_sentinel){ _sentinel.style.height = '0'; }
   }
   frame.addEventListener('load', function(){ if (!frame.hidden && frame.src && frame.src!=='about:blank') loading.classList.add('hide'); });
   var zIn = document.getElementById('rgZoomIn'), zOut = document.getElementById('rgZoomOut');
