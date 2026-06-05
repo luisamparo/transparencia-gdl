@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Los manuales de operación del Ayuntamiento de Guadalajara: la información oficial sobre estos manuales —el manual de operación específico de Agentes de Movilidad y los oficios en los que el municipio informa, ejercicio por ejercicio, que no cuenta con manuales de operación generales (función que cumplen los manuales de procedimientos)—. Art. 8 Fracción IV Inciso d) de la Ley de Transparencia de Jalisco."/>
+<title>¿Qué manuales de operación tiene el Ayuntamiento de Guadalajara? · El manual de Agentes de Movilidad y los oficios oficiales por ejercicio (2021–2024) · Art. 8 Frac. IV Inc. d)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ac:#E87722;--ac-d:#C45F0A;--ac-l:#FFE4CC;--ac-soft:#FFF1E4;--ac-border:#F5C99A;
+  --ink:#2a241d;--ink2:#5a4d3e;--muted:#6f5c47;
+  --bg:#f7f3ec;--card:#ffffff;--line:#e8dec9;
+  --fh:'Outfit',system-ui,-apple-system,sans-serif;--fm:'DM Mono','SF Mono',Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+.op-wrap{max-width:1080px;margin:0 auto}
+
+/* HERO */
+.op-hero{background:linear-gradient(135deg,#FFF4E8 0%,#FFFFFF 55%);border-radius:14px;padding:24px 28px;margin:0 0 18px;position:relative;overflow:hidden;border-left:5px solid var(--ac);box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.op-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.12) 0%,transparent 70%);pointer-events:none}
+.op-tag{display:inline-block;background:var(--ac);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;position:relative;z-index:1;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.op-hero h1{margin:0 0 8px;font-size:clamp(22px,3.2vw,29px);font-weight:800;color:var(--ink);letter-spacing:-.015em;line-height:1.18;position:relative;z-index:1}
+.op-hero h1 em{font-style:normal;color:var(--ac-d)}
+.op-hero-sub{font-size:14.5px;color:var(--ink2);max-width:92ch;margin:0;line-height:1.6;position:relative;z-index:1}
+.op-hero-sub strong{color:var(--ink);font-weight:700}
+.op-cifras{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px;max-width:640px;position:relative;z-index:1}
+.op-cifra{background:#fff;border:1.5px solid var(--ac-border);border-radius:10px;padding:13px 15px;display:flex;flex-direction:column;gap:2px}
+.op-cifra-num{font-size:32px;font-weight:800;line-height:1;color:var(--ac-d);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.op-cifra-lbl{font-size:10.5px;font-weight:700;color:var(--ink2);text-transform:uppercase;letter-spacing:.05em;margin-top:4px;line-height:1.35}
+
+/* NOTA EXPLICATIVA (honesta) */
+.op-note{display:flex;gap:14px;align-items:flex-start;background:var(--ac-soft);border:1.5px solid var(--ac-border);border-left:5px solid var(--ac);border-radius:14px;padding:18px 22px;margin:0 0 20px}
+.op-note-ico{flex-shrink:0;width:42px;height:42px;border-radius:11px;background:#fff;color:var(--ac-d);display:flex;align-items:center;justify-content:center;border:1px solid var(--ac-border)}
+.op-note h3{margin:0 0 6px;font-size:15px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+.op-note p{margin:0 0 7px;font-size:13px;color:var(--ink2);line-height:1.62}
+.op-note p:last-child{margin-bottom:0}
+.op-note p strong{color:var(--ink);font-weight:700}
+.op-note .op-quote{font-style:italic;color:var(--muted);border-left:2px solid var(--ac-border);padding-left:10px;margin:7px 0}
+
+/* SECCIÓN */
+.op-sec-head{display:flex;align-items:center;gap:11px;margin:22px 2px 12px}
+.op-sec-ico{flex-shrink:0;width:34px;height:34px;border-radius:9px;background:var(--ac);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 7px rgba(232,119,34,.28)}
+.op-sec-title{font-size:16px;font-weight:800;color:var(--ink);letter-spacing:-.01em;line-height:1.2}
+.op-sec-title span{display:block;font-size:11.5px;font-weight:600;color:var(--muted);letter-spacing:0;text-transform:none;margin-top:1px}
+.op-sec-head::after{content:'';flex:1;height:1.5px;background:var(--line);border-radius:2px;margin-left:4px}
+
+/* LISTA */
+.op-list{display:flex;flex-direction:column;gap:10px}
+.op-row{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:0 1px 6px rgba(42,36,29,.04);transition:border-color .15s,box-shadow .15s}
+.op-row:hover{border-color:var(--ac-border);box-shadow:0 6px 18px rgba(42,36,29,.09)}
+.op-row-ico{flex-shrink:0;width:44px;height:44px;border-radius:11px;background:var(--ac-soft);color:var(--ac-d);display:flex;align-items:center;justify-content:center;border:1px solid var(--ac-border)}
+.op-row-main{flex:1;min-width:0}
+.op-row-title{font-size:14.5px;font-weight:700;color:var(--ink);line-height:1.35;letter-spacing:-.005em}
+.op-row-desc{font-size:12px;color:var(--muted);line-height:1.5;margin-top:5px}
+.op-row-desc strong{color:var(--ink2);font-weight:600}
+.op-row-meta{display:flex;align-items:center;gap:8px 14px;margin-top:7px;flex-wrap:wrap;font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.op-row-meta .op-m{display:inline-flex;align-items:center;gap:5px}
+.op-row-meta .op-m svg{color:var(--ac);flex-shrink:0}
+.op-row-meta .op-m b{color:var(--ink2);font-weight:700}
+.op-type{font-size:10px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:5px;background:#efe9df;color:var(--muted);white-space:nowrap}
+.op-row-actions{display:flex;gap:7px;flex-shrink:0;flex-wrap:wrap;justify-content:flex-end}
+.op-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;font-family:var(--fh);font-size:12.5px;font-weight:700;padding:8px 13px;border-radius:8px;cursor:pointer;border:1.5px solid var(--ac-border);transition:all .13s;white-space:nowrap;text-decoration:none}
+.op-btn svg{flex-shrink:0}
+.op-btn-ghost{background:#fff;color:var(--ac-d)}
+.op-btn-ghost:hover{background:var(--ac-soft);border-color:var(--ac)}
+.op-btn-solid{background:#fff;color:var(--ac-d);border-color:var(--ac-border)}
+.op-btn-solid:hover{background:var(--ac);color:#fff;border-color:var(--ac)}
+.op-btn-solid:hover svg{stroke:#fff}
+.op-dl[data-busy="1"]{opacity:.55;pointer-events:none}
+
+/* TOOLBAR / buscador */
+.op-toolbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 6px}
+.op-search{position:relative;flex:1;min-width:230px}
+.op-search svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none}
+.op-search input{width:100%;padding:12px 14px 12px 40px;border:1.5px solid var(--ac-border);border-radius:10px;font-family:var(--fh);font-size:14px;color:var(--ink);background:#fff;transition:border-color .15s,box-shadow .15s}
+.op-search input:focus{outline:none;border-color:var(--ac);box-shadow:0 0 0 3px rgba(232,119,34,.14)}
+.op-count{font-size:12.5px;font-weight:600;color:var(--muted);white-space:nowrap}
+.op-count b{color:var(--ac-d);font-weight:800;font-family:var(--fm)}
+.op-empty{display:none;text-align:center;padding:34px 20px;color:var(--muted);font-size:14px}
+.op-empty.show{display:block}
+.op-empty strong{color:var(--ac-d)}
+
+/* FOOTER legal */
+.op-legal{margin:26px 0 0;background:#fff;border:1px solid var(--line);border-top:4px solid var(--ac);border-radius:14px;padding:22px 26px;box-shadow:0 2px 10px rgba(42,36,29,.05)}
+.op-legal-eyebrow{font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--ac-d);margin-bottom:10px}
+.op-legal h3{margin:0 0 10px;font-size:16px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+.op-legal p{margin:0 0 9px;font-size:13px;color:var(--ink2);line-height:1.65}
+.op-legal p strong{color:var(--ink);font-weight:700}
+.op-cita{background:var(--bg);border-left:3px solid var(--ac-border);border-radius:0 8px 8px 0;padding:13px 16px;font-size:12.5px;color:var(--muted);line-height:1.6;margin-top:4px}
+.op-cita b{color:var(--ink);font-weight:700}
+.op-cita .op-hl{color:var(--ac-d);font-weight:800;background:var(--ac-soft);padding:1px 4px;border-radius:4px}
+.op-meta{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:16px;padding:14px 18px;background:var(--bg);border:1px solid var(--line);border-radius:10px}
+.op-meta-item{display:flex;flex-direction:column;gap:2px}
+.op-meta-k{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.op-meta-v{font-size:13px;font-weight:700;color:var(--ink)}
+
+/* BACK TO TOP */
+.op-totop{position:fixed;right:20px;bottom:20px;width:46px;height:46px;border-radius:50%;background:var(--ac);color:#fff;border:none;box-shadow:0 4px 14px rgba(232,119,34,.45);cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:50}
+.op-totop.show{opacity:1;pointer-events:auto}
+.op-totop:hover{transform:translateY(-3px);background:var(--ac-d)}
+
+/* MODAL (solo vista standalone; en Strapi abre pestaña nueva) */
+.op-modal{position:fixed;inset:0;background:rgba(42,36,29,.72);display:none;align-items:center;justify-content:center;padding:24px;z-index:100;-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
+.op-modal.open{display:flex}
+.op-modal-box{background:#fff;border-radius:14px;width:min(980px,100%);height:min(90vh,920px);display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.op-modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 18px;background:linear-gradient(135deg,var(--ac) 0%,var(--ac-d) 100%);color:#fff}
+.op-modal-head b{font-size:14px;font-weight:700;line-height:1.3;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.op-modal-x{background:rgba(255,255,255,.18);border:none;color:#fff;width:32px;height:32px;border-radius:8px;cursor:pointer;font-size:18px;line-height:1;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.op-modal-x:hover{background:rgba(255,255,255,.32)}
+.op-modal-body{flex:1;background:#f0f0ec;min-height:0}
+.op-modal-body iframe{width:100%;height:100%;border:0;display:block}
+
+@media (max-width:680px){
+  body{padding:14px}
+  .op-hero{padding:20px 18px}
+  .op-cifras{gap:8px}
+  .op-cifra{padding:10px 9px}
+  .op-cifra-num{font-size:25px}
+  .op-cifra-lbl{font-size:9px}
+  .op-row{flex-wrap:wrap}
+  .op-row-actions{width:100%;justify-content:flex-start}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<div class="op-wrap">
+
+  <!-- HERO -->
+  <section class="op-hero">
+    <span class="op-tag">Art. 8 · Fracción IV · inciso d) · Ley de Transparencia Jalisco</span>
+    <h1>Los <em>manuales de operación</em></h1>
+    <p class="op-hero-sub">Un manual de operación describe, paso a paso, cómo funciona por dentro un área. En este apartado el Ayuntamiento de Guadalajara da a conocer la <strong>situación oficial</strong> de estos manuales: publica el único manual de operación específico que tiene —el de <strong>Agentes de Movilidad</strong>— y los <strong>oficios</strong> en los que, ejercicio por ejercicio, deja por escrito que el municipio no cuenta con manuales de operación de carácter general.</p>
+  </section>
+
+  <!-- TOOLBAR -->
+  <div class="op-toolbar">
+    <div class="op-search">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" id="opSearch" placeholder="Busca por palabra (ej. movilidad, oficio, 2024)…" aria-label="Buscar"/>
+    </div>
+    <div class="op-count" id="opCount">Mostrando <b>5</b> de 5 documentos</div>
+  </div>
+
+  <!-- ============ SECCIÓN 1: MANUAL DE OPERACIÓN ============ -->
+  <div class="op-sec-head" data-sec="manual">
+    <span class="op-sec-ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg></span>
+    <div class="op-sec-title">Manual de operación publicado<span>El único que el municipio tiene como tal · 1 documento</span></div>
+  </div>
+  <div class="op-list" data-list="manual">
+
+    <div class="op-row" data-text="manual de operacion interna de agentes de movilidad word docx vialidad transito">
+      <span class="op-row-ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg></span>
+      <div class="op-row-main">
+        <div class="op-row-title">Manual de Operación Interna de Agentes de Movilidad</div>
+        <div class="op-row-desc">Manual de operación específico para las y los agentes de movilidad del municipio. Es un archivo de <strong>Word</strong>: se descarga para abrirlo.</div>
+        <div class="op-row-meta"><span class="op-type">Word · 22 KB</span></div>
+      </div>
+      <div class="op-row-actions">
+        <button class="op-btn op-btn-solid op-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/Manual_Operacion_Agentes_Movilidad.docx"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="op-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============ SECCIÓN 2: OFICIOS POR EJERCICIO ============ -->
+  <div class="op-sec-head" data-sec="oficio">
+    <span class="op-sec-ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="m9 15 2 2 4-4"/></svg></span>
+    <div class="op-sec-title">Oficios oficiales por ejercicio<span>Donde el municipio informa la situación de los manuales de operación · 4 documentos</span></div>
+  </div>
+  <div class="op-list" data-list="oficio">
+
+    <div class="op-row" data-text="2024 oficio dig gc 169 2024 informacion manuales de operacion codigo de gobierno municipal organizacion procedimientos">
+      <span class="op-row-ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></span>
+      <div class="op-row-main">
+        <div class="op-row-title">Información de manuales de operación 2024 — Oficio DIG/GC/169/2024</div>
+        <div class="op-row-desc">Informa que el Código de Gobierno Municipal faculta a las dependencias a elaborar manuales de <strong>organización y procedimientos</strong>, y que la Dirección de Innovación Gubernamental coordina su elaboración.</div>
+        <div class="op-row-meta"><span class="op-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>12 de abril de 2024</span><span class="op-type">PDF · 171 KB</span></div>
+      </div>
+      <div class="op-row-actions">
+        <button class="op-btn op-btn-ghost op-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioManuales2024.pdf" data-title="Oficio DIG/GC/169/2024 — Manuales de operación 2024"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="op-btn op-btn-solid op-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioManuales2024.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="op-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <div class="op-row" data-text="2023 oficio dig gc 140 2023 informacion manuales de operacion codigo de gobierno municipal organizacion procedimientos">
+      <span class="op-row-ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></span>
+      <div class="op-row-main">
+        <div class="op-row-title">Información de manuales de operación 2023 — Oficio DIG/GC/140/2023</div>
+        <div class="op-row-desc">Misma fundamentación: las dependencias elaboran manuales de <strong>organización y procedimientos</strong> conforme al Código de Gobierno Municipal.</div>
+        <div class="op-row-meta"><span class="op-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>08 de marzo de 2023</span><span class="op-type">PDF · 176 KB</span></div>
+      </div>
+      <div class="op-row-actions">
+        <button class="op-btn op-btn-ghost op-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioManuales2023.pdf" data-title="Oficio DIG/GC/140/2023 — Manuales de operación 2023"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="op-btn op-btn-solid op-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioManuales2023.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="op-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <div class="op-row" data-text="2022 oficio dig gc 02 2022 administracion 2021 2024 manuales de operacion no existen como tal manuales de procedimientos">
+      <span class="op-row-ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></span>
+      <div class="op-row-main">
+        <div class="op-row-title">Información de manuales de operación 2022 — Oficio DIG/GC 02/2022</div>
+        <div class="op-row-desc">Administración 2021–2024. Informa que <strong>«los Manuales de Operación no existen como tal y tampoco estamos obligados a tenerlos»</strong>; esa función la cumplen los Manuales de Procedimientos.</div>
+        <div class="op-row-meta"><span class="op-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>05 de enero de 2022</span><span class="op-type">PDF · 257 KB</span></div>
+      </div>
+      <div class="op-row-actions">
+        <button class="op-btn op-btn-ghost op-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioManualesAdmin21-24.pdf" data-title="Oficio DIG/GC 02/2022 — Manuales de operación"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="op-btn op-btn-solid op-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioManualesAdmin21-24.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="op-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+    <div class="op-row" data-text="administracion 2018 2021 oficio dig gc 18 2021 manuales de operacion no existen como tal manuales de procedimientos pasada">
+      <span class="op-row-ico" aria-hidden="true"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></span>
+      <div class="op-row-main">
+        <div class="op-row-title">Información de manuales de operación — Administración 2018–2021 — Oficio DIG/GC 18/2021</div>
+        <div class="op-row-desc">Administración pasada. Con el mismo criterio: <strong>«los Manuales de Operación no existen como tal»</strong> y la operación se documenta en los Manuales de Procedimientos.</div>
+        <div class="op-row-meta"><span class="op-m"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>01 de septiembre de 2021</span><span class="op-type">PDF · 164 KB</span></div>
+      </div>
+      <div class="op-row-actions">
+        <button class="op-btn op-btn-ghost op-ver" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioManualesAdmin18-21.pdf" data-title="Oficio DIG/GC 18/2021 — Manuales de operación 2018-2021"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>Ver</button>
+        <button class="op-btn op-btn-solid op-dl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/OficioManualesAdmin18-21.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="op-dl-tx">Descargar</span></button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="op-empty" id="opEmpty">No encontramos documentos con esa búsqueda. Intenta con <strong>movilidad</strong>, <strong>oficio</strong> o un año (por ejemplo, <strong>2022</strong>).</div>
+
+  <!-- FUNDAMENTO LEGAL -->
+  <footer class="op-legal">
+    <div class="op-cifras" style="margin-top:0;margin-bottom:18px">
+      <div class="op-cifra"><div class="op-cifra-num">1</div><div class="op-cifra-lbl">Manual de operación publicado</div></div>
+      <div class="op-cifra"><div class="op-cifra-num">4</div><div class="op-cifra-lbl">Oficios de información (2021–2024)</div></div>
+      <div class="op-cifra"><div class="op-cifra-num">5</div><div class="op-cifra-lbl">Documentos para consultar</div></div>
+    </div>
+    <div class="op-legal-eyebrow">Fundamento legal</div>
+    <h3>¿Por qué se publica esta información?</h3>
+    <p>La <strong>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</strong> obliga a los sujetos obligados a difundir su información de planeación estratégica. Esta página corresponde, de forma íntegra, al siguiente fundamento:</p>
+    <div class="op-cita">
+      <b>Artículo 8.</b> Es información fundamental, obligatoria para todos los sujetos obligados, la siguiente: [&hellip;]<br/>
+      <b>IV.</b> La información sobre la planeación estratégica gubernamental aplicable al y por el sujeto obligado, que comprende:<br/>
+      a) El Plan General Institucional del poder, organismo o municipio correspondiente, con las modificaciones de cuando menos los últimos tres años; b) Los programas operativos anuales, de cuando menos los últimos tres años; c) Los manuales de organización; <span class="op-hl">d) Los manuales de operación;</span> e) Los manuales de procedimientos; f) Los manuales de servicios; g) Los protocolos; h) Los indicadores que permitan rendir cuenta de sus objetivos y resultados; y i) Los demás instrumentos normativos internos aplicables.
+    </div>
+    <p style="margin-top:12px">El cumplimiento de este inciso se documenta con los oficios oficiales aquí publicados, en los que el sujeto obligado informa la situación de sus manuales de operación. Los documentos, oficios, fechas y datos son los oficiales tal como fueron publicados por el sujeto obligado; en caso de cualquier discrepancia, prevalece el documento oficial.</p>
+    <div class="op-meta">
+      <div class="op-meta-item"><span class="op-meta-k">Unidad administrativa responsable</span><span class="op-meta-v">Dirección de Innovación Gubernamental · Gestión de la Calidad</span></div>
+      <div class="op-meta-item"><span class="op-meta-k">Oficios publicados</span><span class="op-meta-v">2021 a 2024</span></div>
+      <div class="op-meta-item"><span class="op-meta-k">Documentos</span><span class="op-meta-v">1 manual de operación · 4 oficios de información</span></div>
+    </div>
+  </footer>
+
+</div>
+
+<button class="op-totop" id="opToTop" type="button" aria-label="Volver arriba"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg></button>
+
+<!-- MODAL (solo vista standalone; en Strapi abre pestaña nueva) -->
+<div class="op-modal" id="opModal" role="dialog" aria-modal="true">
+  <div class="op-modal-box">
+    <div class="op-modal-head">
+      <b id="opModalTitle">Documento</b>
+      <button class="op-modal-x" id="opModalX" type="button" aria-label="Cerrar">&times;</button>
+    </div>
+    <div class="op-modal-body"><iframe id="opModalFrame" src="about:blank" title="Vista del documento"></iframe></div>
+  </div>
+</div>
+
+<script>
+/* ==========================================================================
+   Los manuales de operación · Art. 8 Frac. IV Inc. d) · Ley de Transparencia Jalisco
+   5 documentos verificados HTTP 200: 1 manual (Agentes de Movilidad, .docx) + 4
+   oficios (PDF). Los oficios informan, verbatim, que "los Manuales de Operación no
+   existen como tal y tampoco estamos obligados como Gobierno Municipal a tenerlos";
+   la operación se documenta en los Manuales de Procedimientos. Oficios:
+   DIG/GC/169/2024, DIG/GC/140/2023, DIG/GC 02/2022, DIG/GC 18/2021.
+   Unidad responsable: Dirección de Innovación Gubernamental (Gestión de la Calidad).
+   Filas fijas en el HTML; vanilla JS sin template literals, compatible con Strapi v4.
+   ========================================================================== */
+(function(){
+  var COMB = new RegExp('[' + String.fromCharCode(768) + '-' + String.fromCharCode(879) + ']', 'g');
+  function norm(s){ return (s||'').toLowerCase().normalize('NFD').replace(COMB, ''); }
+
+  /* ---- Buscador ---- */
+  var input = document.getElementById('opSearch');
+  var rows = Array.prototype.slice.call(document.querySelectorAll('.op-row'));
+  var lists = Array.prototype.slice.call(document.querySelectorAll('.op-list'));
+  var secHeads = Array.prototype.slice.call(document.querySelectorAll('.op-sec-head'));
+  var total = rows.length;
+  var count = document.getElementById('opCount');
+  var empty = document.getElementById('opEmpty');
+  function filtrar(){
+    var q = norm(input.value.trim());
+    var toks = q.split(/\s+/).filter(Boolean);
+    var vis = 0;
+    for (var i=0;i<rows.length;i++){
+      var t = norm(rows[i].getAttribute('data-text') || '');
+      var ok = true;
+      for (var j=0;j<toks.length;j++){ if (t.indexOf(toks[j]) === -1){ ok = false; break; } }
+      rows[i].style.display = ok ? '' : 'none';
+      if (ok) vis++;
+    }
+    lists.forEach(function(list, k){
+      var visibleInList = Array.prototype.slice.call(list.querySelectorAll('.op-row')).some(function(r){ return r.style.display !== 'none'; });
+      list.style.display = visibleInList ? '' : 'none';
+      if (secHeads[k]) secHeads[k].style.display = visibleInList ? '' : 'none';
+    });
+    count.innerHTML = 'Mostrando <b>' + vis + '</b> de ' + total + ' documentos';
+    empty.className = 'op-empty' + (vis === 0 ? ' show' : '');
+    reportHeight();
+  }
+  if (input){ input.addEventListener('input', filtrar); }
+
+  /* ---- Nombre de archivo ---- */
+  function nombreArchivo(u){
+    try { var p = u.split('?')[0].split('#')[0].split('/'); var n = decodeURIComponent(p[p.length - 1]); return n || 'documento'; }
+    catch (e){ return 'documento'; }
+  }
+
+  /* ---- Descargar (fetch+blob con respaldo a pestaña nueva) ---- */
+  var EN_IFRAME = (function(){ try { return window.self !== window.top; } catch(e){ return true; } })();
+  function descargar(btn){
+    if (btn.getAttribute('data-busy') === '1') return;
+    var url = btn.getAttribute('data-u');
+    var tx = btn.querySelector('.op-dl-tx');
+    var label = tx ? tx.textContent : '';
+    btn.setAttribute('data-busy','1'); if (tx){ tx.textContent = 'Descargando…'; }
+    fetch(url).then(function(res){ if (!res.ok){ throw new Error('http'); } return res.blob(); }).then(function(blob){
+      var burl = URL.createObjectURL(blob);
+      var a = document.createElement('a'); a.href = burl; a.download = nombreArchivo(url);
+      if (EN_IFRAME){ a.target = '_blank'; a.rel = 'noopener'; }
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      setTimeout(function(){ URL.revokeObjectURL(burl); }, EN_IFRAME ? 60000 : 6000);
+      btn.removeAttribute('data-busy'); if (tx){ tx.textContent = label; }
+    }).catch(function(){
+      window.open(url, '_blank', 'noopener');
+      btn.removeAttribute('data-busy'); if (tx){ tx.textContent = label; }
+    });
+  }
+
+  /* ---- Ver (modal en standalone / pestaña nueva dentro de Strapi) ---- */
+  var modal = document.getElementById('opModal');
+  var modalFrame = document.getElementById('opModalFrame');
+  var modalTitle = document.getElementById('opModalTitle');
+  function cerrarModal(){ if (modal){ modal.classList.remove('open'); if (modalFrame){ modalFrame.src = 'about:blank'; } } }
+  function ver(btn){
+    var url = btn.getAttribute('data-u');
+    if (EN_IFRAME){ window.open(url, '_blank', 'noopener'); return; }
+    if (modalFrame){ modalFrame.src = url; }
+    if (modalTitle){ modalTitle.textContent = btn.getAttribute('data-title') || 'Documento'; }
+    if (modal){ modal.classList.add('open'); }
+  }
+  var mx = document.getElementById('opModalX');
+  if (mx){ mx.addEventListener('click', cerrarModal); }
+  if (modal){ modal.addEventListener('click', function(e){ if (e.target === modal){ cerrarModal(); } }); }
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ cerrarModal(); } });
+
+  /* ---- Delegación de clics ---- */
+  document.addEventListener('click', function(e){
+    var dl = e.target.closest ? e.target.closest('.op-dl') : null;
+    if (dl){ descargar(dl); return; }
+    var v = e.target.closest ? e.target.closest('.op-ver') : null;
+    if (v){ ver(v); return; }
+  });
+
+  /* ---- Volver arriba ---- */
+  var toTop = document.getElementById('opToTop');
+  function onScroll(){ if (!toTop) return; var y = window.pageYOffset || document.documentElement.scrollTop; toTop.className = 'op-totop' + (y > 500 ? ' show' : ''); }
+  window.addEventListener('scroll', onScroll);
+  if (toTop){ toTop.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: 'smooth' }); }); }
+
+  /* ---- Auto-altura para Strapi ---- */
+  function reportHeight(){
+    var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight);
+    try { parent.postMessage({ type: 'gdl-iframe-height', id: 'manuales-operacion-art8-IV-d', height: h }, '*'); } catch (e){}
+  }
+  window.addEventListener('load', reportHeight);
+  window.addEventListener('resize', reportHeight);
+  setTimeout(reportHeight, 400); setTimeout(reportHeight, 1200); setTimeout(reportHeight, 2500);
+})();
+</script>
+
+</body>
+</html>
