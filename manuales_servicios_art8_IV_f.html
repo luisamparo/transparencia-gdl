@@ -74,11 +74,15 @@ body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:va
 .ms-meta-item{display:flex;flex-direction:column;gap:2px}
 .ms-meta-k{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .ms-meta-v{font-size:13px;font-weight:700;color:var(--ink)}
-.ms-modal{position:fixed;inset:0;background:rgba(42,36,29,.72);display:none;align-items:center;justify-content:center;padding:24px;z-index:100;-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
+.ms-modal{position:fixed;inset:0;background:rgba(42,36,29,.74);display:none;align-items:center;justify-content:center;padding:18px;z-index:1000;-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
 .ms-modal.open{display:flex}
-.ms-modal-box{background:#fff;border-radius:14px;width:min(980px,100%);height:min(90vh,920px);display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.4)}
-.ms-modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 18px;background:linear-gradient(135deg,var(--ac) 0%,var(--ac-d) 100%);color:#fff}
-.ms-modal-head b{font-size:14px;font-weight:700;line-height:1.3;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ms-modal-box{background:#fff;border-radius:14px;width:min(1060px,100%);height:min(90vh,960px);display:flex;flex-direction:column;overflow:hidden;box-shadow:0 24px 70px rgba(0,0,0,.45)}
+.ms-modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 16px;background:linear-gradient(135deg,var(--ac) 0%,var(--ac-d) 100%);color:#fff}
+.ms-modal-head b{font-size:13.5px;font-weight:700;line-height:1.3;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}
+.ms-modal-tools{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.ms-modal-open{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.18);color:#fff;text-decoration:none;font-size:12px;font-weight:700;padding:7px 11px;border-radius:8px}
+.ms-modal-open:hover{background:rgba(255,255,255,.34)}
+.ms-modal-open svg{flex-shrink:0}
 .ms-modal-x{background:rgba(255,255,255,.18);border:none;color:#fff;width:32px;height:32px;border-radius:8px;cursor:pointer;font-size:18px;line-height:1;flex-shrink:0;display:flex;align-items:center;justify-content:center}
 .ms-modal-x:hover{background:rgba(255,255,255,.32)}
 .ms-modal-body{flex:1;background:#f0f0ec;min-height:0}
@@ -219,9 +223,12 @@ body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:va
   <div class="ms-modal-box">
     <div class="ms-modal-head">
       <b id="msModalTitle">Documento</b>
-      <button class="ms-modal-x" id="msModalX" type="button" aria-label="Cerrar">&times;</button>
+      <div class="ms-modal-tools">
+        <a id="msModalOpen" class="ms-modal-open" href="#" target="_blank" rel="noopener" title="Abrir en pestaña nueva">Abrir<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+        <button class="ms-modal-x" id="msModalX" type="button" aria-label="Cerrar">&times;</button>
+      </div>
     </div>
-    <div class="ms-modal-body"><iframe id="msModalFrame" src="about:blank" title="Vista del documento"></iframe></div>
+    <div class="ms-modal-body"><iframe id="msModalFrame" src="about:blank" title="Vista del documento" allow="fullscreen"></iframe></div>
   </div>
 </div>
 
@@ -255,13 +262,14 @@ body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:va
   var modal = document.getElementById('msModal');
   var modalFrame = document.getElementById('msModalFrame');
   var modalTitle = document.getElementById('msModalTitle');
-  function cerrarModal(){ if (modal){ modal.classList.remove('open'); if (modalFrame){ modalFrame.src = 'about:blank'; } } }
+  var modalOpen = document.getElementById('msModalOpen');
+  function cerrarModal(){ if (modal){ modal.classList.remove('open'); try { document.documentElement.style.overflow = ''; document.body.style.overflow = ''; } catch(e){} if (modalFrame){ modalFrame.src = 'about:blank'; } } }
   function ver(btn){
     var url = btn.getAttribute('data-u');
-    if (EN_IFRAME){ window.open(url, '_blank', 'noopener'); return; }
+    if (modalOpen){ modalOpen.href = url; }
     if (modalFrame){ modalFrame.src = url; }
     if (modalTitle){ modalTitle.textContent = btn.getAttribute('data-title') || 'Documento'; }
-    if (modal){ modal.classList.add('open'); }
+    if (modal){ modal.classList.add('open'); try { document.documentElement.style.overflow = 'hidden'; document.body.style.overflow = 'hidden'; } catch(e){} }
   }
   var mx = document.getElementById('msModalX');
   if (mx){ mx.addEventListener('click', cerrarModal); }
