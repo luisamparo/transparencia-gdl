@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Los manuales de procedimientos del Ayuntamiento de Guadalajara: el documento que describe, paso a paso, cómo realiza sus trámites y actividades cada dependencia, área por área, con su versión y fechas, para leer y descargar. Art. 8 Fracción IV Inciso e) de la Ley de Transparencia de Jalisco."/>
+<title>¿Cómo hace sus trámites cada área del Ayuntamiento de Guadalajara? · Los manuales de procedimientos de cada dependencia, paso a paso · Art. 8 Frac. IV Inc. e)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ac:#E87722;--ac-d:#C45F0A;--ac-l:#FFE4CC;--ac-soft:#FFF1E4;--ac-border:#F5C99A;
+  --ink:#2a241d;--ink2:#5a4d3e;--muted:#6f5c47;
+  --bg:#f7f3ec;--card:#ffffff;--line:#e8dec9;
+  --fh:'Outfit',system-ui,-apple-system,sans-serif;--fm:'DM Mono','SF Mono',Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+.mp-wrap{max-width:1080px;margin:0 auto}
+.mp-hero{background:linear-gradient(135deg,#FFF4E8 0%,#FFFFFF 55%);border-radius:14px;padding:24px 28px;margin:0 0 18px;position:relative;overflow:hidden;border-left:5px solid var(--ac);box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.mp-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.12) 0%,transparent 70%);pointer-events:none}
+.mp-tag{display:inline-block;background:var(--ac);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;position:relative;z-index:1;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.mp-hero h1{margin:0 0 8px;font-size:clamp(22px,3.2vw,29px);font-weight:800;color:var(--ink);letter-spacing:-.015em;line-height:1.18;position:relative;z-index:1}
+.mp-hero h1 em{font-style:normal;color:var(--ac-d)}
+.mp-hero-sub{font-size:14.5px;color:var(--ink2);max-width:92ch;margin:0;line-height:1.6;position:relative;z-index:1}
+.mp-hero-sub strong{color:var(--ink);font-weight:700}
+.mp-cifras{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px;max-width:640px;position:relative;z-index:1}
+.mp-cifra{background:#fff;border:1.5px solid var(--ac-border);border-radius:10px;padding:13px 15px;display:flex;flex-direction:column;gap:2px}
+.mp-cifra-num{font-size:32px;font-weight:800;line-height:1;color:var(--ac-d);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.mp-cifra-lbl{font-size:10.5px;font-weight:700;color:var(--ink2);text-transform:uppercase;letter-spacing:.05em;margin-top:4px;line-height:1.35}
+.mp-toolbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 16px;position:sticky;top:0;background:var(--bg);padding:9px 0;z-index:20}
+.mp-search{position:relative;flex:1;min-width:230px}
+.mp-search svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none}
+.mp-search input{width:100%;padding:12px 14px 12px 40px;border:1.5px solid var(--ac-border);border-radius:10px;font-family:var(--fh);font-size:14px;color:var(--ink);background:#fff;transition:border-color .15s,box-shadow .15s}
+.mp-search input:focus{outline:none;border-color:var(--ac);box-shadow:0 0 0 3px rgba(232,119,34,.14)}
+.mp-count{font-size:13px;font-weight:600;color:var(--ink2);white-space:nowrap;flex-shrink:0;background:#fff;border:1.5px solid var(--ac-border);border-radius:10px;padding:11px 15px}
+.mp-count b{color:var(--ac-d);font-weight:800;font-family:var(--fm)}
+.mp-sec-head{display:flex;align-items:center;gap:11px;margin:22px 2px 12px}
+.mp-sec-ico{flex-shrink:0;width:34px;height:34px;border-radius:9px;background:var(--ac);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 7px rgba(232,119,34,.28)}
+.mp-sec-title{font-size:16px;font-weight:800;color:var(--ink);letter-spacing:-.01em;line-height:1.2}
+.mp-sec-title span{display:block;font-size:11.5px;font-weight:600;color:var(--muted);letter-spacing:0;text-transform:none;margin-top:1px}
+.mp-sec-head::after{content:'';flex:1;height:1.5px;background:var(--line);border-radius:2px;margin-left:4px}
+.mp-list{display:flex;flex-direction:column;gap:10px}
+.mp-row{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:0 1px 6px rgba(42,36,29,.04);transition:border-color .15s,box-shadow .15s}
+.mp-row:hover{border-color:var(--ac-border);box-shadow:0 6px 18px rgba(42,36,29,.09)}
+.mp-row-ico{flex-shrink:0;width:44px;height:44px;border-radius:11px;background:var(--ac-soft);color:var(--ac-d);display:flex;align-items:center;justify-content:center;border:1px solid var(--ac-border)}
+.mp-row-main{flex:1;min-width:0}
+.mp-row-title{font-size:14.5px;font-weight:700;color:var(--ink);line-height:1.35;letter-spacing:-.005em}
+.mp-row-meta{display:flex;align-items:center;gap:8px 14px;margin-top:7px;flex-wrap:wrap;font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.mp-row-meta .mp-m{display:inline-flex;align-items:center;gap:5px}
+.mp-row-meta .mp-m svg{color:var(--ac);flex-shrink:0}
+.mp-row-meta .mp-m b{color:var(--ink2);font-weight:700}
+.mp-type{font-size:10px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:5px;background:#efe9df;color:var(--muted);white-space:nowrap}
+.mp-row-actions{display:flex;gap:7px;flex-shrink:0;flex-wrap:wrap;justify-content:flex-end}
+.mp-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;font-family:var(--fh);font-size:12.5px;font-weight:700;padding:8px 13px;border-radius:8px;cursor:pointer;border:1.5px solid var(--ac-border);transition:all .13s;white-space:nowrap;text-decoration:none}
+.mp-btn svg{flex-shrink:0}
+.mp-btn-ghost{background:#fff;color:var(--ac-d)}
+.mp-btn-ghost:hover{background:var(--ac-soft);border-color:var(--ac)}
+.mp-btn-solid{background:#fff;color:var(--ac-d);border-color:var(--ac-border)}
+.mp-btn-solid:hover{background:var(--ac);color:#fff;border-color:var(--ac)}
+.mp-btn-solid:hover svg{stroke:#fff}
+.mp-dl[data-busy="1"]{opacity:.55;pointer-events:none}
+.mp-empty{display:none;text-align:center;padding:40px 20px;color:var(--muted);font-size:14px}
+.mp-empty.show{display:block}
+.mp-empty strong{color:var(--ac-d)}
+.mp-legal{margin:26px 0 0;background:#fff;border:1px solid var(--line);border-top:4px solid var(--ac);border-radius:14px;padding:22px 26px;box-shadow:0 2px 10px rgba(42,36,29,.05)}
+.mp-legal-eyebrow{font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--ac-d);margin-bottom:10px}
+.mp-legal h3{margin:0 0 10px;font-size:16px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+.mp-legal p{margin:0 0 9px;font-size:13px;color:var(--ink2);line-height:1.65}
+.mp-legal p strong{color:var(--ink);font-weight:700}
+.mp-cita{background:var(--bg);border-left:3px solid var(--ac-border);border-radius:0 8px 8px 0;padding:13px 16px;font-size:12.5px;color:var(--muted);line-height:1.6;margin-top:4px}
+.mp-cita b{color:var(--ink);font-weight:700}
+.mp-cita .mp-hl{color:var(--ac-d);font-weight:800;background:var(--ac-soft);padding:1px 4px;border-radius:4px}
+.mp-meta{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:16px;padding:14px 18px;background:var(--bg);border:1px solid var(--line);border-radius:10px}
+.mp-meta-item{display:flex;flex-direction:column;gap:2px}
+.mp-meta-k{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.mp-meta-v{font-size:13px;font-weight:700;color:var(--ink)}
+.mp-totop{position:fixed;right:20px;bottom:20px;width:46px;height:46px;border-radius:50%;background:var(--ac);color:#fff;border:none;box-shadow:0 4px 14px rgba(232,119,34,.45);cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:50}
+.mp-totop.show{opacity:1;pointer-events:auto}
+.mp-totop:hover{transform:translateY(-3px);background:var(--ac-d)}
+.mp-modal{position:fixed;inset:0;background:rgba(42,36,29,.72);display:none;align-items:center;justify-content:center;padding:24px;z-index:100;-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
+.mp-modal.open{display:flex}
+.mp-modal-box{background:#fff;border-radius:14px;width:min(980px,100%);height:min(90vh,920px);display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.mp-modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 18px;background:linear-gradient(135deg,var(--ac) 0%,var(--ac-d) 100%);color:#fff}
+.mp-modal-head b{font-size:14px;font-weight:700;line-height:1.3;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mp-modal-x{background:rgba(255,255,255,.18);border:none;color:#fff;width:32px;height:32px;border-radius:8px;cursor:pointer;font-size:18px;line-height:1;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.mp-modal-x:hover{background:rgba(255,255,255,.32)}
+.mp-modal-body{flex:1;background:#f0f0ec;min-height:0}
+.mp-modal-body iframe{width:100%;height:100%;border:0;display:block}
+@media (max-width:680px){
+  body{padding:14px}
+  .mp-hero{padding:20px 18px}
+  .mp-cifras{gap:8px}
+  .mp-cifra{padding:10px 9px}
+  .mp-cifra-num{font-size:25px}
+  .mp-cifra-lbl{font-size:9px}
+  .mp-row{flex-wrap:wrap}
+  .mp-row-actions{width:100%;justify-content:flex-start}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<div class="mp-wrap">
+
+  <section class="mp-hero">
+    <span class="mp-tag">Art. 8 · Fracción IV · inciso e) · Ley de Transparencia Jalisco</span>
+    <h1>Los <em>manuales de procedimientos</em></h1>
+    <p class="mp-hero-sub">Un manual de procedimientos describe, <strong>paso a paso</strong>, cómo cada área del Ayuntamiento de Guadalajara realiza sus trámites y actividades: quién hace qué, en qué orden y con qué documentos. Aquí puedes <strong>consultar y descargar</strong> el manual de cada dependencia, organizado por área. Usa el buscador para encontrar el tuyo.</p>
+    <div class="mp-cifras">
+      <div class="mp-cifra"><div class="mp-cifra-num">144</div><div class="mp-cifra-lbl">Manuales de procedimientos</div></div>
+      <div class="mp-cifra"><div class="mp-cifra-num">15</div><div class="mp-cifra-lbl">Áreas y coordinaciones</div></div>
+      <div class="mp-cifra"><div class="mp-cifra-num">100%</div><div class="mp-cifra-lbl">Disponibles en línea</div></div>
+    </div>
+  </section>
+
+  <div class="mp-toolbar">
+    <div class="mp-search">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" id="mpSearch" placeholder="Busca tu dependencia o área (ej. Tesorería, Cultura, Catastro, Comisaría)…" aria-label="Buscar dependencia"/>
+    </div>
+    <div class="mp-count" id="mpCount">Mostrando <b>144</b> de 144 manuales</div>
+  </div>
+
+  <div id="mpRoot"></div>
+
+  <div class="mp-empty" id="mpEmpty">No encontramos ninguna dependencia con esa búsqueda. Intenta con otro nombre (por ejemplo, <strong>Tesorería</strong> o <strong>Cultura</strong>).</div>
+
+  <footer class="mp-legal">
+    <div class="mp-legal-eyebrow">Fundamento legal</div>
+    <h3>¿Por qué se publica esta información?</h3>
+    <p>La <strong>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</strong> obliga a los sujetos obligados a difundir su información de planeación estratégica. Esta página corresponde, de forma íntegra, al siguiente fundamento:</p>
+    <div class="mp-cita">
+      <b>Artículo 8.</b> Es información fundamental, obligatoria para todos los sujetos obligados, la siguiente: [&hellip;]<br/>
+      <b>IV.</b> La información sobre la planeación estratégica gubernamental aplicable al y por el sujeto obligado, que comprende:<br/>
+      a) El Plan General Institucional del poder, organismo o municipio correspondiente, con las modificaciones de cuando menos los últimos tres años; b) Los programas operativos anuales, de cuando menos los últimos tres años; c) Los manuales de organización; d) Los manuales de operación; <span class="mp-hl">e) Los manuales de procedimientos;</span> f) Los manuales de servicios; g) Los protocolos; h) Los indicadores que permitan rendir cuenta de sus objetivos y resultados; y i) Los demás instrumentos normativos internos aplicables.
+    </div>
+    <p style="margin-top:12px">Cada manual conserva su versión y sus fechas oficiales de elaboración y actualización tal como fueron publicadas por el sujeto obligado; en caso de cualquier discrepancia, prevalece el documento oficial.</p>
+    <div class="mp-meta">
+      <div class="mp-meta-item"><span class="mp-meta-k">Unidad administrativa responsable</span><span class="mp-meta-v">Dirección de Innovación Gubernamental · Gestión de la Calidad</span></div>
+      <div class="mp-meta-item"><span class="mp-meta-k">Manuales publicados</span><span class="mp-meta-v">144 documentos en 15 áreas y coordinaciones</span></div>
+    </div>
+  </footer>
+
+</div>
+
+<button class="mp-totop" id="mpToTop" type="button" aria-label="Volver arriba"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg></button>
+
+<div class="mp-modal" id="mpModal" role="dialog" aria-modal="true">
+  <div class="mp-modal-box">
+    <div class="mp-modal-head">
+      <b id="mpModalTitle">Documento</b>
+      <button class="mp-modal-x" id="mpModalX" type="button" aria-label="Cerrar">&times;</button>
+    </div>
+    <div class="mp-modal-body"><iframe id="mpModalFrame" src="about:blank" title="Vista del documento"></iframe></div>
+  </div>
+</div>
+
+<script>
+/* ==========================================================================
+   Los manuales de procedimientos · Art. 8 Frac. IV Inc. e) · Ley de Transparencia Jalisco
+   144 manuales verificados HTTP 200, en 15 áreas/coordinaciones. Dependencias,
+   versiones, fechas y enlaces tomados verbatim de la fuente /manualesprocedimientos
+   (el arreglo GROUPS se generó directo del scrapeo, sin transcripción manual).
+   Unidad responsable: Dirección de Innovación Gubernamental (Gestión de la Calidad).
+   Vanilla JS, sin template literals, compatible con Strapi v4.
+   ========================================================================== */
+(function(){
+  var GROUPS = [{c:"Presidencia Municipal",it:[{d:"Presidencia Municipal",v:"01",e:"Agosto 2021",a:"Agosto 2022",f:"ManualProcedimientosPresidenciaMunicipal21-24.pdf",k:2469},{d:"Dirección de Transparencia y Buenas Prácticas",v:"02",e:"Marzo 2017",a:"Agosto 2023",f:"ManualProcedimientosTransparenciaBuenasPracticas21-24.pdf",k:7262},{d:"Secretaría Particular",v:"01",e:"Enero 2018",a:"Agosto 2022",f:"ManualProcedimientosSecretariaParticular21-24.pdf",k:5004},{d:"Dirección de Relaciones Públicas",v:"00",e:"Agosto 2021",a:"N/A",f:"ManualProcedimientosRelacionesPublicas18-21.pdf",k:5380},{d:"Consejería Jurídica",v:"00",e:"Septiembre 2023",a:"N/A",f:"ManualProcedimientosConsejeriaJuridica21-24.pdf",k:2610},{d:"Análisis y Comunicación Estratégica",v:"01",e:"Agosto 2025",a:"N/A",f:"ManualProcedimientosAnalisisComunicacionEstrategica2025.pdf",k:19481},{d:"Oficina Ejecutiva de Presidencia",v:"00",e:"Octubre 2025",a:"N/A",f:"ManualProcedimientosOficinaEjecutivaPresidencia2025.pdf",k:4706},{d:"Dirección de lo Jurídico de la Comisaría de la Policía de Guadalajara",v:"04",e:"Diciembre 2008",a:"Diciembre 2025",f:"ManualProcedimientosDireccionJuridico2026.pdf",k:20915},{d:"Dirección de Inspección y Vigilancia",v:"02",e:"Marzo 2017",a:"Junio 2022",f:"ManualProcedimientosInspeccionVigilancia21-24.pdf",k:7894},{d:"Dirección de Recursos de Revisión de Usos de Suelo",v:"00",e:"Septiembre 2023",a:"N/A",f:"ManualProcedimientosRecursosRevision21-24.pdf",k:2059},{d:"Dirección de Justicia Cívica Municipal",v:"03",e:"Enero 2018",a:"Septiembre 2025",f:"ManualProcedimientosJusticiaCivicaMunicipal2025.pdf",k:11088},{d:"Dirección de Asuntos Internos",v:"01",e:"Marzo 2017",a:"Febrero 2024",f:"ManualProcedimientosAsuntosInternos21-24.pdf",k:12172},{d:"Coordinación de Proyectos Estratégicos",v:"01",e:"Mayo 2023",a:"Febrero 2026",f:"ManualProcedimientosProyectosEstrategicos2025.pdf",k:2600},{d:"Coordinación Técnica",v:"00",e:"Octubre 2025",a:"N/A",f:"ManualProcedimientosCoordinacionTecnica2025.pdf",k:5551},{d:"Dirección de Planeación",v:"02",e:"Octubre 2017",a:"Octubre 2025",f:"ManualProcedimientosPlaneacion2025.pdf",k:6194},{d:"Dirección de Orden y Gobernanza",v:"00",e:"Marzo 2023",a:"N/A",f:"ManualProcedimientosOrdenGobernanza21-24.pdf",k:2122},{d:"Dirección de Desarrollo Urbano, Económico y Proyectos Estratégicos",v:"00",e:"Marzo 2023",a:"N/A",f:"ManualProcedimientosDesarrolloUrbanoEconomicoProyectos21-24.pdf",k:3415},{d:"Dirección de Servicios Públicos del Centro Histórico",v:"00",e:"Agosto 2023",a:"N/A",f:"ManualProcedimientosServiciosPublicosCentroHistorico21-24.pdf",k:5249},{d:"Dirección de Control del Territorio",v:"00",e:"Octubre 2025",a:"N/A",f:"ManualProcedimientosDireccionControlTerritorio2025.pdf",k:2383},{d:"Dirección de Relaciones Internacionales y Atención al Migrante",v:"03",e:"Diciembre 2015",a:"Septiembre 2025",f:"ManualProcedimientosRelacionesInternacionales2025.pdf",k:9106},{d:"Dirección de Evaluación y Seguimiento",v:"01",e:"Abril 2023",a:"Octubre 2025",f:"ManualProcedimientosEvaluacionSeguimiento2025.pdf",k:4662},{d:"Dirección de Coordinación Metropolitana",v:"02",e:"Septiembre 2017",a:"Octubre 2025",f:"ManualProcedimientosDireccionCoordinacionMetropolitana2025.pdf",k:7102},{d:"Dirección de Información Geoespacial y Análisis Urbano",v:"00",e:"Octubre 2025",a:"N/A",f:"ManualProcedimientosInformacionGeoespacialAnalisis2025.pdf",k:5392},{d:"Agencia Municipal de Vivienda",v:"00",e:"Octubre 2025",a:"N/A",f:"ManualProcedimientosAgenciaMunicipalVivienda2025.pdf",k:5405},{d:"Análisis Estratégico y Prospectiva",v:"00",e:"Octubre 2025",a:"N/A",f:"ManualProcedimientosAnalisisEstrategicoProspectiva2025.pdf",k:3034},{d:"Medios de Comunicación y Prensa",v:"00",e:"Octubre 2025",a:"N/A",f:"ManualProcedimientosMediosComunicacionPrensa2025.pdf",k:4879},{d:"Jefatura de Gabinete",v:"01",e:"Abril 2023",a:"Octubre 2025",f:"ManualProcedimientosJefaturaGabinete2025.pdf",k:8068},{d:"Dirección de Atención Ciudadana",v:"01",e:"Octubre 2016",a:"Diciembre 2022",f:"ManualProcedimientosAtencionCiudadana21-24.pdf",k:4732},{d:"Dirección de Creación y Revisión de Contenidos",v:"00",e:"Mayo 2023",a:"N/A",f:"ManualProcedimientosCreacionRevisionContenidos21-24.pdf",k:3120},{d:"Vinculación y Gestión Estratégica",v:"00",e:"Febrero 2026",a:"N/A",f:"ManualProcedimientosVinculacionGestionEstrategica2026.pdf",k:5097},{d:"Unidad de Mejora Regulatoria",v:"01",e:"Junio 2022",a:"Febrero 2026",f:"ManualProcedimientosUnidadMejoraRegulatoria2026.pdf",k:5379}]},{c:"Comisaría",it:[{d:"Despacho del Comisario General",v:"03",e:"Marzo 2018",a:"Junio 2025",f:"ManualProcedimientosDespacho-Comisario-2025.pdf",k:30952},{d:"División de Operaciones Regionales y Agrupamientos",v:"03",e:"Enero 2018",a:"Octubre 2025",f:"ManualProcedimientosDivision-Regionales-Agrupamientos-2025.pdf",k:47230},{d:"División de Inteligencia",v:"03",e:"Enero 2018",a:"Noviembre 2025",f:"ManualProcedimientosDivision-Inteligencia-2025.pdf",k:32483},{d:"División de Logística",v:"03",e:"Enero 2018",a:"Junio 2025",f:"ManualProcedimientosDivision-Logistica2025.pdf",k:56605},{d:"División de Planeación y Gestión Estratégica",v:"03",e:"Enero 2018",a:"Junio 2025",f:"ManualProcedimientosDivision-Planeacion-Gestion-2025.pdf",k:37485},{d:"División de Carrera Policial",v:"03",e:"Enero 2018",a:"Junio 2025",f:"ManualProcedimientosDivision-Carrera-Policial2025.pdf",k:34160},{d:"Dirección de Enlace Administrativo",v:"03",e:"Febrero 2018",a:"Octubre 2025",f:"ManualProcedimientosComisariaEnlaceAdministrativo2025.pdf",k:101722},{d:"Dirección de Comunicación Social y Relaciones Públicas",v:"03",e:"Marzo 2018",a:"Agosto 2025",f:"ManualProcedimientosComunicacion-Social-2025.pdf",k:23165},{d:"Dirección de Vinculación Ciudadana, Prevención Social y Atención a Víctimas",v:"03",e:"Enero 2018",a:"Noviembre 2025",f:"ManualProcedimientosDireccion-Vinculacion-Ciudadana-2025.pdf",k:16401},{d:"División Especializada en la Atención a la Violencia contra las Mujeres en Razón de Género",v:"02",e:"Agosto 2021",a:"Junio 2025",f:"ManualProcedimientosDivisionEspecializadaViolenciaMujeres2025.pdf",k:50834},{d:"Dirección de Asesores",v:"01",e:"Enero 2024",a:"Agosto 2025",f:"ManualProcedimientosDireccionAsesoresComisaria-2025.pdf",k:10140},{d:"Dirección de Control, Seguimiento de Procesos y Atención a Víctimas",v:"01",e:"Diciembre 2023",a:"Agosto 2025",f:"ManualProcedimientosDireccionControlAtencionVictimas-2025.pdf",k:45667}]},{c:"Sindicatura",it:[{d:"Sindicatura",v:"01",e:"Julio 2022",a:"Febrero 2026",f:"ManualProcedimientosSindicatura2026.pdf",k:21502},{d:"Dirección General Jurídica",v:"00",e:"Agosto 2021",a:"Octubre 2025",f:"ManualProcedimientosGeneralJuridica2025.pdf",k:1920},{d:"Dirección de lo Jurídico Consultivo",v:"00",e:"Junio 2022",a:"Octubre 2025",f:"ManualProcedimientosJuridicoConsultivo2025.pdf",k:3638},{d:"Dirección de lo Jurídico Contencioso",v:"01",e:"Mayo 2017",a:"Octubre 2025",f:"ManualProcedimientosJuridicoContencioso2026.pdf",k:8689},{d:"Dirección de Derechos Humanos",v:"00",e:"Octubre 2025",a:"N/A",f:"ManualProcedimientosDerechosHumanos2025.pdf",k:5754},{d:"Dirección General Jurídica (Jurídico Consultivo, Contencioso, Laboral y Derechos Humanos)",v:"00",e:"Junio 2022",a:"N/A",f:"ManualProcedimientosGeneralJuridica21-24.pdf",k:8933}]},{c:"Secretaría General",it:[{d:"Despacho del Secretario General",v:"03",e:"Marzo 2017",a:"Marzo 2025",f:"ManualProcedimientosDespachoSecretarioGeneral2025.pdf",k:23814},{d:"Dirección de Archivo Municipal",v:"03",e:"Marzo 2017",a:"Octubre 2025",f:"ManualProcedimientosArchivoMunicipal2025.pdf",k:15385},{d:"Dirección de Enlace con el Ayuntamiento",v:"01",e:"Agosto 2022",a:"Marzo 2025",f:"ManualProcedimientosEnlaceAyuntamiento2025.pdf",k:6122},{d:"Dirección de Integración y Dictaminación",v:"03",e:"Marzo 2017",a:"Abril 2022",f:"ManualProcedimientosIntegracionDictaminacion2025.pdf",k:7598},{d:"Coordinación Municipal de Gestión Integral de Riesgos, Protección Civil y Bomberos",v:"03",e:"Diciembre 2017",a:"Octubre 2025",f:"ManualProcedimientosProcedimientosProteccionCivil2026.pdf",k:58931},{d:"Dirección de Registro Civil",v:"01",e:"Abril 2017",a:"Junio 2022",f:"ManualProcedimientosRegistroCivil21-24.pdf",k:19809},{d:"Unidad de Sala Edilicia",v:"02",e:"Febrero 2021",a:"Octubre 2025",f:"ManualProcedimientosUnidadSalaEdilicia2025.pdf",k:9343},{d:"Junta Municipal de Reclutamiento",v:"02",e:"Marzo 2017",a:"Octubre 2025",f:"ManualProcedimientosJuntaMunicipalReclutamiento2026.pdf",k:5903},{d:"Dirección de Asuntos Políticos",v:"01",e:"Agosto 2023",a:"Febrero 2025",f:"ManualProcedimientosAsuntosPoliticos2025.pdf",k:11462},{d:"Dirección de Asuntos Religiosos",v:"01",e:"Septiembre 2023",a:"Octubre 2025",f:"ManualProcedimientosAsuntosReligiosos2025.pdf",k:3441},{d:"Dirección de Participación Ciudadana y Gobernanza",v:"02",e:"Septiembre 2016",a:"Junio 2022",f:"ManualProcedimientosParticipacionCiudadana21-24.pdf",k:4486}]},{c:"Tesorería",it:[{d:"Despacho del Tesorero",v:"02",e:"Septiembre 2020",a:"Mayo 2025",f:"ManualProcedimientosTesoreria2025.pdf",k:7589},{d:"Administración de Tesorería",v:"01",e:"Mayo 2023",a:"Junio 2025",f:"ManualProcedimientosAdministracionTesoreria2025.pdf",k:23864},{d:"Dirección de Catastro",v:"03",e:"Enero 2018",a:"Junio 2025",f:"ManualProcedimientosCatastro2025.pdf",k:45019},{d:"Dirección de Contabilidad",v:"03",e:"Enero 2018",a:"Abril 2025",f:"ManualProcedimientosContabilidad2025.pdf",k:3403},{d:"Dirección de Egresos",v:"03",e:"Enero 2018",a:"Abril 2025",f:"ManualProcedimientosEgresos2025.pdf",k:12027},{d:"Dirección de Finanzas",v:"02",e:"Agosto 2020",a:"Abril 2025",f:"ManualProcedimientosFinanzas2025.pdf",k:2934},{d:"Dirección de Ingresos",v:"03",e:"Enero 2018",a:"Abril 2025",f:"ManualProcedimientosIngresos2025.pdf",k:15562},{d:"Dirección de Nómina",v:"02",e:"Agosto 2020",a:"Abril 2025",f:"ManualProcedimientosNomina2025.pdf",k:4165},{d:"Dirección de Política Fiscal y Mejora Hacendaria",v:"03",e:"Enero 2018",a:"Junio 2025",f:"ManualProcedimientosPoliticaFiscal2025.pdf",k:18847}]},{c:"Contraloría Ciudadana",it:[{d:"Contraloría Ciudadana",v:"01",e:"Septiembre 2020",a:"Junio 2025",f:"ManualProcedimientosDespachoContraloria2025.pdf",k:32826},{d:"Dirección de Auditoría",v:"03",e:"Marzo 2017",a:"Junio 2025",f:"ManualProcedimientosAuditoria2025.pdf",k:24036},{d:"Dirección de Responsabilidades",v:"02",e:"Marzo 2017",a:"Junio 2025",f:"ManualProcedimientosResponsabilidades2025.pdf",k:21955},{d:"Dirección de Substanciación y Resolución",v:"02",e:"Noviembre 2020",a:"Junio 2025",f:"ManualProcedimientosSubstanciadora2025.pdf",k:13610},{d:"Dirección de Vigilancia y Control Estratégico",v:"01",e:"Agosto 2023",a:"Junio 2025",f:"ManualProcedimientosVigilanciaControl2025.pdf",k:29796}]},{c:"Coordinación de Administración e Innovación Gubernamental",it:[{d:"Coordinación de Administración e Innovación Gubernamental",v:"01",e:"Febrero 2023",a:"Marzo 2025",f:"ManualProcedimientosCoordinacionAdministrativaInnovacion2025.pdf",k:26182},{d:"Dirección de Administración",v:"04",e:"Enero 2017",a:"Marzo 2025",f:"ManualProcedimientosAdministracion2025.pdf",k:16875},{d:"Dirección de Adquisiciones",v:"03",e:"Febrero 2017",a:"Marzo 2025",f:"ManualProcedimientosAdquisiciones2025.pdf",k:20462},{d:"Dirección de Innovación Gubernamental",v:"04",e:"Enero 2017",a:"Mayo 2025",f:"ManualProcedimientosInnovacionGubernamental2025.pdf",k:16346},{d:"Dirección de Patrimonio",v:"04",e:"Enero 2017",a:"Marzo 2025",f:"ManualProcedimientosPatrimonio2025.pdf",k:22512},{d:"Dirección de Recursos Humanos",v:"03",e:"Marzo 2017",a:"Marzo 2025",f:"ManualProcedimientosRecursosHumanos2025.pdf",k:61466},{d:"Unidad Funcional de Gestión Plena",v:"02",e:"Enero 2017",a:"Agosto 2022",f:"ManualProcedimientosGestionPlena21-24.pdf",k:1912}]},{c:"Coordinación General de Análisis Estratégico y Comunicación",it:[{d:"Coordinación General de Análisis Estratégico y Comunicación",v:"01",e:"Julio 2021",a:"Junio 2022",f:"ManualProcedimientosAnalisisEstrategicoComunicacion21-24.pdf",k:2521}]},{c:"Coordinación General de Construcción de Comunidad",it:[{d:"Coordinación General de Construcción de Comunidad",v:"01",e:"Septiembre 2023",a:"Octubre 2025",f:"ManualProcedimientosConstruccionComunidad2025.pdf",k:12939},{d:"Dirección de Cultura",v:"03",e:"Junio 2017",a:"Noviembre 2025",f:"ManualProcedimientosCultura2025.pdf",k:13390},{d:"Dirección de Educación",v:"03",e:"Febrero 2017",a:"Junio 2025",f:"ManualProcedimientosEducacionMunicipal2025.pdf",k:42630},{d:"Dirección de Bienestar Animal",v:"03",e:"Agosto 2017",a:"Noviembre 2025",f:"ManualProcedimientosBienestarAnimal2025.pdf",k:25184},{d:"Dirección de Colmenas y Centros de Cuidado Comunitario",v:"01",e:"Marzo 2023",a:"Septiembre 2025",f:"ManualProcedimientosCentrosColmena2025.pdf",k:7414},{d:"Dirección de Cuidados",v:"00",e:"Octubre 2025",a:"N/A",f:"ManualProcedimientosDireccionCuidados2025.pdf",k:4339},{d:"Dirección de Capacitación y Oferta Educativa",v:"00",e:"Marzo 2023",a:"N/A",f:"ManualProcedimientosCapacitacionOfertaEducativa21-24.pdf",k:4439},{d:"Unidades Administrativas y de Cuidados Comunitarios",v:"03",e:"Enero 2017",a:"Septiembre 2025",f:"ManualProcedimientosCuidadosComunitarios2025.pdf",k:4039},{d:"Dirección de Apoyo a la Niñez",v:"01",e:"Junio 2022",a:"Agosto 2025",f:"ManualProcedimientosApoyoNinez2025.pdf",k:6799},{d:"Depósito de Sangre",v:"02",e:"Enero 2017",a:"Diciembre 2017",f:"ManualProcedimientosDepositoSangre15-18.pdf",k:23530},{d:"Urgencias Tomo I",v:"03",e:"Mayo 2022",a:"Junio 2022",f:"ManualProcedimientosUrgencias-1-21-24.pdf",k:37406},{d:"Urgencias Tomo II",v:"03",e:"Abril 2022",a:"Junio 2022",f:"ManualProcedimientosUrgencias-2-21-24.pdf",k:73897},{d:"Hospitalización Tomo I",v:"03",e:"Abril 2022",a:"Junio 2022",f:"ManualProcedimientosHospitalizacion-21-24.pdf",k:58707},{d:"Hospitalización Tomo II",v:"03",e:"Abril 2022",a:"Junio 2022",f:"ManualProcedimientosHospitalizacion-2-21-24.pdf",k:89030},{d:"Manual de Procedimientos y Lineamientos Técnico-Administrativos Tomo I",v:"02",e:"Octubre 2015",a:"Noviembre 2015",f:"ManualProcedimientosTecnico-Administrativo-15-18.pdf",k:17904},{d:"Manual de Procedimientos y Lineamientos Técnico-Administrativos Tomo II",v:"02",e:"Diciembre 2015",a:"Junio 2016",f:"ManualProcedimientosTecnico-Administrativo-2-15-18.pdf",k:8066},{d:"Consulta Externa",v:"03",e:"Abril 2022",a:"Junio 2022",f:"ManualProcedimientosConsultaExterna21-24.pdf",k:43331},{d:"Prehospitalaria",v:"03",e:"Abril 2022",a:"Junio 2022",f:"ManualProcedimientosAtencionMedicaPrehospitalaria21-24.pdf",k:64792},{d:"Atención Médica Prehospitalaria y Hospitalaria en Accidentes de Tránsito que ameriten Intervención del Ministerio Público",v:"00",e:"Julio 2023",a:"N/A",f:"ManualProcedimientosAtencionMedicaPrehospitalariaHospitalaria21-24.pdf",k:3534},{d:"Dirección de Difusión Artística en Barrios de Guadalajara",v:"00",e:"Septiembre 2023",a:"N/A",f:"ManualProcedimientosDifusionArtisticaGuadalajara21-24.pdf",k:2587}]},{c:"Coordinación General de Desarrollo Económico",it:[{d:"Coordinación General de Desarrollo Económico",v:"01",e:"Mayo 2022",a:"Noviembre 2025",f:"ManualProcedimientosCoordinacionDesarrolloEconomico2025.pdf",k:28965},{d:"Dirección de Emprendimiento y Promoción Económica",v:"02",e:"Enero 2017",a:"Junio 2025",f:"ManualProcedimientosEmprendimiento2025.pdf",k:41307},{d:"Dirección de Padrón y Licencias",v:"03",e:"Agosto 2017",a:"Agosto 2025",f:"ManualProcedimientosPadronLicencias2025.pdf",k:87351},{d:"Dirección de Promoción a la Inversión y al Empleo",v:"02",e:"Enero 2017",a:"Octubre 2022",f:"ManualProcedimientosPromocionInversion21-24.pdf",k:6896},{d:"Dirección de Turismo",v:"03",e:"Septiembre 2017",a:"Agosto 2025",f:"ManualProcedimientosTurismo2025.pdf",k:5791},{d:"Dirección de Mercados",v:"03",e:"Enero 2018",a:"Septiembre 2025",f:"ManualProcedimientosMercados2025.pdf",k:13457},{d:"Dirección de Tianguis y Comercio en Espacios Abiertos",v:"03",e:"Enero 2017",a:"Junio 2025",f:"ManualProcedimientosTianguisComercioEspaciosAbiertos2025.pdf",k:44363}]},{c:"Coordinación General de Combate a la Desigualdad",it:[{d:"Coordinación General de Combate a la Desigualdad",v:"01",e:"Marzo 2022",a:"Agosto 2025",f:"ManualProcedimientosCoordinacionCombateDesigualdad2025.pdf",k:50344},{d:"Dirección de Programas Sociales Municipales",v:"02",e:"Enero 2017",a:"Octubre 2025",f:"ManualProcedimientosProgramasSocialesMunicipales2025.pdf",k:14255},{d:"Dirección de Juventudes",v:"02",e:"Noviembre 2024",a:"Julio 2025",f:"ManualProcedimientosJuventudes2025.pdf",k:23310},{d:"Dirección de Inclusión y Atención a Personas con Discapacidad",v:"02",e:"Julio 2021",a:"Julio 2025",f:"ManualProcedimientosInclusionPersonasDiscapacidad2025.pdf",k:11017},{d:"Dirección del Programa Guadalajara Presente",v:"00",e:"Noviembre 2023",a:"N/A",f:"ManualProcedimientosGuadalajaraPresente21-24.pdf",k:9338},{d:"Unidad de Enlace de Programas",v:"01",e:"Junio 2022",a:"Julio 2025",f:"ManualProcedimientosUnidadEnlaceProgramas2025.pdf",k:10674},{d:"Dirección de Diversidad",v:"01",e:"Septiembre 2023",a:"Julio 2025",f:"ManualProcedimientosDiversidadSexual2025.pdf",k:17771},{d:"Dirección de Pueblos Originarios",v:"01",e:"Noviembre 2023",a:"Agosto 2025",f:"ManualProcedimientosPueblosOriginarios2025.pdf",k:2110},{d:"Dirección de Atención a Organizaciones de la Sociedad Civil",v:"00",e:"Julio 2025",a:"N/A",f:"ManualProcedimientosAtencionOrganizacionesSociedadCivil2025.pdf",k:3121}]},{c:"Coordinación General de Gestión Integral de la Ciudad",it:[{d:"Coordinación General de Gestión Integral de la Ciudad",v:"01",e:"Diciembre 2022",a:"Mayo 2025",f:"ManualProcedimientosCoordinacionIntegralCiudad2025.pdf",k:48435},{d:"Dirección de Medio Ambiente",v:"03",e:"Mayo 2016",a:"Agosto 2025",f:"ManualProcedimientosMedioAmbiente2025.pdf",k:17062},{d:"Dirección de Movilidad y Transporte",v:"03",e:"Enero 2017",a:"Mayo 2025",f:"ManualProcedimientosMovilidadTransporte2025.pdf",k:102115},{d:"Dirección de Obras Públicas",v:"03",e:"Octubre 2016",a:"Agosto 2025",f:"ManualProcedimientosObrasPublicas2025.pdf",k:41206},{d:"Dirección de Ordenamiento del Territorio",v:"03",e:"Noviembre 2016",a:"Octubre 2025",f:"ManualProcedimientosOrdenamientoTerritorio2025.pdf",k:17294},{d:"Dirección de Licencias de Construcción",v:"00",e:"Enero 2024",a:"N/A",f:"ManualProcedimientosLicenciasConstruccion21-24.pdf",k:15141}]},{c:"Coordinación General de Servicios Publicos Municipales",it:[{d:"Jefatura de Enlace Administrativo",v:"00",e:"Mayo 2022",a:"N/A",f:"ManualProcedimientosServiciosPublicosMunicipales21-24.pdf",k:33161},{d:"Dirección de Alumbrado Público",v:"03",e:"Enero 2018",a:"Diciembre 2025",f:"ManualProcedimientosAlumbrado2026.pdf",k:33175},{d:"Dirección de Aseo Público",v:"04",e:"Enero 2018",a:"Diciembre 2025",f:"ManualProcedimientosAseoPublico2026.pdf",k:21378},{d:"Dirección de Cementerios",v:"04",e:"Octubre 2016",a:"Diciembre 2025",f:"ManualProcedimientosCementerios2026.pdf",k:24107},{d:"Dirección de Mejoramiento Urbano",v:"03",e:"Junio 2017",a:"Junio 2023",f:"ManualProcedimientosMejoramientoUrbano21-24.pdf",k:15213},{d:"Dirección de Parques y Jardines",v:"03",e:"Febrero 2017",a:"Diciembre 2025",f:"ManualProcedimientosParquesJardines2026.pdf",k:22782},{d:"Dirección de Pavimentos",v:"03",e:"Febrero 2017",a:"Diciembre 2025",f:"ManualProcedimientosPavimentos2026.pdf",k:21015},{d:"Dirección de Rastro Municipal",v:"02",e:"Enero 2017",a:"Septiembre 2022",f:"ManualProcedimientosRastro21-24.pdf",k:6289},{d:"Dirección de Proyectos y Concesiones",v:"02",e:"Agosto 2020",a:"Junio 2022",f:"ManualProcedimientosProyectosConcesiones21-24.pdf",k:7006},{d:"Dirección de Control y Calidad",v:"00",e:"Mayo 2022",a:"N/A",f:"ManualProcedimientosControlCalidad21-24.pdf",k:2161},{d:"Dirección de Corresponsabilidad Social",v:"01",e:"Octubre 2020",a:"Mayo 2022",f:"ManualProcedimientosCorresponsabilidadSocial21-24.pdf",k:2930},{d:"Dirección de Planeación Estratégica",v:"00",e:"Junio 2025",a:"N/A",f:"ManualProcedimientosPlaneacionEstrategica2025.pdf",k:19106},{d:"Dirección de Evaluación y Seguimiento",v:"00",e:"Junio 2025",a:"N/A",f:"ManualProcedimientosEvaluacionSeguimientoServiciosMunicipales2025.pdf",k:17449}]},{c:"Coordinación General Cuidamos Guadalajara",it:[{d:"Dirección General de Gestión de Gobierno y Ciudadanía",v:"00",e:"Septiembre 2025",a:"N/A",f:"ManualProcedimientosDirGenGobiernoCiudadania2025.pdf",k:4025},{d:"Dirección de Capacitación y Academias Municipales",v:"00",e:"Junio 2025",a:"N/A",f:"ManualProcedimientosCapacitacionAcademiasMunicipales2025.pdf",k:7335},{d:"Dirección de Pedagogía Social",v:"00",e:"Diciembre 2025",a:"N/A",f:"ManualProcedimientosPedagogiaSocial2026.pdf",k:3720},{d:"Dirección de Innovación Social",v:"00",e:"Abril 2027",a:"N/A",f:"ManualProcedimientosInnovacionSocial2026.pdf",k:10001}]},{c:"Coordinación General de Superintendencia del Centro Histórico",it:[{d:"Coordinación General de Superintendencia del Centro Histórico",v:"00",e:"Mayo 2025",a:"N/A",f:"ManualProcedimientosCoordinacionSuperintendeciaCentroHistorico2025.pdf",k:4520},{d:"Dirección de Servicios Públicos del Centro Histórico",v:"00",e:"Mayo 2025",a:"N/A",f:"ManualProcedimientosDireccionServiciosPublicosCentroHistorico2025.pdf",k:5833},{d:"Dirección de Orden y Gobernanza",v:"00",e:"Mayo 2025",a:"N/A",f:"ManualProcedimientosDireccionOrdenGobernanza2025.pdf",k:6449}]}];
+  var BASE = 'https://transparencia.guadalajara.gob.mx/sites/default/files/';
+  var COMB = new RegExp('[' + String.fromCharCode(768) + '-' + String.fromCharCode(879) + ']', 'g');
+  function norm(s){ return (s||'').toLowerCase().normalize('NFD').replace(COMB, ''); }
+  function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function fmtTipo(kb){ if(!kb || kb<=0) return 'PDF'; if(kb<1024) return 'PDF · ' + kb + ' KB'; return 'PDF · ' + (Math.round(kb/102.4)/10) + ' MB'; }
+  var ICO_DOC = '<svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="m9 15 2 2 4-4"/></svg>';
+  var ICO_SEC = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01"/><path d="M9 13v.01"/></svg>';
+  var ICO_VER = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>';
+  var ICO_EYE = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>';
+  var ICO_DL = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>';
+
+  /* ---- Render de secciones + filas a partir de GROUPS ---- */
+  var html = '', totalDocs = 0;
+  for (var gi=0; gi<GROUPS.length; gi++){
+    var g = GROUPS[gi];
+    var n = g.it.length;
+    html += '<div class="mp-sec-head" data-g="'+gi+'"><span class="mp-sec-ico" aria-hidden="true">'+ICO_SEC+'</span>'
+          + '<div class="mp-sec-title">'+esc(g.c)+'<span>'+n+' '+(n===1?'manual':'manuales')+' de procedimientos</span></div></div>';
+    html += '<div class="mp-list" data-g="'+gi+'">';
+    for (var ii=0; ii<n; ii++){
+      var it = g.it[ii]; totalDocs++;
+      var url = BASE + it.f;
+      var actu = (it.a && it.a !== 'N/A') ? ('Actualizado: <b>'+esc(it.a)+'</b>') : 'Sin actualización posterior';
+      var dtext = norm(g.c + ' ' + it.d + ' manual de procedimientos version ' + it.v + ' ' + it.e + ' ' + it.a);
+      var titulo = 'Manual de procedimientos — ' + it.d;
+      html += '<div class="mp-row" data-text="'+esc(dtext)+'">'
+            + '<span class="mp-row-ico" aria-hidden="true">'+ICO_DOC+'</span>'
+            + '<div class="mp-row-main"><div class="mp-row-title">'+esc(it.d)+'</div>'
+            + '<div class="mp-row-meta"><span class="mp-m">'+ICO_VER+'Versión <b>'+esc(it.v)+'</b></span>'
+            + '<span class="mp-m">Elaborado: <b>'+esc(it.e)+'</b></span>'
+            + '<span class="mp-m">'+actu+'</span>'
+            + '<span class="mp-type">'+fmtTipo(it.k)+'</span></div></div>'
+            + '<div class="mp-row-actions">'
+            + '<button class="mp-btn mp-btn-ghost mp-ver" type="button" data-u="'+esc(url)+'" data-title="'+esc(titulo)+'">'+ICO_EYE+'Ver</button>'
+            + '<button class="mp-btn mp-btn-solid mp-dl" type="button" data-u="'+esc(url)+'">'+ICO_DL+'<span class="mp-dl-tx">Descargar</span></button>'
+            + '</div></div>';
+    }
+    html += '</div>';
+  }
+  document.getElementById('mpRoot').innerHTML = html;
+
+  var rows = Array.prototype.slice.call(document.querySelectorAll('.mp-row'));
+  var lists = Array.prototype.slice.call(document.querySelectorAll('.mp-list'));
+  var secHeads = Array.prototype.slice.call(document.querySelectorAll('.mp-sec-head'));
+  var total = rows.length;
+  var count = document.getElementById('mpCount');
+  var empty = document.getElementById('mpEmpty');
+  var input = document.getElementById('mpSearch');
+  count.innerHTML = 'Mostrando <b>' + total + '</b> de ' + total + ' manuales';
+
+  function filtrar(){
+    var q = norm(input.value.trim());
+    var toks = q.split(/\s+/).filter(Boolean);
+    var vis = 0;
+    for (var i=0;i<rows.length;i++){
+      var t = rows[i].getAttribute('data-text') || '';
+      var ok = true;
+      for (var j=0;j<toks.length;j++){ if (t.indexOf(toks[j]) === -1){ ok = false; break; } }
+      rows[i].style.display = ok ? '' : 'none';
+      if (ok) vis++;
+    }
+    lists.forEach(function(list, k){
+      var any = Array.prototype.slice.call(list.querySelectorAll('.mp-row')).some(function(r){ return r.style.display !== 'none'; });
+      list.style.display = any ? '' : 'none';
+      if (secHeads[k]) secHeads[k].style.display = any ? '' : 'none';
+    });
+    count.innerHTML = 'Mostrando <b>' + vis + '</b> de ' + total + ' manuales';
+    empty.className = 'mp-empty' + (vis === 0 ? ' show' : '');
+    reportHeight();
+  }
+  if (input){ input.addEventListener('input', filtrar); }
+
+  function nombreArchivo(u){ try { var p = u.split('?')[0].split('#')[0].split('/'); var n = decodeURIComponent(p[p.length - 1]); return n || 'documento'; } catch (e){ return 'documento'; } }
+  var EN_IFRAME = (function(){ try { return window.self !== window.top; } catch(e){ return true; } })();
+  function descargar(btn){
+    if (btn.getAttribute('data-busy') === '1') return;
+    var url = btn.getAttribute('data-u');
+    var tx = btn.querySelector('.mp-dl-tx');
+    var label = tx ? tx.textContent : '';
+    btn.setAttribute('data-busy','1'); if (tx){ tx.textContent = 'Descargando…'; }
+    fetch(url).then(function(res){ if (!res.ok){ throw new Error('http'); } return res.blob(); }).then(function(blob){
+      var burl = URL.createObjectURL(blob);
+      var a = document.createElement('a'); a.href = burl; a.download = nombreArchivo(url);
+      if (EN_IFRAME){ a.target = '_blank'; a.rel = 'noopener'; }
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      setTimeout(function(){ URL.revokeObjectURL(burl); }, EN_IFRAME ? 60000 : 6000);
+      btn.removeAttribute('data-busy'); if (tx){ tx.textContent = label; }
+    }).catch(function(){ window.open(url, '_blank', 'noopener'); btn.removeAttribute('data-busy'); if (tx){ tx.textContent = label; } });
+  }
+  var modal = document.getElementById('mpModal');
+  var modalFrame = document.getElementById('mpModalFrame');
+  var modalTitle = document.getElementById('mpModalTitle');
+  function cerrarModal(){ if (modal){ modal.classList.remove('open'); if (modalFrame){ modalFrame.src = 'about:blank'; } } }
+  function ver(btn){
+    var url = btn.getAttribute('data-u');
+    if (EN_IFRAME){ window.open(url, '_blank', 'noopener'); return; }
+    if (modalFrame){ modalFrame.src = url; }
+    if (modalTitle){ modalTitle.textContent = btn.getAttribute('data-title') || 'Documento'; }
+    if (modal){ modal.classList.add('open'); }
+  }
+  var mx = document.getElementById('mpModalX');
+  if (mx){ mx.addEventListener('click', cerrarModal); }
+  if (modal){ modal.addEventListener('click', function(e){ if (e.target === modal){ cerrarModal(); } }); }
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ cerrarModal(); } });
+  document.addEventListener('click', function(e){
+    var dl = e.target.closest ? e.target.closest('.mp-dl') : null;
+    if (dl){ descargar(dl); return; }
+    var v = e.target.closest ? e.target.closest('.mp-ver') : null;
+    if (v){ ver(v); return; }
+  });
+  var toTop = document.getElementById('mpToTop');
+  function onScroll(){ if (!toTop) return; var y = window.pageYOffset || document.documentElement.scrollTop; toTop.className = 'mp-totop' + (y > 500 ? ' show' : ''); }
+  window.addEventListener('scroll', onScroll);
+  if (toTop){ toTop.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: 'smooth' }); }); }
+  var lastH = 0;
+  function reportHeight(){
+    var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight);
+    if (h && Math.abs(h - lastH) > 1){ lastH = h; try { parent.postMessage({ type: 'gdl-iframe-height', id: 'manuales-procedimientos-art8-IV-e', height: h }, '*'); } catch (e){} }
+  }
+  window.addEventListener('load', reportHeight);
+  window.addEventListener('resize', reportHeight);
+  setTimeout(reportHeight, 400); setTimeout(reportHeight, 1200); setTimeout(reportHeight, 2500);
+})();
+</script>
+
+</body>
+</html>
