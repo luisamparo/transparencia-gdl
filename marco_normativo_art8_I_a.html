@@ -51,7 +51,6 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
 .mn-postal:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,.10)}
 .mn-postal-cover{padding:22px 24px 0;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:118px;background:linear-gradient(135deg,var(--ac-soft) 0%,#FFE4CC 100%)}
 .mn-postal-icono{flex-shrink:0;width:58px;height:58px;border-radius:14px;background:var(--wh);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.06);color:var(--ac-d)}
-.mn-postal-illus{flex:1;display:flex;justify-content:flex-end;opacity:.18;font-size:40px;line-height:1;font-weight:900;font-family:var(--fm);text-align:right;letter-spacing:-.02em;color:var(--ac-d)}
 .mn-postal-body{padding:16px 24px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
 .mn-postal-eye{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ac-d)}
 .mn-postal-title{font-size:16px;font-weight:800;color:var(--g900);letter-spacing:-.012em;line-height:1.3}
@@ -205,36 +204,6 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
       <div class="mn-cifra"><div class="mn-cifra-num">100%</div><div class="mn-cifra-lbl">Consultable y descargable</div></div>
     </div>
   </section>
-
-  <!-- POSTALES EDUCATIVAS -->
-  <div class="mn-postales">
-    <div class="mn-postal">
-      <div class="mn-postal-cover">
-        <div class="mn-postal-icono" aria-hidden="true">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M5 7h14"/><path d="m5 7-2 6h6z"/><path d="m19 7 2 6h-6z"/><path d="M7 21h10"/></svg>
-        </div>
-        <div class="mn-postal-illus">§</div>
-      </div>
-      <div class="mn-postal-body">
-        <div class="mn-postal-eye">¿Qué son estas leyes?</div>
-        <h3 class="mn-postal-title">Las reglas que obligan al gobierno a informarte</h3>
-        <p class="mn-postal-desc">Son las leyes que establecen <strong>qué información debe hacer pública el gobierno</strong> sin que nadie la pida, y <strong>cómo puedes solicitar</strong> cualquier otro dato. Hay una <strong>Ley General</strong> que aplica en todo México y una <strong>Ley del Estado de Jalisco</strong> que aplica directamente al Ayuntamiento de Guadalajara. El Reglamento explica los detalles para cumplirlas.</p>
-      </div>
-    </div>
-    <div class="mn-postal">
-      <div class="mn-postal-cover">
-        <div class="mn-postal-icono" aria-hidden="true">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-        </div>
-        <div class="mn-postal-illus">?</div>
-      </div>
-      <div class="mn-postal-body">
-        <div class="mn-postal-eye">¿Para qué te sirven?</div>
-        <h3 class="mn-postal-title">Tu herramienta para exigir cuentas</h3>
-        <p class="mn-postal-desc">Si quieres saber <strong>en qué se gasta tu dinero</strong>, quién trabaja en el municipio o el contenido de un contrato, estas leyes te dan el <strong>derecho de pedirlo</strong> y obligan al gobierno a responder. Conocerlas te permite <strong>defender tu derecho a la información</strong> y vigilar a la autoridad. Leerlas es el primer paso para usarlas.</p>
-      </div>
-    </div>
-  </div>
 
   <div class="mn-sec-title">Documentos oficiales</div>
 
@@ -390,6 +359,34 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
       </div>
     </article>
 
+  </div>
+
+  <!-- POSTALES EDUCATIVAS (al pie, para priorizar el contenido principal) -->
+  <div class="mn-postales">
+    <div class="mn-postal">
+      <div class="mn-postal-cover">
+        <div class="mn-postal-icono" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M5 7h14"/><path d="m5 7-2 6h6z"/><path d="m19 7 2 6h-6z"/><path d="M7 21h10"/></svg>
+        </div>
+      </div>
+      <div class="mn-postal-body">
+        <div class="mn-postal-eye">¿Qué son estas leyes?</div>
+        <h3 class="mn-postal-title">Las reglas que obligan al gobierno a informarte</h3>
+        <p class="mn-postal-desc">Son las leyes que establecen <strong>qué información debe hacer pública el gobierno</strong> sin que nadie la pida, y <strong>cómo puedes solicitar</strong> cualquier otro dato. Hay una <strong>Ley General</strong> que aplica en todo México y una <strong>Ley del Estado de Jalisco</strong> que aplica directamente al Ayuntamiento de Guadalajara. El Reglamento explica los detalles para cumplirlas.</p>
+      </div>
+    </div>
+    <div class="mn-postal">
+      <div class="mn-postal-cover">
+        <div class="mn-postal-icono" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+      </div>
+      <div class="mn-postal-body">
+        <div class="mn-postal-eye">¿Para qué te sirven?</div>
+        <h3 class="mn-postal-title">Tu herramienta para exigir cuentas</h3>
+        <p class="mn-postal-desc">Si quieres saber <strong>en qué se gasta tu dinero</strong>, quién trabaja en el municipio o el contenido de un contrato, estas leyes te dan el <strong>derecho de pedirlo</strong> y obligan al gobierno a responder. Conocerlas te permite <strong>defender tu derecho a la información</strong> y vigilar a la autoridad. Leerlas es el primer paso para usarlas.</p>
+      </div>
+    </div>
   </div>
 
   <!-- LEY -->

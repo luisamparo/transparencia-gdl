@@ -51,7 +51,6 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
 .cm-postal:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,.10)}
 .cm-postal-cover{padding:22px 24px 0;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:118px;background:linear-gradient(135deg,var(--ac-soft) 0%,#FFE4CC 100%)}
 .cm-postal-icono{flex-shrink:0;width:58px;height:58px;border-radius:14px;background:var(--wh);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.06);color:var(--ac-d)}
-.cm-postal-illus{flex:1;display:flex;justify-content:flex-end;opacity:.18;font-size:40px;line-height:1;font-weight:900;font-family:var(--fm);text-align:right;letter-spacing:-.02em;color:var(--ac-d)}
 .cm-postal-body{padding:16px 24px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
 .cm-postal-eye{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ac-d)}
 .cm-postal-title{font-size:16px;font-weight:800;color:var(--g900);letter-spacing:-.012em;line-height:1.3}
@@ -214,36 +213,6 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
     </div>
   </section>
 
-  <!-- POSTALES -->
-  <div class="cm-postales">
-    <div class="cm-postal">
-      <div class="cm-postal-cover">
-        <div class="cm-postal-icono" aria-hidden="true">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <div class="cm-postal-illus">§</div>
-      </div>
-      <div class="cm-postal-body">
-        <div class="cm-postal-eye">¿Qué es el Comité de Transparencia?</div>
-        <h3 class="cm-postal-title">Quien decide qué información se entrega</h3>
-        <p class="cm-postal-desc">Es un grupo de funcionarios del Ayuntamiento que <strong>revisa y resuelve</strong> los casos delicados de transparencia: cuándo una información debe <strong>reservarse</strong> (por ejemplo, por seguridad), cómo se <strong>clasifica</strong>, y cómo se atienden las solicitudes para <strong>acceder, corregir o eliminar tus datos personales</strong> (los llamados derechos ARCO).</p>
-      </div>
-    </div>
-    <div class="cm-postal">
-      <div class="cm-postal-cover">
-        <div class="cm-postal-icono" aria-hidden="true">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15l2 2 4-4"/></svg>
-        </div>
-        <div class="cm-postal-illus">?</div>
-      </div>
-      <div class="cm-postal-body">
-        <div class="cm-postal-eye">¿Qué encuentras en cada sesión?</div>
-        <h3 class="cm-postal-title">Tres documentos por cada reunión</h3>
-        <p class="cm-postal-desc">De cada sesión puedes consultar <strong>el orden del día</strong> (los temas que se iban a tratar), <strong>la versión estenográfica</strong> (lo que se dijo, palabra por palabra) y <strong>el acta</strong> (la decisión oficial firmada). Usa el buscador para encontrar una sesión por fecha, número de expediente o tema.</p>
-      </div>
-    </div>
-  </div>
-
   <!-- CONTROLES -->
   <div class="cm-controls">
     <div class="cm-search-wrap">
@@ -257,6 +226,34 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
 
   <!-- GRUPOS POR AÑO (generado por JS) -->
   <div class="cm-groups" id="cmGroups"></div>
+
+  <!-- POSTALES (al pie, para priorizar el contenido principal) -->
+  <div class="cm-postales">
+    <div class="cm-postal">
+      <div class="cm-postal-cover">
+        <div class="cm-postal-icono" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+      </div>
+      <div class="cm-postal-body">
+        <div class="cm-postal-eye">¿Qué es el Comité de Transparencia?</div>
+        <h3 class="cm-postal-title">Quien decide qué información se entrega</h3>
+        <p class="cm-postal-desc">Es un grupo de funcionarios del Ayuntamiento que <strong>revisa y resuelve</strong> los casos delicados de transparencia: cuándo una información debe <strong>reservarse</strong> (por ejemplo, por seguridad), cómo se <strong>clasifica</strong>, y cómo se atienden las solicitudes para <strong>acceder, corregir o eliminar tus datos personales</strong> (los llamados derechos ARCO).</p>
+      </div>
+    </div>
+    <div class="cm-postal">
+      <div class="cm-postal-cover">
+        <div class="cm-postal-icono" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15l2 2 4-4"/></svg>
+        </div>
+      </div>
+      <div class="cm-postal-body">
+        <div class="cm-postal-eye">¿Qué encuentras en cada sesión?</div>
+        <h3 class="cm-postal-title">Tres documentos por cada reunión</h3>
+        <p class="cm-postal-desc">De cada sesión puedes consultar <strong>el orden del día</strong> (los temas que se iban a tratar), <strong>la versión estenográfica</strong> (lo que se dijo, palabra por palabra) y <strong>el acta</strong> (la decisión oficial firmada). Usa el buscador para encontrar una sesión por fecha, número de expediente o tema.</p>
+      </div>
+    </div>
+  </div>
 
   <!-- LEY -->
   <section class="cm-ley">
