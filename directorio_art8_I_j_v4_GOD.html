@@ -3,303 +3,269 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Directorio de Servidores Públicos — Art. 8 Frac. I Inc. j) — Ayuntamiento de Guadalajara">
-<title>Directorio de Servidores Públicos · Transparencia GDL</title>
+<meta name="description" content="Directorio de Servidores Públicos de mando superior del Ayuntamiento de Guadalajara — Art. 8 Frac. I Inc. j) Ley de Transparencia Jalisco. Correo institucional, agenda, currículum y directorio de cada área.">
+<title>Directorio de Servidores Públicos · Artículo 8, Fracción I, inciso j) · Vista ciudadana</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-/* ══════════════════════════════════════════
-   VARIABLES Y RESET
-══════════════════════════════════════════ */
 :root{
-  --o:#F26522;--od:#D4531A;--ol:#FDE8D8;--oxl:#FEF4EE;
-  --n:#1A1A1A;--ng:#3D3D3D;--nm:#6B6B6B;--nc:#F7F6F2;--nb:#E8E6DF;--w:#FFFFFF;
-  --ok:#1D9E75;--warn:#C8323F;
-  --font:'Outfit',system-ui,sans-serif;
-  --ease:cubic-bezier(.4,0,.2,1);
-  --r:16px;
+  --ac:#E87722;--ac-d:#C45F0A;--ac-l:#FFE4CC;--ac-soft:#FFF1E4;--ac-border:#F5C99A;
+  --ink:#1A1A1A;--ink2:#2D2D2A;--muted:#5A5A55;--g400:#9E9E98;--bg:#f7f3ec;--card:#FFFFFF;--line:#E2E2DD;--g50:#FAFAF8;--g100:#F0F0EC;
+  --font:'Outfit',system-ui,sans-serif;--fm:'DM Mono','SF Mono',Menlo,monospace;--ease:cubic-bezier(.4,0,.2,1);--rad-lg:14px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:var(--font);background:var(--nc);color:var(--n);-webkit-font-smoothing:antialiased;min-height:100vh}
+body{font-family:var(--font);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;padding:24px;line-height:1.55}
+.wrap{max-width:1140px;margin:0 auto}
 
-/* ── HEADER ──────────────────────────────── */
-.hdr{background:linear-gradient(135deg,var(--o) 0%,var(--od) 100%);color:#fff;padding:2.25rem 1rem 1.875rem;position:relative;overflow:hidden}
-.hdr::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='52' height='52' viewBox='0 0 52 52' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.045'%3E%3Cpath d='M0 0h26v26H0zM26 26h26v26H26z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
-.hdr-in{max-width:none;margin:0 auto;position:relative}
-.hdr-eye{font-size:.6875rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;opacity:.72;margin-bottom:.4rem;display:flex;align-items:center;gap:.4rem}
-.hdr-title{font-size:clamp(1.375rem,4vw,2rem);font-weight:800;line-height:1.15;margin-bottom:.375rem}
-.hdr-sub{font-size:.9rem;opacity:.84;line-height:1.65;max-width:58ch;margin-bottom:1.1rem}
-.hdr-badges{display:flex;gap:.4rem;flex-wrap:wrap}
-.hdr-badge{display:inline-flex;align-items:center;gap:.3rem;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);color:#fff;font-size:.6875rem;font-weight:700;padding:.3rem .75rem;border-radius:999px}
+/* HERO (estilo inciso g) */
+.hero{background:linear-gradient(135deg,var(--ac-soft) 0%,#FFFFFF 55%);border-radius:var(--rad-lg);padding:26px 30px;margin:0 0 18px;position:relative;overflow:hidden;border-left:5px solid var(--ac);box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.12) 0%,transparent 70%);pointer-events:none}
+.hero-tag{display:inline-block;background:var(--ac);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;position:relative;z-index:1;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.hero h1{margin:0 0 8px;font-size:clamp(22px,3.2vw,28px);font-weight:800;color:var(--ink);letter-spacing:-.015em;line-height:1.22;position:relative;z-index:1}
+.hero h1 em{font-style:normal;color:var(--ac-d)}
+.hero-sub{font-size:14.5px;color:var(--muted);max-width:84ch;margin:0;line-height:1.6;position:relative;z-index:1}
+.hero-sub strong{color:var(--ink);font-weight:700}
+.cifras{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px;max-width:720px;position:relative;z-index:1}
+.cifra{background:#fff;border:1.5px solid var(--ac-border);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:2px;transition:border-color .18s,transform .18s}
+.cifra:hover{border-color:var(--ac);transform:translateY(-2px)}
+.cifra-num{font-family:var(--fm);font-size:28px;font-weight:700;line-height:1;color:var(--ac-d);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.cifra-lbl{font-size:10.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-top:2px;line-height:1.3}
 
-/* ── TOOLBAR ─────────────────────────────── */
-.toolbar{background:var(--w);border-bottom:1.5px solid var(--nb);padding:.875rem 1rem;position:sticky;top:0;z-index:80;box-shadow:0 2px 12px rgba(0,0,0,.055)}
-.toolbar-in{max-width:none;margin:0 auto;display:flex;gap:.625rem;align-items:center;flex-wrap:wrap}
+/* CONTROLES (tarjeta como en g) */
+.toolbar{background:var(--card);border:1px solid var(--line);border-radius:var(--rad-lg);padding:14px 18px;position:sticky;top:0;z-index:60;box-shadow:0 1px 3px rgba(0,0,0,.06);margin-bottom:14px}
+.toolbar-in{display:flex;gap:.7rem;align-items:center;flex-wrap:wrap}
 .srch-wrap{flex:1 1 16rem;position:relative}
-.srch-ico{position:absolute;left:.8rem;top:50%;transform:translateY(-50%);color:var(--nm);pointer-events:none}
-.srch{width:100%;padding:.625rem 1rem .625rem 2.4rem;border:1.5px solid var(--nb);border-radius:10px;font-size:.9rem;font-family:var(--font);background:var(--nc);color:var(--n);min-height:2.75rem;transition:border-color .15s,box-shadow .15s}
-.srch:focus{outline:none;border-color:var(--o);background:var(--w);box-shadow:0 0 0 3px rgba(242,101,34,.14)}
-.count{font-size:.8rem;font-weight:600;color:var(--nm);white-space:nowrap}
-.dl-hero{background:var(--w);padding:.75rem 1rem;border-bottom:1px solid var(--nb);display:flex;justify-content:center}
-.dl-hero-btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;background:var(--o);color:#fff;text-decoration:none;padding:.75rem 2rem;border-radius:12px;font-size:1rem;font-weight:700;font-family:var(--font);cursor:pointer;transition:background .15s,box-shadow .15s;width:100%;max-width:640px;box-shadow:0 2px 10px rgba(242,101,34,.25)}
-.dl-hero-btn:hover{background:var(--od);box-shadow:0 4px 16px rgba(242,101,34,.35)}
+.srch-ico{position:absolute;left:.85rem;top:50%;transform:translateY(-50%);color:var(--g400);pointer-events:none}
+.srch{width:100%;padding:.65rem 1rem .65rem 2.5rem;border:1.5px solid var(--line);border-radius:9px;font-size:.92rem;font-family:var(--font);background:var(--g50);color:var(--ink);min-height:2.7rem;transition:border-color .15s,box-shadow .15s}
+.srch:focus{outline:none;border-color:var(--ac);background:#fff;box-shadow:0 0 0 3px rgba(232,119,34,.15)}
+.count{font-size:.82rem;font-weight:600;color:var(--muted);white-space:nowrap}
+.count b{color:var(--ac-d);font-weight:800;font-family:var(--fm)}
 
-/* ── FILTROS DE GRUPO ────────────────────── */
-.filters{background:var(--w);border-bottom:1px solid var(--nb);padding:.625rem 1rem}
-.filters-in{max-width:none;margin:0 auto;display:flex;gap:.375rem;flex-wrap:wrap;align-items:center}
-.flbl{font-size:.625rem;font-weight:800;color:var(--nm);text-transform:uppercase;letter-spacing:.07em;margin-right:.25rem}
-.chip{border:1.5px solid var(--nb);background:var(--w);color:var(--ng);padding:.3rem .875rem;border-radius:999px;font-size:.75rem;font-weight:600;cursor:pointer;transition:all .15s;font-family:var(--font);min-height:2.25rem;display:inline-flex;align-items:center;gap:.35rem}
-.chip:hover{border-color:var(--o);color:var(--o)}
-.chip[aria-pressed="true"]{background:var(--o);border-color:var(--o);color:#fff}
-.chip-dot{width:.5rem;height:.5rem;border-radius:50%;flex-shrink:0}
+.dl-hero{display:flex;justify-content:center;margin-bottom:14px}
+.dl-hero-btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;background:#fff;color:var(--ac-d);border:1.5px solid var(--ac-border);text-decoration:none;padding:.7rem 1.6rem;border-radius:11px;font-size:.92rem;font-weight:700;font-family:var(--font);cursor:pointer;transition:all .15s;width:100%;max-width:560px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.dl-hero-btn:hover{background:var(--ac);color:#fff;border-color:var(--ac);box-shadow:0 4px 14px rgba(232,119,34,.3)}
+.dl-hero-btn[data-busy="1"]{opacity:.6;pointer-events:none}
 
-/* ── MAIN GRID ───────────────────────────── */
-.main{max-width:none;margin:0 auto;padding:1.5rem 1rem 3rem}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,175px),1fr));gap:1rem}
+.filters{background:var(--card);border:1px solid var(--line);border-radius:var(--rad-lg);padding:.75rem 1.1rem;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.filters-in{display:flex;gap:.45rem;flex-wrap:wrap;align-items:center}
+.flbl{font-size:10.5px;font-weight:800;color:var(--g400);text-transform:uppercase;letter-spacing:.09em;margin-right:.25rem}
+.chip{font-family:var(--font);font-size:12.5px;font-weight:700;border:1.5px solid var(--line);background:#fff;color:var(--muted);padding:.42rem .95rem;border-radius:999px;cursor:pointer;transition:all .15s;min-height:2.3rem;display:inline-flex;align-items:center}
+.chip:hover{border-color:var(--ac);color:var(--ac-d)}
+.chip[aria-pressed="true"]{background:var(--ac);border-color:var(--ac);color:#fff;box-shadow:0 2px 6px rgba(232,119,34,.3)}
 
-/* ── TARJETA ─────────────────────────────── */
-.card{background:var(--w);border:1.5px solid var(--nb);border-radius:18px;overflow:hidden;cursor:pointer;display:flex;flex-direction:column;transition:border-color .2s var(--ease),transform .2s var(--ease),box-shadow .2s var(--ease);position:relative}
-.card:hover{border-color:var(--ol);transform:translateY(-4px);box-shadow:0 18px 44px rgba(242,101,34,.12)}
+/* GRID */
+.main{padding:0 0 1rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,185px),1fr));gap:1rem}
+.card{background:var(--card);border:1.5px solid var(--line);border-radius:16px;overflow:hidden;cursor:pointer;display:flex;flex-direction:column;transition:border-color .2s var(--ease),transform .2s var(--ease),box-shadow .2s var(--ease);position:relative}
+.card:hover{border-color:var(--ac-border);transform:translateY(-4px);box-shadow:0 16px 40px rgba(232,119,34,.13)}
 .card[data-hidden="true"]{display:none}
-
-/* Foto */
-.card-photo{position:relative;padding-top:118%;background:var(--nc);overflow:hidden}
+.card-photo{position:relative;padding-top:116%;background:var(--bg);overflow:hidden}
 .card-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .4s var(--ease)}
 .card:hover .card-photo img{transform:scale(1.045)}
-.card-dept-strip{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(0deg,rgba(26,26,26,.88) 0%,transparent 100%);padding:1.875rem .875rem .625rem;font-size:.595rem;font-weight:700;color:rgba(255,255,255,.82);letter-spacing:.05em;text-transform:uppercase;line-height:1.3}
-
-/* Grupo badge en esquina */
-.card-grupo-badge{position:absolute;top:.625rem;left:.625rem;font-size:.595rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:.2rem .5rem;border-radius:999px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
-.gbadge-presidencia{background:rgba(242,101,34,.88);color:#fff}
-.gbadge-sindicatura{background:rgba(29,158,117,.88);color:#fff}
-.gbadge-seguridad{background:rgba(200,50,63,.88);color:#fff}
-.gbadge-secretarias{background:rgba(61,61,61,.82);color:#fff}
-.gbadge-coordinaciones{background:rgba(100,80,160,.88);color:#fff}
-
-/* Info */
-.card-body{padding:.875rem;flex:1;display:flex;flex-direction:column;gap:.2rem}
-.card-name{font-size:.875rem;font-weight:700;color:var(--n);line-height:1.3}
-.card-cargo{font-size:.75rem;color:var(--nm);line-height:1.4;flex:1}
-
-/* Footer de la tarjeta */
-.card-foot{padding:.5rem .875rem .875rem;border-top:1px solid var(--nb);display:flex;align-items:center;gap:.5rem}
-.card-email{font-size:.6875rem;color:var(--o);font-weight:600;text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;min-width:0}
+.card-dept-strip{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(0deg,rgba(26,26,26,.86) 0%,transparent 100%);padding:1.9rem .85rem .6rem;font-size:.6rem;font-weight:700;color:rgba(255,255,255,.85);letter-spacing:.04em;text-transform:uppercase;line-height:1.3}
+.card-grupo-badge{position:absolute;top:.6rem;left:.6rem;font-size:.6rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:.22rem .55rem;border-radius:999px;background:rgba(232,119,34,.92);color:#fff;backdrop-filter:blur(6px)}
+.card-body{padding:.85rem;flex:1;display:flex;flex-direction:column;gap:.2rem}
+.card-name{font-size:.9rem;font-weight:700;color:var(--ink);line-height:1.3}
+.card-cargo{font-size:.76rem;color:var(--muted);line-height:1.4;flex:1}
+.card-foot{padding:.5rem .85rem .85rem;border-top:1px solid var(--line);display:flex;align-items:center;gap:.5rem}
+.card-email{font-size:.7rem;color:var(--ac-d);font-weight:600;text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;min-width:0}
 .card-email:hover{text-decoration:underline}
 .card-links{display:flex;gap:.3rem;flex-shrink:0}
-.card-link-ico{display:flex;align-items:center;justify-content:center;width:1.625rem;height:1.625rem;border-radius:7px;background:var(--nc);color:var(--nm);transition:background .15s,color .15s;text-decoration:none;border:1px solid var(--nb)}
-.card-link-ico:hover{background:var(--oxl);color:var(--od)}
-.card-link-ico.active{background:var(--ol);color:var(--od)}
+.card-link-ico{display:flex;align-items:center;justify-content:center;width:1.7rem;height:1.7rem;border-radius:7px;background:var(--bg);color:var(--muted);transition:all .15s;text-decoration:none;border:1px solid var(--line);cursor:pointer}
+.card-link-ico:hover,.card-link-ico.active{background:var(--ac-soft);color:var(--ac-d);border-color:var(--ac-border)}
 
-/* ── MODAL PERFIL ────────────────────────── */
-.overlay{position:fixed;inset:0;background:rgba(26,26,26,.56);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);z-index:900;display:flex;align-items:center;justify-content:center;padding:1rem;opacity:0;pointer-events:none;transition:opacity .25s var(--ease)}
-.overlay.open{opacity:1;pointer-events:auto}
-.modal{background:var(--w);border-radius:24px;max-width:500px;width:100%;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.22);transform:translateY(28px) scale(.97);transition:transform .3s var(--ease);max-height:90vh;overflow-y:auto;scrollbar-width:thin}
-.overlay.open .modal{transform:translateY(0) scale(1)}
-
-/* Hero del modal */
-.modal-hero{position:relative;height:200px;overflow:hidden;background:var(--nc)}
-.modal-hero-bg{position:absolute;inset:-12px;width:calc(100% + 24px);height:calc(100% + 24px);object-fit:cover;object-position:center top;filter:blur(16px) brightness(.5) saturate(1.3)}
-.modal-avatar-ring{position:absolute;bottom:-48px;left:50%;transform:translateX(-50%);width:100px;height:100px;border-radius:50%;border:4px solid var(--w);overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.28);background:var(--nc)}
+/* OVERLAY + MODAL */
+.overlay{position:absolute;top:0;left:0;width:100%;background:rgba(26,26,26,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);z-index:900;display:none;justify-content:center;align-items:flex-start;padding:0 1rem}
+.overlay.open{display:flex}
+.modal{background:var(--card);border-radius:22px;max-width:500px;width:100%;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.32);max-height:88vh;overflow-y:auto;scrollbar-width:thin}
+.modal-hero{position:relative;height:150px;background:linear-gradient(135deg,var(--ac) 0%,var(--ac-d) 100%)}
+.modal-hero-bg{display:none}
+.modal-avatar-ring{position:absolute;bottom:-46px;left:50%;transform:translateX(-50%);width:98px;height:98px;border-radius:50%;border:4px solid var(--card);overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.26);background:var(--bg)}
 .modal-avatar{width:100%;height:100%;object-fit:cover;object-position:center top}
-.modal-close{position:absolute;top:.875rem;right:.875rem;width:2.25rem;height:2.25rem;border-radius:50%;background:rgba(255,255,255,.2);border:1.5px solid rgba(255,255,255,.4);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s;z-index:2;font-family:var(--font)}
-.modal-close:hover{background:rgba(255,255,255,.36)}
-
-/* Body del modal */
-.modal-body{padding:3.25rem 2rem 2rem;text-align:center}
-.modal-name{font-size:1.25rem;font-weight:800;color:var(--n);line-height:1.2;margin-bottom:.3rem}
-.modal-cargo{font-size:.875rem;color:var(--o);font-weight:700;margin-bottom:.2rem}
-.modal-dep{font-size:.8rem;color:var(--nm);margin-bottom:1.5rem;line-height:1.4}
-
-/* Botones de acción del modal */
-.modal-actions{display:grid;gap:.5rem;margin-bottom:1.5rem}
-.modal-btn{display:flex;align-items:center;justify-content:center;gap:.5rem;padding:.75rem 1rem;border-radius:12px;font-size:.875rem;font-weight:700;font-family:var(--font);text-decoration:none;transition:background .15s,transform .12s;cursor:pointer;border:none;width:100%}
-.modal-btn-email{background:var(--o);color:#fff}
-.modal-btn-email:hover{background:var(--od);transform:translateY(-1px)}
-.modal-btn-agenda{background:var(--ok-bg,#E1F5EE);color:var(--ok)}
-.modal-btn-agenda:hover{background:#c3eddf;transform:translateY(-1px)}
-.modal-btn-cv{background:var(--nc);color:var(--ng);border:1.5px solid var(--nb)}
-.modal-btn-cv:hover{background:var(--nb)}
-.modal-btn-sub{background:var(--oxl);color:var(--od);border:1.5px solid var(--ol)}
-.modal-btn-sub:hover{background:var(--ol)}
-
-/* Meta strip inferior */
-.modal-meta{display:flex;justify-content:center;gap:1.5rem;padding-top:1.25rem;border-top:1px solid var(--nb)}
-.modal-meta-item{text-align:center}
-.modal-meta-lbl{font-size:.595rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--nm);margin-bottom:.25rem}
-.modal-meta-val{font-size:.9375rem;font-weight:700;color:var(--n)}
-
-/* ── EMPTY STATE ─────────────────────────── */
-.empty{display:none;grid-column:1/-1;text-align:center;padding:4rem 1rem;color:var(--nm)}
-.empty-ico{font-size:3rem;margin-bottom:.75rem}
-
-/* ── LEGAL FOOTER ────────────────────────── */
-.foot{background:var(--w);border-top:1px solid var(--nb);padding:1.125rem 1rem;margin-top:1rem}
-.foot-in{max-width:none;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem}
-.foot-legal{font-size:.7rem;color:var(--nm);line-height:1.5}
-.foot-legal strong{color:var(--ng)}
-.foot-update{display:flex;align-items:center;gap:.4rem;font-size:.7rem;color:var(--nm)}
-.pulse{width:.5rem;height:.5rem;border-radius:50%;background:var(--ok);animation:pulse 2s ease-in-out infinite;flex-shrink:0}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-
-/* ── RESPONSIVE ──────────────────────────── */
-@media(max-width:640px){
-  .hdr,.toolbar,.filters,.main,.foot{padding-left:1rem;padding-right:1rem}
-  .grid{grid-template-columns:repeat(auto-fill,minmax(min(100%,155px),1fr));gap:.875rem}
-  .modal-meta{gap:1rem}
-}
-@media(prefers-reduced-motion:reduce){
-  .card,.modal,.overlay{transition:none}
-}
-
-/* ── INYECCIÓN v3: meta extendida (teléfono + domicilio) ──────────── */
-.modal-meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem 1.5rem;text-align:left;padding-top:1.25rem;border-top:1px solid var(--nb)}
-.modal-meta-grid .modal-meta-item{text-align:left}
-.modal-meta-grid .modal-meta-item-wide{grid-column:1 / -1}
-.modal-meta-grid .modal-meta-lbl{margin-bottom:.35rem}
+.modal-close{position:absolute;top:.85rem;right:.85rem;width:2.2rem;height:2.2rem;border-radius:50%;background:rgba(255,255,255,.22);border:1.5px solid rgba(255,255,255,.42);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:2;font-family:var(--font)}
+.modal-close:hover{background:rgba(255,255,255,.38)}
+.modal-body{padding:3.2rem 1.9rem 1.9rem;text-align:center}
+.modal-name{font-size:1.25rem;font-weight:800;color:var(--ink);line-height:1.2;margin-bottom:.3rem}
+.modal-cargo{font-size:.9rem;color:var(--ac-d);font-weight:700;margin-bottom:.2rem}
+.modal-dep{font-size:.82rem;color:var(--muted);margin-bottom:1.4rem;line-height:1.4}
+.modal-actions{display:grid;gap:.5rem;margin-bottom:1.4rem}
+.modal-btn{display:flex;align-items:center;justify-content:center;gap:.5rem;padding:.78rem 1rem;border-radius:12px;font-size:.88rem;font-weight:700;font-family:var(--font);text-decoration:none;transition:all .14s;cursor:pointer;border:1.5px solid transparent;width:100%}
+.modal-btn-email{background:var(--ac);color:#fff;border-color:var(--ac)}
+.modal-btn-email:hover{background:var(--ac-d);border-color:var(--ac-d);transform:translateY(-1px)}
+.modal-btn-agenda{background:var(--ac-soft);color:var(--ac-d);border-color:var(--ac-border)}
+.modal-btn-agenda:hover{background:var(--ac-l);transform:translateY(-1px)}
+.modal-btn-cv{background:#fff;color:var(--ink2);border:1.5px solid var(--line)}
+.modal-btn-cv:hover{background:var(--bg)}
+.modal-btn-sub{background:#fff;color:var(--ac-d);border:1.5px solid var(--ac-border)}
+.modal-btn-sub:hover{background:var(--ac-soft);border-color:var(--ac)}
+.modal-meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem 1.4rem;text-align:left;padding-top:1.2rem;border-top:1px solid var(--line)}
+.modal-meta-item{text-align:left}
+.modal-meta-item-wide{grid-column:1 / -1}
+.modal-meta-lbl{font-size:.6rem;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:.35rem}
+.modal-meta-val{font-size:.82rem;font-weight:700;color:var(--ink);word-break:break-word}
 @media (max-width:520px){.modal-meta-grid{grid-template-columns:1fr}}
+.area-modal{background:var(--card);border-radius:22px;max-width:560px;width:100%;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.32);max-height:88vh;display:flex;flex-direction:column}
+.area-head{background:linear-gradient(135deg,var(--ac) 0%,var(--ac-d) 100%);color:#fff;padding:1.1rem 1.4rem;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-shrink:0}
+.area-head-tt{font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.9;margin-bottom:.25rem}
+.area-head-h{font-size:1.05rem;font-weight:800;line-height:1.25}
+.area-head-n{font-size:.74rem;opacity:.9;margin-top:.3rem}
+.area-close{flex-shrink:0;width:2.1rem;height:2.1rem;border-radius:50%;background:rgba(255,255,255,.2);border:1.5px solid rgba(255,255,255,.4);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;font-family:var(--font)}
+.area-close:hover{background:rgba(255,255,255,.36)}
+.area-list{overflow-y:auto;padding:.9rem 1.1rem 1.1rem;display:flex;flex-direction:column;gap:.55rem;scrollbar-width:thin}
+.area-row{display:flex;align-items:center;gap:.8rem;padding:.7rem .85rem;border:1px solid var(--line);border-radius:11px;background:#fff;transition:border-color .14s,background .14s}
+.area-row:hover,.area-row.is-head{border-color:var(--ac-border);background:var(--ac-soft)}
+.area-row-main{flex:1;min-width:0}
+.area-row-cargo{font-size:.66rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--ac-d);line-height:1.3;margin-bottom:.15rem}
+.area-row-name{font-size:.86rem;font-weight:700;color:var(--ink);line-height:1.3}
+.area-row-mail{flex-shrink:0;display:inline-flex;align-items:center;gap:.35rem;font-size:.74rem;font-weight:600;color:var(--ac-d);text-decoration:none;background:#fff;border:1.5px solid var(--ac-border);border-radius:8px;padding:.4rem .65rem;max-width:46%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;transition:all .14s}
+.area-row-mail:hover{background:var(--ac);color:#fff;border-color:var(--ac)}
+.area-row-mail svg{flex-shrink:0}
+@media (max-width:520px){.area-row{flex-wrap:wrap}.area-row-mail{max-width:100%;width:100%;justify-content:center}}
 
+.empty{display:none;grid-column:1/-1;text-align:center;padding:3.5rem 1rem;color:var(--muted)}
+.empty-ico{font-size:2.6rem;margin-bottom:.6rem}
+
+/* FOOTER FUNDAMENTACIÓN (estilo g) */
+.ley{background:var(--card);border-radius:var(--rad-lg);padding:22px 26px;border-left:4px solid var(--ac-d);box-shadow:0 1px 3px rgba(0,0,0,.06);margin-top:18px}
+.ley-eye{font-size:10.5px;font-weight:800;color:var(--ac-d);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.ley h3{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:8px;letter-spacing:-.008em}
+.ley p{font-size:13px;color:var(--muted);line-height:1.65}
+.ley p+p{margin-top:7px}
+.ley p strong{color:var(--ink2);font-weight:600}
+.ley blockquote{font-size:13px;color:var(--muted);line-height:1.65;margin:12px 0 8px;padding:12px 18px;background:var(--ac-soft);border-left:3px solid var(--ac);border-radius:6px;font-style:italic}
+.ley blockquote strong{color:var(--ink);font-style:normal;font-weight:700}
+
+@media(max-width:780px){body{padding:14px}.hero{padding:20px 18px}.cifras{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.grid{grid-template-columns:repeat(auto-fill,minmax(min(100%,150px),1fr));gap:.85rem}}
+@media(prefers-reduced-motion:reduce){.card,.modal,.overlay{transition:none}}
+#mail-overlay{z-index:950}
+.cifras-foot{grid-template-columns:repeat(2,1fr);max-width:460px;margin:20px 0 0}
+.mail-chooser{background:#fff;border-radius:16px;max-width:340px;width:100%;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.3);border:1px solid var(--line)}
+.mc-head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;padding:14px 16px 10px;font-size:13px;color:var(--muted);line-height:1.4}
+.mc-head b{display:block;color:var(--ink);font-weight:700;word-break:break-all;margin-top:2px}
+.mc-close{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--bg);border:1px solid var(--line);color:var(--muted);cursor:pointer;font-size:16px;line-height:1;display:flex;align-items:center;justify-content:center;font-family:var(--font)}
+.mc-close:hover{background:var(--line)}
+.mc-opt{display:flex;align-items:center;gap:11px;padding:11px 16px;text-decoration:none;color:var(--ink);font-size:13.5px;font-weight:600;transition:background .12s;cursor:pointer}
+.mc-opt:hover{background:var(--ac-soft)}
+.mc-opt:last-child{padding-bottom:14px}
+.mc-opt-ico{flex-shrink:0;width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center}
+.mc-opt-ico.brand{background:#fff;border:1px solid var(--line)}
+.mc-opt-ico.app{background:var(--ac);color:#fff}
+.mc-opt small{display:block;font-size:11px;font-weight:500;color:var(--g400);margin-top:1px}
 </style>
 </head>
 <body>
+<div class="wrap">
 
-<!-- HEADER -->
-<header class="hdr">
-  <div class="hdr-in">
-    <div class="hdr-eye">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-      Art. 8 · Frac. I · Inc. j) · Ley de Transparencia Jalisco
-    </div>
-    <h1 class="hdr-title">Directorio de Servidores Públicos</h1>
-    <p class="hdr-sub">Funcionarios de mando superior del Ayuntamiento de Guadalajara. Actualizado conforme al portal oficial de transparencia. Incluye correo electrónico, agenda y currículum vitae.</p>
-    <div class="hdr-badges">
-      <span class="hdr-badge">
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        Actualización: 13 abril 2026
-      </span>
-      <span class="hdr-badge">
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-        20 funcionarios
-      </span>
-      <span class="hdr-badge">
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-        CSV · Datos abiertos
-      </span>
+  <!-- HERO (estilo g) -->
+  <section class="hero">
+    <span class="hero-tag">Art. 8 · Fracción I · Inciso j) · Ley de Transparencia Jalisco</span>
+    <h1>Directorio de <em>servidores públicos</em></h1>
+    <p class="hero-sub">Funcionarias y funcionarios de <strong>mando superior</strong> del Ayuntamiento de Guadalajara. Consulta su <strong>correo institucional, agenda y currículum</strong>, y el <strong>directorio completo de cada área</strong> &mdash; todo en un clic.</p>
+    </section>
+
+  <div class="toolbar" role="search">
+    <div class="toolbar-in">
+      <div class="srch-wrap">
+        <svg class="srch-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="search" class="srch" id="srch" placeholder="Buscar por nombre, cargo o área…" aria-label="Buscar servidores públicos" autocomplete="off">
+      </div>
+      <span class="count" id="count" aria-live="polite"></span>
     </div>
   </div>
-</header>
 
-<!-- TOOLBAR -->
-<div class="toolbar" role="search">
-  <div class="toolbar-in">
-    <div class="srch-wrap">
-      <svg class="srch-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-      <input type="search" class="srch" id="srch" placeholder="Buscar por nombre, cargo o área…" aria-label="Buscar servidores públicos" autocomplete="off">
-    </div>
-    <span class="count" id="count" aria-live="polite" aria-atomic="true"></span>
+  <div class="dl-hero">
+    <button class="dl-hero-btn" id="dlBtn" type="button" aria-label="Descargar el directorio general en Excel">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      <span class="dl-tx">Descargar Directorio General (Excel)</span>
+    </button>
   </div>
+
+  <div class="filters">
+    <div class="filters-in" role="group" aria-label="Filtrar por área">
+      <span class="flbl" aria-hidden="true">Área:</span>
+      <button class="chip" data-filter="all" aria-pressed="true" type="button">Todos</button>
+      <button class="chip" data-filter="presidencia" aria-pressed="false" type="button">Presidencia</button>
+      <button class="chip" data-filter="sindicatura" aria-pressed="false" type="button">Sindicatura</button>
+      <button class="chip" data-filter="seguridad" aria-pressed="false" type="button">Seguridad</button>
+      <button class="chip" data-filter="secretarias" aria-pressed="false" type="button">Secretarías</button>
+      <button class="chip" data-filter="coordinaciones" aria-pressed="false" type="button">Coordinaciones</button>
+    </div>
+  </div>
+
+  <main class="main" id="main">
+    <div class="grid" id="grid" role="list" aria-label="Directorio de servidores públicos">
+      <div class="empty" id="empty" role="alert"><div class="empty-ico">🔍</div><div style="font-size:1rem;font-weight:700">Sin resultados</div><div style="font-size:.875rem;margin-top:.3rem">Intenta con otro nombre o área</div></div>
+    </div>
+  </main>
+
+  <!-- FOOTER FUNDAMENTACIÓN -->
+    <div class="cifras cifras-foot">
+    <div class="cifra"><div class="cifra-num" id="hdr-count">20</div><div class="cifra-lbl">Funcionarios de mando superior</div></div>
+    <div class="cifra"><div class="cifra-num">18</div><div class="cifra-lbl">Directorios de &aacute;rea consultables</div></div>
+  </div>
+
+  <footer class="ley">
+    <div class="ley-eye">Fundamento legal</div>
+    <h3>¿Por qué se publica esta información?</h3>
+    <p>El Ayuntamiento de Guadalajara está obligado a poner a tu disposición el directorio de sus servidores públicos, conforme al siguiente fundamento:</p>
+    <blockquote>«Artículo 8. Es información fundamental, obligatoria para todos los sujetos obligados, la siguiente: <strong>(…) I.</strong> La necesaria para el ejercicio del derecho a la información pública, que comprende: <strong>j)</strong> El directorio de todos los servidores públicos del sujeto obligado, a partir del nivel de jefe de departamento o su equivalente, o de menor nivel, cuando se brinde atención al público; manejen o apliquen recursos públicos; realicen actos de autoridad o presten servicios profesionales bajo el régimen de confianza u honorarios y personal de base. El directorio deberá incluir, al menos, el nombre, cargo o nombramiento asignado, nivel del puesto en la estructura orgánica, fecha de alta en cargo, número telefónico, domicilio para recibir correspondencia y dirección de correo electrónico oficiales.»</blockquote>
+    <p>&mdash; <strong>Artículo 8, Fracción I, Inciso j)</strong> de la <em>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</em>. Unidad Administrativa: Dirección de Innovación y Dirección de Recursos Humanos · Fecha de validación: 13 de abril de 2026.</p>
+  </footer>
+
 </div>
 
-<!-- DESCARGA DIRECTORIO -->
-<div class="dl-hero">
-  <a class="dl-hero-btn" href="https://transparencia.guadalajara.gob.mx/sites/default/files/DirectorioDiciembre25.xlsx" target="_blank" rel="noopener" aria-label="Descargar Directorio General 2026 en formato Excel">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-    Descargar Directorio General 2026
-  </a>
-</div>
-
-<!-- FILTROS POR GRUPO -->
-<div class="filters">
-  <div class="filters-in" role="group" aria-label="Filtrar por área de adscripción">
-    <span class="flbl" aria-hidden="true">Área:</span>
-    <button class="chip" data-filter="all" aria-pressed="true" type="button">Todos</button>
-    <button class="chip" data-filter="presidencia" aria-pressed="false" type="button">
-      <span class="chip-dot" style="background:#F26522"></span>Presidencia
-    </button>
-    <button class="chip" data-filter="sindicatura" aria-pressed="false" type="button">
-      <span class="chip-dot" style="background:#1D9E75"></span>Sindicatura
-    </button>
-    <button class="chip" data-filter="seguridad" aria-pressed="false" type="button">
-      <span class="chip-dot" style="background:#C8323F"></span>Seguridad
-    </button>
-    <button class="chip" data-filter="secretarias" aria-pressed="false" type="button">
-      <span class="chip-dot" style="background:#3D3D3D"></span>Secretarías
-    </button>
-    <button class="chip" data-filter="coordinaciones" aria-pressed="false" type="button">
-      <span class="chip-dot" style="background:#6450A0"></span>Coordinaciones
-    </button>
-  </div>
-</div>
-
-<!-- GRID -->
-<main class="main" role="main" id="main">
-  <div class="grid" id="grid" role="list" aria-label="Directorio de servidores públicos">
-    <div class="empty" id="empty" role="alert">
-      <div class="empty-ico">🔍</div>
-      <div style="font-size:1rem;font-weight:700">Sin resultados</div>
-      <div style="font-size:.875rem;margin-top:.3rem">Intenta con otro nombre o área</div>
-    </div>
-  </div>
-</main>
-
-<!-- MODAL PERFIL -->
+<!-- OVERLAY PERFIL -->
 <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="modal-name" tabindex="-1">
   <div class="modal" id="modal">
     <div class="modal-hero">
       <img class="modal-hero-bg" id="m-hero-bg" src="" alt="" aria-hidden="true">
-      <div class="modal-avatar-ring">
-        <img class="modal-avatar" id="m-avatar" src="" alt="">
-      </div>
-      <button class="modal-close" id="modal-close" type="button" aria-label="Cerrar">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
+      <div class="modal-avatar-ring"><img class="modal-avatar" id="m-avatar" src="" alt=""></div>
+      <button class="modal-close" id="modal-close" type="button" aria-label="Cerrar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
     </div>
     <div class="modal-body">
       <div class="modal-name" id="modal-name">—</div>
       <div class="modal-cargo" id="m-cargo">—</div>
       <div class="modal-dep" id="m-dep">—</div>
       <div class="modal-actions" id="m-actions"></div>
-      <div class="modal-meta modal-meta-grid">
-        <div class="modal-meta-item">
-          <div class="modal-meta-lbl">Correo oficial</div>
-          <div class="modal-meta-val" id="m-correo" style="font-size:.8rem">—</div>
-        </div>
-        <div class="modal-meta-item">
-          <div class="modal-meta-lbl">Área</div>
-          <div class="modal-meta-val" id="m-area" style="font-size:.8rem">—</div>
-        </div>
-        <div class="modal-meta-item">
-          <div class="modal-meta-lbl">Teléfono</div>
-          <div class="modal-meta-val" id="m-tel" style="font-size:.8rem">—</div>
-        </div>
-        <div class="modal-meta-item modal-meta-item-wide">
-          <div class="modal-meta-lbl">Domicilio para recibir correspondencia</div>
-          <div class="modal-meta-val" id="m-dom" style="font-size:.78rem;font-weight:500;line-height:1.5">—</div>
-        </div>
+      <div class="modal-meta-grid">
+        <div class="modal-meta-item"><div class="modal-meta-lbl">Correo oficial</div><div class="modal-meta-val" id="m-correo">—</div></div>
+        <div class="modal-meta-item"><div class="modal-meta-lbl">Área</div><div class="modal-meta-val" id="m-area">—</div></div>
+        <div class="modal-meta-item"><div class="modal-meta-lbl">Teléfono</div><div class="modal-meta-val" id="m-tel">—</div></div>
+        <div class="modal-meta-item modal-meta-item-wide"><div class="modal-meta-lbl">Domicilio para recibir correspondencia</div><div class="modal-meta-val" id="m-dom" style="font-weight:500;line-height:1.5">—</div></div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- FOOTER -->
-<footer class="foot">
-  <div class="foot-in">
-    <div class="foot-legal">
-      <strong>Art. 8, Frac. I, Inc. j) · Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</strong><br>
-      Unidad Administrativa: Dirección de Innovación y Dirección de Recursos Humanos · Fecha de validación: 13 de abril de 2026
+<!-- OVERLAY DIRECTORIO DEL ÁREA -->
+<div class="overlay" id="area-overlay" role="dialog" aria-modal="true" aria-labelledby="area-head-h" tabindex="-1">
+  <div class="area-modal" id="area-modal">
+    <div class="area-head">
+      <div style="min-width:0">
+        <div class="area-head-tt">Directorio del área</div>
+        <div class="area-head-h" id="area-head-h">—</div>
+        <div class="area-head-n" id="area-head-n">—</div>
+      </div>
+      <button class="area-close" id="area-close" type="button" aria-label="Cerrar"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
     </div>
-    <div class="foot-update">
-      <span class="pulse" aria-hidden="true"></span>
-      Actualizado: 13 abril 2026
-    </div>
+    <div class="area-list" id="area-list"></div>
   </div>
-</footer>
+</div>
+
+<!-- SELECTOR DE CORREO -->
+<div class="overlay" id="mail-overlay" role="dialog" aria-modal="true" tabindex="-1">
+  <div class="mail-chooser" id="mail-chooser">
+    <div class="mc-head"><span>Escribir un correo a<b id="mc-email">&mdash;</b></span><button class="mc-close" id="mc-close" type="button" aria-label="Cerrar">&times;</button></div>
+    <a class="mc-opt" id="mc-gmail" target="_blank" rel="noopener noreferrer"><span class="mc-opt-ico brand" aria-hidden="true"><svg viewBox="0 0 48 48" width="20" height="20"><path fill="#4caf50" d="M45 16.2l-5 2.75-5 4.75L35 40h7c1.657 0 3-1.343 3-3V16.2z"/><path fill="#1e88e5" d="M3 16.2l3.614 1.71L13 23.7V40H6c-1.657 0-3-1.343-3-3V16.2z"/><polygon fill="#e53935" points="35,11.2 24,19.45 13,11.2 12,17 13,23.7 24,31.95 35,23.7 36,17"/><path fill="#c62828" d="M3 12.298V16.2l10 7.5V11.2L9.876 8.859C9.132 8.301 8.228 8 7.298 8 4.924 8 3 9.924 3 12.298z"/><path fill="#fbc02d" d="M45 12.298V16.2l-10 7.5V11.2l3.124-2.341C38.868 8.301 39.772 8 40.702 8 43.076 8 45 9.924 45 12.298z"/></svg></span><span>Gmail<small>Correo de Google</small></span></a>
+    <a class="mc-opt" id="mc-outlook" target="_blank" rel="noopener noreferrer"><span class="mc-opt-ico brand" aria-hidden="true"><svg viewBox="0 0 48 48" width="20" height="20"><path fill="#103f91" d="M44 24.07v12.43A1.5 1.5 0 0 1 42.5 38H23v-9.55l2.79 2.16a2.1 2.1 0 0 0 2.42 0L44 24.07z"/><path fill="#0364b8" d="M23 10h19.5A1.5 1.5 0 0 1 44 11.5v12.57l-15.79 9.7a2.1 2.1 0 0 1-2.42 0L23 28.45V10z"/><path fill="#28a8ea" d="M23 10v18.45l-1.5-1.16V11.5A1.5 1.5 0 0 1 23 10z"/><path fill="#0078d4" d="M4 13.5v21l16 3.5V10L4 13.5z"/><path fill="#fff" d="M12.04 18.4c-3.05 0-5.04 2.27-5.04 5.7s1.96 5.6 4.94 5.6 5.02-2.27 5.02-5.74-1.9-5.56-4.92-5.56zm-.07 9.04c-1.66 0-2.7-1.4-2.7-3.42s1.06-3.46 2.73-3.46 2.68 1.43 2.68 3.4c0 2.07-1.02 3.48-2.71 3.48z"/></svg></span><span>Outlook / Hotmail<small>Correo de Microsoft</small></span></a>
+    <a class="mc-opt" id="mc-app"><span class="mc-opt-ico app" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span><span>Mi aplicaci&oacute;n de correo<small>La app de tu dispositivo</small></span></a>
+  </div>
+</div>
 
 <script>
-/* ═════════════════════════════════════════════════════════════════════
-   DATOS — Extraídos de transparencia.guadalajara.gob.mx/directorioguadalajara
-   Correos, cargos y nombres EXACTOS del portal oficial (13/04/2026)
-   ═════════════════════════════════════════════════════════════════════ */
 const FUNCIONARIOS = [
   {
     key: "veronica",
@@ -576,208 +542,873 @@ const FUNCIONARIOS = [
     foto: "data:image/jpeg;base64,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"
   },
 ];
-
-
-/* ── Colores por grupo ─────────────────────────────────────────────── */
-const GRUPO_COLOR = {
-  presidencia:   '#F26522',
-  sindicatura:   '#1D9E75',
-  seguridad:     '#C8323F',
-  secretarias:   '#3D3D3D',
-  coordinaciones:'#6450A0',
+const AREAS = {
+    "rosalia":  [
+                    {
+                        "cargo":  "Secretaría Particular",
+                        "nombre":  "Rosalía Herrera Guevara",
+                        "correo":  "rosalia.herrera@guadalajara.gob.mx"
+                    },
+                    {
+                        "cargo":  "Dirección de Relaciones Públicas",
+                        "nombre":  "Úrsula Martínez Altamirano",
+                        "correo":  "ursula.martinez@guadalajara.gob.mx"
+                    },
+                    {
+                        "cargo":  "Dirección de Atención Ciudadana",
+                        "nombre":  "Mardia Paola Mendoza Perdomo",
+                        "correo":  "mardia.mendoza@guadalajara.gob.mx"
+                    },
+                    {
+                        "cargo":  "Secretaria Privada",
+                        "nombre":  "Jorge Andrés Andrade Aguilar",
+                        "correo":  "jorge.andrade@guadalajara.gob.mx"
+                    },
+                    {
+                        "cargo":  "Enlace Administrativo de Presidencia",
+                        "nombre":  "Beatriz González Ochoa",
+                        "correo":  "beatriz.gonzalez@guadalajara.gob.mx"
+                    },
+                    {
+                        "cargo":  "Control y Seguimiento",
+                        "nombre":  "Mónica Reynoso Hernández",
+                        "correo":  "monica.reynoso@guadalajara.gob.mx"
+                    }
+                ],
+    "juan":  [
+                 {
+                     "cargo":  "Consejero Jurídico",
+                     "nombre":  "Juan José Ramos Fernández",
+                     "correo":  "juan.ramos@guadalajara.gob.mx"
+                 },
+                 {
+                     "cargo":  "Consejería Adjunta",
+                     "nombre":  "Gerardo Castillo Torres",
+                     "correo":  "gerardo.castillo@guadalajara.gob.mx"
+                 },
+                 {
+                     "cargo":  "Dirección Jurídica de Seguimiento",
+                     "nombre":  "Alexia Libertad Flores Barrera",
+                     "correo":  "alexia.flores@guadalajara.gob.mx"
+                 },
+                 {
+                     "cargo":  "Dirección de lo Jurídico de la Comisaría de Seguridad Ciudadana de Guadalajara",
+                     "nombre":  "Yesenia Dueñas Quintor",
+                     "correo":  "yesenia.duenas@guadalajara.gob.mx"
+                 },
+                 {
+                     "cargo":  "Dirección de Asuntos Internos",
+                     "nombre":  "Jorge Padilla Fuerte",
+                     "correo":  "jorge.padilla@guadalajara.gob.mx"
+                 }
+             ],
+    "mario":  [
+                  {
+                      "cargo":  "Jefe de la Oficina Ejecutiva de Presidencia",
+                      "nombre":  "Mario Ramón Silva Rodríguez",
+                      "correo":  "mario.silva@guadalajara.gob.mx"
+                  },
+                  {
+                      "cargo":  "Coordinación Técnica",
+                      "nombre":  "Luis Enrique Mendiola Negrete",
+                      "correo":  "enrique.mendiola@guadalajara.gob.mx"
+                  },
+                  {
+                      "cargo":  "Dirección de Evaluación y Seguimiento",
+                      "nombre":  "Julio Estrada Pérez",
+                      "correo":  "julio.estrada@guadalajara.gob.mx"
+                  },
+                  {
+                      "cargo":  "Dirección de Información Geoespacial y Análisis Urbano",
+                      "nombre":  "Laura Fabiola Ramos Alcaraz",
+                      "correo":  "laura.ramos@guadalajara.gob.mx"
+                  },
+                  {
+                      "cargo":  "Dirección de Planeación",
+                      "nombre":  "Diego Alonso Carrillo Torres",
+                      "correo":  "diego.carrillo@guadalajara.gob.mx"
+                  },
+                  {
+                      "cargo":  "Agencia Municipal de la Vivienda",
+                      "nombre":  "Otilia Guadalupe Pedroza Castañeda",
+                      "correo":  "ogpedroza@guadalajara.gob.mx"
+                  },
+                  {
+                      "cargo":  "Dirección de Relaciones Internacionales y Atención a Migrantes",
+                      "nombre":  "Paola Nadine Cortés Calzada",
+                      "correo":  "nadine.cortes@guadalajara.gob.mx"
+                  },
+                  {
+                      "cargo":  "Dirección de Control del Territorio",
+                      "nombre":  "José Augusto Ulloa Chávez",
+                      "correo":  "jose.ulloa@guadalajara.gob.mx"
+                  },
+                  {
+                      "cargo":  "Medios de Comunicación y Prensa",
+                      "nombre":  "Erika Mireya Blanco Rubio",
+                      "correo":  "erika.blanco@guadalajara.gob.mx"
+                  },
+                  {
+                      "cargo":  "Análisis Estratégico y Prospectiva",
+                      "nombre":  "Felipe Sergio Zúñiga Anaya",
+                      "correo":  "felipe.zuniga@guadalajara.gob.mx"
+                  }
+              ],
+    "alvaro":  [
+                   {
+                       "cargo":  "Jefe de la Oficina de Análisis y Comunicación Estratégica",
+                       "nombre":  "Álvaro Alonso González Ramírez",
+                       "correo":  "alvaro.gonzalez@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "Imagen, Creatividad y Mercadotecnia Gubernamental",
+                       "nombre":  "Luigui Antonio Reyes Caudillo",
+                       "correo":  "luigui.reyes@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "Comunicación Institucional",
+                       "nombre":  "Abraham Gamas García",
+                       "correo":  "abraham.gamas@guadalajara.gob.mx"
+                   }
+               ],
+    "bernardo":  [
+                     {
+                         "cargo":  "Jefe de Gabinete",
+                         "nombre":  "Bernardo Fernández Labastida",
+                         "correo":  "bernardo.fernandez@guadalajara.gob.mx"
+                     },
+                     {
+                         "cargo":  "Dirección de Vinculación y Gestión Estratégica",
+                         "nombre":  "Erika Alejandra Fregoso Cuenca",
+                         "correo":  "efrogoso@guadalajara.gob.mx"
+                     },
+                     {
+                         "cargo":  "Dirección de Inspección y Vigilancia",
+                         "nombre":  "Luis Arturo Carreto Cortés",
+                         "correo":  "luis.carreto@guadalajara.gob.mx"
+                     },
+                     {
+                         "cargo":  "Coordinación de Proyectos Estratégicos",
+                         "nombre":  "Jesús Adalberto Vázquez Rojas",
+                         "correo":  "jesus.vazquez@guadalajara.gob.mx"
+                     },
+                     {
+                         "cargo":  "Dirección de Mejora Regulatoria",
+                         "nombre":  "Eric Yobel Gómez Aguilar",
+                         "correo":  "eric.gomez@guadalajara.gob.mx"
+                     }
+                 ],
+    "salvador":  [
+                     {
+                         "cargo":  "Síndico",
+                         "nombre":  "Salvador de la Cruz Rodríguez Reyes",
+                         "correo":  "salvador.delacruz@guadalajara.gob.mx"
+                     },
+                     {
+                         "cargo":  "Dirección General Jurídica",
+                         "nombre":  "Francisco Javier Ulloa Sánchez",
+                         "correo":  "francisco.ulloa@guadalajara.gob.mx"
+                     },
+                     {
+                         "cargo":  "Dirección Jurídico Contencioso",
+                         "nombre":  "Ana Elena Hernández Núñez",
+                         "correo":  "ana.hernandez@guadalajara.gob.mx"
+                     },
+                     {
+                         "cargo":  "Dirección Jurídico Consultivo",
+                         "nombre":  "Enrique Cárdenas Huezo",
+                         "correo":  "enrique.cardenas@guadalajara.gob.mx"
+                     },
+                     {
+                         "cargo":  "Dirección de Derechos Humanos",
+                         "nombre":  "Sandra García Palma",
+                         "correo":  "sandra.garcia@guadalajara.gob.mx"
+                     },
+                     {
+                         "cargo":  "Dirección Jurídico Laboral",
+                         "nombre":  "Carlos Ignacio Ramírez Ledezma",
+                         "correo":  "ciramirez@guadalajara.gob.mx"
+                     },
+                     {
+                         "cargo":  "Órgano de Control Disciplinario",
+                         "nombre":  "Salvador de la Cruz Rodríguez Reyes",
+                         "correo":  "salvador.delacruz@guadalajara.gob.mx"
+                     },
+                     {
+                         "cargo":  "Despacho de Sindicatura",
+                         "nombre":  "Luis Guadalupe Íñiguez Rodríguez",
+                         "correo":  "luis.iniguez@guadalajara.gob.mx"
+                     },
+                     {
+                         "cargo":  "Enlace Administrativo",
+                         "nombre":  "Luz Elba Camacho Angel",
+                         "correo":  "lecamacho@guadalajara.gob.mx"
+                     }
+                 ],
+    "ismael":  [
+                   {
+                       "cargo":  "Comisario",
+                       "nombre":  "Ismael Ramírez Méndez",
+                       "correo":  "ismael.ramirez@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "Dirección de Asesores",
+                       "nombre":  "Juan Carlos Godínez Martin del Campo",
+                       "correo":  "jcgodinez@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "División de Operaciones Regionales y Agrupamientos",
+                       "nombre":  "Gustavo Adolfo Jiménez Moya",
+                       "correo":  "divisionoperativa@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "División de Inteligencia",
+                       "nombre":  "Cristian Alonso Hernández González",
+                       "correo":  "divisioninteligencia@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "División de Logística",
+                       "nombre":  "Carlos Michel Manzo",
+                       "correo":  "divisionlogistica@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "División de Carrera Policial",
+                       "nombre":  "César Hugo Cuevas Jiménez",
+                       "correo":  "academiadepolicia@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "División Especializada en la Atención de la Violencia en contra de las Mujeres en razón de Género",
+                       "nombre":  "Gloria Isabel Ibarra Tornero",
+                       "correo":  "comandanciadeavim@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "División de Planeación y Gestión Estratégica",
+                       "nombre":  "Victor Hugo Bravo Mora",
+                       "correo":  "planestcomisaria@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "Director de lo Jurídico",
+                       "nombre":  "Yesenia Dueñas Quintar",
+                       "correo":  "yesenia.duenas@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "Director de Enlace Administrativo",
+                       "nombre":  "Victor Manuel Nuñez Franco",
+                       "correo":  "victor.nunez@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "Vinculación Ciudadana, Prevención Social y Atención a las Víctimas",
+                       "nombre":  "Jesús Alejandro Prado Rodríguez",
+                       "correo":  "direccionvinculacion@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "Director de Control, Seguimiento de Procesos y Atención a las Víctimas",
+                       "nombre":  "Héctor Alejandro Franco Ruvalcaba",
+                       "correo":  "hector.franco@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "Comunicación Social y Relaciones Públicas",
+                       "nombre":  "Luis Daniel Gaspar Santana",
+                       "correo":  "comisariajefprensa@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "Unidad de Enlace de Fondos y Subsidios Federales",
+                       "nombre":  "Oscar Daniel Vázquez del Real",
+                       "correo":  "oscar.vazquez@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "Secretario Técnico",
+                       "nombre":  "Jesús Antonio Cornejo Pérez",
+                       "correo":  "jesus.cornejo@guadalajara.gob.mx"
+                   }
+               ],
+    "manuel":  [
+                   {
+                       "cargo":  "Secretario General",
+                       "nombre":  "José Manuel Romo Parra",
+                       "correo":  "jose.romo@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "Dirección Justicia Cívica Municipal",
+                       "nombre":  "Alain Fernando Preciado López",
+                       "correo":  "alain.preciado@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "Dirección Archivo Municipal",
+                       "nombre":  "Álvaro Martínez García",
+                       "correo":  "alvaro.martinez@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "Dirección de Enlace del Ayuntamiento",
+                       "nombre":  "Leticia González Ceballos",
+                       "correo":  "lgonzalez@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "Dirección de Integración y Dictaminación",
+                       "nombre":  "Daisy Yolanda Sánchez Sánchez",
+                       "correo":  "daisy.sanchez@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "Coordinación Municipal de Gestión Dirección Integral de Riesgos, Protección Civil y Bomberos",
+                       "nombre":  "Jeeny de la Torre Ruelas",
+                       "correo":  "jdelatorrer@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "Dirección de Registro Civil",
+                       "nombre":  "Alberto Espinosa Sauza",
+                       "correo":  "alberto.espinosa@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "Dirección de Asuntos Políticos",
+                       "nombre":  "Carlos Héctor Córdova Sánchez",
+                       "correo":  "carlos.cordova@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "Dirección de Asuntos Religiosos",
+                       "nombre":  "Efrén Calvario Baltazar",
+                       "correo":  "efren.calvario@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "Junta Municipal de Reclutamiento",
+                       "nombre":  "Humberto Bernal Hernández",
+                       "correo":  "hbernal@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "Unidad de Sala Edilicia",
+                       "nombre":  "J. Jesús Salazar Luna",
+                       "correo":  "jesus.salazar@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "Jefatura del Departamento de Calificación",
+                       "nombre":  "Sergio Vargas González",
+                       "correo":  "svargasg@guadalajara.gob.mx"
+                   }
+               ],
+    "irlanda":  [
+                    {
+                        "cargo":  "Tesorera",
+                        "nombre":  "Irlanda Loerythe Baumbach Valencia",
+                        "correo":  "irlanda.baumbach@guadalajara.gob.mx"
+                    },
+                    {
+                        "cargo":  "Dirección de Catastro",
+                        "nombre":  "Rodolfo González Sánchez",
+                        "correo":  "rodolfo.gonzalez@guadalajara.gob.mx"
+                    },
+                    {
+                        "cargo":  "Dirección de Contabilidad",
+                        "nombre":  "Veda Vargas Rangel",
+                        "correo":  "vvargas@guadalajara.gob.mx"
+                    },
+                    {
+                        "cargo":  "Dirección de Egresos",
+                        "nombre":  "Sandra García Miranda",
+                        "correo":  "sandra.garciam@guadalajara.gob.mx"
+                    },
+                    {
+                        "cargo":  "Dirección Finanzas",
+                        "nombre":  "Juan Francisco Castellanos Horta",
+                        "correo":  "jfcastellanosh@guadalajara.gob.mx"
+                    },
+                    {
+                        "cargo":  "Dirección de Ingresos",
+                        "nombre":  "David Ricardo Delgado Ahumada",
+                        "correo":  "drdelgado@guadalajara.gob.mx"
+                    },
+                    {
+                        "cargo":  "Dirección de Nómina",
+                        "nombre":  "Jorge Alberto Oliva Pulido",
+                        "correo":  "jaoliva@guadalajara.gob.mx"
+                    },
+                    {
+                        "cargo":  "Dirección de Política Fiscal y Mejora de Hacienda",
+                        "nombre":  "Aldo Manuel Aguilar Silva",
+                        "correo":  "aldo.aguilar@guadalajara.gob.mx"
+                    }
+                ],
+    "alejandra":  [
+                      {
+                          "cargo":  "Contralora",
+                          "nombre":  "Alejandra Guadalupe Hernández Santillán",
+                          "correo":  "alejandra.hernandez@guadalajara.gob.mx"
+                      },
+                      {
+                          "cargo":  "Dirección de Auditoría",
+                          "nombre":  "José Alberto Sánchez Castellanos",
+                          "correo":  "jose.sanchez@guadalajara.gob.mx"
+                      },
+                      {
+                          "cargo":  "Dirección de Responsabilidades",
+                          "nombre":  "José Manuel Valdivia Vitela",
+                          "correo":  "jose.valdivia@guadalajara.gob.mx"
+                      },
+                      {
+                          "cargo":  "Dirección de Substanciación y Resolución",
+                          "nombre":  "Mayra Danelia Sandoval Esqueda",
+                          "correo":  "mdsandoval@guadalajara.gob.mx"
+                      }
+                  ],
+    "abraham":  [
+                    {
+                        "cargo":  "Coordinador de Administración e Innovación",
+                        "nombre":  "Abraham Yasir Maciel Montoya",
+                        "correo":  "abraham.maciel@guadalajara.gob.mx"
+                    },
+                    {
+                        "cargo":  "Dirección de Administración",
+                        "nombre":  "María Guadalupe Alonso López",
+                        "correo":  "maria.alonso@guadalajara.gob.mx"
+                    },
+                    {
+                        "cargo":  "Dirección de Adquisiciones",
+                        "nombre":  "Martha Velázquez Ortega",
+                        "correo":  "martha.velazquez@guadalajara.gob.mx"
+                    },
+                    {
+                        "cargo":  "Dirección de Patrimonio",
+                        "nombre":  "Juan Manuel Ibarra Bautista",
+                        "correo":  "juan.ibarra@guadalajara.gob.mx"
+                    },
+                    {
+                        "cargo":  "Dirección de Innovación Gubernamental",
+                        "nombre":  "Samuel González Loza",
+                        "correo":  "samuel.gonzalez@guadalajara.gob.mx"
+                    },
+                    {
+                        "cargo":  "Dirección de Recursos Humanos",
+                        "nombre":  "Karina Mata Fernández",
+                        "correo":  "karina.mata@guadalajara.gob.mx"
+                    }
+                ],
+    "norma":  [
+                  {
+                      "cargo":  "Coordinadora General de la Superintendencia del Centro Histórico",
+                      "nombre":  "Norma Angélica Aguirre Varela",
+                      "correo":  "naguirrev@guadalajara.gob.mx"
+                  },
+                  {
+                      "cargo":  "Dirección de Orden y Gobernanza",
+                      "nombre":  "Alfredo Pérez Padilla",
+                      "correo":  "alfredo.padilla@guadalajara.gob.mx"
+                  },
+                  {
+                      "cargo":  "Dirección de Servicios Públicos del Centro Histórico",
+                      "nombre":  "Guillermo López Sánchez",
+                      "correo":  "guillermo.lopez@guadalajara.gob.mx"
+                  }
+              ],
+    "isabel":  [
+                   {
+                       "cargo":  "Coordinadora General de Gestión Integral de la Ciudad",
+                       "nombre":  "Isabel Viridiana de la Torre Guzmán",
+                       "correo":  "ivdelatorre@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "Dirección de Medio Ambiente",
+                       "nombre":  "Tania Libertad Zavala Marín",
+                       "correo":  "tania.zavala@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "Dirección de Movilidad y Transporte",
+                       "nombre":  "Saúl González Ramírez",
+                       "correo":  "saul.gonzalez@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "Dirección de Obras Públicas",
+                       "nombre":  "Juan Carlos Arauz Abarca",
+                       "correo":  "jcarauz@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "Dirección de Ordenamiento del Territorio",
+                       "nombre":  "Perla María Zamora Macías",
+                       "correo":  "perla.zamora@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "Dirección de Licencias de Construcción",
+                       "nombre":  "Mauricio Castillo Hernández",
+                       "correo":  "mauricio.castillo@guadalajara.gob.mx"
+                   }
+               ],
+    "carmen":  [
+                   {
+                       "cargo":  "Coordinadora General de Combate a la Desigualdad",
+                       "nombre":  "Carmen Julia Prudencio González",
+                       "correo":  "carmen.prudencio@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "Unidad de Enlace de Programas Sociales",
+                       "nombre":  "Ricardo Mar de la Paz",
+                       "correo":  "rmar@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "Dirección de Programas Sociales Municipales",
+                       "nombre":  "María del Carmen Bayardo Solórzano",
+                       "correo":  "maria.bayardo@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "Dirección de Apoyo a la Niñez",
+                       "nombre":  "Evangelina Belén Rodríguez Alvarado",
+                       "correo":  "evangelina.rodriguez@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "Dirección de Diversidad",
+                       "nombre":  "Alba Karenina Vaca Rojas",
+                       "correo":  "alba.vaca@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "Dirección de Pueblos Originarios",
+                       "nombre":  "Dianna Guadalupe Montoya Eligió",
+                       "correo":  "dianna.montoya@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "Dirección de Atención a Personas con Discapacidad",
+                       "nombre":  "Heli de Jesús Casillas Alcalá",
+                       "correo":  "heli.casillas@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "Dirección de Atención a Organizaciones de la Sociedad Civil",
+                       "nombre":  "Juan Carlos Munguía Franco",
+                       "correo":  "jcmunguia@guadalajara.gob.mx"
+                   },
+                   {
+                       "cargo":  "Dirección de Juventudes",
+                       "nombre":  "Samuel Omar Barajas Patiño",
+                       "correo":  "samuel.barajas@guadalajara.gob.mx"
+                   }
+               ],
+    "david":  [
+                  {
+                      "cargo":  "Coordinador General de Desarrollo Económico",
+                      "nombre":  "David Mendoza Martínez",
+                      "correo":  "david.mendoza@guadalajara.gob.mx"
+                  },
+                  {
+                      "cargo":  "Dirección de Emprendimiento y Promoción Económica",
+                      "nombre":  "Mariana Orozco Rosales",
+                      "correo":  "mariana.orozco@guadalajara.gob.mx"
+                  },
+                  {
+                      "cargo":  "Dirección de Padrón y Licencias",
+                      "nombre":  "Felipe de Jesús González León",
+                      "correo":  "felipe.gonzalez@guadalajara.gob.mx"
+                  },
+                  {
+                      "cargo":  "Dirección de Turismo",
+                      "nombre":  "María del Refugio Plascencia Pérez",
+                      "correo":  "mrplascenciap@guadalajara.gob.mx"
+                  },
+                  {
+                      "cargo":  "Dirección de Mercados",
+                      "nombre":  "Rodrigo González Híjar",
+                      "correo":  "rodrigo.gonzalez@guadalajara.gob.mx"
+                  },
+                  {
+                      "cargo":  "Dirección de Tianguis y Comercios en Espacios Abiertos",
+                      "nombre":  "Blanca Estela Valdez Granados",
+                      "correo":  "bevaldez@guadalajara.gob.mx"
+                  }
+              ],
+    "crystal":  [
+                    {
+                        "cargo":  "Coordinadora General de Construcción de Comunidad",
+                        "nombre":  "Erika Crystal Zavala López",
+                        "correo":  "crystal.zavala@guadalajara.gob.mx"
+                    },
+                    {
+                        "cargo":  "Dirección de Cultura",
+                        "nombre":  "Carlos Alberto González Martínez",
+                        "correo":  "carlos.gonzalez@guadalajara.gob.mx"
+                    },
+                    {
+                        "cargo":  "Dirección de Educación",
+                        "nombre":  "Miguel Ángel Casillas Trejo",
+                        "correo":  "miguel.casillas@guadalajara.gob.mx"
+                    },
+                    {
+                        "cargo":  "Dirección de Servicios Médicos Municipales",
+                        "nombre":  "José de Jesús Méndez de Lira",
+                        "correo":  "jose.mendez@guadalajara.gob.mx"
+                    },
+                    {
+                        "cargo":  "Dirección de Bienestar Animal",
+                        "nombre":  "Guillermo Alberto Korkowski Sivilla",
+                        "correo":  "guillermo.korkowski@guadalajara.gob.mx"
+                    },
+                    {
+                        "cargo":  "Dirección de Colmenas y Centros de Cuidados Comunitarios",
+                        "nombre":  "Zaira Zaragoza Sedano",
+                        "correo":  "zzaragoza@guadalajara.gob.mx"
+                    },
+                    {
+                        "cargo":  "Dirección de Unidades Administrativas y de Cuidados Comunitarios",
+                        "nombre":  "Arturo Rosales Casillas",
+                        "correo":  "arosalesc@guadalajara.gob.mx"
+                    },
+                    {
+                        "cargo":  "Dirección de Cuidados",
+                        "nombre":  "Mariana Ortiz Tirado González",
+                        "correo":  "mariana.ortiz@guadalajara.gob.mx"
+                    }
+                ],
+    "oscar":  [
+                  {
+                      "cargo":  "Coordinador General de Servicios Municipales",
+                      "nombre":  "Oscar Villalobos Gámez",
+                      "correo":  "oscar.villalobos@guadalajara.gob.mx"
+                  },
+                  {
+                      "cargo":  "Dirección de Alumbrado Público",
+                      "nombre":  "Enrique Gerardo Ávalos González",
+                      "correo":  "egavalos@guadalajara.gob.mx"
+                  },
+                  {
+                      "cargo":  "Dirección de Aseo Público",
+                      "nombre":  "Roberto César Ornelas Pérez",
+                      "correo":  "roberto.ornelas@guadalajara.gob.mx"
+                  },
+                  {
+                      "cargo":  "Dirección de Cementerios",
+                      "nombre":  "Gloria Carranza González",
+                      "correo":  "gcarranza@guadalajara.gob.mx"
+                  },
+                  {
+                      "cargo":  "Dirección de Mejoramiento Urbano",
+                      "nombre":  "Asareel Mata Guadarrama",
+                      "correo":  "asareel.mata@guadalajara.gob.mx"
+                  },
+                  {
+                      "cargo":  "Dirección de Parques y Jardines",
+                      "nombre":  "Javier Secundino Romo Parra",
+                      "correo":  "javier.romo@guadalajara.gob.mx"
+                  },
+                  {
+                      "cargo":  "Dirección de Pavimentos",
+                      "nombre":  "María Elena Zamago Osuna",
+                      "correo":  "maria.zamago@guadalajara.gob.mx"
+                  },
+                  {
+                      "cargo":  "Dirección de Rastro",
+                      "nombre":  "Aldo Daniel León Canal",
+                      "correo":  "aldo.leon@guadalajara.gob.mx"
+                  },
+                  {
+                      "cargo":  "Dirección de Guadalajara Limpia",
+                      "nombre":  "Salvador Cervantes Flores",
+                      "correo":  "salvador.cervantesf@guadalajara.gob.mx"
+                  },
+                  {
+                      "cargo":  "Dirección de Gerencia Nocturna",
+                      "nombre":  "Guillermo Enrique Flores Pérez",
+                      "correo":  "guillermo.flores@guadalajara.gob.mx"
+                  },
+                  {
+                      "cargo":  "Dirección de Evaluación y Seguimiento",
+                      "nombre":  "Vanessa Álvarez O´Connor",
+                      "correo":  "vanessa.alvarez@guadalajara.gob.mx"
+                  },
+                  {
+                      "cargo":  "Dirección de Planeación Estratégica",
+                      "nombre":  "Natalia Reyes Paz",
+                      "correo":  "natalia.reyes@guadalajara.gob.mx"
+                  }
+              ],
+    "marco":  [
+                  {
+                      "cargo":  "Coordinador General de Cuidamos Guadalajara",
+                      "nombre":  "Marco Sebastían Ocegueda Sánchez",
+                      "correo":  "marco.ocegueda@guadalajara.gob.mx"
+                  },
+                  {
+                      "cargo":  "Dirección General de Gestión de Gobierno y Ciudadanía",
+                      "nombre":  "José Refugio Gómez Gamboa",
+                      "correo":  "jrgomez@guadalajara.gob.mx"
+                  },
+                  {
+                      "cargo":  "Dirección de Participación Ciudadana",
+                      "nombre":  "José Gibrán Martínez Alcalá",
+                      "correo":  "jose.martineza@guadalajara.gob.mx"
+                  },
+                  {
+                      "cargo":  "Dirección de Procesos Ciudadanos",
+                      "nombre":  "Gabriel Adrian Tovar Mendoza",
+                      "correo":  "gabriel.tovar@guadalajara.gob.mx"
+                  },
+                  {
+                      "cargo":  "Dirección de Pedagogía Social",
+                      "nombre":  "Celia Andrea Ramírez Arechiga",
+                      "correo":  "celia.ramirez@guadalajara.gob.mx"
+                  },
+                  {
+                      "cargo":  "Dirección de Innovación Social",
+                      "nombre":  "Marcela Guadalupe Aceves Sánchez",
+                      "correo":  "marcela.aceves@guadalajara.gob.mx"
+                  },
+                  {
+                      "cargo":  "Dirección de Capacitación y Academias Municipales",
+                      "nombre":  "Carlos Reyes Padilla",
+                      "correo":  "creyes@guadalajara.gob.mx"
+                  }
+              ]
 };
-const GRUPO_LABEL = {
-  presidencia:   'Presidencia',
-  sindicatura:   'Sindicatura',
-  seguridad:     'Seguridad',
-  secretarias:   'Secretarías',
-  coordinaciones:'Coordinaciones',
-};
+const XLSX_URL = "https://transparencia.guadalajara.gob.mx/sites/default/files/DirectorioDiciembre25.xlsx";
 
-/* ── Render de tarjetas ────────────────────────────────────────────── */
-const grid  = document.getElementById('grid');
-const empty = document.getElementById('empty');
-const countEl = document.getElementById('count');
+const GRUPO_LABEL = {presidencia:'Presidencia',sindicatura:'Sindicatura',seguridad:'Seguridad',secretarias:'Secretarías',coordinaciones:'Coordinaciones'};
 
-function iconSVG(name){
-  const icons = {
-    email: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>`,
-    agenda:`<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>`,
-    cv:    `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>`,
-    dir:   `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
-  };
-  return icons[name] || '';
-}
+const grid=document.getElementById('grid'), empty=document.getElementById('empty'), countEl=document.getElementById('count');
+document.getElementById('hdr-count').textContent = FUNCIONARIOS.length;
+
+function ic(n){const i={
+  email:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>',
+  agenda:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>',
+  cv:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>',
+  dir:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>'};
+  return i[n]||'';}
 
 function renderCards(list){
   grid.querySelectorAll('.card').forEach(c=>c.remove());
-  const vis = list.filter(f=>f._v !== false);
-  countEl.textContent = vis.length + ' servidor' + (vis.length !== 1 ? 'es' : '');
-  empty.style.display = vis.length === 0 ? 'block' : 'none';
-
-  vis.forEach((fn, i) => {
-    const col = GRUPO_COLOR[fn.grupo] || '#888';
-    const lbl = GRUPO_LABEL[fn.grupo] || fn.grupo;
-
-    /* iconos de la tarjeta (agenda / cv / subdirectorio) */
-    const agendaIco = fn.agenda
-      ? `<a class="card-link-ico active" href="${fn.agenda}" target="_blank" rel="noopener" title="Agenda" onclick="event.stopPropagation()" aria-label="Ver agenda de ${fn.nombre}">${iconSVG('agenda')}</a>`
-      : `<span class="card-link-ico" title="Sin agenda pública" aria-label="Sin agenda">${iconSVG('agenda')}</span>`;
-    const cvIco = fn.cv
-      ? `<a class="card-link-ico active" href="${fn.cv}" target="_blank" rel="noopener" title="Currículum Vitae" onclick="event.stopPropagation()" aria-label="Currículum Vitae de ${fn.nombre}">${iconSVG('cv')}</a>`
-      : `<span class="card-link-ico" title="Sin CV publicado" aria-label="Sin CV">${iconSVG('cv')}</span>`;
-    const subdirIco = fn.subdirectorio
-      ? `<a class="card-link-ico active" href="${fn.subdirectorio}" target="_blank" rel="noopener" title="Subdirectorio del área" onclick="event.stopPropagation()" aria-label="Subdirectorio de ${fn.dependencia}">${iconSVG('dir')}</a>`
-      : '';
-
-    const card = document.createElement('div');
-    card.className = 'card';
-    card.setAttribute('role','listitem');
-    card.setAttribute('tabindex','0');
-    card.setAttribute('aria-label', `${fn.nombre}, ${fn.cargo}`);
-    card.innerHTML = `
-      <div class="card-photo">
-        <img src="${fn.foto}" alt="Fotografía oficial de ${fn.nombre}" loading="lazy">
-        <div class="card-dept-strip">${fn.dependencia}</div>
-        <span class="card-grupo-badge gbadge-${fn.grupo}" style="background:${col}cc">${lbl}</span>
-      </div>
-      <div class="card-body">
-        <div class="card-name">${fn.nombre}</div>
-        <div class="card-cargo">${fn.cargo}</div>
-      </div>
-      <div class="card-foot">
-        <a class="card-email" href="mailto:${fn.correo}" onclick="event.stopPropagation()" title="${fn.correo}" aria-label="Enviar correo a ${fn.nombre}">${fn.correo}</a>
-        <div class="card-links">${agendaIco}${cvIco}${subdirIco}</div>
-      </div>`;
-
-    card.addEventListener('click', ()=>openModal(fn));
-    card.addEventListener('keydown', e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openModal(fn);}});
-    grid.insertBefore(card, empty);
+  const vis=list.filter(f=>f._v!==false);
+  countEl.innerHTML='<b>'+vis.length+'</b> servidor'+(vis.length!==1?'es':'');
+  empty.style.display=vis.length===0?'block':'none';
+  vis.forEach(fn=>{
+    const lbl=GRUPO_LABEL[fn.grupo]||fn.grupo;
+    const hasArea = AREAS[fn.key] && AREAS[fn.key].length;
+    const agendaIco=fn.agenda?'<a class="card-link-ico active" href="'+fn.agenda+'" target="_blank" rel="noopener" title="Agenda" onclick="event.stopPropagation()">'+ic('agenda')+'</a>':'<span class="card-link-ico" title="Sin agenda">'+ic('agenda')+'</span>';
+    const cvIco=fn.cv?'<a class="card-link-ico active" href="'+fn.cv+'" target="_blank" rel="noopener" title="Currículum" onclick="event.stopPropagation()">'+ic('cv')+'</a>':'<span class="card-link-ico" title="Sin CV">'+ic('cv')+'</span>';
+    const dirIco=hasArea?'<button class="card-link-ico active" type="button" title="Directorio del área" onclick="event.stopPropagation();openArea(\''+fn.key+'\')">'+ic('dir')+'</button>':'';
+    const card=document.createElement('div');
+    card.className='card'; card.setAttribute('role','listitem'); card.setAttribute('tabindex','0'); card.setAttribute('aria-label',fn.nombre+', '+fn.cargo);
+    card.innerHTML='<div class="card-photo"><img src="'+fn.foto+'" alt="Fotografía de '+fn.nombre+'" loading="lazy"><div class="card-dept-strip">'+fn.dependencia+'</div><span class="card-grupo-badge">'+lbl+'</span></div>'+
+      '<div class="card-body"><div class="card-name">'+fn.nombre+'</div><div class="card-cargo">'+fn.cargo+'</div></div>'+
+      '<div class="card-foot"><a class="card-email" href="mailto:'+fn.correo+'" onclick="event.stopPropagation()" title="'+fn.correo+'">'+fn.correo+'</a><div class="card-links">'+agendaIco+cvIco+dirIco+'</div></div>';
+    card.addEventListener('click',()=>openModal(fn,card));
+    card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openModal(fn,card);}});
+    grid.insertBefore(card,empty);
   });
 }
 
-/* ── Modal ─────────────────────────────────────────────────────────── */
-const overlay = document.getElementById('overlay');
-
-function openModal(fn){
-  document.getElementById('m-hero-bg').src  = fn.foto;
-  document.getElementById('m-hero-bg').alt  = fn.nombre;
-  document.getElementById('m-avatar').src   = fn.foto;
-  document.getElementById('m-avatar').alt   = 'Fotografía oficial de ' + fn.nombre;
-  document.getElementById('modal-name').textContent = fn.nombre;
-  document.getElementById('m-cargo').textContent    = fn.cargo;
-  document.getElementById('m-dep').textContent      = fn.dependencia;
-  document.getElementById('m-correo').textContent   = fn.correo;
-  document.getElementById('m-area').textContent     = GRUPO_LABEL[fn.grupo] || fn.grupo;
-
-  /* INYECCIÓN v3: teléfono y domicilio */
-  document.getElementById('m-tel').textContent = fn.telefono && fn.telefono.trim() !== '' ? fn.telefono : 'No disponible';
-  document.getElementById('m-dom').textContent = fn.domicilio || '—';
-
-  /* Botones dinámicos */
-  const acts = document.getElementById('m-actions');
-  acts.innerHTML = '';
-
-  /* Email — siempre */
-  const btnEmail = document.createElement('a');
-  btnEmail.className = 'modal-btn modal-btn-email';
-  btnEmail.href = 'mailto:' + fn.correo;
-  btnEmail.innerHTML = iconSVG('email') + ' Enviar correo institucional';
-  acts.appendChild(btnEmail);
-
-  /* Agenda */
-  if(fn.agenda){
-    const btnAg = document.createElement('a');
-    btnAg.className = 'modal-btn modal-btn-agenda';
-    btnAg.href = fn.agenda;
-    btnAg.target = '_blank';
-    btnAg.rel = 'noopener noreferrer';
-    btnAg.innerHTML = iconSVG('agenda') + ' Ver agenda pública';
-    acts.appendChild(btnAg);
-  }
-
-  /* CV */
-  if(fn.cv){
-    const btnCV = document.createElement('a');
-    btnCV.className = 'modal-btn modal-btn-cv';
-    btnCV.href = fn.cv;
-    btnCV.target = '_blank';
-    btnCV.rel = 'noopener noreferrer';
-    btnCV.innerHTML = iconSVG('cv') + ' Currículum Vitae';
-    acts.appendChild(btnCV);
-  }
-
-  /* Subdirectorio */
-  if(fn.subdirectorio){
-    const btnSub = document.createElement('a');
-    btnSub.className = 'modal-btn modal-btn-sub';
-    btnSub.href = fn.subdirectorio;
-    btnSub.target = '_blank';
-    btnSub.rel = 'noopener noreferrer';
-    btnSub.innerHTML = iconSVG('dir') + ' Directorio del área';
-    acts.appendChild(btnSub);
-  }
-
-  overlay.classList.add('open');
-  document.body.style.overflow = 'hidden';
-  document.getElementById('modal-close').focus();
+/* ── Anclaje de modal a la posición del clic (fix scroll en iframe) ── */
+const overlay=document.getElementById('overlay');
+const areaOverlay=document.getElementById('area-overlay');
+let anchorY=40;
+function showOverlay(ov, box, y){
+  const docH=Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+  ov.style.height=docH+'px';
+  ov.classList.add('open');
+  const bh=box.offsetHeight;
+  let top=Math.round(y - bh/2);
+  top=Math.max(12, Math.min(top, Math.max(12, docH - bh - 12)));
+  box.style.marginTop=top+'px';
+  reportHeight();
+}
+function cardAnchor(cardEl){
+  if(!cardEl) return 40;
+  const r=cardEl.getBoundingClientRect();
+  return r.top + (window.pageYOffset||document.documentElement.scrollTop) + r.height/2;
 }
 
-function closeModal(){
-  overlay.classList.remove('open');
-  document.body.style.overflow = '';
+function openModal(fn,cardEl){
+  document.getElementById('m-hero-bg').src=fn.foto;
+  document.getElementById('m-avatar').src=fn.foto;
+  document.getElementById('m-avatar').alt='Fotografía de '+fn.nombre;
+  document.getElementById('modal-name').textContent=fn.nombre;
+  document.getElementById('m-cargo').textContent=fn.cargo;
+  document.getElementById('m-dep').textContent=fn.dependencia;
+  document.getElementById('m-correo').textContent=fn.correo;
+  document.getElementById('m-area').textContent=GRUPO_LABEL[fn.grupo]||fn.grupo;
+  document.getElementById('m-tel').textContent=fn.telefono&&fn.telefono.trim()!==''?fn.telefono:'No disponible';
+  document.getElementById('m-dom').textContent=fn.domicilio||'—';
+  const acts=document.getElementById('m-actions'); acts.innerHTML='';
+  const be=document.createElement('a'); be.className='modal-btn modal-btn-email'; be.href='mailto:'+fn.correo; be.innerHTML=ic('email')+' Enviar correo institucional'; acts.appendChild(be);
+  if(fn.agenda){const b=document.createElement('a');b.className='modal-btn modal-btn-agenda';b.href=fn.agenda;b.target='_blank';b.rel='noopener noreferrer';b.innerHTML=ic('agenda')+' Ver agenda pública';acts.appendChild(b);}
+  if(fn.cv){const b=document.createElement('a');b.className='modal-btn modal-btn-cv';b.href=fn.cv;b.target='_blank';b.rel='noopener noreferrer';b.innerHTML=ic('cv')+' Currículum Vitae';acts.appendChild(b);}
+  if(AREAS[fn.key]&&AREAS[fn.key].length){const b=document.createElement('button');b.type='button';b.className='modal-btn modal-btn-sub';b.innerHTML=ic('dir')+' Directorio del área';b.addEventListener('click',function(){openArea(fn.key);});acts.appendChild(b);}
+  anchorY=cardAnchor(cardEl);
+  showOverlay(overlay, document.getElementById('modal'), anchorY);
 }
+function closeModal(){overlay.classList.remove('open');reportHeight();}
 
-document.getElementById('modal-close').addEventListener('click', closeModal);
-overlay.addEventListener('click', e=>{ if(e.target===overlay) closeModal(); });
-document.addEventListener('keydown', e=>{ if(e.key==='Escape' && overlay.classList.contains('open')) closeModal(); });
+function openArea(key){
+  const fn=FUNCIONARIOS.filter(f=>f.key===key)[0]; if(!fn) return;
+  const people=AREAS[key]||[];
+  document.getElementById('area-head-h').textContent=fn.dependencia;
+  document.getElementById('area-head-n').textContent=people.length+' integrante'+(people.length!==1?'s':'')+' · correo institucional de cada quien';
+  const box=document.getElementById('area-list');
+  box.innerHTML=people.map(function(p,i){
+    return '<div class="area-row'+(i===0?' is-head':'')+'"><div class="area-row-main"><div class="area-row-cargo">'+esc(p.cargo)+'</div><div class="area-row-name">'+esc(p.nombre)+'</div></div>'+
+      '<a class="area-row-mail" href="mailto:'+esc(p.correo)+'" title="'+esc(p.correo)+'">'+ic('email')+esc(p.correo)+'</a></div>';
+  }).join('');
+  box.scrollTop=0;
+  showOverlay(areaOverlay, document.getElementById('area-modal'), anchorY);
+}
+function closeArea(){areaOverlay.classList.remove('open');reportHeight();}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
 
-/* ── Filtros ─────────────────────────────────────────────────────── */
-let activeFilter = 'all';
-let activeQuery  = '';
+document.getElementById('modal-close').addEventListener('click',closeModal);
+overlay.addEventListener('click',e=>{if(e.target===overlay)closeModal();});
+document.getElementById('area-close').addEventListener('click',closeArea);
+areaOverlay.addEventListener('click',e=>{if(e.target===areaOverlay)closeArea();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(areaOverlay.classList.contains('open'))closeArea();else if(overlay.classList.contains('open'))closeModal();}});
 
+/* ── Filtros / búsqueda ── */
+let activeFilter='all',activeQuery='';
 function applyFilters(){
-  const q = activeQuery.toLowerCase();
-  const data = FUNCIONARIOS.map(fn=>{
-    const mQ = !q || [fn.nombre,fn.cargo,fn.dependencia,fn.grupo,fn.correo]
-      .some(v=>v && v.toLowerCase().includes(q));
-    const mF = activeFilter==='all' || fn.grupo===activeFilter;
-    fn._v = mQ && mF;
-    return fn;
+  const q=activeQuery.toLowerCase();
+  FUNCIONARIOS.forEach(fn=>{
+    const mQ=!q||[fn.nombre,fn.cargo,fn.dependencia,fn.grupo,fn.correo].some(v=>v&&v.toLowerCase().includes(q));
+    fn._v=mQ&&(activeFilter==='all'||fn.grupo===activeFilter);
   });
-  renderCards(data);
+  renderCards(FUNCIONARIOS);
 }
+document.querySelectorAll('.chip').forEach(chip=>chip.addEventListener('click',()=>{
+  document.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed','false'));
+  chip.setAttribute('aria-pressed','true'); activeFilter=chip.dataset.filter; applyFilters();
+}));
+document.getElementById('srch').addEventListener('input',e=>{activeQuery=e.target.value;applyFilters();});
 
-document.querySelectorAll('.chip').forEach(chip=>{
-  chip.addEventListener('click',()=>{
-    document.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed','false'));
-    chip.setAttribute('aria-pressed','true');
-    activeFilter = chip.dataset.filter;
-    applyFilters();
-  });
+/* ── Descarga del directorio general (Excel oficial, descarga real) ── */
+document.getElementById('dlBtn').addEventListener('click',function(){
+  const btn=this; if(btn.getAttribute('data-busy')==='1')return;
+  const tx=btn.querySelector('.dl-tx'),label=tx?tx.textContent:'';
+  btn.setAttribute('data-busy','1'); if(tx)tx.textContent='Descargando…';
+  fetch(XLSX_URL).then(r=>{if(!r.ok)throw 0;return r.blob();}).then(b=>{
+    const u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download='DirectorioGeneralGuadalajara.xlsx';
+    document.body.appendChild(a);a.click();document.body.removeChild(a);setTimeout(()=>URL.revokeObjectURL(u),6000);
+    btn.removeAttribute('data-busy');if(tx)tx.textContent=label;
+  }).catch(()=>{window.open(XLSX_URL,'_blank','noopener');btn.removeAttribute('data-busy');if(tx)tx.textContent=label;});
 });
 
-document.getElementById('srch').addEventListener('input',e=>{
-  activeQuery = e.target.value;
-  applyFilters();
-});
+/* ── Auto-altura para Strapi ── */
+function reportHeight(){var h=Math.max(document.body.scrollHeight,document.documentElement.scrollHeight,document.body.offsetHeight);try{parent.postMessage({type:'gdl-iframe-height',id:'directorio-servidores-art8-I-j',height:h},'*');}catch(e){}}
+window.addEventListener('load',reportHeight); window.addEventListener('resize',reportHeight);
+setTimeout(reportHeight,400); setTimeout(reportHeight,1200); setTimeout(reportHeight,2600);
 
-/* ── Descarga CSV ────────────────────────────────────────────────── */
-function dlCSV(){
-  const headers = ['Nombre','Cargo','Dependencia','Área','Correo electrónico','Agenda','Currículum Vitae','Subdirectorio'];
-  const rows = FUNCIONARIOS.map(fn=>[
-    fn.nombre, fn.cargo, fn.dependencia, GRUPO_LABEL[fn.grupo]||fn.grupo,
-    fn.correo, fn.agenda||'', fn.cv||'', fn.subdirectorio||''
-  ].map(v=>`"${String(v).replace(/"/g,'""')}"`).join(','));
-  const csv = [headers.join(','),...rows].join('\n');
-  const a = document.createElement('a');
-  a.href = 'data:text/csv;charset=utf-8,\uFEFF' + encodeURIComponent(csv);
-  a.download = 'Directorio_Art8_I_j_Guadalajara_2026.csv';
-  a.click();
+/* ---- Selector de correo (Gmail / Outlook / app) ---- */
+var mailOverlay = document.getElementById('mail-overlay');
+function openMailChooser(email, y){
+  var to = encodeURIComponent(email);
+  document.getElementById('mc-email').textContent = email;
+  document.getElementById('mc-gmail').href = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + to;
+  document.getElementById('mc-outlook').href = 'https://outlook.live.com/mail/0/deeplink/compose?to=' + to;
+  document.getElementById('mc-app').href = 'mailto:' + email;
+  showOverlay(mailOverlay, document.getElementById('mail-chooser'), y || ((window.pageYOffset || document.documentElement.scrollTop || 0) + 120));
 }
+function closeMail(){ mailOverlay.classList.remove('open'); }
+document.addEventListener('click', function(e){
+  var a = e.target.closest ? e.target.closest('.card-email, .modal-btn-email, .area-row-mail') : null;
+  if (a){
+    e.preventDefault(); e.stopPropagation();
+    var email = (a.getAttribute('href') || '').replace('mailto:', '').split('?')[0];
+    var card = a.closest('.card');
+    openMailChooser(email, card ? cardAnchor(card) : anchorY);
+  }
+}, true);
+document.getElementById('mc-close').addEventListener('click', closeMail);
+mailOverlay.addEventListener('click', function(e){ if (e.target === mailOverlay) closeMail(); });
+Array.prototype.forEach.call(document.querySelectorAll('.mc-opt'), function(o){ o.addEventListener('click', function(){ setTimeout(closeMail, 80); }); });
+document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && mailOverlay.classList.contains('open')) closeMail(); });
 
-/* ── Init ────────────────────────────────────────────────────────── */
 applyFilters();
 </script>
+
 </body>
 </html>
