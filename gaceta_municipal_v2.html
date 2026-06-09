@@ -119,7 +119,7 @@ body{font-family:var(--font);background:transparent;color:var(--n);-webkit-font-
 /* VISOR PDF EMBEBIDO (modal) */
 .gm-modal{position:fixed;inset:0;background:rgba(26,26,26,.78);z-index:1000;display:none;align-items:center;justify-content:center;padding:18px;backdrop-filter:blur(3px)}
 .gm-modal.open{display:flex;animation:fadeIn .2s var(--ease)}
-.gm-modal-box{background:var(--w);border-radius:var(--rad-md);width:min(1000px,100%);height:min(92vh,100%);display:flex;flex-direction:column;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.4)}
+.gm-modal-box{background:var(--w);border-radius:var(--rad-md);width:min(1140px,100%);height:min(92vh,100%);display:flex;flex-direction:column;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.4)}
 .gm-modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 18px;background:linear-gradient(135deg,var(--o) 0%,var(--od) 100%);color:#fff;flex-shrink:0}
 .gm-modal-title{font-family:var(--fontD);font-size:14px;font-weight:800;line-height:1.3;min-width:0}
 .gm-modal-title small{display:block;font-weight:500;font-size:11px;opacity:.9;margin-top:2px;font-family:var(--font)}
@@ -400,7 +400,6 @@ body{font-family:var(--font);background:transparent;color:var(--n);-webkit-font-
     elGroups.innerHTML = html;
     wireGroups();
     updateCount(totalShown);
-    if (window.gmReportH){ setTimeout(window.gmReportH, 60); }
   }
 
   function rowsHtml(arr, y){
@@ -480,7 +479,6 @@ body{font-family:var(--font);background:transparent;color:var(--n);-webkit-font-
       group.classList.remove('open');
       head.setAttribute('aria-expanded','false');
     }
-    if (window.gmReportH){ setTimeout(window.gmReportH, 60); }
   }
 
   function updateCount(n){
@@ -518,7 +516,8 @@ body{font-family:var(--font);background:transparent;color:var(--n);-webkit-font-
     document.getElementById('gmModalOpen').href = url;
     document.getElementById('gmModalDl').href = url;
     if (modalLoading){ modalLoading.className = 'gm-modal-loading'; }
-    frame.src = url;
+    /* #view=FitH abre el PDF ajustado al ancho del visor (lectura comoda sin zoom manual) */
+    frame.src = url + (url.indexOf('#') === -1 ? '#view=FitH' : '');
     modal.classList.add('open');
     try { document.documentElement.style.overflow = 'hidden'; document.body.style.overflow = 'hidden'; } catch(e){}
   }
@@ -549,15 +548,9 @@ body{font-family:var(--font);background:transparent;color:var(--n);-webkit-font-
     }, 320);
   }); }
 
-  /* ----- Auto-ajuste de alto para el iframe contenedor (Strapi) ----- */
-  var lastH = 0;
-  window.gmReportH = function(){
-    var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight);
-    if (h && Math.abs(h - lastH) > 1){ lastH = h; try { parent.postMessage({ type: 'gdl-iframe-height', id: 'gaceta-municipal-art8-II-e', height: h }, '*'); } catch (e){} }
-  };
-  window.addEventListener('load', window.gmReportH);
-  window.addEventListener('resize', window.gmReportH);
-  setTimeout(window.gmReportH, 400); setTimeout(window.gmReportH, 1200); setTimeout(window.gmReportH, 2500);
+  /* Nota: esta página NO emite auto-ajuste de alto. Está diseñada para
+     embeberse a 85vh con scroll interno (el modal, el acordeón y el botón
+     de volver arriba dependen de ello). */
 })();
 </script>
 
