@@ -151,6 +151,9 @@ body{font-family:var(--font);background:transparent;color:var(--n);-webkit-font-
 .gm-totop{position:fixed;right:20px;bottom:20px;width:46px;height:46px;border-radius:50%;background:var(--o);color:#fff;border:none;box-shadow:0 4px 14px rgba(232,119,34,.45);cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:60}
 .gm-totop.show{opacity:1;pointer-events:auto}
 .gm-totop:hover{transform:translateY(-3px);background:var(--od)}
+/* En embeds altos (p.ej. 2900px) el fondo del iframe queda fuera del monitor:
+   el boton se ancla ARRIBA, dentro de la zona visible tipica */
+.gm-totop.gm-totop--tall{bottom:auto;top:580px}
 /* Volver al inicio EN FLUJO (al final de cada año; visible en cualquier alto de embed) */
 .gm-year-top{display:flex;justify-content:center;padding:13px 18px;border-top:1px solid var(--nb);background:var(--osoft)}
 .gm-yeartop-btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--font);font-size:12.5px;font-weight:800;color:#fff;background:var(--o);border:none;border-radius:999px;padding:9px 18px;cursor:pointer;box-shadow:0 2px 8px rgba(232,119,34,.3);transition:all .15s}
@@ -540,8 +543,9 @@ body{font-family:var(--font);background:transparent;color:var(--n);-webkit-font-
     } else if (box){
       modal.style.alignItems = ''; modal.style.paddingTop = ''; box.style.height = '';
     }
-    /* #view=FitH abre el PDF ajustado al ancho del visor (lectura comoda sin zoom manual) */
-    frame.src = url + (url.indexOf('#') === -1 ? '#view=FitH' : '');
+    /* navpanes=0 oculta el panel de miniaturas y view=FitH abre el PDF ajustado
+       al ancho del visor: lectura comoda y centrada sin zoom manual */
+    frame.src = url + (url.indexOf('#') === -1 ? '#navpanes=0&view=FitH' : '');
     modal.classList.add('open');
     try { document.documentElement.style.overflow = 'hidden'; document.body.style.overflow = 'hidden'; } catch(e){}
   }
@@ -569,16 +573,17 @@ body{font-family:var(--font);background:transparent;color:var(--n);-webkit-font-
       var ahora = window.pageYOffset || document.documentElement.scrollTop;
       if (start > 0 && ahora >= start){ document.documentElement.scrollTop = 0; document.body.scrollTop = 0; }
       var ft = document.getElementById('gmToTop');
-      if (ft){ ft.className = 'gm-totop'; }
+      if (ft){ ft.className = 'gm-totop' + tallCls(); }
     }, 380);
   });
 
   /* ----- Volver arriba (patrón de la familia) ----- */
   var toTop = document.getElementById('gmToTop');
+  function tallCls(){ return (window.innerHeight || 0) > 1100 ? ' gm-totop--tall' : ''; }
   window.addEventListener('scroll', function(){
     if (!toTop) return;
     var y = window.pageYOffset || document.documentElement.scrollTop;
-    toTop.className = 'gm-totop' + (y > 500 ? ' show' : '');
+    toTop.className = 'gm-totop' + tallCls() + (y > 500 ? ' show' : '');
   });
   if (toTop){ toTop.addEventListener('click', function(){
     var start = window.pageYOffset || document.documentElement.scrollTop;
@@ -586,7 +591,7 @@ body{font-family:var(--font);background:transparent;color:var(--n);-webkit-font-
     setTimeout(function(){
       var ahora = window.pageYOffset || document.documentElement.scrollTop;
       if (start > 0 && ahora >= start){ document.documentElement.scrollTop = 0; document.body.scrollTop = 0; }
-      toTop.className = 'gm-totop';
+      toTop.className = 'gm-totop' + tallCls();
     }, 320);
   }); }
 

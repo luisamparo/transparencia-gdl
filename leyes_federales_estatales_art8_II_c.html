@@ -78,6 +78,8 @@ body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:va
 .lf-doc-btn:hover{background:var(--ac-d);border-color:var(--ac-d);transform:translateY(-1px)}
 .lf-doc-btn svg{flex-shrink:0}
 .lf-doc-none{font-size:11px;color:var(--g400);font-weight:600;white-space:nowrap;font-style:italic}
+.lf-doc-btn.word{background:var(--wh);color:var(--ac-d);border-color:var(--ac-border)}
+.lf-doc-btn.word:hover{background:var(--ac-soft);border-color:var(--ac);color:var(--ac-d);transform:translateY(-1px)}
 
 /* DESPLEGABLE LEY DE INGRESOS */
 .lf-details{border:1.5px solid var(--g200);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);background:var(--wh);overflow:hidden}
@@ -254,8 +256,8 @@ body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:va
 /* ==========================================================================
    Leyes federales y estatales · Art. 8 Frac. II Inc. c)
    Datos verbatim de los registros oficiales del sujeto obligado.
-   22 documentos PDF verificados HTTP 200 (application/pdf). 7 leyes sin PDF en
-   línea en la fuente: se listan SIN documento (no se inventa enlace).
+   22 PDF + 7 documentos Word (.doc/.docx) de la fuente oficial, verificados HTTP 200.
+   Los Word se descargan (no se previsualizan en el navegador).
    Ley de Ingresos: solo ejercicios 2023-2026 (en desplegable).
    PDF_BASE centralizado: si se re-alojan los PDF, basta cambiar esta constante.
    ========================================================================== */
@@ -265,7 +267,7 @@ body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:va
   var FEAT = [
     {a:'E',t:'transp',n:'Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios',p:'8 de agosto de 2013',r:'3 de agosto de 2023',f:'Ley_Transparencia_Acceso_Informacion_Publica_Estado_Jalisco_Municipios.pdf',d:'Te garantiza el derecho a pedir y recibir información pública del gobierno de Jalisco y sus municipios, como Guadalajara.'},
     {a:'F',t:'transp',n:'Ley General de Transparencia y Acceso a la Información Pública',p:'4 de mayo de 2015',r:'20 de marzo de 2025',f:'LeyGeneralTransparenciaAccesoInformacionPublica.pdf',d:'Es la base nacional del derecho a saber: fija las reglas mínimas de transparencia para todas las autoridades del país.'},
-    {a:'E',t:'transp',n:'Reglamento de la Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco',p:'19 de marzo de 2022',r:'Sin reformas',f:'',d:'Detalla cómo se aplica en la práctica la Ley de Transparencia del estado.'},
+    {a:'E',t:'transp',n:'Reglamento de la Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco',p:'19 de marzo de 2022',r:'Sin reformas',f:'Reglamento_de_la Ley_de_Transparencia_y_Acceso_a_la_Informacion_Publica.docx',d:'Detalla cómo se aplica en la práctica la Ley de Transparencia del estado.'},
     {a:'E',t:'datos',n:'Ley de Protección de Datos Personales en Posesión de Sujetos Obligados del Estado de Jalisco y sus Municipios',p:'26 de julio de 2017',r:'15 de mayo de 2021',f:'Ley_de_Proteccion_de_Datos_Personales_en_Posesion_de_Sujeros_Obligados.pdf',d:'Protege tus datos personales cuando los tiene una autoridad de Jalisco, y te deja acceder, corregir o eliminar esa información (derechos ARCO).'},
     {a:'F',t:'datos',n:'Ley General de Protección de Datos Personales en Posesión de Sujetos Obligados',p:'26 de enero de 2017',r:'20 de marzo de 2025',f:'LeyDatosPersonalesPosesion.pdf',d:'Protege tus datos personales cuando están en manos de cualquier autoridad del país.'},
     {a:'F',t:'datos',n:'Ley Federal de Protección de Datos Personales en Posesión de los Particulares',p:'5 de julio de 2010',r:'20 de marzo de 2025',f:'LeyProteccionDatosPersonales.pdf',d:'Protege tus datos cuando los tienen empresas y particulares (bancos, tiendas, escuelas privadas), no el gobierno.'}
@@ -282,12 +284,12 @@ body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:va
     {n:'Ley de Entrega-Recepción del Estado de Jalisco y sus Municipios',p:'13 de octubre de 2012',r:'21 de abril de 2020',f:'LeyEntregaRecepcionJalisco.pdf'},
     {n:'Ley de Obra Pública del Estado de Jalisco y sus Municipios',p:'30 de enero de 2018',r:'9 de septiembre de 2021',f:'LeyObrasPublicasJalisco.pdf'},
     {n:'Ley de los Derechos de Niñas, Niños y Adolescentes en el Estado de Jalisco',p:'5 de septiembre de 2015',r:'25 de noviembre de 2025',f:'LeyDerechosNinasNinosJalisco.pdf'},
-    {n:'Ley de Planeación Participativa para el Estado de Jalisco y sus Municipios',p:'20 de diciembre de 2018',r:'29 de agosto de 2020',f:''},
-    {n:'Ley de Responsabilidades Políticas y Administrativas del Estado de Jalisco y sus Municipios',p:'26 de septiembre de 2017',r:'14 de marzo de 2023',f:''},
-    {n:'Ley de Fiscalización Superior y Rendición de Cuentas del Estado de Jalisco y sus Municipios',p:'26 de septiembre de 2017',r:'31 de mayo de 2022',f:''},
-    {n:'Ley del Sistema Anticorrupción del Estado de Jalisco',p:'18 de julio de 2017',r:'8 de junio de 2023',f:''},
-    {n:'Ley de Compras Gubernamentales, Enajenaciones y Contratación de Servicios del Estado de Jalisco y sus Municipios',p:'27 de octubre de 2016',r:'7 de octubre de 2023',f:''},
-    {n:'Ley del Sistema de Participación Ciudadana y Popular para la Gobernanza del Estado de Jalisco',p:'9 de abril de 2019',r:'11 de mayo de 2021',f:''}
+    {n:'Ley de Planeación Participativa para el Estado de Jalisco y sus Municipios',p:'20 de diciembre de 2018',r:'29 de agosto de 2020',f:'LeyPlaneacionParticipativaJaliscoMunicipios.doc'},
+    {n:'Ley de Responsabilidades Políticas y Administrativas del Estado de Jalisco y sus Municipios',p:'26 de septiembre de 2017',r:'14 de marzo de 2023',f:'LeyResponsabilidadesPoliticasAdministrativasEstadoJalisco.doc'},
+    {n:'Ley de Fiscalización Superior y Rendición de Cuentas del Estado de Jalisco y sus Municipios',p:'26 de septiembre de 2017',r:'31 de mayo de 2022',f:'LeyFiscalizacionSuperiorRendicionCuentasEstadoJaliscoMunicipios.doc'},
+    {n:'Ley del Sistema Anticorrupción del Estado de Jalisco',p:'18 de julio de 2017',r:'8 de junio de 2023',f:'LeySistemaAnticorrupcionEstadoJalisco.doc'},
+    {n:'Ley de Compras Gubernamentales, Enajenaciones y Contratación de Servicios del Estado de Jalisco y sus Municipios',p:'27 de octubre de 2016',r:'7 de octubre de 2023',f:'LeyComprasGubernamentalesEnajenacionesContratacionServiciosEstadoJalisco.doc'},
+    {n:'Ley del Sistema de Participación Ciudadana y Popular para la Gobernanza del Estado de Jalisco',p:'9 de abril de 2019',r:'11 de mayo de 2021',f:'LeySistemaParticipacionCiudadanaPopularEstadoJalisco.doc'}
   ];
 
   var ING = [
@@ -306,9 +308,13 @@ body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:va
   function esc(s){ if(s===null||s===undefined) return ''; return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
   function norm(s){ return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,''); }
   var PDFICO = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>';
+  var WORDICO = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>';
   function docBtn(f){
-    if(f){ return '<a class="lf-doc-btn" href="'+PDF_BASE+esc(f)+'" target="_blank" rel="noopener noreferrer">'+PDFICO+'Ver PDF</a>'; }
-    return '<span class="lf-doc-none">Sin PDF en línea</span>';
+    if(!f){ return '<span class="lf-doc-none">Sin documento en línea</span>'; }
+    var url = (PDF_BASE + f).replace(/ /g, '%20');
+    var ext = f.split('.').pop().toLowerCase();
+    if(ext === 'pdf'){ return '<a class="lf-doc-btn" href="'+esc(url)+'" target="_blank" rel="noopener noreferrer">'+PDFICO+'Ver PDF</a>'; }
+    return '<a class="lf-doc-btn word" href="'+esc(url)+'" target="_blank" rel="noopener noreferrer" download>'+WORDICO+'Descargar Word</a>';
   }
 
   /* Destacadas (con ámbito + descripción ciudadana) */
