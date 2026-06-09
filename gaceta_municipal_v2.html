@@ -151,6 +151,10 @@ body{font-family:var(--font);background:transparent;color:var(--n);-webkit-font-
 .gm-totop{position:fixed;right:20px;bottom:20px;width:46px;height:46px;border-radius:50%;background:var(--o);color:#fff;border:none;box-shadow:0 4px 14px rgba(232,119,34,.45);cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:60}
 .gm-totop.show{opacity:1;pointer-events:auto}
 .gm-totop:hover{transform:translateY(-3px);background:var(--od)}
+/* Volver al inicio EN FLUJO (al final de cada año; visible en cualquier alto de embed) */
+.gm-year-top{display:flex;justify-content:center;padding:13px 18px;border-top:1px solid var(--nb);background:var(--osoft)}
+.gm-yeartop-btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--font);font-size:12.5px;font-weight:800;color:#fff;background:var(--o);border:none;border-radius:999px;padding:9px 18px;cursor:pointer;box-shadow:0 2px 8px rgba(232,119,34,.3);transition:all .15s}
+.gm-yeartop-btn:hover{background:var(--od);transform:translateY(-1px)}
 
 @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 
@@ -422,6 +426,10 @@ body{font-family:var(--font);background:transparent;color:var(--n);-webkit-font-
         '</div>' +
       '</div>';
     }
+    // Volver al inicio en flujo: visible al terminar el año, en cualquier alto de embed
+    if (arr.length > 8){
+      h += '<div class="gm-year-top"><button class="gm-yeartop-btn" type="button"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>Volver al inicio</button></div>';
+    }
     return h;
   }
 
@@ -436,6 +444,7 @@ body{font-family:var(--font);background:transparent;color:var(--n);-webkit-font-
     for (var v=0;v<verBtns.length;v++){
       verBtns[v].addEventListener('click', function(e){
         var b = e.currentTarget;
+        window.__gmY = (e && typeof e.clientY === 'number' && e.clientY > 0) ? e.clientY : null;
         openViewer(b.getAttribute('data-u'), b.getAttribute('data-t'), b.getAttribute('data-y'));
       });
     }
@@ -467,6 +476,7 @@ body{font-family:var(--font);background:transparent;color:var(--n);-webkit-font-
         for (var v=0;v<verBtns.length;v++){
           verBtns[v].addEventListener('click', function(ev){
             var b = ev.currentTarget;
+            window.__gmY = (ev && typeof ev.clientY === 'number' && ev.clientY > 0) ? ev.clientY : null;
             openViewer(b.getAttribute('data-u'), b.getAttribute('data-t'), b.getAttribute('data-y'));
           });
         }
@@ -516,6 +526,20 @@ body{font-family:var(--font);background:transparent;color:var(--n);-webkit-font-
     document.getElementById('gmModalOpen').href = url;
     document.getElementById('gmModalDl').href = url;
     if (modalLoading){ modalLoading.className = 'gm-modal-loading'; }
+    /* Embed alto (p. ej. 2900px): anclar el modal junto al renglón donde se hizo clic,
+       para que siempre quede en la pantalla del usuario. Embed corto: centrado clasico. */
+    var box = modal.querySelector('.gm-modal-box');
+    var vh = window.innerHeight || 0;
+    if (vh > 1100 && box){
+      var bh = Math.min(880, vh - 120);
+      var cy = (typeof window.__gmY === 'number') ? window.__gmY : 140;
+      var top = Math.max(16, Math.min(cy - 120, vh - bh - 16));
+      modal.style.alignItems = 'flex-start';
+      modal.style.paddingTop = top + 'px';
+      box.style.height = bh + 'px';
+    } else if (box){
+      modal.style.alignItems = ''; modal.style.paddingTop = ''; box.style.height = '';
+    }
     /* #view=FitH abre el PDF ajustado al ancho del visor (lectura comoda sin zoom manual) */
     frame.src = url + (url.indexOf('#') === -1 ? '#view=FitH' : '');
     modal.classList.add('open');
@@ -524,12 +548,30 @@ body{font-family:var(--font);background:transparent;color:var(--n);-webkit-font-
   function closeViewer(){
     modal.classList.remove('open');
     frame.src = 'about:blank';
+    var box = modal.querySelector('.gm-modal-box');
+    modal.style.alignItems = ''; modal.style.paddingTop = '';
+    if (box){ box.style.height = ''; }
     try { document.documentElement.style.overflow = ''; document.body.style.overflow = ''; } catch(e){}
   }
   window.gmOpenViewer = openViewer;
   document.getElementById('gmModalClose').addEventListener('click', closeViewer);
   modal.addEventListener('click', function(e){ if(e.target===modal) closeViewer(); });
   document.addEventListener('keydown', function(e){ if(e.key==='Escape' && modal.classList.contains('open')) closeViewer(); });
+
+  /* ----- Volver al inicio en flujo (final de cada año; funciona en cualquier alto de embed) ----- */
+  elGroups.addEventListener('click', function(e){
+    var b = e.target.closest ? e.target.closest('.gm-yeartop-btn') : null;
+    if (!b) return;
+    var start = window.pageYOffset || document.documentElement.scrollTop;
+    var hero = document.querySelector('.gm-hero');
+    try { hero.scrollIntoView({behavior:'smooth', block:'start'}); } catch(err){ window.scrollTo(0,0); }
+    setTimeout(function(){
+      var ahora = window.pageYOffset || document.documentElement.scrollTop;
+      if (start > 0 && ahora >= start){ document.documentElement.scrollTop = 0; document.body.scrollTop = 0; }
+      var ft = document.getElementById('gmToTop');
+      if (ft){ ft.className = 'gm-totop'; }
+    }, 380);
+  });
 
   /* ----- Volver arriba (patrón de la familia) ----- */
   var toTop = document.getElementById('gmToTop');
