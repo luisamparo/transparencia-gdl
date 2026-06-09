@@ -80,7 +80,7 @@ body{font-family:var(--font);background:transparent;color:var(--n);-webkit-font-
 
 /* GRUPOS POR AÑO (colapsables) */
 .gm-groups{display:flex;flex-direction:column;gap:11px}
-.gm-group{background:var(--w);border-radius:var(--rad-lg);border:1.5px solid var(--nb);overflow:hidden;transition:border-color .15s,box-shadow .15s;border-left-width:5px;border-left-color:var(--o)}
+.gm-group{background:var(--w);border-radius:var(--rad-lg);border:1.5px solid var(--nb);overflow:hidden;transition:border-color .15s,box-shadow .15s;border-left-width:5px;border-left-color:var(--o);scroll-margin-top:128px}
 .gm-group:hover{border-color:var(--ol)}
 .gm-group-head{background:linear-gradient(135deg,var(--osoft) 0%,#FFFFFF 100%);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:14px;cursor:pointer;flex-wrap:wrap;transition:background .15s;user-select:none}
 .gm-group-head:hover{background:var(--oxl)}
@@ -146,6 +146,11 @@ body{font-family:var(--font);background:transparent;color:var(--n);-webkit-font-
 .gm-meta-item{display:flex;flex-direction:column;gap:2px}
 .gm-meta-k{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--nm)}
 .gm-meta-v{font-size:13px;font-weight:700;color:var(--n)}
+
+/* VOLVER ARRIBA (patrón de la familia) */
+.gm-totop{position:fixed;right:20px;bottom:20px;width:46px;height:46px;border-radius:50%;background:var(--o);color:#fff;border:none;box-shadow:0 4px 14px rgba(232,119,34,.45);cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:60}
+.gm-totop.show{opacity:1;pointer-events:auto}
+.gm-totop:hover{transform:translateY(-3px);background:var(--od)}
 
 @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 
@@ -250,6 +255,8 @@ body{font-family:var(--font);background:transparent;color:var(--n);-webkit-font-
   </section>
 
 </div>
+
+<button class="gm-totop" id="gmToTop" type="button" aria-label="Volver arriba"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg></button>
 
 <!-- VISOR PDF EMBEBIDO -->
 <div class="gm-modal" id="gmModal" role="dialog" aria-modal="true" aria-labelledby="gmModalTitle">
@@ -442,6 +449,18 @@ body{font-family:var(--font);background:transparent;color:var(--n);-webkit-font-
     var nowOpen = !group.classList.contains('open');
     openYears[y] = nowOpen;
     if (nowOpen){
+      // Acordeón: al abrir un año se cierran los demás (solo fuera de búsqueda)
+      if (!curQuery){
+        var abiertos = elGroups.querySelectorAll('.gm-group.open');
+        for (var a=0;a<abiertos.length;a++){
+          if (abiertos[a] === group) continue;
+          abiertos[a].classList.remove('open');
+          var oh = abiertos[a].querySelector('.gm-group-head');
+          if (oh){ oh.setAttribute('aria-expanded','false'); }
+          var oy = abiertos[a].getAttribute('data-year');
+          if (oy){ openYears[oy] = false; }
+        }
+      }
       // lazy: construir filas si están vacías
       if (!body.innerHTML.trim()){
         body.innerHTML = rowsHtml(curQuery ? filteredGacetas(y) : DATA[y], y);
@@ -455,6 +474,8 @@ body{font-family:var(--font);background:transparent;color:var(--n);-webkit-font-
       }
       group.classList.add('open');
       head.setAttribute('aria-expanded','true');
+      // acomodar la vista al año recién abierto (compensa el cierre del anterior)
+      try { group.scrollIntoView({behavior:'smooth', block:'start'}); } catch(err){}
     } else {
       group.classList.remove('open');
       head.setAttribute('aria-expanded','false');
@@ -510,6 +531,23 @@ body{font-family:var(--font);background:transparent;color:var(--n);-webkit-font-
   document.getElementById('gmModalClose').addEventListener('click', closeViewer);
   modal.addEventListener('click', function(e){ if(e.target===modal) closeViewer(); });
   document.addEventListener('keydown', function(e){ if(e.key==='Escape' && modal.classList.contains('open')) closeViewer(); });
+
+  /* ----- Volver arriba (patrón de la familia) ----- */
+  var toTop = document.getElementById('gmToTop');
+  window.addEventListener('scroll', function(){
+    if (!toTop) return;
+    var y = window.pageYOffset || document.documentElement.scrollTop;
+    toTop.className = 'gm-totop' + (y > 500 ? ' show' : '');
+  });
+  if (toTop){ toTop.addEventListener('click', function(){
+    var start = window.pageYOffset || document.documentElement.scrollTop;
+    try { window.scrollTo({top:0, behavior:'smooth'}); } catch(e){ window.scrollTo(0,0); }
+    setTimeout(function(){
+      var ahora = window.pageYOffset || document.documentElement.scrollTop;
+      if (start > 0 && ahora >= start){ document.documentElement.scrollTop = 0; document.body.scrollTop = 0; }
+      toTop.className = 'gm-totop';
+    }, 320);
+  }); }
 
   /* ----- Auto-ajuste de alto para el iframe contenedor (Strapi) ----- */
   var lastH = 0;
