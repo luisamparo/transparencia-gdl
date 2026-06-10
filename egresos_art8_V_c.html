@@ -38,7 +38,7 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font-family:var(--fh);background:var(--g50);color:var(--g900);line-height:1.5;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{font-family:var(--fh);background:transparent;color:var(--g900);line-height:1.5;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 img{max-width:100%;display:block}
 button{font-family:inherit;cursor:pointer}
 a{color:var(--nr-d)}
@@ -46,25 +46,19 @@ a{color:var(--nr-d)}
 /* ============================================================
    HERO
 ============================================================ */
-.hero{background:radial-gradient(ellipse 800px 400px at 90% 30%,rgba(255,255,255,.18) 0%,transparent 70%),linear-gradient(135deg,var(--nr-d) 0%,var(--nr) 55%,var(--nr-l) 100%);padding:54px 32px 46px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 60px,rgba(255,255,255,.04) 60px,rgba(255,255,255,.04) 61px);pointer-events:none}
-.hero::after{content:'';position:absolute;right:-120px;top:-80px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.10) 0%,transparent 70%);pointer-events:none}
-.hi{position:relative;max-width:1400px;margin:0 auto;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,300px);gap:30px 50px;align-items:end}
+.hero{position:relative;overflow:hidden;padding:26px 30px;margin:0 0 22px;background:linear-gradient(135deg,#FFF4E8 0%,#FFFFFF 55%);border-radius:var(--rad-lg);border-left:5px solid var(--nr);box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.12) 0%,transparent 70%);pointer-events:none}
+.hi{position:relative;z-index:2}
 .hi-left{min-width:0}
-.bc{font-size:11.5px;color:rgba(255,255,255,.85);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;font-weight:500}
-.badge{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.40);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 13px;border-radius:20px;margin-bottom:14px;backdrop-filter:blur(6px)}
-.hero h1{font-size:clamp(26px,4.2vw,44px);font-weight:800;color:#fff;line-height:1.08;margin-bottom:12px;letter-spacing:-.015em}
-.hero p{color:rgba(255,255,255,.92);font-size:clamp(13px,1.5vw,16px);max-width:720px;line-height:1.55}
-.hero p strong{font-weight:700;color:#fff}
-.hero-meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,.18);font-size:11px;color:rgba(255,255,255,.85)}
+.bc{font-size:11.5px;color:var(--g600);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;font-weight:600}
+.badge{display:inline-block;background:var(--nr);border:none;color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.hero h1{font-size:clamp(24px,3.4vw,34px);font-weight:800;color:var(--g900);line-height:1.16;margin-bottom:10px;letter-spacing:-.015em}
+.hero p{color:#5a4d3e;font-size:clamp(13px,1.5vw,15px);max-width:80ch;line-height:1.6}
+.hero p strong{font-weight:700;color:var(--g900)}
+.hero-meta{display:flex;gap:22px;flex-wrap:wrap;margin-top:18px;padding-top:14px;border-top:1px solid var(--nr-b);font-size:11px;color:var(--g600)}
 .hero-meta-item{display:flex;flex-direction:column;gap:2px}
-.hero-meta-lbl{font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.75}
-.hero-meta-val{font-weight:600;color:#fff;font-family:var(--fm);font-size:11.5px}
-.hero-num{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);border-radius:var(--rad-lg);padding:18px 22px;backdrop-filter:blur(10px);min-width:0}
-.hero-num-lbl{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.88;color:#fff;margin-bottom:6px}
-.hero-num-val{font-family:var(--fm);font-size:clamp(22px,3.3vw,30px);font-weight:700;color:#fff;line-height:1.05;letter-spacing:-.02em;font-variant-numeric:tabular-nums;text-shadow:0 1px 8px rgba(0,0,0,.12);word-break:break-all}
-.hero-num-foot{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px;margin-top:14px;padding-top:10px;border-top:1px solid rgba(255,255,255,.18);font-size:11.5px;color:rgba(255,255,255,.92);font-weight:500;line-height:1.4}
-.hero-num-foot strong{color:#fff;font-family:var(--fm);font-size:14px;font-weight:700;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.hero-meta-lbl{font-size:9.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--g400)}
+.hero-meta-val{font-weight:600;color:var(--g900);font-family:var(--fm);font-size:11.5px}
 @media(max-width:880px){.hi{grid-template-columns:1fr;gap:22px}}
 
 /* ============================================================
@@ -313,6 +307,21 @@ a{color:var(--nr-d)}
 .foot-note{background:var(--wh);border:1px solid var(--g200);border-left:4px solid var(--warn);border-radius:var(--rad);padding:14px 18px;font-size:12.5px;color:var(--g600);line-height:1.65;margin-bottom:14px}
 .foot-note strong{color:var(--g900);font-weight:700}
 
+/* FOOTER LEY + CIFRAS (armonizado con la familia) */
+.eg-ley{background:var(--wh);border-radius:var(--rad-lg);padding:22px 26px;border-left:4px solid var(--nr-d);box-shadow:var(--sh-sm);margin-bottom:22px}
+.eg-cifras{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}
+.eg-cifra{background:var(--g50);border:1.5px solid var(--nr-b);border-radius:var(--rad);padding:14px 16px;display:flex;flex-direction:column;gap:2px;transition:border-color .18s ease,transform .18s ease}
+.eg-cifra:hover{border-color:var(--nr);transform:translateY(-2px)}
+.eg-cifra-num{font-family:var(--fm);font-size:30px;font-weight:700;line-height:1;color:var(--nr-d);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.eg-cifra-lbl{font-size:11px;font-weight:700;color:#5a4d3e;text-transform:uppercase;letter-spacing:.06em;margin-top:2px;line-height:1.3}
+.eg-ley-eye{font-size:10.5px;font-weight:800;color:var(--nr-d);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.eg-ley h3{font-size:16px;font-weight:800;color:var(--g900);margin-bottom:8px;letter-spacing:-.008em}
+.eg-ley p{font-size:13px;color:var(--g600);line-height:1.65;margin-bottom:6px}
+.eg-ley p strong{color:var(--g800);font-weight:600}
+.eg-ley blockquote{font-size:13.5px;color:#5a4d3e;line-height:1.65;margin:12px 0 8px;padding:12px 18px;background:var(--nr-soft);border-left:3px solid var(--nr);border-radius:6px;font-style:italic}
+.eg-ley blockquote strong{color:var(--g900);font-style:normal;font-weight:700}
+@media(max-width:560px){.eg-cifras{grid-template-columns:repeat(3,1fr);gap:8px}.eg-cifra{padding:12px 10px}.eg-cifra-num{font-size:24px}}
+
 /* ============================================================
    STICKY YEAR BAR — aparece al scrollear más allá del hero
 ============================================================ */
@@ -396,7 +405,7 @@ a{color:var(--nr-d)}
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 @media(max-width:540px){
-  .hero{padding:38px 18px 32px}
+  .hero{padding:22px 20px}
   .main{padding:18px 12px 40px}
   .kpi-row{grid-template-columns:repeat(2,1fr)}
   .cap-grid{grid-template-columns:1fr}
@@ -442,47 +451,33 @@ a{color:var(--nr-d)}
 <!-- ============================================================
      HERO
 ============================================================ -->
-<section class="hero">
-  <div class="hi">
-    <div class="hi-left">
-      <div class="bc">Transparencia Guadalajara · Gobierno Municipal</div>
-      <div class="badge">Art. 8 · Fracc. V · Inc. c)</div>
-      <h1>Presupuesto de Egresos</h1>
-      <p>Cuánto y en qué gasta Guadalajara cada año.</p>
-      <div class="hero-meta">
-        <div class="hero-meta-item">
-          <span class="hero-meta-lbl">Validación</span>
-          <span class="hero-meta-val">19 may 2026</span>
-        </div>
-        <div class="hero-meta-item">
-          <span class="hero-meta-lbl">Unidad responsable</span>
-          <span class="hero-meta-val">Dirección de Egresos</span>
-        </div>
-        <div class="hero-meta-item">
-          <span class="hero-meta-lbl">Cobertura</span>
-          <span class="hero-meta-val">2023 – 2026</span>
+<main class="main">
+
+  <!-- HERO — tarjeta clara, armonizada con la familia -->
+  <section class="hero">
+    <div class="hi">
+      <div class="hi-left">
+        <div class="bc">Transparencia Guadalajara · Gobierno Municipal</div>
+        <div class="badge">Art. 8 · Fracc. V · Inc. c)</div>
+        <h1>Presupuesto de Egresos</h1>
+        <p>Cuánto y en qué gasta Guadalajara cada año.</p>
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <span class="hero-meta-lbl">Validación</span>
+            <span class="hero-meta-val">19 may 2026</span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="hero-meta-lbl">Unidad responsable</span>
+            <span class="hero-meta-val">Dirección de Egresos</span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="hero-meta-lbl">Cobertura</span>
+            <span class="hero-meta-val">2023 – 2026</span>
+          </div>
         </div>
       </div>
     </div>
-    <aside class="hero-num" aria-labelledby="hero-num-lbl">
-      <div class="hero-num-lbl" id="hero-num-lbl">Presupuesto autorizado <span id="hero-yr-inline" style="opacity:.85;font-weight:600">—</span></div>
-      <div class="hero-num-val" id="hero-val">$0</div>
-    </aside>
-  </div>
-</section>
-
-<main class="main">
-
-  <!-- ============================================================
-       BANNER LEGAL (compacto)
-  ============================================================ -->
-  <div class="legal">
-    <div class="legal-stamp" aria-hidden="true">§</div>
-    <div class="legal-body">
-      <p class="legal-txt">"El <strong>Presupuesto de Egresos</strong> anual y, en su caso, el <strong>clasificador por objeto del gasto</strong> del sujeto obligado, de cuando menos los últimos tres años."</p>
-      <p class="legal-cite">— Art. 8, Fracc. V, Inc. c) · <em>Ley de Transparencia del Estado de Jalisco y sus Municipios</em>. En caso de discrepancia <strong style="color:var(--g900)">prevalece el archivo oficial</strong>.</p>
-    </div>
-  </div>
+  </section>
 
   <!-- ============================================================
        WELCOME STRIP — invitación ciudadana visual
@@ -567,7 +562,7 @@ a{color:var(--nr-d)}
     <div class="docs-card">
       <div class="docs-top">
         <h3 class="docs-h">Ejercicio <span id="docsYr" style="color:var(--nr-d)">—</span> · listo para descargar</h3>
-        <p class="docs-sub">Archivos publicados en <strong>transparencia.guadalajara.gob.mx</strong>.</p>
+        <p class="docs-sub">Archivos oficiales del ejercicio, listos para descargar.</p>
       </div>
       <div class="docs-grid" id="docsGrid"></div>
     </div>
@@ -606,8 +601,24 @@ a{color:var(--nr-d)}
        NOTAS Y AVISOS (compactas)
   ============================================================ -->
   <div class="foot-note">
-    Las cifras corresponden al <strong>presupuesto autorizado</strong> publicado en la Gaceta Municipal, no al gasto ejercido. Para ejercicios previos a 2023, visita <a href="https://enlinea.guadalajara.gob.mx/egresos/presupuesto.php" target="_blank" rel="noopener" style="color:var(--nr-d);font-weight:600">enlinea.guadalajara.gob.mx/egresos/presupuesto.php</a>.
+    Las cifras corresponden al <strong>presupuesto autorizado</strong> publicado en la Gaceta Municipal, no al gasto ejercido.
   </div>
+
+  <!-- ============================================================
+       FUNDAMENTO LEGAL + CIFRAS (footer armonizado)
+  ============================================================ -->
+  <section class="eg-ley">
+    <div class="eg-cifras">
+      <div class="eg-cifra"><div class="eg-cifra-num">4</div><div class="eg-cifra-lbl">Ejercicios fiscales</div></div>
+      <div class="eg-cifra"><div class="eg-cifra-num">9</div><div class="eg-cifra-lbl">Capítulos del gasto</div></div>
+      <div class="eg-cifra"><div class="eg-cifra-num">100%</div><div class="eg-cifra-lbl">Consultable y descargable</div></div>
+    </div>
+    <div class="eg-ley-eye">Fundamento legal</div>
+    <h3>¿Por qué se publica esta información?</h3>
+    <p>Artículo 8, Fracción V, Inciso c) de la <strong>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</strong>:</p>
+    <blockquote>"El <strong>Presupuesto de Egresos</strong> anual y, en su caso, el <strong>clasificador por objeto del gasto</strong> del sujeto obligado, de cuando menos los últimos tres años."</blockquote>
+    <p>Publicado por la <strong>Dirección de Egresos</strong> · Tesorería Municipal · Ayuntamiento de Guadalajara. <strong>Si un dato mostrado aquí discrepa del archivo oficial, prevalece el archivo oficial.</strong></p>
+  </section>
 
 </main>
 
@@ -802,11 +813,9 @@ function setYear(y){
 /* ============================================================
    RENDER: HERO NUMBER
 ============================================================ */
-function renderHero(){
-  const data = PRESUPUESTOS[activeYear];
-  $('hero-val').textContent = fmtMXN(data.total);
-  $('hero-yr-inline').textContent = '· Ejercicio ' + activeYear;
-}
+/* (Bloque "hero number" retirado al armonizar: el hero ya no muestra
+   la cifra dinámica; el total por año vive en los KPIs y el resumen
+   estático en el footer.) */
 
 /* ============================================================
    RENDER: KPIs
@@ -1174,7 +1183,6 @@ function renderForYear(){
   renderYears();
   renderStickyBar();
   renderFab();
-  renderHero();
   renderKpis();
   renderComparaChart();
   renderSplit();

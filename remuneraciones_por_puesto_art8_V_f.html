@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Remuneraciones mensuales por puesto del Ayuntamiento de Guadalajara: sueldos, prestaciones, estímulos y compensaciones de cada puesto, mes con mes de octubre 2021 a abril 2026, incluida la nómina del Rastro Municipal. Art. 8 Fracción V Inciso f) Ley de Transparencia Jalisco."/>
+<meta name="robots" content="index,follow"/>
+<title>¿Cuánto gana cada puesto del Ayuntamiento de Guadalajara? · Remuneraciones mensuales con prestaciones 2021–2026 · Art. 8 Frac. V Inc. f)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --nr:#E87722;--nr-l:#FF9A45;--nr-d:#C45F0A;--nr-deeper:#8B4308;--nr-soft:#FFF1E4;
+  --g50:#FAFAF8;--g100:#F0F0EC;--g200:#E2E2DD;--g300:#CFCFC8;--g400:#9E9E98;--g600:#5A5A55;--g800:#2D2D2A;--g900:#1A1A1A;
+  --wh:#FFF;
+  --rad:10px;--rad-lg:14px;
+  --sh:0 4px 22px rgba(0,0,0,.08);
+  --sh-sm:0 1px 3px rgba(0,0,0,.06);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --fh:'Outfit',system-ui,-apple-system,sans-serif;
+  --fm:'DM Mono','SF Mono',Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--fh);background:transparent;color:var(--g900);line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:var(--nr-d)}
+button{font-family:inherit;cursor:pointer}
+
+/* HERO */
+.hero{background:radial-gradient(ellipse 800px 400px at 90% 30%,rgba(255,255,255,.18) 0%,transparent 70%),linear-gradient(135deg,var(--nr-d) 0%,var(--nr) 55%,var(--nr-l) 100%);padding:48px 32px 42px;position:relative;overflow:hidden;border-radius:0 0 var(--rad-lg) var(--rad-lg)}
+.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 60px,rgba(255,255,255,.04) 60px,rgba(255,255,255,.04) 61px);pointer-events:none}
+.hero::after{content:'';position:absolute;right:-120px;top:-80px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.10) 0%,transparent 70%);pointer-events:none}
+.hi{position:relative;max-width:1200px;margin:0 auto;z-index:2}
+.bc{font-size:11.5px;color:rgba(255,255,255,.85);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;font-weight:500}
+.badge{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.40);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 13px;border-radius:20px;margin-bottom:14px;backdrop-filter:blur(6px)}
+.hero h1{font-size:clamp(26px,4.2vw,42px);font-weight:800;color:#fff;line-height:1.1;margin-bottom:10px;letter-spacing:-.015em}
+.hero p{color:rgba(255,255,255,.92);font-size:clamp(13px,1.45vw,15.5px);max-width:720px;line-height:1.55}
+
+/* MAIN */
+.main{max-width:1200px;margin:0 auto;padding:30px 20px 60px}
+
+/* LEGAL BANNER */
+.legal{display:grid;grid-template-columns:48px 1fr;gap:16px;background:var(--wh);border-left:4px solid var(--nr);border-radius:var(--rad);padding:18px 22px;margin-bottom:26px;box-shadow:var(--sh-sm)}
+.legal-stamp{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--nr-soft) 0%,#FFE4CC 100%);color:var(--nr-d);display:flex;align-items:center;justify-content:center;flex-shrink:0;align-self:start;box-shadow:inset 0 0 0 1px rgba(232,119,34,.18)}
+.legal-stamp svg{width:26px;height:26px;display:block}
+.legal-body{min-width:0}
+.legal-txt{font-size:14px;color:var(--g800);line-height:1.55;margin-bottom:8px}
+.legal-txt strong{color:var(--g900);font-weight:700}
+.legal-cite{font-size:11.5px;color:var(--g600);line-height:1.5}
+.legal-cite em{font-style:italic;color:var(--g600)}
+.legal-cite strong{color:var(--g900)}
+
+/* SEC HEADERS */
+.sec{margin-bottom:30px}
+.sec-h{display:flex;align-items:center;gap:11px;margin-bottom:14px}
+.sec-h-num{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--nr) 0%,var(--nr-d) 100%);color:#fff;font-family:var(--fm);font-weight:700;font-size:13px;box-shadow:0 2px 6px rgba(232,119,34,.28)}
+.sec-h-title{font-size:18px;font-weight:800;color:var(--g900);letter-spacing:-.01em}
+.sec-h-sub{font-size:13.5px;color:var(--g600);margin-left:42px;margin-top:-4px;margin-bottom:14px}
+.sec-h-sub strong{color:var(--g800);font-weight:600}
+
+/* YEAR BUTTONS */
+.year-row{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:8px}
+.year-btn{background:var(--wh);border:2px solid var(--g200);border-radius:var(--rad-lg);padding:18px 14px;cursor:pointer;transition:all .18s var(--ease);text-align:center;font-family:var(--fh);position:relative;overflow:hidden}
+.year-btn:hover{border-color:var(--nr);transform:translateY(-2px);box-shadow:0 6px 16px rgba(232,119,34,.14)}
+.year-btn-yr{font-family:var(--fm);font-size:clamp(18px,2.4vw,26px);font-weight:800;color:var(--g900);letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.05}
+.year-btn-meta{font-size:10.5px;color:var(--g600);font-weight:600;margin-top:6px;text-transform:uppercase;letter-spacing:.05em}
+.year-btn.vigente .year-btn-yr::after{content:'';display:inline-block;width:7px;height:7px;background:#16A34A;border-radius:50%;margin-left:7px;vertical-align:middle;animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(1.2)}}
+.year-btn.active{background:linear-gradient(135deg,var(--nr) 0%,var(--nr-d) 100%);border-color:var(--nr-d);box-shadow:0 8px 22px rgba(232,119,34,.32)}
+.year-btn.active .year-btn-yr{color:#fff}
+.year-btn.active .year-btn-meta{color:rgba(255,255,255,.92)}
+.year-btn.active.vigente .year-btn-yr::after{background:#FFF}
+@media(max-width:860px){.year-row{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.year-row{grid-template-columns:repeat(2,1fr)}}
+
+/* CALENDARIO DE MESES */
+.cal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:14px;margin-top:18px}
+.cal-mes{background:var(--wh);border:1px solid var(--g200);border-radius:var(--rad-lg);padding:18px 18px 16px;display:flex;flex-direction:column;gap:12px;transition:border-color .18s var(--ease),box-shadow .18s var(--ease)}
+.cal-mes:hover{border-color:var(--nr-l);box-shadow:0 4px 14px rgba(232,119,34,.08)}
+.cal-mes.empty{background:repeating-linear-gradient(45deg,#FAFAF8,#FAFAF8 8px,#F5F5F1 8px,#F5F5F1 9px);border-style:dashed;border-color:var(--g300);opacity:.86}
+.cal-mes-top{display:flex;align-items:baseline;justify-content:space-between;gap:8px;padding-bottom:10px;border-bottom:1px solid var(--g100)}
+.cal-mes-name{font-size:17px;font-weight:800;color:var(--g900);letter-spacing:-.01em}
+.cal-mes-yr{font-family:var(--fm);font-size:11px;color:var(--g400);font-weight:600;font-variant-numeric:tabular-nums}
+.cal-mes-body{display:flex;flex-direction:column;gap:8px}
+.cal-link{display:flex;align-items:center;gap:11px;padding:11px 12px;background:var(--g50);border:1.5px solid var(--g200);border-radius:9px;text-decoration:none;color:var(--g900);transition:all .15s var(--ease)}
+.cal-link:hover{background:var(--nr-soft);border-color:var(--nr);transform:translateX(2px)}
+.cal-link-ico{flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:7px;background:#16A34A;color:#fff;font-family:var(--fm);font-size:9.5px;font-weight:800;letter-spacing:.02em}
+.cal-link.rastro .cal-link-ico{background:#0E7490}
+.cal-link-info{display:flex;flex-direction:column;gap:1px;flex:1;min-width:0}
+.cal-link-lbl{font-size:13px;font-weight:700;color:var(--g900);line-height:1.25}
+.cal-link-fmt{font-size:10.5px;color:var(--g600);font-weight:500;font-family:var(--fm);letter-spacing:.01em}
+.cal-link-arrow{flex-shrink:0;color:var(--nr-d);opacity:.6;transition:opacity .15s,transform .15s}
+.cal-link:hover .cal-link-arrow{opacity:1;transform:translateY(2px)}
+.cal-mes-empty-msg{font-size:12.5px;color:var(--g600);line-height:1.45;padding:14px 4px;text-align:center;font-style:italic}
+.cal-mes-empty-msg strong{display:block;font-style:normal;font-size:13.5px;color:var(--g800);font-weight:700;margin-bottom:4px}
+
+/* FOOTER CIUDADANO */
+.foot-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:14px;margin-top:36px}
+.foot-card{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);border-top:5px solid var(--nr);padding:18px 20px}
+.foot-card h3{font-size:14.5px;font-weight:800;color:var(--g900);margin-bottom:6px}
+.foot-card p{font-size:12.5px;color:var(--g600);line-height:1.6}
+.foot-card p strong{color:var(--g800);font-weight:600}
+.foot{margin-top:18px;padding:22px 24px;background:var(--wh);border-radius:var(--rad);border:1px solid var(--g200);text-align:center}
+.foot-source{font-size:12.5px;color:var(--g600);margin-bottom:6px}
+.foot-source strong{color:var(--g800)}
+.foot-cite{font-size:11px;color:var(--g400);line-height:1.5}
+
+/* BOTÓN SUBIR */
+.f-top{position:fixed;right:18px;bottom:18px;z-index:60;width:46px;height:46px;border-radius:50%;border:0;background:var(--nr);color:#fff;box-shadow:0 6px 18px rgba(196,95,10,.38);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .18s,transform .18s,visibility .18s}
+.f-top.show{opacity:1;visibility:visible;transform:none}
+.f-top:hover{background:var(--nr-d)}
+
+@media(max-width:600px){
+  .hero{padding:36px 18px 32px}
+  .main{padding:20px 14px 40px}
+  .legal{grid-template-columns:40px 1fr;gap:12px;padding:16px 18px}
+  .legal-stamp{width:40px;height:40px;border-radius:10px}
+  .legal-stamp svg{width:22px;height:22px}
+  .sec-h-sub{margin-left:0}
+  .f-top{right:12px;bottom:12px;width:42px;height:42px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hi">
+    <div class="bc">Transparencia Guadalajara &bull; Gobierno Municipal</div>
+    <div class="badge">Art. 8 &bull; Fracc. V &bull; Inc. f)</div>
+    <h1>Remuneraciones mensuales del Ayuntamiento</h1>
+    <p>Cu&aacute;nto gana cada puesto del Ayuntamiento de Guadalajara, mes con mes &mdash; incluyendo <strong style="color:#fff">sueldos, prestaciones, est&iacute;mulos y compensaciones</strong>. Descarga el archivo oficial del mes que te interese, de octubre de 2021 a la fecha.</p>
+  </div>
+</section>
+
+<main class="main">
+
+  <div class="legal">
+    <div class="legal-stamp" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3v18"/>
+        <path d="M7 21h10"/>
+        <path d="M3 7h3c2 0 4-.7 6-1.5 2 .8 4 1.5 6 1.5h3"/>
+        <path d="M19 7l-3 8c.87.65 1.92 1 3 1s2.13-.35 3-1l-3-8z"/>
+        <path d="M5 7l-3 8c.87.65 1.92 1 3 1s2.13-.35 3-1L5 7z"/>
+      </svg>
+    </div>
+    <div class="legal-body">
+      <p class="legal-txt">&ldquo;Las <strong>remuneraciones mensuales por puesto</strong>, incluidas <strong>todas las prestaciones, est&iacute;mulos o compensaciones</strong>.&rdquo;</p>
+      <p class="legal-cite">&mdash; Art&iacute;culo 8, fracci&oacute;n V, inciso f) &middot; <em>Ley de Transparencia y Acceso a la Informaci&oacute;n P&uacute;blica del Estado de Jalisco y sus Municipios</em>. Los archivos son los oficiales tal como fueron publicados por el sujeto obligado; en caso de discrepancia <strong>prevalece el archivo oficial</strong>.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-h">
+      <span class="sec-h-num">1</span>
+      <span class="sec-h-title">Elige el ejercicio fiscal</span>
+    </div>
+    <p class="sec-h-sub">Selecciona el a&ntilde;o que quieres consultar. El ejercicio vigente aparece con un indicador verde.</p>
+    <div class="year-row" id="yearRow" role="tablist" aria-label="Ejercicio fiscal"></div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-h">
+      <span class="sec-h-num">2</span>
+      <span class="sec-h-title">Descarga el archivo del mes</span>
+    </div>
+    <p class="sec-h-sub">Cada mes incluye dos archivos: la <strong>n&oacute;mina general</strong> del Ayuntamiento y la <strong>n&oacute;mina del Rastro Municipal</strong>. Toca el bot&oacute;n para abrir el Excel oficial.</p>
+    <div class="cal-grid" id="calGrid"></div>
+  </div>
+
+  <!-- FOOTER CIUDADANO -->
+  <div class="foot-cards">
+    <div class="foot-card">
+      <h3>¿Qu&eacute; incluye una &laquo;remuneraci&oacute;n&raquo;?</h3>
+      <p>No solo el sueldo: la ley obliga a transparentar <strong>todas las prestaciones, est&iacute;mulos y compensaciones</strong> de cada puesto. As&iacute; sabes lo que de verdad cuesta cada cargo p&uacute;blico.</p>
+    </div>
+    <div class="foot-card">
+      <h3>¿Por qu&eacute; el Rastro va aparte?</h3>
+      <p>El <strong>Rastro de Guadalajara</strong> opera con n&oacute;mina propia, por eso su tabulador se publica en un archivo separado cada mes (bot&oacute;n azul «RAST»).</p>
+    </div>
+    <div class="foot-card">
+      <h3>¿C&oacute;mo comparar puestos?</h3>
+      <p>Abre el Excel y usa el filtro del programa para buscar un cargo (por ejemplo, &laquo;director de &aacute;rea&raquo;) y <strong>comparar su remuneraci&oacute;n entre meses y a&ntilde;os</strong>.</p>
+    </div>
+  </div>
+
+  <div class="foot">
+    <p class="foot-source">Publicado por la <strong>Direcci&oacute;n de N&oacute;mina</strong> &middot; Tesorer&iacute;a Municipal &middot; Ayuntamiento de Guadalajara</p>
+    <p class="foot-cite">Cobertura del registro: octubre 2021 &ndash; abril 2026 &middot; 110 archivos oficiales. En caso de discrepancia, prevalece el archivo oficial.</p>
+  </div>
+
+</main>
+
+<!-- BOTÓN SUBIR -->
+<button type="button" class="f-top" id="fTop" aria-label="Volver arriba" title="Volver arriba">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+(function(){
+'use strict';
+/* ==========================================================================
+   Remuneraciones por puesto · Art. 8 Frac. V Inc. f)
+   110 archivos verificados contra el registro oficial (corte 10/06/2026).
+   Octubre 2021 – abril 2026. Las extensiones .xls/.xlsx replican una a una
+   las del registro (mapa XLS_EXCEPCIONES).
+   ========================================================================== */
+const BASE = 'https://transparencia.guadalajara.gob.mx/sites/default/files/';
+const MESES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+
+/* Meses publicados como .xls — exactamente como en el registro */
+const XLS_EXCEPCIONES = {
+  'R|2025|Febrero':1,'T|2025|Febrero':1,
+  'R|2024|Agosto':1,'R|2024|Enero':1,'R|2024|Febrero':1,'R|2024|Julio':1,'R|2024|Octubre':1,'R|2024|Septiembre':1,
+  'T|2024|Agosto':1,'T|2024|Febrero':1,'T|2024|Julio':1,'T|2024|Octubre':1,'T|2024|Septiembre':1,
+  'R|2023|Junio':1,'R|2023|Septiembre':1,
+  'T|2023|Marzo':1,'T|2023|Septiembre':1
+};
+/* Meses publicados por año */
+const PUBLICADOS = {
+  '2026': MESES.slice(0,4),
+  '2025': MESES.slice(),
+  '2024': MESES.slice(),
+  '2023': MESES.slice(),
+  '2022': MESES.slice(),
+  '2021': ['Octubre','Noviembre','Diciembre']
+};
+const YEARS = ['2026','2025','2024','2023','2022','2021'];
+
+function archivo(tipo, yr, mes){
+  const yy = yr.slice(2);
+  const ext = XLS_EXCEPCIONES[tipo+'|'+yr+'|'+mes] ? 'xls' : 'xlsx';
+  const base = (tipo==='T') ? 'RemuneracionRastro' : 'Remuneracion';
+  return { fmt: ext, url: BASE + base + mes + yy + '.' + ext };
+}
+function countYear(y){ return PUBLICADOS[y].length * 2; }
+
+let activeYear = '2026';
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+
+function renderYears(){
+  $('yearRow').innerHTML = YEARS.map(y => {
+    const isActive = activeYear === y;
+    const isVigente = y === '2026';
+    const meses = PUBLICADOS[y].length;
+    return '<button class="year-btn ' + (isActive ? 'active' : '') + ' ' + (isVigente ? 'vigente' : '') + '" data-year="' + y + '" type="button" role="tab" aria-selected="' + isActive + '">' +
+      '<div class="year-btn-yr">' + y + '</div>' +
+      '<div class="year-btn-meta">' + meses + ' ' + (meses===1?'mes':'meses') + ' &middot; ' + countYear(y) + ' archivos</div>' +
+      '</button>';
+  }).join('');
+  $('yearRow').querySelectorAll('.year-btn').forEach(b => {
+    b.addEventListener('click', () => {
+      activeYear = b.dataset.year;
+      renderYears();
+      renderCalendar();
+      reportHeight();
+    });
+  });
+}
+
+function linkHtml(tipo, yr, mes){
+  const a = archivo(tipo, yr, mes);
+  const lbl = tipo === 'R' ? 'N&oacute;mina general' : 'N&oacute;mina del Rastro';
+  const icoLbl = tipo === 'R' ? 'GRAL' : 'RAST';
+  const cls = tipo === 'R' ? '' : ' rastro';
+  return '<a class="cal-link' + cls + '" href="' + esc(a.url) + '" target="_blank" rel="noopener noreferrer" download aria-label="Descargar ' + (tipo==='R'?'n&oacute;mina general':'n&oacute;mina del Rastro') + ' de ' + mes + ' ' + yr + '">' +
+    '<span class="cal-link-ico">' + icoLbl + '</span>' +
+    '<span class="cal-link-info">' +
+      '<span class="cal-link-lbl">' + lbl + '</span>' +
+      '<span class="cal-link-fmt">Descargar ' + a.fmt.toUpperCase() + '</span>' +
+    '</span>' +
+    '<svg class="cal-link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/><path d="M5 21h14"/></svg>' +
+    '</a>';
+}
+
+function renderCalendar(){
+  const yr = activeYear;
+  const pub = PUBLICADOS[yr];
+  /* Mes más reciente primero; en el año vigente, los meses no publicados van al final como «Próximamente» */
+  const conDatos = pub.slice().reverse();
+  const sinDatos = (yr === '2026') ? MESES.filter(m => pub.indexOf(m) === -1) : [];
+  let html = '';
+  conDatos.forEach(m => {
+    html += '<article class="cal-mes">' +
+      '<header class="cal-mes-top">' +
+        '<span class="cal-mes-name">' + m + '</span>' +
+        '<span class="cal-mes-yr">' + yr + '</span>' +
+      '</header>' +
+      '<div class="cal-mes-body">' + linkHtml('R', yr, m) + linkHtml('T', yr, m) + '</div>' +
+      '</article>';
+  });
+  sinDatos.forEach(m => {
+    html += '<article class="cal-mes empty">' +
+      '<header class="cal-mes-top">' +
+        '<span class="cal-mes-name">' + m + '</span>' +
+        '<span class="cal-mes-yr">' + yr + '</span>' +
+      '</header>' +
+      '<div class="cal-mes-empty-msg">' +
+        '<strong>Pr&oacute;ximamente</strong>' +
+        'A&uacute;n no publicado oficialmente' +
+      '</div>' +
+      '</article>';
+  });
+  $('calGrid').innerHTML = html;
+}
+
+/* Botón subir */
+const topBtn = $('fTop');
+function onScroll(){ topBtn.classList.toggle('show', (window.pageYOffset||document.documentElement.scrollTop) > 280); }
+window.addEventListener('scroll', onScroll, {passive:true});
+topBtn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+/* Altura para Strapi */
+let lastReported = 0;
+function reportHeight(){
+  const h = Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight);
+  if (h && Math.abs(h - lastReported) > 1){
+    lastReported = h;
+    try { parent.postMessage({ type:'gdl-iframe-height', id:'remuneraciones-por-puesto-art8-V-f', height: h }, '*'); } catch(e){}
+  }
+}
+
+function init(){
+  renderYears();
+  renderCalendar();
+  onScroll();
+  reportHeight();
+  window.addEventListener('load', reportHeight);
+  window.addEventListener('resize', reportHeight);
+  setTimeout(reportHeight, 400);
+  setTimeout(reportHeight, 1200);
+}
+if(document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', init); } else { init(); }
+})();
+</script>
+
+</body>
+</html>
