@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Las condonaciones y cancelaciones de créditos fiscales del Municipio de Guadalajara y la estadística de exenciones de pago: a quién se le perdonó un adeudo, los montos y los reportes mensuales de octubre 2021 a abril 2026, en Excel y PDF, con buscador y vista previa. Art. 8 Fracción V Inciso q) Ley de Transparencia Jalisco."/>
+<title>¿A quién le perdona impuestos Guadalajara? · Condonaciones de créditos fiscales y estadística de exenciones 2021–2026, mes a mes · Art. 8 Frac. V Inc. q)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ac:#E87722;--ac-l:#FFE4CC;--ac-d:#C45F0A;--ac-border:#F5C99A;--ac-soft:#FFF1E4;
+  --g50:#FAFAF8;--g100:#F0F0EC;--g200:#E2E2DD;--g300:#CFCFC8;--g400:#9E9E98;--g600:#5A5A55;--g800:#2D2D2A;--g900:#1A1A1A;
+  --wh:#FFF;--ok:#16A34A;--ok-d:#0E6B4C;--ok-l:#DCFCE7;--ok-border:#A7E8C0;
+  --rad:10px;--rad-lg:14px;
+  --sh:0 4px 22px rgba(0,0,0,.08);--sh-sm:0 1px 3px rgba(0,0,0,.06);--sh-md:0 6px 18px rgba(0,0,0,.07);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --fh:'Outfit',system-ui,-apple-system,sans-serif;
+  --fm:'DM Mono','SF Mono',Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:var(--g900);line-height:1.55;-webkit-font-smoothing:antialiased}
+.gx-wrap{max-width:1040px;margin:0 auto}
+.gx-hero{background:linear-gradient(135deg,var(--ac-soft) 0%,#FFFFFF 55%);color:var(--g900);border-radius:var(--rad-lg);padding:26px 30px;margin:0 0 16px;position:relative;overflow:hidden;border-left:5px solid var(--ac);box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.gx-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.12) 0%,transparent 70%);pointer-events:none}
+.gx-hero-tag{display:inline-block;background:var(--ac);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;position:relative;z-index:1;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.gx-hero h1{margin:0 0 8px;font-size:clamp(22px,3.2vw,28px);font-weight:800;color:var(--g900);letter-spacing:-.015em;line-height:1.22;position:relative;z-index:1}
+.gx-hero h1 em{font-style:normal;color:var(--ac-d);display:block;margin-top:3px}
+.gx-hero-sub{font-size:14.5px;color:var(--g600);max-width:90ch;margin:0;line-height:1.6;position:relative;z-index:1}
+.gx-hero-sub strong{color:var(--g900);font-weight:700}
+.gx-cifras{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px;max-width:620px;position:relative;z-index:1}
+.gx-cifra{background:var(--wh);border:1.5px solid var(--ac-border);border-radius:var(--rad);padding:13px 14px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.gx-cifra-num{font-family:var(--fm);font-size:clamp(22px,3vw,34px);font-weight:700;line-height:1;color:var(--ac-d);letter-spacing:-.02em;font-variant-numeric:tabular-nums;white-space:nowrap}
+.gx-cifra-lbl{font-size:10.5px;font-weight:700;color:var(--g600);text-transform:uppercase;letter-spacing:.07em;margin-top:3px;line-height:1.3}
+/* NAV CHIPS */
+.gx-nav{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 20px;position:relative;z-index:1}
+.gx-nav-lbl{font-size:10.5px;font-weight:800;color:var(--g400);letter-spacing:.12em;text-transform:uppercase;margin-right:2px}
+.gx-nav-chip{font-family:var(--fh);font-size:12.5px;font-weight:700;color:var(--g600);background:var(--wh);border:1.5px solid var(--g200);padding:7px 15px;border-radius:999px;cursor:pointer;transition:all .15s var(--ease);text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.gx-nav-chip:hover{border-color:var(--ac);color:var(--ac-d);transform:translateY(-1px)}
+.gx-search-wrap{margin:0 0 24px}
+.gx-search{position:relative;display:flex;align-items:center;background:var(--wh);border:1.5px solid var(--g200);border-radius:12px;box-shadow:var(--sh-sm);transition:border-color .15s,box-shadow .15s}
+.gx-search:focus-within{border-color:var(--ac);box-shadow:0 0 0 3px rgba(232,119,34,.12)}
+.gx-search>svg{position:absolute;left:15px;color:var(--g400);pointer-events:none}
+.gx-search input{flex:1;width:100%;border:0;outline:0;background:transparent;font-family:var(--fh);font-size:14.5px;color:var(--g900);padding:13px 46px}
+.gx-search input::placeholder{color:var(--g400)}
+.gx-search input::-webkit-search-cancel-button{display:none}
+.gx-clear{position:absolute;right:8px;width:30px;height:30px;border:0;background:var(--g100);color:var(--g600);border-radius:50%;font-size:19px;line-height:1;cursor:pointer;display:none;align-items:center;justify-content:center;transition:background .14s;font-family:var(--fh)}
+.gx-clear:hover{background:var(--g200);color:var(--g900)}
+.gx-search.has-q .gx-clear{display:flex}
+.gx-count{font-size:12px;color:var(--g600);font-weight:600;margin:9px 6px 0}
+.gx-count b{color:var(--ac-d);font-family:var(--fm);font-weight:500}
+.gx-sec-title{font-size:12.5px;font-weight:800;color:var(--g400);letter-spacing:.1em;text-transform:uppercase;margin:0 4px 12px;display:flex;align-items:center;gap:10px}
+.gx-sec-title.feat{color:var(--ac-d)}
+.gx-sec-title::after{content:'';flex:1;height:1.5px;background:var(--g200);border-radius:2px}
+.gx-group{margin-bottom:26px}
+.gx-group.hide{display:none}
+.gx-table-wrap{border:1.5px solid var(--g200);border-radius:var(--rad-lg);overflow:hidden;overflow-x:auto;box-shadow:var(--sh-sm);background:var(--wh)}
+.gx-table{width:100%;border-collapse:collapse;font-size:13px}
+.gx-table thead th{background:var(--ac);color:#fff;text-align:left;font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:12px 16px;white-space:nowrap}
+.gx-table thead th.c-doc{text-align:center;width:1%}
+.gx-table thead th.c-year{width:1%;white-space:nowrap}
+.gx-table tbody td{padding:13px 16px;border-top:1px solid var(--g100);vertical-align:middle;color:var(--g800)}
+.gx-table tbody tr:hover{background:var(--ac-soft)}
+.gx-td-name{line-height:1.35}
+.gx-td-name .t{font-weight:700;color:var(--g900)}
+.gx-td-desc{font-size:11.5px;color:var(--g600);font-weight:400;margin-top:4px;line-height:1.5;max-width:62ch}
+.gx-td-year{font-family:var(--fm);font-size:12.5px;color:var(--g800);white-space:nowrap}
+.gx-td-doc{text-align:center;white-space:nowrap}
+.gx-badge{display:inline-flex;align-items:center;font-size:9.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:20px;white-space:nowrap;vertical-align:middle;margin-right:6px;background:var(--ac-l);color:var(--ac-d)}
+.gx-badge.exe{background:#DBEAFE;color:#1E40AF}
+.gx-doc-btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--fh);font-size:12.5px;font-weight:700;padding:9px 15px;border-radius:9px;cursor:pointer;text-decoration:none;border:1.5px solid var(--ac);background:var(--ac);color:#fff;transition:all .14s var(--ease);white-space:nowrap}
+.gx-doc-btn:hover{background:var(--ac-d);border-color:var(--ac-d);transform:translateY(-1px)}
+.gx-doc-btn svg{flex-shrink:0}
+.gx-doc-btn.xls{background:var(--wh);color:var(--ok-d);border-color:var(--ok-border)}
+.gx-doc-btn.xls:hover{background:var(--ok-l);border-color:var(--ok);color:var(--ok-d);transform:translateY(-1px)}
+.gx-doc-btn.prev{background:var(--wh);color:var(--ac-d);border-color:var(--ac-border)}
+.gx-doc-btn.prev:hover{background:var(--ac-soft);transform:translateY(-1px)}
+.gx-doc-btn+.gx-doc-btn{margin-left:6px}
+.gx-details{border:1.5px solid var(--g200);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);background:var(--wh);overflow:hidden;margin-bottom:10px}
+.gx-summary{list-style:none;cursor:pointer;padding:14px 18px;display:flex;align-items:center;gap:13px;user-select:none}
+.gx-summary::-webkit-details-marker{display:none}
+.gx-summary-ico{flex-shrink:0;width:38px;height:38px;border-radius:10px;background:var(--ac-soft);color:var(--ac-d);display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:13px;font-weight:500}
+.gx-summary-tx{flex:1;display:flex;flex-direction:column;gap:1px;min-width:0}
+.gx-summary-t{font-size:14px;font-weight:800;color:var(--g900);letter-spacing:-.01em}
+.gx-summary-tx small{font-size:11.5px;color:var(--g600);font-weight:500}
+.gx-summary-chev{flex-shrink:0;color:var(--ac-d);transition:transform .2s var(--ease)}
+.gx-details[open] .gx-summary-chev{transform:rotate(180deg)}
+.gx-details[open] .gx-summary{border-bottom:1px solid var(--g200)}
+.gx-details .gx-table-wrap{border:0;border-radius:0;box-shadow:none}
+.gx-noresults{display:none;background:var(--ac-soft);border:1.5px solid var(--ac-border);border-radius:var(--rad-lg);padding:22px 24px;font-size:13.5px;color:var(--g800);line-height:1.6;text-align:center;margin-bottom:26px}
+.gx-noresults.show{display:block}
+.gx-noresults strong{color:var(--ac-d);font-weight:700}
+.gx-foot-title{font-size:12.5px;font-weight:800;color:var(--g400);letter-spacing:.1em;text-transform:uppercase;margin:30px 4px 14px;display:flex;align-items:center;gap:10px}
+.gx-foot-title::after{content:'';flex:1;height:1.5px;background:var(--g200);border-radius:2px}
+.gx-info{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:14px;margin-bottom:8px}
+.gx-info-card{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);border-top:5px solid var(--ac);padding:18px 20px;display:flex;flex-direction:column;gap:8px}
+.gx-info-ico{width:42px;height:42px;border-radius:11px;background:var(--ac-soft);color:var(--ac-d);display:flex;align-items:center;justify-content:center;margin-bottom:2px}
+.gx-info-card h3{font-size:14.5px;font-weight:800;color:var(--g900);letter-spacing:-.01em;line-height:1.3}
+.gx-info-card p{font-size:12.5px;color:var(--g600);line-height:1.6}
+.gx-info-card p strong{color:var(--g800);font-weight:600}
+.gx-ley{background:var(--wh);border-radius:var(--rad-lg);padding:22px 26px;border-left:4px solid var(--ac-d);box-shadow:var(--sh-sm);margin-top:22px}
+.gx-ley-eye{font-size:10.5px;font-weight:800;color:var(--ac-d);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.gx-ley h3{font-size:16px;font-weight:800;color:var(--g900);margin-bottom:8px;letter-spacing:-.008em}
+.gx-ley p{font-size:13px;color:var(--g600);line-height:1.65}
+.gx-ley p+p{margin-top:7px}
+.gx-ley p strong{color:var(--g800);font-weight:600}
+.gx-ley blockquote{font-size:13.5px;color:var(--g600);line-height:1.65;margin:12px 0 8px;padding:12px 18px;background:var(--ac-soft);border-left:3px solid var(--ac);border-radius:6px;font-style:italic}
+.gx-ley blockquote strong{color:var(--g900);font-style:normal;font-weight:700}
+/* BOTÓN SUBIR */
+.gx-top{position:fixed;right:18px;bottom:18px;z-index:60;width:46px;height:46px;border-radius:50%;border:0;background:var(--ac);color:#fff;box-shadow:0 6px 18px rgba(196,95,10,.38);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .18s,transform .18s,visibility .18s}
+.gx-top.show{opacity:1;visibility:visible;transform:none}
+.gx-top:hover{background:var(--ac-d)}
+/* MODAL PREVIEW */
+.gx-modal{position:fixed;inset:0;z-index:70;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(26,26,26,.62)}
+.gx-modal.open{display:flex}
+.gx-modal-box{background:var(--wh);border-radius:14px;box-shadow:0 24px 60px rgba(0,0,0,.35);width:min(980px,100%);height:min(86vh,820px);display:flex;flex-direction:column;overflow:hidden}
+.gx-modal-head{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--g200)}
+.gx-modal-title{flex:1;font-size:13.5px;font-weight:800;color:var(--g900);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gx-modal-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--ac-d);text-decoration:none;border:1.5px solid var(--ac-border);border-radius:8px;padding:7px 12px;white-space:nowrap}
+.gx-modal-link:hover{background:var(--ac-soft)}
+.gx-modal-close{width:34px;height:34px;border:0;border-radius:8px;background:var(--g100);color:var(--g600);font-size:20px;line-height:1;cursor:pointer}
+.gx-modal-close:hover{background:var(--g200);color:var(--g900)}
+.gx-modal-body{flex:1;background:var(--g100)}
+.gx-modal-body iframe{width:100%;height:100%;border:0}
+@media (max-width:780px){
+  body{padding:14px}
+  .gx-hero{padding:20px 18px}
+  .gx-hero h1{font-size:20px}
+  .gx-ley{padding:18px 18px}
+}
+@media (max-width:620px){
+  body{padding:10px}
+  .gx-hero{padding:18px 15px;border-radius:12px}
+  .gx-hero h1{font-size:18px;line-height:1.25}
+  .gx-hero-tag{font-size:9.5px;padding:4px 11px}
+  .gx-cifras{gap:8px}
+  .gx-cifra{padding:10px 9px}
+  .gx-table-wrap{border-radius:12px}
+  .gx-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .gx-table tbody td{display:flex;justify-content:space-between;gap:14px;align-items:baseline;padding:8px 16px;border-top:0;text-align:right}
+  .gx-table tbody td::before{content:attr(data-label);font-size:9.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--g400);flex-shrink:0;text-align:left}
+  .gx-table tbody tr{display:block;border-top:1px solid var(--g200);padding:8px 0}
+  .gx-table tbody tr:first-child{border-top:0}
+  .gx-td-name{text-align:left;display:block;padding-top:12px}
+  .gx-td-name::before{display:none}
+  .gx-td-desc{max-width:none;text-align:left}
+  .gx-td-doc{padding-top:6px;padding-bottom:12px}
+  .gx-doc-btn+.gx-doc-btn{margin-left:0;margin-top:6px}
+  .gx-ley{padding:16px 15px;border-radius:12px}
+  .gx-ley blockquote{padding:11px 14px;font-size:12.5px}
+  .gx-top{right:12px;bottom:12px;width:42px;height:42px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+.gx-cifras-foot{max-width:none;margin:0 0 10px}.gx-meta-foot{margin:2px 0 0}
+</style>
+</head>
+<body>
+<div class="gx-wrap">
+
+  <!-- HERO -->
+  <section class="gx-hero">
+    <span class="gx-hero-tag">Art. 8 · Fracción V · Inciso q) · Ley de Transparencia Jalisco</span>
+    <h1>¿A quién le perdona impuestos el Ayuntamiento? <em>Condonaciones de créditos fiscales y exenciones</em></h1>
+    <p class="gx-hero-sub">Cuando el municipio <strong>cancela o condona</strong> un adeudo — predial, multas, derechos — la ley exige decir <strong>a quién, con su RFC, y por cuánto</strong>. Y cuando alguien queda <strong>exento</strong> de pagar, debe publicarse la estadística. Aquí están ambos reportes, mes por mes desde octubre de 2021.</p>
+  </section>
+
+  <!-- NAV -->
+  <nav class="gx-nav" aria-label="Ir a una sección">
+    <span class="gx-nav-lbl">Ir a</span>
+    <a class="gx-nav-chip" href="#grpCon" data-open="1">Condonaciones</a>
+    <a class="gx-nav-chip" href="#grpExe" data-open="1">Exenciones</a>
+    <a class="gx-nav-chip" href="#gxLey">Fundamento legal</a>
+  </nav>
+
+  <!-- BUSCADOR -->
+  <div class="gx-search-wrap">
+    <div class="gx-search">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="gxQ" type="search" autocomplete="off" placeholder="Busca por mes y año… (ej.: marzo 2025, exenciones 2023)" aria-label="Buscar un reporte por mes o año"/>
+      <button type="button" class="gx-clear" id="gxClear" aria-label="Limpiar búsqueda" title="Limpiar">&times;</button>
+    </div>
+    <div class="gx-count" id="gxCount"></div>
+  </div>
+
+  <!-- CONDONACIONES -->
+  <section class="gx-group" id="grpCon">
+    <div class="gx-sec-title feat">Condonaciones y cancelaciones de créditos fiscales</div>
+    <div id="gxConYears"></div>
+  </section>
+
+  <!-- EXENCIONES -->
+  <section class="gx-group" id="grpExe">
+    <div class="gx-sec-title">Estadística de exenciones</div>
+    <div id="gxExeYears"></div>
+  </section>
+
+  <!-- SIN RESULTADOS -->
+  <div class="gx-noresults" id="gxNoRes">No encontramos reportes que coincidan con <strong id="gxNoResQ"></strong>. Prueba con un mes y año («marzo 2025»).</div>
+
+  <!-- FOOTER CIUDADANO -->
+  <div class="gx-foot-title">La página en cifras</div>
+    <div class="gx-cifras gx-cifras-foot">
+      <div class="gx-cifra"><div class="gx-cifra-num">108</div><div class="gx-cifra-lbl">Reportes mensuales</div></div>
+      <div class="gx-cifra"><div class="gx-cifra-num">2</div><div class="gx-cifra-lbl">Series: condonaciones y exenciones</div></div>
+      <div class="gx-cifra"><div class="gx-cifra-num">2021–26</div><div class="gx-cifra-lbl">Seis ejercicios</div></div>
+    </div>
+  <div class="gx-foot-title">Para entenderlo mejor</div>
+  <div class="gx-info">
+    <div class="gx-info-card">
+      <div class="gx-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+      <h3>¿Qué es un crédito fiscal?</h3>
+      <p>Es un <strong>adeudo con el municipio</strong>: predial atrasado, multas, derechos no pagados. <strong>Condonarlo</strong> es perdonarlo total o parcialmente. Como ese dinero era de todos, la ley exige publicar el nombre, el RFC y el monto perdonado.</p>
+    </div>
+    <div class="gx-info-card">
+      <div class="gx-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></div>
+      <h3>¿Y una exención?</h3>
+      <p>Es cuando la ley dice que alguien <strong>no está obligado a pagar</strong> desde el inicio — por ejemplo, ciertos apoyos a adultos mayores en el predial. Aquí se publica la <strong>estadística</strong>: cuántas exenciones y por qué montos, mes a mes.</p>
+    </div>
+    <div class="gx-info-card">
+      <div class="gx-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+      <h3>¿Por qué vigilar esto?</h3>
+      <p>Porque perdonar adeudos es una <strong>facultad delicada</strong>: bien usada alivia a quien lo necesita; mal usada beneficia a quien tiene influencias. Publicar nombres y montos permite distinguir lo uno de lo otro.</p>
+    </div>
+  </div>
+
+  <!-- FUNDAMENTO LEGAL -->
+  <section class="gx-ley" id="gxLey">
+    <div class="gx-ley-eye">Fundamento legal</div>
+    <h3>¿Por qué el Ayuntamiento publica esta información?</h3>
+    <p>Es una obligación de transparencia. La ley ordena publicar, palabra por palabra, lo siguiente:</p>
+    <blockquote>«Artículo 8°. <strong>1.</strong> Es información fundamental, obligatoria para todos los sujetos obligados, la siguiente: (…) <strong>V.</strong> La información financiera, patrimonial y administrativa, que comprende: <strong>q)</strong> El nombre, denominación o razón social y clave del Registro Federal de Contribuyentes de quienes se les hubiera cancelado o condonado algún crédito fiscal, los montos respectivos, así como la información estadística sobre las exenciones previstas en las disposiciones fiscales;»</blockquote>
+    <p>— <strong>Artículo 8, fracción V, inciso q)</strong> de la <em>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</em>. Los archivos de esta página son los oficiales, tal como fueron publicados por el sujeto obligado; ante cualquier discrepancia, prevalece el documento oficial.</p>
+  </section>
+
+</div>
+
+<!-- BOTÓN SUBIR -->
+<button type="button" class="gx-top" id="gxTop" aria-label="Volver arriba" title="Volver arriba">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<!-- MODAL PREVIEW -->
+<div class="gx-modal" id="gxModal" role="dialog" aria-modal="true" aria-label="Vista previa del documento">
+  <div class="gx-modal-box">
+    <div class="gx-modal-head">
+      <div class="gx-modal-title" id="gxModalTitle"></div>
+      <a class="gx-modal-link" id="gxModalLink" href="#" target="_blank" rel="noopener noreferrer">Abrir en pestaña
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
+      <button type="button" class="gx-modal-close" id="gxModalClose" aria-label="Cerrar vista previa">&times;</button>
+    </div>
+    <div class="gx-modal-body"><iframe id="gxModalFrame" title="Vista previa del documento" loading="lazy"></iframe></div>
+  </div>
+</div>
+
+<script>
+/* ==========================================================================
+   Condonaciones y exenciones · Art. 8 Frac. V Inc. q)
+   Datos verbatim del registro oficial del sujeto obligado (corte: 10/06/2026).
+   108 reportes: 54 de condonaciones (Excel) y 54 de exenciones (PDF/Excel
+   alternados tal como los publicó el registro; noviembre 2023 no fue
+   publicado y los archivos de 2021 conservan la letra «l» del registro).
+   Vista previa en modal solo para los PDF mensuales (ligeros).
+   ========================================================================== */
+(function(){
+  var FILES_BASE = 'https://transparencia.guadalajara.gob.mx/sites/default/files/';
+  var MESES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+  var MIN = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+
+  function esc(s){ if(s===null||s===undefined) return ''; return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function norm(s){ return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,''); }
+  var PDFICO = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>';
+  var XLSICO = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="17"/><line x1="16" y1="13" x2="8" y2="17"/></svg>';
+  var EYEICO = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
+  function urlOf(f){ return (FILES_BASE+f).replace(/ /g,'%20'); }
+  function botones(f, titulo, conPreview){
+    var u = urlOf(f);
+    var ext = f.split('.').pop().toLowerCase();
+    if (ext==='pdf'){
+      var prev = conPreview ? '<button type="button" class="gx-doc-btn prev" data-prev="'+esc(u)+'" data-title="'+esc(titulo)+'">'+EYEICO+'Vista previa</button>' : '';
+      return prev + '<a class="gx-doc-btn" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer">'+PDFICO+'Abrir PDF</a>';
+    }
+    return '<a class="gx-doc-btn xls" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer" download>'+XLSICO+'Descargar Excel</a>';
+  }
+  function fila(busca, badge, nombre, desc, periodo, botonesHtml){
+    return '<tr data-search="'+esc(norm(busca))+'">'+
+      '<td class="gx-td-name" data-label="Reporte">'+badge+'<span class="t">'+esc(nombre)+'</span>'+(desc?'<div class="gx-td-desc">'+esc(desc)+'</div>':'')+'</td>'+
+      '<td class="gx-td-year" data-label="Mes">'+esc(periodo)+'</td>'+
+      '<td class="gx-td-doc" data-label="Abrir">'+botonesHtml+'</td>'+
+    '</tr>';
+  }
+  function detalle(icono, titulo, sub, rowsHtml, abierto){
+    return '<details class="gx-details"'+(abierto?' open':'')+'>'+
+      '<summary class="gx-summary">'+
+        '<span class="gx-summary-ico" aria-hidden="true">'+icono+'</span>'+
+        '<span class="gx-summary-tx"><span class="gx-summary-t">'+esc(titulo)+'</span><small>'+esc(sub)+'</small></span>'+
+        '<svg class="gx-summary-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>'+
+      '</summary>'+
+      '<div class="gx-table-wrap"><table class="gx-table">'+
+      '<thead><tr><th>Reporte</th><th class="c-year">Mes</th><th class="c-doc">Abrir</th></tr></thead>'+
+      '<tbody>'+rowsHtml+'</tbody></table></div></details>';
+  }
+
+  /* ===== Condonaciones (todo Excel): informaciondecondonaciones<mes><año>.xlsx ===== */
+  var CON_ANIOS = [
+    {y:'2026', m1:0, m2:2},
+    {y:'2025', m1:0, m2:11},
+    {y:'2024', m1:0, m2:11},
+    {y:'2023', m1:0, m2:11},
+    {y:'2022', m1:0, m2:11},
+    {y:'2021', m1:9, m2:11}
+  ];
+  var conHtml='';
+  for (var a=0;a<CON_ANIOS.length;a++){ var g=CON_ANIOS[a];
+    var rows='', n=0;
+    for (var m=g.m2;m>=g.m1;m--){
+      var f='informaciondecondonaciones'+MIN[m]+g.y+'.xlsx';
+      rows += fila('condonaciones cancelacion creditos fiscales rfc '+MESES[m]+' '+g.y,'<span class="gx-badge">Condonaciones</span>','Condonaciones de créditos fiscales','Quiénes recibieron el perdón de un adeudo, con RFC y monto.',MESES[m]+' '+g.y,botones(f,'',false));
+      n++;
+    }
+    conHtml += detalle(g.y.slice(2),'Condonaciones '+g.y,n+' reportes publicados',rows,a===0);
+  }
+  document.getElementById('gxConYears').innerHTML = conHtml;
+
+  /* ===== Exenciones: alternancia de formato tal como la publicó el registro ===== */
+  /* 2022-2023: meses impares Excel, pares PDF · 2024-2026: impares PDF, pares Excel */
+  function extExencion(anio, mIdx){
+    var par = (mIdx % 2 === 1); /* feb=1, abr=3... son "pares" humanos */
+    if (anio==='2022'||anio==='2023') return par ? 'pdf' : 'xlsx';
+    return par ? 'xlsx' : 'pdf';
+  }
+  /* PDFs pesados (verificado >4MB): sin vista previa, solo Abrir PDF */
+  var SIN_PREVIEW = {'exencionesseptiembre2025.pdf':1};
+  var EXE_ANIOS = [
+    {y:'2026', m1:0, m2:3},
+    {y:'2025', m1:0, m2:11},
+    {y:'2024', m1:0, m2:11},
+    {y:'2023', m1:0, m2:11, sin:[10]},
+    {y:'2022', m1:0, m2:11}
+  ];
+  var exeHtml='';
+  for (var e=0;e<EXE_ANIOS.length;e++){ var ge=EXE_ANIOS[e];
+    var rowsE='', nE=0;
+    for (var me=ge.m2;me>=ge.m1;me--){
+      if (ge.sin && ge.sin.indexOf(me)>-1) continue;
+      var ext = extExencion(ge.y, me);
+      var fe = 'exenciones'+MIN[me]+ge.y+'.'+ext;
+      rowsE += fila('exenciones estadistica '+MESES[me]+' '+ge.y,'<span class="gx-badge exe">Exenciones</span>','Estadística de exenciones','Cuántas personas quedaron exentas de pago y por qué montos.',MESES[me]+' '+ge.y,botones(fe,'Exenciones — '+MESES[me]+' '+ge.y, ext==='pdf' && !SIN_PREVIEW[fe]));
+      nE++;
+    }
+    exeHtml += detalle(ge.y.slice(2),'Exenciones '+ge.y,nE+' reportes publicados'+(ge.sin?' (noviembre no fue publicado)':''),rowsE,false);
+  }
+  /* 2021: archivos con la letra «l» tal como los nombra el registro */
+  var rows21='';
+  var E21 = [['Diciembre','exencionesdiciembrel2021.xlsx'],['Noviembre','exencionesnoviembrel2021.xlsx'],['Octubre','exencionesoctubrel2021.xlsx']];
+  for (var k=0;k<E21.length;k++){
+    rows21 += fila('exenciones estadistica '+E21[k][0]+' 2021','<span class="gx-badge exe">Exenciones</span>','Estadística de exenciones','Cuántas personas quedaron exentas de pago y por qué montos.',E21[k][0]+' 2021',botones(E21[k][1],'',false));
+  }
+  exeHtml += detalle('21','Exenciones 2021 (octubre–diciembre)','3 reportes publicados',rows21,false);
+  document.getElementById('gxExeYears').innerHTML = exeHtml;
+
+  /* ===== UX compartida: subir, modal, nav chips, buscador, altura ===== */
+  var lastReported = 0;
+  function reportHeight(){
+    var h = Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight);
+    if (h && Math.abs(h - lastReported) > 1){
+      lastReported = h;
+      try { parent.postMessage({ type:'gdl-iframe-height', id:'condonaciones-exenciones-art8-V-q', height: h }, '*'); } catch(err){}
+    }
+  }
+  var topBtn = document.getElementById('gxTop');
+  function onScroll(){ topBtn.classList.toggle('show', (window.pageYOffset||document.documentElement.scrollTop) > 280); }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  topBtn.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+  onScroll();
+
+  var modal = document.getElementById('gxModal');
+  var modalFrame = document.getElementById('gxModalFrame');
+  var modalTitle = document.getElementById('gxModalTitle');
+  var modalLink = document.getElementById('gxModalLink');
+  function openPreview(url, title){
+    modalTitle.textContent = title || 'Vista previa';
+    modalLink.href = url;
+    modalFrame.src = url + '#toolbar=0';
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closePreview(){
+    modal.classList.remove('open');
+    modalFrame.src = 'about:blank';
+    document.body.style.overflow = '';
+  }
+  document.getElementById('gxModalClose').addEventListener('click', closePreview);
+  modal.addEventListener('click', function(ev){ if (ev.target === modal) closePreview(); });
+  document.addEventListener('keydown', function(ev){ if (ev.key === 'Escape' && modal.classList.contains('open')) closePreview(); });
+  document.addEventListener('click', function(ev){
+    var b = ev.target.closest ? ev.target.closest('button[data-prev]') : null;
+    if (b){ openPreview(b.getAttribute('data-prev'), b.getAttribute('data-title')); }
+  });
+
+  document.querySelectorAll('.gx-nav-chip[data-open]').forEach(function(ch){
+    ch.addEventListener('click', function(){
+      var id = ch.getAttribute('href').slice(1);
+      var sec = document.getElementById(id);
+      if (sec){ var det = sec.querySelector('.gx-details'); if (det) det.open = true; }
+    });
+  });
+
+  var inp = document.getElementById('gxQ');
+  var clearBtn = document.getElementById('gxClear');
+  var box = document.querySelector('.gx-search');
+  var count = document.getElementById('gxCount');
+  var noRes = document.getElementById('gxNoRes');
+  var noResQ = document.getElementById('gxNoResQ');
+  var groups = [document.getElementById('grpCon'), document.getElementById('grpExe')];
+  var allDetails = [].slice.call(document.querySelectorAll('.gx-group .gx-details'));
+  var items = [].slice.call(document.querySelectorAll('tr[data-search]'));
+  var TOTAL = items.length;
+  function applyFilter(){
+    var raw = inp.value.replace(/^\s+|\s+$/g, '');
+    var toks = norm(raw).split(/\s+/);
+    var clean = [];
+    for (var t=0;t<toks.length;t++){ if (toks[t]) clean.push(toks[t]); }
+    box.classList.toggle('has-q', raw.length>0);
+    var vis = 0;
+    for (var i=0;i<items.length;i++){
+      var ds = items[i].getAttribute('data-search'), ok = true;
+      for (var c=0;c<clean.length;c++){ if (ds.indexOf(clean[c]) === -1){ ok = false; break; } }
+      items[i].style.display = ok ? '' : 'none';
+      if (ok) vis++;
+    }
+    for (var dd=0;dd<allDetails.length;dd++){
+      var det = allDetails[dd];
+      var its = det.querySelectorAll('tr[data-search]'), any=false;
+      for (var k2=0;k2<its.length;k2++){ if (its[k2].style.display !== 'none'){ any=true; break; } }
+      det.style.display = any ? '' : 'none';
+      if (clean.length>0 && any) det.open = true;
+    }
+    for (var gi=0;gi<groups.length;gi++){
+      var gits = groups[gi].querySelectorAll('tr[data-search]'), gany = false;
+      for (var k3=0;k3<gits.length;k3++){ if (gits[k3].style.display !== 'none'){ gany = true; break; } }
+      groups[gi].className = gany ? 'gx-group' : 'gx-group hide';
+    }
+    if (clean.length === 0){ count.innerHTML = '<b>'+TOTAL+'</b> reportes publicados (octubre 2021 – abril 2026)'; noRes.className = 'gx-noresults'; }
+    else if (vis === 0){ count.innerHTML = '<b>0</b> resultados'; noResQ.textContent = '«'+raw+'»'; noRes.className = 'gx-noresults show'; }
+    else { count.innerHTML = '<b>'+vis+'</b> de '+TOTAL+' reportes'; noRes.className = 'gx-noresults'; }
+    reportHeight();
+  }
+  inp.addEventListener('input', applyFilter);
+  clearBtn.addEventListener('click', function(){ inp.value = ''; applyFilter(); inp.focus(); });
+  for (var ad=0; ad<allDetails.length; ad++){ allDetails[ad].addEventListener('toggle', reportHeight); }
+  applyFilter();
+
+  window.addEventListener('load', reportHeight);
+  window.addEventListener('resize', reportHeight);
+  setTimeout(reportHeight, 400);
+  setTimeout(reportHeight, 1200);
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="El estado de la deuda pública del Municipio de Guadalajara: cuánto debe, a qué bancos, a qué tasa y para qué se usó cada crédito. Reportes mensuales de diciembre 2018 a abril 2026 y el expediente completo de cada contratación: contratos, actas de fallo, procesos competitivos y convenios. Art. 8 Fracción V Inciso w) Ley de Transparencia Jalisco."/>
+<title>¿Cuánto debe Guadalajara y a quién? · Estado de la deuda pública 2018–2026, mes a mes, con contratos y procesos de cada crédito · Art. 8 Frac. V Inc. w)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ac:#E87722;--ac-l:#FFE4CC;--ac-d:#C45F0A;--ac-border:#F5C99A;--ac-soft:#FFF1E4;
+  --g50:#FAFAF8;--g100:#F0F0EC;--g200:#E2E2DD;--g300:#CFCFC8;--g400:#9E9E98;--g600:#5A5A55;--g800:#2D2D2A;--g900:#1A1A1A;
+  --wh:#FFF;--ok:#16A34A;--ok-d:#0E6B4C;--ok-l:#DCFCE7;--ok-border:#A7E8C0;
+  --rad:10px;--rad-lg:14px;
+  --sh:0 4px 22px rgba(0,0,0,.08);--sh-sm:0 1px 3px rgba(0,0,0,.06);--sh-md:0 6px 18px rgba(0,0,0,.07);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --fh:'Outfit',system-ui,-apple-system,sans-serif;
+  --fm:'DM Mono','SF Mono',Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:var(--g900);line-height:1.55;-webkit-font-smoothing:antialiased}
+.gx-wrap{max-width:1040px;margin:0 auto}
+.gx-hero{background:linear-gradient(135deg,var(--ac-soft) 0%,#FFFFFF 55%);color:var(--g900);border-radius:var(--rad-lg);padding:26px 30px;margin:0 0 16px;position:relative;overflow:hidden;border-left:5px solid var(--ac);box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.gx-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.12) 0%,transparent 70%);pointer-events:none}
+.gx-hero-tag{display:inline-block;background:var(--ac);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;position:relative;z-index:1;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.gx-hero h1{margin:0 0 8px;font-size:clamp(22px,3.2vw,28px);font-weight:800;color:var(--g900);letter-spacing:-.015em;line-height:1.22;position:relative;z-index:1}
+.gx-hero h1 em{font-style:normal;color:var(--ac-d);display:block;margin-top:3px}
+.gx-hero-sub{font-size:14.5px;color:var(--g600);max-width:90ch;margin:0;line-height:1.6;position:relative;z-index:1}
+.gx-hero-sub strong{color:var(--g900);font-weight:700}
+.gx-cifras{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px;max-width:620px;position:relative;z-index:1}
+.gx-cifra{background:var(--wh);border:1.5px solid var(--ac-border);border-radius:var(--rad);padding:13px 14px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.gx-cifra-num{font-family:var(--fm);font-size:clamp(22px,3vw,34px);font-weight:700;line-height:1;color:var(--ac-d);letter-spacing:-.02em;font-variant-numeric:tabular-nums;white-space:nowrap}
+.gx-cifra-lbl{font-size:10.5px;font-weight:700;color:var(--g600);text-transform:uppercase;letter-spacing:.07em;margin-top:3px;line-height:1.3}
+.gx-nav{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 20px;position:relative;z-index:1}
+.gx-nav-lbl{font-size:10.5px;font-weight:800;color:var(--g400);letter-spacing:.12em;text-transform:uppercase;margin-right:2px}
+.gx-nav-chip{font-family:var(--fh);font-size:12.5px;font-weight:700;color:var(--g600);background:var(--wh);border:1.5px solid var(--g200);padding:7px 15px;border-radius:999px;cursor:pointer;transition:all .15s var(--ease);text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.gx-nav-chip:hover{border-color:var(--ac);color:var(--ac-d);transform:translateY(-1px)}
+.gx-search-wrap{margin:0 0 24px}
+.gx-search{position:relative;display:flex;align-items:center;background:var(--wh);border:1.5px solid var(--g200);border-radius:12px;box-shadow:var(--sh-sm);transition:border-color .15s,box-shadow .15s}
+.gx-search:focus-within{border-color:var(--ac);box-shadow:0 0 0 3px rgba(232,119,34,.12)}
+.gx-search>svg{position:absolute;left:15px;color:var(--g400);pointer-events:none}
+.gx-search input{flex:1;width:100%;border:0;outline:0;background:transparent;font-family:var(--fh);font-size:14.5px;color:var(--g900);padding:13px 46px}
+.gx-search input::placeholder{color:var(--g400)}
+.gx-search input::-webkit-search-cancel-button{display:none}
+.gx-clear{position:absolute;right:8px;width:30px;height:30px;border:0;background:var(--g100);color:var(--g600);border-radius:50%;font-size:19px;line-height:1;cursor:pointer;display:none;align-items:center;justify-content:center;transition:background .14s;font-family:var(--fh)}
+.gx-clear:hover{background:var(--g200);color:var(--g900)}
+.gx-search.has-q .gx-clear{display:flex}
+.gx-count{font-size:12px;color:var(--g600);font-weight:600;margin:9px 6px 0}
+.gx-count b{color:var(--ac-d);font-family:var(--fm);font-weight:500}
+.gx-sec-title{font-size:12.5px;font-weight:800;color:var(--g400);letter-spacing:.1em;text-transform:uppercase;margin:0 4px 12px;display:flex;align-items:center;gap:10px}
+.gx-sec-title.feat{color:var(--ac-d)}
+.gx-sec-title::after{content:'';flex:1;height:1.5px;background:var(--g200);border-radius:2px}
+.gx-group{margin-bottom:26px}
+.gx-group.hide{display:none}
+.gx-table-wrap{border:1.5px solid var(--g200);border-radius:var(--rad-lg);overflow:hidden;overflow-x:auto;box-shadow:var(--sh-sm);background:var(--wh)}
+.gx-table{width:100%;border-collapse:collapse;font-size:13px}
+.gx-table thead th{background:var(--ac);color:#fff;text-align:left;font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:12px 16px;white-space:nowrap}
+.gx-table thead th.c-doc{text-align:center;width:1%}
+.gx-table thead th.c-year{width:1%;white-space:nowrap}
+.gx-table tbody td{padding:13px 16px;border-top:1px solid var(--g100);vertical-align:middle;color:var(--g800)}
+.gx-table tbody tr:hover{background:var(--ac-soft)}
+.gx-td-name{line-height:1.35}
+.gx-td-name .t{font-weight:700;color:var(--g900)}
+.gx-td-desc{font-size:11.5px;color:var(--g600);font-weight:400;margin-top:4px;line-height:1.5;max-width:62ch}
+.gx-td-year{font-family:var(--fm);font-size:12.5px;color:var(--g800);white-space:nowrap}
+.gx-td-doc{text-align:center;white-space:nowrap}
+.gx-badge{display:inline-flex;align-items:center;font-size:9.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:20px;white-space:nowrap;vertical-align:middle;margin-right:6px;background:var(--ac-l);color:var(--ac-d)}
+.gx-badge.cred{background:#DBEAFE;color:#1E40AF}
+.gx-badge.his{background:#EDE7F6;color:#5B21B6}
+.gx-doc-btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--fh);font-size:12.5px;font-weight:700;padding:9px 15px;border-radius:9px;cursor:pointer;text-decoration:none;border:1.5px solid var(--ac);background:var(--ac);color:#fff;transition:all .14s var(--ease);white-space:nowrap}
+.gx-doc-btn:hover{background:var(--ac-d);border-color:var(--ac-d);transform:translateY(-1px)}
+.gx-doc-btn svg{flex-shrink:0}
+.gx-doc-btn.xls{background:var(--wh);color:var(--ok-d);border-color:var(--ok-border)}
+.gx-doc-btn.xls:hover{background:var(--ok-l);border-color:var(--ok);color:var(--ok-d);transform:translateY(-1px)}
+.gx-details{border:1.5px solid var(--g200);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);background:var(--wh);overflow:hidden;margin-bottom:10px}
+.gx-summary{list-style:none;cursor:pointer;padding:14px 18px;display:flex;align-items:center;gap:13px;user-select:none}
+.gx-summary::-webkit-details-marker{display:none}
+.gx-summary-ico{flex-shrink:0;width:38px;height:38px;border-radius:10px;background:var(--ac-soft);color:var(--ac-d);display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:13px;font-weight:500}
+.gx-summary-tx{flex:1;display:flex;flex-direction:column;gap:1px;min-width:0}
+.gx-summary-t{font-size:14px;font-weight:800;color:var(--g900);letter-spacing:-.01em}
+.gx-summary-tx small{font-size:11.5px;color:var(--g600);font-weight:500}
+.gx-summary-chev{flex-shrink:0;color:var(--ac-d);transition:transform .2s var(--ease)}
+.gx-details[open] .gx-summary-chev{transform:rotate(180deg)}
+.gx-details[open] .gx-summary{border-bottom:1px solid var(--g200)}
+.gx-details .gx-table-wrap{border:0;border-radius:0;box-shadow:none}
+.gx-noresults{display:none;background:var(--ac-soft);border:1.5px solid var(--ac-border);border-radius:var(--rad-lg);padding:22px 24px;font-size:13.5px;color:var(--g800);line-height:1.6;text-align:center;margin-bottom:26px}
+.gx-noresults.show{display:block}
+.gx-noresults strong{color:var(--ac-d);font-weight:700}
+.gx-foot-title{font-size:12.5px;font-weight:800;color:var(--g400);letter-spacing:.1em;text-transform:uppercase;margin:30px 4px 14px;display:flex;align-items:center;gap:10px}
+.gx-foot-title::after{content:'';flex:1;height:1.5px;background:var(--g200);border-radius:2px}
+.gx-info{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:14px;margin-bottom:8px}
+.gx-info-card{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);border-top:5px solid var(--ac);padding:18px 20px;display:flex;flex-direction:column;gap:8px}
+.gx-info-ico{width:42px;height:42px;border-radius:11px;background:var(--ac-soft);color:var(--ac-d);display:flex;align-items:center;justify-content:center;margin-bottom:2px}
+.gx-info-card h3{font-size:14.5px;font-weight:800;color:var(--g900);letter-spacing:-.01em;line-height:1.3}
+.gx-info-card p{font-size:12.5px;color:var(--g600);line-height:1.6}
+.gx-info-card p strong{color:var(--g800);font-weight:600}
+.gx-ley{background:var(--wh);border-radius:var(--rad-lg);padding:22px 26px;border-left:4px solid var(--ac-d);box-shadow:var(--sh-sm);margin-top:22px}
+.gx-ley-eye{font-size:10.5px;font-weight:800;color:var(--ac-d);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.gx-ley h3{font-size:16px;font-weight:800;color:var(--g900);margin-bottom:8px;letter-spacing:-.008em}
+.gx-ley p{font-size:13px;color:var(--g600);line-height:1.65}
+.gx-ley p+p{margin-top:7px}
+.gx-ley p strong{color:var(--g800);font-weight:600}
+.gx-ley blockquote{font-size:13.5px;color:var(--g600);line-height:1.65;margin:12px 0 8px;padding:12px 18px;background:var(--ac-soft);border-left:3px solid var(--ac);border-radius:6px;font-style:italic}
+.gx-ley blockquote strong{color:var(--g900);font-style:normal;font-weight:700}
+.gx-top{position:fixed;right:18px;bottom:18px;z-index:60;width:46px;height:46px;border-radius:50%;border:0;background:var(--ac);color:#fff;box-shadow:0 6px 18px rgba(196,95,10,.38);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .18s,transform .18s,visibility .18s}
+.gx-top.show{opacity:1;visibility:visible;transform:none}
+.gx-top:hover{background:var(--ac-d)}
+@media (max-width:780px){
+  body{padding:14px}
+  .gx-hero{padding:20px 18px}
+  .gx-hero h1{font-size:20px}
+  .gx-ley{padding:18px 18px}
+}
+@media (max-width:620px){
+  body{padding:10px}
+  .gx-hero{padding:18px 15px;border-radius:12px}
+  .gx-hero h1{font-size:18px;line-height:1.25}
+  .gx-hero-tag{font-size:9.5px;padding:4px 11px}
+  .gx-cifras{gap:8px}
+  .gx-cifra{padding:10px 9px}
+  .gx-table-wrap{border-radius:12px}
+  .gx-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .gx-table tbody td{display:flex;justify-content:space-between;gap:14px;align-items:baseline;padding:8px 16px;border-top:0;text-align:right}
+  .gx-table tbody td::before{content:attr(data-label);font-size:9.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--g400);flex-shrink:0;text-align:left}
+  .gx-table tbody tr{display:block;border-top:1px solid var(--g200);padding:8px 0}
+  .gx-table tbody tr:first-child{border-top:0}
+  .gx-td-name{text-align:left;display:block;padding-top:12px}
+  .gx-td-name::before{display:none}
+  .gx-td-desc{max-width:none;text-align:left}
+  .gx-td-doc{padding-top:6px;padding-bottom:12px}
+  .gx-ley{padding:16px 15px;border-radius:12px}
+  .gx-ley blockquote{padding:11px 14px;font-size:12.5px}
+  .gx-top{right:12px;bottom:12px;width:42px;height:42px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+.gx-cifras-foot{max-width:none;margin:0 0 10px}.gx-meta-foot{margin:2px 0 0}
+</style>
+</head>
+<body>
+<div class="gx-wrap">
+
+  <!-- HERO -->
+  <section class="gx-hero">
+    <span class="gx-hero-tag">Art. 8 · Fracción V · Inciso w) · Ley de Transparencia Jalisco</span>
+    <h1>¿Cuánto debe Guadalajara y a quién? <em>El estado de la deuda pública, mes a mes</em></h1>
+    <p class="gx-hero-sub">Cuando el municipio pide prestado, la ley exige transparentar todo: <strong>quién autorizó, cuándo se contrató, el monto, la tasa de interés, el plazo, el banco y en qué se aplica</strong> cada crédito. Aquí está el reporte mensual de la deuda desde diciembre de 2018 y el <strong>expediente de cada contratación</strong>: procesos competitivos, actas de fallo, contratos y convenios.</p>
+  </section>
+
+  <!-- NAV -->
+  <nav class="gx-nav" aria-label="Ir a una sección">
+    <span class="gx-nav-lbl">Ir a</span>
+    <a class="gx-nav-chip" href="#grpMen" data-open="1">Reporte mensual</a>
+    <a class="gx-nav-chip" href="#grpCred" data-open="1">Expedientes de créditos</a>
+    <a class="gx-nav-chip" href="#grpHis" data-open="1">Histórico 2018–2021</a>
+    <a class="gx-nav-chip" href="#gxLey">Fundamento legal</a>
+  </nav>
+
+  <!-- BUSCADOR -->
+  <div class="gx-search-wrap">
+    <div class="gx-search">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="gxQ" type="search" autocomplete="off" placeholder="Busca por mes, año o crédito… (ej.: marzo 2025, banorte, contrato)" aria-label="Buscar un reporte de deuda por mes o crédito"/>
+      <button type="button" class="gx-clear" id="gxClear" aria-label="Limpiar búsqueda" title="Limpiar">&times;</button>
+    </div>
+    <div class="gx-count" id="gxCount"></div>
+  </div>
+
+  <!-- MENSUAL -->
+  <section class="gx-group" id="grpMen">
+    <div class="gx-sec-title feat">Estado mensual de la deuda (Excel)</div>
+    <div id="gxMen"></div>
+  </section>
+
+  <!-- CRÉDITOS -->
+  <section class="gx-group" id="grpCred">
+    <div class="gx-sec-title">El expediente de cada crédito</div>
+    <div id="gxCred"></div>
+  </section>
+
+  <!-- HISTÓRICO PDF -->
+  <section class="gx-group" id="grpHis">
+    <div class="gx-sec-title">Histórico en PDF · 2018–2021</div>
+    <div id="gxHis"></div>
+  </section>
+
+  <!-- SIN RESULTADOS -->
+  <div class="gx-noresults" id="gxNoRes">No encontramos documentos que coincidan con <strong id="gxNoResQ"></strong>. Prueba con un mes y año («marzo 2025») o un banco («banorte», «bbva»).</div>
+
+  <!-- FOOTER CIUDADANO -->
+  <div class="gx-foot-title">La página en cifras</div>
+    <div class="gx-cifras gx-cifras-foot">
+      <div class="gx-cifra"><div class="gx-cifra-num">89</div><div class="gx-cifra-lbl">Reportes mensuales</div></div>
+      <div class="gx-cifra"><div class="gx-cifra-num">45</div><div class="gx-cifra-lbl">Documentos de créditos</div></div>
+      <div class="gx-cifra"><div class="gx-cifra-num">2018–26</div><div class="gx-cifra-lbl">Serie sin huecos</div></div>
+    </div>
+  <div class="gx-foot-title">Para entenderlo mejor</div>
+  <div class="gx-info">
+    <div class="gx-info-card">
+      <div class="gx-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+      <h3>¿Es malo que el municipio deba?</h3>
+      <p>No necesariamente: un crédito bien usado <strong>adelanta obras</strong> que tardarían años. Lo importante es que la deuda sea <strong>pagable</strong>, a buena tasa, y que se use en lo que se dijo. Para verificar eso existe este reporte.</p>
+    </div>
+    <div class="gx-info-card">
+      <div class="gx-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+      <h3>¿Qué hay en cada expediente?</h3>
+      <p>El <strong>proceso competitivo</strong> (los bancos compiten por prestarle al municipio), las <strong>ofertas</strong> recibidas, el <strong>acta de fallo</strong> (quién ganó y por qué), el <strong>contrato</strong> y sus convenios modificatorios, y el <strong>registro estatal</strong> de la obligación.</p>
+    </div>
+    <div class="gx-info-card">
+      <div class="gx-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></div>
+      <h3>¿Cómo leo el reporte mensual?</h3>
+      <p>Cada Excel trae <strong>crédito por crédito</strong>: banco, monto original, saldo, tasa y avance de aplicación. Compara dos meses y verás si la deuda <strong>baja, sube o se refinancia</strong>. Los estados analíticos contables están en los estados financieros (inciso i).</p>
+    </div>
+  </div>
+
+  <!-- FUNDAMENTO LEGAL -->
+  <section class="gx-ley" id="gxLey">
+    <div class="gx-ley-eye">Fundamento legal</div>
+    <h3>¿Por qué el Ayuntamiento publica esta información?</h3>
+    <p>Es una obligación de transparencia. La ley ordena publicar, palabra por palabra, lo siguiente:</p>
+    <blockquote>«Artículo 8°. <strong>1.</strong> Es información fundamental, obligatoria para todos los sujetos obligados, la siguiente: (…) <strong>V.</strong> La información financiera, patrimonial y administrativa, que comprende: <strong>w)</strong> El estado de la deuda pública del sujeto obligado, donde se señale cuando menos responsable de la autorización, fecha de contratación, monto del crédito, tasa de interés, monto total amortizable, plazo de vencimiento, institución crediticia, objeto de aplicación y avance de aplicación de cada deuda contratada;»</blockquote>
+    <p>— <strong>Artículo 8, fracción V, inciso w)</strong> de la <em>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</em>. Los archivos de esta página son los oficiales, tal como fueron publicados por el sujeto obligado; ante cualquier discrepancia, prevalece el documento oficial.</p>
+  </section>
+
+</div>
+
+<!-- BOTÓN SUBIR -->
+<button type="button" class="gx-top" id="gxTop" aria-label="Volver arriba" title="Volver arriba">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+/* ==========================================================================
+   Deuda pública · Art. 8 Frac. V Inc. w)
+   Datos verbatim del registro oficial del sujeto obligado (corte: 10/06/2026).
+   158 documentos: 89 reportes mensuales en Excel (dic 2018 – abr 2026, serie
+   continua verificada), 45 documentos de expedientes de créditos y 24
+   estados históricos en PDF (oct 2018 – ago 2020 y feb 2021). Los nombres
+   con espacios y «$» se enlazan tal como los aloja el registro (%20).
+   ========================================================================== */
+(function(){
+  var FILES_BASE = 'https://transparencia.guadalajara.gob.mx/sites/default/files/';
+  var MESES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+
+  function esc(s){ if(s===null||s===undefined) return ''; return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function norm(s){ return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,''); }
+  var PDFICO = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>';
+  var XLSICO = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="17"/><line x1="16" y1="13" x2="8" y2="17"/></svg>';
+  var FP_W={'Art8FraccionV-Inciso-w-Deuda-Publica-Abril19.xlsx':1,'Art8FraccionV-Inciso-w-Deuda-Publica-Abril20.xlsx':1,'Art8FraccionV-Inciso-w-Deuda-Publica-Abril21.xlsx':1,'Art8FraccionV-Inciso-w-Deuda-Publica-Agosto19.xlsx':1,'Art8FraccionV-Inciso-w-Deuda-Publica-Agosto20.xlsx':1,'Art8FraccionV-Inciso-w-Deuda-Publica-Diciembre18.xlsx':1,'Art8FraccionV-Inciso-w-Deuda-Publica-Diciembre19.xlsx':1,'Art8FraccionV-Inciso-w-Deuda-Publica-Diciembre20.xlsx':1,'Art8FraccionV-Inciso-w-Deuda-Publica-Enero19.xlsx':1,'Art8FraccionV-Inciso-w-Deuda-Publica-Enero20.xlsx':1,'Art8FraccionV-Inciso-w-Deuda-Publica-Enero21.xlsx':1,'Art8FraccionV-Inciso-w-Deuda-Publica-Febrero19.xlsx':1,'Art8FraccionV-Inciso-w-Deuda-Publica-Febrero20.xlsx':1,'Art8FraccionV-Inciso-w-Deuda-Publica-Febrero21.xlsx':1,'Art8FraccionV-Inciso-w-Deuda-Publica-Julio19.xlsx':1,'Art8FraccionV-Inciso-w-Deuda-Publica-Julio20.xlsx':1,'Art8FraccionV-Inciso-w-Deuda-Publica-Junio19.xlsx':1,'Art8FraccionV-Inciso-w-Deuda-Publica-Junio20.xlsx':1,'Art8FraccionV-Inciso-w-Deuda-Publica-Marzo19.xlsx':1,'Art8FraccionV-Inciso-w-Deuda-Publica-Marzo20.xlsx':1,'Art8FraccionV-Inciso-w-Deuda-Publica-Marzo21.xlsx':1,'Art8FraccionV-Inciso-w-Deuda-Publica-Mayo19.xlsx':1,'Art8FraccionV-Inciso-w-Deuda-Publica-Mayo20.xlsx':1,'Art8FraccionV-Inciso-w-Deuda-Publica-Mayo21.xlsx':1,'Art8FraccionV-Inciso-w-Deuda-Publica-Noviembre19.xlsx':1,'Art8FraccionV-Inciso-w-Deuda-Publica-Octubre19.xlsx':1,'Art8FraccionV-Inciso-w-Deuda-Publica-Octubre20.xlsx':1,'Art8FraccionV-Inciso-w-Deuda-Publica-Septiembre19.xlsx':1,'Art8FraccionV-Inciso-w-Deuda-Publica-Septiembre20.xlsx':1,'Art8FraccionV-Inciso-w-Deuda-Publica-Septiembre21.xlsx':1};
+function botones(f){
+    var u = (FILES_BASE+(FP_W[f]?'FormatosPlataforma/':'')+f).replace(/ /g,'%20');
+    var ext = f.split('.').pop().toLowerCase();
+    if (ext==='pdf') return '<a class="gx-doc-btn" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer">'+PDFICO+'Abrir PDF</a>';
+    return '<a class="gx-doc-btn xls" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer" download>'+XLSICO+'Descargar Excel</a>';
+  }
+  function fila(busca, badge, nombre, desc, periodo, botonesHtml){
+    return '<tr data-search="'+esc(norm(busca))+'">'+
+      '<td class="gx-td-name" data-label="Documento">'+badge+'<span class="t">'+esc(nombre)+'</span>'+(desc?'<div class="gx-td-desc">'+esc(desc)+'</div>':'')+'</td>'+
+      '<td class="gx-td-year" data-label="Periodo">'+esc(periodo)+'</td>'+
+      '<td class="gx-td-doc" data-label="Abrir">'+botonesHtml+'</td>'+
+    '</tr>';
+  }
+  function detalle(icono, titulo, sub, rowsHtml, abierto){
+    return '<details class="gx-details"'+(abierto?' open':'')+'>'+
+      '<summary class="gx-summary">'+
+        '<span class="gx-summary-ico" aria-hidden="true">'+icono+'</span>'+
+        '<span class="gx-summary-tx"><span class="gx-summary-t">'+esc(titulo)+'</span><small>'+esc(sub)+'</small></span>'+
+        '<svg class="gx-summary-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>'+
+      '</summary>'+
+      '<div class="gx-table-wrap"><table class="gx-table">'+
+      '<thead><tr><th>Documento</th><th class="c-year">Periodo</th><th class="c-doc">Abrir</th></tr></thead>'+
+      '<tbody>'+rowsHtml+'</tbody></table></div></details>';
+  }
+  var BM = '<span class="gx-badge">Deuda mensual</span>';
+  var BC = '<span class="gx-badge cred">Crédito</span>';
+  var BH = '<span class="gx-badge his">Histórico</span>';
+  var DM = 'Crédito por crédito: banco, monto, tasa, saldo y avance de aplicación.';
+
+  /* ===== Mensual: dic 2018 – abr 2026 (Inciso-w xlsx) ===== */
+  function anioMensual(y, m1, m2, abierto, nota){
+    var yy = y.slice(2), rows='';
+    for (var m=m2;m>=m1;m--){
+      rows += fila('deuda publica mensual '+MESES[m]+' '+y, BM, 'Estado de la deuda pública', DM, MESES[m]+' '+y, botones('Art8FraccionV-Inciso-w-Deuda-Publica-'+MESES[m]+yy+'.xlsx'));
+    }
+    return detalle(yy, 'Deuda pública '+y, nota, rows, abierto);
+  }
+  var men='';
+  men += anioMensual('2026',0,3,true,'enero – abril · 4 reportes');
+  men += anioMensual('2025',0,11,false,'año completo · 12 reportes');
+  men += anioMensual('2024',0,11,false,'año completo · 12 reportes');
+  men += anioMensual('2023',0,11,false,'año completo · 12 reportes');
+  men += anioMensual('2022',0,11,false,'año completo · 12 reportes');
+  men += anioMensual('2021',0,11,false,'año completo · 12 reportes');
+  men += anioMensual('2020',0,11,false,'año completo · 12 reportes');
+  men += anioMensual('2019',0,11,false,'año completo · 12 reportes');
+  men += anioMensual('2018',11,11,false,'diciembre · 1 reporte');
+  document.getElementById('gxMen').innerHTML = men;
+
+  /* ===== Expedientes de créditos ===== */
+  function grupoCred(icono, titulo, sub, docs, abierto){
+    var rows='';
+    for (var d=0;d<docs.length;d++){
+      rows += fila('credito '+titulo+' '+docs[d][0], BC, docs[d][0], docs[d][2]||'', docs[d][3]||'—', botones(docs[d][1]));
+    }
+    return detalle(icono, titulo, sub, rows, abierto);
+  }
+  var cred='';
+  cred += grupoCred('BN','Crédito Banorte — $1,100 MDP','6 documentos del expediente',[
+    ['Proceso competitivo','PROCESO COMPETITIVO_CAP BANORTE $1,100 MDP.pdf','La invitación a los bancos a competir por el financiamiento.'],
+    ['Ofertas y negativas','OFERTAS Y NEGATIVAS_CAP BANORTE $1,100 MDP.pdf','Las propuestas que presentaron (o declinaron) los bancos.'],
+    ['Acta circunstanciada','ACTA CIRCUNSTANCIADA_CAP BANORTE $1,100 MDP.pdf','La constancia formal de cómo se desarrolló el proceso.'],
+    ['Acta de fallo','ACTA DE FALLO_CAP BANORTE $1,100 MDP.pdf','Qué banco ganó y por qué.'],
+    ['Anexo G','ANEXO G_CAP BANORTE $1,100 MDP.pdf','Anexo técnico del proceso.'],
+    ['Contrato Banorte','ContratoBanorte.pdf','El contrato de crédito firmado.']
+  ], true);
+  cred += grupoCred('BB','Crédito BBVA — 810 MDP y refinanciamiento','12 documentos del expediente',[
+    ['Proceso competitivo de contratación','Proceso-competitivo-contratacion-CAP-BBVA-810-MDP.pdf','La invitación a los bancos a competir.'],
+    ['Ofertas y negativas','OFERTAS-NEGATIVAS-CAP-BBVA-810-MDP.pdf','Las propuestas recibidas.'],
+    ['Acta circunstanciada','ACTA-CIRCUNSTANCIADA-CAP-BBVA-810-MDP.pdf','La constancia del proceso.'],
+    ['Acta de fallo','ACTA-FALLO-CAP-BBVA-810-MDP.pdf','Qué banco ganó y por qué.'],
+    ['Anexo G','ANEXO-G-CAP-BBVA-810-MDP.pdf','Anexo técnico del proceso.'],
+    ['Contrato de crédito simple BBVA','Contrato_de_Credito_Simple_BBVA.pdf','El contrato firmado.'],
+    ['Constancia de inscripción BBVA','Constancia_de_Inscripcion_BBVA.pdf','El registro oficial de la obligación.'],
+    ['Primer convenio modificatorio','Primer_Convenio_Modificatorio_Credito_Simple_BBVA.pdf','Cambio posterior a las condiciones del crédito.'],
+    ['Segundo convenio modificatorio','Segundo_Convenio_Modificatorio_Credito_Simple_BBVA.pdf','Cambio posterior a las condiciones del crédito.'],
+    ['Tercer convenio modificatorio','Tercer_Convenio_Modificatorio_Credito_Simple_BBVA.pdf','Cambio posterior a las condiciones del crédito.'],
+    ['Registro estatal de obligaciones (BBVA)','Registro_Estatal_de_Obligaciones_de_los_Entes_Publicos_del_Estado_de_Jalisco_y_sus_Municipio_BBVA.pdf','La inscripción en el registro estatal de deuda.'],
+    ['Decreto de refinanciamiento 2023','Decreto_Refinanciamiento_Deuda_BBVA_2023.pdf','La autorización para refinanciar la deuda.']
+  ], false);
+  cred += grupoCred('300','Financiamiento de corto plazo — 300 MDP (dic 2024)','10 documentos del expediente',[
+    ['Proceso competitivo','ProcesoCompetitivoAdquisicion300mdpDiciembre24.pdf','La invitación a los bancos a competir.','Diciembre 2024'],
+    ['Anexo A del proceso','AnexoAProcesoCompetitivo300mdpDiciembre24.pdf','Anexo técnico del proceso.','Diciembre 2024'],
+    ['Ofertas y negativas','Ofertas-Negativas300mdpDiciembre24.pdf','Las propuestas recibidas.','Diciembre 2024'],
+    ['Acta circunstanciada','ActaCircunstanciadaProcesoCompetitivo300mdpDiciembre24.pdf','La constancia del proceso.','Diciembre 2024'],
+    ['Acta de fallo','ActaFallo300mdpDiciembre24.pdf','Qué banco ganó y por qué.','Diciembre 2024'],
+    ['Contrato','Contrato300mdpDiciembre24.pdf','El contrato del financiamiento.','Diciembre 2024'],
+    ['Registro estatal 001-2024 (quirografario)','DDPCOI3942024RegistroEstatal001-2024GuadalajaraQuirografario300mdp.pdf','La inscripción de la obligación en el registro estatal.','2024'],
+    ['Constancia de inscripción de obligación a corto plazo','Constancia_de_inscripci_n_obligaci_n_a_corto_plazo_2025-00716.pdf','El registro federal de la obligación 2025-00716.','2025'],
+    ['Gaceta — autorización (2 de diciembre de 2024)','GacetaTomoVIEjemplar11Secc2aDiciembre2-2024.pdf','La autorización publicada en la Gaceta Municipal.','Diciembre 2024'],
+    ['Gaceta — autorización (10 de diciembre de 2024)','GacetaTomoVIEjemplar13Diciembre10-2024.pdf','La autorización publicada en la Gaceta Municipal.','Diciembre 2024']
+  ], false);
+  cred += grupoCred('+','Otros procesos, contratos y fideicomisos','17 documentos publicados',[
+    ['Proceso competitivo de financiamiento 2022','ProcesoCompetitivodeFinanciamiento2022.pdf','','2022'],
+    ['Anexo A — proceso LPN 02/2022','AnexoAProcesoCompetitivoLPN02-2022.pdf','','2022'],
+    ['Fallo — proceso LPN 02/2022','FalloProcesoCompetitivoLPN02-2022.pdf','','2022'],
+    ['Fe de erratas del acta de fallo LPN TES 02/2022','Fe_de_Erratas_Acta_de_Fallo_LPN_TES_02_2022.pdf','','2022'],
+    ['Acta circunstanciada de ofertas','ActaCircunstanciadaOfertas.pdf','',''],
+    ['Ofertas y negativas — refinanciamiento','OfertasNegativasRefinanciamiento.pdf','',''],
+    ['Acta de fallo — instrumento derivado 2020','ActaFalloInstrumentoDerivado2020.pdf','','2020'],
+    ['Contrato de crédito simple','ContratoCreditoSimple.pdf','',''],
+    ['Primer convenio modificatorio del crédito simple','PrimerConvenioModificatorioContratoCreditoSimple.pdf','',''],
+    ['Contrato Bancomer','ContratoBancomer.pdf','',''],
+    ['Contrato de fideicomiso BanObras','ContratoFideicomisoBanObras.pdf','',''],
+    ['Convenio de adhesión al fideicomiso irrevocable (versión pública)','Convenio_de_Adhesion_al_Contrato_de_Fideicomiso_Irrevocable_Vp.pdf','',''],
+    ['Cuarto convenio modificatorio — fideicomiso 403248-8','Cuarto_Convenio_Modificatorio_Fideicomiso_403248-8.pdf','',''],
+    ['Quinto convenio modificatorio — fideicomiso 403248-8','Quinto_Convenio_Modficatorio_Fideicomiso_4032488.pdf','El nombre del archivo conserva la grafía del registro.',''],
+    ['Registro estatal de la obligación','RegistroEstatal.pdf','',''],
+    ['Decreto D22/34BIS/10','d22-34bis-10.pdf','Decreto del Ayuntamiento relativo a la deuda.','2022'],
+    ['Decreto D24/01/08','d24-01-08.pdf','Decreto del Ayuntamiento relativo a la deuda.','2024']
+  ], false);
+  document.getElementById('gxCred').innerHTML = cred;
+
+  /* ===== Histórico PDF 2018-2021 ===== */
+  var his='';
+  var rowsH='';
+  rowsH += fila('informe analitico deuda febrero 2021', BH, 'Informe analítico de la deuda', 'Reporte del registro oficial.', 'Febrero 2021', botones('InformeAnaliticoDeudaPublicaFebrero21.pdf'));
+  for (var m20=7;m20>=0;m20--){ rowsH += fila('estado deuda publica '+MESES[m20]+' 2020', BH, 'Estado de la deuda pública (PDF)', 'Reporte mensual del registro.', MESES[m20]+' 2020', botones('EstadoDeudaPublica'+MESES[m20]+'20.pdf')); }
+  for (var m19=11;m19>=0;m19--){ rowsH += fila('estado deuda publica '+MESES[m19]+' 2019', BH, 'Estado de la deuda pública (PDF)', 'Reporte mensual del registro.', MESES[m19]+' 2019', botones('EstadoDeudaPublica'+MESES[m19]+'19.pdf')); }
+  var M18H = [11,10,9];
+  for (var i18=0;i18<M18H.length;i18++){ rowsH += fila('estado deuda publica '+MESES[M18H[i18]]+' 2018', BH, 'Estado de la deuda pública (PDF)', 'Reporte mensual del registro.', MESES[M18H[i18]]+' 2018', botones('EstadoDeudaPublica'+MESES[M18H[i18]]+'18.pdf')); }
+  his += detalle('18·21','Reportes históricos en PDF','24 reportes (octubre 2018 – agosto 2020 y febrero 2021)', rowsH, false);
+  document.getElementById('gxHis').innerHTML = his;
+
+  /* ===== UX compartida ===== */
+  var lastReported = 0;
+  function reportHeight(){
+    var h = Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight);
+    if (h && Math.abs(h - lastReported) > 1){
+      lastReported = h;
+      try { parent.postMessage({ type:'gdl-iframe-height', id:'deuda-publica-art8-V-w', height: h }, '*'); } catch(err){}
+    }
+  }
+  var topBtn = document.getElementById('gxTop');
+  function onScroll(){ topBtn.classList.toggle('show', (window.pageYOffset||document.documentElement.scrollTop) > 280); }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  topBtn.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+  onScroll();
+  document.querySelectorAll('.gx-nav-chip[data-open]').forEach(function(ch){
+    ch.addEventListener('click', function(){
+      var id = ch.getAttribute('href').slice(1);
+      var sec = document.getElementById(id);
+      if (sec){ var det = sec.querySelector('.gx-details'); if (det) det.open = true; }
+    });
+  });
+
+  var inp = document.getElementById('gxQ');
+  var clearBtn = document.getElementById('gxClear');
+  var box = document.querySelector('.gx-search');
+  var count = document.getElementById('gxCount');
+  var noRes = document.getElementById('gxNoRes');
+  var noResQ = document.getElementById('gxNoResQ');
+  var groups = [document.getElementById('grpMen'), document.getElementById('grpCred'), document.getElementById('grpHis')];
+  var allDetails = [].slice.call(document.querySelectorAll('.gx-group .gx-details'));
+  var items = [].slice.call(document.querySelectorAll('tr[data-search]'));
+  var TOTAL = items.length;
+  function applyFilter(){
+    var raw = inp.value.replace(/^\s+|\s+$/g, '');
+    var toks = norm(raw).split(/\s+/);
+    var clean = [];
+    for (var t=0;t<toks.length;t++){ if (toks[t]) clean.push(toks[t]); }
+    box.classList.toggle('has-q', raw.length>0);
+    var vis = 0;
+    for (var i=0;i<items.length;i++){
+      var ds = items[i].getAttribute('data-search'), ok = true;
+      for (var c=0;c<clean.length;c++){ if (ds.indexOf(clean[c]) === -1){ ok = false; break; } }
+      items[i].style.display = ok ? '' : 'none';
+      if (ok) vis++;
+    }
+    for (var dd=0;dd<allDetails.length;dd++){
+      var det = allDetails[dd];
+      var its = det.querySelectorAll('tr[data-search]'), any=false;
+      for (var k2=0;k2<its.length;k2++){ if (its[k2].style.display !== 'none'){ any=true; break; } }
+      det.style.display = any ? '' : 'none';
+      if (clean.length>0 && any) det.open = true;
+    }
+    for (var gi=0;gi<groups.length;gi++){
+      var gits = groups[gi].querySelectorAll('tr[data-search]'), gany = false;
+      for (var k3=0;k3<gits.length;k3++){ if (gits[k3].style.display !== 'none'){ gany = true; break; } }
+      groups[gi].className = gany ? 'gx-group' : 'gx-group hide';
+    }
+    if (clean.length === 0){ count.innerHTML = '<b>'+TOTAL+'</b> documentos publicados (2018–2026)'; noRes.className = 'gx-noresults'; }
+    else if (vis === 0){ count.innerHTML = '<b>0</b> resultados'; noResQ.textContent = '«'+raw+'»'; noRes.className = 'gx-noresults show'; }
+    else { count.innerHTML = '<b>'+vis+'</b> de '+TOTAL+' documentos'; noRes.className = 'gx-noresults'; }
+    reportHeight();
+  }
+  inp.addEventListener('input', applyFilter);
+  clearBtn.addEventListener('click', function(){ inp.value = ''; applyFilter(); inp.focus(); });
+  for (var ad=0; ad<allDetails.length; ad++){ allDetails[ad].addEventListener('toggle', reportHeight); }
+  applyFilter();
+
+  window.addEventListener('load', reportHeight);
+  window.addEventListener('resize', reportHeight);
+  setTimeout(reportHeight, 400);
+  setTimeout(reportHeight, 1200);
+})();
+</script>
+
+</body>
+</html>

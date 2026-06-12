@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<meta name="description" content="Consulta ciudadana de los ingresos extraordinarios del Municipio de Guadalajara: qué dinero extra recibió, de dónde vino, quién es responsable de recibirlo, administrarlo y ejercerlo, y a qué proyecto se destina. Archivos oficiales de 2016 a 2026, año por año y mes por mes, con buscador. Art. 8 Fracción V Inciso b) Ley de Transparencia Jalisco."/>
-<title>¿Qué dinero extra recibió Guadalajara y quién lo administra? · Ingresos extraordinarios 2016–2026: origen, responsables y destino, archivo por archivo · Art. 8 Frac. V Inc. b)</title>
+<meta name="description" content="El presupuesto de egresos anual del Municipio de Guadalajara explicado para la ciudadanía: cuánto puede gastar el gobierno municipal cada año y en qué, de 2014 a 2026. Documentos aprobados en Gaceta Municipal, versiones ciudadanas, modificaciones, ampliaciones y archivos de Excel, más la consulta interactiva por capítulo del gasto. Art. 8 Fracción V Inciso c) Ley de Transparencia Jalisco."/>
+<title>¿Cuánto puede gastar Guadalajara y en qué? · Presupuesto de egresos municipal 2014–2026 con versión ciudadana, modificaciones y consulta por capítulo · Art. 8 Frac. V Inc. c)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
@@ -69,6 +69,7 @@ body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:va
 .gx-td-year{font-family:var(--fm);font-size:12.5px;color:var(--g800);white-space:nowrap}
 .gx-td-doc{text-align:center;white-space:nowrap}
 .gx-badge{display:inline-flex;align-items:center;font-size:9.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:20px;white-space:nowrap;vertical-align:middle;margin-right:6px;background:var(--ac-l);color:var(--ac-d)}
+.gx-badge.ciud{background:var(--ok-l);color:var(--ok-d)}
 .gx-doc-btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--fh);font-size:12.5px;font-weight:700;padding:9px 15px;border-radius:9px;cursor:pointer;text-decoration:none;border:1.5px solid var(--ac);background:var(--ac);color:#fff;transition:all .14s var(--ease);white-space:nowrap}
 .gx-doc-btn:hover{background:var(--ac-d);border-color:var(--ac-d);transform:translateY(-1px)}
 .gx-doc-btn svg{flex-shrink:0}
@@ -85,8 +86,14 @@ body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:va
 .gx-details[open] .gx-summary-chev{transform:rotate(180deg)}
 .gx-details[open] .gx-summary{border-bottom:1px solid var(--g200)}
 .gx-details .gx-table-wrap{border:0;border-radius:0;box-shadow:none}
-.gx-note{background:var(--g50);border-top:1px solid var(--g100);padding:12px 18px;font-size:12px;color:var(--g600);line-height:1.6;font-style:italic}
-.gx-note strong{color:var(--g800);font-style:normal}
+/* Tarjeta de consulta interactiva */
+.gx-cta{display:flex;gap:16px;align-items:center;background:var(--wh);border:1.5px solid var(--ac-border);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);padding:18px 20px;margin-bottom:26px;flex-wrap:wrap}
+.gx-cta-ico{flex-shrink:0;width:46px;height:46px;border-radius:12px;background:var(--ac-soft);color:var(--ac-d);display:flex;align-items:center;justify-content:center}
+.gx-cta-tx{flex:1;min-width:220px}
+.gx-cta-tx h3{font-size:15px;font-weight:800;color:var(--g900);margin-bottom:3px}
+.gx-cta-tx p{font-size:12.5px;color:var(--g600);line-height:1.55}
+.gx-cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--ac);color:#fff;border:1.5px solid var(--ac);font-family:var(--fh);font-size:13px;font-weight:700;padding:11px 18px;border-radius:10px;text-decoration:none;transition:all .14s var(--ease);white-space:nowrap}
+.gx-cta-btn:hover{background:var(--ac-d);border-color:var(--ac-d);transform:translateY(-1px)}
 .gx-noresults{display:none;background:var(--ac-soft);border:1.5px solid var(--ac-border);border-radius:var(--rad-lg);padding:22px 24px;font-size:13.5px;color:var(--g800);line-height:1.6;text-align:center;margin-bottom:26px}
 .gx-noresults.show{display:block}
 .gx-noresults strong{color:var(--ac-d);font-weight:700}
@@ -145,67 +152,76 @@ body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:va
 
   <!-- HERO -->
   <section class="gx-hero">
-    <span class="gx-hero-tag">Art. 8 · Fracción V · Inciso b) · Ley de Transparencia Jalisco</span>
-    <h1>¿Qué dinero extra recibió Guadalajara? <em>Los ingresos extraordinarios, con su origen, responsables y destino</em></h1>
-    <p class="gx-hero-sub">Además de los impuestos y las participaciones de cada año, al municipio a veces le llega <strong>dinero extra</strong>: convenios, aportaciones o apoyos especiales. La ley exige decir <strong>de dónde vino</strong>, <strong>quién lo recibe, administra y ejerce</strong>, y <strong>en qué proyecto se aplica</strong>. Aquí están los archivos oficiales de <strong>2016 a 2026</strong>: los recientes a la vista y el histórico ordenado por año.</p>
+    <span class="gx-hero-tag">Art. 8 · Fracción V · Inciso c) · Ley de Transparencia Jalisco</span>
+    <h1>¿Cuánto puede gastar Guadalajara y en qué? <em>El presupuesto de egresos del municipio, año por año</em></h1>
+    <p class="gx-hero-sub">Cada año, el Ayuntamiento aprueba un <strong>presupuesto de egresos</strong>: el plan de cuánto dinero público se va a gastar y en qué. Aquí lo tienes de <strong>2014 a 2026</strong>: el documento aprobado en la Gaceta Municipal, sus <strong>modificaciones</strong>, los archivos de Excel y la <strong>versión ciudadana</strong>, hecha para leerse sin ser contador. Empieza por el año en curso o usa el buscador.</p>
   </section>
 
   <!-- BUSCADOR -->
   <div class="gx-search-wrap">
     <div class="gx-search">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input id="gxQ" type="search" autocomplete="off" placeholder="Busca por año, mes o tipo… (ej.: 2026, responsable, marzo 2019)" aria-label="Buscar un archivo por año, mes o tipo"/>
+      <input id="gxQ" type="search" autocomplete="off" placeholder="Busca por año o tipo… (ej.: 2026, ciudadano, modificación, excel)" aria-label="Buscar un documento del presupuesto por año o tipo"/>
       <button type="button" class="gx-clear" id="gxClear" aria-label="Limpiar búsqueda" title="Limpiar">&times;</button>
     </div>
     <div class="gx-count" id="gxCount"></div>
   </div>
 
-  <!-- ACTUAL -->
-  <section class="gx-group" id="grpAct">
-    <div class="gx-sec-title feat">Administración actual · 2021–2026</div>
+  <!-- CONSULTA INTERACTIVA -->
+  <div class="gx-cta">
+    <div class="gx-cta-ico" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10h-10z"/></svg></div>
+    <div class="gx-cta-tx">
+      <h3>Explora el gasto capítulo por capítulo</h3>
+      <p>El municipio tiene un sistema de consulta en línea donde puedes ver el presupuesto desglosado por <strong>capítulo del gasto</strong> (el «clasificador por objeto del gasto») para cada año desde 2009. Sin descargar nada.</p>
+    </div>
+    <a class="gx-cta-btn" href="https://enlinea.guadalajara.gob.mx/egresos/presupuesto.php" target="_blank" rel="noopener noreferrer">Abrir la consulta interactiva
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+    </a>
+  </div>
+
+  <!-- VIGENTE -->
+  <section class="gx-group" id="grpVig">
+    <div class="gx-sec-title feat">Presupuesto vigente · ejercicio 2026</div>
     <div class="gx-table-wrap">
       <table class="gx-table">
-        <thead><tr><th>Archivo</th><th>Periodo</th><th class="c-year">Ejercicio</th><th class="c-doc">Abrir</th></tr></thead>
-        <tbody id="gxAct"></tbody>
+        <thead><tr><th>Documento</th><th class="c-year">Ejercicio</th><th class="c-doc">Abrir</th></tr></thead>
+        <tbody id="gxVig"></tbody>
       </table>
     </div>
   </section>
 
-  <!-- HISTÓRICO -->
+  <!-- AÑOS ANTERIORES -->
   <section class="gx-group" id="grpHis">
-    <div class="gx-sec-title">Histórico por año · 2016–2020</div>
+    <div class="gx-sec-title">Ejercicios anteriores · 2014–2025</div>
     <div id="gxHisYears"></div>
   </section>
 
   <!-- SIN RESULTADOS -->
-  <div class="gx-noresults" id="gxNoRes">No encontramos archivos que coincidan con <strong id="gxNoResQ"></strong>. Prueba con un año («2024»), un mes («marzo») o una palabra como «responsable».</div>
+  <div class="gx-noresults" id="gxNoRes">No encontramos documentos que coincidan con <strong id="gxNoResQ"></strong>. Prueba con un año («2023») o palabras como «ciudadano», «modificación» o «excel».</div>
 
   <!-- FOOTER CIUDADANO -->
   <div class="gx-foot-title">La página en cifras</div>
     <div class="gx-cifras gx-cifras-foot">
-      <div class="gx-cifra"><div class="gx-cifra-num">93</div><div class="gx-cifra-lbl">Archivos oficiales</div></div>
-      <div class="gx-cifra"><div class="gx-cifra-num">2016–26</div><div class="gx-cifra-lbl">Once ejercicios</div></div>
-      <div class="gx-cifra"><div class="gx-cifra-num">27/05/26</div><div class="gx-cifra-lbl">Registro validado</div></div>
-    </div>
-    <div class="gx-hero-meta gx-meta-foot">
-      <span class="gx-chip neutral">Unidad responsable: <b>Dirección de Ingresos</b></span>
+      <div class="gx-cifra"><div class="gx-cifra-num">48</div><div class="gx-cifra-lbl">Documentos oficiales</div></div>
+      <div class="gx-cifra"><div class="gx-cifra-num">13</div><div class="gx-cifra-lbl">Ejercicios (2014–2026)</div></div>
+      <div class="gx-cifra"><div class="gx-cifra-num">5</div><div class="gx-cifra-lbl">Versiones ciudadanas</div></div>
     </div>
   <div class="gx-foot-title">Para entenderlo mejor</div>
   <div class="gx-info">
     <div class="gx-info-card">
-      <div class="gx-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-      <h3>¿Qué es un «ingreso extraordinario»?</h3>
-      <p>Es dinero que el municipio recibe <strong>fuera de lo previsto</strong> en su Ley de Ingresos de cada año: convenios con el estado o la federación, aportaciones o apoyos especiales. Como no estaba presupuestado, la ley obliga a transparentarlo con más detalle.</p>
+      <div class="gx-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+      <h3>¿Qué es el presupuesto de egresos?</h3>
+      <p>Es el <strong>plan anual de gasto</strong> del municipio: cuánto va a sueldos, a obras, a servicios como recolección de basura o alumbrado. Lo aprueba el Ayuntamiento y se publica en la <strong>Gaceta Municipal</strong>; por eso varios documentos de esta página son ejemplares de la Gaceta.</p>
     </div>
     <div class="gx-info-card">
       <div class="gx-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-      <h3>¿Qué te dice cada archivo?</h3>
-      <p>Dos cosas: el detalle del <strong>ingreso</strong> (concepto, origen y monto) y el <strong>responsable</strong> con nombre de quien lo recibe, lo administra y lo ejerce, además del <strong>proyecto o programa</strong> al que se destina. Así se puede seguir la pista completa del recurso.</p>
+      <h3>¿Qué es la «versión ciudadana»?</h3>
+      <p>Un resumen <strong>en lenguaje claro</strong>, con gráficas y ejemplos, pensado para que cualquier persona entienda el presupuesto sin conocimientos contables. Si solo vas a abrir un documento, te recomendamos ese: búscalo como <strong>«Formato Ciudadano»</strong>.</p>
     </div>
     <div class="gx-info-card">
-      <div class="gx-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-      <h3>¿Por qué algunos dicen «Formato Plataforma»?</h3>
-      <p>Es la <strong>misma información</strong> capturada en el formato oficial de la <strong>Plataforma Nacional de Transparencia</strong>, que permite comparar a Guadalajara con cualquier otro gobierno del país. El contenido no cambia; cambia la presentación.</p>
+      <div class="gx-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></div>
+      <h3>¿Por qué hay «modificaciones» y «ampliaciones»?</h3>
+      <p>El presupuesto se aprueba antes de que empiece el año, pero la realidad cambia: pueden llegar más recursos o surgir urgencias. Cada ajuste se aprueba y publica formalmente; aquí están todos, junto con las <strong>fe de erratas</strong> que corrigen errores de publicación.</p>
     </div>
   </div>
 
@@ -214,122 +230,149 @@ body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:va
     <div class="gx-ley-eye">Fundamento legal</div>
     <h3>¿Por qué el Ayuntamiento publica esta información?</h3>
     <p>Es una obligación de transparencia. La ley ordena publicar, palabra por palabra, lo siguiente:</p>
-    <blockquote>«Artículo 8°. <strong>1.</strong> Es información fundamental, obligatoria para todos los sujetos obligados, la siguiente: (…) <strong>V.</strong> La información financiera, patrimonial y administrativa, que comprende: <strong>b)</strong> Los ingresos extraordinarios recibidos por cualquier concepto, señalando el origen de los recursos, el nombre de los responsables de recibirlos, administrarlos y ejercerlos, así como el proyecto o programa donde serán aplicados;»</blockquote>
-    <p>— <strong>Artículo 8, fracción V, inciso b)</strong> de la <em>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</em>. Los archivos de esta página son los oficiales, tal como fueron publicados por el sujeto obligado; ante cualquier discrepancia, prevalece el documento oficial.</p>
+    <blockquote>«Artículo 8°. <strong>1.</strong> Es información fundamental, obligatoria para todos los sujetos obligados, la siguiente: (…) <strong>V.</strong> La información financiera, patrimonial y administrativa, que comprende: <strong>c)</strong> El presupuesto de egresos anual y, en su caso, el clasificador por objeto del gasto del sujeto obligado, de cuando menos los últimos tres años;»</blockquote>
+    <p>— <strong>Artículo 8, fracción V, inciso c)</strong> de la <em>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</em>. Los documentos de esta página son los oficiales, tal como fueron publicados por el sujeto obligado; ante cualquier discrepancia, prevalece el documento oficial.</p>
   </section>
 
 </div>
 
 <script>
 /* ==========================================================================
-   Ingresos extraordinarios · Art. 8 Frac. V Inc. b)
+   Presupuesto de egresos municipal · Art. 8 Frac. V Inc. c)
    Datos verbatim del registro oficial del sujeto obligado (corte: 10/06/2026).
-   Fecha de validación del registro: 27/05/2026 · Dirección de Ingresos.
-   Nota 2024: el registro oficial publica el responsable «Enero a Septiembre»
-   y «Octubre a Diciembre» enlazando el mismo archivo; se respeta tal cual.
+   48 documentos 2014–2026 + consulta interactiva por capítulo del gasto.
+   Etiquetas tal como las publica el registro (p. ej. la modificación de enero
+   2021 se publicó en el archivo PresupuestoEgresosFebrero2021.xlsx).
    ========================================================================== */
 (function(){
   var FILES_BASE = 'https://transparencia.guadalajara.gob.mx/sites/default/files/';
 
-  /* Administración actual 2021-2026: [tipo, periodo, año, archivo]
-     tipo I = Ingresos extraordinarios · R = Responsable de recibir/administrar/ejercer */
-  var ACT = [
-    ['I','Enero a abril','2026','IngresosExtraordinariosAbril2026.xlsx'],
-    ['R','Enero a abril','2026','Art8FraccionV-Inciso-b-Responsable-Recibir-Administrar-Ejercer-Ingresos-2026.xlsx'],
-    ['I','Enero a diciembre','2025','IngresosExtraordinariosDiciembre2025.xlsx'],
-    ['R','Enero a diciembre','2025','Art8FraccionV-Inciso-b-Responsable-Recibir-Administrar-Ejercer-Ingresos-2025.xlsx'],
-    ['I','Enero a diciembre','2024','IngresosExtraordinariosDiciembre2024.xlsx'],
-    ['R','Octubre a diciembre','2024','Art8FraccionV-Inciso-b-Responsable-Recibir-Administrar-Ejercer-Ingresos-2024Oct-Dic.xlsx'],
-    ['R','Enero a septiembre','2024','Art8FraccionV-Inciso-b-Responsable-Recibir-Administrar-Ejercer-Ingresos-2024Oct-Dic.xlsx'],
-    ['I','Enero a diciembre','2023','IngresosExtraordinariosDiciembre2023.xlsx'],
-    ['R','Enero a diciembre','2023','Art8FraccionV-Inciso-b-Responsable-Recibir-Administrar-Ejercer-Ingresos-2023.xlsx'],
-    ['I','Enero a diciembre','2022','IngresosExtraordinariosDiciembre2022.xlsx'],
-    ['R','Enero a diciembre','2022','Art8FraccionV-Inciso-b-Responsable-Recibir-Administrar-Ejercer-Ingresos-2022.xlsx'],
-    ['I','Enero a diciembre','2021','IngresosExtraordinariosDiciembre2021.xlsx'],
-    ['R','Enero a diciembre','2021','Art8FraccionV-Inciso-b-Responsable-Recibir-Administrar-Ejercer-Ingresos-2021.xlsx']
+  /* Vigente 2026 */
+  var VIG = [
+    {n:'Presupuesto de Egresos 2026',d:'Aprobado y publicado en la Gaceta Municipal (19 de diciembre de 2025).',f:'GacetaTomoVIEjemplar23Secc1aDiciembre19-2025.pdf',b:''},
+    {n:'Anexos del Presupuesto de Egresos 2026',d:'Complementos publicados en la Gaceta Municipal (12 de enero de 2026).',f:'GacetaTomoIEjemplar3Enero12-2026.pdf',b:''},
+    {n:'Presupuesto de Egresos 2026 — Formato Ciudadano',d:'La versión en lenguaje claro, pensada para cualquier persona.',f:'PresupuestoCiudadanoGuadalajara26.pdf',b:'ciud'}
   ];
 
-  var MESES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
-
-  /* Histórico: estructura por año */
+  /* Años anteriores */
   var HIS = [
-    {y:'2020', note:'', rows:[ ['I','Enero a diciembre','IngresosExtraordinariosEnero-Diciembre2020.xlsx'] ]},
-    {y:'2019', note:'', rows: monthly('2019', true)},
-    {y:'2018', note:'', rows: monthly('2018', true)},
-    {y:'2017', note:'Nota publicada en el registro oficial 2017: «Los ingresos por concepto de Compensación, Mitigación e Indemnización, no pueden ser considerados como “ingresos extraordinarios” ya que estos se encuentran estimados dentro de la Ley de Ingresos del Municipio de Guadalajara para el Ejercicio Fiscal 2017». En el registro de ese año, el propio sujeto obligado señaló meses en los que no se recibieron ingresos extraordinarios.', rows: monthly('2017', false).concat([
-      ['R','2016 y 2017','FormatosPlataforma/Art8FraccionV-Inciso-b-Responsable-Recibir-Administrar-Ejercer-Ingresos-2016-2017.xlsx'],
-      ['I','Formato Plataforma — a noviembre 2017','FormatosPlataforma/Art8FraccionV-Inciso-b-Ingresos-Extraordinarios-Recibidos-2016-Noviembre-2017.xlsx'],
-      ['I','Formato Plataforma — diciembre 2017','FormatosPlataforma/Art8FraccionV-Inciso-b-Ingresos-Extraordinarios-Recibidos-Diciembre-2017.xlsx']
-    ])},
-    {y:'2016', note:'', rows: monthly('2016', false).concat([
-      ['I','1er. trimestre — informe trimestral','FormatosPlataforma/Art8FraccionV-Inciso-b-Ingresos-Extraordinarios-1Trimestre16.xls'],
-      ['I','2do. trimestre — informe trimestral','FormatosPlataforma/Art8FraccionV-Inciso-b-Ingresos-Extraordinarios-2Trimestre16.xls'],
-      ['I','3er. trimestre — informe trimestral','FormatosPlataforma/Art8FraccionV-Inciso-b-Ingresos-Extraordinarios-3Trimestre16.xls'],
-      ['I','4to. trimestre — informe trimestral','FormatosPlataforma/Art8FraccionV-Inciso-b-Ingresos-Extraordinarios-4Trimestre16.xls']
-    ])}
+    {y:'2025',docs:[
+      ['Presupuesto de Egresos 2025','Gaceta Municipal, 17 de diciembre de 2024.','GacetaTomoVIEjemplar18Secc1aDiciembre17-2024.pdf',''],
+      ['Formato Ciudadano 2025','Versión en lenguaje claro.','PresupuestoCiudadanoGuadalajara25.pdf','ciud']
+    ]},
+    {y:'2024',docs:[
+      ['Presupuesto de Egresos 2024','Gaceta Municipal, 15 de diciembre de 2023.','GacetaTomoVIEjemplar19Diciembre15-2023.pdf',''],
+      ['Formato Ciudadano 2024','Versión en lenguaje claro.','PresupuestoCiudadanoGuadalajara24.pdf','ciud']
+    ]},
+    {y:'2023',docs:[
+      ['Presupuesto de Egresos 2023','Gaceta Municipal, 29 de noviembre de 2022.','GacetaTomoVIEjemplar12Noviembre29-2022.pdf',''],
+      ['Formato Ciudadano 2023','Versión en lenguaje claro.','PresupuestoCiudadanoGuadalajara23.pdf','ciud'],
+      ['Ampliación al Presupuesto 2023','Gaceta Municipal, 25 de agosto de 2023.','GacetaTomoIVEjemplar32Agosto25-2023.pdf',''],
+      ['Fe de erratas 2023','Corrección publicada el 30 de agosto de 2023.','GacetaTomoIVEjemplar35Agosto30-2023.pdf',''],
+      ['Presupuesto 2023 en Excel','Datos abiertos conforme a la norma de armonización contable.','NormaArmonizarInformacionProyectoPresupuestoEgresos23.xlsx','']
+    ]},
+    {y:'2022',docs:[
+      ['Presupuesto de Egresos 2022','Gaceta Municipal, 15 de diciembre de 2021.','GacetaTomoVIEjemplar18Diciembre15-2021.pdf',''],
+      ['Formato Ciudadano 2022','Versión en lenguaje claro.','PresupuestoCiudadanoGuadalajara22.pdf','ciud'],
+      ['Presupuesto 2022 en Excel','Datos abiertos del presupuesto aprobado.','PresupuestoEgresos2022.xlsx',''],
+      ['Primera modificación 2022','Gaceta Municipal, 29 de julio de 2022.','GacetaTomoIVEjemplar17Julio29-2022.pdf',''],
+      ['Anexo B 2022','Gaceta Municipal, 25 de agosto de 2022.','GacetaTomoIVEjemplar25Secc1aAgosto25-2022.pdf',''],
+      ['Fe de erratas 2022','Corrección publicada el 31 de diciembre de 2021.','GacetaTomoVIEjemplar21Secc3aDiciembre31-2021.pdf','']
+    ]},
+    {y:'2021',docs:[
+      ['Presupuesto de Egresos 2021','Gaceta Municipal, 18 de diciembre de 2020.','GacetaTomoVIEjemplar21Diciembre18-2020.pdf',''],
+      ['Presupuesto 2021 en Excel','Datos abiertos del presupuesto aprobado.','PresupuestoDeEgresos2021.xlsx',''],
+      ['Primera modificación 2021 (Gaceta)','Gaceta Municipal, 29 de enero de 2021.','GacetaTomoIEjemplar11Enero29-2021.pdf',''],
+      ['Segunda modificación 2021 (Gaceta)','Gaceta Municipal, 27 de abril de 2021.','GacetaTomoIIEjemplar25Abril27-2021.pdf',''],
+      ['Modificación de enero 2021 en Excel','Tal como la publicó el registro oficial.','PresupuestoEgresosFebrero2021.xlsx',''],
+      ['Modificación de abril 2021 en Excel','Datos abiertos de la modificación.','PresupuestoEgresosAbril2021.xlsx',''],
+      ['Modificación de agosto 2021 en Excel','Datos abiertos de la modificación.','PresupuestoEgresosAgosto2021.xlsx','']
+    ]},
+    {y:'2020',docs:[
+      ['Presupuesto de Egresos 2020','Gaceta Municipal, 19 de diciembre de 2019.','GacetaTomoVIEjemplar23Diciembre19-2019.pdf',''],
+      ['Presupuesto 2020 en Excel','Datos abiertos del presupuesto aprobado.','PresupuestoDeEgresos2020.xlsx',''],
+      ['Modificación de febrero 2020 en Excel','Datos abiertos de la modificación.','PresupuestoEgresosFebrero2020.xlsx',''],
+      ['Modificación de marzo 2020 en Excel','Datos abiertos de la modificación.','PresupuestoEgresosMarzo2020.xlsx',''],
+      ['Modificación de julio 2020 en Excel','Datos abiertos de la modificación.','PresupuestoEgresosJulio2020.xlsx',''],
+      ['Modificación de octubre 2020 en Excel','Datos abiertos de la modificación.','PresupuestoEgresosOctubre2020.xlsx',''],
+      ['Modificación de diciembre 2020 en Excel','Datos abiertos de la modificación.','PresupuestoEgresosDiciembre2020.xlsx','']
+    ]},
+    {y:'2019',docs:[
+      ['Presupuesto de Egresos 2019','Gaceta Municipal, 19 de diciembre de 2018.','GacetaTomoVIEjemplar13Diciembre19-2018.pdf',''],
+      ['Presupuesto 2019 en Excel','Datos abiertos del presupuesto aprobado.','PresupuestoDeEgresos2019.xlsx',''],
+      ['Primera modificación 2019 (Gaceta)','Gaceta Municipal, 4 de marzo de 2019.','GacetaTomoIIEjemplar2Marzo4-2019.pdf',''],
+      ['Modificación de marzo 2019 en Excel','Datos abiertos de la modificación.','PresupuestoEgresosMarzo2019.xlsx',''],
+      ['Modificación de junio 2019 en Excel','Datos abiertos de la modificación.','PresupuestoEgresosJunio2019.xlsx',''],
+      ['Modificación de octubre 2019 en Excel','Datos abiertos de la modificación.','PresupuestoEgresosOctubre2019.xlsx','']
+    ]},
+    {y:'2018',docs:[
+      ['Presupuesto de Egresos 2018','Gaceta Municipal, 14 de diciembre de 2017.','GacetaTomoVIEjemplar29Diciembre14-2017.pdf',''],
+      ['Primera modificación 2018 (Gaceta)','Gaceta Municipal, 23 de agosto de 2018.','GacetaTomoIVEjemplar30Agosto23-2018.pdf',''],
+      ['Presupuesto anual — corte a octubre 2018','Reporte en Excel del registro oficial.','FormatosPlataforma/Art8FraccionV-Inciso-a-PresupuestoAnual-Octubre18.xlsx',''],
+      ['Presupuesto anual — corte a diciembre 2018','Reporte en Excel del registro oficial.','FormatosPlataforma/Art8FraccionV-Inciso-a-PresupuestoAnual-Diciembre18.xlsx','']
+    ]},
+    {y:'2017',docs:[
+      ['Presupuesto de Egresos 2017','Gaceta Municipal, 15 de diciembre de 2016.','GacetaTomoVIEjemplar23Secc1aDiciembre15-2016.pdf',''],
+      ['Primera modificación 2017 (Gaceta)','Gaceta Municipal, 7 de abril de 2017.','GacetaTomoIIEjemplar17Secc2aAbril7-2017.pdf',''],
+      ['Segunda modificación 2017 (Gaceta)','Gaceta Municipal, 19 de julio de 2017.','GacetaTomoIVEjemplar12Secc1aJulio19-2017.pdf','']
+    ]},
+    {y:'2016',docs:[
+      ['Presupuesto de Egresos 2016','Gaceta Municipal, 24 de diciembre de 2015.','GacetaTomoVIEjemplar19Diciembre24-2015.pdf','']
+    ]},
+    {y:'2015',docs:[
+      ['Presupuesto de Egresos 2015','Gaceta Municipal, 15 de diciembre de 2014.','GacetaTomoVIejemplar15Diciembre15.pdf','']
+    ]},
+    {y:'2014',docs:[
+      ['Presupuesto de Egresos 2014','Gaceta Municipal, 14 de diciembre de 2013.','gacetatomoVIejemplar11Diciembre14_0.pdf','']
+    ]}
   ];
-
-  function monthly(year, withFP){
-    var rows = [];
-    for (var m=0; m<MESES.length; m++){
-      rows.push(['I', MESES[m], 'IngresosExtraordinarios'+MESES[m]+year+'.xlsx']);
-      if (withFP) rows.push(['I', MESES[m]+' (Formato Plataforma)', 'IngresosExtraordinarios'+MESES[m]+year+'FP.xlsx']);
-    }
-    return rows;
-  }
 
   function esc(s){ if(s===null||s===undefined) return ''; return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
   function norm(s){ return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,''); }
-  var XLSICO = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="17"/><line x1="16" y1="13" x2="8" y2="17"/></svg>';
   var PDFICO = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>';
+  var XLSICO = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="17"/><line x1="16" y1="13" x2="8" y2="17"/></svg>';
   function docBtn(f){
     var url = (FILES_BASE + f).replace(/ /g,'%20');
     var ext = f.split('.').pop().toLowerCase();
     if(ext==='pdf'){ return '<a class="gx-doc-btn" href="'+esc(url)+'" target="_blank" rel="noopener noreferrer">'+PDFICO+'Ver PDF</a>'; }
     return '<a class="gx-doc-btn xls" href="'+esc(url)+'" target="_blank" rel="noopener noreferrer" download>'+XLSICO+'Descargar Excel</a>';
   }
-  function tipoCell(t, periodo){
-    var nombre = (t==='R') ? 'Responsable de recibir, administrar y ejercer' : 'Ingresos extraordinarios';
-    var desc = (t==='R') ? 'Quién recibe, administra y ejerce el recurso, y a qué proyecto se destina.' : 'Concepto, origen y monto del dinero extra recibido.';
-    return '<span class="t">'+nombre+'</span><div class="gx-td-desc">'+desc+'</div>';
+  function nameCell(n, d, b){
+    return (b==='ciud' ? '<span class="gx-badge ciud">Lenguaje claro</span>' : '')+'<span class="t">'+esc(n)+'</span>'+(d?'<div class="gx-td-desc">'+esc(d)+'</div>':'');
   }
 
-  /* Actual */
-  var actHtml='';
-  for(var i=0;i<ACT.length;i++){ var r=ACT[i];
-    actHtml += '<tr data-search="'+esc(norm('actual administracion '+r[2]+' '+r[1]+' '+(r[0]==='R'?'responsable recibir administrar ejercer':'ingresos extraordinarios recibidos')))+'">'+
-      '<td class="gx-td-name" data-label="Archivo">'+tipoCell(r[0],r[1])+'</td>'+
-      '<td data-label="Periodo">'+esc(r[1])+'</td>'+
-      '<td class="gx-td-year" data-label="Ejercicio">'+esc(r[2])+'</td>'+
-      '<td class="gx-td-doc" data-label="Abrir">'+docBtn(r[3])+'</td>'+
+  /* Vigente */
+  var vigHtml='';
+  for(var i=0;i<VIG.length;i++){ var v=VIG[i];
+    vigHtml += '<tr data-search="'+esc(norm('2026 vigente '+v.n+' '+v.d))+'">'+
+      '<td class="gx-td-name" data-label="Documento">'+nameCell(v.n,v.d,v.b)+'</td>'+
+      '<td class="gx-td-year" data-label="Ejercicio">2026</td>'+
+      '<td class="gx-td-doc" data-label="Abrir">'+docBtn(v.f)+'</td>'+
     '</tr>';
   }
-  document.getElementById('gxAct').innerHTML = actHtml;
+  document.getElementById('gxVig').innerHTML = vigHtml;
 
-  /* Histórico por año */
+  /* Años anteriores */
   var hisWrap = document.getElementById('gxHisYears');
   var hisHtml='';
   for(var h=0;h<HIS.length;h++){ var g=HIS[h];
     var rows='';
-    for(var d=0;d<g.rows.length;d++){ var row=g.rows[d];
-      rows += '<tr data-search="'+esc(norm('historico '+g.y+' '+row[1]+' '+(row[0]==='R'?'responsable recibir administrar ejercer':'ingresos extraordinarios recibidos')))+'">'+
-        '<td class="gx-td-name" data-label="Archivo"><span class="t">'+(row[0]==='R'?'Responsable de recibir, administrar y ejercer':'Ingresos extraordinarios')+'</span></td>'+
-        '<td data-label="Periodo">'+esc(row[1])+'</td>'+
+    for(var d2=0;d2<g.docs.length;d2++){ var doc=g.docs[d2];
+      rows += '<tr data-search="'+esc(norm(g.y+' '+doc[0]+' '+doc[1]))+'">'+
+        '<td class="gx-td-name" data-label="Documento">'+nameCell(doc[0],doc[1],doc[3])+'</td>'+
         '<td class="gx-td-year" data-label="Ejercicio">'+g.y+'</td>'+
-        '<td class="gx-td-doc" data-label="Abrir">'+docBtn(row[2])+'</td>'+
+        '<td class="gx-td-doc" data-label="Abrir">'+docBtn(doc[2])+'</td>'+
       '</tr>';
     }
     hisHtml += '<details class="gx-details">'+
       '<summary class="gx-summary">'+
         '<span class="gx-summary-ico" aria-hidden="true">'+g.y.slice(2)+'</span>'+
-        '<span class="gx-summary-tx"><span class="gx-summary-t">Ingresos extraordinarios '+g.y+'</span><small>'+g.rows.length+' archivos publicados</small></span>'+
+        '<span class="gx-summary-tx"><span class="gx-summary-t">Presupuesto de Egresos '+g.y+'</span><small>'+g.docs.length+' documento'+(g.docs.length===1?'':'s')+' publicado'+(g.docs.length===1?'':'s')+'</small></span>'+
         '<svg class="gx-summary-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>'+
       '</summary>'+
       '<div class="gx-table-wrap"><table class="gx-table">'+
-      '<thead><tr><th>Archivo</th><th>Periodo</th><th class="c-year">Ejercicio</th><th class="c-doc">Abrir</th></tr></thead>'+
-      '<tbody>'+rows+'</tbody></table></div>'+
-      (g.note ? '<div class="gx-note">'+esc(g.note)+'</div>' : '')+
-      '</details>';
+      '<thead><tr><th>Documento</th><th class="c-year">Ejercicio</th><th class="c-doc">Abrir</th></tr></thead>'+
+      '<tbody>'+rows+'</tbody></table></div></details>';
   }
   hisWrap.innerHTML = hisHtml;
 
@@ -339,7 +382,7 @@ body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:va
     var h = Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight);
     if (h && Math.abs(h - lastReported) > 1){
       lastReported = h;
-      try { parent.postMessage({ type:'gdl-iframe-height', id:'ingresos-extraordinarios-art8-V-b', height: h }, '*'); } catch(e){}
+      try { parent.postMessage({ type:'gdl-iframe-height', id:'presupuesto-egresos-municipal-art8-V-c', height: h }, '*'); } catch(e){}
     }
   }
 
@@ -350,7 +393,7 @@ body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:va
   var count = document.getElementById('gxCount');
   var noRes = document.getElementById('gxNoRes');
   var noResQ = document.getElementById('gxNoResQ');
-  var groups = [document.getElementById('grpAct'), document.getElementById('grpHis')];
+  var groups = [document.getElementById('grpVig'), document.getElementById('grpHis')];
   var allDetails = [].slice.call(document.querySelectorAll('.gx-details'));
   var items = [].slice.call(document.querySelectorAll('tr[data-search]'));
   var TOTAL = items.length;
@@ -379,9 +422,9 @@ body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:va
       for (var k2=0;k2<gits.length;k2++){ if (gits[k2].style.display !== 'none'){ gany = true; break; } }
       groups[gi].className = gany ? 'gx-group' : 'gx-group hide';
     }
-    if (clean.length === 0){ count.innerHTML = '<b>'+TOTAL+'</b> archivos publicados (2016–2026)'; noRes.className = 'gx-noresults'; }
+    if (clean.length === 0){ count.innerHTML = '<b>'+TOTAL+'</b> documentos publicados (2014–2026)'; noRes.className = 'gx-noresults'; }
     else if (vis === 0){ count.innerHTML = '<b>0</b> resultados'; noResQ.textContent = '«'+raw+'»'; noRes.className = 'gx-noresults show'; }
-    else { count.innerHTML = '<b>'+vis+'</b> de '+TOTAL+' archivos'; noRes.className = 'gx-noresults'; }
+    else { count.innerHTML = '<b>'+vis+'</b> de '+TOTAL+' documentos'; noRes.className = 'gx-noresults'; }
     reportHeight();
   }
   inp.addEventListener('input', applyFilter);

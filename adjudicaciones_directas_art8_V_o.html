@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<meta name="description" content="Consulta ciudadana de los ingresos extraordinarios del Municipio de Guadalajara: qué dinero extra recibió, de dónde vino, quién es responsable de recibirlo, administrarlo y ejercerlo, y a qué proyecto se destina. Archivos oficiales de 2016 a 2026, año por año y mes por mes, con buscador. Art. 8 Fracción V Inciso b) Ley de Transparencia Jalisco."/>
-<title>¿Qué dinero extra recibió Guadalajara y quién lo administra? · Ingresos extraordinarios 2016–2026: origen, responsables y destino, archivo por archivo · Art. 8 Frac. V Inc. b)</title>
+<meta name="description" content="Las adjudicaciones directas del Municipio de Guadalajara en compras, obra pública, proyectos de inversión y servicios: qué se compró sin licitación, a quién y por cuánto, de 2018 a 2026. Reportes oficiales en Excel y el sistema Mirada Pública para explorar las compras en línea. Art. 8 Fracción V Inciso o) Ley de Transparencia Jalisco."/>
+<title>¿Qué compra Guadalajara sin licitación? · Adjudicaciones directas en compras, obra y servicios 2018–2026, con los 19 datos que exige la ley · Art. 8 Frac. V Inc. o)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
@@ -34,11 +34,6 @@ body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:va
 .gx-chip{display:inline-flex;align-items:center;gap:6px;background:var(--wh);border:1.5px solid var(--ac-border);color:var(--ac-d);font-size:11.5px;font-weight:700;padding:5px 12px;border-radius:20px}
 .gx-chip b{font-family:var(--fm);font-weight:500}
 .gx-chip.neutral{border-color:var(--g200);color:var(--g600)}
-.gx-cifras{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px;max-width:620px;position:relative;z-index:1}
-.gx-cifra{background:var(--wh);border:1.5px solid var(--ac-border);border-radius:var(--rad);padding:13px 14px;display:flex;flex-direction:column;gap:2px;min-width:0}
-.gx-cifra-num{font-family:var(--fm);font-size:clamp(22px,3vw,34px);font-weight:700;line-height:1;color:var(--ac-d);letter-spacing:-.02em;font-variant-numeric:tabular-nums;white-space:nowrap}
-.gx-cifra-lbl{font-size:10.5px;font-weight:700;color:var(--g600);text-transform:uppercase;letter-spacing:.07em;margin-top:3px;line-height:1.3}
-@media (max-width:620px){.gx-cifras{gap:8px}.gx-cifra{padding:10px 9px}}
 .gx-search-wrap{margin:0 0 24px}
 .gx-search{position:relative;display:flex;align-items:center;background:var(--wh);border:1.5px solid var(--g200);border-radius:12px;box-shadow:var(--sh-sm);transition:border-color .15s,box-shadow .15s}
 .gx-search:focus-within{border-color:var(--ac);box-shadow:0 0 0 3px rgba(232,119,34,.12)}
@@ -85,8 +80,13 @@ body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:va
 .gx-details[open] .gx-summary-chev{transform:rotate(180deg)}
 .gx-details[open] .gx-summary{border-bottom:1px solid var(--g200)}
 .gx-details .gx-table-wrap{border:0;border-radius:0;box-shadow:none}
-.gx-note{background:var(--g50);border-top:1px solid var(--g100);padding:12px 18px;font-size:12px;color:var(--g600);line-height:1.6;font-style:italic}
-.gx-note strong{color:var(--g800);font-style:normal}
+.gx-cta{display:flex;gap:16px;align-items:center;background:var(--wh);border:1.5px solid var(--ac-border);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);padding:18px 20px;margin-bottom:14px;flex-wrap:wrap}
+.gx-cta-ico{flex-shrink:0;width:46px;height:46px;border-radius:12px;background:var(--ac-soft);color:var(--ac-d);display:flex;align-items:center;justify-content:center}
+.gx-cta-tx{flex:1;min-width:220px}
+.gx-cta-tx h3{font-size:15px;font-weight:800;color:var(--g900);margin-bottom:3px}
+.gx-cta-tx p{font-size:12.5px;color:var(--g600);line-height:1.55}
+.gx-cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--ac);color:#fff;border:1.5px solid var(--ac);font-family:var(--fh);font-size:13px;font-weight:700;padding:11px 18px;border-radius:10px;text-decoration:none;transition:all .14s var(--ease);white-space:nowrap}
+.gx-cta-btn:hover{background:var(--ac-d);border-color:var(--ac-d);transform:translateY(-1px)}
 .gx-noresults{display:none;background:var(--ac-soft);border:1.5px solid var(--ac-border);border-radius:var(--rad-lg);padding:22px 24px;font-size:13.5px;color:var(--g800);line-height:1.6;text-align:center;margin-bottom:26px}
 .gx-noresults.show{display:block}
 .gx-noresults strong{color:var(--ac-d);font-weight:700}
@@ -106,6 +106,11 @@ body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:va
 .gx-ley p strong{color:var(--g800);font-weight:600}
 .gx-ley blockquote{font-size:13.5px;color:var(--g600);line-height:1.65;margin:12px 0 8px;padding:12px 18px;background:var(--ac-soft);border-left:3px solid var(--ac);border-radius:6px;font-style:italic}
 .gx-ley blockquote strong{color:var(--g900);font-style:normal;font-weight:700}
+.gx-ley details{margin-top:10px;border:1px solid var(--g200);border-radius:8px;padding:0;overflow:hidden}
+.gx-ley details summary{cursor:pointer;list-style:none;padding:10px 14px;font-size:12.5px;font-weight:700;color:var(--ac-d);background:var(--g50)}
+.gx-ley details summary::-webkit-details-marker{display:none}
+.gx-ley details[open] summary{border-bottom:1px solid var(--g200)}
+.gx-ley details blockquote{margin:10px 14px;font-size:12.5px}
 @media (max-width:780px){
   body{padding:14px}
   .gx-hero{padding:20px 18px}
@@ -145,27 +150,39 @@ body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:va
 
   <!-- HERO -->
   <section class="gx-hero">
-    <span class="gx-hero-tag">Art. 8 · Fracción V · Inciso b) · Ley de Transparencia Jalisco</span>
-    <h1>¿Qué dinero extra recibió Guadalajara? <em>Los ingresos extraordinarios, con su origen, responsables y destino</em></h1>
-    <p class="gx-hero-sub">Además de los impuestos y las participaciones de cada año, al municipio a veces le llega <strong>dinero extra</strong>: convenios, aportaciones o apoyos especiales. La ley exige decir <strong>de dónde vino</strong>, <strong>quién lo recibe, administra y ejerce</strong>, y <strong>en qué proyecto se aplica</strong>. Aquí están los archivos oficiales de <strong>2016 a 2026</strong>: los recientes a la vista y el histórico ordenado por año.</p>
+    <span class="gx-hero-tag">Art. 8 · Fracción V · Inciso o) · Ley de Transparencia Jalisco</span>
+    <h1>¿Qué compra Guadalajara sin licitar? <em>Las adjudicaciones directas, año por año</em></h1>
+    <p class="gx-hero-sub">A veces el gobierno compra <strong>directamente</strong> — sin concurso ni licitación — porque la ley lo permite en ciertos casos. Justo por eso debe transparentarlo con más detalle: <strong>qué compró, a quién, por cuánto y con qué justificación</strong>. Aquí están los reportes de adjudicaciones directas en compras, obra, inversión y servicios de <strong>2018 a 2026</strong>.</p>
   </section>
+
+  <!-- CTA -->
+  <div class="gx-cta">
+    <div class="gx-cta-ico" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+    <div class="gx-cta-tx">
+      <h3>Explora cada compra en línea</h3>
+      <p>En el sistema <strong>Mirada Pública</strong> puedes ver a quién le compra Guadalajara: proveedor por proveedor, contrato por contrato, sin descargar archivos.</p>
+    </div>
+    <a class="gx-cta-btn" href="https://miradapublica.guadalajara.gob.mx/#/a-quien-compra-gdl" target="_blank" rel="noopener noreferrer">Abrir Mirada Pública
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+    </a>
+  </div>
 
   <!-- BUSCADOR -->
   <div class="gx-search-wrap">
     <div class="gx-search">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input id="gxQ" type="search" autocomplete="off" placeholder="Busca por año, mes o tipo… (ej.: 2026, responsable, marzo 2019)" aria-label="Buscar un archivo por año, mes o tipo"/>
+      <input id="gxQ" type="search" autocomplete="off" placeholder="Busca por año… (ej.: 2025, marzo 2019)" aria-label="Buscar un reporte de adjudicaciones por año"/>
       <button type="button" class="gx-clear" id="gxClear" aria-label="Limpiar búsqueda" title="Limpiar">&times;</button>
     </div>
     <div class="gx-count" id="gxCount"></div>
   </div>
 
-  <!-- ACTUAL -->
+  <!-- ACTUALES -->
   <section class="gx-group" id="grpAct">
-    <div class="gx-sec-title feat">Administración actual · 2021–2026</div>
+    <div class="gx-sec-title feat">Reportes anuales · 2020–2026</div>
     <div class="gx-table-wrap">
       <table class="gx-table">
-        <thead><tr><th>Archivo</th><th>Periodo</th><th class="c-year">Ejercicio</th><th class="c-doc">Abrir</th></tr></thead>
+        <thead><tr><th>Reporte</th><th class="c-year">Periodo</th><th class="c-doc">Abrir</th></tr></thead>
         <tbody id="gxAct"></tbody>
       </table>
     </div>
@@ -173,39 +190,36 @@ body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:va
 
   <!-- HISTÓRICO -->
   <section class="gx-group" id="grpHis">
-    <div class="gx-sec-title">Histórico por año · 2016–2020</div>
-    <div id="gxHisYears"></div>
+    <div class="gx-sec-title">Reportes mensuales · 2018–2019</div>
+    <div id="gxHis"></div>
   </section>
 
   <!-- SIN RESULTADOS -->
-  <div class="gx-noresults" id="gxNoRes">No encontramos archivos que coincidan con <strong id="gxNoResQ"></strong>. Prueba con un año («2024»), un mes («marzo») o una palabra como «responsable».</div>
+  <div class="gx-noresults" id="gxNoRes">No encontramos reportes que coincidan con <strong id="gxNoResQ"></strong>. Prueba con un año («2023») o un mes y año («marzo 2019»).</div>
 
   <!-- FOOTER CIUDADANO -->
   <div class="gx-foot-title">La página en cifras</div>
-    <div class="gx-cifras gx-cifras-foot">
-      <div class="gx-cifra"><div class="gx-cifra-num">93</div><div class="gx-cifra-lbl">Archivos oficiales</div></div>
-      <div class="gx-cifra"><div class="gx-cifra-num">2016–26</div><div class="gx-cifra-lbl">Once ejercicios</div></div>
-      <div class="gx-cifra"><div class="gx-cifra-num">27/05/26</div><div class="gx-cifra-lbl">Registro validado</div></div>
-    </div>
     <div class="gx-hero-meta gx-meta-foot">
-      <span class="gx-chip neutral">Unidad responsable: <b>Dirección de Ingresos</b></span>
+      <span class="gx-chip"><b>22</b> reportes publicados</span>
+      <span class="gx-chip"><b>2018–2026</b> nueve ejercicios</span>
+      <span class="gx-chip neutral">La ley exige <b>19 datos</b> por adjudicación</span>
     </div>
   <div class="gx-foot-title">Para entenderlo mejor</div>
   <div class="gx-info">
     <div class="gx-info-card">
-      <div class="gx-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-      <h3>¿Qué es un «ingreso extraordinario»?</h3>
-      <p>Es dinero que el municipio recibe <strong>fuera de lo previsto</strong> en su Ley de Ingresos de cada año: convenios con el estado o la federación, aportaciones o apoyos especiales. Como no estaba presupuestado, la ley obliga a transparentarlo con más detalle.</p>
+      <div class="gx-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+      <h3>¿Qué es una adjudicación directa?</h3>
+      <p>Es cuando el gobierno <strong>elige directamente</strong> a quién comprarle, sin concurso. La ley lo permite solo en ciertos supuestos — montos menores, urgencias, proveedor único — y a cambio exige <strong>máxima transparencia</strong> sobre cada caso.</p>
     </div>
     <div class="gx-info-card">
-      <div class="gx-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-      <h3>¿Qué te dice cada archivo?</h3>
-      <p>Dos cosas: el detalle del <strong>ingreso</strong> (concepto, origen y monto) y el <strong>responsable</strong> con nombre de quien lo recibe, lo administra y lo ejerce, además del <strong>proyecto o programa</strong> al que se destina. Así se puede seguir la pista completa del recurso.</p>
+      <div class="gx-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+      <h3>¿Qué viene en cada Excel?</h3>
+      <p>Una fila por adjudicación con los datos que exige la ley: <strong>quién pidió la compra, a quién se adjudicó, el monto, el contrato, la justificación legal</strong> y el seguimiento hasta la entrega. El detalle completo son 19 puntos (puedes leerlos abajo, en el fundamento).</p>
     </div>
     <div class="gx-info-card">
-      <div class="gx-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-      <h3>¿Por qué algunos dicen «Formato Plataforma»?</h3>
-      <p>Es la <strong>misma información</strong> capturada en el formato oficial de la <strong>Plataforma Nacional de Transparencia</strong>, que permite comparar a Guadalajara con cualquier otro gobierno del país. El contenido no cambia; cambia la presentación.</p>
+      <div class="gx-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+      <h3>¿Por qué vigilar estas compras?</h3>
+      <p>Porque al no haber competencia, la adjudicación directa es el terreno con <strong>más riesgo de sobreprecios y favoritismos</strong>. Compara montos y proveedores entre años: ahí es donde la ciudadanía mejor cuida su dinero.</p>
     </div>
   </div>
 
@@ -214,124 +228,66 @@ body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:va
     <div class="gx-ley-eye">Fundamento legal</div>
     <h3>¿Por qué el Ayuntamiento publica esta información?</h3>
     <p>Es una obligación de transparencia. La ley ordena publicar, palabra por palabra, lo siguiente:</p>
-    <blockquote>«Artículo 8°. <strong>1.</strong> Es información fundamental, obligatoria para todos los sujetos obligados, la siguiente: (…) <strong>V.</strong> La información financiera, patrimonial y administrativa, que comprende: <strong>b)</strong> Los ingresos extraordinarios recibidos por cualquier concepto, señalando el origen de los recursos, el nombre de los responsables de recibirlos, administrarlos y ejercerlos, así como el proyecto o programa donde serán aplicados;»</blockquote>
-    <p>— <strong>Artículo 8, fracción V, inciso b)</strong> de la <em>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</em>. Los archivos de esta página son los oficiales, tal como fueron publicados por el sujeto obligado; ante cualquier discrepancia, prevalece el documento oficial.</p>
+    <blockquote>«Artículo 8°. <strong>1.</strong> Es información fundamental, obligatoria para todos los sujetos obligados, la siguiente: (…) <strong>V.</strong> La información financiera, patrimonial y administrativa, que comprende: <strong>o)</strong> La información sobre adjudicaciones directas en materia de adquisiciones, obra pública, proyectos de inversión y prestación de servicios, de cuando menos los últimos tres años, que deberá contener, por lo menos, lo siguiente:»</blockquote>
+    <details>
+      <summary>Ver los 19 puntos que la ley exige publicar por cada adjudicación (texto íntegro)</summary>
+      <blockquote>«<strong>1.</strong> El Programa Anual de Adquisiciones, Arrendamientos y Servicios; <strong>2.</strong> La integración del Comité de Adquisiciones; <strong>3.</strong> La solicitud de compra, adquisición o aprovisionamiento de las áreas requirentes; <strong>4.</strong> La propuesta enviada por el participante; <strong>5.</strong> Los motivos y fundamentos legales aplicados para llevarla a cabo; <strong>6.</strong> La autorización del ejercicio de la opción; <strong>7.</strong> En su caso, las cotizaciones consideradas, especificando los nombres de los proveedores y los montos; <strong>8.</strong> El nombre de la persona física o jurídica adjudicada; <strong>9.</strong> La unidad administrativa solicitante y la responsable de su ejecución; <strong>10.</strong> El número, fecha, el monto del contrato y el plazo de entrega o de ejecución de los servicios u obra; <strong>11.</strong> Los mecanismos de vigilancia y supervisión, incluyendo, en su caso, los estudios de impacto urbano y ambiental, según corresponda; <strong>12.</strong> La partida presupuestal, de conformidad con el clasificador por objeto del gasto, en el caso de ser aplicable; <strong>13.</strong> Origen de los recursos especificando si son federales, estatales o municipales, así como el tipo de fondo de participación o aportación respectiva; <strong>14.</strong> Las actas de las sesiones que se realizan durante los procesos; <strong>15.</strong> El video y audio de las sesiones que se realizan durante los procesos; <strong>16.</strong> Los informes de avance sobre las obras o servicios contratados; <strong>17.</strong> El convenio de terminación; <strong>18.</strong> El finiquito y evidencia de la entrega del bien o servicio; y <strong>19.</strong> La investigación de Mercado, una vez emitida la adjudicación.»</blockquote>
+    </details>
+    <p>— <strong>Artículo 8, fracción V, inciso o)</strong> de la <em>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</em>. Los archivos de esta página son los oficiales, tal como fueron publicados por el sujeto obligado; ante cualquier discrepancia, prevalece el documento oficial.</p>
   </section>
 
 </div>
 
 <script>
 /* ==========================================================================
-   Ingresos extraordinarios · Art. 8 Frac. V Inc. b)
+   Adjudicaciones directas · Art. 8 Frac. V Inc. o)
    Datos verbatim del registro oficial del sujeto obligado (corte: 10/06/2026).
-   Fecha de validación del registro: 27/05/2026 · Dirección de Ingresos.
-   Nota 2024: el registro oficial publica el responsable «Enero a Septiembre»
-   y «Octubre a Diciembre» enlazando el mismo archivo; se respeta tal cual.
+   22 reportes: anuales 2020-2026 (7) y mensuales 2018-2019 (15, carpeta
+   FormatosPlataforma del registro). Verificado archivo por archivo.
    ========================================================================== */
 (function(){
   var FILES_BASE = 'https://transparencia.guadalajara.gob.mx/sites/default/files/';
-
-  /* Administración actual 2021-2026: [tipo, periodo, año, archivo]
-     tipo I = Ingresos extraordinarios · R = Responsable de recibir/administrar/ejercer */
-  var ACT = [
-    ['I','Enero a abril','2026','IngresosExtraordinariosAbril2026.xlsx'],
-    ['R','Enero a abril','2026','Art8FraccionV-Inciso-b-Responsable-Recibir-Administrar-Ejercer-Ingresos-2026.xlsx'],
-    ['I','Enero a diciembre','2025','IngresosExtraordinariosDiciembre2025.xlsx'],
-    ['R','Enero a diciembre','2025','Art8FraccionV-Inciso-b-Responsable-Recibir-Administrar-Ejercer-Ingresos-2025.xlsx'],
-    ['I','Enero a diciembre','2024','IngresosExtraordinariosDiciembre2024.xlsx'],
-    ['R','Octubre a diciembre','2024','Art8FraccionV-Inciso-b-Responsable-Recibir-Administrar-Ejercer-Ingresos-2024Oct-Dic.xlsx'],
-    ['R','Enero a septiembre','2024','Art8FraccionV-Inciso-b-Responsable-Recibir-Administrar-Ejercer-Ingresos-2024Oct-Dic.xlsx'],
-    ['I','Enero a diciembre','2023','IngresosExtraordinariosDiciembre2023.xlsx'],
-    ['R','Enero a diciembre','2023','Art8FraccionV-Inciso-b-Responsable-Recibir-Administrar-Ejercer-Ingresos-2023.xlsx'],
-    ['I','Enero a diciembre','2022','IngresosExtraordinariosDiciembre2022.xlsx'],
-    ['R','Enero a diciembre','2022','Art8FraccionV-Inciso-b-Responsable-Recibir-Administrar-Ejercer-Ingresos-2022.xlsx'],
-    ['I','Enero a diciembre','2021','IngresosExtraordinariosDiciembre2021.xlsx'],
-    ['R','Enero a diciembre','2021','Art8FraccionV-Inciso-b-Responsable-Recibir-Administrar-Ejercer-Ingresos-2021.xlsx']
-  ];
-
-  var MESES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
-
-  /* Histórico: estructura por año */
-  var HIS = [
-    {y:'2020', note:'', rows:[ ['I','Enero a diciembre','IngresosExtraordinariosEnero-Diciembre2020.xlsx'] ]},
-    {y:'2019', note:'', rows: monthly('2019', true)},
-    {y:'2018', note:'', rows: monthly('2018', true)},
-    {y:'2017', note:'Nota publicada en el registro oficial 2017: «Los ingresos por concepto de Compensación, Mitigación e Indemnización, no pueden ser considerados como “ingresos extraordinarios” ya que estos se encuentran estimados dentro de la Ley de Ingresos del Municipio de Guadalajara para el Ejercicio Fiscal 2017». En el registro de ese año, el propio sujeto obligado señaló meses en los que no se recibieron ingresos extraordinarios.', rows: monthly('2017', false).concat([
-      ['R','2016 y 2017','FormatosPlataforma/Art8FraccionV-Inciso-b-Responsable-Recibir-Administrar-Ejercer-Ingresos-2016-2017.xlsx'],
-      ['I','Formato Plataforma — a noviembre 2017','FormatosPlataforma/Art8FraccionV-Inciso-b-Ingresos-Extraordinarios-Recibidos-2016-Noviembre-2017.xlsx'],
-      ['I','Formato Plataforma — diciembre 2017','FormatosPlataforma/Art8FraccionV-Inciso-b-Ingresos-Extraordinarios-Recibidos-Diciembre-2017.xlsx']
-    ])},
-    {y:'2016', note:'', rows: monthly('2016', false).concat([
-      ['I','1er. trimestre — informe trimestral','FormatosPlataforma/Art8FraccionV-Inciso-b-Ingresos-Extraordinarios-1Trimestre16.xls'],
-      ['I','2do. trimestre — informe trimestral','FormatosPlataforma/Art8FraccionV-Inciso-b-Ingresos-Extraordinarios-2Trimestre16.xls'],
-      ['I','3er. trimestre — informe trimestral','FormatosPlataforma/Art8FraccionV-Inciso-b-Ingresos-Extraordinarios-3Trimestre16.xls'],
-      ['I','4to. trimestre — informe trimestral','FormatosPlataforma/Art8FraccionV-Inciso-b-Ingresos-Extraordinarios-4Trimestre16.xls']
-    ])}
-  ];
-
-  function monthly(year, withFP){
-    var rows = [];
-    for (var m=0; m<MESES.length; m++){
-      rows.push(['I', MESES[m], 'IngresosExtraordinarios'+MESES[m]+year+'.xlsx']);
-      if (withFP) rows.push(['I', MESES[m]+' (Formato Plataforma)', 'IngresosExtraordinarios'+MESES[m]+year+'FP.xlsx']);
-    }
-    return rows;
-  }
+  var FP = 'FormatosPlataforma/';
 
   function esc(s){ if(s===null||s===undefined) return ''; return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
   function norm(s){ return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,''); }
   var XLSICO = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="17"/><line x1="16" y1="13" x2="8" y2="17"/></svg>';
-  var PDFICO = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>';
-  function docBtn(f){
-    var url = (FILES_BASE + f).replace(/ /g,'%20');
-    var ext = f.split('.').pop().toLowerCase();
-    if(ext==='pdf'){ return '<a class="gx-doc-btn" href="'+esc(url)+'" target="_blank" rel="noopener noreferrer">'+PDFICO+'Ver PDF</a>'; }
-    return '<a class="gx-doc-btn xls" href="'+esc(url)+'" target="_blank" rel="noopener noreferrer" download>'+XLSICO+'Descargar Excel</a>';
+  function btnFile(f){
+    var u = (FILES_BASE+f).replace(/ /g,'%20');
+    return '<a class="gx-doc-btn xls" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer" download>'+XLSICO+'Descargar Excel</a>';
   }
-  function tipoCell(t, periodo){
-    var nombre = (t==='R') ? 'Responsable de recibir, administrar y ejercer' : 'Ingresos extraordinarios';
-    var desc = (t==='R') ? 'Quién recibe, administra y ejerce el recurso, y a qué proyecto se destina.' : 'Concepto, origen y monto del dinero extra recibido.';
-    return '<span class="t">'+nombre+'</span><div class="gx-td-desc">'+desc+'</div>';
-  }
-
-  /* Actual */
-  var actHtml='';
-  for(var i=0;i<ACT.length;i++){ var r=ACT[i];
-    actHtml += '<tr data-search="'+esc(norm('actual administracion '+r[2]+' '+r[1]+' '+(r[0]==='R'?'responsable recibir administrar ejercer':'ingresos extraordinarios recibidos')))+'">'+
-      '<td class="gx-td-name" data-label="Archivo">'+tipoCell(r[0],r[1])+'</td>'+
-      '<td data-label="Periodo">'+esc(r[1])+'</td>'+
-      '<td class="gx-td-year" data-label="Ejercicio">'+esc(r[2])+'</td>'+
-      '<td class="gx-td-doc" data-label="Abrir">'+docBtn(r[3])+'</td>'+
+  function fila(busca, periodo, archivo){
+    return '<tr data-search="'+esc(norm(busca))+'">'+
+      '<td class="gx-td-name" data-label="Reporte"><span class="gx-badge">Adjudicación directa</span><span class="t">Adjudicaciones directas — '+esc(periodo)+'</span><div class="gx-td-desc">Compras, obra, inversión y servicios adjudicados sin licitación.</div></td>'+
+      '<td class="gx-td-year" data-label="Periodo">'+esc(periodo)+'</td>'+
+      '<td class="gx-td-doc" data-label="Abrir">'+btnFile(archivo)+'</td>'+
     '</tr>';
   }
+
+  /* Anuales 2020-2026 */
+  var ACT = [
+    ['Enero a abril 2026','Art8FraccionV-Inciso-o-Adjudicacion-Directa-Abril-2026.xlsx'],
+    ['Enero a diciembre 2025','Art8FraccionV-Inciso-o-Adjudicacion-Directa-Diciembre-2025.xlsx'],
+    ['Enero a diciembre 2024','Art8FraccionV-Inciso-o-Adjudicacion-Directa-Diciembre-2024.xlsx'],
+    ['Enero a diciembre 2023','Art8FraccionV-Inciso-o-Adjudicacion-Directa-Diciembre-2023.xlsx'],
+    ['Enero a diciembre 2022','Art8FraccionV-Inciso-o-Adjudicacion-Directa-Diciembre-2022.xlsx'],
+    ['Enero a diciembre 2021','Art8FraccionV-Inciso-o-Adjudicacion-Directa-Diciembre-2021.xlsx'],
+    ['Enero a diciembre 2020','Art8FraccionV-Inciso-o-Adjudicacion-Directa-Enero-Diciembre-2020.xlsx']
+  ];
+  var actHtml='';
+  for (var i=0;i<ACT.length;i++){ actHtml += fila('adjudicaciones directas anual '+ACT[i][0], ACT[i][0], ACT[i][1]); }
   document.getElementById('gxAct').innerHTML = actHtml;
 
-  /* Histórico por año */
-  var hisWrap = document.getElementById('gxHisYears');
-  var hisHtml='';
-  for(var h=0;h<HIS.length;h++){ var g=HIS[h];
-    var rows='';
-    for(var d=0;d<g.rows.length;d++){ var row=g.rows[d];
-      rows += '<tr data-search="'+esc(norm('historico '+g.y+' '+row[1]+' '+(row[0]==='R'?'responsable recibir administrar ejercer':'ingresos extraordinarios recibidos')))+'">'+
-        '<td class="gx-td-name" data-label="Archivo"><span class="t">'+(row[0]==='R'?'Responsable de recibir, administrar y ejercer':'Ingresos extraordinarios')+'</span></td>'+
-        '<td data-label="Periodo">'+esc(row[1])+'</td>'+
-        '<td class="gx-td-year" data-label="Ejercicio">'+g.y+'</td>'+
-        '<td class="gx-td-doc" data-label="Abrir">'+docBtn(row[2])+'</td>'+
-      '</tr>';
-    }
-    hisHtml += '<details class="gx-details">'+
-      '<summary class="gx-summary">'+
-        '<span class="gx-summary-ico" aria-hidden="true">'+g.y.slice(2)+'</span>'+
-        '<span class="gx-summary-tx"><span class="gx-summary-t">Ingresos extraordinarios '+g.y+'</span><small>'+g.rows.length+' archivos publicados</small></span>'+
-        '<svg class="gx-summary-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>'+
-      '</summary>'+
-      '<div class="gx-table-wrap"><table class="gx-table">'+
-      '<thead><tr><th>Archivo</th><th>Periodo</th><th class="c-year">Ejercicio</th><th class="c-doc">Abrir</th></tr></thead>'+
-      '<tbody>'+rows+'</tbody></table></div>'+
-      (g.note ? '<div class="gx-note">'+esc(g.note)+'</div>' : '')+
-      '</details>';
-  }
-  hisWrap.innerHTML = hisHtml;
+  /* Mensuales 2018-2019 (FormatosPlataforma) */
+  var M19 = ['Diciembre','Noviembre','Octubre','Septiembre','Agosto','Julio','Junio','Mayo','Abril','Marzo','Febrero','Enero'];
+  var rows19='';
+  for (var m=0;m<M19.length;m++){ rows19 += fila('adjudicaciones directas mensual '+M19[m]+' 2019', M19[m]+' 2019', FP+'Art8FraccionV-Inciso-o-Adjudicacion-Directa-'+M19[m]+'-2019.xlsx'); }
+  var rows18='';
+  var M18 = ['Diciembre','Noviembre','Octubre'];
+  for (var m2=0;m2<M18.length;m2++){ rows18 += fila('adjudicaciones directas mensual '+M18[m2]+' 2018', M18[m2]+' 2018', FP+'Art8FraccionV-Inciso-o-Adjudicacion-Directa-'+M18[m2]+'-2018.xlsx'); }
+  document.getElementById('gxHis').innerHTML =
+    '<details class="gx-details"><summary class="gx-summary"><span class="gx-summary-ico" aria-hidden="true">19</span><span class="gx-summary-tx"><span class="gx-summary-t">Adjudicaciones directas 2019</span><small>12 reportes mensuales</small></span><svg class="gx-summary-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary><div class="gx-table-wrap"><table class="gx-table"><thead><tr><th>Reporte</th><th class="c-year">Periodo</th><th class="c-doc">Abrir</th></tr></thead><tbody>'+rows19+'</tbody></table></div></details>'+
+    '<details class="gx-details"><summary class="gx-summary"><span class="gx-summary-ico" aria-hidden="true">18</span><span class="gx-summary-tx"><span class="gx-summary-t">Adjudicaciones directas 2018</span><small>octubre – diciembre · 3 reportes</small></span><svg class="gx-summary-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary><div class="gx-table-wrap"><table class="gx-table"><thead><tr><th>Reporte</th><th class="c-year">Periodo</th><th class="c-doc">Abrir</th></tr></thead><tbody>'+rows18+'</tbody></table></div></details>';
 
   /* ----- Auto-ajuste de altura para Strapi (anti-rebote) ----- */
   var lastReported = 0;
@@ -339,7 +295,7 @@ body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:va
     var h = Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight);
     if (h && Math.abs(h - lastReported) > 1){
       lastReported = h;
-      try { parent.postMessage({ type:'gdl-iframe-height', id:'ingresos-extraordinarios-art8-V-b', height: h }, '*'); } catch(e){}
+      try { parent.postMessage({ type:'gdl-iframe-height', id:'adjudicaciones-directas-art8-V-o', height: h }, '*'); } catch(e){}
     }
   }
 
@@ -351,7 +307,7 @@ body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:va
   var noRes = document.getElementById('gxNoRes');
   var noResQ = document.getElementById('gxNoResQ');
   var groups = [document.getElementById('grpAct'), document.getElementById('grpHis')];
-  var allDetails = [].slice.call(document.querySelectorAll('.gx-details'));
+  var allDetails = [].slice.call(document.querySelectorAll('.gx-group .gx-details'));
   var items = [].slice.call(document.querySelectorAll('tr[data-search]'));
   var TOTAL = items.length;
   function applyFilter(){
@@ -379,9 +335,9 @@ body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:va
       for (var k2=0;k2<gits.length;k2++){ if (gits[k2].style.display !== 'none'){ gany = true; break; } }
       groups[gi].className = gany ? 'gx-group' : 'gx-group hide';
     }
-    if (clean.length === 0){ count.innerHTML = '<b>'+TOTAL+'</b> archivos publicados (2016–2026)'; noRes.className = 'gx-noresults'; }
+    if (clean.length === 0){ count.innerHTML = '<b>'+TOTAL+'</b> reportes publicados (2018–2026)'; noRes.className = 'gx-noresults'; }
     else if (vis === 0){ count.innerHTML = '<b>0</b> resultados'; noResQ.textContent = '«'+raw+'»'; noRes.className = 'gx-noresults show'; }
-    else { count.innerHTML = '<b>'+vis+'</b> de '+TOTAL+' archivos'; noRes.className = 'gx-noresults'; }
+    else { count.innerHTML = '<b>'+vis+'</b> de '+TOTAL+' reportes'; noRes.className = 'gx-noresults'; }
     reportHeight();
   }
   inp.addEventListener('input', applyFilter);
