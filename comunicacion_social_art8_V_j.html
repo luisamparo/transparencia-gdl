@@ -15,26 +15,22 @@
   --fh:'Outfit',sans-serif;--fm:'DM Mono',monospace;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--fh);background:var(--g50);color:var(--g900);line-height:1.5;overflow-x:hidden}
+body{font-family:var(--fh);background:transparent;color:var(--g900);line-height:1.5;overflow-x:hidden}
 
 /* HERO */
-.hero{
-  background:radial-gradient(ellipse 800px 400px at 90% 30%,rgba(255,255,255,.18) 0%,transparent 70%),
-    linear-gradient(135deg,var(--nr-d) 0%,var(--nr) 55%,var(--nr-l) 100%);
-  padding:48px 32px 40px;position:relative;overflow:hidden;
-}
-.hero::before{content:'';position:absolute;inset:0;
-  background:repeating-linear-gradient(45deg,transparent,transparent 60px,rgba(255,255,255,.04) 60px,rgba(255,255,255,.04) 61px);
-  pointer-events:none;}
-.hero::after{content:'';position:absolute;right:-120px;top:-80px;width:380px;height:380px;border-radius:50%;
-  background:radial-gradient(circle,rgba(255,255,255,.10) 0%,transparent 70%);pointer-events:none;}
-.hi{position:relative;max-width:1400px;margin:0 auto;z-index:2}
-.bc{font-size:11.5px;color:rgba(255,255,255,.85);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;font-weight:500}
-.badge{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.40);
-  color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-  padding:5px 13px;border-radius:20px;margin-bottom:12px;backdrop-filter:blur(6px);}
-.hero h1{font-size:clamp(24px,3.8vw,42px);font-weight:800;color:#fff;line-height:1.1;margin-bottom:10px}
-.hero p{color:rgba(255,255,255,.90);font-size:clamp(13px,1.5vw,16px);max-width:780px}
+.hero{position:relative;overflow:hidden;padding:26px 30px;margin:0 0 22px;
+  background:linear-gradient(135deg,#FFF4E8 0%,#FFFFFF 55%);
+  border-radius:14px;border-left:5px solid var(--nr);box-shadow:0 2px 14px rgba(232,119,34,.10);}
+.hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;
+  background:radial-gradient(circle,rgba(232,119,34,.12) 0%,transparent 70%);pointer-events:none;}
+.hi{position:relative;z-index:2}
+.bc{font-size:11.5px;color:var(--g600);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;font-weight:600}
+.badge{display:inline-block;background:var(--nr);border:none;
+  color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  padding:5px 14px;border-radius:20px;margin-bottom:12px;box-shadow:0 2px 6px rgba(232,119,34,.25);}
+.hero h1{font-size:clamp(23px,3.4vw,33px);font-weight:800;color:var(--g900);line-height:1.16;margin-bottom:10px;letter-spacing:-.015em}
+.hero p{color:#5a4d3e;font-size:clamp(13px,1.5vw,15px);max-width:82ch;line-height:1.6}
+.hero p strong{color:var(--g900);font-weight:700}
 
 /* MAIN */
 .main{max-width:1400px;margin:0 auto;padding:28px 20px 60px}
@@ -111,12 +107,13 @@ body{font-family:var(--fh);background:var(--g50);color:var(--g900);line-height:1
 .hist-bar-wrap{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;position:relative;min-width:0;contain:layout}
 
 /* Bar value label on top */
-.hist-bar-val{font-family:var(--fh);font-size:clamp(8.5px,1.3vw,11.5px);font-weight:800;color:var(--slate-900);font-variant-numeric:tabular-nums;white-space:nowrap;letter-spacing:-.02em;text-align:center;line-height:1.1;margin-bottom:8px;height:14px;overflow:visible}
+.hist-bar-val{font-family:var(--fh);font-size:clamp(10px,1.15vw,12.5px);font-weight:800;color:var(--slate-900);font-variant-numeric:tabular-nums;white-space:nowrap;letter-spacing:-.02em;text-align:center;line-height:1.1;margin-bottom:8px;height:15px;overflow:visible}
 
 /* The bar itself — institutional orange gradient by default, slate for older admins, distinct accent per admin band */
 .hist-bar{width:100%;max-width:54px;border-radius:6px 6px 0 0;position:relative;transition:filter .18s var(--ease,cubic-bezier(.4,0,.2,1)),transform .18s;cursor:pointer;min-height:4px}
-.hist-bar:hover{filter:brightness(1.06);transform:translateY(-4px)}
+.hist-bar:hover{filter:brightness(1.08) drop-shadow(0 8px 18px rgba(15,23,42,.22));transform:translateY(-6px) scale(1.04)}
 .hist-bar-wrap:hover{z-index:50}
+.hist-bar-wrap:hover .hist-bar-val{color:var(--insti-orange-d);transform:scale(1.08);transition:transform .15s ease, color .15s ease}
 
 /* Bar color by administration band — sophisticated neutrals + orange for current */
 .hist-bar.adm-1{background:linear-gradient(180deg,#94A3B8 0%,#64748B 100%)} /* 2010-2012 — slate */
@@ -146,7 +143,7 @@ body{font-family:var(--fh);background:var(--g50);color:var(--g900);line-height:1
 .hist-period-empty{visibility:hidden}
 
 /* ---------- Tooltip (edge-aware via JS) ---------- */
-.hist-tip{position:absolute;bottom:calc(100% + 14px);left:50%;transform:translateX(-50%);background:var(--slate-900);color:#fff;padding:14px 16px;border-radius:9px;font-size:12px;line-height:1.5;white-space:nowrap;z-index:50;box-shadow:0 16px 40px rgba(15,23,42,.32);opacity:0;pointer-events:none;transition:opacity .14s ease, transform .14s ease;min-width:220px;max-width:280px;text-align:left}
+.hist-tip{position:absolute;bottom:calc(100% + 16px);left:50%;transform:translateX(-50%);background:linear-gradient(180deg,#1E293B 0%,#0F172A 100%);color:#fff;padding:16px 20px;border-radius:12px;font-size:12.5px;line-height:1.5;white-space:nowrap;z-index:50;box-shadow:0 20px 50px rgba(15,23,42,.45),0 4px 12px rgba(15,23,42,.18),0 0 0 1px rgba(255,255,255,.06);opacity:0;pointer-events:none;transition:opacity .14s ease, transform .14s ease;min-width:240px;max-width:320px;text-align:left;border:1px solid rgba(255,255,255,.04)}
 .hist-tip[data-edge="left"]{left:0;transform:translateX(8px)}
 .hist-tip[data-edge="right"]{left:auto;right:0;transform:translateX(-8px)}
 .hist-bar-wrap:hover .hist-tip{opacity:1;transform:translateX(-50%) translateY(-4px)}
@@ -196,7 +193,7 @@ body{font-family:var(--fh);background:var(--g50);color:var(--g900);line-height:1
 
 /* ---------- Insights ---------- */
 
-@media(max-width:1120px){
+@media(max-width:540px){
   .hist-bar-val{display:none}
 }
 @media(max-width:780px){
@@ -247,9 +244,17 @@ body{font-family:var(--fh);background:var(--g50);color:var(--g900);line-height:1
 
 
 /* FOOTER */
-.footer{text-align:center;padding:28px 20px;border-top:1px solid var(--g200);margin-top:20px}
-.footer p{font-size:11.5px;color:var(--g400)}
-.footer a{color:var(--nr);text-decoration:none}
+.cs-ley{background:var(--wh);border-radius:14px;padding:22px 26px;border-left:4px solid var(--nr-d);box-shadow:var(--sh);margin-top:24px}
+.cs-cifras{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}
+.cs-cifra{background:var(--g50);border:1.5px solid #FFD2A5;border-radius:var(--rad);padding:14px 16px;display:flex;flex-direction:column;gap:2px;transition:border-color .18s ease,transform .18s ease}
+.cs-cifra:hover{border-color:var(--nr);transform:translateY(-2px)}
+.cs-cifra-num{font-family:var(--fm);font-size:24px;font-weight:700;line-height:1;color:var(--nr-d);letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.cs-cifra-lbl{font-size:11px;font-weight:700;color:#5a4d3e;text-transform:uppercase;letter-spacing:.06em;margin-top:2px;line-height:1.3}
+.cs-ley-eye{font-size:10.5px;font-weight:800;color:var(--nr-d);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.cs-ley h3{font-size:16px;font-weight:800;color:var(--g900);margin-bottom:8px;letter-spacing:-.008em}
+.cs-ley p{font-size:13px;color:var(--g600);line-height:1.65;margin-bottom:6px}
+.cs-ley p strong{color:var(--g900);font-weight:600}
+@media(max-width:680px){.cs-cifras{grid-template-columns:repeat(3,1fr);gap:8px}.cs-cifra-num{font-size:18px}}
 
 @media(max-width:700px){
   .hero{padding:28px 16px 24px}.main{padding:16px 10px 40px}
@@ -258,16 +263,17 @@ body{font-family:var(--fh);background:var(--g50);color:var(--g900);line-height:1
 </head>
 <body>
 
-<div class="hero">
-  <div class="hi">
-    <div class="bc">Transparencia Guadalajara &bull; Gobierno Municipal</div>
-    <div class="badge">Art. 8 &bull; Fracc. V &bull; Inc. j)</div>
-    <h1>Gastos de Comunicaci&oacute;n Social</h1>
-    <p>Cu&aacute;nto destina el Ayuntamiento de Guadalajara a <strong>difusi&oacute;n, publicidad y campa&ntilde;as institucionales</strong> &mdash; con la serie hist&oacute;rica completa de <strong>2011 a 2026</strong> y los reportes mensuales oficiales publicados por la <strong>Tesorer&iacute;a Municipal</strong>. Cada Excel contiene proveedor, RFC, factura, fecha, monto, partida y justificaci&oacute;n.</p>
-  </div>
-</div>
-
 <div class="main">
+
+  <!-- HERO — tarjeta clara, armonizada con la familia -->
+  <div class="hero">
+    <div class="hi">
+      <div class="bc">Transparencia Guadalajara &bull; Gobierno Municipal</div>
+      <div class="badge">Art. 8 &bull; Fracc. V &bull; Inc. j)</div>
+      <h1>Gastos de Comunicaci&oacute;n Social</h1>
+      <p>Cu&aacute;nto destina el Ayuntamiento de Guadalajara a <strong>difusi&oacute;n, publicidad y campa&ntilde;as institucionales</strong> &mdash; con la serie hist&oacute;rica completa de <strong>2011 a 2026</strong> y los reportes mensuales oficiales publicados por la <strong>Tesorer&iacute;a Municipal</strong>. Cada Excel contiene proveedor, RFC, factura, fecha, monto, partida y justificaci&oacute;n.</p>
+    </div>
+  </div>
 
   <!-- ============================================================
        COMPARATIVO HISTÓRICO ANUAL 2011–2026
@@ -366,7 +372,7 @@ body{font-family:var(--fh);background:var(--g50);color:var(--g900);line-height:1
     <div class="chart-head">
       <div>
         <div class="chart-title">Reportes mensuales descargables &middot; Tesorer&iacute;a Municipal</div>
-        <div class="chart-sub">El desglose completo del gasto (proveedor, RFC, factura, fecha, monto, partida y justificaci&oacute;n) se publica en archivos oficiales <strong>mes por mes</strong> directamente por la Tesorer&iacute;a del Ayuntamiento. Cada <strong>Excel</strong> contiene los registros del periodo y cada <strong>Oficio PDF</strong> certifica los meses sin ejercicio de gasto. Filtra por a&ntilde;o y haz clic en cualquier tarjeta para descargar el reporte. <strong>52 archivos catalogados</strong>.</div>
+        <div class="chart-sub">El desglose completo del gasto (proveedor, RFC, factura, fecha, monto, partida y justificaci&oacute;n) se publica en archivos oficiales <strong>mes por mes</strong> directamente por la Tesorer&iacute;a del Ayuntamiento. Cada <strong>Excel</strong> contiene los registros del periodo y cada <strong>Oficio PDF</strong> certifica los meses sin ejercicio de gasto. Filtra por a&ntilde;o y haz clic en cualquier tarjeta para descargar el reporte. <strong>53 archivos catalogados</strong>.</div>
       </div>
       <div class="chart-toggle" id="archivosFiltro" role="tablist" aria-label="Filtrar archivos por a&ntilde;o">
         <button class="archivos-fyear active" data-fyear="all">Todos</button>
@@ -384,13 +390,17 @@ body{font-family:var(--fh);background:var(--g50);color:var(--g900);line-height:1
     </div>
   </div>
 
-  <div class="footer">
-    <p>Gobierno Municipal de Guadalajara &bull; Portal de Transparencia &bull; <a href="https://transparencia.guadalajara.gob.mx" target="_blank">transparencia.guadalajara.gob.mx</a></p>
-    <p style="margin-top:5px">Art&iacute;culo 8, Fracci&oacute;n V, Inciso j) &mdash; Ley de Transparencia y Acceso a la Informaci&oacute;n P&uacute;blica del Estado de Jalisco y sus Municipios</p>
-    <p style="margin-top:5px">Fuente oficial &mdash; reportes mensuales: <a href="https://enlinea.guadalajara.gob.mx/tesoreria/presupuestalComunicacionSocial.php" target="_blank" rel="noopener">enlinea.guadalajara.gob.mx/tesoreria/presupuestalComunicacionSocial.php</a></p>
-    <p style="margin-top:5px">Fuente oficial &mdash; comparativo hist&oacute;rico (partida 3611): <a href="https://enlinea.guadalajara.gob.mx/tesoreria/comparativoAnteriores.php" target="_blank" rel="noopener">enlinea.guadalajara.gob.mx/tesoreria/comparativoAnteriores.php</a></p>
-    <p style="margin-top:5px;font-size:10.5px;color:var(--g400)">Si una cifra aqu&iacute; mostrada discrepa con el portal oficial, prevalece el portal oficial.</p>
-  </div>
+  <section class="cs-ley">
+    <div class="cs-cifras">
+      <div class="cs-cifra"><div class="cs-cifra-num">2011&ndash;2026</div><div class="cs-cifra-lbl">Serie hist&oacute;rica</div></div>
+      <div class="cs-cifra"><div class="cs-cifra-num">53</div><div class="cs-cifra-lbl">Reportes mensuales</div></div>
+      <div class="cs-cifra"><div class="cs-cifra-num">100%</div><div class="cs-cifra-lbl">Consultable y descargable</div></div>
+    </div>
+    <div class="cs-ley-eye">Fundamento legal</div>
+    <h3>&iquest;Por qu&eacute; se publica esta informaci&oacute;n?</h3>
+    <p>Se publica conforme al <strong>Art&iacute;culo 8, Fracci&oacute;n V, Inciso j)</strong> de la <strong>Ley de Transparencia y Acceso a la Informaci&oacute;n P&uacute;blica del Estado de Jalisco y sus Municipios</strong> &mdash; el gasto en difusi&oacute;n, publicidad y campa&ntilde;as institucionales. Publicado mensualmente por la <strong>Tesorer&iacute;a Municipal</strong> del Ayuntamiento de Guadalajara; cada reporte detalla proveedor, RFC, factura, fecha, monto, partida y justificaci&oacute;n.</p>
+    <p>Si una cifra mostrada aqu&iacute; discrepa del archivo oficial, <strong>prevalece el archivo oficial.</strong></p>
+  </section>
 </div>
 
 <script>
@@ -445,6 +455,13 @@ function fmtCurrencyShort(n){
   if(n >= 1e6) return '$' + (n/1e6).toFixed(2).replace(/\.?0+$/,'') + ' MDP';
   if(n >= 1e3) return '$' + (n/1e3).toFixed(0) + 'K';
   return '$' + n.toFixed(0);
+}
+function fmtCurrencyMicro(n){
+  if(n >= 1e9) return '$' + (n/1e9).toFixed(1).replace(/\.0$/,'') + 'B';
+  if(n >= 1e8) return '$' + Math.round(n/1e6) + 'M';
+  if(n >= 1e6) return '$' + (n/1e6).toFixed(1).replace(/\.0$/,'') + 'M';
+  if(n >= 1e3) return '$' + Math.round(n/1e3) + 'K';
+  return '$' + Math.round(n);
 }
 
 /* Color de admin para tooltip dot (matches CSS .adm-N) */
@@ -545,7 +562,7 @@ function renderHistorical(){
 
     return `
       <div class="hist-bar-wrap" role="listitem">
-        <div class="hist-bar-val">${fmtCurrencyShort(d.amt)}</div>
+        <div class="hist-bar-val">${fmtCurrencyMicro(d.amt)}</div>
         <div class="hist-bar ${admCls}" style="height:${heightPct}%" aria-label="${d.yr}: ${fmtCurrency(d.amt)}, ranking ${rank} de ${conRegistros.length}">
           <div class="hist-tip" ${edgeAttr}>
             <div class="hist-tip-h"><span class="hist-tip-h-dot" style="background:${tipDotColor}"></span>Ejercicio ${d.yr}</div>
@@ -613,7 +630,7 @@ renderHistorical();
 
 
 // ============ ARCHIVOS MENSUALES OFICIALES (Tesoreria Municipal) ============
-const ARCHIVOS_MENSUALES = [{"tipo":"PDF","estado":"sin_gasto","monto":0,"mes_nombre":"Enero","mes":1,"anio":2022,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/OficioGastosComunicacionSocialEnero2022.pdf"},{"tipo":"PDF","estado":"sin_gasto","monto":0,"mes_nombre":"Febrero","mes":2,"anio":2022,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/OficioGastosComunicacionSocialFebrero2022.pdf"},{"tipo":"PDF","estado":"sin_gasto","monto":0,"mes_nombre":"Marzo","mes":3,"anio":2022,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/OficioGastosComunicacionSocialMarzo2022.pdf"},{"tipo":"Excel","estado":"con_datos","monto":675000.01,"mes_nombre":"Abril","mes":4,"anio":2022,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Abril22.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":1999999.98,"mes_nombre":"Mayo","mes":5,"anio":2022,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Mayo22.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":2556240.43,"mes_nombre":"Junio","mes":6,"anio":2022,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Junio22.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":5927040.25,"mes_nombre":"Julio","mes":7,"anio":2022,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Julio22.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":4778899.75,"mes_nombre":"Agosto","mes":8,"anio":2022,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Agosto22.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":1990130.79,"mes_nombre":"Septiembre","mes":9,"anio":2022,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Septiembre22.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":9996836.82,"mes_nombre":"Octubre","mes":10,"anio":2022,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Octubre22.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":4643062.84,"mes_nombre":"Noviembre","mes":11,"anio":2022,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Noviembre22.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":2641102.64,"mes_nombre":"Diciembre","mes":12,"anio":2022,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Diciembre22.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":5827725.47,"mes_nombre":"Enero","mes":1,"anio":2023,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Enero23.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":2159952.92,"mes_nombre":"Febrero","mes":2,"anio":2023,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Febrero23.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":4569633.07,"mes_nombre":"Marzo","mes":3,"anio":2023,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Marzo23.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":8311630.44,"mes_nombre":"Abril","mes":4,"anio":2023,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Abril23.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":6110550.24,"mes_nombre":"Mayo","mes":5,"anio":2023,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Mayo23.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":1596489.83,"mes_nombre":"Junio","mes":6,"anio":2023,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Junio23.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":950230.63,"mes_nombre":"Julio","mes":7,"anio":2023,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Julio23.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":4518029.97,"mes_nombre":"Agosto","mes":8,"anio":2023,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Agosto23.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":2050082.38,"mes_nombre":"Septiembre","mes":9,"anio":2023,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Septiembre23.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":6369538.63,"mes_nombre":"Octubre","mes":10,"anio":2023,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Octubre23.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":4000995.24,"mes_nombre":"Noviembre","mes":11,"anio":2023,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Noviembre23.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":6290891.43,"mes_nombre":"Diciembre","mes":12,"anio":2023,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Diciembre23.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":3325481.12,"mes_nombre":"Enero","mes":1,"anio":2024,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Enero24.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":1950000.01,"mes_nombre":"Febrero","mes":2,"anio":2024,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Febrero24.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":1055555.54,"mes_nombre":"Marzo","mes":3,"anio":2024,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Marzo24.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":5728585.84,"mes_nombre":"Abril","mes":4,"anio":2024,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Abril24.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":7310418.82,"mes_nombre":"Mayo","mes":5,"anio":2024,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Mayo24.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":3457706.76,"mes_nombre":"Junio","mes":6,"anio":2024,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Junio24.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":6486753.79,"mes_nombre":"Julio","mes":7,"anio":2024,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Julio24.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":884318.71,"mes_nombre":"Agosto","mes":8,"anio":2024,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Agosto24.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":4427790.56,"mes_nombre":"Septiembre","mes":9,"anio":2024,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Septiembre24.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":7203658.54,"mes_nombre":"Octubre","mes":10,"anio":2024,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Octubre24.xlsx"},{"tipo":"PDF","estado":"sin_gasto","monto":0,"mes_nombre":"Noviembre","mes":11,"anio":2024,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/OficioGastosComunicacionSocialNoviembre24.pdf"},{"tipo":"PDF","estado":"sin_gasto","monto":0,"mes_nombre":"Diciembre","mes":12,"anio":2024,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/OficioGastosComunicacionSocialDiciembre24.pdf"},{"tipo":"Excel","estado":"con_datos","monto":1211204.94,"mes_nombre":"Enero","mes":1,"anio":2025,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Enero25.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":937375.47,"mes_nombre":"Febrero","mes":2,"anio":2025,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Febrero25.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":1649412.96,"mes_nombre":"Marzo","mes":3,"anio":2025,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Marzo25.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":2980287.3,"mes_nombre":"Abril","mes":4,"anio":2025,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Abril25.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":1998963.82,"mes_nombre":"Mayo","mes":5,"anio":2025,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Mayo25.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":8785388.75,"mes_nombre":"Junio","mes":6,"anio":2025,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Junio25.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":3660232.31,"mes_nombre":"Julio","mes":7,"anio":2025,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Julio25.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":6608403.95,"mes_nombre":"Agosto","mes":8,"anio":2025,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Agosto25.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":1009138.8,"mes_nombre":"Septiembre","mes":9,"anio":2025,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Septiembre25.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":8745790.42,"mes_nombre":"Octubre","mes":10,"anio":2025,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Octubre25.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":7747911.52,"mes_nombre":"Noviembre","mes":11,"anio":2025,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Noviembre25.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":4486601,"mes_nombre":"Diciembre","mes":12,"anio":2025,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Diciembre25.xlsx"},{"tipo":"PDF","estado":"sin_gasto","monto":0,"mes_nombre":"Enero","mes":1,"anio":2026,"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/OficioGastosComunicacionSocialEnero26.pdf"},{"tipo":"PDF","estado":"sin_gasto","monto":0,"mes_nombre":"Febrero","mes":2,"anio":2026,"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/OficioGastosComunicacionSocialFebrero26.pdf"},{"tipo":"PDF","estado":"sin_gasto","monto":0,"mes_nombre":"Marzo","mes":3,"anio":2026,"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/OficioGastosComunicacionSocialMarzo26.pdf"},{"tipo":"PDF","estado":"sin_gasto","monto":0,"mes_nombre":"Abril","mes":4,"anio":2026,"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/OficioAnalisisComunicacionEstrategicaAbril26.pdf"}];
+const ARCHIVOS_MENSUALES = [{"tipo":"PDF","estado":"sin_gasto","monto":0,"mes_nombre":"Enero","mes":1,"anio":2022,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/OficioGastosComunicacionSocialEnero2022.pdf"},{"tipo":"PDF","estado":"sin_gasto","monto":0,"mes_nombre":"Febrero","mes":2,"anio":2022,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/OficioGastosComunicacionSocialFebrero2022.pdf"},{"tipo":"PDF","estado":"sin_gasto","monto":0,"mes_nombre":"Marzo","mes":3,"anio":2022,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/OficioGastosComunicacionSocialMarzo2022.pdf"},{"tipo":"Excel","estado":"con_datos","monto":675000.01,"mes_nombre":"Abril","mes":4,"anio":2022,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Abril22.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":1999999.98,"mes_nombre":"Mayo","mes":5,"anio":2022,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Mayo22.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":2556240.43,"mes_nombre":"Junio","mes":6,"anio":2022,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Junio22.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":5927040.25,"mes_nombre":"Julio","mes":7,"anio":2022,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Julio22.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":4778899.75,"mes_nombre":"Agosto","mes":8,"anio":2022,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Agosto22.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":1990130.79,"mes_nombre":"Septiembre","mes":9,"anio":2022,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Septiembre22.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":9996836.82,"mes_nombre":"Octubre","mes":10,"anio":2022,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Octubre22.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":4643062.84,"mes_nombre":"Noviembre","mes":11,"anio":2022,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Noviembre22.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":2641102.64,"mes_nombre":"Diciembre","mes":12,"anio":2022,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Diciembre22.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":5827725.47,"mes_nombre":"Enero","mes":1,"anio":2023,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Enero23.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":2159952.92,"mes_nombre":"Febrero","mes":2,"anio":2023,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Febrero23.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":4569633.07,"mes_nombre":"Marzo","mes":3,"anio":2023,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Marzo23.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":8311630.44,"mes_nombre":"Abril","mes":4,"anio":2023,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Abril23.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":6110550.24,"mes_nombre":"Mayo","mes":5,"anio":2023,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Mayo23.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":1596489.83,"mes_nombre":"Junio","mes":6,"anio":2023,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Junio23.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":950230.63,"mes_nombre":"Julio","mes":7,"anio":2023,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Julio23.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":4518029.97,"mes_nombre":"Agosto","mes":8,"anio":2023,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Agosto23.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":2050082.38,"mes_nombre":"Septiembre","mes":9,"anio":2023,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Septiembre23.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":6369538.63,"mes_nombre":"Octubre","mes":10,"anio":2023,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Octubre23.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":4000995.24,"mes_nombre":"Noviembre","mes":11,"anio":2023,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Noviembre23.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":6290891.43,"mes_nombre":"Diciembre","mes":12,"anio":2023,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Diciembre23.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":3325481.12,"mes_nombre":"Enero","mes":1,"anio":2024,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Enero24.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":1950000.01,"mes_nombre":"Febrero","mes":2,"anio":2024,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Febrero24.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":1055555.54,"mes_nombre":"Marzo","mes":3,"anio":2024,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Marzo24.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":5728585.84,"mes_nombre":"Abril","mes":4,"anio":2024,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Abril24.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":7310418.82,"mes_nombre":"Mayo","mes":5,"anio":2024,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Mayo24.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":3457706.76,"mes_nombre":"Junio","mes":6,"anio":2024,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Junio24.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":6486753.79,"mes_nombre":"Julio","mes":7,"anio":2024,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Julio24.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":884318.71,"mes_nombre":"Agosto","mes":8,"anio":2024,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Agosto24.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":4427790.56,"mes_nombre":"Septiembre","mes":9,"anio":2024,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Septiembre24.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":7203658.54,"mes_nombre":"Octubre","mes":10,"anio":2024,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Octubre24.xlsx"},{"tipo":"PDF","estado":"sin_gasto","monto":0,"mes_nombre":"Noviembre","mes":11,"anio":2024,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/OficioGastosComunicacionSocialNoviembre24.pdf"},{"tipo":"PDF","estado":"sin_gasto","monto":0,"mes_nombre":"Diciembre","mes":12,"anio":2024,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/OficioGastosComunicacionSocialDiciembre24.pdf"},{"tipo":"Excel","estado":"con_datos","monto":1211204.94,"mes_nombre":"Enero","mes":1,"anio":2025,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Enero25.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":937375.47,"mes_nombre":"Febrero","mes":2,"anio":2025,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Febrero25.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":1649412.96,"mes_nombre":"Marzo","mes":3,"anio":2025,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Marzo25.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":2980287.3,"mes_nombre":"Abril","mes":4,"anio":2025,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Abril25.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":1998963.82,"mes_nombre":"Mayo","mes":5,"anio":2025,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Mayo25.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":8785388.75,"mes_nombre":"Junio","mes":6,"anio":2025,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Junio25.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":3660232.31,"mes_nombre":"Julio","mes":7,"anio":2025,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Julio25.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":6608403.95,"mes_nombre":"Agosto","mes":8,"anio":2025,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Agosto25.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":1009138.8,"mes_nombre":"Septiembre","mes":9,"anio":2025,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Septiembre25.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":8745790.42,"mes_nombre":"Octubre","mes":10,"anio":2025,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Octubre25.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":7747911.52,"mes_nombre":"Noviembre","mes":11,"anio":2025,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Noviembre25.xlsx"},{"tipo":"Excel","estado":"con_datos","monto":4486601,"mes_nombre":"Diciembre","mes":12,"anio":2025,"url":"https://enlinea.guadalajara.gob.mx/tesoreria/files/Gastos-Comunicacion-Social-Diciembre25.xlsx"},{"tipo":"PDF","estado":"sin_gasto","monto":0,"mes_nombre":"Enero","mes":1,"anio":2026,"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/OficioGastosComunicacionSocialEnero26.pdf"},{"tipo":"PDF","estado":"sin_gasto","monto":0,"mes_nombre":"Febrero","mes":2,"anio":2026,"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/OficioGastosComunicacionSocialFebrero26.pdf"},{"tipo":"PDF","estado":"sin_gasto","monto":0,"mes_nombre":"Marzo","mes":3,"anio":2026,"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/OficioGastosComunicacionSocialMarzo26.pdf"},{"tipo":"PDF","estado":"sin_gasto","monto":0,"mes_nombre":"Abril","mes":4,"anio":2026,"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/OficioAnalisisComunicacionEstrategicaAbril26.pdf"},{"tipo":"PDF","estado":"sin_gasto","monto":0,"mes_nombre":"Mayo","mes":5,"anio":2026,"url":"https://transparencia.guadalajara.gob.mx/sites/default/files/OficioGastosComunicacionSocialMayo26.pdf"}];
 
 let archivosFiltroAnio = 'all';
 
