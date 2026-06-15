@@ -27,7 +27,7 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--g900);line-height:1.55}
+body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:var(--g900);line-height:1.55}
 .au-wrap{max-width:1200px;margin:0 auto}
 
 /* HERO */
@@ -607,63 +607,9 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
     <span class="au-hero-tag">Art. 8 · Fracción V · Inciso n)</span>
     <h2>¿Quién revisa al Ayuntamiento? <em>Las auditorías que vigilan el uso de tu dinero</em></h2>
     <p class="au-hero-sub">Cada peso público debe ser revisado. El Ayuntamiento de Guadalajara es auditado <strong>por su propia Contraloría</strong> (auditorías internas), <strong>por la Auditoría Superior del Estado y de la Federación</strong> (auditorías externas) y, en algunos casos, <strong>por la propia ciudadanía</strong> (auditorías participativas). Aquí están todos los documentos oficiales, ordenados por año y por tipo.</p>
-    <div class="au-cifras">
-      <div class="au-cifra">
-        <div class="au-cifra-num">4</div>
-        <div class="au-cifra-lbl">Tipos de auditoría</div>
-      </div>
-      <div class="au-cifra">
-        <div class="au-cifra-num">7</div>
-        <div class="au-cifra-lbl">Años de auditorías internas</div>
-      </div>
-      <div class="au-cifra">
-        <div class="au-cifra-num">44</div>
-        <div class="au-cifra-lbl">Oficios externos publicados</div>
-      </div>
-      <div class="au-cifra">
-        <div class="au-cifra-num">3</div>
-        <div class="au-cifra-lbl">Órganos auditores oficiales</div>
-      </div>
-    </div>
   </section>
 
-  <!-- POSTALES EDUCATIVAS -->
-  <div class="au-postales">
-    <div class="au-postal interna">
-      <div class="au-postal-cover">
-        <div class="au-postal-icono" aria-hidden="true">
-          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 9h1"/><path d="M9 13h1"/><path d="M14 9h1"/><path d="M14 13h1"/><path d="M9 17h6"/></svg>
-        </div>
-        <div class="au-postal-illus">IN</div>
-      </div>
-      <div class="au-postal-body">
-        <div class="au-postal-eye">Auditoría interna</div>
-        <h3 class="au-postal-title">El propio Ayuntamiento se revisa a sí mismo</h3>
-        <p class="au-postal-desc">La <strong>Contraloría Ciudadana</strong> del Ayuntamiento revisa cómo cada dependencia (Tesorería, Obras Públicas, Servicios Médicos, etc.) maneja el dinero, los contratos, los inventarios y los procedimientos. Es la auditoría <strong>desde adentro</strong>.</p>
-      </div>
-    </div>
-
-    <div class="au-postal externa">
-      <div class="au-postal-cover">
-        <div class="au-postal-icono" aria-hidden="true">
-          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 14.14 14.14"/><circle cx="12" cy="12" r="3"/></svg>
-        </div>
-        <div class="au-postal-illus">EX</div>
-      </div>
-      <div class="au-postal-body">
-        <div class="au-postal-eye">Auditoría externa</div>
-        <h3 class="au-postal-title">Auditores independientes revisan al Ayuntamiento</h3>
-        <p class="au-postal-desc">La <strong>Auditoría Superior del Estado de Jalisco</strong> (ASEJ), la <strong>Auditoría Superior de la Federación</strong> (ASF) y la <strong>Contraloría del Estado</strong> revisan al Ayuntamiento <strong>desde afuera</strong>. Es la auditoría que no depende del propio Ayuntamiento.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- LEYENDA -->
-  <div class="au-legend">
-    <div class="au-legend-eye">Lectura ciudadana de las auditorías</div>
-    <h3>¿Qué encuentras en esta sección?</h3>
-    <p>Los <strong>resultados de las revisiones</strong> hechas al Ayuntamiento de Guadalajara: hallazgos, observaciones, recomendaciones y, cuando aplica, las sanciones derivadas. Están agrupadas por <strong>tipo de auditoría</strong> (interna, externa, participativa) y por <strong>año</strong>. También incluye las <strong>auditorías a fondos federales</strong>, que son las que revisan el dinero etiquetado que el gobierno federal transfiere al municipio.</p>
-  </div>
+  <!-- (Postales educativas y lectura ciudadana movidas al footer "Para entenderlo mejor") -->
 
   <!-- ============================================================ -->
   <!-- APARTADO 1 · AUDITORÍAS INTERNAS (Internas + Participativas) -->
@@ -1070,12 +1016,59 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
     </div>
   </section>
 
+  <!-- LA PAGINA EN CIFRAS (footer armonizado) -->
+  <div style="font-size:11px;font-weight:800;color:var(--nr-d);letter-spacing:.14em;text-transform:uppercase;margin:32px 0 12px">La página en cifras</div>
+  <div class="au-cifras" style="max-width:none">
+    <div class="au-cifra"><div class="au-cifra-num">4</div><div class="au-cifra-lbl">Tipos de auditoría</div></div>
+    <div class="au-cifra"><div class="au-cifra-num">7</div><div class="au-cifra-lbl">Años de auditorías internas</div></div>
+    <div class="au-cifra"><div class="au-cifra-num">44</div><div class="au-cifra-lbl">Oficios externos publicados</div></div>
+    <div class="au-cifra"><div class="au-cifra-num">3</div><div class="au-cifra-lbl">Órganos auditores oficiales</div></div>
+  </div>
+
+  <!-- PARA ENTENDERLO MEJOR (descripciones ciudadanas, movidas al footer) -->
+  <div style="font-size:11px;font-weight:800;color:var(--nr-d);letter-spacing:.14em;text-transform:uppercase;margin:32px 0 12px">Para entenderlo mejor</div>
+  <div class="au-postales">
+    <div class="au-postal interna">
+      <div class="au-postal-cover">
+        <div class="au-postal-icono" aria-hidden="true">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 9h1"/><path d="M9 13h1"/><path d="M14 9h1"/><path d="M14 13h1"/><path d="M9 17h6"/></svg>
+        </div>
+        <div class="au-postal-illus">IN</div>
+      </div>
+      <div class="au-postal-body">
+        <div class="au-postal-eye">Auditoría interna</div>
+        <h3 class="au-postal-title">El propio Ayuntamiento se revisa a sí mismo</h3>
+        <p class="au-postal-desc">La <strong>Contraloría Ciudadana</strong> del Ayuntamiento revisa cómo cada dependencia (Tesorería, Obras Públicas, Servicios Médicos, etc.) maneja el dinero, los contratos, los inventarios y los procedimientos. Es la auditoría <strong>desde adentro</strong>.</p>
+      </div>
+    </div>
+
+    <div class="au-postal externa">
+      <div class="au-postal-cover">
+        <div class="au-postal-icono" aria-hidden="true">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 14.14 14.14"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <div class="au-postal-illus">EX</div>
+      </div>
+      <div class="au-postal-body">
+        <div class="au-postal-eye">Auditoría externa</div>
+        <h3 class="au-postal-title">Auditores independientes revisan al Ayuntamiento</h3>
+        <p class="au-postal-desc">La <strong>Auditoría Superior del Estado de Jalisco</strong> (ASEJ), la <strong>Auditoría Superior de la Federación</strong> (ASF) y la <strong>Contraloría del Estado</strong> revisan al Ayuntamiento <strong>desde afuera</strong>. Es la auditoría que no depende del propio Ayuntamiento.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="au-legend">
+    <div class="au-legend-eye">Lectura ciudadana de las auditorías</div>
+    <h3>¿Qué encuentras en esta sección?</h3>
+    <p>Los <strong>resultados de las revisiones</strong> hechas al Ayuntamiento de Guadalajara: hallazgos, observaciones, recomendaciones y, cuando aplica, las sanciones derivadas. Están agrupadas por <strong>tipo de auditoría</strong> (interna, externa, participativa) y por <strong>año</strong>. También incluye las <strong>auditorías a fondos federales</strong>, que son las que revisan el dinero etiquetado que el gobierno federal transfiere al municipio.</p>
+  </div>
+
   <!-- FUNDAMENTO LEGAL -->
   <div class="au-ley">
     <div class="au-ley-eye">Fundamento legal</div>
     <h3>¿Por qué se publica esta información?</h3>
     <p>Artículo 8, Fracción V, Inciso n) de la <strong>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</strong>:</p>
-    <blockquote>"Es información fundamental, obligatoria para todos los sujetos obligados, la siguiente: <strong>los resultados de las revisiones, auditorías y financieras y de desempeño</strong> que realicen los órganos de control, fiscalización interno y externos, <strong>así como los seguimientos</strong> que se realicen a las observaciones que de ellas se deriven."</blockquote>
+    <blockquote>"Las <strong>cuentas públicas</strong>, las <strong>auditorías internas y externas</strong>, así como los demás <strong>informes de gestión financiera</strong> del sujeto obligado, de cuando menos los últimos tres años."</blockquote>
     <p>Las auditorías son obligatorias y sus resultados son públicos. Esta página los organiza por <strong>tipo de auditoría</strong> y por <strong>año</strong> para que cualquier persona pueda consultar el estado de cada una.</p>
     <div class="au-ley-meta">
       <span><strong>Sujeto obligado:</strong> Ayuntamiento de Guadalajara</span>
@@ -1755,6 +1748,37 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
     if(auStatPageNum < pages){ auStatPageNum++; paintAuditList(normalize(auStatSearch.value.trim())); }
   });
   renderAuditList();
+
+  /* ===== Auto-altura para Strapi (postMessage; ResizeObserver cubre filtros/paginación) ===== */
+  var __lastH = 0;
+  function reportHeight(){
+    var h = Math.max(document.body.scrollHeight, document.documentElement.offsetHeight);
+    if (Math.abs(h - __lastH) > 1){ __lastH = h; try { parent.postMessage({ type:'gdl-iframe-height', id:'auditorias-art8-V-n', height: h }, '*'); } catch(e){} }
+  }
+  if (window.ResizeObserver){ try { new ResizeObserver(reportHeight).observe(document.body); } catch(e){} }
+  window.addEventListener('load', reportHeight);
+  window.addEventListener('resize', reportHeight);
+  setTimeout(reportHeight, 400); setTimeout(reportHeight, 1200); setTimeout(reportHeight, 2500);
+})();
+</script>
+
+<!-- BOTON SUBIR (UX) -->
+<style>
+.gx-top{position:fixed;right:18px;bottom:18px;z-index:60;width:46px;height:46px;border-radius:50%;border:0;background:var(--nr);color:#fff;box-shadow:0 6px 18px rgba(196,95,10,.38);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .18s,transform .18s,visibility .18s}
+.gx-top.show{opacity:1;visibility:visible;transform:none}
+.gx-top:hover{background:var(--nr-d)}
+@media (max-width:620px){.gx-top{right:12px;bottom:12px;width:42px;height:42px}}
+</style>
+<button type="button" class="gx-top" id="gxTopBtn" aria-label="Volver arriba" title="Volver arriba">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+<script>
+(function(){
+  var b = document.getElementById('gxTopBtn');
+  function s(){ b.classList.toggle('show', (window.pageYOffset||document.documentElement.scrollTop) > 280); }
+  window.addEventListener('scroll', s, {passive:true});
+  b.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+  s();
 })();
 </script>
 

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Donativos en numerario o en especie recibidos a favor del Presidente Municipal / Ayuntamiento de Guadalajara, reportados año con año. Art. 8, Fracción V, Inciso l) de la Ley de Transparencia del Estado de Jalisco y sus Municipios."/>
+<meta name="robots" content="index,follow"/>
+<title>Donativos recibidos a favor del Presidente Municipal · Art. 8 Fracc. V Inc. l) · Transparencia Guadalajara</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --nr:#E87722;--nr-l:#FF9A45;--nr-d:#C45F0A;--nr-soft:#FFF1E4;
+  --g50:#FAFAF8;--g100:#F0F0EC;--g200:#E2E2DD;--g300:#CFCFC8;--g400:#9E9E98;--g600:#5A5A55;--g800:#2D2D2A;--g900:#1A1A1A;
+  --wh:#FFF;--ok:#16A34A;
+  --rad:10px;--rad-lg:14px;
+  --sh:0 4px 22px rgba(0,0,0,.08);--sh-sm:0 1px 3px rgba(0,0,0,.06);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --fh:'Outfit',system-ui,-apple-system,sans-serif;--fm:'DM Mono','SF Mono',Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--fh);background:transparent;color:var(--g900);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--nr-d)}
+button{font-family:inherit;cursor:pointer}
+.main{max-width:1100px;margin:0 auto;padding:28px 20px 60px}
+
+/* HERO claro (familia) */
+.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#FFF4E8 0%,#FFFFFF 55%);border-radius:var(--rad-lg);border-left:5px solid var(--nr);padding:28px 30px;margin-bottom:22px;box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.12) 0%,transparent 70%);pointer-events:none}
+.bc{font-size:11.5px;color:var(--g600);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;font-weight:600;position:relative;z-index:1}
+.badge{display:inline-block;background:var(--nr);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;box-shadow:0 2px 6px rgba(232,119,34,.25);position:relative;z-index:1}
+.hero h1{font-size:clamp(23px,3.3vw,33px);font-weight:800;color:var(--g900);line-height:1.16;margin-bottom:10px;letter-spacing:-.015em;position:relative;z-index:1}
+.hero p{color:#5a4d3e;font-size:clamp(13px,1.45vw,15px);max-width:80ch;line-height:1.6;position:relative;z-index:1}
+.hero p strong{color:var(--g900);font-weight:700}
+
+/* INTRO CTA */
+.sec-h{display:flex;align-items:center;gap:11px;margin:26px 0 14px}
+.sec-h-num{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--nr) 0%,var(--nr-d) 100%);color:#fff;font-family:var(--fm);font-weight:700;font-size:13px;box-shadow:0 2px 6px rgba(232,119,34,.28)}
+.sec-h-title{font-size:18px;font-weight:800;color:var(--g900);letter-spacing:-.01em}
+.sec-sub{font-size:13.5px;color:var(--g600);margin:-6px 0 14px 42px;line-height:1.5}
+
+/* AÑOS */
+.year-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:14px}
+.year-card{background:var(--wh);border:1.5px solid var(--g200);border-radius:var(--rad-lg);padding:0;overflow:hidden;display:flex;flex-direction:column;transition:border-color .18s var(--ease),box-shadow .18s var(--ease),transform .18s var(--ease)}
+.year-card:hover{border-color:var(--nr-l);box-shadow:0 6px 18px rgba(232,119,34,.12);transform:translateY(-2px)}
+.year-card-top{padding:15px 18px 12px;background:linear-gradient(180deg,var(--g50) 0%,var(--wh) 100%);border-bottom:1px solid var(--g100);display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.year-card-yr{font-family:var(--fm);font-size:24px;font-weight:700;color:var(--g900);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.year-card-tag{font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:999px;background:var(--g100);color:var(--g600)}
+.year-card-tag.vig{background:#E7F6EE;color:#0E6B4C}
+.year-card-body{padding:14px 18px 16px;display:flex;flex-direction:column;gap:10px;flex:1}
+.year-card-per{font-size:12.5px;color:var(--g600);font-weight:600}
+.year-card-per strong{color:var(--g900)}
+.dl{display:flex;align-items:center;gap:11px;padding:11px 13px;background:var(--g50);border:1.5px solid var(--g200);border-radius:9px;text-decoration:none;color:var(--g900);transition:all .15s var(--ease);margin-top:auto}
+.dl:hover{background:var(--nr-soft);border-color:var(--nr);transform:translateX(2px)}
+.dl-ico{flex-shrink:0;width:32px;height:32px;border-radius:7px;background:var(--ok);color:#fff;font-family:var(--fm);font-size:9.5px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.dl-info{display:flex;flex-direction:column;gap:1px;flex:1;min-width:0}
+.dl-lbl{font-size:13px;font-weight:700;color:var(--g900);line-height:1.25}
+.dl-fmt{font-size:10.5px;color:var(--g600);font-weight:500;font-family:var(--fm)}
+.dl-arr{flex-shrink:0;color:var(--nr-d);opacity:.6;transition:opacity .15s,transform .15s}
+.dl:hover .dl-arr{opacity:1;transform:translateY(2px)}
+
+/* FOOTER cifras + ciudadana + ley */
+.foot-title{font-size:11px;font-weight:800;color:var(--nr-d);letter-spacing:.14em;text-transform:uppercase;margin:34px 0 12px}
+.cifras{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.cifra{background:var(--g50);border:1.5px solid #FFD2A5;border-radius:var(--rad);padding:14px 16px}
+.cifra-num{font-family:var(--fm);font-size:28px;font-weight:700;line-height:1;color:var(--nr-d);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.cifra-lbl{font-size:11px;font-weight:700;color:#5a4d3e;text-transform:uppercase;letter-spacing:.06em;margin-top:4px;line-height:1.3}
+.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:14px}
+.info-card{background:var(--wh);border:1px solid var(--g200);border-radius:var(--rad);padding:18px 20px;box-shadow:var(--sh-sm)}
+.info-card h3{font-size:15px;font-weight:800;color:var(--g900);margin-bottom:7px;letter-spacing:-.008em}
+.info-card p{font-size:13px;color:var(--g600);line-height:1.6}
+.info-card p strong{color:var(--g800);font-weight:600}
+.ley{background:var(--wh);border-radius:var(--rad-lg);padding:22px 26px;border-left:4px solid var(--nr-d);box-shadow:var(--sh-sm);margin-top:22px}
+.ley-eye{font-size:10.5px;font-weight:800;color:var(--nr-d);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.ley h3{font-size:16px;font-weight:800;color:var(--g900);margin-bottom:8px}
+.ley p{font-size:13px;color:var(--g600);line-height:1.65;margin-bottom:6px}
+.ley p strong{color:var(--g800);font-weight:600}
+.ley blockquote{font-size:13.5px;color:#5a4d3e;line-height:1.65;margin:12px 0 8px;padding:12px 18px;background:var(--nr-soft);border-left:3px solid var(--nr);border-radius:6px;font-style:italic}
+.ley blockquote strong{color:var(--g900);font-style:normal;font-weight:700}
+
+/* BOTON SUBIR */
+.gx-top{position:fixed;right:18px;bottom:18px;z-index:60;width:46px;height:46px;border-radius:50%;border:0;background:var(--nr);color:#fff;box-shadow:0 6px 18px rgba(196,95,10,.38);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .18s,transform .18s,visibility .18s}
+.gx-top.show{opacity:1;visibility:visible;transform:none}
+.gx-top:hover{background:var(--nr-d)}
+@media(max-width:680px){.cifras{grid-template-columns:repeat(3,1fr)}.main{padding:20px 14px 40px}.hero{padding:22px 18px}}
+@media(max-width:620px){.gx-top{right:12px;bottom:12px;width:42px;height:42px}}
+</style>
+</head>
+<body>
+<main class="main">
+
+  <section class="hero">
+    <div class="bc">Transparencia Guadalajara &bull; Gobierno Municipal</div>
+    <div class="badge">Art. 8 &bull; Fracc. V &bull; Inc. l)</div>
+    <h1>Donativos recibidos a favor del Presidente Municipal</h1>
+    <p>Aqu&iacute; se reportan los <strong>donativos, en numerario o en especie</strong>, que terceros entregan a favor del Presidente Municipal de Guadalajara. Cada archivo es el <strong>compendio anual oficial</strong> publicado por el Ayuntamiento, con el donante, el bien o monto y la fecha. Descarga el a&ntilde;o que quieras consultar.</p>
+  </section>
+
+  <div class="sec-h">
+    <span class="sec-h-num">1</span>
+    <span class="sec-h-title">Descarga el reporte por ejercicio</span>
+  </div>
+  <p class="sec-sub">Compilados anuales en formato Excel. El ejercicio vigente se reporta conforme avanza el a&ntilde;o.</p>
+
+  <div class="year-grid">
+    <article class="year-card">
+      <div class="year-card-top"><span class="year-card-yr">2026</span><span class="year-card-tag vig">Vigente</span></div>
+      <div class="year-card-body">
+        <div class="year-card-per">Periodo: <strong>Enero a Marzo 2026</strong></div>
+        <a class="dl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/DonativosAlPresidenteMar26.xlsx" target="_blank" rel="noopener noreferrer" download>
+          <span class="dl-ico">XLSX</span><span class="dl-info"><span class="dl-lbl">Descargar Excel</span><span class="dl-fmt">Ene&ndash;Mar 2026</span></span>
+          <svg class="dl-arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/><path d="M5 21h14"/></svg>
+        </a>
+      </div>
+    </article>
+    <article class="year-card">
+      <div class="year-card-top"><span class="year-card-yr">2025</span><span class="year-card-tag">Cerrado</span></div>
+      <div class="year-card-body">
+        <div class="year-card-per">Periodo: <strong>Enero a Diciembre 2025</strong></div>
+        <a class="dl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/DonativosAlPresidenteDic25.xlsx" target="_blank" rel="noopener noreferrer" download>
+          <span class="dl-ico">XLSX</span><span class="dl-info"><span class="dl-lbl">Descargar Excel</span><span class="dl-fmt">Ene&ndash;Dic 2025</span></span>
+          <svg class="dl-arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/><path d="M5 21h14"/></svg>
+        </a>
+      </div>
+    </article>
+    <article class="year-card">
+      <div class="year-card-top"><span class="year-card-yr">2024</span><span class="year-card-tag">Cerrado</span></div>
+      <div class="year-card-body">
+        <div class="year-card-per">Periodo: <strong>Enero a Diciembre 2024</strong></div>
+        <a class="dl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/DonativosAlPresidenteDic24.xlsx" target="_blank" rel="noopener noreferrer" download>
+          <span class="dl-ico">XLSX</span><span class="dl-info"><span class="dl-lbl">Descargar Excel</span><span class="dl-fmt">Ene&ndash;Dic 2024</span></span>
+          <svg class="dl-arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/><path d="M5 21h14"/></svg>
+        </a>
+      </div>
+    </article>
+    <article class="year-card">
+      <div class="year-card-top"><span class="year-card-yr">2023</span><span class="year-card-tag">Cerrado</span></div>
+      <div class="year-card-body">
+        <div class="year-card-per">Periodo: <strong>Enero a Diciembre 2023</strong></div>
+        <a class="dl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/DonativosAlPresidenteDic23.xlsx" target="_blank" rel="noopener noreferrer" download>
+          <span class="dl-ico">XLSX</span><span class="dl-info"><span class="dl-lbl">Descargar Excel</span><span class="dl-fmt">Ene&ndash;Dic 2023</span></span>
+          <svg class="dl-arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/><path d="M5 21h14"/></svg>
+        </a>
+      </div>
+    </article>
+    <article class="year-card">
+      <div class="year-card-top"><span class="year-card-yr">2022</span><span class="year-card-tag">Cerrado</span></div>
+      <div class="year-card-body">
+        <div class="year-card-per">Periodo: <strong>Enero a Diciembre 2022</strong></div>
+        <a class="dl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/DonativosAlPresidenteDic22.xlsx" target="_blank" rel="noopener noreferrer" download>
+          <span class="dl-ico">XLSX</span><span class="dl-info"><span class="dl-lbl">Descargar Excel</span><span class="dl-fmt">Ene&ndash;Dic 2022</span></span>
+          <svg class="dl-arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/><path d="M5 21h14"/></svg>
+        </a>
+      </div>
+    </article>
+    <article class="year-card">
+      <div class="year-card-top"><span class="year-card-yr">2021</span><span class="year-card-tag">Cerrado</span></div>
+      <div class="year-card-body">
+        <div class="year-card-per">Periodo: <strong>Octubre a Diciembre 2021</strong></div>
+        <a class="dl" href="https://transparencia.guadalajara.gob.mx/sites/default/files/DonativosAlPresidenteOct-Dic21.xlsx" target="_blank" rel="noopener noreferrer" download>
+          <span class="dl-ico">XLSX</span><span class="dl-info"><span class="dl-lbl">Descargar Excel</span><span class="dl-fmt">Oct&ndash;Dic 2021</span></span>
+          <svg class="dl-arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/><path d="M5 21h14"/></svg>
+        </a>
+      </div>
+    </article>
+  </div>
+
+  <div class="foot-title">La p&aacute;gina en cifras</div>
+  <div class="cifras">
+    <div class="cifra"><div class="cifra-num">6</div><div class="cifra-lbl">Ejercicios reportados</div></div>
+    <div class="cifra"><div class="cifra-num">2021&ndash;2026</div><div class="cifra-lbl">Cobertura</div></div>
+    <div class="cifra"><div class="cifra-num">100%</div><div class="cifra-lbl">Descargable</div></div>
+  </div>
+
+  <div class="foot-title">Para entenderlo mejor</div>
+  <div class="info">
+    <div class="info-card">
+      <h3>&iquest;Qu&eacute; es un donativo recibido?</h3>
+      <p>Es cualquier <strong>aportaci&oacute;n en dinero o en especie</strong> (bienes, servicios) que una persona o empresa entrega a favor del Presidente Municipal o del Ayuntamiento. Aunque no salga del presupuesto, la ley obliga a reportarlo para que se sepa <strong>qui&eacute;n da qu&eacute;</strong>.</p>
+    </div>
+    <div class="info-card">
+      <h3>&iquest;Por qu&eacute; se publica?</h3>
+      <p>Para <strong>prevenir conflictos de inter&eacute;s</strong>: que la ciudadan&iacute;a pueda ver si quien dona luego recibe contratos, permisos o beneficios. Es una herramienta de vigilancia ciudadana sobre la autoridad.</p>
+    </div>
+    <div class="info-card">
+      <h3>&iquest;Qu&eacute; trae cada archivo?</h3>
+      <p>El compendio anual en Excel incluye, cuando aplica, el <strong>nombre del donante</strong>, el <strong>bien o monto donado</strong>, la fecha y el destino. Si un a&ntilde;o no registra donativos, el archivo igual se publica como constancia.</p>
+    </div>
+  </div>
+
+  <section class="ley">
+    <div class="ley-eye">Fundamento legal</div>
+    <h3>&iquest;Por qu&eacute; el Ayuntamiento publica esta informaci&oacute;n?</h3>
+    <p>Art&iacute;culo 8, Fracci&oacute;n V, Inciso l) de la <strong>Ley de Transparencia y Acceso a la Informaci&oacute;n P&uacute;blica del Estado de Jalisco y sus Municipios</strong>:</p>
+    <blockquote>"Los <strong>subsidios</strong>, en especie o en numerario, <strong>recibidos</strong> por el sujeto obligado, as&iacute; como los <strong>otorgados</strong> por el sujeto obligado (&hellip;); en el caso de <strong>donaciones, est&iacute;mulos y apoyos hechos a terceros</strong> en dinero o en especie (&hellip;) se deber&aacute; se&ntilde;alar el concepto o nombre del donativo, monto, nombre del beneficiario, temporalidad, criterios para otorgarlo, as&iacute; como el acta, minuta u oficio de aprobaci&oacute;n."</blockquote>
+    <p>Publicado por la <strong>Tesorer&iacute;a Municipal</strong> &middot; Ayuntamiento de Guadalajara. Los archivos de esta p&aacute;gina son los oficiales tal como fueron publicados por el sujeto obligado; ante cualquier discrepancia, <strong>prevalece el archivo oficial</strong>.</p>
+  </section>
+
+</main>
+
+<button type="button" class="gx-top" id="gxTopBtn" aria-label="Volver arriba" title="Volver arriba">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+<script>
+(function(){
+  var b=document.getElementById('gxTopBtn');
+  function s(){ b.classList.toggle('show',(window.pageYOffset||document.documentElement.scrollTop)>280); }
+  window.addEventListener('scroll',s,{passive:true});
+  b.addEventListener('click',function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+  s();
+  var lastH=0;
+  function rh(){ var h=Math.max(document.body.scrollHeight,document.documentElement.offsetHeight); if(Math.abs(h-lastH)>1){lastH=h; try{ parent.postMessage({type:'gdl-iframe-height',id:'donativos-al-presidente-art8-V-l',height:h},'*'); }catch(e){}} }
+  window.addEventListener('load',rh); window.addEventListener('resize',rh);
+  setTimeout(rh,300); setTimeout(rh,900); setTimeout(rh,1600);
+})();
+</script>
+</body>
+</html>

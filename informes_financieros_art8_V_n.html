@@ -28,19 +28,19 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font-family:var(--fh);background:var(--g50);color:var(--g900);line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+body{font-family:var(--fh);background:transparent;color:var(--g900);line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
 a{color:var(--nr-d)}
 button{font-family:inherit;cursor:pointer}
 
 /* HERO */
-.hero{background:radial-gradient(ellipse 800px 400px at 90% 30%,rgba(255,255,255,.18) 0%,transparent 70%),linear-gradient(135deg,var(--nr-d) 0%,var(--nr) 55%,var(--nr-l) 100%);padding:48px 32px 42px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 60px,rgba(255,255,255,.04) 60px,rgba(255,255,255,.04) 61px);pointer-events:none}
-.hero::after{content:'';position:absolute;right:-120px;top:-80px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.10) 0%,transparent 70%);pointer-events:none}
+.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#FFF4E8 0%,#FFFFFF 55%);padding:30px 32px 28px;margin:0 0 4px;border-radius:14px;border-left:5px solid var(--nr);box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.12) 0%,transparent 70%);pointer-events:none}
 .hi{position:relative;max-width:1200px;margin:0 auto;z-index:2}
-.bc{font-size:11.5px;color:rgba(255,255,255,.85);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;font-weight:500}
-.badge{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.40);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 13px;border-radius:20px;margin-bottom:14px;backdrop-filter:blur(6px)}
-.hero h1{font-size:clamp(26px,4.2vw,42px);font-weight:800;color:#fff;line-height:1.1;margin-bottom:10px;letter-spacing:-.015em}
-.hero p{color:rgba(255,255,255,.92);font-size:clamp(13px,1.45vw,15.5px);max-width:740px;line-height:1.55}
+.bc{font-size:11.5px;color:var(--g600);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;font-weight:600}
+.badge{display:inline-block;background:var(--nr);border:none;color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.hero h1{font-size:clamp(24px,3.6vw,36px);font-weight:800;color:var(--g900);line-height:1.14;margin-bottom:10px;letter-spacing:-.015em}
+.hero p{color:#5a4d3e;font-size:clamp(13px,1.45vw,15px);max-width:740px;line-height:1.6}
+.hero p strong{color:var(--g900);font-weight:700}
 
 /* MAIN */
 .main{max-width:1200px;margin:0 auto;padding:30px 20px 60px}
@@ -207,12 +207,37 @@ button{font-family:inherit;cursor:pointer}
     <div class="bc">Transparencia Guadalajara &bull; Gobierno Municipal</div>
     <div class="badge">Art. 8 &bull; Fracc. V &bull; Inc. n)</div>
     <h1>Informes Financieros del Ayuntamiento</h1>
-    <p>El reporte oficial de <strong style="color:#fff">cu&aacute;nto dinero entr&oacute;, en qu&eacute; se gast&oacute;, qu&eacute; se tiene y qu&eacute; se debe</strong>, mes con mes. Incluye cuentas p&uacute;blicas, auditor&iacute;as y dem&aacute;s informes de gesti&oacute;n financiera del Ayuntamiento de Guadalajara.</p>
+    <p>El reporte oficial de <strong>cu&aacute;nto dinero entr&oacute;, en qu&eacute; se gast&oacute;, qu&eacute; se tiene y qu&eacute; se debe</strong>, mes con mes. Incluye cuentas p&uacute;blicas, auditor&iacute;as y dem&aacute;s informes de gesti&oacute;n financiera del Ayuntamiento de Guadalajara.</p>
   </div>
 </section>
 
 <main class="main">
 
+  <!-- SELECTOR DE AÑO -->
+  <div class="sec">
+    <div class="sec-h">
+      <span class="sec-h-num">1</span>
+      <span class="sec-h-title">Elige el ejercicio fiscal</span>
+    </div>
+    <p class="sec-h-sub">El ejercicio vigente (en curso) aparece con un punto verde. Los ejercicios cerrados ya tienen su Cuenta P&uacute;blica anual disponible.</p>
+    <div class="year-row" id="yearRow" role="tablist" aria-label="Ejercicio fiscal"></div>
+  </div>
+
+  <!-- SUB-TABS (mensual / semestral / anual) -->
+  <div class="sec">
+    <div class="sec-h">
+      <span class="sec-h-num">2</span>
+      <span class="sec-h-title">Elige el tipo de reporte</span>
+    </div>
+    <div class="subtabs" id="subtabs" role="tablist" aria-label="Tipo de reporte"></div>
+  </div>
+
+  <!-- ÁREA DE CONTENIDO -->
+  <div class="sec" id="content-area">
+    <!-- aquí va: month selector (solo para mensual) + doc cards -->
+  </div>
+
+  <!-- ───────── DESCRIPCIONES CIUDADANAS (movidas debajo del contenido) ───────── -->
   <!-- KPIs GENERALES (disponibilidad documental verificada, NO montos) -->
   <div class="hero-kpis">
     <div class="hero-kpi feat">
@@ -322,29 +347,7 @@ button{font-family:inherit;cursor:pointer}
     </div>
   </div>
 
-  <!-- SELECTOR DE AÑO -->
-  <div class="sec">
-    <div class="sec-h">
-      <span class="sec-h-num">1</span>
-      <span class="sec-h-title">Elige el ejercicio fiscal</span>
-    </div>
-    <p class="sec-h-sub">El ejercicio vigente (en curso) aparece con un punto verde. Los ejercicios cerrados ya tienen su Cuenta P&uacute;blica anual disponible.</p>
-    <div class="year-row" id="yearRow" role="tablist" aria-label="Ejercicio fiscal"></div>
-  </div>
-
-  <!-- SUB-TABS (mensual / semestral / anual) -->
-  <div class="sec">
-    <div class="sec-h">
-      <span class="sec-h-num">2</span>
-      <span class="sec-h-title">Elige el tipo de reporte</span>
-    </div>
-    <div class="subtabs" id="subtabs" role="tablist" aria-label="Tipo de reporte"></div>
-  </div>
-
-  <!-- ÁREA DE CONTENIDO -->
-  <div class="sec" id="content-area">
-    <!-- aquí va: month selector (solo para mensual) + doc cards -->
-  </div>
+  <!-- (Selector de año, tipo de reporte y área de contenido movidos arriba, junto al hero) -->
 
   <!-- FOOTER -->
   <div class="foot">
@@ -847,6 +850,37 @@ if(document.readyState === 'loading'){
 } else {
   init();
 }
+
+/* Auto-altura para Strapi (ResizeObserver cubre cambios de año/tipo/mes) */
+var __lastH = 0;
+function reportHeight(){
+  var h = Math.max(document.body.scrollHeight, document.documentElement.offsetHeight);
+  if (Math.abs(h - __lastH) > 1){ __lastH = h; try { parent.postMessage({ type:'gdl-iframe-height', id:'informes-financieros-art8-V-n', height: h }, '*'); } catch(e){} }
+}
+if (window.ResizeObserver){ try { new ResizeObserver(reportHeight).observe(document.body); } catch(e){} }
+window.addEventListener('load', reportHeight);
+window.addEventListener('resize', reportHeight);
+setTimeout(reportHeight, 400); setTimeout(reportHeight, 1200); setTimeout(reportHeight, 2500);
+})();
+</script>
+
+<!-- BOTON SUBIR (UX) -->
+<style>
+.gx-top{position:fixed;right:18px;bottom:18px;z-index:60;width:46px;height:46px;border-radius:50%;border:0;background:var(--nr);color:#fff;box-shadow:0 6px 18px rgba(196,95,10,.38);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .18s,transform .18s,visibility .18s}
+.gx-top.show{opacity:1;visibility:visible;transform:none}
+.gx-top:hover{background:var(--nr-d)}
+@media (max-width:620px){.gx-top{right:12px;bottom:12px;width:42px;height:42px}}
+</style>
+<button type="button" class="gx-top" id="gxTopBtn" aria-label="Volver arriba" title="Volver arriba">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+<script>
+(function(){
+  var b = document.getElementById('gxTopBtn');
+  function s(){ b.classList.toggle('show', (window.pageYOffset||document.documentElement.scrollTop) > 280); }
+  window.addEventListener('scroll', s, {passive:true});
+  b.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+  s();
 })();
 </script>
 

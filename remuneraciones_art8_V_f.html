@@ -23,19 +23,19 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font-family:var(--fh);background:var(--g50);color:var(--g900);line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{font-family:var(--fh);background:transparent;color:var(--g900);line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 a{color:var(--nr-d)}
 button{font-family:inherit;cursor:pointer}
 
 /* HERO */
-.hero{background:radial-gradient(ellipse 800px 400px at 90% 30%,rgba(255,255,255,.18) 0%,transparent 70%),linear-gradient(135deg,var(--nr-d) 0%,var(--nr) 55%,var(--nr-l) 100%);padding:48px 32px 42px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 60px,rgba(255,255,255,.04) 60px,rgba(255,255,255,.04) 61px);pointer-events:none}
-.hero::after{content:'';position:absolute;right:-120px;top:-80px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.10) 0%,transparent 70%);pointer-events:none}
-.hi{position:relative;max-width:1200px;margin:0 auto;z-index:2}
-.bc{font-size:11.5px;color:rgba(255,255,255,.85);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;font-weight:500}
-.badge{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.40);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 13px;border-radius:20px;margin-bottom:14px;backdrop-filter:blur(6px)}
-.hero h1{font-size:clamp(26px,4.2vw,42px);font-weight:800;color:#fff;line-height:1.1;margin-bottom:10px;letter-spacing:-.015em}
-.hero p{color:rgba(255,255,255,.92);font-size:clamp(13px,1.45vw,15.5px);max-width:720px;line-height:1.55}
+.hero{position:relative;overflow:hidden;padding:26px 30px;margin:0 0 22px;background:linear-gradient(135deg,#FFF4E8 0%,#FFFFFF 55%);border-radius:var(--rad-lg);border-left:5px solid var(--nr);box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.12) 0%,transparent 70%);pointer-events:none}
+.hi{position:relative;z-index:2}
+.bc{font-size:11.5px;color:var(--g600);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;font-weight:600}
+.badge{display:inline-block;background:var(--nr);border:none;color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.hero h1{font-size:clamp(24px,3.4vw,34px);font-weight:800;color:var(--g900);line-height:1.16;margin-bottom:10px;letter-spacing:-.015em}
+.hero p{color:#5a4d3e;font-size:clamp(13px,1.45vw,15px);max-width:80ch;line-height:1.6}
+.hero p strong{font-weight:700;color:var(--g900)}
 
 /* MAIN */
 .main{max-width:1200px;margin:0 auto;padding:30px 20px 60px}
@@ -99,44 +99,50 @@ button{font-family:inherit;cursor:pointer}
 .foot-source a{font-weight:700;color:var(--nr-d);text-decoration:underline}
 .foot-cite{font-size:11px;color:var(--g400);line-height:1.5}
 
+/* FOOTER LEY + CIFRAS (armonizado con la familia) */
+.rem-ley{background:var(--wh);border-radius:var(--rad-lg);padding:22px 26px;border-left:4px solid var(--nr-d);box-shadow:var(--sh-sm);margin-top:36px}
+.rem-cifras{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+.rem-cifra{background:var(--g50);border:1.5px solid #FFD2A5;border-radius:var(--rad);padding:14px 16px;display:flex;flex-direction:column;gap:2px;transition:border-color .18s ease,transform .18s ease}
+.rem-cifra:hover{border-color:var(--nr);transform:translateY(-2px)}
+.rem-cifra-num{font-family:var(--fm);font-size:30px;font-weight:700;line-height:1;color:var(--nr-d);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.rem-cifra-lbl{font-size:11px;font-weight:700;color:#5a4d3e;text-transform:uppercase;letter-spacing:.06em;margin-top:2px;line-height:1.3}
+.rem-ley-eye{font-size:10.5px;font-weight:800;color:var(--nr-d);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.rem-ley h3{font-size:16px;font-weight:800;color:var(--g900);margin-bottom:8px;letter-spacing:-.008em}
+.rem-ley p{font-size:13px;color:var(--g600);line-height:1.65;margin-bottom:6px}
+.rem-ley p strong{color:var(--g800);font-weight:600}
+.rem-ley blockquote{font-size:13.5px;color:#5a4d3e;line-height:1.65;margin:12px 0 8px;padding:12px 18px;background:var(--nr-soft);border-left:3px solid var(--nr);border-radius:6px;font-style:italic}
+.rem-ley blockquote strong{color:var(--g900);font-style:normal;font-weight:700}
+@media(max-width:680px){.rem-cifras{grid-template-columns:repeat(2,1fr)}}
+
 @media(max-width:600px){
-  .hero{padding:36px 18px 32px}
+  .hero{padding:22px 20px}
   .main{padding:20px 14px 40px}
   .legal{grid-template-columns:40px 1fr;gap:12px;padding:16px 18px}
   .legal-stamp{width:40px;height:40px;border-radius:10px}
   .legal-stamp svg{width:22px;height:22px}
   .sec-h-sub{margin-left:0}
 }
+
+/* BOTON SUBIR (UX) */
+.gx-top{position:fixed;right:18px;bottom:18px;z-index:60;width:46px;height:46px;border-radius:50%;border:0;background:var(--nr);color:#fff;box-shadow:0 6px 18px rgba(196,95,10,.38);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .18s,transform .18s,visibility .18s}
+.gx-top.show{opacity:1;visibility:visible;transform:none}
+.gx-top:hover{background:var(--nr-d)}
+@media (max-width:620px){.gx-top{right:12px;bottom:12px;width:42px;height:42px}}
 </style>
 </head>
 <body>
 
-<section class="hero">
-  <div class="hi">
-    <div class="bc">Transparencia Guadalajara &bull; Gobierno Municipal</div>
-    <div class="badge">Art. 8 &bull; Fracc. V &bull; Inc. f)</div>
-    <h1>Remuneraciones mensuales del Ayuntamiento</h1>
-    <p>Cu&aacute;nto gana cada puesto del Ayuntamiento de Guadalajara, mes con mes &mdash; incluyendo <strong style="color:#fff">sueldos, prestaciones, est&iacute;mulos y compensaciones</strong>. Descarga el archivo oficial del mes que te interese.</p>
-  </div>
-</section>
-
 <main class="main">
 
-  <div class="legal">
-    <div class="legal-stamp" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M12 3v18"/>
-        <path d="M7 21h10"/>
-        <path d="M3 7h3c2 0 4-.7 6-1.5 2 .8 4 1.5 6 1.5h3"/>
-        <path d="M19 7l-3 8c.87.65 1.92 1 3 1s2.13-.35 3-1l-3-8z"/>
-        <path d="M5 7l-3 8c.87.65 1.92 1 3 1s2.13-.35 3-1L5 7z"/>
-      </svg>
+  <!-- HERO — tarjeta clara, armonizada con la familia -->
+  <section class="hero">
+    <div class="hi">
+      <div class="bc">Transparencia Guadalajara &bull; Gobierno Municipal</div>
+      <div class="badge">Art. 8 &bull; Fracc. V &bull; Inc. f)</div>
+      <h1>Remuneraciones mensuales del Ayuntamiento</h1>
+      <p>Cu&aacute;nto gana cada puesto del Ayuntamiento de Guadalajara, mes con mes &mdash; incluyendo <strong>sueldos, prestaciones, est&iacute;mulos y compensaciones</strong>. Descarga el archivo oficial del mes que te interese.</p>
     </div>
-    <div class="legal-body">
-      <p class="legal-txt">&ldquo;Las <strong>remuneraciones mensuales por puesto</strong>, incluidas <strong>todas las prestaciones, est&iacute;mulos o compensaciones</strong>.&rdquo;</p>
-      <p class="legal-cite">&mdash; Art. 8, Fracc. V, Inc. f) &middot; <em>Ley de Transparencia y Acceso a la Informaci&oacute;n P&uacute;blica del Estado de Jalisco y sus Municipios</em>. Fuente oficial: <a href="https://transparencia.guadalajara.gob.mx/remuneracion" target="_blank" rel="noopener">transparencia.guadalajara.gob.mx/remuneracion</a>. En caso de discrepancia <strong style="color:var(--g900)">prevalece el archivo oficial</strong>.</p>
-    </div>
-  </div>
+  </section>
 
   <div class="sec">
     <div class="sec-h">
@@ -156,10 +162,19 @@ button{font-family:inherit;cursor:pointer}
     <div class="cal-grid" id="calGrid"></div>
   </div>
 
-  <div class="foot">
-    <p class="foot-source">Publicado por la <strong>Direcci&oacute;n de N&oacute;mina</strong> &middot; Tesorer&iacute;a Municipal &middot; Ayuntamiento de Guadalajara<br/>Fuente oficial: <a href="https://transparencia.guadalajara.gob.mx/remuneracion" target="_blank" rel="noopener">transparencia.guadalajara.gob.mx/remuneracion</a></p>
-    <p class="foot-cite">Para ejercicios fiscales previos a 2023, consulta directamente el portal oficial de transparencia.</p>
-  </div>
+  <section class="rem-ley">
+    <div class="rem-cifras">
+      <div class="rem-cifra"><div class="rem-cifra-num">6</div><div class="rem-cifra-lbl">Ejercicios fiscales</div></div>
+      <div class="rem-cifra"><div class="rem-cifra-num">110</div><div class="rem-cifra-lbl">Archivos oficiales</div></div>
+      <div class="rem-cifra"><div class="rem-cifra-num">2</div><div class="rem-cifra-lbl">N&oacute;minas por mes</div></div>
+      <div class="rem-cifra"><div class="rem-cifra-num">100%</div><div class="rem-cifra-lbl">Descargable</div></div>
+    </div>
+    <div class="rem-ley-eye">Fundamento legal</div>
+    <h3>&iquest;Por qu&eacute; se publica esta informaci&oacute;n?</h3>
+    <p>Art&iacute;culo 8, Fracci&oacute;n V, Inciso f) de la <strong>Ley de Transparencia y Acceso a la Informaci&oacute;n P&uacute;blica del Estado de Jalisco y sus Municipios</strong>:</p>
+    <blockquote>&ldquo;Las <strong>remuneraciones mensuales por puesto</strong>, incluidas <strong>todas las prestaciones, est&iacute;mulos o compensaciones</strong>.&rdquo;</blockquote>
+    <p>Publicado mensualmente por la <strong>Direcci&oacute;n de N&oacute;mina</strong> &middot; Tesorer&iacute;a Municipal &middot; Ayuntamiento de Guadalajara. Cada mes incluye la n&oacute;mina general y la n&oacute;mina del Rastro Municipal. <strong>Si un dato mostrado aqu&iacute; discrepa del archivo oficial, prevalece el archivo oficial.</strong></p>
+  </section>
 
 </main>
 
@@ -253,10 +268,42 @@ const DATOS = [
   { yr:'2023', mes:'Noviembre',  tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionNoviembre23.xlsx' },
   { yr:'2023', mes:'Noviembre',  tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroNoviembre23.xlsx' },
   { yr:'2023', mes:'Diciembre',  tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionDiciembre23.xlsx' },
-  { yr:'2023', mes:'Diciembre',  tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroDiciembre23.xlsx' }
+  { yr:'2023', mes:'Diciembre',  tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroDiciembre23.xlsx' },
+
+  { yr:'2022', mes:'Enero',      tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionEnero22.xlsx' },
+  { yr:'2022', mes:'Enero',      tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroEnero22.xlsx' },
+  { yr:'2022', mes:'Febrero',    tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionFebrero22.xlsx' },
+  { yr:'2022', mes:'Febrero',    tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroFebrero22.xlsx' },
+  { yr:'2022', mes:'Marzo',      tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionMarzo22.xlsx' },
+  { yr:'2022', mes:'Marzo',      tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroMarzo22.xlsx' },
+  { yr:'2022', mes:'Abril',      tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionAbril22.xlsx' },
+  { yr:'2022', mes:'Abril',      tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroAbril22.xlsx' },
+  { yr:'2022', mes:'Mayo',       tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionMayo22.xlsx' },
+  { yr:'2022', mes:'Mayo',       tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroMayo22.xlsx' },
+  { yr:'2022', mes:'Junio',      tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionJunio22.xlsx' },
+  { yr:'2022', mes:'Junio',      tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroJunio22.xlsx' },
+  { yr:'2022', mes:'Julio',      tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionJulio22.xlsx' },
+  { yr:'2022', mes:'Julio',      tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroJulio22.xlsx' },
+  { yr:'2022', mes:'Agosto',     tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionAgosto22.xlsx' },
+  { yr:'2022', mes:'Agosto',     tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroAgosto22.xlsx' },
+  { yr:'2022', mes:'Septiembre', tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionSeptiembre22.xlsx' },
+  { yr:'2022', mes:'Septiembre', tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroSeptiembre22.xlsx' },
+  { yr:'2022', mes:'Octubre',    tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionOctubre22.xlsx' },
+  { yr:'2022', mes:'Octubre',    tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroOctubre22.xlsx' },
+  { yr:'2022', mes:'Noviembre',  tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionNoviembre22.xlsx' },
+  { yr:'2022', mes:'Noviembre',  tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroNoviembre22.xlsx' },
+  { yr:'2022', mes:'Diciembre',  tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionDiciembre22.xlsx' },
+  { yr:'2022', mes:'Diciembre',  tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroDiciembre22.xlsx' },
+
+  { yr:'2021', mes:'Octubre',    tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionOctubre21.xlsx' },
+  { yr:'2021', mes:'Octubre',    tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroOctubre21.xlsx' },
+  { yr:'2021', mes:'Noviembre',  tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionNoviembre21.xlsx' },
+  { yr:'2021', mes:'Noviembre',  tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroNoviembre21.xlsx' },
+  { yr:'2021', mes:'Diciembre',  tipo:'general', fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionDiciembre21.xlsx' },
+  { yr:'2021', mes:'Diciembre',  tipo:'rastro',  fmt:'xlsx', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/RemuneracionRastroDiciembre21.xlsx' }
 ];
 
-const YEARS = ['2026','2025','2024','2023'];
+const YEARS = ['2026','2025','2024','2023','2022','2021'];
 const CURRENT_YEAR = new Date().getFullYear();
 
 let activeYear = '2026';
@@ -283,6 +330,7 @@ function renderYears(){
       activeYear = b.dataset.year;
       renderYears();
       renderCalendar();
+      reportHeight();
     });
   });
 }
@@ -334,9 +382,19 @@ function renderCalendar(){
   }).join('');
 }
 
+function reportHeight(){
+  var h = Math.max(document.body.scrollHeight, document.documentElement.offsetHeight);
+  try { parent.postMessage({ type:'gdl-iframe-height', id:'remuneraciones-art8-V-f', height: h }, '*'); } catch(e){}
+}
+
 function init(){
   renderYears();
   renderCalendar();
+  reportHeight();
+  window.addEventListener('load', reportHeight);
+  window.addEventListener('resize', reportHeight);
+  setTimeout(reportHeight, 400);
+  setTimeout(reportHeight, 1200);
 }
 
 if(document.readyState === 'loading'){
@@ -344,6 +402,20 @@ if(document.readyState === 'loading'){
 } else {
   init();
 }
+})();
+</script>
+
+<!-- BOTON SUBIR (UX) -->
+<button type="button" class="gx-top" id="gxTopBtn" aria-label="Volver arriba" title="Volver arriba">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+<script>
+(function(){
+  var b = document.getElementById('gxTopBtn');
+  function s(){ b.classList.toggle('show', (window.pageYOffset||document.documentElement.scrollTop) > 280); }
+  window.addEventListener('scroll', s, {passive:true});
+  b.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+  s();
 })();
 </script>
 
