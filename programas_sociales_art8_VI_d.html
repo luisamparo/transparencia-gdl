@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Los programas sociales del Ayuntamiento de Guadalajara, con sus reglas de operación, padrón de beneficiarios y avisos de privacidad — Art. 8, Fracción VI, Inciso d) de la Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios. Ejercicio 2026."/>
+<title>Programas Sociales · ¿Qué apoyos da Guadalajara y cómo acceder? · Transparencia GDL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --nr:#E87722;--nr-l:#FF9A45;--nr-d:#C45F0A;--nr-deeper:#8B4308;--nr-soft:#FFF1E4;
+  --nr-a:rgba(232,119,34,.10);--nr-b:rgba(232,119,34,.22);
+  --g50:#FAFAF8;--g100:#F0F0EC;--g200:#E2E2DD;--g300:#CFCFC8;--g400:#9E9E98;--g600:#5A5A55;--g800:#2D2D2A;--g900:#1A1A1A;
+  --wh:#FFF;
+  --reg:#8E44AD;--reg-l:#F0E5F8;--reg-d:#5E2D78;--reg-border:#D9C2E8;
+  --pad:#1D9E75;--pad-l:#E1F5EE;--pad-d:#0E6B4C;--pad-border:#A8D6BB;
+  --avi:#1976D2;--avi-l:#DBEAFE;--avi-d:#0D47A1;--avi-border:#BFDBFE;
+  --rad:10px;--rad-lg:14px;
+  --sh:0 4px 22px rgba(0,0,0,.08);--sh-sm:0 1px 3px rgba(0,0,0,.06);--sh-md:0 6px 18px rgba(0,0,0,.07);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --fh:'Outfit',system-ui,-apple-system,sans-serif;--fm:'DM Mono','SF Mono',Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--g900);line-height:1.55}
+.ps-wrap{max-width:1200px;margin:0 auto}
+
+/* HERO */
+.ps-hero{background:linear-gradient(135deg,#FFF4E8 0%,#FFFFFF 55%);color:var(--g900);border-radius:var(--rad-lg);padding:24px 28px;margin:0 0 18px;position:relative;overflow:hidden;border-left:5px solid var(--nr);box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.ps-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.12) 0%,transparent 70%);pointer-events:none}
+.ps-hero-tag{display:inline-block;background:var(--nr);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;position:relative;z-index:1;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.ps-hero h2{margin:0 0 8px;font-size:clamp(22px,3.2vw,28px);font-weight:800;color:var(--g900);letter-spacing:-.015em;line-height:1.22;position:relative;z-index:1}
+.ps-hero h2 em{font-style:normal;color:var(--nr-d)}
+.ps-hero-sub{font-size:14.5px;color:#5a4d3e;max-width:80ch;margin:0;line-height:1.6;position:relative;z-index:1}
+.ps-hero-sub strong{color:var(--g900);font-weight:700}
+.ps-hero-meta{display:flex;gap:22px;flex-wrap:wrap;margin-top:18px;padding-top:14px;border-top:1px solid var(--nr-b);font-size:11px;color:var(--g600)}
+.ps-hero-meta-item{display:flex;flex-direction:column;gap:2px}
+.ps-hero-meta-lbl{font-size:9.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--g400)}
+.ps-hero-meta-val{font-weight:600;color:var(--g900);font-family:var(--fm);font-size:11.5px}
+
+/* AVISO PARTIDISTA (legal obligatorio) */
+.ps-aviso{display:flex;align-items:flex-start;gap:14px;background:var(--nr-soft);border:1px solid var(--nr-b);border-left:4px solid var(--nr);border-radius:var(--rad-lg);padding:15px 20px;margin-bottom:22px}
+.ps-aviso-ico{flex-shrink:0;width:38px;height:38px;border-radius:10px;background:var(--wh);color:var(--nr-d);display:flex;align-items:center;justify-content:center;border:1.5px solid var(--nr-b)}
+.ps-aviso-txt{font-size:13px;color:var(--g800);line-height:1.55;font-weight:600}
+.ps-aviso-txt strong{color:var(--nr-d);font-weight:800}
+
+/* CONTROLES */
+.ps-controls{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);padding:16px 20px;margin-bottom:18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;border-left:4px solid var(--nr)}
+.ps-search{position:relative;flex:1;min-width:240px;max-width:460px}
+.ps-search input{width:100%;padding:10px 16px 10px 40px;border-radius:9px;border:1.5px solid var(--g200);font-size:13.5px;font-family:var(--fh);background:var(--g50);transition:border-color .15s,box-shadow .15s}
+.ps-search input:focus{outline:none;border-color:var(--nr);box-shadow:0 0 0 3px rgba(232,119,34,.15);background:var(--wh)}
+.ps-search svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--g400);width:16px;height:16px;pointer-events:none}
+.ps-count{font-size:12px;color:var(--g600);font-weight:600;font-family:var(--fm)}
+.ps-count strong{color:var(--g900);font-weight:700}
+
+/* GRID DE PROGRAMAS */
+.ps-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:14px;margin-bottom:22px}
+.ps-card{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh);overflow:hidden;display:flex;flex-direction:column;border-top:4px solid var(--nr);animation:fadeUp .25s var(--ease) both}
+.ps-card-top{padding:16px 18px 14px;border-bottom:1px solid var(--g100);display:flex;align-items:flex-start;gap:12px}
+.ps-card-ico{flex-shrink:0;width:42px;height:42px;border-radius:11px;background:var(--nr-soft);color:var(--nr-d);display:flex;align-items:center;justify-content:center;border:1px solid var(--nr-b)}
+.ps-card-nombre{font-size:15px;font-weight:800;color:var(--g900);letter-spacing:-.01em;line-height:1.25}
+.ps-card-docs{padding:14px 18px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.ps-doc{display:flex;align-items:center;gap:11px;background:var(--g50);border:1.5px solid var(--g200);border-radius:9px;padding:10px 13px;text-decoration:none;color:inherit;transition:all .15s ease}
+.ps-doc:hover{transform:translateX(2px);box-shadow:var(--sh-sm)}
+.ps-doc.reg:hover{border-color:var(--reg);background:var(--reg-l)}
+.ps-doc.pad:hover{border-color:var(--pad);background:var(--pad-l)}
+.ps-doc.avi:hover{border-color:var(--avi);background:var(--avi-l)}
+.ps-doc-ico{flex-shrink:0;width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:10px;font-weight:700;letter-spacing:.02em;line-height:1}
+.ps-doc.reg .ps-doc-ico{background:var(--reg-l);color:var(--reg-d);border:1px solid var(--reg-border)}
+.ps-doc.pad .ps-doc-ico{background:var(--pad-l);color:var(--pad-d);border:1px solid var(--pad-border)}
+.ps-doc.avi .ps-doc-ico{background:var(--avi-l);color:var(--avi-d);border:1px solid var(--avi-border)}
+.ps-doc-body{flex:1;min-width:0}
+.ps-doc-lbl{font-size:12.5px;font-weight:700;color:var(--g900);line-height:1.2}
+.ps-doc-sub{font-size:10.5px;color:var(--g400);line-height:1.3;margin-top:1px}
+.ps-doc-arrow{flex-shrink:0;color:var(--g300);transition:color .15s,transform .15s}
+.ps-doc:hover .ps-doc-arrow{color:var(--nr-d);transform:translateX(2px)}
+.ps-doc-none{font-size:11px;color:var(--g400);font-style:italic;padding:8px 4px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.ps-empty{grid-column:1/-1;text-align:center;padding:40px 20px;color:var(--g400);font-size:13.5px;font-style:italic;display:none}
+.ps-empty.show{display:block}
+
+/* NOTA HISTÓRICO */
+.ps-note{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);padding:16px 20px;margin-bottom:22px;border-left:4px solid var(--g300);font-size:12.5px;color:var(--g600);line-height:1.6}
+.ps-note strong{color:var(--g800);font-weight:700}
+
+/* FOOTER LEY */
+.ps-ley{background:var(--wh);border-radius:var(--rad-lg);padding:22px 26px;border-left:4px solid var(--nr-d);box-shadow:var(--sh-sm)}
+.ps-cifras{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:18px}
+.ps-cifra{background:var(--g50);border:1.5px solid #FFD2A5;border-radius:var(--rad);padding:14px 16px;display:flex;flex-direction:column;gap:2px;transition:border-color .18s ease,transform .18s ease}
+.ps-cifra:hover{border-color:var(--nr);transform:translateY(-2px)}
+.ps-cifra-num{font-family:var(--fm);font-size:26px;font-weight:700;line-height:1;color:var(--nr-d);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.ps-cifra-lbl{font-size:11px;font-weight:700;color:#5a4d3e;text-transform:uppercase;letter-spacing:.06em;margin-top:2px;line-height:1.3}
+.ps-ley-eye{font-size:10.5px;font-weight:800;color:var(--nr-d);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.ps-ley h3{font-size:16px;font-weight:800;color:var(--g900);margin-bottom:8px;letter-spacing:-.008em}
+.ps-ley p{font-size:13px;color:var(--g600);line-height:1.65;margin-bottom:6px}
+.ps-ley p strong{color:var(--g800);font-weight:600}
+.ps-ley blockquote{font-size:13.5px;color:#5a4d3e;line-height:1.65;margin:12px 0 8px;padding:12px 18px;background:var(--nr-soft);border-left:3px solid var(--nr);border-radius:6px;font-style:italic}
+.ps-ley blockquote strong{color:var(--g900);font-style:normal;font-weight:700}
+
+@media(max-width:560px){
+  body{padding:14px}
+  .ps-hero{padding:20px 22px}
+  .ps-cifras{gap:10px}
+  .ps-cifra-num{font-size:20px}
+  .ps-ley{padding:20px 18px}
+}
+</style>
+</head>
+<body>
+
+<div class="ps-wrap">
+
+  <!-- HERO -->
+  <section class="ps-hero">
+    <span class="ps-hero-tag">Art. 8 · Fracción VI · Inciso d)</span>
+    <h2>Programas sociales: <em>¿qué apoyos da Guadalajara y cómo acceder?</em></h2>
+    <p class="ps-hero-sub">El Ayuntamiento de Guadalajara opera <strong>programas sociales</strong> de apoyo a las personas. De cada programa puedes consultar sus <strong>reglas de operación</strong> (qué es, objetivos, metas, presupuesto y requisitos), su <strong>padrón de beneficiarios</strong> y su <strong>aviso de privacidad</strong>. Esta es la información del ejercicio <strong>2026</strong>.</p>
+    <div class="ps-hero-meta">
+      <div class="ps-hero-meta-item"><span class="ps-hero-meta-lbl">Última actualización</span><span class="ps-hero-meta-val">09 jun 2026</span></div>
+      <div class="ps-hero-meta-item"><span class="ps-hero-meta-lbl">Ejercicio</span><span class="ps-hero-meta-val">2026</span></div>
+      <div class="ps-hero-meta-item"><span class="ps-hero-meta-lbl">Programas vigentes</span><span class="ps-hero-meta-val" id="metaCount">—</span></div>
+    </div>
+  </section>
+
+  <!-- AVISO PARTIDISTA -->
+  <div class="ps-aviso">
+    <div class="ps-aviso-ico" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+    </div>
+    <div class="ps-aviso-txt">Estos programas son <strong>públicos, ajenos a cualquier partido político</strong>. Queda prohibido su uso para fines distintos al desarrollo social.</div>
+  </div>
+
+  <!-- CONTROLES -->
+  <div class="ps-controls">
+    <div class="ps-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" id="psSearch" placeholder="Buscar programa (ej. mujeres, cultura, escuela, guardianes)" autocomplete="off"/>
+    </div>
+    <div class="ps-count">Mostrando <strong id="psShowing">—</strong> programas</div>
+  </div>
+
+  <!-- GRID -->
+  <div class="ps-grid" id="psGrid"></div>
+
+  <!-- NOTA HISTÓRICO -->
+  <div class="ps-note">
+    <strong>¿Buscas ejercicios anteriores?</strong> Esta página muestra los programas sociales del ejercicio <strong>2026</strong>. El Ayuntamiento conserva también la información de los programas de años anteriores (2019–2025) en el portal de transparencia municipal.
+  </div>
+
+  <!-- FOOTER LEY -->
+  <div class="ps-ley">
+    <div class="ps-cifras">
+      <div class="ps-cifra"><div class="ps-cifra-num" id="cifProg">—</div><div class="ps-cifra-lbl">Programas sociales 2026</div></div>
+      <div class="ps-cifra"><div class="ps-cifra-num">3</div><div class="ps-cifra-lbl">Documentos por programa</div></div>
+      <div class="ps-cifra"><div class="ps-cifra-num">100%</div><div class="ps-cifra-lbl">Consultable y descargable</div></div>
+    </div>
+    <div class="ps-ley-eye">Fundamento legal</div>
+    <h3>¿Por qué se publica esta información?</h3>
+    <p>Artículo 8, Fracción VI, Inciso d) de la <strong>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</strong>:</p>
+    <blockquote>"Los <strong>programas sociales</strong>, donde se señale cuando menos los <strong>objetivos, metas, presupuesto y reglas de operación</strong> del programa; los <strong>requisitos, trámites y formatos</strong> para ser beneficiario; el <strong>padrón de beneficiarios</strong> del programa."</blockquote>
+    <p>Publicado por las dependencias responsables del desarrollo social del Ayuntamiento de Guadalajara. Si un dato mostrado aquí discrepa del archivo oficial, <strong>prevalece el archivo oficial.</strong></p>
+  </div>
+
+</div>
+
+<script>
+const PROGRAMAS = [
+  {nombre:"Cuidamos con Inclusión",reglas:"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf",padron:"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialCuidamosConInclusion2026.xlsx",aviso:"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadCuidamosInclusionIntegral2025.pdf"},
+  {nombre:"Juntas nos Cuidamos",reglas:"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf",padron:"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialJuntasNosCuidamos2026.xlsx",aviso:"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadJuntasCuidamosIntegral2025.pdf"},
+  {nombre:"Guardianes de Guadalajara",reglas:"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf",padron:"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialGuardianesGuadalajara2026.xlsx",aviso:"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadProgramaSocialGuardianes21-24.pdf"},
+  {nombre:"Cuidamos a tu familia",reglas:"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf",padron:"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialCuidamosTuFamilia2026.xlsx",aviso:"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadCuidamosTuFamilia2025.pdf"},
+  {nombre:"Corazón Contento",reglas:"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf",padron:"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialCorazonContento2026.xlsx",aviso:"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadCorazonContento2025.pdf"},
+  {nombre:"Guadalajara Te Cuida",reglas:"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf",padron:"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialGuadalajaraTeCuida2026.xlsx",aviso:"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadGuadalajaraTeCuida2025.pdf"},
+  {nombre:"Guadalajara Cuida a las Mujeres",reglas:"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf",padron:"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialGuadalajaraCuidaALasMujeres2026.xlsx",aviso:"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadGuadalajaraCuidaALasMujeres2025.pdf"},
+  {nombre:"Cuidamos a quien nos cuida",reglas:"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf",padron:"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialGuadalajaraCuidamosAQuienNosCuida2026.xlsx",aviso:"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadCuidamosAQuienNosCuida2025.pdf"},
+  {nombre:"Listas y listos para la escuela",reglas:"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIIEjemplar15Marzo25-2026.pdf",padron:"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialListasListosEscuela2026.xlsx",aviso:"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadProgramaSocialListasListosEscuela2026.pdf"},
+  {nombre:"Listas y listos para la Universidad",reglas:"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf",padron:"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialListasListosUniversidad2026.xlsx",aviso:"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadListasListosUniversidadIntegral2025.pdf"},
+  {nombre:"Escuelas con Corazón",reglas:"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf",padron:"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialEscuelaCorazon2026.xlsx",aviso:"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadEscuelaCorazonIntegral2025.pdf"},
+  {nombre:"Cuidando Nuestras Comunidades",reglas:"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf",padron:"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialCuidandoNuestrasComunidades2026.xlsx",aviso:"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadCuidandoNuestrasComunidades2025.pdf"},
+  {nombre:"Listas y Listos para Estudiar",reglas:"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf",padron:"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialListasListosParaEstudiar2026.xlsx",aviso:"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadListasListosEstudiar2025.pdf"},
+  {nombre:"Pequeños Guardianes de Guadalajara",reglas:"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf",padron:"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialPequenosGuardianesGuadalajara2026.xlsx",aviso:"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadPequenosGuardianesGuadalajara2025.pdf"},
+  {nombre:"Jóvenes Guardianes de Guadalajara",reglas:"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf",padron:"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialJovenesGuardianesGuadalajara2026.xlsx",aviso:"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadJovenesGuardianesGuadalajara2025.pdf"},
+  {nombre:"La Cultura Late",reglas:"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf",padron:"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialLaCulturaLate2026.xlsx",aviso:"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadLaCulturaLate2025.pdf"},
+  {nombre:"Cuidemos la Cultura",reglas:"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf",padron:"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialCuidemosLaCultura2026.xlsx",aviso:"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadCuidemosLaCultura2025.pdf"},
+  {nombre:"Guadalajara Lee",reglas:"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf",padron:"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialGuadalajaraLee2026.xlsx",aviso:"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadGuadalajaraLee2025.pdf"},
+  {nombre:"Cuidamos Guadalajara",reglas:"https://transparencia.guadalajara.gob.mx/sites/default/files/ReglasOperacionCuidamosGuadalajara2026.pdf",padron:"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialCuidamosGuadalajara2026.xlsx",aviso:"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadIntegralDireccionInnovacionSocial2025.pdf"},
+  {nombre:"Guardianes de la Ciudad",reglas:"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf",padron:"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialGuardianesCiudad2026.xlsx",aviso:"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadIntegralDireccionInnovacionSocial2025.pdf"},
+  {nombre:"Hogares con Corazón",reglas:"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf",padron:"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialHogaresCorazon2026.xlsx",aviso:"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadHogaresCorazon2026.pdf"},
+  {nombre:"Apoyo de Renta para Jóvenes",reglas:"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar13Secc2aEnero30-2026.pdf",padron:"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialRentaJovenes2026.xlsx",aviso:"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadApoyoRentaJovenes2026.pdf"},
+  {nombre:"Reconocimiento al esfuerzo escolar 2026 (hijas e hijos de personas servidoras públicas)",reglas:"https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIIEjemplar13Marzo28-2025.pdf",padron:"https://transparencia.guadalajara.gob.mx/sites/default/files/ProgramaSocialReconocimientoEsfuerzoEscolar2026.xlsx",aviso:"https://transparencia.guadalajara.gob.mx/sites/default/files/AvisoPrivacidadRecursosHumanos2025.pdf"}
+];
+
+(function(){
+  var grid = document.getElementById('psGrid');
+  var search = document.getElementById('psSearch');
+  var showing = document.getElementById('psShowing');
+  document.getElementById('cifProg').textContent = PROGRAMAS.length;
+  document.getElementById('metaCount').textContent = PROGRAMAS.length + ' programas';
+
+  function norm(s){ return (s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,''); }
+  function arrow(){ return '<svg class="ps-doc-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>'; }
+  function docLink(cls,ico,lbl,sub,url){
+    if(!url) return '<div class="ps-doc-none">' + lbl + ': no disponible</div>';
+    return '<a class="ps-doc ' + cls + '" href="' + url + '" target="_blank" rel="noopener">' +
+      '<span class="ps-doc-ico">' + ico + '</span>' +
+      '<span class="ps-doc-body"><span class="ps-doc-lbl">' + lbl + '</span><span class="ps-doc-sub">' + sub + '</span></span>' +
+      arrow() + '</a>';
+  }
+
+  function render(q){
+    var nq = norm(q);
+    grid.innerHTML = '';
+    var visible = 0;
+    PROGRAMAS.forEach(function(p, i){
+      if(nq && norm(p.nombre).indexOf(nq) === -1) return;
+      visible++;
+      var card = document.createElement('div');
+      card.className = 'ps-card';
+      card.style.animationDelay = (visible * 18) + 'ms';
+      card.innerHTML =
+        '<div class="ps-card-top">' +
+          '<div class="ps-card-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/></svg></div>' +
+          '<div class="ps-card-nombre">' + p.nombre + '</div>' +
+        '</div>' +
+        '<div class="ps-card-docs">' +
+          docLink('reg','PDF','Reglas de Operación','Objetivos, metas y requisitos', p.reglas) +
+          docLink('pad','XLSX','Padrón de Beneficiarios','Quiénes reciben el apoyo', p.padron) +
+          docLink('avi','PDF','Aviso de Privacidad','Manejo de datos personales', p.aviso) +
+        '</div>';
+      grid.appendChild(card);
+    });
+    if(visible === 0){
+      var e = document.createElement('div');
+      e.className = 'ps-empty show';
+      e.textContent = 'No se encontró ningún programa con "' + q + '". Prueba con otra palabra.';
+      grid.appendChild(e);
+    }
+    showing.textContent = visible;
+  }
+
+  search.addEventListener('input', function(){ render(search.value); });
+  render('');
+})();
+</script>
+
+</body>
+</html>
