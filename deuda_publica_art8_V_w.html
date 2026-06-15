@@ -50,6 +50,20 @@ body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:va
 .gx-search.has-q .gx-clear{display:flex}
 .gx-count{font-size:12px;color:var(--g600);font-weight:600;margin:9px 6px 0}
 .gx-count b{color:var(--ac-d);font-family:var(--fm);font-weight:500}
+/* ===== HUB DE TARJETAS (estilo tablero de deuda) ===== */
+.dp-hub{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,228px),1fr));gap:15px;margin:0 0 28px}
+.dp-card{background:var(--wh);border:1.5px solid var(--g200);border-radius:var(--rad-lg);overflow:hidden;cursor:pointer;display:flex;flex-direction:column;transition:transform .16s var(--ease),box-shadow .16s var(--ease),border-color .16s;text-decoration:none;color:inherit}
+.dp-card:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(232,119,34,.15);border-color:var(--ac-border)}
+.dp-card:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+.dp-card-ic{background:var(--ac-soft);padding:22px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--ac-l);color:var(--ac-d)}
+.dp-card-ic svg{width:42px;height:42px}
+.dp-card-bd{padding:15px 17px 16px;display:flex;flex-direction:column;gap:4px;flex:1}
+.dp-card-t{font-size:14.5px;font-weight:800;color:var(--g900);letter-spacing:-.01em;line-height:1.25}
+.dp-card-amt{font-family:var(--fm);font-size:13.5px;font-weight:600;color:var(--ac-d);letter-spacing:-.01em}
+.dp-card-d{font-size:12px;color:var(--g600);line-height:1.5;flex:1;margin-top:2px}
+.dp-card-go{font-size:10.5px;font-weight:800;color:var(--ac-d);text-transform:uppercase;letter-spacing:.05em;display:inline-flex;align-items:center;gap:6px;margin-top:8px}
+.dp-card-go::after{content:'→';font-size:13px;transition:transform .15s var(--ease)}
+.dp-card:hover .dp-card-go::after{transform:translateX(3px)}
 .gx-sec-title{font-size:12.5px;font-weight:800;color:var(--g400);letter-spacing:.1em;text-transform:uppercase;margin:0 4px 12px;display:flex;align-items:center;gap:10px}
 .gx-sec-title.feat{color:var(--ac-d)}
 .gx-sec-title::after{content:'';flex:1;height:1.5px;background:var(--g200);border-radius:2px}
@@ -168,6 +182,34 @@ body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:va
     <div class="gx-count" id="gxCount"></div>
   </div>
 
+  <!-- HUB DE TARJETAS (estilo tablero de deuda) -->
+  <div class="dp-hub" id="dpHub">
+    <a class="dp-card" href="#grpMen" data-card>
+      <div class="dp-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></div>
+      <div class="dp-card-bd"><div class="dp-card-t">Reporte mensual de la deuda</div><div class="dp-card-d">El estado de la deuda crédito por crédito, mes a mes (Excel).</div><div class="dp-card-go">89 reportes · 2018&ndash;2026</div></div>
+    </a>
+    <a class="dp-card" href="#credBanorte" data-card>
+      <div class="dp-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg></div>
+      <div class="dp-card-bd"><div class="dp-card-t">Crédito Banorte</div><div class="dp-card-amt">$1,100 MDP</div><div class="dp-card-d">Proceso competitivo, ofertas, acta de fallo y contrato.</div><div class="dp-card-go">6 documentos</div></div>
+    </a>
+    <a class="dp-card" href="#credBBVA" data-card>
+      <div class="dp-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg></div>
+      <div class="dp-card-bd"><div class="dp-card-t">Crédito BBVA</div><div class="dp-card-amt">$810 MDP</div><div class="dp-card-d">Expediente completo y refinanciamiento 2023.</div><div class="dp-card-go">12 documentos</div></div>
+    </a>
+    <a class="dp-card" href="#credCorto" data-card>
+      <div class="dp-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg></div>
+      <div class="dp-card-bd"><div class="dp-card-t">Financiamiento de corto plazo</div><div class="dp-card-amt">$300 MDP</div><div class="dp-card-d">Crédito quirografario, diciembre 2024.</div><div class="dp-card-go">10 documentos</div></div>
+    </a>
+    <a class="dp-card" href="#credOtros" data-card>
+      <div class="dp-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg></div>
+      <div class="dp-card-bd"><div class="dp-card-t">Otros procesos y fideicomisos</div><div class="dp-card-d">Procesos LPN, contratos, fideicomisos y decretos.</div><div class="dp-card-go">17 documentos</div></div>
+    </a>
+    <a class="dp-card" href="#grpHis" data-card>
+      <div class="dp-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="5" rx="1"/><path d="M4 9v11h16V9"/><path d="M10 13h4"/></svg></div>
+      <div class="dp-card-bd"><div class="dp-card-t">Histórico en PDF</div><div class="dp-card-d">Estados mensuales de la deuda, 2018&ndash;2021.</div><div class="dp-card-go">24 reportes</div></div>
+    </a>
+  </div>
+
   <!-- MENSUAL -->
   <section class="gx-group" id="grpMen">
     <div class="gx-sec-title feat">Estado mensual de la deuda (Excel)</div>
@@ -262,8 +304,8 @@ function botones(f){
       '<td class="gx-td-doc" data-label="Abrir">'+botonesHtml+'</td>'+
     '</tr>';
   }
-  function detalle(icono, titulo, sub, rowsHtml, abierto){
-    return '<details class="gx-details"'+(abierto?' open':'')+'>'+
+  function detalle(icono, titulo, sub, rowsHtml, abierto, id){
+    return '<details class="gx-details"'+(id?' id="'+id+'"':'')+(abierto?' open':'')+'>'+
       '<summary class="gx-summary">'+
         '<span class="gx-summary-ico" aria-hidden="true">'+icono+'</span>'+
         '<span class="gx-summary-tx"><span class="gx-summary-t">'+esc(titulo)+'</span><small>'+esc(sub)+'</small></span>'+
@@ -287,7 +329,7 @@ function botones(f){
     return detalle(yy, 'Deuda pública '+y, nota, rows, abierto);
   }
   var men='';
-  men += anioMensual('2026',0,3,true,'enero – abril · 4 reportes');
+  men += anioMensual('2026',0,3,false,'enero – abril · 4 reportes');
   men += anioMensual('2025',0,11,false,'año completo · 12 reportes');
   men += anioMensual('2024',0,11,false,'año completo · 12 reportes');
   men += anioMensual('2023',0,11,false,'año completo · 12 reportes');
@@ -299,12 +341,12 @@ function botones(f){
   document.getElementById('gxMen').innerHTML = men;
 
   /* ===== Expedientes de créditos ===== */
-  function grupoCred(icono, titulo, sub, docs, abierto){
+  function grupoCred(icono, titulo, sub, docs, abierto, id){
     var rows='';
     for (var d=0;d<docs.length;d++){
       rows += fila('credito '+titulo+' '+docs[d][0], BC, docs[d][0], docs[d][2]||'', docs[d][3]||'—', botones(docs[d][1]));
     }
-    return detalle(icono, titulo, sub, rows, abierto);
+    return detalle(icono, titulo, sub, rows, abierto, id);
   }
   var cred='';
   cred += grupoCred('BN','Crédito Banorte — $1,100 MDP','6 documentos del expediente',[
@@ -314,7 +356,7 @@ function botones(f){
     ['Acta de fallo','ACTA DE FALLO_CAP BANORTE $1,100 MDP.pdf','Qué banco ganó y por qué.'],
     ['Anexo G','ANEXO G_CAP BANORTE $1,100 MDP.pdf','Anexo técnico del proceso.'],
     ['Contrato Banorte','ContratoBanorte.pdf','El contrato de crédito firmado.']
-  ], true);
+  ], false, 'credBanorte');
   cred += grupoCred('BB','Crédito BBVA — 810 MDP y refinanciamiento','12 documentos del expediente',[
     ['Proceso competitivo de contratación','Proceso-competitivo-contratacion-CAP-BBVA-810-MDP.pdf','La invitación a los bancos a competir.'],
     ['Ofertas y negativas','OFERTAS-NEGATIVAS-CAP-BBVA-810-MDP.pdf','Las propuestas recibidas.'],
@@ -328,7 +370,7 @@ function botones(f){
     ['Tercer convenio modificatorio','Tercer_Convenio_Modificatorio_Credito_Simple_BBVA.pdf','Cambio posterior a las condiciones del crédito.'],
     ['Registro estatal de obligaciones (BBVA)','Registro_Estatal_de_Obligaciones_de_los_Entes_Publicos_del_Estado_de_Jalisco_y_sus_Municipio_BBVA.pdf','La inscripción en el registro estatal de deuda.'],
     ['Decreto de refinanciamiento 2023','Decreto_Refinanciamiento_Deuda_BBVA_2023.pdf','La autorización para refinanciar la deuda.']
-  ], false);
+  ], false, 'credBBVA');
   cred += grupoCred('300','Financiamiento de corto plazo — 300 MDP (dic 2024)','10 documentos del expediente',[
     ['Proceso competitivo','ProcesoCompetitivoAdquisicion300mdpDiciembre24.pdf','La invitación a los bancos a competir.','Diciembre 2024'],
     ['Anexo A del proceso','AnexoAProcesoCompetitivo300mdpDiciembre24.pdf','Anexo técnico del proceso.','Diciembre 2024'],
@@ -340,7 +382,7 @@ function botones(f){
     ['Constancia de inscripción de obligación a corto plazo','Constancia_de_inscripci_n_obligaci_n_a_corto_plazo_2025-00716.pdf','El registro federal de la obligación 2025-00716.','2025'],
     ['Gaceta — autorización (2 de diciembre de 2024)','GacetaTomoVIEjemplar11Secc2aDiciembre2-2024.pdf','La autorización publicada en la Gaceta Municipal.','Diciembre 2024'],
     ['Gaceta — autorización (10 de diciembre de 2024)','GacetaTomoVIEjemplar13Diciembre10-2024.pdf','La autorización publicada en la Gaceta Municipal.','Diciembre 2024']
-  ], false);
+  ], false, 'credCorto');
   cred += grupoCred('+','Otros procesos, contratos y fideicomisos','17 documentos publicados',[
     ['Proceso competitivo de financiamiento 2022','ProcesoCompetitivodeFinanciamiento2022.pdf','','2022'],
     ['Anexo A — proceso LPN 02/2022','AnexoAProcesoCompetitivoLPN02-2022.pdf','','2022'],
@@ -359,7 +401,7 @@ function botones(f){
     ['Registro estatal de la obligación','RegistroEstatal.pdf','',''],
     ['Decreto D22/34BIS/10','d22-34bis-10.pdf','Decreto del Ayuntamiento relativo a la deuda.','2022'],
     ['Decreto D24/01/08','d24-01-08.pdf','Decreto del Ayuntamiento relativo a la deuda.','2024']
-  ], false);
+  ], false, 'credOtros');
   document.getElementById('gxCred').innerHTML = cred;
 
   /* ===== Histórico PDF 2018-2021 ===== */
@@ -392,6 +434,18 @@ function botones(f){
       var id = ch.getAttribute('href').slice(1);
       var sec = document.getElementById(id);
       if (sec){ var det = sec.querySelector('.gx-details'); if (det) det.open = true; }
+    });
+  });
+  // Tarjetas del hub: abren su sección o expediente y bajan a ella
+  document.querySelectorAll('[data-card]').forEach(function(card){
+    card.addEventListener('click', function(e){
+      e.preventDefault();
+      var id = card.getAttribute('href').slice(1);
+      var el = document.getElementById(id);
+      if (!el) return;
+      if (el.tagName.toLowerCase() === 'details'){ el.open = true; }
+      else { var d = el.querySelector('.gx-details'); if (d) d.open = true; }
+      try { el.scrollIntoView({behavior:'smooth', block:'start'}); } catch(err){ el.scrollIntoView(); }
     });
   });
 
