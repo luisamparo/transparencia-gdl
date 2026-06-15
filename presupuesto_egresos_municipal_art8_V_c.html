@@ -3,454 +3,1352 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<meta name="description" content="El presupuesto de egresos anual del Municipio de Guadalajara explicado para la ciudadanía: cuánto puede gastar el gobierno municipal cada año y en qué, de 2014 a 2026. Documentos aprobados en Gaceta Municipal, versiones ciudadanas, modificaciones, ampliaciones y archivos de Excel, más la consulta interactiva por capítulo del gasto. Art. 8 Fracción V Inciso c) Ley de Transparencia Jalisco."/>
-<title>¿Cuánto puede gastar Guadalajara y en qué? · Presupuesto de egresos municipal 2014–2026 con versión ciudadana, modificaciones y consulta por capítulo · Art. 8 Frac. V Inc. c)</title>
+<meta name="description" content="Presupuesto de Egresos anual y Clasificador por Objeto del Gasto del Ayuntamiento de Guadalajara — Art. 8, Fracción V, Inciso c) de la Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios. Ejercicios 2023, 2024, 2025 y 2026."/>
+<meta name="robots" content="index,follow"/>
+<meta property="og:title" content="Presupuesto de Egresos · Transparencia Guadalajara"/>
+<meta property="og:description" content="Cuánto, en qué y por qué gasta Guadalajara. Cifras verificadas contra los archivos oficiales publicados por el Ayuntamiento."/>
+<meta property="og:type" content="website"/>
+<title>Presupuesto de Egresos · Art. 8 Fracc. V Inc. c) · Transparencia Guadalajara</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
 :root{
-  --ac:#E87722;--ac-l:#FFE4CC;--ac-d:#C45F0A;--ac-border:#F5C99A;--ac-soft:#FFF1E4;
+  --nr:#E87722;--nr-l:#FF9A45;--nr-d:#C45F0A;--nr-deeper:#8B4308;--nr-soft:#FFF1E4;
+  --nr-a:rgba(232,119,34,.10);--nr-b:rgba(232,119,34,.22);
   --g50:#FAFAF8;--g100:#F0F0EC;--g200:#E2E2DD;--g300:#CFCFC8;--g400:#9E9E98;--g600:#5A5A55;--g800:#2D2D2A;--g900:#1A1A1A;
-  --wh:#FFF;--ok:#16A34A;--ok-d:#0E6B4C;--ok-l:#DCFCE7;--ok-border:#A7E8C0;
+  --wh:#FFF;
+  /* Acentos */
+  --info:#2563EB;--info-l:#DBEAFE;--info-d:#1E3A8A;
+  --plum:#6F4D8E;--plum-l:#EDE7F6;--plum-d:#4F3567;
+  --err:#C8323F;--err-l:#FCE6E8;--err-d:#7A1F29;
+  --warn:#D97706;--warn-l:#FEF3C7;
+  --ok:#1D9E75;--ok-l:#E1F5EE;--ok-d:#0E6B4C;
+  --teal:#0E7490;--teal-l:#CFFAFE;--teal-d:#155E75;
+  --rose:#BE185D;--rose-l:#FCE7F3;--rose-d:#831843;
+  --slate:#475569;--slate-l:#E2E8F0;--slate-d:#1E293B;
   --rad:10px;--rad-lg:14px;
-  --sh:0 4px 22px rgba(0,0,0,.08);--sh-sm:0 1px 3px rgba(0,0,0,.06);--sh-md:0 6px 18px rgba(0,0,0,.07);
+  --sh:0 4px 22px rgba(0,0,0,.08);
+  --sh-sm:0 1px 3px rgba(0,0,0,.06);
+  --sh-md:0 6px 18px rgba(0,0,0,.07);
   --ease:cubic-bezier(.4,0,.2,1);
   --fh:'Outfit',system-ui,-apple-system,sans-serif;
   --fm:'DM Mono','SF Mono',Menlo,monospace;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:var(--g900);line-height:1.55;-webkit-font-smoothing:antialiased}
-.gx-wrap{max-width:1040px;margin:0 auto}
-.gx-hero{background:linear-gradient(135deg,var(--ac-soft) 0%,#FFFFFF 55%);color:var(--g900);border-radius:var(--rad-lg);padding:26px 30px;margin:0 0 22px;position:relative;overflow:hidden;border-left:5px solid var(--ac);box-shadow:0 2px 14px rgba(232,119,34,.10)}
-.gx-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.12) 0%,transparent 70%);pointer-events:none}
-.gx-hero-tag{display:inline-block;background:var(--ac);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;position:relative;z-index:1;box-shadow:0 2px 6px rgba(232,119,34,.25)}
-.gx-hero h1{margin:0 0 8px;font-size:clamp(22px,3.2vw,28px);font-weight:800;color:var(--g900);letter-spacing:-.015em;line-height:1.22;position:relative;z-index:1}
-.gx-hero h1 em{font-style:normal;color:var(--ac-d);display:block;margin-top:3px}
-.gx-hero-sub{font-size:14.5px;color:var(--g600);max-width:90ch;margin:0;line-height:1.6;position:relative;z-index:1}
-.gx-hero-sub strong{color:var(--g900);font-weight:700}
-.gx-hero-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;position:relative;z-index:1}
-.gx-chip{display:inline-flex;align-items:center;gap:6px;background:var(--wh);border:1.5px solid var(--ac-border);color:var(--ac-d);font-size:11.5px;font-weight:700;padding:5px 12px;border-radius:20px}
-.gx-chip b{font-family:var(--fm);font-weight:500}
-.gx-chip.neutral{border-color:var(--g200);color:var(--g600)}
-.gx-cifras{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px;max-width:620px;position:relative;z-index:1}
-.gx-cifra{background:var(--wh);border:1.5px solid var(--ac-border);border-radius:var(--rad);padding:13px 14px;display:flex;flex-direction:column;gap:2px;min-width:0}
-.gx-cifra-num{font-family:var(--fm);font-size:clamp(22px,3vw,34px);font-weight:700;line-height:1;color:var(--ac-d);letter-spacing:-.02em;font-variant-numeric:tabular-nums;white-space:nowrap}
-.gx-cifra-lbl{font-size:10.5px;font-weight:700;color:var(--g600);text-transform:uppercase;letter-spacing:.07em;margin-top:3px;line-height:1.3}
-@media (max-width:620px){.gx-cifras{gap:8px}.gx-cifra{padding:10px 9px}}
-.gx-search-wrap{margin:0 0 24px}
-.gx-search{position:relative;display:flex;align-items:center;background:var(--wh);border:1.5px solid var(--g200);border-radius:12px;box-shadow:var(--sh-sm);transition:border-color .15s,box-shadow .15s}
-.gx-search:focus-within{border-color:var(--ac);box-shadow:0 0 0 3px rgba(232,119,34,.12)}
-.gx-search>svg{position:absolute;left:15px;color:var(--g400);pointer-events:none}
-.gx-search input{flex:1;width:100%;border:0;outline:0;background:transparent;font-family:var(--fh);font-size:14.5px;color:var(--g900);padding:13px 46px}
-.gx-search input::placeholder{color:var(--g400)}
-.gx-search input::-webkit-search-cancel-button{display:none}
-.gx-clear{position:absolute;right:8px;width:30px;height:30px;border:0;background:var(--g100);color:var(--g600);border-radius:50%;font-size:19px;line-height:1;cursor:pointer;display:none;align-items:center;justify-content:center;transition:background .14s;font-family:var(--fh)}
-.gx-clear:hover{background:var(--g200);color:var(--g900)}
-.gx-search.has-q .gx-clear{display:flex}
-.gx-count{font-size:12px;color:var(--g600);font-weight:600;margin:9px 6px 0}
-.gx-count b{color:var(--ac-d);font-family:var(--fm);font-weight:500}
-.gx-sec-title{font-size:12.5px;font-weight:800;color:var(--g400);letter-spacing:.1em;text-transform:uppercase;margin:0 4px 12px;display:flex;align-items:center;gap:10px}
-.gx-sec-title.feat{color:var(--ac-d)}
-.gx-sec-title::after{content:'';flex:1;height:1.5px;background:var(--g200);border-radius:2px}
-.gx-group{margin-bottom:26px}
-.gx-group.hide{display:none}
-.gx-table-wrap{border:1.5px solid var(--g200);border-radius:var(--rad-lg);overflow:hidden;box-shadow:var(--sh-sm);background:var(--wh)}
-.gx-table{width:100%;border-collapse:collapse;font-size:13px}
-.gx-table thead th{background:var(--ac);color:#fff;text-align:left;font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:12px 16px;white-space:nowrap}
-.gx-table thead th.c-doc{text-align:center;width:1%}
-.gx-table thead th.c-year{width:1%;white-space:nowrap}
-.gx-table tbody td{padding:13px 16px;border-top:1px solid var(--g100);vertical-align:middle;color:var(--g800)}
-.gx-table tbody tr:hover{background:var(--ac-soft)}
-.gx-td-name{line-height:1.35}
-.gx-td-name .t{font-weight:700;color:var(--g900)}
-.gx-td-desc{font-size:11.5px;color:var(--g600);font-weight:400;margin-top:4px;line-height:1.5;max-width:62ch}
-.gx-td-year{font-family:var(--fm);font-size:12.5px;color:var(--g800);white-space:nowrap}
-.gx-td-doc{text-align:center;white-space:nowrap}
-.gx-badge{display:inline-flex;align-items:center;font-size:9.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:20px;white-space:nowrap;vertical-align:middle;margin-right:6px;background:var(--ac-l);color:var(--ac-d)}
-.gx-badge.ciud{background:var(--ok-l);color:var(--ok-d)}
-.gx-doc-btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--fh);font-size:12.5px;font-weight:700;padding:9px 15px;border-radius:9px;cursor:pointer;text-decoration:none;border:1.5px solid var(--ac);background:var(--ac);color:#fff;transition:all .14s var(--ease);white-space:nowrap}
-.gx-doc-btn:hover{background:var(--ac-d);border-color:var(--ac-d);transform:translateY(-1px)}
-.gx-doc-btn svg{flex-shrink:0}
-.gx-doc-btn.xls{background:var(--wh);color:var(--ok-d);border-color:var(--ok-border)}
-.gx-doc-btn.xls:hover{background:var(--ok-l);border-color:var(--ok);color:var(--ok-d);transform:translateY(-1px)}
-.gx-details{border:1.5px solid var(--g200);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);background:var(--wh);overflow:hidden;margin-bottom:10px}
-.gx-summary{list-style:none;cursor:pointer;padding:14px 18px;display:flex;align-items:center;gap:13px;user-select:none}
-.gx-summary::-webkit-details-marker{display:none}
-.gx-summary-ico{flex-shrink:0;width:38px;height:38px;border-radius:10px;background:var(--ac-soft);color:var(--ac-d);display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:13px;font-weight:500}
-.gx-summary-tx{flex:1;display:flex;flex-direction:column;gap:1px;min-width:0}
-.gx-summary-t{font-size:14px;font-weight:800;color:var(--g900);letter-spacing:-.01em}
-.gx-summary-tx small{font-size:11.5px;color:var(--g600);font-weight:500}
-.gx-summary-chev{flex-shrink:0;color:var(--ac-d);transition:transform .2s var(--ease)}
-.gx-details[open] .gx-summary-chev{transform:rotate(180deg)}
-.gx-details[open] .gx-summary{border-bottom:1px solid var(--g200)}
-.gx-details .gx-table-wrap{border:0;border-radius:0;box-shadow:none}
-/* Tarjeta de consulta interactiva */
-.gx-cta{display:flex;gap:16px;align-items:center;background:var(--wh);border:1.5px solid var(--ac-border);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);padding:18px 20px;margin-bottom:26px;flex-wrap:wrap}
-.gx-cta-ico{flex-shrink:0;width:46px;height:46px;border-radius:12px;background:var(--ac-soft);color:var(--ac-d);display:flex;align-items:center;justify-content:center}
-.gx-cta-tx{flex:1;min-width:220px}
-.gx-cta-tx h3{font-size:15px;font-weight:800;color:var(--g900);margin-bottom:3px}
-.gx-cta-tx p{font-size:12.5px;color:var(--g600);line-height:1.55}
-.gx-cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--ac);color:#fff;border:1.5px solid var(--ac);font-family:var(--fh);font-size:13px;font-weight:700;padding:11px 18px;border-radius:10px;text-decoration:none;transition:all .14s var(--ease);white-space:nowrap}
-.gx-cta-btn:hover{background:var(--ac-d);border-color:var(--ac-d);transform:translateY(-1px)}
-.gx-noresults{display:none;background:var(--ac-soft);border:1.5px solid var(--ac-border);border-radius:var(--rad-lg);padding:22px 24px;font-size:13.5px;color:var(--g800);line-height:1.6;text-align:center;margin-bottom:26px}
-.gx-noresults.show{display:block}
-.gx-noresults strong{color:var(--ac-d);font-weight:700}
-.gx-foot-title{font-size:12.5px;font-weight:800;color:var(--g400);letter-spacing:.1em;text-transform:uppercase;margin:30px 4px 14px;display:flex;align-items:center;gap:10px}
-.gx-foot-title::after{content:'';flex:1;height:1.5px;background:var(--g200);border-radius:2px}
-.gx-info{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:14px;margin-bottom:8px}
-.gx-info-card{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);border-top:5px solid var(--ac);padding:18px 20px;display:flex;flex-direction:column;gap:8px}
-.gx-info-ico{width:42px;height:42px;border-radius:11px;background:var(--ac-soft);color:var(--ac-d);display:flex;align-items:center;justify-content:center;margin-bottom:2px}
-.gx-info-card h3{font-size:14.5px;font-weight:800;color:var(--g900);letter-spacing:-.01em;line-height:1.3}
-.gx-info-card p{font-size:12.5px;color:var(--g600);line-height:1.6}
-.gx-info-card p strong{color:var(--g800);font-weight:600}
-.gx-ley{background:var(--wh);border-radius:var(--rad-lg);padding:22px 26px;border-left:4px solid var(--ac-d);box-shadow:var(--sh-sm);margin-top:22px}
-.gx-ley-eye{font-size:10.5px;font-weight:800;color:var(--ac-d);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
-.gx-ley h3{font-size:16px;font-weight:800;color:var(--g900);margin-bottom:8px;letter-spacing:-.008em}
-.gx-ley p{font-size:13px;color:var(--g600);line-height:1.65}
-.gx-ley p+p{margin-top:7px}
-.gx-ley p strong{color:var(--g800);font-weight:600}
-.gx-ley blockquote{font-size:13.5px;color:var(--g600);line-height:1.65;margin:12px 0 8px;padding:12px 18px;background:var(--ac-soft);border-left:3px solid var(--ac);border-radius:6px;font-style:italic}
-.gx-ley blockquote strong{color:var(--g900);font-style:normal;font-weight:700}
-@media (max-width:780px){
-  body{padding:14px}
-  .gx-hero{padding:20px 18px}
-  .gx-hero h1{font-size:20px}
-  .gx-ley{padding:18px 18px}
-}
-@media (max-width:620px){
-  body{padding:10px}
-  .gx-hero{padding:18px 15px;border-radius:12px}
-  .gx-hero h1{font-size:18px;line-height:1.25}
-  .gx-hero-tag{font-size:9.5px;padding:4px 11px}
-  .gx-table-wrap{border-radius:12px}
-  .gx-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-  .gx-table tbody td{display:flex;justify-content:space-between;gap:14px;align-items:baseline;padding:8px 16px;border-top:0;text-align:right}
-  .gx-table tbody td::before{content:attr(data-label);font-size:9.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--g400);flex-shrink:0;text-align:left}
-  .gx-table tbody tr{display:block;border-top:1px solid var(--g200);padding:8px 0}
-  .gx-table tbody tr:first-child{border-top:0}
-  .gx-td-name{text-align:left;display:block;padding-top:12px}
-  .gx-td-name::before{display:none}
-  .gx-td-desc{max-width:none;text-align:left}
-  .gx-td-doc{padding-top:6px;padding-bottom:12px}
-  .gx-ley{padding:16px 15px;border-radius:12px}
-  .gx-ley blockquote{padding:11px 14px;font-size:12.5px}
-}
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--fh);background:transparent;color:var(--g900);line-height:1.5;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer}
+a{color:var(--nr-d)}
 
-/* UX: boton subir */
-.gx-top{position:fixed;right:18px;bottom:18px;z-index:60;width:46px;height:46px;border-radius:50%;border:0;background:var(--ac);color:#fff;box-shadow:0 6px 18px rgba(196,95,10,.38);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .18s,transform .18s,visibility .18s}
-.gx-top.show{opacity:1;visibility:visible;transform:none}
-.gx-top:hover{background:var(--ac-d)}
-@media (max-width:620px){.gx-top{right:12px;bottom:12px;width:42px;height:42px}}
-.gx-cifras-foot{max-width:none;margin:0 0 10px}.gx-meta-foot{margin:2px 0 0}
+/* ============================================================
+   HERO
+============================================================ */
+.hero{position:relative;overflow:hidden;padding:26px 30px;margin:0 0 22px;background:linear-gradient(135deg,#FFF4E8 0%,#FFFFFF 55%);border-radius:var(--rad-lg);border-left:5px solid var(--nr);box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.12) 0%,transparent 70%);pointer-events:none}
+.hi{position:relative;z-index:2}
+.hi-left{min-width:0}
+.bc{font-size:11.5px;color:var(--g600);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;font-weight:600}
+.badge{display:inline-block;background:var(--nr);border:none;color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.hero h1{font-size:clamp(24px,3.4vw,34px);font-weight:800;color:var(--g900);line-height:1.16;margin-bottom:10px;letter-spacing:-.015em}
+.hero p{color:#5a4d3e;font-size:clamp(13px,1.5vw,15px);max-width:80ch;line-height:1.6}
+.hero p strong{font-weight:700;color:var(--g900)}
+.hero-meta{display:flex;gap:22px;flex-wrap:wrap;margin-top:18px;padding-top:14px;border-top:1px solid var(--nr-b);font-size:11px;color:var(--g600)}
+.hero-meta-item{display:flex;flex-direction:column;gap:2px}
+.hero-meta-lbl{font-size:9.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--g400)}
+.hero-meta-val{font-weight:600;color:var(--g900);font-family:var(--fm);font-size:11.5px}
+@media(max-width:880px){.hi{grid-template-columns:1fr;gap:22px}}
+
+/* ============================================================
+   MAIN
+============================================================ */
+.main{max-width:1400px;margin:0 auto;padding:28px 20px 60px}
+
+/* ============================================================
+   BANNER LEGAL
+============================================================ */
+.legal{background:var(--wh);border:1px solid var(--g200);border-left:4px solid var(--nr);border-radius:var(--rad-lg);padding:18px 22px;margin-bottom:22px;display:grid;grid-template-columns:auto 1fr;gap:14px 20px;box-shadow:var(--sh-sm)}
+.legal-stamp{flex-shrink:0;width:48px;height:48px;border-radius:50%;background:var(--nr-soft);border:2px solid var(--nr);color:var(--nr-d);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:22px;font-family:var(--fh)}
+.legal-body{min-width:0}
+.legal-h{font-size:10.5px;font-weight:800;color:var(--nr-d);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.legal-h::after{content:'';flex:1;height:1px;background:var(--g200);max-width:140px}
+.legal-txt{font-size:14.5px;color:var(--g900);line-height:1.6;font-style:italic;font-weight:500}
+.legal-txt strong{background:linear-gradient(180deg,transparent 60%,var(--nr-soft) 60%);padding:0 3px;color:var(--g900);font-weight:700;font-style:normal}
+.legal-cite{font-size:11.5px;color:var(--g600);margin-top:10px;line-height:1.5}
+.legal-cite a{color:var(--nr-d);font-weight:600;text-decoration:underline}
+@media(max-width:600px){.legal{grid-template-columns:1fr}.legal-stamp{display:none}}
+
+/* ============================================================
+   PREGUNTA CIUDADANA + GLOSARIO
+============================================================ */
+.qa{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh);overflow:hidden;margin-bottom:22px}
+.qa-top{padding:18px 22px;border-bottom:1px solid var(--g100);background:linear-gradient(135deg,var(--nr-soft) 0%,var(--wh) 70%)}
+.qa-eye{font-size:10px;font-weight:800;color:var(--g400);letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px}
+.qa-h{font-size:20px;font-weight:800;color:var(--g900);line-height:1.2;letter-spacing:-.012em}
+.qa-h em{color:var(--nr-d);font-style:italic;font-weight:800}
+.qa-body{padding:18px 22px 22px}
+.qa-lead{font-size:14px;color:var(--g600);line-height:1.65;margin-bottom:18px;max-width:80ch}
+.qa-lead strong{color:var(--g900);font-weight:600}
+
+.qa-twocol{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
+@media(max-width:720px){.qa-twocol{grid-template-columns:1fr}}
+.qa-def{background:var(--g50);border:1px solid var(--g200);border-radius:var(--rad);padding:16px 18px;border-left:3px solid var(--nr)}
+.qa-def-tag{font-size:9.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--nr-d);margin-bottom:6px}
+.qa-def-h{font-size:15px;font-weight:800;color:var(--g900);line-height:1.3;margin-bottom:6px}
+.qa-def-txt{font-size:12.5px;color:var(--g600);line-height:1.6}
+.qa-def-txt strong{color:var(--g800);font-weight:600}
+
+/* Capítulos grid */
+.cap-eyebrow{font-size:10.5px;font-weight:800;color:var(--g600);letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.cap-eyebrow::before{content:'';width:24px;height:2px;background:var(--nr)}
+.cap-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:10px}
+.cap-tile{background:var(--g50);border:1px solid var(--g200);border-radius:var(--rad);padding:13px 15px;display:flex;align-items:flex-start;gap:11px;transition:all .18s var(--ease);border-left:3px solid var(--g300)}
+.cap-tile:hover{transform:translateY(-2px);box-shadow:var(--sh-sm)}
+.cap-tile[data-cap="1000"]{border-left-color:var(--info)}
+.cap-tile[data-cap="2000"]{border-left-color:var(--ok)}
+.cap-tile[data-cap="3000"]{border-left-color:var(--warn)}
+.cap-tile[data-cap="4000"]{border-left-color:var(--plum)}
+.cap-tile[data-cap="5000"]{border-left-color:var(--teal)}
+.cap-tile[data-cap="6000"]{border-left-color:var(--nr)}
+.cap-tile[data-cap="7000"]{border-left-color:var(--rose)}
+.cap-tile[data-cap="8000"]{border-left-color:var(--slate)}
+.cap-tile[data-cap="9000"]{border-left-color:var(--err)}
+.cap-tile-num{flex-shrink:0;font-family:var(--fm);font-size:12px;font-weight:700;color:var(--g900);background:var(--wh);border:1.5px solid var(--g200);padding:3px 8px;border-radius:6px;letter-spacing:.02em}
+.cap-tile[data-cap="1000"] .cap-tile-num{background:var(--info-l);border-color:#BFCCEA;color:var(--info-d)}
+.cap-tile[data-cap="2000"] .cap-tile-num{background:var(--ok-l);border-color:#A8D6BB;color:var(--ok-d)}
+.cap-tile[data-cap="3000"] .cap-tile-num{background:var(--warn-l);border-color:#F1D38A;color:#7A4D00}
+.cap-tile[data-cap="4000"] .cap-tile-num{background:var(--plum-l);border-color:#D9C9E8;color:var(--plum-d)}
+.cap-tile[data-cap="5000"] .cap-tile-num{background:var(--teal-l);border-color:#A5E5EF;color:var(--teal-d)}
+.cap-tile[data-cap="6000"] .cap-tile-num{background:var(--nr-soft);border-color:#F3B889;color:var(--nr-d)}
+.cap-tile[data-cap="7000"] .cap-tile-num{background:var(--rose-l);border-color:#F8B4D9;color:var(--rose-d)}
+.cap-tile[data-cap="8000"] .cap-tile-num{background:var(--slate-l);border-color:#94A3B8;color:var(--slate-d)}
+.cap-tile[data-cap="9000"] .cap-tile-num{background:var(--err-l);border-color:#EDB7BD;color:var(--err-d)}
+.cap-tile-body{min-width:0;flex:1}
+.cap-tile-h{font-size:13px;font-weight:700;color:var(--g900);line-height:1.25;margin-bottom:3px}
+.cap-tile-d{font-size:11.5px;color:var(--g600);line-height:1.5}
+
+/* ============================================================
+   SELECTOR DE EJERCICIO
+============================================================ */
+.year-row{margin-bottom:22px}
+.year-lbl{font-size:10.5px;font-weight:800;color:var(--g600);letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.year-lbl::before{content:'';width:24px;height:2px;background:var(--nr)}
+.year-hint{font-size:12px;color:var(--g600);font-weight:500;line-height:1.5;margin-bottom:10px;display:flex;align-items:center;gap:7px}
+.year-hint svg{flex-shrink:0;color:var(--nr-d);opacity:.85}
+.year-hint strong{color:var(--g900);font-weight:600}
+.year-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,11rem),1fr));gap:10px}
+.year-card{background:var(--wh);border:1.5px solid var(--g200);border-radius:var(--rad-lg);padding:14px 16px;cursor:pointer;text-align:left;font-family:var(--fh);position:relative;overflow:hidden;display:flex;flex-direction:column;gap:4px;transition:all .2s var(--ease);box-shadow:var(--sh-sm)}
+.year-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(180deg,var(--nr) 0%,var(--nr-d) 100%);transition:width .2s var(--ease)}
+.year-card:hover{border-color:var(--nr-b);transform:translateY(-2px);box-shadow:var(--sh)}
+.year-card:hover::before{width:4px}
+.year-card.active{border-color:var(--nr);background:linear-gradient(135deg,var(--nr-soft) 0%,var(--wh) 70%);box-shadow:var(--sh)}
+.year-card.active::before{width:5px;background:linear-gradient(180deg,var(--nr-d) 0%,var(--nr) 100%)}
+.year-card-top{display:flex;justify-content:space-between;align-items:baseline}
+.year-card-yr{font-size:26px;font-weight:800;color:var(--g900);line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums;font-family:var(--fm)}
+.year-card.active .year-card-yr{color:var(--nr-d)}
+.year-card-tag{font-size:9px;font-weight:800;color:var(--g400);text-transform:uppercase;letter-spacing:.08em;background:var(--g100);padding:3px 8px;border-radius:999px;border:1px solid var(--g200)}
+.year-card.now .year-card-tag{background:var(--ok-l);color:var(--ok-d);border-color:#A8D6BB}
+.year-card-val{font-size:15px;font-weight:700;color:var(--g900);font-variant-numeric:tabular-nums;letter-spacing:-.012em;line-height:1.1;margin-top:6px;font-family:var(--fm)}
+.year-card-sub{font-size:10.5px;color:var(--g400);font-weight:500;line-height:1.4;margin-top:2px}
+.year-card.active .year-card-sub{color:var(--g600)}
+
+/* ============================================================
+   WELCOME STRIP — pequeño bloque visual ciudadano
+============================================================ */
+.welcome{background:linear-gradient(135deg,var(--nr-soft) 0%,#FFF8EE 60%,var(--wh) 100%);border:1px solid var(--nr-b);border-radius:var(--rad-lg);padding:14px 20px;margin-bottom:18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;box-shadow:var(--sh-sm)}
+.welcome-ico{flex-shrink:0;width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--nr) 0%,var(--nr-d) 100%);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(196,95,10,.32)}
+.welcome-txt{flex:1;min-width:200px}
+.welcome-h{font-size:14.5px;font-weight:800;color:var(--g900);line-height:1.3;letter-spacing:-.005em}
+.welcome-h em{color:var(--nr-d);font-style:normal;font-weight:800}
+.welcome-sub{font-size:12px;color:var(--g600);line-height:1.5;margin-top:2px}
+.welcome-arrow{flex-shrink:0;color:var(--nr-d);opacity:.6;animation:nudge 1.8s var(--ease) infinite}
+@keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(4px)}}
+
+/* ============================================================
+   KPI BAND
+============================================================ */
+.kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:12px;margin-bottom:22px}
+.kpi{background:var(--wh);border-radius:var(--rad);box-shadow:var(--sh);padding:16px 18px;position:relative;overflow:hidden;border-top:3px solid var(--nr);transition:transform .18s var(--ease)}
+.kpi:hover{transform:translateY(-2px);box-shadow:var(--sh-md)}
+.kpi.total{border-top-color:var(--ok)}
+.kpi.cap{border-top-color:var(--info)}
+.kpi.var{border-top-color:var(--plum)}
+.kpi.docs{border-top-color:var(--warn)}
+.kpi-head{display:flex;align-items:center;gap:8px;margin-bottom:7px}
+.kpi-ico{flex-shrink:0;width:24px;height:24px;border-radius:6px;background:var(--g100);color:var(--g600);display:flex;align-items:center;justify-content:center}
+.kpi.total .kpi-ico{background:var(--ok-l);color:var(--ok-d)}
+.kpi.cap .kpi-ico{background:var(--info-l);color:var(--info-d)}
+.kpi.var .kpi-ico{background:var(--plum-l);color:var(--plum-d)}
+.kpi.docs .kpi-ico{background:var(--warn-l);color:#7A4D00}
+.kpi-lbl{font-size:10px;font-weight:800;color:var(--g600);text-transform:uppercase;letter-spacing:.07em;line-height:1.3}
+.kpi-val{font-family:var(--fm);font-size:22px;font-weight:700;color:var(--g900);font-variant-numeric:tabular-nums;letter-spacing:-.02em;line-height:1.1;word-break:break-word}
+.kpi.total .kpi-val{color:var(--ok-d);font-size:18px}
+.kpi.cap .kpi-val{color:var(--info-d);font-size:17px}
+.kpi.var .kpi-val{color:var(--plum-d)}
+.kpi.var .kpi-val.neg{color:var(--err-d)}
+.kpi.docs .kpi-val{color:#7A4D00}
+.kpi-sub{font-size:11px;color:var(--g600);font-weight:500;margin-top:4px;line-height:1.45}
+
+/* ============================================================
+   CHART CARDS
+============================================================ */
+.chart-card{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh);padding:20px 24px 16px;margin-bottom:22px}
+.chart-head{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:14px}
+.chart-title{font-size:17px;font-weight:800;color:var(--g900);letter-spacing:-.005em}
+.chart-sub{font-size:12px;color:var(--g600);margin-top:3px;line-height:1.5;max-width:60ch}
+.chart-toggle{display:flex;gap:6px;flex-wrap:wrap}
+.chart-toggle button{padding:7px 13px;border-radius:7px;border:1.5px solid var(--g200);background:var(--wh);font-size:11.5px;font-weight:700;cursor:pointer;font-family:var(--fh);transition:all .15s;color:var(--g600);letter-spacing:.02em}
+.chart-toggle button:hover{border-color:var(--nr);color:var(--nr-d)}
+.chart-toggle button.active{background:var(--nr);color:#fff;border-color:var(--nr);box-shadow:0 2px 6px rgba(232,119,34,.3)}
+.chart-wrap{position:relative;height:360px}
+/* ARCHIVO HISTÓRICO (acordeón por año) */
+.hist-acc{display:flex;flex-direction:column;gap:10px}
+.hist-year{border:1px solid var(--g200);border-radius:var(--rad);overflow:hidden;background:var(--wh);transition:border-color .15s var(--ease)}
+.hist-year[open]{border-color:#F3B889}
+.hist-year>summary{list-style:none;cursor:pointer;padding:14px 18px;display:flex;align-items:center;gap:12px}
+.hist-year>summary::-webkit-details-marker{display:none}
+.hist-year-yr{font-family:var(--fm);font-weight:700;color:var(--nr-d);background:var(--nr-soft);border:1px solid #F3B889;border-radius:8px;padding:4px 10px;font-size:14px;letter-spacing:-.01em}
+.hist-year-meta{font-size:12.5px;color:var(--g600);font-weight:600}
+.hist-year>summary:hover .hist-year-meta{color:var(--g800)}
+.hist-year-chev{margin-left:auto;flex-shrink:0;color:var(--g400);transition:transform .2s var(--ease)}
+.hist-year[open]>summary .hist-year-chev{transform:rotate(180deg)}
+.hist-year>.docs-grid{padding:2px 18px 18px}
+.chart-wrap-tall{height:420px}
+@media(max-width:600px){.chart-wrap,.chart-wrap-tall{height:280px}}
+.chart-legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px;padding-top:12px;border-top:1px solid var(--g100);font-size:11px;color:var(--g600);font-weight:600}
+.chart-legend-item{display:inline-flex;align-items:center;gap:6px}
+.chart-legend-dot{width:10px;height:10px;border-radius:3px}
+
+/* ============================================================
+   SECTION HEADERS
+============================================================ */
+.sec-head{margin:0 0 12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.sec-head-num{font-size:11px;font-weight:800;color:var(--nr-d);font-variant-numeric:tabular-nums;letter-spacing:.04em;flex-shrink:0;background:var(--nr-soft);padding:3px 9px;border-radius:999px;border:1px solid var(--nr-b);font-family:var(--fm);text-transform:uppercase}
+.sec-head-h{font-size:20px;font-weight:800;color:var(--g900);letter-spacing:-.012em;line-height:1.2}
+.sec-head-tag{font-size:10px;font-weight:800;color:var(--g400);background:var(--g100);padding:4px 10px;border-radius:999px;border:1px solid var(--g200);letter-spacing:.06em;text-transform:uppercase;margin-left:auto;font-variant-numeric:tabular-nums}
+.sec-intro{font-size:13px;color:var(--g600);line-height:1.6;margin-bottom:14px;max-width:80ch}
+.sec-intro strong{color:var(--g900);font-weight:600}
+
+/* ============================================================
+   DESGLOSE POR CAPÍTULO (barras horizontales)
+============================================================ */
+.split-card{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh);overflow:hidden;margin-bottom:22px}
+.split-top{padding:16px 22px;border-bottom:1px solid var(--g100);background:linear-gradient(135deg,var(--nr-soft) 0%,var(--wh) 70%)}
+.split-h{font-size:16px;font-weight:800;color:var(--g900);letter-spacing:-.008em}
+.split-sub{font-size:11.5px;color:var(--g600);line-height:1.5;margin-top:3px}
+.split-body{padding:14px 22px 20px}
+.split-row{display:grid;grid-template-columns:auto 1fr auto;gap:12px 18px;align-items:center;padding:12px 0;border-bottom:1px solid var(--g100)}
+.split-row:last-child{border-bottom:none}
+.split-row.zero{opacity:.55}
+.split-tag{display:inline-flex;align-items:center;gap:7px;font-size:10.5px;font-weight:800;padding:5px 12px;border-radius:6px;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;font-family:var(--fh);min-width:0}
+.split-tag-num{font-family:var(--fm);font-weight:700;background:rgba(0,0,0,.08);padding:2px 6px;border-radius:4px;font-size:9.5px}
+.split-tag[data-cap="1000"]{background:var(--info-l);color:var(--info-d);border:1px solid #BFCCEA}
+.split-tag[data-cap="2000"]{background:var(--ok-l);color:var(--ok-d);border:1px solid #A8D6BB}
+.split-tag[data-cap="3000"]{background:var(--warn-l);color:#7A4D00;border:1px solid #F1D38A}
+.split-tag[data-cap="4000"]{background:var(--plum-l);color:var(--plum-d);border:1px solid #D9C9E8}
+.split-tag[data-cap="5000"]{background:var(--teal-l);color:var(--teal-d);border:1px solid #A5E5EF}
+.split-tag[data-cap="6000"]{background:var(--nr-soft);color:var(--nr-d);border:1px solid #F3B889}
+.split-tag[data-cap="7000"]{background:var(--rose-l);color:var(--rose-d);border:1px solid #F8B4D9}
+.split-tag[data-cap="8000"]{background:var(--slate-l);color:var(--slate-d);border:1px solid #94A3B8}
+.split-tag[data-cap="9000"]{background:var(--err-l);color:var(--err-d);border:1px solid #EDB7BD}
+.split-bar-cont{display:flex;flex-direction:column;gap:4px;min-width:0}
+.split-bar-name{font-size:11.5px;color:var(--g600);font-weight:500;line-height:1.4}
+.split-bar-wrap{height:14px;background:var(--g100);border-radius:8px;overflow:hidden;border:1px solid var(--g200);position:relative}
+.split-bar{height:100%;border-radius:7px;transition:width 1s var(--ease)}
+.split-bar[data-cap="1000"]{background:linear-gradient(90deg,var(--info) 0%,var(--info-d) 100%)}
+.split-bar[data-cap="2000"]{background:linear-gradient(90deg,var(--ok) 0%,var(--ok-d) 100%)}
+.split-bar[data-cap="3000"]{background:linear-gradient(90deg,var(--warn) 0%,#92400E 100%)}
+.split-bar[data-cap="4000"]{background:linear-gradient(90deg,var(--plum) 0%,var(--plum-d) 100%)}
+.split-bar[data-cap="5000"]{background:linear-gradient(90deg,var(--teal) 0%,var(--teal-d) 100%)}
+.split-bar[data-cap="6000"]{background:linear-gradient(90deg,var(--nr) 0%,var(--nr-d) 100%)}
+.split-bar[data-cap="7000"]{background:linear-gradient(90deg,var(--rose) 0%,var(--rose-d) 100%)}
+.split-bar[data-cap="8000"]{background:linear-gradient(90deg,var(--slate) 0%,var(--slate-d) 100%)}
+.split-bar[data-cap="9000"]{background:linear-gradient(90deg,var(--err) 0%,var(--err-d) 100%)}
+.split-amt{display:flex;flex-direction:column;align-items:flex-end;gap:2px;text-align:right}
+.split-amt-val{font-family:var(--fm);font-size:14px;font-weight:700;color:var(--g900);font-variant-numeric:tabular-nums;white-space:nowrap;letter-spacing:-.005em}
+.split-amt-pct{font-family:var(--fm);font-size:10.5px;color:var(--g400);font-weight:500;font-variant-numeric:tabular-nums}
+@media(max-width:560px){.split-row{grid-template-columns:1fr;gap:6px}.split-amt{align-items:flex-start;text-align:left}}
+
+/* ============================================================
+   ARCHIVOS FUENTE
+============================================================ */
+.docs-card{background:var(--wh);border-radius:var(--rad-lg);overflow:hidden;box-shadow:var(--sh);margin-bottom:22px}
+.docs-top{padding:18px 22px 14px;border-bottom:1px solid var(--g100);background:linear-gradient(135deg,var(--g50) 0%,var(--wh) 70%)}
+.docs-h{font-size:16px;font-weight:800;color:var(--g900);letter-spacing:-.008em}
+.docs-sub{font-size:12px;color:var(--g600);line-height:1.55;margin-top:5px;max-width:80ch}
+.docs-sub strong{color:var(--g800);font-weight:600}
+.docs-grid{padding:16px 22px 18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:10px}
+.docs-link{display:flex;align-items:flex-start;gap:12px;background:var(--g50);border:1.5px solid var(--g200);border-radius:var(--rad);padding:14px 16px;text-decoration:none;color:inherit;transition:all .15s var(--ease);box-shadow:var(--sh-sm)}
+.docs-link:hover{border-color:var(--nr);transform:translateY(-2px);box-shadow:var(--sh-sm);background:var(--wh)}
+.docs-link-ico{flex-shrink:0;width:44px;height:44px;border-radius:var(--rad);background:var(--err-l);color:var(--err-d);display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:10.5px;font-weight:700;letter-spacing:.04em;border:1.5px solid #EDB7BD}
+.docs-link-ico.xlsx{background:var(--ok-l);color:var(--ok-d);border-color:#B8D8C5}
+.docs-link-ico.url{background:var(--plum-l);color:var(--plum);border-color:#D9C9E8}
+.docs-link-ico.ciudadano{background:var(--nr-soft);color:var(--nr-d);border-color:#F3B889}
+.docs-link-body{flex:1;min-width:0;overflow:hidden}
+.docs-link-h{font-size:13px;font-weight:700;color:var(--g900);line-height:1.3;overflow-wrap:anywhere;word-break:break-word}
+.docs-link-d{font-size:11px;color:var(--g400);line-height:1.5;margin-top:3px;font-weight:500;overflow-wrap:anywhere;word-break:break-word}
+.docs-link-pill{display:inline-flex;align-items:center;gap:5px;margin-top:5px;font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--g600);background:var(--wh);border:1px solid var(--g200);padding:3px 9px;border-radius:999px;font-family:var(--fm)}
+.docs-link-pill.ciudadano{color:var(--nr-d);background:var(--nr-soft);border-color:#F3B889}
+.docs-link-pill.ciudadano::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--nr);box-shadow:0 0 0 3px rgba(232,119,34,.22)}
+.docs-link.ciudadano-card{background:linear-gradient(135deg,var(--nr-soft) 0%,var(--wh) 80%);border-color:#F3B889}
+.docs-link.ciudadano-card:hover{border-color:var(--nr-d);background:linear-gradient(135deg,#FFE4CC 0%,var(--nr-soft) 100%)}
+
+/* ============================================================
+   RESPONSABLES
+============================================================ */
+.resp-card{background:var(--wh);border-radius:var(--rad-lg);overflow:hidden;box-shadow:var(--sh);margin-bottom:22px}
+.resp-top{padding:18px 22px 14px;background:linear-gradient(135deg,var(--nr-soft) 0%,var(--wh) 65%);border-bottom:1px solid var(--g100)}
+.resp-top-h{font-size:16px;font-weight:800;color:var(--g900);letter-spacing:-.008em;margin-bottom:3px}
+.resp-top-sub{font-size:12px;color:var(--g600);line-height:1.5}
+.resp-single{padding:18px 22px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.resp-avatar{flex-shrink:0;width:62px;height:62px;border-radius:50%;background:linear-gradient(135deg,var(--nr-deeper) 0%,var(--nr-d) 60%,var(--nr) 100%);color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;letter-spacing:.02em;box-shadow:0 6px 18px rgba(196,95,10,.32);font-family:var(--fh)}
+.resp-info{flex:1;min-width:200px}
+.resp-name{font-size:18px;font-weight:800;color:var(--g900);line-height:1.2;letter-spacing:-.012em}
+.resp-cargo{font-size:13.5px;color:var(--nr-d);font-weight:700;margin-top:3px}
+.resp-area{font-size:11.5px;color:var(--g600);line-height:1.5;margin-top:7px}
+.resp-meta{padding:14px 22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,11rem),1fr));gap:8px 24px;background:var(--wh);border-top:1px solid var(--g100)}
+.resp-meta-item{display:flex;flex-direction:column;gap:2px;min-width:0}
+.resp-meta-lbl{font-size:9.5px;font-weight:800;color:var(--g400);text-transform:uppercase;letter-spacing:.09em}
+.resp-meta-val{font-size:13px;color:var(--g900);font-weight:600;font-variant-numeric:tabular-nums;font-family:var(--fm)}
+
+/* ============================================================
+   AVISO / FOOTNOTE
+============================================================ */
+.foot-note{background:var(--wh);border:1px solid var(--g200);border-left:4px solid var(--warn);border-radius:var(--rad);padding:14px 18px;font-size:12.5px;color:var(--g600);line-height:1.65;margin-bottom:14px}
+.foot-note strong{color:var(--g900);font-weight:700}
+
+/* FOOTER LEY + CIFRAS (armonizado con la familia) */
+.eg-ley{background:var(--wh);border-radius:var(--rad-lg);padding:22px 26px;border-left:4px solid var(--nr-d);box-shadow:var(--sh-sm);margin-bottom:22px}
+.eg-cifras{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}
+.eg-cifra{background:var(--g50);border:1.5px solid var(--nr-b);border-radius:var(--rad);padding:14px 16px;display:flex;flex-direction:column;gap:2px;transition:border-color .18s ease,transform .18s ease}
+.eg-cifra:hover{border-color:var(--nr);transform:translateY(-2px)}
+.eg-cifra-num{font-family:var(--fm);font-size:30px;font-weight:700;line-height:1;color:var(--nr-d);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.eg-cifra-lbl{font-size:11px;font-weight:700;color:#5a4d3e;text-transform:uppercase;letter-spacing:.06em;margin-top:2px;line-height:1.3}
+.eg-ley-eye{font-size:10.5px;font-weight:800;color:var(--nr-d);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.eg-ley h3{font-size:16px;font-weight:800;color:var(--g900);margin-bottom:8px;letter-spacing:-.008em}
+.eg-ley p{font-size:13px;color:var(--g600);line-height:1.65;margin-bottom:6px}
+.eg-ley p strong{color:var(--g800);font-weight:600}
+.eg-ley blockquote{font-size:13.5px;color:#5a4d3e;line-height:1.65;margin:12px 0 8px;padding:12px 18px;background:var(--nr-soft);border-left:3px solid var(--nr);border-radius:6px;font-style:italic}
+.eg-ley blockquote strong{color:var(--g900);font-style:normal;font-weight:700}
+@media(max-width:560px){.eg-cifras{grid-template-columns:repeat(3,1fr);gap:8px}.eg-cifra{padding:12px 10px}.eg-cifra-num{font-size:24px}}
+
+/* ============================================================
+   STICKY YEAR BAR — aparece al scrollear más allá del hero
+============================================================ */
+.sticky-bar{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--g200);box-shadow:0 4px 20px rgba(0,0,0,.06);padding:10px 20px;transform:translateY(-100%);transition:transform .28s var(--ease),opacity .28s var(--ease);opacity:0;pointer-events:none}
+.sticky-bar.visible{transform:translateY(0);opacity:1;pointer-events:auto}
+.sticky-bar-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.sticky-bar-lbl{font-size:10px;font-weight:800;color:var(--g600);letter-spacing:.12em;text-transform:uppercase;display:flex;align-items:center;gap:8px;flex-shrink:0}
+.sticky-bar-lbl::before{content:'';width:4px;height:18px;background:linear-gradient(180deg,var(--nr) 0%,var(--nr-d) 100%);border-radius:2px}
+.sticky-bar-pills{display:flex;gap:6px;flex-wrap:wrap;flex:1;min-width:0}
+.sticky-pill{display:inline-flex;flex-direction:column;align-items:flex-start;gap:1px;background:var(--g50);border:1.5px solid var(--g200);border-radius:8px;padding:6px 12px;font-family:var(--fh);font-weight:700;cursor:pointer;transition:all .15s var(--ease);min-width:0;line-height:1.1}
+.sticky-pill-yr{font-family:var(--fm);font-size:14px;font-weight:700;color:var(--g900);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.sticky-pill-amt{font-family:var(--fm);font-size:9.5px;color:var(--g400);font-weight:500;font-variant-numeric:tabular-nums}
+.sticky-pill:hover{border-color:var(--nr);background:var(--wh);transform:translateY(-1px);box-shadow:var(--sh-sm)}
+.sticky-pill:hover .sticky-pill-yr{color:var(--nr-d)}
+.sticky-pill.active{background:linear-gradient(135deg,var(--nr) 0%,var(--nr-d) 100%);border-color:var(--nr-d);box-shadow:0 3px 10px rgba(232,119,34,.32)}
+.sticky-pill.active .sticky-pill-yr,.sticky-pill.active .sticky-pill-amt{color:#fff}
+.sticky-pill.active .sticky-pill-amt{opacity:.92}
+.sticky-bar-actions{display:flex;gap:6px;flex-shrink:0}
+.sticky-bar-btn{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:8px;background:var(--wh);border:1.5px solid var(--g200);color:var(--g600);cursor:pointer;transition:all .15s var(--ease)}
+.sticky-bar-btn:hover{border-color:var(--nr);color:var(--nr-d);background:var(--nr-soft)}
+@media(max-width:680px){
+  .sticky-bar{padding:8px 12px}
+  .sticky-bar-lbl{display:none}
+  .sticky-pill{padding:5px 10px}
+  .sticky-pill-yr{font-size:12.5px}
+  .sticky-pill-amt{font-size:9px}
+  .sticky-bar-btn{width:30px;height:30px}
+}
+
+/* ============================================================
+   FAB — Floating navigator (acceso rápido en móvil y desktop)
+============================================================ */
+.fab-wrap{position:fixed;bottom:24px;right:24px;z-index:99;display:flex;flex-direction:column;align-items:flex-end;gap:10px;opacity:0;transform:translateY(20px);transition:all .3s var(--ease);pointer-events:none}
+.fab-wrap.visible{opacity:1;transform:translateY(0);pointer-events:auto}
+.fab-pills{display:flex;flex-direction:column;gap:7px;align-items:flex-end;max-height:0;overflow:hidden;transition:max-height .3s var(--ease),margin .3s var(--ease)}
+.fab-wrap.open .fab-pills{max-height:300px;margin-bottom:4px}
+.fab-pill{display:inline-flex;align-items:center;gap:10px;background:var(--wh);border:1.5px solid var(--g200);border-radius:999px;padding:7px 14px 7px 9px;font-family:var(--fh);font-weight:700;cursor:pointer;box-shadow:var(--sh-md);transition:all .15s var(--ease);transform:translateX(20px);opacity:0}
+.fab-wrap.open .fab-pill{transform:translateX(0);opacity:1;transition:transform .25s var(--ease),opacity .25s var(--ease),border-color .15s,background .15s}
+.fab-wrap.open .fab-pill:nth-child(1){transition-delay:.04s}
+.fab-wrap.open .fab-pill:nth-child(2){transition-delay:.08s}
+.fab-wrap.open .fab-pill:nth-child(3){transition-delay:.12s}
+.fab-wrap.open .fab-pill:nth-child(4){transition-delay:.16s}
+.fab-pill:hover{border-color:var(--nr);transform:translateX(-2px);box-shadow:var(--sh)}
+.fab-pill-dot{width:26px;height:26px;border-radius:50%;background:var(--g100);color:var(--g600);display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:10px;font-weight:700;letter-spacing:-.02em;flex-shrink:0}
+.fab-pill.active{background:linear-gradient(135deg,var(--nr-soft) 0%,var(--wh) 70%);border-color:var(--nr)}
+.fab-pill.active .fab-pill-dot{background:linear-gradient(135deg,var(--nr-d) 0%,var(--nr) 100%);color:#fff}
+.fab-pill-txt{display:flex;flex-direction:column;gap:1px;line-height:1.1}
+.fab-pill-yr{font-family:var(--fm);font-size:13.5px;font-weight:700;color:var(--g900);font-variant-numeric:tabular-nums}
+.fab-pill.active .fab-pill-yr{color:var(--nr-d)}
+.fab-pill-sub{font-family:var(--fm);font-size:9.5px;color:var(--g400);font-weight:500;font-variant-numeric:tabular-nums}
+
+.fab-main{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--nr-d) 0%,var(--nr) 100%);color:#fff;border:none;border-radius:999px;padding:11px 18px 11px 14px;font-family:var(--fh);font-weight:700;cursor:pointer;box-shadow:0 8px 24px rgba(196,95,10,.36);transition:all .2s var(--ease);font-size:13px}
+.fab-main:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(196,95,10,.48)}
+.fab-main-ico{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.20);border:1.5px solid rgba(255,255,255,.45);display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:11.5px;font-weight:800;letter-spacing:-.02em;backdrop-filter:blur(4px)}
+.fab-main-lbl{display:flex;flex-direction:column;align-items:flex-start;line-height:1.1;gap:1px}
+.fab-main-yr{font-family:var(--fm);font-size:13.5px;font-weight:700;letter-spacing:-.01em}
+.fab-main-hint{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.85}
+.fab-main-arrow{transition:transform .25s var(--ease);opacity:.9;margin-left:2px}
+.fab-wrap.open .fab-main-arrow{transform:rotate(180deg)}
+
+.fab-top{position:fixed;bottom:24px;left:24px;z-index:99;width:42px;height:42px;border-radius:50%;background:var(--wh);border:1.5px solid var(--g200);color:var(--g600);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:var(--sh);opacity:0;transform:translateY(20px);transition:all .3s var(--ease);pointer-events:none}
+.fab-top.visible{opacity:1;transform:translateY(0);pointer-events:auto}
+.fab-top:hover{border-color:var(--nr);color:var(--nr-d);background:var(--nr-soft);transform:translateY(-3px)}
+
+@media(max-width:540px){
+  .fab-wrap{bottom:16px;right:16px}
+  .fab-top{bottom:16px;left:16px;width:38px;height:38px}
+  .fab-main{padding:10px 14px 10px 11px;font-size:12px}
+  .fab-main-ico{width:26px;height:26px;font-size:10.5px}
+  .fab-main-yr{font-size:12.5px}
+}
+
+/* ============================================================
+   ANCHOR OFFSET — para que scrollIntoView no quede tapado por sticky bar
+============================================================ */
+.kpi-row{scroll-margin-top:74px}
+
+/* ============================================================
+   ANIMACIONES + MOBILE
+============================================================ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+@media(max-width:540px){
+  .hero{padding:22px 20px}
+  .main{padding:18px 12px 40px}
+  .kpi-row{grid-template-columns:repeat(2,1fr)}
+  .cap-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
-<div class="gx-wrap">
 
-  <!-- HERO -->
-  <section class="gx-hero">
-    <span class="gx-hero-tag">Art. 8 · Fracción V · Inciso c) · Ley de Transparencia Jalisco</span>
-    <h1>¿Cuánto puede gastar Guadalajara y en qué? <em>El presupuesto de egresos del municipio, año por año</em></h1>
-    <p class="gx-hero-sub">Cada año, el Ayuntamiento aprueba un <strong>presupuesto de egresos</strong>: el plan de cuánto dinero público se va a gastar y en qué. Aquí lo tienes de <strong>2014 a 2026</strong>: el documento aprobado en la Gaceta Municipal, sus <strong>modificaciones</strong>, los archivos de Excel y la <strong>versión ciudadana</strong>, hecha para leerse sin ser contador. Empieza por el año en curso o usa el buscador.</p>
-  </section>
-
-  <!-- BUSCADOR -->
-  <div class="gx-search-wrap">
-    <div class="gx-search">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input id="gxQ" type="search" autocomplete="off" placeholder="Busca por año o tipo… (ej.: 2026, ciudadano, modificación, excel)" aria-label="Buscar un documento del presupuesto por año o tipo"/>
-      <button type="button" class="gx-clear" id="gxClear" aria-label="Limpiar búsqueda" title="Limpiar">&times;</button>
-    </div>
-    <div class="gx-count" id="gxCount"></div>
-  </div>
-
-  <!-- CONSULTA INTERACTIVA -->
-  <div class="gx-cta">
-    <div class="gx-cta-ico" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10h-10z"/></svg></div>
-    <div class="gx-cta-tx">
-      <h3>Explora el gasto capítulo por capítulo</h3>
-      <p>El municipio tiene un sistema de consulta en línea donde puedes ver el presupuesto desglosado por <strong>capítulo del gasto</strong> (el «clasificador por objeto del gasto») para cada año desde 2009. Sin descargar nada.</p>
-    </div>
-    <a class="gx-cta-btn" href="https://enlinea.guadalajara.gob.mx/egresos/presupuesto.php" target="_blank" rel="noopener noreferrer">Abrir la consulta interactiva
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-    </a>
-  </div>
-
-  <!-- VIGENTE -->
-  <section class="gx-group" id="grpVig">
-    <div class="gx-sec-title feat">Presupuesto vigente · ejercicio 2026</div>
-    <div class="gx-table-wrap">
-      <table class="gx-table">
-        <thead><tr><th>Documento</th><th class="c-year">Ejercicio</th><th class="c-doc">Abrir</th></tr></thead>
-        <tbody id="gxVig"></tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- AÑOS ANTERIORES -->
-  <section class="gx-group" id="grpHis">
-    <div class="gx-sec-title">Ejercicios anteriores · 2014–2025</div>
-    <div id="gxHisYears"></div>
-  </section>
-
-  <!-- SIN RESULTADOS -->
-  <div class="gx-noresults" id="gxNoRes">No encontramos documentos que coincidan con <strong id="gxNoResQ"></strong>. Prueba con un año («2023») o palabras como «ciudadano», «modificación» o «excel».</div>
-
-  <!-- FOOTER CIUDADANO -->
-  <div class="gx-foot-title">La página en cifras</div>
-    <div class="gx-cifras gx-cifras-foot">
-      <div class="gx-cifra"><div class="gx-cifra-num">48</div><div class="gx-cifra-lbl">Documentos oficiales</div></div>
-      <div class="gx-cifra"><div class="gx-cifra-num">13</div><div class="gx-cifra-lbl">Ejercicios (2014–2026)</div></div>
-      <div class="gx-cifra"><div class="gx-cifra-num">5</div><div class="gx-cifra-lbl">Versiones ciudadanas</div></div>
-    </div>
-  <div class="gx-foot-title">Para entenderlo mejor</div>
-  <div class="gx-info">
-    <div class="gx-info-card">
-      <div class="gx-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
-      <h3>¿Qué es el presupuesto de egresos?</h3>
-      <p>Es el <strong>plan anual de gasto</strong> del municipio: cuánto va a sueldos, a obras, a servicios como recolección de basura o alumbrado. Lo aprueba el Ayuntamiento y se publica en la <strong>Gaceta Municipal</strong>; por eso varios documentos de esta página son ejemplares de la Gaceta.</p>
-    </div>
-    <div class="gx-info-card">
-      <div class="gx-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-      <h3>¿Qué es la «versión ciudadana»?</h3>
-      <p>Un resumen <strong>en lenguaje claro</strong>, con gráficas y ejemplos, pensado para que cualquier persona entienda el presupuesto sin conocimientos contables. Si solo vas a abrir un documento, te recomendamos ese: búscalo como <strong>«Formato Ciudadano»</strong>.</p>
-    </div>
-    <div class="gx-info-card">
-      <div class="gx-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></div>
-      <h3>¿Por qué hay «modificaciones» y «ampliaciones»?</h3>
-      <p>El presupuesto se aprueba antes de que empiece el año, pero la realidad cambia: pueden llegar más recursos o surgir urgencias. Cada ajuste se aprueba y publica formalmente; aquí están todos, junto con las <strong>fe de erratas</strong> que corrigen errores de publicación.</p>
+<!-- ============================================================
+     STICKY YEAR BAR — aparece al scrollear
+============================================================ -->
+<nav class="sticky-bar" id="stickyBar" aria-label="Navegación rápida de ejercicios fiscales">
+  <div class="sticky-bar-inner">
+    <span class="sticky-bar-lbl">Ejercicio fiscal</span>
+    <div class="sticky-bar-pills" id="stickyPills" role="tablist"></div>
+    <div class="sticky-bar-actions">
+      <button class="sticky-bar-btn" id="stickyTopBtn" type="button" aria-label="Volver al inicio de la página" title="Volver al inicio">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+      </button>
     </div>
   </div>
+</nav>
 
-  <!-- FUNDAMENTO LEGAL -->
-  <section class="gx-ley">
-    <div class="gx-ley-eye">Fundamento legal</div>
-    <h3>¿Por qué el Ayuntamiento publica esta información?</h3>
-    <p>Es una obligación de transparencia. La ley ordena publicar, palabra por palabra, lo siguiente:</p>
-    <blockquote>«Artículo 8°. <strong>1.</strong> Es información fundamental, obligatoria para todos los sujetos obligados, la siguiente: (…) <strong>V.</strong> La información financiera, patrimonial y administrativa, que comprende: <strong>c)</strong> El presupuesto de egresos anual y, en su caso, el clasificador por objeto del gasto del sujeto obligado, de cuando menos los últimos tres años;»</blockquote>
-    <p>— <strong>Artículo 8, fracción V, inciso c)</strong> de la <em>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</em>. Los documentos de esta página son los oficiales, tal como fueron publicados por el sujeto obligado; ante cualquier discrepancia, prevalece el documento oficial.</p>
-  </section>
-
+<!-- ============================================================
+     FLOATING ACTION BUTTONS — cambio rápido de año
+============================================================ -->
+<div class="fab-wrap" id="fabWrap">
+  <div class="fab-pills" id="fabPills" role="menu" aria-label="Cambiar ejercicio fiscal"></div>
+  <button class="fab-main" id="fabMain" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Cambiar de ejercicio fiscal">
+    <span class="fab-main-ico" id="fabMainIco">—</span>
+    <span class="fab-main-lbl">
+      <span class="fab-main-hint">Ejercicio</span>
+      <span class="fab-main-yr" id="fabMainYr">—</span>
+    </span>
+    <svg class="fab-main-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+  </button>
 </div>
 
+<button class="fab-top" id="fabTop" type="button" aria-label="Volver al inicio" title="Inicio">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<main class="main">
+
+  <!-- HERO — tarjeta clara, armonizada con la familia -->
+  <section class="hero">
+    <div class="hi">
+      <div class="hi-left">
+        <div class="bc">Transparencia Guadalajara · Gobierno Municipal</div>
+        <div class="badge">Art. 8 · Fracc. V · Inc. c)</div>
+        <h1>Presupuesto de Egresos</h1>
+        <p>Cuánto y en qué gasta Guadalajara cada año.</p>
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <span class="hero-meta-lbl">Validación</span>
+            <span class="hero-meta-val">19 may 2026</span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="hero-meta-lbl">Unidad responsable</span>
+            <span class="hero-meta-val">Dirección de Egresos</span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="hero-meta-lbl">Cobertura</span>
+            <span class="hero-meta-val">2023 – 2026</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       WELCOME STRIP — invitación ciudadana visual
+  ============================================================ -->
+  <div class="welcome">
+    <div class="welcome-ico" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12a9 9 0 1 1-9-9"/><polyline points="13 2 21 2 21 10"/><line x1="11" y1="13" x2="21" y2="3"/>
+      </svg>
+    </div>
+    <div class="welcome-txt">
+      <div class="welcome-h">Conoce <em>cuánto y en qué</em> gasta tu Ayuntamiento</div>
+      <div class="welcome-sub">Elige un año, mira el desglose por capítulo y descarga los archivos oficiales.</div>
+    </div>
+    <div class="welcome-arrow" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       SELECTOR DE EJERCICIO
+  ============================================================ -->
+  <div class="year-row">
+    <div class="year-lbl">Selecciona un ejercicio fiscal</div>
+    <div class="year-hint">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 11 3 3 8-8"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      <span>Toca cualquier año para ver el detalle. <strong>2026</strong> es el ejercicio vigente.</span>
+    </div>
+    <div class="year-grid" id="yearGrid" role="tablist" aria-label="Ejercicios fiscales disponibles"></div>
+  </div>
+
+  <!-- ============================================================
+       KPI BAND
+  ============================================================ -->
+  <div class="kpi-row" id="kpiRow"></div>
+
+  <!-- ============================================================
+       GRÁFICA COMPARATIVA ANUAL
+  ============================================================ -->
+  <div class="chart-card">
+    <div class="chart-head">
+      <div>
+        <div class="chart-title">¿Cómo ha cambiado año con año?</div>
+        <div class="chart-sub">Pasa el cursor por las barras para ver el monto exacto de cada ejercicio.</div>
+      </div>
+      <div class="chart-toggle" id="comparaToggle">
+        <button data-view="total" class="active" type="button">Total anual</button>
+        <button data-view="capitulo" type="button">Por capítulo</button>
+      </div>
+    </div>
+    <div class="chart-wrap"><canvas id="comparaChart"></canvas></div>
+    <div class="chart-legend" id="comparaLegend"></div>
+  </div>
+
+  <!-- ============================================================
+       DESGLOSE POR CAPÍTULO DEL AÑO SELECCIONADO
+  ============================================================ -->
+  <section id="splitSection">
+    <div class="sec-head">
+      <span class="sec-head-num">i</span>
+      <h2 class="sec-head-h">¿En qué se gasta cada peso?</h2>
+    </div>
+    <div class="split-card">
+      <div class="split-top">
+        <h3 class="split-h">Así se reparte el ejercicio <span id="splitYr" style="color:var(--nr-d)">—</span></h3>
+        <p class="split-sub" id="splitSub">Capítulos CONAC ordenados de mayor a menor importe.</p>
+      </div>
+      <div class="split-body" id="splitBody"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ARCHIVOS FUENTE OFICIALES
+  ============================================================ -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-head-num">ii</span>
+      <h2 class="sec-head-h">Llévate los documentos oficiales</h2>
+    </div>
+    <div class="docs-card">
+      <div class="docs-top">
+        <h3 class="docs-h">Ejercicio <span id="docsYr" style="color:var(--nr-d)">—</span> · listo para descargar</h3>
+        <p class="docs-sub">Archivos oficiales del ejercicio, listos para descargar.</p>
+      </div>
+      <div class="docs-grid" id="docsGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ARCHIVO HISTÓRICO 2014–2022
+  ============================================================ -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-head-num">iii</span>
+      <h2 class="sec-head-h">Archivo histórico · ejercicios 2014 a 2022</h2>
+    </div>
+    <div class="docs-card">
+      <div class="docs-top">
+        <h3 class="docs-h">Presupuestos de ejercicios anteriores</h3>
+        <p class="docs-sub">El desglose por capítulo está disponible de 2023 en adelante. Aquí se conservan, para consulta, los documentos oficiales publicados de 2014 a 2022.</p>
+      </div>
+      <div class="hist-acc" id="histAcc"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       RESPONSABLE
+  ============================================================ -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-head-num">iv</span>
+      <h2 class="sec-head-h">Quién publica esta información</h2>
+    </div>
+    <div class="resp-card">
+      <div class="resp-single">
+        <div class="resp-avatar" aria-hidden="true">DE</div>
+        <div class="resp-info">
+          <div class="resp-name">Dirección de Egresos</div>
+          <div class="resp-cargo">Tesorería Municipal · Ayuntamiento de Guadalajara</div>
+        </div>
+      </div>
+      <div class="resp-meta">
+        <div class="resp-meta-item">
+          <span class="resp-meta-lbl">Cobertura</span>
+          <span class="resp-meta-val">2023 – 2026</span>
+        </div>
+        <div class="resp-meta-item">
+          <span class="resp-meta-lbl">Última actualización</span>
+          <span class="resp-meta-val">19 may 2026</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       NOTAS Y AVISOS (compactas)
+  ============================================================ -->
+  <div class="foot-note">
+    Las cifras corresponden al <strong>presupuesto autorizado</strong> publicado en la Gaceta Municipal, no al gasto ejercido.
+  </div>
+
+  <!-- ============================================================
+       FUNDAMENTO LEGAL + CIFRAS (footer armonizado)
+  ============================================================ -->
+  <section class="eg-ley">
+    <div class="eg-cifras">
+      <div class="eg-cifra"><div class="eg-cifra-num">4</div><div class="eg-cifra-lbl">Ejercicios fiscales</div></div>
+      <div class="eg-cifra"><div class="eg-cifra-num">9</div><div class="eg-cifra-lbl">Capítulos del gasto</div></div>
+      <div class="eg-cifra"><div class="eg-cifra-num">100%</div><div class="eg-cifra-lbl">Consultable y descargable</div></div>
+    </div>
+    <div class="eg-ley-eye">Fundamento legal</div>
+    <h3>¿Por qué se publica esta información?</h3>
+    <p>Artículo 8, Fracción V, Inciso c) de la <strong>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</strong>:</p>
+    <blockquote>"El <strong>Presupuesto de Egresos</strong> anual y, en su caso, el <strong>clasificador por objeto del gasto</strong> del sujeto obligado, de cuando menos los últimos tres años."</blockquote>
+    <p>Publicado por la <strong>Dirección de Egresos</strong> · Tesorería Municipal · Ayuntamiento de Guadalajara. <strong>Si un dato mostrado aquí discrepa del archivo oficial, prevalece el archivo oficial.</strong></p>
+  </section>
+
+</main>
+
 <script>
-/* ==========================================================================
-   Presupuesto de egresos municipal · Art. 8 Frac. V Inc. c)
-   Datos verbatim del registro oficial del sujeto obligado (corte: 10/06/2026).
-   48 documentos 2014–2026 + consulta interactiva por capítulo del gasto.
-   Etiquetas tal como las publica el registro (p. ej. la modificación de enero
-   2021 se publicó en el archivo PresupuestoEgresosFebrero2021.xlsx).
-   ========================================================================== */
 (function(){
-  var FILES_BASE = 'https://transparencia.guadalajara.gob.mx/sites/default/files/';
+'use strict';
 
-  /* Vigente 2026 */
-  var VIG = [
-    {n:'Presupuesto de Egresos 2026',d:'Aprobado y publicado en la Gaceta Municipal (19 de diciembre de 2025).',f:'GacetaTomoVIEjemplar23Secc1aDiciembre19-2025.pdf',b:''},
-    {n:'Anexos del Presupuesto de Egresos 2026',d:'Complementos publicados en la Gaceta Municipal (12 de enero de 2026).',f:'GacetaTomoIEjemplar3Enero12-2026.pdf',b:''},
-    {n:'Presupuesto de Egresos 2026 — Formato Ciudadano',d:'La versión en lenguaje claro, pensada para cualquier persona.',f:'PresupuestoCiudadanoGuadalajara26.pdf',b:'ciud'}
-  ];
-
-  /* Años anteriores */
-  var HIS = [
-    {y:'2025',docs:[
-      ['Presupuesto de Egresos 2025','Gaceta Municipal, 17 de diciembre de 2024.','GacetaTomoVIEjemplar18Secc1aDiciembre17-2024.pdf',''],
-      ['Formato Ciudadano 2025','Versión en lenguaje claro.','PresupuestoCiudadanoGuadalajara25.pdf','ciud']
-    ]},
-    {y:'2024',docs:[
-      ['Presupuesto de Egresos 2024','Gaceta Municipal, 15 de diciembre de 2023.','GacetaTomoVIEjemplar19Diciembre15-2023.pdf',''],
-      ['Formato Ciudadano 2024','Versión en lenguaje claro.','PresupuestoCiudadanoGuadalajara24.pdf','ciud']
-    ]},
-    {y:'2023',docs:[
-      ['Presupuesto de Egresos 2023','Gaceta Municipal, 29 de noviembre de 2022.','GacetaTomoVIEjemplar12Noviembre29-2022.pdf',''],
-      ['Formato Ciudadano 2023','Versión en lenguaje claro.','PresupuestoCiudadanoGuadalajara23.pdf','ciud'],
-      ['Ampliación al Presupuesto 2023','Gaceta Municipal, 25 de agosto de 2023.','GacetaTomoIVEjemplar32Agosto25-2023.pdf',''],
-      ['Fe de erratas 2023','Corrección publicada el 30 de agosto de 2023.','GacetaTomoIVEjemplar35Agosto30-2023.pdf',''],
-      ['Presupuesto 2023 en Excel','Datos abiertos conforme a la norma de armonización contable.','NormaArmonizarInformacionProyectoPresupuestoEgresos23.xlsx','']
-    ]},
-    {y:'2022',docs:[
-      ['Presupuesto de Egresos 2022','Gaceta Municipal, 15 de diciembre de 2021.','GacetaTomoVIEjemplar18Diciembre15-2021.pdf',''],
-      ['Formato Ciudadano 2022','Versión en lenguaje claro.','PresupuestoCiudadanoGuadalajara22.pdf','ciud'],
-      ['Presupuesto 2022 en Excel','Datos abiertos del presupuesto aprobado.','PresupuestoEgresos2022.xlsx',''],
-      ['Primera modificación 2022','Gaceta Municipal, 29 de julio de 2022.','GacetaTomoIVEjemplar17Julio29-2022.pdf',''],
-      ['Anexo B 2022','Gaceta Municipal, 25 de agosto de 2022.','GacetaTomoIVEjemplar25Secc1aAgosto25-2022.pdf',''],
-      ['Fe de erratas 2022','Corrección publicada el 31 de diciembre de 2021.','GacetaTomoVIEjemplar21Secc3aDiciembre31-2021.pdf','']
-    ]},
-    {y:'2021',docs:[
-      ['Presupuesto de Egresos 2021','Gaceta Municipal, 18 de diciembre de 2020.','GacetaTomoVIEjemplar21Diciembre18-2020.pdf',''],
-      ['Presupuesto 2021 en Excel','Datos abiertos del presupuesto aprobado.','PresupuestoDeEgresos2021.xlsx',''],
-      ['Primera modificación 2021 (Gaceta)','Gaceta Municipal, 29 de enero de 2021.','GacetaTomoIEjemplar11Enero29-2021.pdf',''],
-      ['Segunda modificación 2021 (Gaceta)','Gaceta Municipal, 27 de abril de 2021.','GacetaTomoIIEjemplar25Abril27-2021.pdf',''],
-      ['Modificación de enero 2021 en Excel','Tal como la publicó el registro oficial.','PresupuestoEgresosFebrero2021.xlsx',''],
-      ['Modificación de abril 2021 en Excel','Datos abiertos de la modificación.','PresupuestoEgresosAbril2021.xlsx',''],
-      ['Modificación de agosto 2021 en Excel','Datos abiertos de la modificación.','PresupuestoEgresosAgosto2021.xlsx','']
-    ]},
-    {y:'2020',docs:[
-      ['Presupuesto de Egresos 2020','Gaceta Municipal, 19 de diciembre de 2019.','GacetaTomoVIEjemplar23Diciembre19-2019.pdf',''],
-      ['Presupuesto 2020 en Excel','Datos abiertos del presupuesto aprobado.','PresupuestoDeEgresos2020.xlsx',''],
-      ['Modificación de febrero 2020 en Excel','Datos abiertos de la modificación.','PresupuestoEgresosFebrero2020.xlsx',''],
-      ['Modificación de marzo 2020 en Excel','Datos abiertos de la modificación.','PresupuestoEgresosMarzo2020.xlsx',''],
-      ['Modificación de julio 2020 en Excel','Datos abiertos de la modificación.','PresupuestoEgresosJulio2020.xlsx',''],
-      ['Modificación de octubre 2020 en Excel','Datos abiertos de la modificación.','PresupuestoEgresosOctubre2020.xlsx',''],
-      ['Modificación de diciembre 2020 en Excel','Datos abiertos de la modificación.','PresupuestoEgresosDiciembre2020.xlsx','']
-    ]},
-    {y:'2019',docs:[
-      ['Presupuesto de Egresos 2019','Gaceta Municipal, 19 de diciembre de 2018.','GacetaTomoVIEjemplar13Diciembre19-2018.pdf',''],
-      ['Presupuesto 2019 en Excel','Datos abiertos del presupuesto aprobado.','PresupuestoDeEgresos2019.xlsx',''],
-      ['Primera modificación 2019 (Gaceta)','Gaceta Municipal, 4 de marzo de 2019.','GacetaTomoIIEjemplar2Marzo4-2019.pdf',''],
-      ['Modificación de marzo 2019 en Excel','Datos abiertos de la modificación.','PresupuestoEgresosMarzo2019.xlsx',''],
-      ['Modificación de junio 2019 en Excel','Datos abiertos de la modificación.','PresupuestoEgresosJunio2019.xlsx',''],
-      ['Modificación de octubre 2019 en Excel','Datos abiertos de la modificación.','PresupuestoEgresosOctubre2019.xlsx','']
-    ]},
-    {y:'2018',docs:[
-      ['Presupuesto de Egresos 2018','Gaceta Municipal, 14 de diciembre de 2017.','GacetaTomoVIEjemplar29Diciembre14-2017.pdf',''],
-      ['Primera modificación 2018 (Gaceta)','Gaceta Municipal, 23 de agosto de 2018.','GacetaTomoIVEjemplar30Agosto23-2018.pdf',''],
-      ['Presupuesto anual — corte a octubre 2018','Reporte en Excel del registro oficial.','FormatosPlataforma/Art8FraccionV-Inciso-a-PresupuestoAnual-Octubre18.xlsx',''],
-      ['Presupuesto anual — corte a diciembre 2018','Reporte en Excel del registro oficial.','FormatosPlataforma/Art8FraccionV-Inciso-a-PresupuestoAnual-Diciembre18.xlsx','']
-    ]},
-    {y:'2017',docs:[
-      ['Presupuesto de Egresos 2017','Gaceta Municipal, 15 de diciembre de 2016.','GacetaTomoVIEjemplar23Secc1aDiciembre15-2016.pdf',''],
-      ['Primera modificación 2017 (Gaceta)','Gaceta Municipal, 7 de abril de 2017.','GacetaTomoIIEjemplar17Secc2aAbril7-2017.pdf',''],
-      ['Segunda modificación 2017 (Gaceta)','Gaceta Municipal, 19 de julio de 2017.','GacetaTomoIVEjemplar12Secc1aJulio19-2017.pdf','']
-    ]},
-    {y:'2016',docs:[
-      ['Presupuesto de Egresos 2016','Gaceta Municipal, 24 de diciembre de 2015.','GacetaTomoVIEjemplar19Diciembre24-2015.pdf','']
-    ]},
-    {y:'2015',docs:[
-      ['Presupuesto de Egresos 2015','Gaceta Municipal, 15 de diciembre de 2014.','GacetaTomoVIejemplar15Diciembre15.pdf','']
-    ]},
-    {y:'2014',docs:[
-      ['Presupuesto de Egresos 2014','Gaceta Municipal, 14 de diciembre de 2013.','gacetatomoVIejemplar11Diciembre14_0.pdf','']
-    ]}
-  ];
-
-  function esc(s){ if(s===null||s===undefined) return ''; return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-  function norm(s){ return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,''); }
-  var PDFICO = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>';
-  var XLSICO = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="17"/><line x1="16" y1="13" x2="8" y2="17"/></svg>';
-  function docBtn(f){
-    var url = (FILES_BASE + f).replace(/ /g,'%20');
-    var ext = f.split('.').pop().toLowerCase();
-    if(ext==='pdf'){ return '<a class="gx-doc-btn" href="'+esc(url)+'" target="_blank" rel="noopener noreferrer">'+PDFICO+'Ver PDF</a>'; }
-    return '<a class="gx-doc-btn xls" href="'+esc(url)+'" target="_blank" rel="noopener noreferrer" download>'+XLSICO+'Descargar Excel</a>';
-  }
-  function nameCell(n, d, b){
-    return (b==='ciud' ? '<span class="gx-badge ciud">Lenguaje claro</span>' : '')+'<span class="t">'+esc(n)+'</span>'+(d?'<div class="gx-td-desc">'+esc(d)+'</div>':'');
-  }
-
-  /* Vigente */
-  var vigHtml='';
-  for(var i=0;i<VIG.length;i++){ var v=VIG[i];
-    vigHtml += '<tr data-search="'+esc(norm('2026 vigente '+v.n+' '+v.d))+'">'+
-      '<td class="gx-td-name" data-label="Documento">'+nameCell(v.n,v.d,v.b)+'</td>'+
-      '<td class="gx-td-year" data-label="Ejercicio">2026</td>'+
-      '<td class="gx-td-doc" data-label="Abrir">'+docBtn(v.f)+'</td>'+
-    '</tr>';
-  }
-  document.getElementById('gxVig').innerHTML = vigHtml;
-
-  /* Años anteriores */
-  var hisWrap = document.getElementById('gxHisYears');
-  var hisHtml='';
-  for(var h=0;h<HIS.length;h++){ var g=HIS[h];
-    var rows='';
-    for(var d2=0;d2<g.docs.length;d2++){ var doc=g.docs[d2];
-      rows += '<tr data-search="'+esc(norm(g.y+' '+doc[0]+' '+doc[1]))+'">'+
-        '<td class="gx-td-name" data-label="Documento">'+nameCell(doc[0],doc[1],doc[3])+'</td>'+
-        '<td class="gx-td-year" data-label="Ejercicio">'+g.y+'</td>'+
-        '<td class="gx-td-doc" data-label="Abrir">'+docBtn(doc[2])+'</td>'+
-      '</tr>';
+/* ============================================================
+   DATOS — VERIFICADOS LITERALMENTE CONTRA XLSX OFICIALES
+   Fuente: ClasificadorObjetoGasto{23,24,25,26}.xlsx descargados
+   de transparencia.guadalajara.gob.mx el 19/may/2026.
+   La suma de los 9 capítulos = Total General en los 4 años.
+============================================================ */
+const PRESUPUESTOS = {
+  '2026': {
+    total: 13016671527.89,
+    caps: {
+      '1000': 5829384043.90,
+      '2000': 803213010.65,
+      '3000': 2765103716.23,
+      '4000': 1745909967.86,
+      '5000': 445887148.16,
+      '6000': 1205023930.48,
+      '7000': 10000500.00,
+      '8000': 0,
+      '9000': 212149210.61
     }
-    hisHtml += '<details class="gx-details">'+
-      '<summary class="gx-summary">'+
-        '<span class="gx-summary-ico" aria-hidden="true">'+g.y.slice(2)+'</span>'+
-        '<span class="gx-summary-tx"><span class="gx-summary-t">Presupuesto de Egresos '+g.y+'</span><small>'+g.docs.length+' documento'+(g.docs.length===1?'':'s')+' publicado'+(g.docs.length===1?'':'s')+'</small></span>'+
-        '<svg class="gx-summary-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>'+
-      '</summary>'+
-      '<div class="gx-table-wrap"><table class="gx-table">'+
-      '<thead><tr><th>Documento</th><th class="c-year">Ejercicio</th><th class="c-doc">Abrir</th></tr></thead>'+
-      '<tbody>'+rows+'</tbody></table></div></details>';
-  }
-  hisWrap.innerHTML = hisHtml;
-
-  /* ----- Auto-ajuste de altura para Strapi (anti-rebote) ----- */
-  var lastReported = 0;
-  function reportHeight(){
-    var h = Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight);
-    if (h && Math.abs(h - lastReported) > 1){
-      lastReported = h;
-      try { parent.postMessage({ type:'gdl-iframe-height', id:'presupuesto-egresos-municipal-art8-V-c', height: h }, '*'); } catch(e){}
+  },
+  '2025': {
+    total: 12491139903.44,
+    caps: {
+      '1000': 5678059773.48,
+      '2000': 754953776.36,
+      '3000': 2897895850.22,
+      '4000': 1470913490.90,
+      '5000': 239290141.56,
+      '6000': 627881760.00,
+      '7000': 581600137.83,
+      '8000': 0,
+      '9000': 240544973.09
+    }
+  },
+  '2024': {
+    total: 11896776214.35,
+    caps: {
+      '1000': 5321572924.82,
+      '2000': 599795105.03,
+      '3000': 2727809194.96,
+      '4000': 1301704918.18,
+      '5000': 224295315.45,
+      '6000': 1385488471.00,
+      '7000': 110948241.96,
+      '8000': 0,
+      '9000': 225162042.95
+    }
+  },
+  '2023': {
+    total: 10602000000.00,
+    caps: {
+      '1000': 4963366746.71,
+      '2000': 462248614.97,
+      '3000': 2405308042.31,
+      '4000': 1143534725.70,
+      '5000': 116056621.26,
+      '6000': 1275000000.05,
+      '7000': 10000000.00,
+      '8000': 0,
+      '9000': 226485249.00
     }
   }
+};
 
-  /* ----- Buscador en vivo ----- */
-  var inp = document.getElementById('gxQ');
-  var clearBtn = document.getElementById('gxClear');
-  var box = document.querySelector('.gx-search');
-  var count = document.getElementById('gxCount');
-  var noRes = document.getElementById('gxNoRes');
-  var noResQ = document.getElementById('gxNoResQ');
-  var groups = [document.getElementById('grpVig'), document.getElementById('grpHis')];
-  var allDetails = [].slice.call(document.querySelectorAll('.gx-details'));
-  var items = [].slice.call(document.querySelectorAll('tr[data-search]'));
-  var TOTAL = items.length;
-  function applyFilter(){
-    var raw = inp.value.replace(/^\s+|\s+$/g, '');
-    var toks = norm(raw).split(/\s+/);
-    var clean = [];
-    for (var t=0;t<toks.length;t++){ if (toks[t]) clean.push(toks[t]); }
-    box.classList.toggle('has-q', raw.length>0);
-    var vis = 0;
-    for (var i=0;i<items.length;i++){
-      var ds = items[i].getAttribute('data-search'), ok = true;
-      for (var c=0;c<clean.length;c++){ if (ds.indexOf(clean[c]) === -1){ ok = false; break; } }
-      items[i].style.display = ok ? '' : 'none';
-      if (ok) vis++;
-    }
-    for (var dd=0;dd<allDetails.length;dd++){
-      var det = allDetails[dd];
-      var its = det.querySelectorAll('tr[data-search]'), any=false;
-      for (var k=0;k<its.length;k++){ if (its[k].style.display !== 'none'){ any=true; break; } }
-      det.style.display = any ? '' : 'none';
-      if (clean.length>0 && any) det.open = true;
-    }
-    for (var gi=0;gi<groups.length;gi++){
-      var gits = groups[gi].querySelectorAll('tr[data-search]'), gany = false;
-      for (var k2=0;k2<gits.length;k2++){ if (gits[k2].style.display !== 'none'){ gany = true; break; } }
-      groups[gi].className = gany ? 'gx-group' : 'gx-group hide';
-    }
-    if (clean.length === 0){ count.innerHTML = '<b>'+TOTAL+'</b> documentos publicados (2014–2026)'; noRes.className = 'gx-noresults'; }
-    else if (vis === 0){ count.innerHTML = '<b>0</b> resultados'; noResQ.textContent = '«'+raw+'»'; noRes.className = 'gx-noresults show'; }
-    else { count.innerHTML = '<b>'+vis+'</b> de '+TOTAL+' documentos'; noRes.className = 'gx-noresults'; }
-    reportHeight();
+const CAPS_META = {
+  '1000': { nombre:'Servicios personales',                                ciudadano:'Sueldos y prestaciones del personal' },
+  '2000': { nombre:'Materiales y suministros',                            ciudadano:'Papelería, combustibles, insumos' },
+  '3000': { nombre:'Servicios generales',                                 ciudadano:'Luz, agua, arrendamientos, mantenimiento' },
+  '4000': { nombre:'Transferencias, asignaciones, subsidios y ayudas',    ciudadano:'Apoyos, subsidios y transferencias' },
+  '5000': { nombre:'Bienes muebles, inmuebles e intangibles',             ciudadano:'Equipos, vehículos, software' },
+  '6000': { nombre:'Inversión pública',                                   ciudadano:'Obra pública, infraestructura' },
+  '7000': { nombre:'Inversiones financieras y otras provisiones',         ciudadano:'Provisiones y aportaciones de capital' },
+  '8000': { nombre:'Participaciones y aportaciones',                      ciudadano:'No aplica al nivel municipal' },
+  '9000': { nombre:'Deuda pública',                                       ciudadano:'Pago de créditos e intereses' }
+};
+
+const CAP_COLOR = {
+  '1000': { base:'#2563EB', dark:'#1E3A8A' },
+  '2000': { base:'#1D9E75', dark:'#0E6B4C' },
+  '3000': { base:'#D97706', dark:'#92400E' },
+  '4000': { base:'#6F4D8E', dark:'#4F3567' },
+  '5000': { base:'#0E7490', dark:'#155E75' },
+  '6000': { base:'#E87722', dark:'#C45F0A' },
+  '7000': { base:'#BE185D', dark:'#831843' },
+  '8000': { base:'#475569', dark:'#1E293B' },
+  '9000': { base:'#C8323F', dark:'#7A1F29' }
+};
+
+const DOCS = {
+  '2026': [
+    { tipo:'PDF',  titulo:'Presupuesto de Egresos 2026', sub:'Gaceta Municipal · Tomo VI, Ejemplar 23 · 19 dic 2025', pill:'Aprobación', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoVIEjemplar23Secc1aDiciembre19-2025.pdf' },
+    { tipo:'PDF',  titulo:'Presupuesto de Egresos 2026 — Anexos', sub:'Gaceta Municipal · Tomo I, Ejemplar 3 · 12 ene 2026', pill:'Anexos', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar3Enero12-2026.pdf' },
+    { tipo:'CIUDADANO', titulo:'Presupuesto de Egresos 2026 — Formato Ciudadano', sub:'Versión accesible y visual del Presupuesto de Egresos', pill:'Formato Ciudadano', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/PresupuestoCiudadanoGuadalajara26.pdf' },
+    { tipo:'XLSX', titulo:'Clasificador por Objeto del Gasto 2026', sub:'Archivo Excel oficial · armonización CONAC', pill:'Clasificador', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/ClasificadorObjetoGasto26.xlsx' },
+    { tipo:'URL',  titulo:'Página oficial · Egresos', sub:'enlinea.guadalajara.gob.mx/egresos/presupuesto.php', pill:'Portal', url:'https://enlinea.guadalajara.gob.mx/egresos/presupuesto.php' }
+  ],
+  '2025': [
+    { tipo:'PDF',  titulo:'Presupuesto de Egresos 2025', sub:'Gaceta Municipal · Tomo VI, Ejemplar 18 · 17 dic 2024', pill:'Aprobación', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoVIEjemplar18Secc1aDiciembre17-2024.pdf' },
+    { tipo:'CIUDADANO', titulo:'Presupuesto de Egresos 2025 — Formato Ciudadano', sub:'Versión accesible y visual del Presupuesto de Egresos', pill:'Formato Ciudadano', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/PresupuestoCiudadanoGuadalajara25.pdf' },
+    { tipo:'XLSX', titulo:'Clasificador por Objeto del Gasto 2025', sub:'Archivo Excel oficial · armonización CONAC', pill:'Clasificador', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/ClasificadorObjetoGasto25.xlsx' },
+    { tipo:'URL',  titulo:'Página oficial · Egresos', sub:'enlinea.guadalajara.gob.mx/egresos/presupuesto.php', pill:'Portal', url:'https://enlinea.guadalajara.gob.mx/egresos/presupuesto.php' }
+  ],
+  '2024': [
+    { tipo:'PDF',  titulo:'Presupuesto de Egresos 2024', sub:'Gaceta Municipal · Tomo VI, Ejemplar 19 · 15 dic 2023', pill:'Aprobación', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoVIEjemplar19Diciembre15-2023.pdf' },
+    { tipo:'CIUDADANO', titulo:'Presupuesto de Egresos 2024 — Formato Ciudadano', sub:'Versión accesible y visual del Presupuesto de Egresos', pill:'Formato Ciudadano', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/PresupuestoCiudadanoGuadalajara24.pdf' },
+    { tipo:'XLSX', titulo:'Clasificador por Objeto del Gasto 2024', sub:'Archivo Excel oficial · armonización CONAC', pill:'Clasificador', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/ClasificadorObjetoGasto24.xlsx' },
+    { tipo:'URL',  titulo:'Página oficial · Egresos', sub:'enlinea.guadalajara.gob.mx/egresos/presupuesto.php', pill:'Portal', url:'https://enlinea.guadalajara.gob.mx/egresos/presupuesto.php' }
+  ],
+  '2023': [
+    { tipo:'PDF',  titulo:'Presupuesto de Egresos 2023', sub:'Gaceta Municipal · Tomo VI, Ejemplar 12 · 29 nov 2022', pill:'Aprobación', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoVIEjemplar12Noviembre29-2022.pdf' },
+    { tipo:'CIUDADANO', titulo:'Presupuesto de Egresos 2023 — Formato Ciudadano', sub:'Versión accesible y visual del Presupuesto de Egresos', pill:'Formato Ciudadano', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/PresupuestoCiudadanoGuadalajara23.pdf' },
+    { tipo:'PDF',  titulo:'Presupuesto 2023 — Ampliación', sub:'Gaceta Municipal · Tomo IV, Ejemplar 32 · 25 ago 2023', pill:'Ampliación', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIVEjemplar32Agosto25-2023.pdf' },
+    { tipo:'PDF',  titulo:'Presupuesto 2023 — Fe de Erratas', sub:'Gaceta Municipal · Tomo IV, Ejemplar 35 · 30 ago 2023', pill:'Fe de erratas', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIVEjemplar35Agosto30-2023.pdf' },
+    { tipo:'XLSX', titulo:'Presupuesto de Egresos 2023 — Datos abiertos', sub:'Norma para armonizar la información del Proyecto de Presupuesto de Egresos · CONAC', pill:'Datos abiertos', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/NormaArmonizarInformacionProyectoPresupuestoEgresos23.xlsx' },
+    { tipo:'XLSX', titulo:'Clasificador por Objeto del Gasto 2023', sub:'Archivo Excel oficial · armonización CONAC', pill:'Clasificador', url:'https://transparencia.guadalajara.gob.mx/sites/default/files/ClasificadorObjetoGasto23.xlsx' },
+    { tipo:'URL',  titulo:'Página oficial · Egresos', sub:'enlinea.guadalajara.gob.mx/egresos/presupuesto.php', pill:'Portal', url:'https://enlinea.guadalajara.gob.mx/egresos/presupuesto.php' }
+  ]
+};
+
+const YEARS = ['2026','2025','2024','2023'];
+let activeYear = '2026';
+let comparaView = 'total';
+let comparaChart;
+
+/* HELPERS */
+const $ = id => document.getElementById(id);
+const fmtMXN = n => new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN',maximumFractionDigits:0}).format(n);
+const fmtMXNexact = n => new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN',minimumFractionDigits:2,maximumFractionDigits:2}).format(n);
+const fmtMXNshort = n => {
+  if (n >= 1e9) return '$' + (n/1e9).toFixed(2).replace(/\.?0+$/,'') + ' MMDP';
+  if (n >= 1e6) return '$' + (n/1e6).toFixed(1).replace(/\.?0+$/,'') + ' MDP';
+  if (n >= 1e3) return '$' + (n/1e3).toFixed(0) + 'K';
+  return '$' + n;
+};
+const escapeHtml = s => String(s).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+
+/* ============================================================
+   AUTO-ALTURA PARA STRAPI (postMessage anti-rebote)
+============================================================ */
+let lastH = 0;
+function reportHeight(){
+  const h = Math.max(document.body.scrollHeight, document.documentElement.offsetHeight);
+  if (h && Math.abs(h - lastH) > 1){
+    lastH = h;
+    try { parent.postMessage({ type:'gdl-iframe-height', id:'presupuesto-egresos-municipal-art8-V-c', height: h }, '*'); } catch(e){}
   }
-  inp.addEventListener('input', applyFilter);
-  clearBtn.addEventListener('click', function(){ inp.value = ''; applyFilter(); inp.focus(); });
-  for (var ad=0; ad<allDetails.length; ad++){ allDetails[ad].addEventListener('toggle', reportHeight); }
-  applyFilter();
+}
 
+/* ============================================================
+   ARCHIVO HISTÓRICO 2014–2022
+   Documentos oficiales del registro del sujeto obligado.
+   Enlaces verificados 200/206 contra el servidor el 12/jun/2026.
+   El desglose por capítulo solo existe de 2023 en adelante;
+   estos años se conservan como documentos descargables.
+============================================================ */
+const HIST_BASE = 'https://transparencia.guadalajara.gob.mx/sites/default/files/';
+const HIST = [
+  { y:'2022', docs:[
+    { tipo:'PDF',       titulo:'Presupuesto de Egresos 2022',        sub:'Gaceta Municipal · 15 dic 2021', pill:'Aprobación',        file:'GacetaTomoVIEjemplar18Diciembre15-2021.pdf' },
+    { tipo:'CIUDADANO', titulo:'Formato Ciudadano 2022',             sub:'Versión en lenguaje claro',      pill:'Formato Ciudadano', file:'PresupuestoCiudadanoGuadalajara22.pdf' },
+    { tipo:'XLSX',      titulo:'Presupuesto 2022 en Excel',          sub:'Datos abiertos del aprobado',    pill:'Datos abiertos',    file:'PresupuestoEgresos2022.xlsx' },
+    { tipo:'PDF',       titulo:'Primera modificación 2022',          sub:'Gaceta Municipal · 29 jul 2022', pill:'Modificación',      file:'GacetaTomoIVEjemplar17Julio29-2022.pdf' },
+    { tipo:'PDF',       titulo:'Anexo B 2022',                       sub:'Gaceta Municipal · 25 ago 2022', pill:'Anexo',             file:'GacetaTomoIVEjemplar25Secc1aAgosto25-2022.pdf' },
+    { tipo:'PDF',       titulo:'Fe de erratas 2022',                 sub:'Gaceta Municipal · 31 dic 2021', pill:'Fe de erratas',     file:'GacetaTomoVIEjemplar21Secc3aDiciembre31-2021.pdf' }
+  ]},
+  { y:'2021', docs:[
+    { tipo:'PDF',  titulo:'Presupuesto de Egresos 2021',             sub:'Gaceta Municipal · 18 dic 2020', pill:'Aprobación',     file:'GacetaTomoVIEjemplar21Diciembre18-2020.pdf' },
+    { tipo:'XLSX', titulo:'Presupuesto 2021 en Excel',               sub:'Datos abiertos del aprobado',    pill:'Datos abiertos', file:'PresupuestoDeEgresos2021.xlsx' },
+    { tipo:'PDF',  titulo:'Primera modificación 2021 (Gaceta)',      sub:'Gaceta Municipal · 29 ene 2021', pill:'Modificación',   file:'GacetaTomoIEjemplar11Enero29-2021.pdf' },
+    { tipo:'PDF',  titulo:'Segunda modificación 2021 (Gaceta)',      sub:'Gaceta Municipal · 27 abr 2021', pill:'Modificación',   file:'GacetaTomoIIEjemplar25Abril27-2021.pdf' },
+    { tipo:'XLSX', titulo:'Modificación de enero 2021 en Excel',     sub:'Tal como la publicó el registro',pill:'Modificación',   file:'PresupuestoEgresosFebrero2021.xlsx' },
+    { tipo:'XLSX', titulo:'Modificación de abril 2021 en Excel',     sub:'Datos abiertos de la modificación',pill:'Modificación', file:'PresupuestoEgresosAbril2021.xlsx' },
+    { tipo:'XLSX', titulo:'Modificación de agosto 2021 en Excel',    sub:'Datos abiertos de la modificación',pill:'Modificación', file:'PresupuestoEgresosAgosto2021.xlsx' }
+  ]},
+  { y:'2020', docs:[
+    { tipo:'PDF',  titulo:'Presupuesto de Egresos 2020',             sub:'Gaceta Municipal · 19 dic 2019', pill:'Aprobación',     file:'GacetaTomoVIEjemplar23Diciembre19-2019.pdf' },
+    { tipo:'XLSX', titulo:'Presupuesto 2020 en Excel',               sub:'Datos abiertos del aprobado',    pill:'Datos abiertos', file:'PresupuestoDeEgresos2020.xlsx' },
+    { tipo:'XLSX', titulo:'Modificación de febrero 2020 en Excel',   sub:'Datos abiertos de la modificación',pill:'Modificación', file:'PresupuestoEgresosFebrero2020.xlsx' },
+    { tipo:'XLSX', titulo:'Modificación de marzo 2020 en Excel',     sub:'Datos abiertos de la modificación',pill:'Modificación', file:'PresupuestoEgresosMarzo2020.xlsx' },
+    { tipo:'XLSX', titulo:'Modificación de julio 2020 en Excel',     sub:'Datos abiertos de la modificación',pill:'Modificación', file:'PresupuestoEgresosJulio2020.xlsx' },
+    { tipo:'XLSX', titulo:'Modificación de octubre 2020 en Excel',   sub:'Datos abiertos de la modificación',pill:'Modificación', file:'PresupuestoEgresosOctubre2020.xlsx' },
+    { tipo:'XLSX', titulo:'Modificación de diciembre 2020 en Excel', sub:'Datos abiertos de la modificación',pill:'Modificación', file:'PresupuestoEgresosDiciembre2020.xlsx' }
+  ]},
+  { y:'2019', docs:[
+    { tipo:'PDF',  titulo:'Presupuesto de Egresos 2019',             sub:'Gaceta Municipal · 19 dic 2018', pill:'Aprobación',     file:'GacetaTomoVIEjemplar13Diciembre19-2018.pdf' },
+    { tipo:'XLSX', titulo:'Presupuesto 2019 en Excel',               sub:'Datos abiertos del aprobado',    pill:'Datos abiertos', file:'PresupuestoDeEgresos2019.xlsx' },
+    { tipo:'PDF',  titulo:'Primera modificación 2019 (Gaceta)',      sub:'Gaceta Municipal · 4 mar 2019',  pill:'Modificación',   file:'GacetaTomoIIEjemplar2Marzo4-2019.pdf' },
+    { tipo:'XLSX', titulo:'Modificación de marzo 2019 en Excel',     sub:'Datos abiertos de la modificación',pill:'Modificación', file:'PresupuestoEgresosMarzo2019.xlsx' },
+    { tipo:'XLSX', titulo:'Modificación de junio 2019 en Excel',     sub:'Datos abiertos de la modificación',pill:'Modificación', file:'PresupuestoEgresosJunio2019.xlsx' },
+    { tipo:'XLSX', titulo:'Modificación de octubre 2019 en Excel',   sub:'Datos abiertos de la modificación',pill:'Modificación', file:'PresupuestoEgresosOctubre2019.xlsx' }
+  ]},
+  { y:'2018', docs:[
+    { tipo:'PDF',  titulo:'Presupuesto de Egresos 2018',             sub:'Gaceta Municipal · 14 dic 2017', pill:'Aprobación',  file:'GacetaTomoVIEjemplar29Diciembre14-2017.pdf' },
+    { tipo:'PDF',  titulo:'Primera modificación 2018 (Gaceta)',      sub:'Gaceta Municipal · 23 ago 2018', pill:'Modificación',file:'GacetaTomoIVEjemplar30Agosto23-2018.pdf' },
+    { tipo:'XLSX', titulo:'Presupuesto anual — corte a octubre 2018',  sub:'Reporte en Excel del registro', pill:'Reporte',    file:'FormatosPlataforma/Art8FraccionV-Inciso-a-PresupuestoAnual-Octubre18.xlsx' },
+    { tipo:'XLSX', titulo:'Presupuesto anual — corte a diciembre 2018',sub:'Reporte en Excel del registro', pill:'Reporte',    file:'FormatosPlataforma/Art8FraccionV-Inciso-a-PresupuestoAnual-Diciembre18.xlsx' }
+  ]},
+  { y:'2017', docs:[
+    { tipo:'PDF', titulo:'Presupuesto de Egresos 2017',              sub:'Gaceta Municipal · 15 dic 2016', pill:'Aprobación',  file:'GacetaTomoVIEjemplar23Secc1aDiciembre15-2016.pdf' },
+    { tipo:'PDF', titulo:'Primera modificación 2017 (Gaceta)',       sub:'Gaceta Municipal · 7 abr 2017',  pill:'Modificación',file:'GacetaTomoIIEjemplar17Secc2aAbril7-2017.pdf' },
+    { tipo:'PDF', titulo:'Segunda modificación 2017 (Gaceta)',       sub:'Gaceta Municipal · 19 jul 2017', pill:'Modificación',file:'GacetaTomoIVEjemplar12Secc1aJulio19-2017.pdf' }
+  ]},
+  { y:'2016', docs:[
+    { tipo:'PDF', titulo:'Presupuesto de Egresos 2016', sub:'Gaceta Municipal · 24 dic 2015', pill:'Aprobación', file:'GacetaTomoVIEjemplar19Diciembre24-2015.pdf' }
+  ]},
+  { y:'2015', docs:[
+    { tipo:'PDF', titulo:'Presupuesto de Egresos 2015', sub:'Gaceta Municipal · 15 dic 2014', pill:'Aprobación', file:'GacetaTomoVIejemplar15Diciembre15.pdf' }
+  ]},
+  { y:'2014', docs:[
+    { tipo:'PDF', titulo:'Presupuesto de Egresos 2014', sub:'Gaceta Municipal · 14 dic 2013', pill:'Aprobación', file:'gacetatomoVIejemplar11Diciembre14_0.pdf' }
+  ]}
+];
+
+function histDocLink(d){
+  let icoClass='', icoText='PDF', cardClass='', pillClass='';
+  if (d.tipo==='XLSX')           { icoClass='xlsx'; icoText='XLSX'; }
+  else if (d.tipo==='CIUDADANO') { icoClass='ciudadano'; icoText='PDF'; cardClass='ciudadano-card'; pillClass='ciudadano'; }
+  const url = (HIST_BASE + d.file).replace(/ /g,'%20');
+  return `
+    <a class="docs-link ${cardClass}" href="${escapeHtml(url)}" target="_blank" rel="noopener">
+      <span class="docs-link-ico ${icoClass}">${icoText}</span>
+      <div class="docs-link-body">
+        <div class="docs-link-h">${escapeHtml(d.titulo)}</div>
+        <div class="docs-link-d">${escapeHtml(d.sub)}</div>
+        <span class="docs-link-pill ${pillClass}">${escapeHtml(d.pill)}</span>
+      </div>
+    </a>`;
+}
+
+function renderHist(){
+  const chev = '<svg class="hist-year-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
+  $('histAcc').innerHTML = HIST.map(g => `
+    <details class="hist-year">
+      <summary>
+        <span class="hist-year-yr">${g.y}</span>
+        <span class="hist-year-meta">${g.docs.length} documento${g.docs.length===1?'':'s'} oficial${g.docs.length===1?'':'es'}</span>
+        ${chev}
+      </summary>
+      <div class="docs-grid">${g.docs.map(histDocLink).join('')}</div>
+    </details>
+  `).join('');
+  $('histAcc').querySelectorAll('details').forEach(d => d.addEventListener('toggle', reportHeight));
+}
+
+function variacionPct(yr){
+  const prev = String(parseInt(yr,10) - 1);
+  if (!PRESUPUESTOS[prev]) return null;
+  return ((PRESUPUESTOS[yr].total - PRESUPUESTOS[prev].total) / PRESUPUESTOS[prev].total) * 100;
+}
+
+function capWithImporte(yr){
+  return Object.entries(PRESUPUESTOS[yr].caps)
+    .map(([k,v]) => ({ cap:k, importe:v, nombre:CAPS_META[k].nombre, ciudadano:CAPS_META[k].ciudadano }))
+    .filter(c => c.importe > 0)
+    .sort((a,b) => b.importe - a.importe);
+}
+
+/* ============================================================
+   RENDER: SELECTOR DE AÑOS
+============================================================ */
+function renderYears(){
+  const CURRENT = new Date().getFullYear();
+  $('yearGrid').innerHTML = YEARS.map(y => {
+    const total = PRESUPUESTOS[y].total;
+    const isActive = y === activeYear;
+    const isNow = parseInt(y,10) === CURRENT;
+    return `
+      <button class="year-card ${isActive?'active':''} ${isNow?'now':''}" data-year="${y}" role="tab" aria-selected="${isActive}" type="button">
+        <div class="year-card-top">
+          <span class="year-card-yr">${y}</span>
+          <span class="year-card-tag">${isNow?'Vigente':'Cerrado'}</span>
+        </div>
+        <span class="year-card-val">${fmtMXNshort(total)}</span>
+        <span class="year-card-sub">Presupuesto autorizado</span>
+      </button>
+    `;
+  }).join('');
+  $('yearGrid').querySelectorAll('.year-card').forEach(c => {
+    c.addEventListener('click', () => setYear(c.dataset.year));
+  });
+}
+
+function setYear(y){
+  if (y === activeYear) return;
+  activeYear = y;
+  renderForYear();
+  setTimeout(() => {
+    const target = $('kpiRow');
+    if (target) target.scrollIntoView({behavior:'smooth',block:'start'});
+  }, 80);
+}
+
+/* ============================================================
+   RENDER: HERO NUMBER
+============================================================ */
+/* (Bloque "hero number" retirado al armonizar: el hero ya no muestra
+   la cifra dinámica; el total por año vive en los KPIs y el resumen
+   estático en el footer.) */
+
+/* ============================================================
+   RENDER: KPIs
+============================================================ */
+function renderKpis(){
+  const data = PRESUPUESTOS[activeYear];
+  const caps = capWithImporte(activeYear);
+  const top = caps[0];
+  const topPct = ((top.importe / data.total) * 100).toFixed(1);
+  const variacion = variacionPct(activeYear);
+  const numDocs = DOCS[activeYear].length;
+
+  const icoMoney  = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>';
+  const icoBars   = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>';
+  const icoTrend  = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>';
+  const icoDoc    = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>';
+
+  let variacionHtml;
+  if (variacion === null) {
+    variacionHtml = `<div class="kpi-val">—</div><div class="kpi-sub">Sin ejercicio anterior en esta vista</div>`;
+  } else {
+    const cls = variacion < 0 ? 'neg' : '';
+    const signo = variacion > 0 ? '+' : '';
+    const prevYr = String(parseInt(activeYear,10)-1);
+    variacionHtml = `<div class="kpi-val ${cls}">${signo}${variacion.toFixed(1)}%</div><div class="kpi-sub">Comparado con ${prevYr}</div>`;
+  }
+
+  $('kpiRow').innerHTML = `
+    <div class="kpi total">
+      <div class="kpi-head"><span class="kpi-ico" aria-hidden="true">${icoMoney}</span><div class="kpi-lbl">Total autorizado ${activeYear}</div></div>
+      <div class="kpi-val">${fmtMXNexact(data.total)}</div>
+      <div class="kpi-sub">Publicado en la Gaceta Municipal</div>
+    </div>
+    <div class="kpi cap">
+      <div class="kpi-head"><span class="kpi-ico" aria-hidden="true">${icoBars}</span><div class="kpi-lbl">¿En qué se gasta más?</div></div>
+      <div class="kpi-val">${escapeHtml(top.nombre)}</div>
+      <div class="kpi-sub">Capítulo ${top.cap} · ${topPct}% del total</div>
+    </div>
+    <div class="kpi var">
+      <div class="kpi-head"><span class="kpi-ico" aria-hidden="true">${icoTrend}</span><div class="kpi-lbl">Cambio respecto al año anterior</div></div>
+      ${variacionHtml}
+    </div>
+    <div class="kpi docs">
+      <div class="kpi-head"><span class="kpi-ico" aria-hidden="true">${icoDoc}</span><div class="kpi-lbl">Archivos disponibles</div></div>
+      <div class="kpi-val">${numDocs}</div>
+      <div class="kpi-sub">Listos para descargar</div>
+    </div>
+  `;
+}
+
+/* ============================================================
+   CHART.JS — COMPARATIVA ANUAL
+============================================================ */
+function renderComparaChart(){
+  const ctx = document.getElementById('comparaChart').getContext('2d');
+  if (comparaChart) comparaChart.destroy();
+
+  const orderedYears = ['2023','2024','2025','2026'];
+  const labels = orderedYears.map(y => `Ejercicio ${y}`);
+
+  if (comparaView === 'total') {
+    const data = orderedYears.map(y => PRESUPUESTOS[y].total);
+    comparaChart = new Chart(ctx, {
+      type:'bar',
+      data:{
+        labels,
+        datasets:[{
+          label:'Presupuesto autorizado (MXN)',
+          data,
+          backgroundColor: orderedYears.map(y => y === activeYear ? '#C45F0A' : '#E87722'),
+          borderColor: orderedYears.map(y => y === activeYear ? '#8B4308' : '#C45F0A'),
+          borderWidth: 1.5,
+          borderRadius: 6,
+          hoverBackgroundColor: '#8B4308'
+        }]
+      },
+      options:{
+        responsive:true,
+        maintainAspectRatio:false,
+        plugins:{
+          legend:{display:false},
+          tooltip:{
+            backgroundColor:'#1A1A1A',
+            titleColor:'#fff',
+            bodyColor:'#fff',
+            titleFont:{family:'Outfit',size:13,weight:'700'},
+            bodyFont:{family:'DM Mono',size:13},
+            padding:12,
+            cornerRadius:8,
+            callbacks:{
+              label: c => ' ' + fmtMXN(c.parsed.y)
+            }
+          }
+        },
+        scales:{
+          y:{
+            beginAtZero:true,
+            ticks:{
+              callback: v => fmtMXNshort(v),
+              font:{family:'DM Mono',size:11},
+              color:'#5A5A55'
+            },
+            grid:{color:'#F0F0EC',drawBorder:false}
+          },
+          x:{
+            ticks:{
+              font:{family:'Outfit',size:12,weight:'600'},
+              color:'#1A1A1A'
+            },
+            grid:{display:false}
+          }
+        }
+      }
+    });
+    $('comparaLegend').innerHTML = `
+      <span class="chart-legend-item"><span class="chart-legend-dot" style="background:#C45F0A"></span>Ejercicio activo</span>
+      <span class="chart-legend-item"><span class="chart-legend-dot" style="background:#E87722"></span>Otros ejercicios</span>
+    `;
+  } else {
+    const capKeys = ['1000','2000','3000','4000','5000','6000','7000','8000','9000'];
+    const datasets = capKeys.filter(k => orderedYears.some(y => PRESUPUESTOS[y].caps[k] > 0)).map(k => ({
+      label: 'Cap. ' + k + ' · ' + CAPS_META[k].nombre,
+      data: orderedYears.map(y => PRESUPUESTOS[y].caps[k] || 0),
+      backgroundColor: CAP_COLOR[k].base,
+      borderColor: CAP_COLOR[k].dark,
+      borderWidth: 1,
+      borderRadius: 3,
+      stack: 'caps'
+    }));
+    comparaChart = new Chart(ctx, {
+      type:'bar',
+      data:{ labels, datasets },
+      options:{
+        responsive:true,
+        maintainAspectRatio:false,
+        plugins:{
+          legend:{
+            position:'bottom',
+            labels:{
+              font:{family:'Outfit',size:10.5,weight:'600'},
+              color:'#5A5A55',
+              padding:10,
+              boxWidth:12,
+              boxHeight:12,
+              usePointStyle:false
+            }
+          },
+          tooltip:{
+            backgroundColor:'#1A1A1A',
+            titleColor:'#fff',
+            bodyColor:'#fff',
+            titleFont:{family:'Outfit',size:13,weight:'700'},
+            bodyFont:{family:'DM Mono',size:12},
+            padding:12,
+            cornerRadius:8,
+            callbacks:{
+              label: c => ' ' + c.dataset.label + ': ' + (c.parsed.y ? fmtMXN(c.parsed.y) : '$0')
+            }
+          }
+        },
+        scales:{
+          y:{
+            beginAtZero:true,
+            stacked:true,
+            ticks:{
+              callback: v => fmtMXNshort(v),
+              font:{family:'DM Mono',size:11},
+              color:'#5A5A55'
+            },
+            grid:{color:'#F0F0EC',drawBorder:false}
+          },
+          x:{
+            stacked:true,
+            ticks:{
+              font:{family:'Outfit',size:12,weight:'600'},
+              color:'#1A1A1A'
+            },
+            grid:{display:false}
+          }
+        }
+      }
+    });
+    $('comparaLegend').innerHTML = '';
+  }
+}
+
+/* ============================================================
+   RENDER: DESGLOSE POR CAPÍTULO
+============================================================ */
+function renderSplit(){
+  $('splitYr').textContent = activeYear;
+  const caps = capWithImporte(activeYear);
+  const total = PRESUPUESTOS[activeYear].total;
+  const zeroCaps = Object.entries(PRESUPUESTOS[activeYear].caps).filter(([k,v]) => v === 0);
+  const cero = zeroCaps.length;
+  $('splitSub').textContent = `${caps.length} capítulos con asignación presupuestal · ${cero} sin asignación · suma total ${fmtMXNexact(total)}`;
+
+  let html = caps.map(c => {
+    const pct = ((c.importe / total) * 100);
+    const pctFmt = pct >= 1 ? pct.toFixed(1) : pct.toFixed(2);
+    const barPct = Math.max(pct, 0.4);
+    return `
+      <div class="split-row" style="animation:fadeUp .4s var(--ease) both">
+        <span class="split-tag" data-cap="${c.cap}"><span class="split-tag-num">${c.cap}</span>${escapeHtml(c.ciudadano)}</span>
+        <div class="split-bar-cont">
+          <span class="split-bar-name">${escapeHtml(c.nombre)}</span>
+          <div class="split-bar-wrap"><div class="split-bar" data-cap="${c.cap}" style="width:${barPct}%"></div></div>
+        </div>
+        <div class="split-amt">
+          <span class="split-amt-val">${fmtMXNexact(c.importe)}</span>
+          <span class="split-amt-pct">${pctFmt}% del total</span>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  if (zeroCaps.length > 0) {
+    html += zeroCaps.map(([k,v]) => `
+      <div class="split-row zero">
+        <span class="split-tag" data-cap="${k}"><span class="split-tag-num">${k}</span>${escapeHtml(CAPS_META[k].ciudadano)}</span>
+        <div class="split-bar-cont">
+          <span class="split-bar-name">${escapeHtml(CAPS_META[k].nombre)}</span>
+          <div class="split-bar-wrap"></div>
+        </div>
+        <div class="split-amt">
+          <span class="split-amt-val" style="color:var(--g400);font-style:italic">Sin asignación</span>
+          <span class="split-amt-pct">0% del total</span>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  $('splitBody').innerHTML = html;
+}
+
+/* ============================================================
+   RENDER: ARCHIVOS FUENTE
+============================================================ */
+function renderDocs(){
+  $('docsYr').textContent = activeYear;
+  const docs = DOCS[activeYear] || [];
+  $('docsGrid').innerHTML = docs.map(d => {
+    let icoClass = '', icoText = d.tipo, cardClass = '', pillClass = '';
+    if (d.tipo === 'XLSX')      { icoClass = 'xlsx'; }
+    else if (d.tipo === 'URL')  { icoClass = 'url'; icoText = 'WEB'; }
+    else if (d.tipo === 'CIUDADANO') { icoClass = 'ciudadano'; icoText = 'PDF'; cardClass = 'ciudadano-card'; pillClass = 'ciudadano'; }
+    return `
+      <a class="docs-link ${cardClass}" href="${escapeHtml(d.url)}" target="_blank" rel="noopener">
+        <span class="docs-link-ico ${icoClass}">${icoText}</span>
+        <div class="docs-link-body">
+          <div class="docs-link-h">${escapeHtml(d.titulo)}</div>
+          <div class="docs-link-d">${escapeHtml(d.sub)}</div>
+          <span class="docs-link-pill ${pillClass}">${escapeHtml(d.pill)}</span>
+        </div>
+      </a>
+    `;
+  }).join('');
+}
+
+/* ============================================================
+   TOGGLE COMPARATIVA
+============================================================ */
+function setupComparaToggle(){
+  document.getElementById('comparaToggle').addEventListener('click', e => {
+    const b = e.target.closest('button[data-view]');
+    if (!b) return;
+    document.querySelectorAll('#comparaToggle button').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    comparaView = b.dataset.view;
+    renderComparaChart();
+  });
+}
+
+/* ============================================================
+   RENDER: STICKY BAR + FAB (navegación persistente)
+============================================================ */
+function renderStickyBar(){
+  $('stickyPills').innerHTML = YEARS.map(y => {
+    const isActive = y === activeYear;
+    return `
+      <button class="sticky-pill ${isActive?'active':''}" data-year="${y}" role="tab" aria-selected="${isActive}" type="button" title="Ver ejercicio ${y}">
+        <span class="sticky-pill-yr">${y}</span>
+        <span class="sticky-pill-amt">${fmtMXNshort(PRESUPUESTOS[y].total)}</span>
+      </button>
+    `;
+  }).join('');
+  $('stickyPills').querySelectorAll('.sticky-pill').forEach(p => {
+    p.addEventListener('click', () => setYear(p.dataset.year));
+  });
+}
+
+function renderFab(){
+  $('fabMainIco').textContent = activeYear.slice(-2);
+  $('fabMainYr').textContent = activeYear;
+  $('fabPills').innerHTML = YEARS.map(y => {
+    const isActive = y === activeYear;
+    return `
+      <button class="fab-pill ${isActive?'active':''}" data-year="${y}" role="menuitem" type="button">
+        <span class="fab-pill-dot">${y.slice(-2)}</span>
+        <span class="fab-pill-txt">
+          <span class="fab-pill-yr">${y}</span>
+          <span class="fab-pill-sub">${fmtMXNshort(PRESUPUESTOS[y].total)}</span>
+        </span>
+      </button>
+    `;
+  }).join('');
+  $('fabPills').querySelectorAll('.fab-pill').forEach(p => {
+    p.addEventListener('click', () => {
+      setYear(p.dataset.year);
+      closeFab();
+    });
+  });
+}
+
+function openFab(){
+  $('fabWrap').classList.add('open');
+  $('fabMain').setAttribute('aria-expanded','true');
+}
+function closeFab(){
+  $('fabWrap').classList.remove('open');
+  $('fabMain').setAttribute('aria-expanded','false');
+}
+function toggleFab(){
+  if ($('fabWrap').classList.contains('open')) closeFab(); else openFab();
+}
+
+function setupNavigation(){
+  // Toggle FAB
+  $('fabMain').addEventListener('click', e => { e.stopPropagation(); toggleFab(); });
+  // Cerrar FAB al click fuera
+  document.addEventListener('click', e => {
+    if (!$('fabWrap').contains(e.target)) closeFab();
+  });
+  // Cerrar FAB con Escape
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeFab();
+  });
+  // Scroll to top desde sticky bar y desde FAB top
+  const goTop = () => window.scrollTo({ top:0, behavior:'smooth' });
+  $('stickyTopBtn').addEventListener('click', goTop);
+  $('fabTop').addEventListener('click', goTop);
+
+  // Visibility: aparecen después del hero (~480px)
+  const hero = document.querySelector('.hero');
+  let lastY = 0;
+  const onScroll = () => {
+    const y = window.scrollY;
+    const trigger = (hero ? hero.offsetHeight : 480) - 60;
+    const shouldShow = y > trigger;
+    $('stickyBar').classList.toggle('visible', shouldShow);
+    $('fabWrap').classList.toggle('visible', shouldShow);
+    $('fabTop').classList.toggle('visible', y > 600);
+    // Cerrar FAB si el usuario scrollea fuerte
+    if (Math.abs(y - lastY) > 80) closeFab();
+    lastY = y;
+  };
+  window.addEventListener('scroll', onScroll, { passive:true });
+  onScroll();
+}
+
+/* ============================================================
+   RENDER COMPUESTO
+============================================================ */
+function renderForYear(){
+  renderYears();
+  renderStickyBar();
+  renderFab();
+  renderKpis();
+  renderComparaChart();
+  renderSplit();
+  renderDocs();
+  reportHeight();
+}
+
+/* INIT */
+function init(){
+  renderForYear();
+  renderHist();
+  setupComparaToggle();
+  setupNavigation();
+  reportHeight();
   window.addEventListener('load', reportHeight);
   window.addEventListener('resize', reportHeight);
-  setTimeout(reportHeight, 400);
-  setTimeout(reportHeight, 1200);
+  setTimeout(reportHeight, 300);
+  setTimeout(reportHeight, 900);
+  setTimeout(reportHeight, 1600);
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
 })();
 </script>
 
-
-<!-- BOTON SUBIR (UX) -->
-<button type="button" class="gx-top" id="gxTopBtn" aria-label="Volver arriba" title="Volver arriba">
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
-</button>
-<script>
-(function(){
-  var b = document.getElementById('gxTopBtn');
-  function s(){ b.classList.toggle('show', (window.pageYOffset||document.documentElement.scrollTop) > 280); }
-  window.addEventListener('scroll', s, {passive:true});
-  b.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
-  s();
-})();
-</script></body>
+</body>
 </html>

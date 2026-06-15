@@ -4,21 +4,21 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <meta name="description" content="Plantilla de personal del Ayuntamiento de Guadalajara: plazas de base y confianza, ocupadas y vacantes, por género — Art. 8, Fracción V, Inciso e) de la Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios."/>
-<title>Plantilla de Personal · ¿Cuántas plazas tiene el Ayuntamiento? · Transparencia GDL</title>
+<title>Plantilla de Personal · ¿Cuántas plazas tiene el Ayuntamiento? · Art. 8 Frac. V Inc. e) · Transparencia GDL</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
 :root{
   --nr:#E87722;--nr-l:#FF9A45;--nr-d:#C45F0A;--nr-deeper:#8B4308;--nr-soft:#FFF1E4;
-  --nr-a:rgba(232,119,34,.10);--nr-b:rgba(232,119,34,.22);
+  --ac:#E87722;--ac-l:#FFE4CC;--ac-d:#C45F0A;--ac-border:#F5C99A;--ac-soft:#FFF1E4;
   --g50:#FAFAF8;--g100:#F0F0EC;--g200:#E2E2DD;--g300:#CFCFC8;--g400:#9E9E98;--g600:#5A5A55;--g800:#2D2D2A;--g900:#1A1A1A;
   --wh:#FFF;
-  --base:#1E40AF;--base-l:#DBEAFE;--base-d:#0F2A5C;--base-border:#BFDBFE;
-  --conf:#8E44AD;--conf-l:#F0E5F8;--conf-d:#5E2D78;--conf-border:#D9C2E8;
-  --ok:#1D9E75;--ok-l:#E1F5EE;--ok-d:#0E6B4C;
-  --vac:#8C6D1F;--vac-l:#FFF8E1;--vac-d:#5F4A0F;--vac-border:#F0E0A8;
-  --h:#0E7C7B;--h-l:#D9F0EF;--h-d:#075A59;
-  --m:#C2185B;--m-l:#FCE4EC;--m-d:#7A0F3C;
+  --base:#E87722;--base-l:#FFE4CC;--base-d:#C45F0A;--base-border:#F5C99A;
+  --conf:#8B4308;--conf-l:#F7E8DA;--conf-d:#6B3406;--conf-border:#E3C5A4;
+  --ok:#C45F0A;--ok-l:#FFF1E4;--ok-d:#8B4308;
+  --vac:#5A5A55;--vac-l:#F0F0EC;--vac-d:#2D2D2A;
+  --h:#8B4308;--h-l:#F7E8DA;--h-d:#6B3406;
+  --m:#E87722;--m-l:#FFE4CC;--m-d:#C45F0A;
   --rad:10px;--rad-lg:14px;
   --sh:0 4px 22px rgba(0,0,0,.08);
   --sh-sm:0 1px 3px rgba(0,0,0,.06);
@@ -38,10 +38,13 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
 .pp-hero-tag{display:inline-block;background:var(--nr);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;position:relative;z-index:1;box-shadow:0 2px 6px rgba(232,119,34,.25)}
 .pp-hero h2{margin:0 0 8px;font-size:clamp(22px,3.2vw,28px);font-weight:800;color:var(--g900);letter-spacing:-.015em;line-height:1.22;position:relative;z-index:1}
 .pp-hero h2 em{font-style:normal;color:var(--nr-d)}
-.pp-hero-sub{font-size:14.5px;color:#5a4d3e;max-width:78ch;margin:0 0 20px;line-height:1.6;position:relative;z-index:1}
+.pp-hero-sub{font-size:14.5px;color:#5a4d3e;max-width:78ch;margin:0;line-height:1.6;position:relative;z-index:1}
 .pp-hero-sub strong{color:var(--g900);font-weight:700}
 
-.pp-cifras{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:12px;margin-top:18px;position:relative;z-index:1}
+/* CIFRAS (al pie) */
+.pp-stats{margin:26px 0 22px}
+.pp-stats-eyebrow{font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--nr-d);margin-bottom:11px}
+.pp-cifras{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:12px;position:relative;z-index:1}
 .pp-cifra{background:var(--wh);border:1.5px solid #FFD2A5;border-radius:var(--rad);padding:14px 16px;display:flex;flex-direction:column;gap:2px;transition:border-color .18s ease,transform .18s ease}
 .pp-cifra:hover{border-color:var(--nr);transform:translateY(-2px)}
 .pp-cifra-num{font-family:var(--fm);font-size:36px;font-weight:700;line-height:1;color:var(--nr-d);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
@@ -56,22 +59,12 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
   .pp-cifra.headline .pp-cifra-num{font-size:42px}
 }
 
-/* 2 POSTALES (acceso a los Excel oficiales) */
+/* 2 POSTALES (acceso a los Excel oficiales, al pie) */
 .pp-postales{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;margin-bottom:22px}
 .pp-postal{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh);overflow:hidden;text-decoration:none;color:inherit;transition:all .25s ease;display:flex;flex-direction:column;border-top:5px solid var(--nr);position:relative}
 .pp-postal:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,.12)}
-.pp-postal.detalle{border-top-color:var(--base)}
-.pp-postal.detalle .pp-postal-cover{background:linear-gradient(135deg,var(--base-l) 0%,#E8F1FF 100%)}
-.pp-postal.detalle .pp-postal-icono{color:var(--base-d)}
-.pp-postal.detalle .pp-postal-illus{color:var(--base-d)}
-.pp-postal.detalle .pp-postal-eye{color:var(--base-d)}
-.pp-postal.detalle .pp-postal-cta{color:var(--base-d)}
-.pp-postal.resumen{border-top-color:var(--nr)}
-.pp-postal.resumen .pp-postal-cover{background:linear-gradient(135deg,var(--nr-soft) 0%,#FFE6CC 100%)}
-.pp-postal.resumen .pp-postal-icono{color:var(--nr-d)}
-.pp-postal.resumen .pp-postal-illus{color:var(--nr-d)}
-.pp-postal.resumen .pp-postal-eye{color:var(--nr-d)}
-.pp-postal.resumen .pp-postal-cta{color:var(--nr-d)}
+.pp-postal .pp-postal-cover{background:linear-gradient(135deg,var(--nr-soft) 0%,#FFE6CC 100%)}
+.pp-postal .pp-postal-icono,.pp-postal .pp-postal-illus,.pp-postal .pp-postal-eye,.pp-postal .pp-postal-cta{color:var(--nr-d)}
 .pp-postal-cover{height:120px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;position:relative;overflow:hidden}
 .pp-postal-icono{position:relative;z-index:1}
 .pp-postal-illus{font-family:var(--fm);font-size:62px;font-weight:700;opacity:.18;letter-spacing:-.04em;position:relative;z-index:1;line-height:1}
@@ -97,8 +90,8 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
 .pp-grupo.conf{border-top-color:var(--conf)}
 .pp-grupo-head{padding:18px 22px 14px;background:var(--base-l);display:flex;align-items:center;gap:14px;border-bottom:1.5px solid var(--base-border)}
 .pp-grupo.conf .pp-grupo-head{background:var(--conf-l);border-bottom-color:var(--conf-border)}
-.pp-grupo-icono{width:48px;height:48px;border-radius:12px;background:var(--base);color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 3px 10px rgba(30,64,175,.25)}
-.pp-grupo.conf .pp-grupo-icono{background:var(--conf);box-shadow:0 3px 10px rgba(142,68,173,.25)}
+.pp-grupo-icono{width:48px;height:48px;border-radius:12px;background:var(--base);color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 3px 10px rgba(232,119,34,.25)}
+.pp-grupo.conf .pp-grupo-icono{background:var(--conf);box-shadow:0 3px 10px rgba(139,67,8,.25)}
 .pp-grupo-titulo{flex:1;min-width:0}
 .pp-grupo-titulo h3{font-size:17px;font-weight:800;color:var(--base-d);margin-bottom:2px;letter-spacing:-.005em;line-height:1.2}
 .pp-grupo.conf .pp-grupo-titulo h3{color:var(--conf-d)}
@@ -193,64 +186,14 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
   <section class="pp-hero">
     <span class="pp-hero-tag">Art. 8 · Fracción V · Inciso e</span>
     <h2>Cada plaza del Ayuntamiento de Guadalajara, <em>contada y publicada</em></h2>
-    <p class="pp-hero-sub">Las <strong>12,698 plazas</strong> que conforman la estructura del Ayuntamiento — quienes están ocupadas, quienes están vacantes esperando convocatoria, y cómo se distribuyen entre <strong>plazas de base</strong> (carrera permanente) y <strong>plazas de confianza</strong> (designación directa).</p>
-    <div class="pp-cifras">
-      <div class="pp-cifra headline">
-        <div class="pp-cifra-num">12,698</div>
-        <div class="pp-cifra-lbl">Plazas totales</div>
-        <div class="pp-cifra-sub">Estructura completa autorizada · Abril 2026</div>
-      </div>
-      <div class="pp-cifra">
-        <div class="pp-cifra-num">11,161</div>
-        <div class="pp-cifra-lbl">Ocupadas</div>
-        <div class="pp-cifra-sub">87.9% del total</div>
-      </div>
-      <div class="pp-cifra">
-        <div class="pp-cifra-num">1,537</div>
-        <div class="pp-cifra-lbl">Vacantes</div>
-        <div class="pp-cifra-sub">12.1% en proceso</div>
-      </div>
-    </div>
+    <p class="pp-hero-sub">Las <strong>12,698 plazas</strong> que conforman la estructura del Ayuntamiento — quienes están ocupadas, quienes están vacantes esperando convocatoria, y cómo se distribuyen entre <strong>plazas de base</strong> (carrera permanente) y <strong>plazas de confianza</strong> (designación directa). Con corte oficial a <strong>mayo de 2026</strong>.</p>
   </section>
-
-  <!-- 2 POSTALES (links a los Excel oficiales) -->
-  <div class="pp-postales">
-    <a class="pp-postal resumen" href="https://transparencia.guadalajara.gob.mx/sites/default/files/Art8FraccionV-Inciso-e-Total-Plazas-Abril-2026.xlsx" target="_blank" rel="noopener">
-      <div class="pp-postal-cover">
-        <div class="pp-postal-icono" aria-hidden="true">
-          <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg>
-        </div>
-        <div class="pp-postal-illus">∑</div>
-      </div>
-      <div class="pp-postal-body">
-        <div class="pp-postal-eye">Resumen oficial · Excel</div>
-        <h3 class="pp-postal-title">Total de plazas vacantes y ocupadas</h3>
-        <p class="pp-postal-desc">Reporte oficial con los <strong>conteos totales</strong> por categoría: base, confianza, ocupadas, vacantes y por género. Una sola fila con las cifras agregadas.</p>
-        <span class="pp-postal-cta">Abrir Excel oficial <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-      </div>
-    </a>
-
-    <a class="pp-postal detalle" href="https://transparencia.guadalajara.gob.mx/sites/default/files/PlantillaAbril2026.xlsx" target="_blank" rel="noopener">
-      <div class="pp-postal-cover">
-        <div class="pp-postal-icono" aria-hidden="true">
-          <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <div class="pp-postal-illus">10K</div>
-      </div>
-      <div class="pp-postal-body">
-        <div class="pp-postal-eye">Plantilla detallada · Excel</div>
-        <h3 class="pp-postal-title">Plaza por plaza, sin filtros</h3>
-        <p class="pp-postal-desc">Lista completa con <strong>10,735 registros</strong>: denominación del área, nombre del puesto, clave, tipo, estado y género. Para análisis ciudadano o periodístico a fondo.</p>
-        <span class="pp-postal-cta">Descargar plantilla completa <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-      </div>
-    </a>
-  </div>
 
   <!-- LEYENDA CIUDADANA -->
   <section class="pp-legend">
     <div class="pp-legend-eye">Cómo leer este informe</div>
     <h3>¿Qué estás viendo exactamente?</h3>
-    <p>Toda persona que trabaja en el Ayuntamiento ocupa una <strong>plaza</strong> (un puesto autorizado en el presupuesto). El Ayuntamiento de Guadalajara tiene <strong>12,698 plazas autorizadas</strong> divididas en dos grandes familias: <strong>plazas de base</strong> (servicio civil, permanencia laboral) y <strong>plazas de confianza</strong> (designación directa, ligadas a la administración en turno). De ese total, <strong>11,161 están ocupadas</strong> por una persona y <strong>1,537 están vacantes</strong> — esas vacantes son las que se llenan mediante las convocatorias públicas del inciso d).</p>
+    <p>Toda persona que trabaja en el Ayuntamiento ocupa una <strong>plaza</strong> (un puesto autorizado en el presupuesto). El Ayuntamiento de Guadalajara tiene <strong>12,698 plazas autorizadas</strong> divididas en dos grandes familias: <strong>plazas de base</strong> (servicio civil, permanencia laboral) y <strong>plazas de confianza</strong> (designación directa, ligadas a la administración en turno). De ese total, <strong>11,129 están ocupadas</strong> por una persona y <strong>1,569 están vacantes</strong> — esas vacantes son las que se llenan mediante las convocatorias públicas del inciso d).</p>
   </section>
 
   <!-- METADATA OFICIAL -->
@@ -261,11 +204,11 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
     </div>
     <div class="pp-meta-item">
       <span class="pp-meta-lbl">Periodo informado</span>
-      <span class="pp-meta-val">Abril 2026 (01/04/2026 – 30/04/2026)</span>
+      <span class="pp-meta-val">Mayo 2026 (01/05/2026 – 31/05/2026)</span>
     </div>
     <div class="pp-meta-item">
       <span class="pp-meta-lbl">Fecha de actualización</span>
-      <span class="pp-meta-val mono">06/05/2026</span>
+      <span class="pp-meta-val mono">02/06/2026</span>
     </div>
     <div class="pp-meta-item">
       <span class="pp-meta-lbl">Área responsable</span>
@@ -291,19 +234,19 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
       <div class="pp-grupo-body">
         <div class="pp-row">
           <div class="pp-row-lbl"><span class="pp-tag ok">Ocupadas</span> Total ocupadas</div>
-          <div class="pp-row-num">5,691<span class="pp-row-pct">91.6%</span></div>
+          <div class="pp-row-num">5,704<span class="pp-row-pct">91.8%</span></div>
         </div>
         <div class="pp-row" style="padding-left:24px">
           <div class="pp-row-lbl"><span class="pp-tag h">H</span> Ocupadas por hombres</div>
-          <div class="pp-row-num">3,358</div>
+          <div class="pp-row-num">3,356</div>
         </div>
         <div class="pp-row" style="padding-left:24px">
           <div class="pp-row-lbl"><span class="pp-tag m">M</span> Ocupadas por mujeres</div>
-          <div class="pp-row-num">2,333</div>
+          <div class="pp-row-num">2,348</div>
         </div>
         <div class="pp-row">
           <div class="pp-row-lbl"><span class="pp-tag vac">Vacantes</span> Disponibles para concurso</div>
-          <div class="pp-row-num">521<span class="pp-row-pct">8.4%</span></div>
+          <div class="pp-row-num">508<span class="pp-row-pct">8.2%</span></div>
         </div>
         <div class="pp-row subtotal">
           <div class="pp-row-lbl">Total plazas de base</div>
@@ -327,19 +270,19 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
       <div class="pp-grupo-body">
         <div class="pp-row">
           <div class="pp-row-lbl"><span class="pp-tag ok">Ocupadas</span> Total ocupadas</div>
-          <div class="pp-row-num">5,470<span class="pp-row-pct">84.3%</span></div>
+          <div class="pp-row-num">5,425<span class="pp-row-pct">83.6%</span></div>
         </div>
         <div class="pp-row" style="padding-left:24px">
           <div class="pp-row-lbl"><span class="pp-tag h">H</span> Ocupadas por hombres</div>
-          <div class="pp-row-num">3,754</div>
+          <div class="pp-row-num">3,710</div>
         </div>
         <div class="pp-row" style="padding-left:24px">
           <div class="pp-row-lbl"><span class="pp-tag m">M</span> Ocupadas por mujeres</div>
-          <div class="pp-row-num">1,716</div>
+          <div class="pp-row-num">1,715</div>
         </div>
         <div class="pp-row">
           <div class="pp-row-lbl"><span class="pp-tag vac">Vacantes</span> Disponibles para designación</div>
-          <div class="pp-row-num">1,016<span class="pp-row-pct">15.7%</span></div>
+          <div class="pp-row-num">1,061<span class="pp-row-pct">16.4%</span></div>
         </div>
         <div class="pp-row subtotal">
           <div class="pp-row-lbl">Total plazas de confianza</div>
@@ -357,31 +300,31 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
         <div class="pp-genero-eye">Distribución por género</div>
         <h3>¿Cómo se reparten las plazas ocupadas?</h3>
       </div>
-      <div class="pp-genero-meta">Base · 11,161 plazas ocupadas</div>
+      <div class="pp-genero-meta">Base · 11,129 plazas ocupadas</div>
     </div>
 
     <div class="pp-bar">
       <div class="pp-bar-top">
         <div class="pp-bar-lbl"><span class="pp-bar-lbl-icono h">H</span> Hombres ocupando plaza</div>
-        <div class="pp-bar-stats"><strong>7,112</strong> · 63.7%</div>
+        <div class="pp-bar-stats"><strong>7,066</strong> · 63.5%</div>
       </div>
       <div class="pp-bar-track">
-        <div class="pp-bar-fill h" style="width:63.7%">63.7%</div>
+        <div class="pp-bar-fill h" style="width:63.5%">63.5%</div>
       </div>
     </div>
 
     <div class="pp-bar">
       <div class="pp-bar-top">
         <div class="pp-bar-lbl"><span class="pp-bar-lbl-icono m">M</span> Mujeres ocupando plaza</div>
-        <div class="pp-bar-stats"><strong>4,049</strong> · 36.3%</div>
+        <div class="pp-bar-stats"><strong>4,063</strong> · 36.5%</div>
       </div>
       <div class="pp-bar-track">
-        <div class="pp-bar-fill m" style="width:36.3%">36.3%</div>
+        <div class="pp-bar-fill m" style="width:36.5%">36.5%</div>
       </div>
     </div>
 
     <div style="margin-top:16px;padding-top:14px;border-top:1px dashed var(--g200);font-size:11.5px;color:var(--g400);line-height:1.55">
-      <strong style="color:var(--g600);font-weight:700">Suma 100% sobre 11,161 plazas ocupadas.</strong> La distribución se reporta para las plazas que están actualmente cubiertas; las vacantes (1,537) no entran en este cálculo porque aún no han sido asignadas a una persona.
+      <strong style="color:var(--g600);font-weight:700">Suma 100% sobre 11,129 plazas ocupadas.</strong> La distribución se reporta para las plazas que están actualmente cubiertas; las vacantes (1,569) no entran en este cálculo porque aún no han sido asignadas a una persona.
     </div>
   </section>
 
@@ -413,6 +356,61 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
     </div>
   </section>
 
+  <!-- CIFRAS (resumen, al pie) -->
+  <div class="pp-stats">
+    <div class="pp-stats-eyebrow">La plantilla en números · Mayo 2026</div>
+    <div class="pp-cifras">
+      <div class="pp-cifra headline">
+        <div class="pp-cifra-num">12,698</div>
+        <div class="pp-cifra-lbl">Plazas totales</div>
+        <div class="pp-cifra-sub">Estructura completa autorizada · Mayo 2026</div>
+      </div>
+      <div class="pp-cifra">
+        <div class="pp-cifra-num">11,129</div>
+        <div class="pp-cifra-lbl">Ocupadas</div>
+        <div class="pp-cifra-sub">87.6% del total</div>
+      </div>
+      <div class="pp-cifra">
+        <div class="pp-cifra-num">1,569</div>
+        <div class="pp-cifra-lbl">Vacantes</div>
+        <div class="pp-cifra-sub">12.4% en proceso</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2 POSTALES (links a los Excel oficiales, al pie) -->
+  <div class="pp-postales">
+    <a class="pp-postal resumen" href="https://transparencia.guadalajara.gob.mx/sites/default/files/Art8FraccionV-Inciso-e-Total-Plazas-Mayo-2026.xlsx" target="_blank" rel="noopener">
+      <div class="pp-postal-cover">
+        <div class="pp-postal-icono" aria-hidden="true">
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg>
+        </div>
+        <div class="pp-postal-illus">∑</div>
+      </div>
+      <div class="pp-postal-body">
+        <div class="pp-postal-eye">Resumen oficial · Excel</div>
+        <h3 class="pp-postal-title">Total de plazas vacantes y ocupadas</h3>
+        <p class="pp-postal-desc">Reporte oficial con los <strong>conteos totales</strong> por categoría: base, confianza, ocupadas, vacantes y por género. Una sola fila con las cifras agregadas de mayo 2026.</p>
+        <span class="pp-postal-cta">Abrir Excel oficial <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </div>
+    </a>
+
+    <a class="pp-postal detalle" href="https://transparencia.guadalajara.gob.mx/sites/default/files/PlantillaMayo2026.xlsx" target="_blank" rel="noopener">
+      <div class="pp-postal-cover">
+        <div class="pp-postal-icono" aria-hidden="true">
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="pp-postal-illus">10K</div>
+      </div>
+      <div class="pp-postal-body">
+        <div class="pp-postal-eye">Plantilla detallada · Excel</div>
+        <h3 class="pp-postal-title">Plaza por plaza, sin filtros</h3>
+        <p class="pp-postal-desc">Lista completa con <strong>10,734 registros</strong>: denominación del área, nombre del puesto, clave, tipo, estado y género. Para análisis ciudadano o periodístico a fondo.</p>
+        <span class="pp-postal-cta">Descargar plantilla completa <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </div>
+    </a>
+  </div>
+
   <!-- FOOTER LEY -->
   <section class="pp-ley">
     <div class="pp-ley-eye">Lo que dice la ley</div>
@@ -424,13 +422,26 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
       […] <strong>e)</strong> La información sobre la estructura orgánica vigente, indicando los puestos y plazas autorizadas, vacantes y ocupadas, los servidores públicos por cada puesto, salarios y demás prestaciones que reciben, así como los hipervínculos a las convocatorias respectivas, a partir del 01/04/2023, desagregada por sexo y género;
     </blockquote>
     <div class="pp-ley-fuente">
-      <strong>Fuentes oficiales · Abril 2026:</strong><br>
-      · <a href="https://transparencia.guadalajara.gob.mx/sites/default/files/Art8FraccionV-Inciso-e-Total-Plazas-Abril-2026.xlsx" target="_blank" rel="noopener">Art8FraccionV-Inciso-e-Total-Plazas-Abril-2026.xlsx</a> (resumen oficial, código LTAIPEJM8FV-E3)<br>
-      · <a href="https://transparencia.guadalajara.gob.mx/sites/default/files/PlantillaAbril2026.xlsx" target="_blank" rel="noopener">PlantillaAbril2026.xlsx</a> (plantilla detallada plaza por plaza, código LTAIPEJM8FV-E2)<br>
-      · Área responsable: Dirección de Recursos Humanos del Ayuntamiento de Guadalajara · Actualizado al 06/05/2026.
+      <strong>Fuentes oficiales · Mayo 2026:</strong><br>
+      · <a href="https://transparencia.guadalajara.gob.mx/sites/default/files/Art8FraccionV-Inciso-e-Total-Plazas-Mayo-2026.xlsx" target="_blank" rel="noopener">Art8FraccionV-Inciso-e-Total-Plazas-Mayo-2026.xlsx</a> (resumen oficial, código LTAIPEJM8FV-E3)<br>
+      · <a href="https://transparencia.guadalajara.gob.mx/sites/default/files/PlantillaMayo2026.xlsx" target="_blank" rel="noopener">PlantillaMayo2026.xlsx</a> (plantilla detallada plaza por plaza, código LTAIPEJM8FV-E2)<br>
+      · Área responsable: Dirección de Recursos Humanos del Ayuntamiento de Guadalajara · Actualizado al 02/06/2026.
     </div>
   </section>
 
 </div>
+
+<script>
+(function(){
+  function reportHeight(){
+    var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight);
+    try { parent.postMessage({ type: 'gdl-iframe-height', id: 'plantilla-personal-art8-V-e', height: h }, '*'); } catch (e){}
+  }
+  window.addEventListener('load', reportHeight);
+  window.addEventListener('resize', reportHeight);
+  setTimeout(reportHeight, 400); setTimeout(reportHeight, 1200); setTimeout(reportHeight, 2500);
+})();
+</script>
+
 </body>
 </html>
