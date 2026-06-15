@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informe de Gobierno — Gobierno de Guadalajara</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+--nr:#E87722;--nr-l:#FF9A45;--nr-d:#C45F0A;--nr-deeper:#8B4308;--nr-soft:#FFF1E4;
+--nr-a:rgba(232,119,34,.10);--nr-b:rgba(232,119,34,.22);
+--g50:#FAFAF8;--g100:#F2F1EC;--g200:#E6E4DC;--g300:#D4D1C7;--g400:#A8A498;--g500:#7C7869;--g600:#5C5849;--g700:#403d33;--g800:#2A2820;--g900:#1A1A1A;
+--wh:#FFF;--rad:10px;--rad-lg:14px;
+--fh:'Outfit',system-ui,-apple-system,sans-serif;--fm:'DM Mono','SF Mono',Menlo,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--fh);background:#f7f3ec;color:var(--g800);line-height:1.55;-webkit-font-smoothing:antialiased}
+.inf-wrap{max-width:1100px;margin:0 auto;padding:26px 20px 60px}
+
+.inf-hero{background:linear-gradient(135deg,#FFF4E8 0%,#FFFFFF 55%);border-left:5px solid var(--nr);border-radius:var(--rad-lg);padding:30px 32px;box-shadow:0 2px 14px rgba(232,119,34,.10);margin-bottom:24px}
+.inf-tag{display:inline-block;background:var(--nr);color:#fff;font-family:var(--fh);font-size:10.5px;font-weight:700;letter-spacing:.16em;padding:5px 12px;border-radius:100px;margin-bottom:14px;text-transform:uppercase}
+.inf-hero h1{font-size:clamp(22px,3.2vw,28px);font-weight:800;letter-spacing:-.015em;color:var(--g900);line-height:1.22;margin-bottom:12px}
+.inf-hero p{font-size:14.5px;color:var(--g600);max-width:80ch;line-height:1.6}
+.inf-meta{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:18px;font-family:var(--fm);font-size:11.5px;color:var(--g500)}
+.inf-meta b{color:var(--nr-d);font-weight:500}
+
+/* VISOR PDF EMBEBIDO (como plan estatal) */
+.inf-doc{background:#fff;border:1.5px solid var(--nr-b);border-top:4px solid var(--nr);border-radius:var(--rad-lg);box-shadow:0 4px 22px rgba(0,0,0,.06);overflow:hidden;margin:0 0 14px}
+.inf-head{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 20px;background:linear-gradient(135deg,var(--nr) 0%,var(--nr-d) 100%);color:#fff;flex-wrap:wrap}
+.inf-htitle{display:flex;align-items:center;gap:12px;min-width:0}
+.inf-htitle svg{flex-shrink:0}
+.inf-htitle b{font-size:15px;font-weight:800;line-height:1.25}
+.inf-htitle small{display:block;font-size:11px;font-weight:500;opacity:.92;margin-top:2px}
+.inf-actions{display:flex;gap:8px;align-items:center;flex-shrink:0}
+.inf-vbtn{display:inline-flex;align-items:center;justify-content:center;gap:6px;font-family:var(--fh);font-size:12.5px;font-weight:700;padding:8px 14px;border-radius:8px;cursor:pointer;text-decoration:none;border:1.5px solid rgba(255,255,255,.45);color:#fff;background:rgba(255,255,255,.16);transition:all .13s;white-space:nowrap}
+.inf-vbtn:hover{background:rgba(255,255,255,.30)}
+.inf-vbtn svg{flex-shrink:0}
+.inf-dl[data-busy="1"]{opacity:.6;pointer-events:none}
+.inf-body{position:relative;background:#f0f0ec;height:1180px}
+.inf-frame{width:100%;height:100%;border:0;display:block;position:relative;z-index:1}
+.inf-loading{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;color:#5a4d3e;font-size:13px;text-align:center;padding:24px;z-index:0}
+.inf-loading.hide{display:none}
+.inf-spin{width:30px;height:30px;border:3px solid #FFE4CC;border-top-color:var(--nr);border-radius:50%;animation:infspin 1s linear infinite}
+@keyframes infspin{to{transform:rotate(360deg)}}
+.inf-hint{font-size:12px;color:#5a4d3e;background:var(--g50);padding:10px 20px;border-top:1px solid #f0f0ec;display:flex;align-items:center;gap:8px;line-height:1.5}
+.inf-hint svg{flex-shrink:0;color:var(--nr-d)}
+.inf-hint strong{color:var(--g900);font-weight:700}
+
+/* FOOTER LEY (claro) */
+.inf-ley{margin-top:30px;background:#fff;color:#2a241d;border:1px solid #e8dec9;border-left:5px solid var(--nr);box-shadow:0 3px 16px rgba(232,119,34,.07);border-radius:var(--rad-lg);padding:28px 30px}
+.inf-cifras{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:24px}
+.inf-cifras .c{text-align:center;background:var(--g50);border:1.5px solid #FFD2A5;border-radius:10px;padding:16px 14px}
+.inf-cifras .n{font-family:var(--fm);font-size:26px;font-weight:700;color:#C45F0A;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.inf-cifras .t{font-size:11px;color:#6f5c47;margin-top:4px;line-height:1.3;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.inf-ley h3{font-size:10.5px;font-weight:800;color:#C45F0A;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
+.inf-ley blockquote{border-left:3px solid var(--nr);padding-left:16px;font-size:13.5px;color:#5a4d3e;line-height:1.65;font-style:italic}
+.inf-ley blockquote cite{display:block;margin-top:10px;font-style:normal;font-size:12px;color:#6f5c47}
+.inf-prev{margin-top:18px;padding-top:16px;border-top:1px solid #e8dec9;font-size:13px;color:#6f5c47;line-height:1.65}
+
+/* HISTÓRICO DE INFORMES (botones que cargan en el visor de arriba) */
+.inf-hist{margin-top:26px;background:#fff;border:1px solid #e8dec9;border-radius:var(--rad-lg);box-shadow:0 3px 16px rgba(232,119,34,.07);padding:24px 26px}
+.inf-hist h2{font-size:17px;font-weight:800;color:var(--g900);letter-spacing:-.01em;margin-bottom:4px;display:flex;align-items:center;gap:9px}
+.inf-hist h2 svg{color:var(--nr-d);flex-shrink:0}
+.inf-hist .inf-hsub{font-size:13px;color:var(--g600);margin-bottom:6px;line-height:1.5}
+.inf-admin{padding:15px 0;border-top:1px dashed #e8dec9}
+.inf-admin-h{display:flex;align-items:baseline;gap:11px;flex-wrap:wrap;margin-bottom:11px}
+.inf-admin-yr{font-family:var(--fm);font-size:12px;font-weight:500;color:#fff;background:var(--nr-d);padding:3px 11px;border-radius:100px;letter-spacing:.01em}
+.inf-admin-nm{font-size:14px;font-weight:700;color:var(--g800)}
+.inf-admin-nm em{font-style:normal;font-weight:500;color:var(--g500)}
+.inf-btns{display:flex;flex-wrap:wrap;gap:9px}
+.inf-pdf{display:inline-flex;align-items:center;gap:10px;font-family:var(--fh);font-size:13px;font-weight:700;color:var(--g800);background:var(--g50);border:1.5px solid var(--g200);padding:9px 15px 9px 10px;border-radius:10px;cursor:pointer;transition:transform .14s,border-color .14s,background .14s,color .14s,box-shadow .14s}
+.inf-pdf:hover{border-color:var(--nr);color:var(--nr-d);background:var(--nr-soft);transform:translateY(-1px)}
+.inf-pdf:focus-visible{outline:2px solid var(--nr);outline-offset:2px}
+.inf-pdf.active{border-color:var(--nr);background:var(--nr);color:#fff;box-shadow:0 5px 16px rgba(232,119,34,.30)}
+.inf-pdf .ord{display:flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:7px;background:var(--nr-soft);color:var(--nr-d);font-family:var(--fm);font-size:12px;font-weight:500;flex-shrink:0}
+.inf-pdf:hover .ord{background:#fff}
+.inf-pdf.active .ord{background:rgba(255,255,255,.24);color:#fff}
+.inf-pdf .yr{font-family:var(--fm);font-size:11px;font-weight:500;opacity:.72;margin-left:1px}
+.inf-pdf .ld{display:none;width:13px;height:13px;border:2px solid currentColor;border-top-color:transparent;border-radius:50%;animation:infspin .8s linear infinite;margin-left:2px}
+.inf-pdf.loading .ld{display:inline-block}
+.inf-hnote{margin-top:16px;padding-top:14px;border-top:1px dashed #e8dec9;font-size:11.5px;color:#6f5c47;line-height:1.5;display:flex;gap:8px;align-items:flex-start}
+.inf-hnote svg{flex-shrink:0;color:var(--nr-d);margin-top:1px}
+
+@media(max-width:620px){
+.inf-hero{padding:24px 22px}.inf-hero h1{font-size:23px}
+.inf-body{height:560px}
+.inf-head{padding:12px 14px}
+.inf-actions{width:100%}
+.inf-vbtn{flex:1}
+.inf-cifras{grid-template-columns:1fr;gap:12px}
+.inf-ley,.inf-hero{padding:22px}
+.inf-hist{padding:20px 18px}
+.inf-btns{gap:8px}
+.inf-pdf{flex:1 1 100%}
+}
+</style>
+</head>
+<body>
+<div class="inf-wrap">
+
+  <header class="inf-hero">
+    <span class="inf-tag">Artículo 8 · Fracción VI · inciso l</span>
+    <h1>Informe de Gobierno</h1>
+    <p>El Informe de Gobierno es la rendición de cuentas anual de la Presidencia Municipal: concentra los resultados, programas y acciones realizadas durante el año. Aquí puedes leerlo completo, página por página, dentro de esta misma ventana.</p>
+    <div class="inf-meta">
+      <span>Administración: <b>2024–2027</b></span>
+      <span>Última actualización: <b>01 de junio de 2026</b></span>
+    </div>
+  </header>
+
+  <!-- VISOR PDF · documento oficial del Informe -->
+  <div class="inf-doc">
+    <div class="inf-head">
+      <div class="inf-htitle">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+        <span><b id="infTitle">Primer Informe de Gobierno 2025 · Verónica Delgadillo García</b><small id="infSub">Administración 2024–2027 &middot; PDF oficial completo</small></span>
+      </div>
+      <div class="inf-actions">
+        <a class="inf-vbtn" id="infOpen" href="https://transparencia.guadalajara.gob.mx/sites/default/files/InformeGuadalajara2025.pdf" target="_blank" rel="noopener noreferrer">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+          Abrir en pestaña
+        </a>
+        <button class="inf-vbtn inf-dl" id="infDl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/InformeGuadalajara2025.pdf">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+          <span class="inf-dl-tx">Descargar</span>
+        </button>
+      </div>
+    </div>
+    <div class="inf-body">
+      <div class="inf-loading" id="infLoading"><span class="inf-spin" aria-hidden="true"></span>Cargando el documento oficial&hellip;<br><span style="font-size:11px;opacity:.8">Es un archivo grande; puede tardar unos segundos.</span></div>
+      <iframe class="inf-frame" id="infFrame" src="https://transparencia.guadalajara.gob.mx/sites/default/files/InformeGuadalajara2025.pdf#view=Fit" title="Informe de Gobierno de Guadalajara (PDF oficial)" loading="lazy"></iframe>
+    </div>
+    <div class="inf-hint">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+      <span>Usa la barra del visor para <strong>acercar, buscar o cambiar de página</strong>. Para verlo m&aacute;s grande o guardarlo, usa <strong>&ldquo;Abrir en pesta&ntilde;a&rdquo;</strong>.</span>
+    </div>
+  </div>
+
+  <!-- HISTÓRICO · informes de administraciones anteriores (cargan en el visor de arriba) -->
+  <section class="inf-hist" id="infHist">
+    <h2><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v5h5"/><path d="M3.05 13A9 9 0 1 0 6 5.3L3 8"/><path d="M12 7v5l4 2"/></svg>Histórico de informes de gobierno</h2>
+    <p class="inf-hsub">El Informe anual de cada administración, desde 2012. Da clic en cualquiera para abrirlo en el visor de arriba.</p>
+
+    <div class="inf-admin">
+      <div class="inf-admin-h"><span class="inf-admin-yr">2024–2027</span><span class="inf-admin-nm">Verónica Delgadillo García <em>· administración actual</em></span></div>
+      <div class="inf-btns">
+        <button class="inf-pdf active" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/InformeGuadalajara2025.pdf" data-t="Primer Informe de Gobierno 2025 · Verónica Delgadillo García" data-s="Administración 2024–2027 &middot; PDF oficial completo"><span class="ord">1°</span>Primer Informe <span class="yr">2025</span><span class="ld" aria-hidden="true"></span></button>
+      </div>
+    </div>
+
+    <div class="inf-admin">
+      <div class="inf-admin-h"><span class="inf-admin-yr">2021–2024</span><span class="inf-admin-nm">Pablo Lemus Navarro</span></div>
+      <div class="inf-btns">
+        <button class="inf-pdf" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/InformeGuadalajara2022.pdf" data-t="Primer Informe de Gobierno 2022" data-s="Administración 2021–2024 · Pablo Lemus Navarro &middot; PDF oficial"><span class="ord">1°</span>Primer Informe <span class="yr">2022</span><span class="ld" aria-hidden="true"></span></button>
+        <button class="inf-pdf" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/InformeGuadalajara2023.pdf" data-t="Segundo Informe de Gobierno 2023" data-s="Administración 2021–2024 · Pablo Lemus Navarro &middot; PDF oficial"><span class="ord">2°</span>Segundo Informe <span class="yr">2023</span><span class="ld" aria-hidden="true"></span></button>
+        <button class="inf-pdf" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/InformeGuadalajara2024.pdf" data-t="Tercer Informe de Gobierno 2024" data-s="Administración 2021–2024 &middot; PDF oficial"><span class="ord">3°</span>Tercer Informe <span class="yr">2024</span><span class="ld" aria-hidden="true"></span></button>
+      </div>
+    </div>
+
+    <div class="inf-admin">
+      <div class="inf-admin-h"><span class="inf-admin-yr">2018–2021</span><span class="inf-admin-nm">Ismael del Toro Castro</span></div>
+      <div class="inf-btns">
+        <button class="inf-pdf" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/Informe2019.pdf" data-t="Primer Informe de Gobierno 2019" data-s="Administración 2018–2021 · Ismael del Toro Castro &middot; PDF oficial"><span class="ord">1°</span>Primer Informe <span class="yr">2019</span><span class="ld" aria-hidden="true"></span></button>
+        <button class="inf-pdf" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/Informe2020.pdf" data-t="Segundo Informe de Gobierno 2020" data-s="Administración 2018–2021 · Ismael del Toro Castro &middot; PDF oficial"><span class="ord">2°</span>Segundo Informe <span class="yr">2020</span><span class="ld" aria-hidden="true"></span></button>
+        <button class="inf-pdf" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/Informe2021.pdf" data-t="Tercer Informe de Gobierno 2021" data-s="Administración 2018–2021 &middot; PDF oficial"><span class="ord">3°</span>Tercer Informe <span class="yr">2021</span><span class="ld" aria-hidden="true"></span></button>
+      </div>
+    </div>
+
+    <div class="inf-admin">
+      <div class="inf-admin-h"><span class="inf-admin-yr">2015–2018</span><span class="inf-admin-nm">Enrique Alfaro Ramírez</span></div>
+      <div class="inf-btns">
+        <button class="inf-pdf" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/1erInformeAlfaro2016.pdf" data-t="Primer Informe de Gobierno 2016" data-s="Administración 2015–2018 · Enrique Alfaro Ramírez &middot; PDF oficial"><span class="ord">1°</span>Primer Informe <span class="yr">2016</span><span class="ld" aria-hidden="true"></span></button>
+        <button class="inf-pdf" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/2doInformeAlfaro2017.pdf" data-t="Segundo Informe de Gobierno 2017" data-s="Administración 2015–2018 · Enrique Alfaro Ramírez &middot; PDF oficial"><span class="ord">2°</span>Segundo Informe <span class="yr">2017</span><span class="ld" aria-hidden="true"></span></button>
+        <button class="inf-pdf" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/3erInformeAlfaro-Ibarra2018.pdf" data-t="Tercer Informe de Gobierno 2018" data-s="Administración 2015–2018 &middot; PDF oficial"><span class="ord">3°</span>Tercer Informe <span class="yr">2018</span><span class="ld" aria-hidden="true"></span></button>
+      </div>
+    </div>
+
+    <div class="inf-admin">
+      <div class="inf-admin-h"><span class="inf-admin-yr">2012–2015</span><span class="inf-admin-nm">Ramiro Hernández García</span></div>
+      <div class="inf-btns">
+        <button class="inf-pdf" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/Informe2013.pdf" data-t="Primer Informe de Gobierno 2013" data-s="Administración 2012–2015 · Ramiro Hernández García &middot; PDF oficial"><span class="ord">1°</span>Primer Informe <span class="yr">2013</span><span class="ld" aria-hidden="true"></span></button>
+        <button class="inf-pdf" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/Informe2014.pdf" data-t="Segundo Informe de Gobierno 2014" data-s="Administración 2012–2015 · Ramiro Hernández García &middot; PDF oficial"><span class="ord">2°</span>Segundo Informe <span class="yr">2014</span><span class="ld" aria-hidden="true"></span></button>
+        <button class="inf-pdf" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/Informe2015.pdf" data-t="Tercer Informe de Gobierno 2015" data-s="Administración 2012–2015 · Ramiro Hernández García &middot; PDF oficial"><span class="ord">3°</span>Tercer Informe <span class="yr">2015</span><span class="ld" aria-hidden="true"></span></button>
+      </div>
+    </div>
+
+    <div class="inf-hnote">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+      <span>Documentos del portal oficial de Transparencia de Guadalajara. Algunos superan los 100&nbsp;MB; para guardarlos usa <strong>&ldquo;Descargar&rdquo;</strong> del visor. El 3.er informe de cada periodo lo rinde quien concluye la administración.</span>
+    </div>
+  </section>
+
+  <footer class="inf-ley">
+    <div class="inf-cifras">
+      <div class="c"><div class="n">13</div><div class="t">informes de gobierno en línea</div></div>
+      <div class="c"><div class="n">2012</div><div class="t">el informe más antiguo disponible</div></div>
+      <div class="c"><div class="n">100%</div><div class="t">documentos oficiales verificados hoy</div></div>
+    </div>
+    <h3>Fundamento legal</h3>
+    <blockquote>
+      «Los informes trimestrales y anuales de actividades del sujeto obligado.»
+      <cite>Artículo 8, fracción VI, inciso l — Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios (LTAIPEJM).</cite>
+    </blockquote>
+    <p class="inf-prev">La información se reorganiza para facilitar su consulta ciudadana; el documento mostrado es el archivo oficial. Si un dato mostrado aquí discrepa del archivo oficial, prevalece el archivo oficial.</p>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var frame=document.getElementById('infFrame');
+  var loading=document.getElementById('infLoading');
+  var titleEl=document.getElementById('infTitle');
+  var subEl=document.getElementById('infSub');
+  var openBtn=document.getElementById('infOpen');
+  var dl=document.getElementById('infDl');
+  var btns=[].slice.call(document.querySelectorAll('.inf-pdf'));
+  var fbTimer=null;
+
+  function hideLoad(){ if(loading){ loading.classList.add('hide'); } for(var i=0;i<btns.length;i++){ btns[i].classList.remove('loading'); } }
+  function armFallback(){ if(fbTimer){ clearTimeout(fbTimer); } fbTimer=setTimeout(hideLoad,15000); }
+  if(frame){ frame.addEventListener('load',function(){ if(fbTimer){ clearTimeout(fbTimer); } hideLoad(); }); armFallback(); }
+
+  // Botones del histórico: cargan el informe elegido en el MISMO visor de arriba
+  for(var b=0;b<btns.length;b++){
+    btns[b].addEventListener('click',function(){
+      var u=this.getAttribute('data-u'); if(!u||!frame) return;
+      for(var x=0;x<btns.length;x++){ btns[x].classList.remove('active'); }
+      this.classList.add('active'); this.classList.add('loading');
+      if(loading){ loading.classList.remove('hide'); }
+      var t=this.getAttribute('data-t'), s=this.getAttribute('data-s');
+      if(titleEl&&t){ titleEl.textContent=t; }
+      if(subEl&&s){ subEl.textContent=s; }
+      if(openBtn){ openBtn.setAttribute('href',u); }
+      if(dl){ dl.setAttribute('data-u',u); }
+      frame.setAttribute('src',u+'#view=Fit');
+      armFallback();
+      var doc=document.querySelector('.inf-doc');
+      if(doc){ try{ doc.scrollIntoView({behavior:'smooth',block:'start'}); }catch(e){} }
+    });
+  }
+
+  // Descargar: abre el PDF en pestaña nueva (los archivos son muy grandes)
+  if(dl){
+    dl.addEventListener('click',function(){
+      var url=dl.getAttribute('data-u'); if(url){ window.open(url,'_blank','noopener'); }
+    });
+  }
+
+  // Auto-alto para el contenedor de Strapi (mismo patrón que el resto de la familia)
+  var SLUG='informe-gobierno-art8-VI-l', lastH=0;
+  function reportH(){
+    var h=Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+    if(Math.abs(h-lastH)>1){ lastH=h; try{ parent.postMessage({type:'gdl-iframe-height', id:SLUG, height:h}, '*'); }catch(e){} }
+  }
+  window.addEventListener('load',reportH);
+  window.addEventListener('resize',reportH);
+  if(window.ResizeObserver){ try{ new ResizeObserver(reportH).observe(document.body); }catch(e){} }
+  setTimeout(reportH,400); setTimeout(reportH,1500);
+})();
+</script>
+</body>
+</html>
