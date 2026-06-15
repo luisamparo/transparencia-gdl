@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Las políticas públicas que elabora y aplica el Ayuntamiento de Guadalajara, contenidas en el Plan Municipal de Desarrollo y Gobernanza — Art. 8, Fracción VI, Inciso e) de la Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios."/>
+<title>Políticas Públicas · El Plan que guía a Guadalajara · Transparencia GDL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --nr:#E87722;--nr-l:#FF9A45;--nr-d:#C45F0A;--nr-deeper:#8B4308;--nr-soft:#FFF1E4;
+  --nr-a:rgba(232,119,34,.10);--nr-b:rgba(232,119,34,.22);
+  --g50:#FAFAF8;--g100:#F0F0EC;--g200:#E2E2DD;--g300:#CFCFC8;--g400:#9E9E98;--g600:#5A5A55;--g800:#2D2D2A;--g900:#1A1A1A;
+  --wh:#FFF;
+  --pdf:#C8323F;--pdf-l:#FCE6E8;--pdf-d:#7A1F29;--pdf-border:#EDB7BD;
+  --ok:#1D9E75;--ok-l:#E1F5EE;--ok-d:#0E6B4C;
+  --rad:10px;--rad-lg:14px;
+  --sh:0 4px 22px rgba(0,0,0,.08);--sh-sm:0 1px 3px rgba(0,0,0,.06);--sh-md:0 6px 18px rgba(0,0,0,.07);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --fh:'Outfit',system-ui,-apple-system,sans-serif;--fm:'DM Mono','SF Mono',Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--g900);line-height:1.55}
+.pp-wrap{max-width:1100px;margin:0 auto}
+
+/* HERO */
+.pp-hero{background:linear-gradient(135deg,#FFF4E8 0%,#FFFFFF 55%);color:var(--g900);border-radius:var(--rad-lg);padding:24px 28px;margin:0 0 22px;position:relative;overflow:hidden;border-left:5px solid var(--nr);box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.pp-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.12) 0%,transparent 70%);pointer-events:none}
+.pp-hero-tag{display:inline-block;background:var(--nr);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;position:relative;z-index:1;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.pp-hero h2{margin:0 0 8px;font-size:clamp(22px,3.2vw,28px);font-weight:800;color:var(--g900);letter-spacing:-.015em;line-height:1.22;position:relative;z-index:1}
+.pp-hero h2 em{font-style:normal;color:var(--nr-d)}
+.pp-hero-sub{font-size:14.5px;color:#5a4d3e;max-width:80ch;margin:0;line-height:1.6;position:relative;z-index:1}
+.pp-hero-sub strong{color:var(--g900);font-weight:700}
+
+/* LEYENDA */
+.pp-legend{background:var(--wh);border-radius:var(--rad-lg);padding:18px 22px;margin-bottom:22px;border-left:4px solid var(--g300);box-shadow:var(--sh-sm)}
+.pp-legend-eye{font-size:10.5px;font-weight:800;color:var(--g400);letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+.pp-legend h3{font-size:18px;font-weight:800;color:var(--g900);letter-spacing:-.01em;margin-bottom:8px}
+.pp-legend p{font-size:13.5px;color:var(--g600);line-height:1.65;max-width:82ch}
+.pp-legend p strong{color:var(--g800);font-weight:600}
+
+/* DOCUMENTO PRINCIPAL (vigente) · VISOR PDF EMBEBIDO */
+.pp-viewer{background:#fff;border:1.5px solid var(--nr-b);border-top:4px solid var(--nr);border-radius:var(--rad-lg);box-shadow:var(--sh);overflow:hidden;margin:0 0 24px}
+.pp-viewer-head{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 20px;background:linear-gradient(135deg,var(--nr) 0%,var(--nr-d) 100%);color:#fff;flex-wrap:wrap}
+.pp-viewer-title{display:flex;align-items:center;gap:12px;min-width:0}
+.pp-viewer-title svg{flex-shrink:0}
+.pp-viewer-title b{font-size:15px;font-weight:800;line-height:1.25}
+.pp-viewer-title small{display:block;font-size:11px;font-weight:500;opacity:.92;margin-top:2px}
+.pp-viewer-actions{display:flex;gap:8px;align-items:center;flex-shrink:0}
+.pp-vbtn{display:inline-flex;align-items:center;justify-content:center;gap:6px;font-family:var(--fh);font-size:12.5px;font-weight:700;padding:8px 14px;border-radius:8px;cursor:pointer;text-decoration:none;border:1.5px solid rgba(255,255,255,.45);color:#fff;background:rgba(255,255,255,.16);transition:all .13s;white-space:nowrap}
+.pp-vbtn:hover{background:rgba(255,255,255,.30)}
+.pp-vbtn svg{flex-shrink:0}
+.pp-dl[data-busy="1"]{opacity:.6;pointer-events:none}
+.pp-viewer-body{position:relative;background:#f0f0ec;height:1300px}
+.pp-frame{width:100%;height:100%;border:0;display:block;position:relative;z-index:1}
+.pp-viewer-loading{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;color:#5a4d3e;font-size:13px;text-align:center;padding:24px;z-index:0}
+.pp-viewer-loading.hide{display:none}
+.pp-spin{width:28px;height:28px;border:3px solid #FFE4CC;border-top-color:var(--nr);border-radius:50%;animation:ppspin 1s linear infinite}
+@keyframes ppspin{to{transform:rotate(360deg)}}
+.pp-hint{font-size:12px;color:#5a4d3e;background:var(--g50);padding:10px 20px;border-top:1px solid #f0f0ec;display:flex;align-items:center;gap:8px;line-height:1.5}
+.pp-hint svg{flex-shrink:0;color:var(--nr-d)}
+.pp-hint strong{color:var(--g900);font-weight:700}
+
+/* SECCIÓN HISTÓRICO */
+.pp-sec-head{margin:6px 0 14px;display:flex;align-items:center;gap:11px;flex-wrap:wrap}
+.pp-sec-num{font-size:11px;font-weight:800;color:var(--nr-d);flex-shrink:0;background:var(--nr-soft);padding:4px 10px;border-radius:999px;border:1px solid var(--nr-b);font-family:var(--fm);text-transform:uppercase;letter-spacing:.04em}
+.pp-sec-h{font-size:20px;font-weight:800;color:var(--g900);letter-spacing:-.012em;line-height:1.2}
+
+.pp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px;margin-bottom:22px}
+.pp-doc{display:flex;align-items:flex-start;gap:14px;background:var(--wh);border:1.5px solid var(--g200);border-radius:var(--rad-lg);padding:18px 20px;text-decoration:none;color:inherit;transition:all .15s var(--ease);box-shadow:var(--sh-sm)}
+.pp-doc:hover{border-color:var(--nr);transform:translateY(-3px);box-shadow:var(--sh-md)}
+.pp-doc-ico{flex-shrink:0;width:46px;height:46px;border-radius:11px;background:var(--pdf-l);color:var(--pdf-d);display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:10px;font-weight:700;border:1.5px solid var(--pdf-border)}
+.pp-doc-body{flex:1;min-width:0}
+.pp-doc-admin{font-size:10px;font-weight:800;color:var(--nr-d);letter-spacing:.1em;text-transform:uppercase;margin-bottom:3px}
+.pp-doc-title{font-size:14.5px;font-weight:700;color:var(--g900);line-height:1.3}
+.pp-doc-desc{font-size:11.5px;color:var(--g600);line-height:1.45;margin-top:4px}
+
+/* FOOTER LEY */
+.pp-ley{background:var(--wh);border-radius:var(--rad-lg);padding:22px 26px;border-left:4px solid var(--nr-d);box-shadow:var(--sh-sm)}
+.pp-cifras{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:18px}
+.pp-cifra{background:var(--g50);border:1.5px solid #FFD2A5;border-radius:var(--rad);padding:14px 16px;display:flex;flex-direction:column;gap:2px;transition:border-color .18s ease,transform .18s ease}
+.pp-cifra:hover{border-color:var(--nr);transform:translateY(-2px)}
+.pp-cifra-num{font-family:var(--fm);font-size:24px;font-weight:700;line-height:1;color:var(--nr-d);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.pp-cifra-lbl{font-size:11px;font-weight:700;color:#5a4d3e;text-transform:uppercase;letter-spacing:.06em;margin-top:2px;line-height:1.3}
+.pp-ley-eye{font-size:10.5px;font-weight:800;color:var(--nr-d);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.pp-ley h3{font-size:16px;font-weight:800;color:var(--g900);margin-bottom:8px;letter-spacing:-.008em}
+.pp-ley p{font-size:13px;color:var(--g600);line-height:1.65;margin-bottom:6px}
+.pp-ley p strong{color:var(--g800);font-weight:600}
+.pp-ley blockquote{font-size:13.5px;color:#5a4d3e;line-height:1.65;margin:12px 0 8px;padding:12px 18px;background:var(--nr-soft);border-left:3px solid var(--nr);border-radius:6px;font-style:italic}
+.pp-ley blockquote strong{color:var(--g900);font-style:normal;font-weight:700}
+
+@media(max-width:560px){
+  body{padding:14px}
+  .pp-hero{padding:20px 22px}
+  .pp-viewer-body{height:64vh;min-height:440px}
+  .pp-viewer-head{padding:12px 14px}
+  .pp-viewer-actions{width:100%}
+  .pp-vbtn{flex:1}
+  .pp-cifras{gap:8px}
+  .pp-cifra-num{font-size:18px}
+}
+</style>
+</head>
+<body>
+
+<div class="pp-wrap">
+
+  <!-- HERO -->
+  <section class="pp-hero">
+    <span class="pp-hero-tag">Art. 8 · Fracción VI · Inciso e)</span>
+    <h2>Políticas públicas: <em>el plan que marca el rumbo de Guadalajara</em></h2>
+    <p class="pp-hero-sub">Las <strong>políticas públicas</strong> que elabora y aplica el Ayuntamiento de Guadalajara están reunidas en su <strong>Plan Municipal de Desarrollo y Gobernanza</strong>: el documento que define la visión, los objetivos y las estrategias de cada administración. Aquí encuentras el plan vigente y los de administraciones anteriores.</p>
+  </section>
+
+  <!-- DOCUMENTO PRINCIPAL (VIGENTE) · VISOR GIGANTE -->
+  <div class="pp-viewer">
+    <div class="pp-viewer-head">
+      <div class="pp-viewer-title">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+        <span><b>Plan de Desarrollo y Gobernanza · Guadalajara 2024&ndash;2027</b><small>Documento rector vigente &middot; contiene todas las políticas públicas &middot; PDF</small></span>
+      </div>
+      <div class="pp-viewer-actions">
+        <a class="pp-vbtn" id="ppOpen" href="https://transparencia.guadalajara.gob.mx/sites/default/files/PlanMunicipalDesarrollo2024-2027.pdf" target="_blank" rel="noopener noreferrer">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+          Abrir en pestaña
+        </a>
+        <button class="pp-vbtn pp-dl" id="ppDl" type="button" data-u="https://transparencia.guadalajara.gob.mx/sites/default/files/PlanMunicipalDesarrollo2024-2027.pdf">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+          <span class="pp-dl-tx">Descargar</span>
+        </button>
+      </div>
+    </div>
+    <div class="pp-viewer-body">
+      <div class="pp-viewer-loading" id="ppLoading"><span class="pp-spin" aria-hidden="true"></span>Cargando el documento oficial&hellip;</div>
+      <iframe class="pp-frame" id="ppFrame" src="https://transparencia.guadalajara.gob.mx/sites/default/files/PlanMunicipalDesarrollo2024-2027.pdf#view=FitH" title="Plan Municipal de Desarrollo y Gobernanza Guadalajara 2024-2027 (PDF oficial)" loading="lazy"></iframe>
+    </div>
+    <div class="pp-hint">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+      <span>Usa la barra del visor para <strong>acercar, buscar o cambiar de página</strong>. Para verlo m&aacute;s grande, abre <strong>&ldquo;Abrir en pesta&ntilde;a&rdquo;</strong>.</span>
+    </div>
+  </div>
+
+  <!-- HISTÓRICO -->
+  <div class="pp-sec-head">
+    <span class="pp-sec-num">Histórico</span>
+    <h3 class="pp-sec-h">Planes de administraciones anteriores</h3>
+  </div>
+  <div class="pp-grid">
+    <a class="pp-doc" href="https://transparencia.guadalajara.gob.mx/sites/default/files/PlanMunicipalDesarrollo2021-2024.pdf" target="_blank" rel="noopener">
+      <span class="pp-doc-ico">PDF</span>
+      <span class="pp-doc-body">
+        <span class="pp-doc-admin">Administración 2021–2024</span>
+        <span class="pp-doc-title">Plan de Desarrollo y Gobernanza 2021–2024</span>
+        <span class="pp-doc-desc">Visión 2042. Contiene las políticas públicas de esa administración.</span>
+      </span>
+    </a>
+    <a class="pp-doc" href="https://transparencia.guadalajara.gob.mx/sites/default/files/PMDGGuadalajara2018-2021.pdf" target="_blank" rel="noopener">
+      <span class="pp-doc-ico">PDF</span>
+      <span class="pp-doc-body">
+        <span class="pp-doc-admin">Administración 2018–2021</span>
+        <span class="pp-doc-title">Plan de Desarrollo y Gobernanza 2018–2021</span>
+        <span class="pp-doc-desc">Documento rector de la administración 2018–2021.</span>
+      </span>
+    </a>
+    <a class="pp-doc" href="https://transparencia.guadalajara.gob.mx/sites/default/files/PoliticasPublicas18-21.pdf" target="_blank" rel="noopener">
+      <span class="pp-doc-ico">PDF</span>
+      <span class="pp-doc-body">
+        <span class="pp-doc-admin">Administración 2018–2021</span>
+        <span class="pp-doc-title">Políticas Públicas 2018–2021</span>
+        <span class="pp-doc-desc">Documento específico de políticas públicas de esa administración.</span>
+      </span>
+    </a>
+  </div>
+
+  <!-- FOOTER LEY -->
+  <div class="pp-ley">
+    <div class="pp-cifras">
+      <div class="pp-cifra"><div class="pp-cifra-num">2024–2027</div><div class="pp-cifra-lbl">Plan vigente</div></div>
+      <div class="pp-cifra"><div class="pp-cifra-num">3</div><div class="pp-cifra-lbl">Administraciones</div></div>
+      <div class="pp-cifra"><div class="pp-cifra-num">100%</div><div class="pp-cifra-lbl">Consultable y descargable</div></div>
+    </div>
+    <div class="pp-ley-eye">¿Dónde viven las políticas públicas?</div>
+    <p>Una <strong>política pública</strong> es una decisión de gobierno para resolver un problema de la ciudad (movilidad, seguridad, medio ambiente). En Guadalajara todas se reúnen en el <strong>Plan Municipal de Desarrollo y Gobernanza</strong>: consultar el Plan es consultar las políticas públicas.</p>
+    <div class="pp-ley-eye" style="margin-top:16px">Fundamento legal</div>
+    <p>Artículo 8, Fracción VI, Inciso e) de la <strong>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</strong>:</p>
+    <blockquote>"Las <strong>políticas públicas</strong> que elabora y aplica el Ayuntamiento."</blockquote>
+    <p>Si un dato mostrado aquí discrepa del archivo oficial, <strong>prevalece el archivo oficial.</strong></p>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var frame=document.getElementById('ppFrame');
+  var loading=document.getElementById('ppLoading');
+  if(frame){
+    frame.addEventListener('load',function(){ if(loading){loading.classList.add('hide');} });
+    setTimeout(function(){ if(loading){loading.classList.add('hide');} },6000);
+  }
+  function nombreArchivo(u){
+    try{ var p=u.split('?')[0].split('#')[0].split('/'); var n=decodeURIComponent(p[p.length-1]); return n||'documento.pdf'; }catch(e){ return 'documento.pdf'; }
+  }
+  var EN_IFRAME=(function(){ try{ return window.self!==window.top; }catch(e){ return true; } })();
+  var dl=document.getElementById('ppDl');
+  if(dl){
+    dl.addEventListener('click',function(){
+      if(dl.getAttribute('data-busy')==='1') return;
+      var url=dl.getAttribute('data-u');
+      var tx=dl.querySelector('.pp-dl-tx');
+      var label=tx?tx.textContent:'';
+      dl.setAttribute('data-busy','1'); if(tx){tx.textContent='Descargando…';}
+      fetch(url).then(function(res){ if(!res.ok){throw new Error('http');} return res.blob(); }).then(function(blob){
+        var burl=URL.createObjectURL(blob);
+        var a=document.createElement('a'); a.href=burl; a.download=nombreArchivo(url);
+        if(EN_IFRAME){ a.target='_blank'; a.rel='noopener'; }
+        document.body.appendChild(a); a.click(); document.body.removeChild(a);
+        setTimeout(function(){ URL.revokeObjectURL(burl); }, EN_IFRAME?60000:6000);
+        dl.removeAttribute('data-busy'); if(tx){tx.textContent=label;}
+      }).catch(function(){ window.open(url,'_blank','noopener'); dl.removeAttribute('data-busy'); if(tx){tx.textContent=label;} });
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
