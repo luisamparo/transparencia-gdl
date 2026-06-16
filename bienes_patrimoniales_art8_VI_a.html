@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Inventario de recursos materiales del Ayuntamiento de Guadalajara: bienes muebles, bienes inmuebles y parque vehicular, con su descripción, valor, régimen jurídico y uso o afectación. Inventario vigente con corte a mayo de 2026 e historial mensual de inventarios y movimientos (altas, bajas y donaciones) de la administración actual y de las dos anteriores (2018-2024). Art. 8, Fracción VI, Inciso a) de la Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios."/>
+<title>Recursos materiales del Ayuntamiento de Guadalajara · Inventario de bienes muebles e inmuebles · Art. 8 Frac. VI Inc. a)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ac:#E87722;--ac-l:#FFE4CC;--ac-d:#C45F0A;--ac-deeper:#8B4308;--ac-border:#F5C99A;--ac-soft:#FFF1E4;
+  --g50:#FAFAF8;--g100:#F0F0EC;--g200:#E2E2DD;--g300:#CFCFC8;--g400:#9E9E98;--g600:#5A5A55;--g800:#2D2D2A;--g900:#1A1A1A;
+  --wh:#FFF;
+  --veh:#E87722;--mue:#C45F0A;--inm:#D9700F;
+  --xls:#C45F0A;--xls-l:#FFE4CC;--pdf:#E87722;--pdf-l:#FFF1E4;
+  --rad:10px;--rad-lg:14px;
+  --sh:0 4px 22px rgba(0,0,0,.08);--sh-sm:0 1px 3px rgba(0,0,0,.06);--sh-md:0 6px 18px rgba(0,0,0,.07);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --fh:'Outfit',system-ui,-apple-system,sans-serif;
+  --fm:'DM Mono','SF Mono',Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--g900);line-height:1.55;-webkit-font-smoothing:antialiased}
+.bp-wrap{max-width:1100px;margin:0 auto}
+
+/* HERO */
+.bp-hero{background:linear-gradient(135deg,var(--ac-soft) 0%,#FFFFFF 55%);color:var(--g900);border-radius:var(--rad-lg);padding:26px 30px;margin:0 0 20px;position:relative;overflow:hidden;border-left:5px solid var(--ac);box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.bp-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:210px;height:210px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.12) 0%,transparent 70%);pointer-events:none}
+.bp-hero-tag{display:inline-block;background:var(--ac);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;position:relative;z-index:1;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.bp-hero h1{margin:0 0 9px;font-size:clamp(22px,3.2vw,29px);font-weight:800;color:var(--g900);letter-spacing:-.015em;line-height:1.2;position:relative;z-index:1}
+.bp-hero h1 em{font-style:normal;color:var(--ac-d);display:block;margin-top:2px}
+.bp-hero-sub{font-size:14.5px;color:var(--g600);max-width:95ch;margin:0;line-height:1.62;position:relative;z-index:1}
+.bp-hero-sub strong{color:var(--g900);font-weight:700}
+
+/* CIFRAS */
+.bp-cifras{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:12px;margin:0 0 22px}
+.bp-cifra{background:var(--wh);border:1.5px solid var(--ac-border);border-radius:var(--rad);padding:16px 18px;display:flex;flex-direction:column;gap:2px;transition:border-color .18s ease,transform .18s ease}
+.bp-cifra:hover{border-color:var(--ac);transform:translateY(-2px)}
+.bp-cifra-num{font-family:var(--fm);font-size:34px;font-weight:700;line-height:1.02;color:var(--ac-d);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.bp-cifra-lbl{font-size:11.5px;font-weight:700;color:var(--g800);text-transform:uppercase;letter-spacing:.07em;margin-top:5px;line-height:1.3}
+.bp-cifra-sub{font-size:11px;color:var(--g400);margin-top:1px;line-height:1.4}
+.bp-cifra.headline{border-color:var(--ac);background:linear-gradient(135deg,#FFF6EC 0%,#FFFFFF 100%);grid-column:span 2}
+.bp-cifra.headline .bp-cifra-num{font-size:48px;color:var(--ac-d)}
+.bp-cifra.headline .bp-cifra-lbl{font-size:12.5px;color:var(--ac-d)}
+@media (max-width:560px){.bp-cifra.headline{grid-column:span 1}.bp-cifra.headline .bp-cifra-num{font-size:40px}}
+
+/* SECCIÓN TÍTULO */
+.bp-sec-eye{font-size:11px;font-weight:800;color:var(--g400);letter-spacing:.14em;text-transform:uppercase;margin:0 4px 13px;display:flex;align-items:center;gap:10px}
+.bp-sec-eye::after{content:'';flex:1;height:1.5px;background:var(--g200);border-radius:2px}
+
+/* 3 CATEGORÍAS */
+.bp-cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;margin-bottom:26px}
+.bp-cat{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh);overflow:hidden;border-top:5px solid var(--veh);display:flex;flex-direction:column}
+.bp-cat.mue{border-top-color:var(--mue)}
+.bp-cat.inm{border-top-color:var(--inm)}
+.bp-cat-head{padding:18px 22px 14px;display:flex;align-items:center;gap:14px}
+.bp-cat-ico{width:46px;height:46px;border-radius:12px;background:var(--ac-soft);color:var(--veh);display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--ac-border)}
+.bp-cat.mue .bp-cat-ico{color:var(--mue)}
+.bp-cat.inm .bp-cat-ico{color:var(--inm)}
+.bp-cat-h{flex:1;min-width:0}
+.bp-cat-h h3{font-size:16.5px;font-weight:800;color:var(--g900);letter-spacing:-.01em;line-height:1.2}
+.bp-cat-count{font-family:var(--fm);font-size:23px;font-weight:700;color:var(--ac-d);line-height:1;letter-spacing:-.01em}
+.bp-cat.mue .bp-cat-count{color:var(--mue)}
+.bp-cat.inm .bp-cat-count{color:var(--inm)}
+.bp-cat-count small{font-family:var(--fh);font-size:10.5px;font-weight:700;color:var(--g400);text-transform:uppercase;letter-spacing:.06em;display:block;margin-top:2px}
+.bp-cat-body{padding:0 22px 20px;display:flex;flex-direction:column;flex:1}
+.bp-cat-desc{font-size:12.5px;color:var(--g600);line-height:1.55;margin-bottom:15px;flex:1}
+.bp-cat-cta{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--fh);font-size:13px;font-weight:700;padding:11px 16px;border-radius:9px;text-decoration:none;border:1.5px solid var(--ac);background:var(--ac);color:#fff;transition:all .14s var(--ease)}
+.bp-cat-cta:hover{background:var(--ac-d);border-color:var(--ac-d);transform:translateY(-1px)}
+.bp-cat-cta small{font-weight:600;opacity:.9}
+
+/* MOVIMIENTOS */
+.bp-mov{background:var(--wh);border:1.5px solid var(--g200);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);padding:22px 24px;margin-bottom:26px}
+.bp-mov-head h2{font-size:18px;font-weight:800;color:var(--g900);letter-spacing:-.01em;margin-bottom:5px}
+.bp-mov-head p{font-size:13px;color:var(--g600);line-height:1.55;margin-bottom:16px;max-width:82ch}
+.bp-filters{display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
+.bp-filter-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.bp-filter-lbl{font-size:10.5px;font-weight:800;color:var(--g400);letter-spacing:.08em;text-transform:uppercase;margin-right:4px;min-width:92px}
+.bp-chip{font-family:var(--fh);font-size:12.5px;font-weight:700;padding:7px 14px;border-radius:20px;border:1.5px solid var(--g200);background:var(--wh);color:var(--g600);cursor:pointer;transition:all .13s var(--ease);white-space:nowrap}
+.bp-chip:hover{border-color:var(--ac-border);color:var(--ac-d)}
+.bp-chip.active{background:var(--ac);border-color:var(--ac);color:#fff;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.bp-mcount{font-size:12px;color:var(--g600);font-weight:600;margin:0 2px 12px}
+.bp-mcount b{color:var(--ac-d);font-family:var(--fm);font-weight:600}
+
+.bp-mlist{display:flex;flex-direction:column;gap:9px;max-height:640px;overflow-y:auto;padding:2px 8px 2px 2px;scrollbar-width:thin;scrollbar-color:var(--ac) var(--ac-soft)}
+.bp-mlist::-webkit-scrollbar{width:12px}
+.bp-mlist::-webkit-scrollbar-track{background:var(--ac-soft);border-radius:10px}
+.bp-mlist::-webkit-scrollbar-thumb{background:var(--ac);border-radius:10px;border:2px solid var(--ac-soft)}
+.bp-mlist::-webkit-scrollbar-thumb:hover{background:var(--ac-d)}
+
+.bp-mrow{display:flex;align-items:center;gap:14px;background:var(--g50);border:1px solid var(--g200);border-radius:11px;padding:12px 15px;transition:border-color .14s,box-shadow .14s,background .14s}
+.bp-mrow:hover{border-color:var(--ac-border);background:var(--wh);box-shadow:var(--sh-sm)}
+.bp-mrow-left{flex:1;min-width:0;display:flex;flex-direction:column;gap:5px}
+.bp-mrow-tags{display:flex;flex-wrap:wrap;gap:5px}
+.bp-mrow-period{font-size:14px;font-weight:800;color:var(--g900);letter-spacing:-.005em}
+.bp-mtag{display:inline-block;font-size:9px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:2px 8px;border-radius:20px;background:var(--ac-soft);color:var(--veh);border:1px solid var(--ac-border)}
+.bp-mtag.mue{color:var(--mue)}
+.bp-mtag.inm{color:var(--inm)}
+.bp-mtag.adm{background:var(--g100);color:var(--g600);border-color:var(--g200);letter-spacing:.02em}
+.bp-mrow-docs{display:flex;flex-wrap:wrap;gap:7px;justify-content:flex-end}
+.bp-doc{display:inline-flex;align-items:center;gap:6px;font-family:var(--fh);font-size:11.5px;font-weight:700;padding:7px 11px;border-radius:8px;text-decoration:none;border:1.5px solid var(--g200);background:var(--wh);color:var(--g800);transition:all .13s var(--ease);white-space:nowrap}
+.bp-doc:hover{border-color:var(--ac);color:var(--ac-d);transform:translateY(-1px)}
+.bp-doc svg{flex-shrink:0}
+.bp-doc .bp-ext{font-family:var(--fm);font-size:9px;font-weight:600;padding:1px 5px;border-radius:4px;letter-spacing:.02em}
+.bp-doc .bp-ext.xls{background:var(--xls-l);color:var(--xls)}
+.bp-doc .bp-ext.pdf{background:var(--pdf-l);color:var(--pdf)}
+.bp-doc-inv{border-color:var(--ac);background:var(--ac);color:#fff}
+.bp-doc-inv:hover{background:var(--ac-d);border-color:var(--ac-d);color:#fff}
+.bp-doc-inv .bp-ext.xls{background:rgba(255,255,255,.25);color:#fff}
+.bp-doc-of{background:var(--g50);color:var(--g600)}
+.bp-mempty{display:none;text-align:center;padding:30px 16px;color:var(--g400);font-size:13.5px}
+.bp-mempty.show{display:block}
+
+/* FOOTER */
+.bp-foot-eye{font-size:11px;font-weight:800;color:var(--g400);letter-spacing:.14em;text-transform:uppercase;margin:30px 4px 14px;display:flex;align-items:center;gap:10px}
+.bp-foot-eye::after{content:'';flex:1;height:1.5px;background:var(--g200);border-radius:2px}
+.bp-glos{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:13px;margin-bottom:18px}
+.bp-gcard{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);border-top:4px solid var(--ac);padding:17px 19px}
+.bp-gcard h4{font-size:14px;font-weight:800;color:var(--g900);letter-spacing:-.005em;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.bp-gcard h4 .bp-gico{width:30px;height:30px;border-radius:8px;background:var(--ac-soft);color:var(--ac-d);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.bp-gcard p{font-size:12.5px;color:var(--g600);line-height:1.6}
+.bp-gcard p strong{color:var(--g800);font-weight:700}
+
+.bp-note{background:var(--ac-soft);border:1.5px solid var(--ac-border);border-radius:var(--rad-lg);padding:16px 20px;margin-bottom:18px;display:flex;gap:13px;align-items:flex-start}
+.bp-note-ico{flex-shrink:0;color:var(--ac-d);margin-top:1px}
+.bp-note p{font-size:12.5px;color:var(--g800);line-height:1.6}
+.bp-note p strong{color:var(--g900);font-weight:700}
+
+.bp-ley{background:var(--wh);border-radius:var(--rad-lg);padding:22px 26px;border-left:4px solid var(--ac-d);box-shadow:var(--sh-sm)}
+.bp-ley-eye{font-size:10.5px;font-weight:800;color:var(--ac-d);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.bp-ley h3{font-size:16px;font-weight:800;color:var(--g900);margin-bottom:9px;letter-spacing:-.008em}
+.bp-ley blockquote{background:var(--g50);border-left:3px solid var(--ac);padding:13px 18px;font-size:13px;color:var(--g800);line-height:1.65;border-radius:0 var(--rad) var(--rad) 0;font-style:italic}
+.bp-ley blockquote strong{color:var(--g900);font-style:normal;font-weight:700}
+.bp-ley-fuente{margin-top:13px;font-size:11.5px;color:var(--g400);line-height:1.6;font-family:var(--fm)}
+
+@media (max-width:700px){
+  body{padding:13px}
+  .bp-hero{padding:20px 18px}
+  .bp-mrow{flex-direction:column;align-items:stretch}
+  .bp-mrow-docs{justify-content:flex-start}
+  .bp-ley,.bp-mov{padding:18px 16px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="bp-wrap">
+
+  <!-- HERO (formal, limpio) -->
+  <section class="bp-hero">
+    <span class="bp-hero-tag">Art. 8 · Fracción VI · Inciso a) · Ley de Transparencia Jalisco</span>
+    <h1>Recursos materiales del Ayuntamiento de Guadalajara <em>Inventario de bienes muebles e inmuebles</em></h1>
+    <p class="bp-hero-sub">Inventario de los bienes propiedad del municipio —parque vehicular, mobiliario y equipo, predios y edificios— con su <strong>descripción, valor, régimen jurídico y uso o afectación</strong>. Se presenta el <strong>inventario vigente</strong> con corte a <strong>mayo de 2026</strong> y el <strong>historial mensual</strong> —inventarios, altas, bajas y donaciones— de la administración actual y de las dos administraciones anteriores.</p>
+  </section>
+
+  <!-- CIFRAS -->
+  <div class="bp-cifras">
+    <div class="bp-cifra headline">
+      <div class="bp-cifra-num">113,498</div>
+      <div class="bp-cifra-lbl">Bienes en inventario</div>
+      <div class="bp-cifra-sub">Total · corte a mayo de 2026</div>
+    </div>
+    <div class="bp-cifra">
+      <div class="bp-cifra-num">2,510</div>
+      <div class="bp-cifra-lbl">Vehículos</div>
+      <div class="bp-cifra-sub">Parque vehicular</div>
+    </div>
+    <div class="bp-cifra">
+      <div class="bp-cifra-num">107,538</div>
+      <div class="bp-cifra-lbl">Bienes muebles</div>
+      <div class="bp-cifra-sub">Mobiliario y equipo</div>
+    </div>
+    <div class="bp-cifra">
+      <div class="bp-cifra-num">3,450</div>
+      <div class="bp-cifra-lbl">Bienes inmuebles</div>
+      <div class="bp-cifra-sub">Predios y edificios</div>
+    </div>
+  </div>
+
+  <!-- 3 CATEGORÍAS -->
+  <div class="bp-sec-eye">Los tres inventarios · descarga el documento vigente</div>
+  <div class="bp-cats">
+
+    <div class="bp-cat veh">
+      <div class="bp-cat-head">
+        <div class="bp-cat-ico" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3v-5l2-5h10l3 5h1a2 2 0 0 1 2 2v3h-2"/><circle cx="7.5" cy="17.5" r="1.6"/><circle cx="16.5" cy="17.5" r="1.6"/><path d="M9 17h6"/></svg></div>
+        <div class="bp-cat-h">
+          <h3>Vehículos</h3>
+          <div class="bp-cat-count">2,510<small>Unidades</small></div>
+        </div>
+      </div>
+      <div class="bp-cat-body">
+        <p class="bp-cat-desc">El parque vehicular del municipio: automóviles, camiones, motocicletas y maquinaria, con su descripción, valor y uso.</p>
+        <a class="bp-cat-cta" href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Ftransparencia.guadalajara.gob.mx%2Fsites%2Fdefault%2Ffiles%2FVehiculos-Inventario-2026.xlsx" target="_blank" rel="noopener noreferrer">Ver inventario vigente <small>· en línea</small></a>
+      </div>
+    </div>
+
+    <div class="bp-cat mue">
+      <div class="bp-cat-head">
+        <div class="bp-cat-ico" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M3 20h18"/><path d="M8 16v4"/><path d="M16 16v4"/></svg></div>
+        <div class="bp-cat-h">
+          <h3>Bienes muebles</h3>
+          <div class="bp-cat-count">107,538<small>Bienes</small></div>
+        </div>
+      </div>
+      <div class="bp-cat-body">
+        <p class="bp-cat-desc">Mobiliario, equipo de cómputo, herramienta, maquinaria y demás bienes que se pueden trasladar, con su descripción, valor y régimen jurídico.</p>
+        <a class="bp-cat-cta" href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Ftransparencia.guadalajara.gob.mx%2Fsites%2Fdefault%2Ffiles%2FMueblesMayo26.xlsx" target="_blank" rel="noopener noreferrer">Ver inventario vigente <small>· en línea</small></a>
+      </div>
+    </div>
+
+    <div class="bp-cat inm">
+      <div class="bp-cat-head">
+        <div class="bp-cat-ico" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/><path d="M9 11h.01"/><path d="M15 11h.01"/></svg></div>
+        <div class="bp-cat-h">
+          <h3>Bienes inmuebles</h3>
+          <div class="bp-cat-count">3,450<small>Inmuebles</small></div>
+        </div>
+      </div>
+      <div class="bp-cat-body">
+        <p class="bp-cat-desc">Predios, edificios, parques y demás inmuebles del municipio, con su descripción, valor, régimen jurídico y uso o afectación.</p>
+        <a class="bp-cat-cta" href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Ftransparencia.guadalajara.gob.mx%2Fsites%2Fdefault%2Ffiles%2FBienesInmueblesMayoInventario2026.xlsx" target="_blank" rel="noopener noreferrer">Ver inventario vigente <small>· en línea</small></a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- MOVIMIENTOS MENSUALES -->
+  <section class="bp-mov">
+    <div class="bp-mov-head">
+      <h2>Inventarios y movimientos mes a mes · historial completo</h2>
+      <p>Consulta el inventario de cada periodo y sus movimientos —altas, bajas y donaciones— de la <strong>administración actual (2024-2027)</strong> y de las <strong>dos administraciones anteriores (2021-2024 y 2018-2021)</strong>. Filtra por categoría y por administración. Cuando un mes no registró movimientos de un tipo, se publica el oficio de soporte correspondiente.</p>
+    </div>
+    <div class="bp-filters">
+      <div class="bp-filter-row" id="bpCatRow">
+        <span class="bp-filter-lbl">Categoría</span>
+        <button type="button" class="bp-chip active" data-cat="todas">Todas</button>
+        <button type="button" class="bp-chip" data-cat="veh">Vehículos</button>
+        <button type="button" class="bp-chip" data-cat="mue">Bienes muebles</button>
+        <button type="button" class="bp-chip" data-cat="inm">Bienes inmuebles</button>
+      </div>
+      <div class="bp-filter-row" id="bpAdmRow">
+        <span class="bp-filter-lbl">Administración</span>
+        <button type="button" class="bp-chip active" data-adm="todas">Todas</button>
+        <button type="button" class="bp-chip" data-adm="act">2024–2027</button>
+        <button type="button" class="bp-chip" data-adm="2124">2021–2024</button>
+        <button type="button" class="bp-chip" data-adm="1821">2018–2021</button>
+      </div>
+    </div>
+    <div class="bp-mcount" id="bpCount"></div>
+    <div class="bp-mlist" id="bpList"></div>
+    <div class="bp-mempty" id="bpEmpty">No hay periodos que coincidan con el filtro seleccionado.</div>
+  </section>
+
+  <!-- ====== FOOTER: DESCRIPCIONES CIUDADANAS ====== -->
+  <div class="bp-foot-eye">Para entenderlo mejor</div>
+  <div class="bp-glos">
+    <div class="bp-gcard">
+      <h4><span class="bp-gico" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M3 20h18"/></svg></span>¿Qué es un bien mueble?</h4>
+      <p>Todo aquello que el municipio puede <strong>mover de un lugar a otro</strong>: escritorios, computadoras, herramienta, maquinaria, equipo médico. Cada uno está registrado con su descripción y su valor.</p>
+    </div>
+    <div class="bp-gcard">
+      <h4><span class="bp-gico" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/></svg></span>¿Qué es un bien inmueble?</h4>
+      <p>Lo que <strong>no se puede mover</strong> porque está fijo al suelo: terrenos, edificios, parques y mercados propiedad del Ayuntamiento. Incluye su régimen jurídico y el uso que se le da.</p>
+    </div>
+    <div class="bp-gcard">
+      <h4><span class="bp-gico" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3v-5l2-5h10l3 5h1a2 2 0 0 1 2 2v3h-2"/><circle cx="7.5" cy="17.5" r="1.6"/><circle cx="16.5" cy="17.5" r="1.6"/></svg></span>¿Y los vehículos?</h4>
+      <p>El <strong>parque vehicular</strong> del municipio: patrullas, camiones de recolección, motocicletas, automóviles y maquinaria. Se reporta aparte por su importancia y volumen.</p>
+    </div>
+    <div class="bp-gcard">
+      <h4><span class="bp-gico" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg></span>Altas, bajas y donaciones</h4>
+      <p>Un <strong>alta</strong> es un bien que <strong>entra</strong> al inventario; una <strong>baja</strong>, uno que <strong>sale</strong> (por desuso, deterioro o venta); una <strong>donación</strong>, un bien que el municipio entrega a otra institución. Cada mes se publican estos cambios.</p>
+    </div>
+    <div class="bp-gcard">
+      <h4><span class="bp-gico" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg></span>¿Qué es el régimen jurídico?</h4>
+      <p>Es la <strong>situación legal</strong> del bien: si es de dominio público (al servicio de todos, como un parque) o de dominio privado del municipio, y bajo qué figura lo posee.</p>
+    </div>
+    <div class="bp-gcard">
+      <h4><span class="bp-gico" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>¿Para qué te sirve?</h4>
+      <p>Para saber <strong>qué posee tu municipio con recursos públicos</strong>, en qué se usa y cómo cambia. Es la base para vigilar que los bienes de todos se cuiden y no se pierdan.</p>
+    </div>
+  </div>
+
+  <div class="bp-note">
+    <div class="bp-note-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+    <p><strong>Sobre el valor de los bienes muebles:</strong> los valores unitarios de los bienes muebles están en proceso de actualización de acuerdo con los criterios establecidos para el control, registro, guarda y custodia por el <strong>Consejo Nacional de Armonización Contable (CONAC)</strong>; por lo que en los archivos se encuentran los valores con los que actualmente se cuenta.</p>
+  </div>
+
+  <!-- FUNDAMENTO LEGAL -->
+  <section class="bp-ley">
+    <div class="bp-ley-eye">Lo que dice la ley</div>
+    <h3>Art. 8, Fracción VI, Inciso a) — Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</h3>
+    <blockquote>«Artículo 8. Es información fundamental, obligatoria para todos los sujetos obligados, la siguiente: <strong>(…) VI.</strong> La información financiera, patrimonial y administrativa, que comprende: <strong>(…) a)</strong> Los inventarios de bienes muebles e inmuebles, en el que se señale cuando menos la descripción, el valor, el régimen jurídico, y el uso o afectación del bien;»</blockquote>
+    <div class="bp-ley-fuente">
+      Áreas responsables del control patrimonial: Departamento de Muebles y Departamento de Inmuebles del Ayuntamiento de Guadalajara.<br>
+      Inventario vigente con corte a mayo de 2026 · Historial mensual de la administración actual y de las administraciones 2021-2024 y 2018-2021 · Información actualizada al 09/06/2026.<br>
+      Los nombres, valores, fechas y documentos son los oficiales tal como fueron publicados por el sujeto obligado; en caso de cualquier discrepancia, prevalece el documento oficial.
+    </div>
+  </section>
+
+</div>
+
+<script>
+/* ==========================================================================
+   Recursos materiales / Bienes patrimoniales · Art. 8 Frac. VI Inc. a)
+   Datos verbatim de los registros oficiales del sujeto obligado.
+   Cifras del inventario VIGENTE (corte mayo 2026): Vehiculos 2,510 · Muebles 107,538 · Inmuebles 3,450 · Total 113,498
+   (conteo directo sobre los inventarios vigentes, descontando 7 filas de cabecera SIPOT).
+   Historial: administracion actual (2024-2027), 2021-2024 y 2018-2021.
+   Cada archivo se clasifica por el encabezado de columna de la fuente (Inventario / Altas / Bajas / Donaciones).
+   Todos los archivos referenciados fueron verificados en linea (HTTP 200); los archivos inexistentes
+   en la fuente (formatos dados de baja) se omitieron para no publicar enlaces rotos.
+   ========================================================================== */
+(function(){
+  var PDF_BASE = 'https://transparencia.guadalajara.gob.mx/sites/default/files/';
+
+  var MOV = [
+    {c:'inm',a:'act',y:2026,mi:5,m:'Mayo',roll:false,inv:'BienesInmueblesMayoInventario2026.xlsx',al:'',ba:'',dn:'',of:'OficioBienesPatrimonialesMayo26.pdf'},
+    {c:'inm',a:'act',y:2026,mi:4,m:'Abril',roll:false,inv:'BienesInmueblesAbrilInventario2026.xlsx',al:'',ba:'',dn:'',of:'OficioBienesPatrimonialesAbril26.pdf'},
+    {c:'inm',a:'act',y:2026,mi:3,m:'Marzo',roll:false,inv:'BienesInmueblesMarzoInventario2026.xlsx',al:'',ba:'',dn:'',of:'OficioBienesPatrimonialesMarzo26.pdf'},
+    {c:'inm',a:'act',y:2026,mi:2,m:'Febrero',roll:false,inv:'BienesInmueblesFebreroInventario2026.xlsx',al:'',ba:'',dn:'',of:'OficioBienesPatrimonialesFebrero26.pdf'},
+    {c:'inm',a:'act',y:2026,mi:1,m:'Enero',roll:false,inv:'BienesInmueblesEneroInventario2026.xlsx',al:'',ba:'',dn:'',of:'OficioBienesPatrimonialesEnero26.pdf'},
+    {c:'inm',a:'act',y:2025,mi:12,m:'Diciembre',roll:false,inv:'BienesInmueblesDiciembreInventario2025.xlsx',al:'',ba:'',dn:'',of:'OficioBienesPatrimonialesDiciembre25.pdf'},
+    {c:'inm',a:'act',y:2025,mi:11,m:'Noviembre',roll:false,inv:'BienesInmueblesNoviembreInventario2025.xlsx',al:'',ba:'',dn:'',of:'OficioBienesPatrimonialesNoviembre25.pdf'},
+    {c:'inm',a:'act',y:2025,mi:10,m:'Octubre',roll:false,inv:'BienesInmueblesOctubreInventario2025.xlsx',al:'BienesInmueblesOctubreAltas2025.xlsx',ba:'',dn:'',of:'OficioBienesPatrimonialesOctubre25.pdf'},
+    {c:'inm',a:'act',y:2025,mi:9,m:'Septiembre',roll:false,inv:'BienesInmueblesSeptiembreInventario2025.xlsx',al:'',ba:'',dn:'',of:'OficioBienesPatrimonialesSeptiembre25.pdf'},
+    {c:'inm',a:'act',y:2025,mi:8,m:'Agosto',roll:false,inv:'BienesInmueblesAgostoInventario2025.xlsx',al:'',ba:'',dn:'',of:'OficioBienesPatrimonialesAgosto25.pdf'},
+    {c:'inm',a:'act',y:2025,mi:7,m:'Julio',roll:false,inv:'BienesInmueblesJulioInventario2025.xlsx',al:'BienesInmueblesJulioAltas2025.xlsx',ba:'',dn:'',of:'OficioBienesPatrimonialesJulio25.pdf'},
+    {c:'inm',a:'act',y:2025,mi:6,m:'Junio',roll:false,inv:'BienesInmueblesJunioInventario2025.xlsx',al:'',ba:'',dn:'',of:'OficioBienesPatrimonialesJunio25.pdf'},
+    {c:'inm',a:'act',y:2025,mi:5,m:'Mayo',roll:false,inv:'BienesInmueblesMayoInventario2025.xlsx',al:'',ba:'',dn:'',of:'OficioBienesPatrimonialesMayo25.pdf'},
+    {c:'inm',a:'act',y:2025,mi:4,m:'Abril',roll:false,inv:'BienesInmueblesAbrilInventario2025.xlsx',al:'',ba:'',dn:'',of:'OficioBienesPatrimonialesAbril25.pdf'},
+    {c:'inm',a:'act',y:2025,mi:3,m:'Marzo',roll:false,inv:'BienesInmueblesMarzoInventario2025.xlsx',al:'BienesInmueblesMarzoAltas2025.xlsx',ba:'',dn:'',of:'OficioBienesPatrimonialesMarzo25.pdf'},
+    {c:'inm',a:'act',y:2025,mi:2,m:'Febrero',roll:false,inv:'BienesInmueblesFebreroInventario2025.xlsx',al:'',ba:'',dn:'',of:'OficioBienesPatrimonialesFebrero25.pdf'},
+    {c:'inm',a:'act',y:2025,mi:1,m:'Enero',roll:false,inv:'BienesInmueblesEneroInventario2025.xlsx',al:'',ba:'',dn:'',of:'OficioBienesPatrimonialesEnero25.pdf'},
+    {c:'inm',a:'act',y:2024,mi:12,m:'Diciembre',roll:false,inv:'BienesInmueblesDiciembreInventario2024.xlsx',al:'BienesInmueblesDiciembreAltas2024.xlsx',ba:'',dn:'',of:'OficioInmueblesDiciembre24.pdf'},
+    {c:'inm',a:'act',y:2024,mi:11,m:'Noviembre',roll:false,inv:'BienesInmueblesNoviembreInventario2024.xlsx',al:'BienesInmueblesNoviembreAltas2024.xlsx',ba:'',dn:'',of:'OficioInmueblesNoviembre24.pdf'},
+    {c:'inm',a:'act',y:2024,mi:10,m:'Octubre',roll:false,inv:'BienesInmueblesOctubreInventario2024.xlsx',al:'BienesInmueblesOctubreAltas2024.xlsx',ba:'',dn:'',of:'OficioInmueblesOctubre24.pdf'},
+    {c:'inm',a:'2124',y:2024,mi:9,m:'Septiembre',roll:false,inv:'BienesInmueblesSeptiembreInventario2024.xlsx',al:'',ba:'',dn:'',of:'OficioInmueblesSeptiembre24.pdf'},
+    {c:'inm',a:'2124',y:2024,mi:8,m:'Agosto',roll:false,inv:'BienesInmueblesAgostoInventario2024.xlsx',al:'',ba:'',dn:'',of:'OficioInmueblesAgosto24.pdf'},
+    {c:'inm',a:'2124',y:2024,mi:7,m:'Julio',roll:false,inv:'BienesInmueblesJulioInventario2024.xlsx',al:'',ba:'',dn:'',of:'OficioInmueblesJulio24.pdf'},
+    {c:'inm',a:'2124',y:2024,mi:6,m:'Junio',roll:false,inv:'BienesInmueblesJunioInventario2024.xlsx',al:'BienesInmueblesJunioAltas2024.xlsx',ba:'',dn:'',of:'OficioInmueblesJunio24.pdf'},
+    {c:'inm',a:'2124',y:2024,mi:5,m:'Mayo',roll:false,inv:'BienesInmueblesMayoInventario2024.xlsx',al:'BienesInmueblesMayoAltas2024.xlsx',ba:'',dn:'',of:'OficioInmueblesMayo24.pdf'},
+    {c:'inm',a:'2124',y:2024,mi:4,m:'Abril',roll:false,inv:'BienesInmueblesAbrilInventario2024.xlsx',al:'BienesInmueblesAbrilAltas2024.xlsx',ba:'',dn:'',of:'OficioInmueblesAbril24.pdf'},
+    {c:'inm',a:'2124',y:2024,mi:3,m:'Marzo',roll:false,inv:'BienesInmueblesMarzoInventario2024.xlsx',al:'BienesInmueblesMarzoAltas2024.xlsx',ba:'',dn:'',of:'OficioInmueblesMarzo24.pdf'},
+    {c:'inm',a:'2124',y:2024,mi:2,m:'Febrero',roll:false,inv:'BienesInmueblesFebreroInventario2024.xlsx',al:'',ba:'',dn:'',of:'OficioInmueblesFebrero24.pdf'},
+    {c:'inm',a:'2124',y:2024,mi:1,m:'Enero',roll:false,inv:'BienesInmueblesEneroInventario2024.xlsx',al:'',ba:'BienesInmueblesEneroBajas2024.xlsx',dn:'',of:'OficioInmueblesEnero24.pdf'},
+    {c:'inm',a:'2124',y:2023,mi:12,m:'Diciembre',roll:false,inv:'BienesInmueblesDiciembreInventario2023.xlsx',al:'',ba:'',dn:'',of:'OficioInmueblesDiciembre23.pdf'},
+    {c:'inm',a:'2124',y:2023,mi:11,m:'Noviembre',roll:false,inv:'BienesInmueblesNoviembreInventario2023.xlsx',al:'BienesInmueblesNoviembreAltas2023.xlsx',ba:'',dn:'',of:'OficioInmueblesNoviembre23.pdf'},
+    {c:'inm',a:'2124',y:2023,mi:10,m:'Octubre',roll:false,inv:'BienesInmueblesOctubreInventario2023.xlsx',al:'BienesInmueblesOctubreAltas2023.xlsx',ba:'',dn:'',of:'OficioInmueblesOctubre23.pdf'},
+    {c:'inm',a:'2124',y:2023,mi:9,m:'Septiembre',roll:false,inv:'BienesInmueblesSeptiembreInventario2023.xlsx',al:'',ba:'',dn:'',of:'OficioInmueblesSeptiembre23.pdf'},
+    {c:'inm',a:'2124',y:2023,mi:8,m:'Agosto',roll:false,inv:'BienesInmueblesAgostoInventario2023.xlsx',al:'',ba:'',dn:'',of:'OficioInmueblesAgosto23.pdf'},
+    {c:'inm',a:'2124',y:2023,mi:7,m:'Julio',roll:false,inv:'BienesInmueblesJulioInventario2023.xlsx',al:'BienesInmueblesJulioAltas2023.xlsx',ba:'',dn:'',of:'OficioInmueblesJulio23.pdf'},
+    {c:'inm',a:'2124',y:2023,mi:6,m:'Junio',roll:false,inv:'BienesInmueblesJunioInventario2023.xlsx',al:'BienesInmueblesJunioAltas2023.xlsx',ba:'',dn:'',of:'OficioInmueblesJunio23.pdf'},
+    {c:'inm',a:'2124',y:2023,mi:5,m:'Mayo',roll:false,inv:'BienesInmueblesMayoInventario2023.xlsx',al:'BienesInmueblesMayoAltas2023.xlsx',ba:'',dn:'',of:'OficioInmueblesMayo23.pdf'},
+    {c:'inm',a:'2124',y:2023,mi:4,m:'Abril',roll:false,inv:'BienesInmueblesAbrilInventario2023.xlsx',al:'',ba:'',dn:'',of:'OficioInmueblesAbril23.pdf'},
+    {c:'inm',a:'2124',y:2023,mi:3,m:'Marzo',roll:false,inv:'BienesInmueblesMarzoInventario2023.xlsx',al:'',ba:'',dn:'',of:'OficioInmueblesMarzo23.pdf'},
+    {c:'inm',a:'2124',y:2023,mi:2,m:'Febrero',roll:false,inv:'BienesInmueblesFebreroInventario2023.xlsx',al:'BienesInmueblesFebreroAltas2023.xlsx',ba:'',dn:'',of:'OficioInmueblesFebrero23.pdf'},
+    {c:'inm',a:'2124',y:2023,mi:1,m:'Enero',roll:false,inv:'BienesInmueblesEneroInventario2023.xlsx',al:'BienesInmueblesEneroAltas2023.xlsx',ba:'',dn:'',of:'OficioInmueblesEnero23.pdf'},
+    {c:'inm',a:'2124',y:2022,mi:12,m:'Diciembre',roll:false,inv:'BienesInmueblesDiciembreInventario2022.xlsx',al:'',ba:'',dn:'',of:'OficioInmueblesDiciembre22.pdf'},
+    {c:'inm',a:'2124',y:2022,mi:11,m:'Noviembre',roll:false,inv:'BienesInmueblesNoviembreInventario2022.xlsx',al:'',ba:'',dn:'',of:'OficioInmueblesNoviembre22.pdf'},
+    {c:'inm',a:'2124',y:2022,mi:10,m:'Octubre',roll:false,inv:'BienesInmueblesOctubreInventario2022.xlsx',al:'',ba:'',dn:'',of:'OficioInmueblesOctubre22.pdf'},
+    {c:'inm',a:'2124',y:2022,mi:9,m:'Septiembre',roll:false,inv:'BienesInmueblesSeptiembreInventario2022.xlsx',al:'',ba:'',dn:'',of:'OficioInmueblesSeptiembre22.pdf'},
+    {c:'inm',a:'2124',y:2022,mi:8,m:'Agosto',roll:false,inv:'BienesInmueblesAgostoInventario2022.xlsx',al:'',ba:'',dn:'',of:'OficioInmueblesAgosto22.pdf'},
+    {c:'inm',a:'2124',y:2022,mi:7,m:'Julio',roll:false,inv:'BienesInmueblesJulioInventario2022.xlsx',al:'BienesInmueblesJulioAltas2022.xlsx',ba:'',dn:'',of:'OficioInmueblesJulio22.pdf'},
+    {c:'inm',a:'2124',y:2022,mi:6,m:'Junio',roll:false,inv:'BienesInmueblesJunioInventario2022.xlsx',al:'BienesInmueblesJunioAltas2022.xlsx',ba:'BienesInmueblesJunioBajas2022.xlsx',dn:'',of:'OficioInmueblesJunio22.pdf'},
+    {c:'inm',a:'2124',y:2022,mi:5,m:'Mayo',roll:false,inv:'BienesInmueblesMayoInventario2022.xlsx',al:'',ba:'',dn:'',of:'OficioInmueblesMayo22.pdf'},
+    {c:'inm',a:'2124',y:2022,mi:4,m:'Abril',roll:false,inv:'BienesInmueblesAbrilInventario2022.xlsx',al:'',ba:'',dn:'',of:'OficioInmueblesAbril22.pdf'},
+    {c:'inm',a:'2124',y:2022,mi:3,m:'Marzo',roll:false,inv:'BienesInmueblesMarzoInventario2022.xlsx',al:'',ba:'',dn:'',of:'OficioInmueblesMarzo22.pdf'},
+    {c:'inm',a:'2124',y:2022,mi:2,m:'Febrero',roll:false,inv:'BienesInmueblesFebreroInventario2022.xlsx',al:'',ba:'',dn:'',of:'OficioInmueblesFebrero22.pdf'},
+    {c:'inm',a:'2124',y:2022,mi:1,m:'Enero',roll:false,inv:'BienesInmueblesEneroInventario2022.xlsx',al:'',ba:'',dn:'',of:'OficioInmueblesEnero22.pdf'},
+    {c:'inm',a:'2124',y:2021,mi:12,m:'Diciembre',roll:false,inv:'BienesInmueblesDiciembreInventario2021.xlsx',al:'',ba:'',dn:'',of:'OficioInmueblesDiciembre21.pdf'},
+    {c:'inm',a:'2124',y:2021,mi:11,m:'Noviembre',roll:false,inv:'BienesInmueblesNoviembreInventario2021.xlsx',al:'',ba:'',dn:'',of:'OficioInmueblesNoviembre21.pdf'},
+    {c:'inm',a:'2124',y:2021,mi:10,m:'Octubre',roll:false,inv:'BienesInmueblesOctubreInventario2021.xlsx',al:'BienesInmueblesOctubreAltas2021.xlsx',ba:'',dn:'',of:'OficioInmueblesOctubre21.pdf'},
+    {c:'inm',a:'1821',y:2021,mi:9,m:'Septiembre',roll:false,inv:'BienesInmueblesSeptiembreInventario2021.xlsx',al:'',ba:'',dn:'',of:'OficioInmueblesSeptiembre21.pdf'},
+    {c:'inm',a:'1821',y:2021,mi:8,m:'Agosto',roll:false,inv:'BienesInmueblesAgostoInventario2021.xls',al:'BienesInmueblesAgostoAltas2021.xlsx',ba:'',dn:'',of:''},
+    {c:'inm',a:'1821',y:2021,mi:7,m:'Julio',roll:false,inv:'BienesInmueblesJulioInventario2021.xls',al:'BienesInmueblesJulioAltas2021.xlsx',ba:'',dn:'',of:''},
+    {c:'inm',a:'1821',y:2021,mi:6,m:'Junio',roll:false,inv:'BienesInmueblesJunioInventario2021.xls',al:'BienesInmueblesJunioAltas2021.xlsx',ba:'',dn:'',of:''},
+    {c:'inm',a:'1821',y:2021,mi:5,m:'Mayo',roll:false,inv:'BienesInmueblesMayoInventario2021.xls',al:'',ba:'',dn:'',of:''},
+    {c:'inm',a:'1821',y:2021,mi:4,m:'Abril',roll:false,inv:'BienesInmueblesAbrilInventario2021.xlsx',al:'',ba:'',dn:'',of:''},
+    {c:'inm',a:'1821',y:2021,mi:3,m:'Marzo',roll:false,inv:'BienesInmueblesMarzoInventario2021.xlsx',al:'BienesInmueblesMarzoAltas2021.xlsx',ba:'',dn:'',of:''},
+    {c:'inm',a:'1821',y:2021,mi:2,m:'Febrero',roll:false,inv:'BienesInmueblesFebreroInventario2021.xlsx',al:'BienesInmueblesFebreroAltas2021.xlsx',ba:'',dn:'',of:''},
+    {c:'inm',a:'1821',y:2021,mi:1,m:'Enero',roll:false,inv:'BienesInmueblesEneroInventario2021.xlsx',al:'BienesInmueblesEneroAltas2021.xlsx',ba:'',dn:'',of:''},
+    {c:'mue',a:'act',y:2026,mi:5,m:'Mayo',roll:false,inv:'MueblesMayo26.xlsx',al:'',ba:'',dn:'',of:'OficioBienesPatrimonialesMayo26.pdf'},
+    {c:'mue',a:'act',y:2026,mi:4,m:'Abril',roll:false,inv:'MueblesAbril26.xlsx',al:'',ba:'',dn:'',of:'OficioBienesPatrimonialesAbril26.pdf'},
+    {c:'mue',a:'act',y:2026,mi:3,m:'Marzo',roll:false,inv:'MueblesMarzo26.xlsx',al:'',ba:'',dn:'',of:'OficioBienesPatrimonialesMarzo26.pdf'},
+    {c:'mue',a:'act',y:2026,mi:2,m:'Febrero',roll:false,inv:'MueblesFebrero26.xlsx',al:'',ba:'',dn:'',of:'OficioBienesPatrimonialesFebrero26.pdf'},
+    {c:'mue',a:'act',y:2026,mi:1,m:'Enero',roll:false,inv:'MueblesEnero26.xlsx',al:'BienesMueblesEneroAltas2026.xlsx',ba:'BienesMueblesEneroBajas2026.xlsx',dn:'',of:'OficioBienesPatrimonialesEnero26.pdf'},
+    {c:'mue',a:'act',y:2025,mi:12,m:'Diciembre',roll:false,inv:'MueblesDiciembre25.xlsx',al:'BienesMueblesDiciembreAltas2025.xlsx',ba:'BienesMueblesDiciembreBajas2025.xlsx',dn:'',of:'OficioBienesPatrimonialesDiciembre25.pdf'},
+    {c:'mue',a:'act',y:2025,mi:11,m:'Noviembre',roll:false,inv:'MueblesNoviembre25.xlsx',al:'BienesMueblesNoviembreAltas2025.xlsx',ba:'BienesMueblesNoviembreBajas2025.xlsx',dn:'',of:'OficioBienesPatrimonialesNoviembre25.pdf'},
+    {c:'mue',a:'act',y:2025,mi:10,m:'Octubre',roll:false,inv:'MueblesOctubre25.xlsx',al:'BienesMueblesOctubreAltas2025.xlsx',ba:'',dn:'',of:'OficioBienesPatrimonialesOctubre25.pdf'},
+    {c:'mue',a:'act',y:2025,mi:9,m:'Septiembre',roll:false,inv:'MueblesSeptiembre25.xlsx',al:'BienesMueblesSeptiembreAltas2025.xlsx',ba:'BienesMueblesSeptiembreBajas2025.xlsx',dn:'',of:'OficioBienesPatrimonialesSeptiembre25.pdf'},
+    {c:'mue',a:'act',y:2025,mi:8,m:'Agosto',roll:false,inv:'MueblesAgosto25.xlsx',al:'BienesMueblesAgostoAltas2025.xlsx',ba:'',dn:'',of:'OficioBienesPatrimonialesAgosto25.pdf'},
+    {c:'mue',a:'act',y:2025,mi:7,m:'Julio',roll:false,inv:'MueblesJulio25.xlsx',al:'BienesMueblesJulioAltas2025.xlsx',ba:'',dn:'',of:'OficioBienesPatrimonialesJunio25.pdf'},
+    {c:'mue',a:'act',y:2025,mi:6,m:'Junio',roll:false,inv:'MueblesJunio25.xlsx',al:'BienesMueblesJunioAltas2025.xlsx',ba:'BienesMueblesJunioBajas2025.xlsx',dn:'',of:'OficioBienesPatrimonialesJunio25.pdf'},
+    {c:'mue',a:'act',y:2025,mi:5,m:'Mayo',roll:false,inv:'MueblesMayo25.xlsx',al:'',ba:'',dn:'',of:'OficioBienesPatrimonialesMayo25.pdf'},
+    {c:'mue',a:'act',y:2025,mi:4,m:'Abril',roll:false,inv:'MueblesAbril25.xlsx',al:'',ba:'BienesMueblesAbrilBajas2025.xlsx',dn:'',of:'OficioBienesPatrimonialesAbril25.pdf'},
+    {c:'mue',a:'act',y:2025,mi:3,m:'Marzo',roll:false,inv:'MueblesMarzo25.xlsx',al:'',ba:'BienesMueblesMarzoBajas2025.xlsx',dn:'',of:'OficioBienesPatrimonialesMarzo25.pdf'},
+    {c:'mue',a:'act',y:2025,mi:2,m:'Febrero',roll:false,inv:'MueblesFebrero25.xlsx',al:'BienesMueblesFebreroAltas2025.xlsx',ba:'',dn:'',of:'OficioBienesPatrimonialesFebrero25.pdf'},
+    {c:'mue',a:'act',y:2025,mi:1,m:'Enero',roll:false,inv:'MueblesEnero25.xlsx',al:'BienesMueblesEneroAltas2025.xlsx',ba:'',dn:'',of:'OficioBienesPatrimonialesEnero25.pdf'},
+    {c:'mue',a:'act',y:2024,mi:12,m:'Diciembre',roll:false,inv:'MueblesDiciembre24.xlsx',al:'BienesMueblesDiciembreAltas2024.xlsx',ba:'',dn:'',of:'BienesMueblesDiciembre2024.pdf'},
+    {c:'mue',a:'act',y:2024,mi:11,m:'Noviembre',roll:false,inv:'MueblesNoviembre24.xlsx',al:'BienesMueblesNoviembreAltas2024.xlsx',ba:'BienesMueblesNoviembreBajas2024.xlsx',dn:'BienesMueblesNoviembreDonaciones2024.xlsx',of:''},
+    {c:'mue',a:'act',y:2024,mi:10,m:'Octubre',roll:false,inv:'MueblesOctubre24.xlsx',al:'BienesMueblesOctubreAltas2024.xlsx',ba:'BienesMueblesOctubreBajas2024.xlsx',dn:'',of:'OficioMueblesOctubre24.pdf'},
+    {c:'mue',a:'2124',y:2024,mi:9,m:'Septiembre',roll:false,inv:'MueblesSeptiembre24.xlsx',al:'BienesMueblesSeptiembreAltas2024.xlsx',ba:'',dn:'',of:'BienesMueblesSeptiembreDonaciones2024.pdf'},
+    {c:'mue',a:'2124',y:2024,mi:8,m:'Agosto',roll:false,inv:'MueblesAgosto24.xlsx',al:'BienesMueblesAgostoAltas2024.xlsx',ba:'BienesMueblesAgostoBajas2024.xlsx',dn:'',of:'BienesMueblesOficioAgosto2024.pdf'},
+    {c:'mue',a:'2124',y:2024,mi:7,m:'Julio',roll:false,inv:'MueblesJulio24.xlsx',al:'BienesMueblesJulioAltas2024.xlsx',ba:'',dn:'',of:'BienesMueblesOficioJulio2024.pdf'},
+    {c:'mue',a:'2124',y:2024,mi:6,m:'Junio',roll:false,inv:'MueblesJunio24.xlsx',al:'BienesMueblesJunioAltas2024.xlsx',ba:'',dn:'',of:'BienesMueblesJunioDonaciones2024.pdf'},
+    {c:'mue',a:'2124',y:2024,mi:5,m:'Mayo',roll:false,inv:'MueblesMayo24.xlsx',al:'BienesMueblesMayoAltas2024.xlsx',ba:'',dn:'',of:'BienesMueblesMayoBajas2024.pdf'},
+    {c:'mue',a:'2124',y:2024,mi:4,m:'Abril',roll:false,inv:'MueblesAbril24.xlsx',al:'BienesMueblesAbrilAltas2024.xlsx',ba:'BienesMueblesAbrilBajas2024.xlsx',dn:'',of:'BienesMueblesAbril2024.pdf'},
+    {c:'mue',a:'2124',y:2024,mi:3,m:'Marzo',roll:false,inv:'MueblesMarzo24.xlsx',al:'',ba:'',dn:'',of:'BienesMueblesMarzo2024.pdf'},
+    {c:'mue',a:'2124',y:2024,mi:2,m:'Febrero',roll:false,inv:'MueblesFebrero24.xlsx',al:'BienesMueblesFebreroAltas2024.xlsx',ba:'BienesMueblesFebreroBajas2024.xlsx',dn:'BienesMueblesFebreroDonaciones2024.xlsx',of:''},
+    {c:'mue',a:'2124',y:2024,mi:1,m:'Enero',roll:false,inv:'MueblesEnero24.xlsx',al:'BienesMueblesEneroAltas2024.xlsx',ba:'BienesMueblesEneroBajas2024.xlsx',dn:'',of:'BienesMueblesEneroDonaciones2024.pdf'},
+    {c:'mue',a:'2124',y:2023,mi:12,m:'Diciembre',roll:false,inv:'MueblesDiciembre23.xlsx',al:'BienesMueblesDiciembreAltas2023.xlsx',ba:'BienesMueblesDiciembreBajas2023.xlsx',dn:'',of:'BienesMueblesDiciembreDonaciones2023.pdf'},
+    {c:'mue',a:'2124',y:2023,mi:11,m:'Noviembre',roll:false,inv:'MueblesNoviembre23.xlsx',al:'BienesMueblesNoviembreAltas2023.xlsx',ba:'',dn:'',of:'BienesMueblesNoviembreDonaciones2023.pdf'},
+    {c:'mue',a:'2124',y:2023,mi:10,m:'Octubre',roll:false,inv:'MueblesOctubre23.xlsx',al:'BienesMueblesOctubreAltas2023.xlsx',ba:'BienesMueblesOctubreBajas2023.xlsx',dn:'',of:'BienesMueblesOctubreDonaciones2023.pdf'},
+    {c:'mue',a:'2124',y:2023,mi:9,m:'Septiembre',roll:false,inv:'MueblesSeptiembre23.xlsx',al:'BienesMueblesSeptiembreAltas2023.xlsx',ba:'BienesMueblesSeptiembreBajas2023.xlsx',dn:'',of:'BienesMueblesSeptiembreDonaciones2023.pdf'},
+    {c:'mue',a:'2124',y:2023,mi:8,m:'Agosto',roll:false,inv:'MueblesAgosto23.xlsx',al:'BienesMueblesAgostoAltas2023.xlsx',ba:'BienesMueblesAgostoBajas2023.xlsx',dn:'BienesMueblesDonacionesAgosto2023.xlsx',of:''},
+    {c:'mue',a:'2124',y:2023,mi:7,m:'Julio',roll:false,inv:'MueblesJulio23.xlsx',al:'BienesMueblesJulioAltas2023.xlsx',ba:'',dn:'',of:'BienesMueblesOficioJulio2023.pdf'},
+    {c:'mue',a:'2124',y:2023,mi:6,m:'Junio',roll:false,inv:'MueblesJunio23.xlsx',al:'BienesMueblesJunioAltas2023.xlsx',ba:'BienesMueblesJunioBajas2023.xlsx',dn:'',of:'BienesMueblesJunioDonaciones2023.pdf'},
+    {c:'mue',a:'2124',y:2023,mi:5,m:'Mayo',roll:false,inv:'MueblesMayo23.xlsx',al:'BienesMueblesMayoAltas2023.xlsx',ba:'BienesMueblesMayoBajas2023.xlsx',dn:'',of:'BienesMueblesMayoBajas2023.pdf'},
+    {c:'mue',a:'2124',y:2023,mi:4,m:'Abril',roll:false,inv:'MueblesAbril23.xlsx',al:'BienesMueblesAbrilAltas2023.xlsx',ba:'',dn:'',of:'BienesMueblesAbrilBajas2023.pdf'},
+    {c:'mue',a:'2124',y:2023,mi:3,m:'Marzo',roll:false,inv:'MueblesMarzo23.xlsx',al:'BienesMueblesMarzoAltas2023.xlsx',ba:'',dn:'',of:'BienesMueblesMarzoBajas2023.pdf'},
+    {c:'mue',a:'2124',y:2023,mi:2,m:'Febrero',roll:false,inv:'MueblesFebrero23.xlsx',al:'BienesMueblesFebreroAltas2023.xlsx',ba:'',dn:'',of:'BienesMueblesEneroBajas2023.pdf'},
+    {c:'mue',a:'2124',y:2023,mi:1,m:'Enero',roll:false,inv:'MueblesEnero23.xlsx',al:'BienesMueblesEneroAltas2023.xlsx',ba:'BienesMueblesEneroBajas2023.xlsx',dn:'',of:'BienesMueblesEneroDonaciones2023.pdf'},
+    {c:'mue',a:'2124',y:2022,mi:12,m:'Diciembre',roll:false,inv:'MueblesDiciembre22.xlsx',al:'BienesMueblesDiciembreAltas2022.xlsx',ba:'BienesMueblesDiciembreBajas2022.xlsx',dn:'',of:'BienesMueblesDiciembreDonaciones2022.pdf'},
+    {c:'mue',a:'2124',y:2022,mi:11,m:'Noviembre',roll:false,inv:'MueblesNoviembre22.xlsx',al:'BienesMueblesNoviembreAltas2022.xlsx',ba:'BienesMueblesNoviembreBajas2022.xlsx',dn:'',of:'BienesMueblesNoviembreDonaciones2022.pdf'},
+    {c:'mue',a:'2124',y:2022,mi:10,m:'Octubre',roll:false,inv:'MueblesOctubre22.xlsx',al:'BienesMueblesOctubreAltas2022.xlsx',ba:'BienesMueblesOctubreBajas2022.xlsx',dn:'',of:'BienesMueblesOctubreDonaciones2022.pdf'},
+    {c:'mue',a:'2124',y:2022,mi:9,m:'Septiembre',roll:false,inv:'MueblesSeptiembre22.xlsx',al:'BienesMueblesSeptiembreAltas2022.xlsx',ba:'BienesMueblesSeptiembreBajas2022.xlsx',dn:'',of:'BienesMueblesSeptiembreDonaciones2022.pdf'},
+    {c:'mue',a:'2124',y:2022,mi:8,m:'Agosto',roll:false,inv:'MueblesAgosto22.xlsx',al:'BienesMueblesAgostoAltas2022.xlsx',ba:'BienesMueblesAgostoBajas2022.xlsx',dn:'',of:'BienesMueblesAgostoDonaciones2022.pdf'},
+    {c:'mue',a:'2124',y:2022,mi:7,m:'Julio',roll:false,inv:'MueblesJulio22.xlsx',al:'BienesMueblesJulioAltas2022.xlsx',ba:'BienesMueblesJulioBajas2022.xlsx',dn:'',of:'BienesMueblesJulioDonaciones2022.pdf'},
+    {c:'mue',a:'2124',y:2022,mi:6,m:'Junio',roll:false,inv:'MueblesJunio22.xlsx',al:'BienesMueblesJunioAltas2022.xlsx',ba:'',dn:'',of:'BienesMueblesJunioDonaciones2022.pdf'},
+    {c:'mue',a:'2124',y:2022,mi:5,m:'Mayo',roll:false,inv:'MueblesMayo22.xlsx',al:'BienesMueblesMayoAltas2022.xlsx',ba:'BienesMueblesMayoBajas2022.xlsx',dn:'',of:'BienesMueblesMayoDonaciones2022.pdf'},
+    {c:'mue',a:'2124',y:2022,mi:4,m:'Abril',roll:false,inv:'MueblesAbril22.xlsx',al:'BienesMueblesAbrilAltas2022.xlsx',ba:'BienesMueblesAbrilBajas2022.xlsx',dn:'',of:'BienesMueblesAbrilDonaciones2022.pdf'},
+    {c:'mue',a:'2124',y:2022,mi:3,m:'Marzo',roll:false,inv:'MueblesMarzo22.xlsx',al:'BienesMueblesMarzoAltas2022.xlsx',ba:'BienesMueblesMarzoBajas2022.xlsx',dn:'',of:'BienesMueblesMarzoDonaciones2022.pdf'},
+    {c:'mue',a:'2124',y:2022,mi:2,m:'Febrero',roll:false,inv:'MueblesFebrero22.xlsx',al:'BienesMueblesFebreroAltas2022.xlsx',ba:'BienesMueblesFebreroBajas2022.xlsx',dn:'',of:'BienesMueblesFebreroDonaciones2022.pdf'},
+    {c:'mue',a:'2124',y:2022,mi:1,m:'Enero',roll:false,inv:'MueblesEnero22.xlsx',al:'BienesMueblesEneroAltas2022.xlsx',ba:'BienesMueblesEneroBajas2022.xlsx',dn:'',of:'BienesMueblesEneroDonaciones2022.pdf'},
+    {c:'mue',a:'2124',y:2021,mi:12,m:'Diciembre',roll:false,inv:'MueblesDiciembre21.xlsx',al:'BienesMueblesDiciembreAltas2021.xlsx',ba:'BienesMueblesDiciembreBajas2021.xlsx',dn:'',of:'BienesMueblesDiciembreDonaciones2021.pdf'},
+    {c:'mue',a:'2124',y:2021,mi:11,m:'Noviembre',roll:false,inv:'MueblesNoviembre21.xlsx',al:'BienesMueblesNoviembreAltas2021.xlsx',ba:'BienesMueblesNoviembreBajas2021.xlsx',dn:'',of:'BienesMueblesNoviembreDonaciones2021.pdf'},
+    {c:'mue',a:'2124',y:2021,mi:10,m:'Octubre',roll:false,inv:'MueblesOctubre21.xlsx',al:'BienesMueblesOctubreAltas2021.xlsx',ba:'BienesMueblesOctubreBajas2021.xlsx',dn:'',of:'OficioMueblesOctubre21.pdf'},
+    {c:'mue',a:'1821',y:2021,mi:9,m:'Septiembre',roll:false,inv:'MueblesSeptiembre21.xlsx',al:'BienesMueblesSeptiembreAltas2021.xlsx',ba:'BienesMueblesSeptiembreBajas2021.xlsx',dn:'',of:'BienesMueblesSeptiembreDonaciones2021.pdf'},
+    {c:'mue',a:'1821',y:2021,mi:8,m:'Agosto',roll:false,inv:'MueblesAgosto21.xlsx',al:'BienesMueblesAgostoAltas2021.xlsx',ba:'BienesMueblesAgostoBajas2021.xlsx',dn:'BienesMueblesAgostoDonaciones2021.xlsx',of:''},
+    {c:'mue',a:'1821',y:2021,mi:7,m:'Julio',roll:false,inv:'MueblesJulio21.xlsx',al:'BienesMueblesJulioAltas2021.xlsx',ba:'BienesMueblesJulioBajas2021.xlsx',dn:'BienesMueblesJulioDonaciones2021.xlsx',of:''},
+    {c:'mue',a:'1821',y:2021,mi:6,m:'Junio',roll:false,inv:'MueblesJunio21.xlsx',al:'BienesMueblesJunioAltas2021.xlsx',ba:'BienesMueblesJunioBajas2021.xlsx',dn:'BienesMueblesJunioDonaciones2021.xlsx',of:''},
+    {c:'mue',a:'1821',y:2021,mi:5,m:'Mayo',roll:false,inv:'MueblesMayo21.xlsx',al:'BienesMueblesMayoAltas2021.xlsx',ba:'BienesMueblesMayoBajas2021.xlsx',dn:'BienesMueblesMayoDonaciones2021.xlsx',of:''},
+    {c:'mue',a:'1821',y:2021,mi:4,m:'Abril',roll:false,inv:'MueblesAbril21.xlsx',al:'BienesMueblesAbrilAltas2021.xlsx',ba:'BienesMueblesAbrilBajas2021.xlsx',dn:'BienesMueblesAbrilDonaciones2021.xlsx',of:''},
+    {c:'mue',a:'1821',y:2021,mi:3,m:'Marzo',roll:false,inv:'MueblesMarzo21.xlsx',al:'BienesMueblesMarzoAltas2021.xlsx',ba:'BienesMueblesMarzoBajas2021.xlsx',dn:'BienesMueblesMarzoDonaciones2021.xlsx',of:''},
+    {c:'mue',a:'1821',y:2021,mi:2,m:'Febrero',roll:false,inv:'MueblesFebrero21.xlsx',al:'BienesMueblesFebreroAltas2021.xlsx',ba:'BienesMueblesFebreroBajas2021.xlsx',dn:'BienesMueblesFebreroDonaciones2021.xlsx',of:''},
+    {c:'mue',a:'1821',y:2021,mi:1,m:'Enero',roll:false,inv:'MueblesEnero21.xlsx',al:'BienesMueblesEneroAltas2021.xlsx',ba:'BienesMueblesEneroBajas2021.xlsx',dn:'BienesMueblesEneroDonaciones2021.xlsx',of:''},
+    {c:'mue',a:'1821',y:2020,mi:12,m:'Diciembre',roll:false,inv:'MueblesDiciembre20.xlsx',al:'BienesMueblesDiciembreAltas2020.xlsx',ba:'BienesMueblesDiciembreBajas2020.xlsx',dn:'BienesMueblesDiciembreDonaciones2020.xlsx',of:''},
+    {c:'mue',a:'1821',y:2020,mi:11,m:'Noviembre',roll:false,inv:'MueblesNoviembre20.xlsx',al:'BienesMueblesNoviembreAltas2020.xlsx',ba:'BienesMueblesNoviembreBajas2020.xlsx',dn:'BienesMueblesNoviembreDonaciones2020.xlsx',of:''},
+    {c:'mue',a:'1821',y:2020,mi:10,m:'Octubre',roll:false,inv:'MueblesOctubre20.xlsx',al:'BienesMueblesOctubreAltas2020.xlsx',ba:'BienesMueblesOctubreBajas2020.xlsx',dn:'BienesMueblesOctubreDonaciones2020.xlsx',of:''},
+    {c:'mue',a:'1821',y:2020,mi:9,m:'Septiembre',roll:false,inv:'MueblesSeptiembre20.xlsx',al:'BienesMueblesSeptiembreAltas2020.xlsx',ba:'BienesMueblesSeptiembreBajas2020.xlsx',dn:'BienesMueblesSeptiembreDonaciones2020.xlsx',of:''},
+    {c:'mue',a:'1821',y:2020,mi:8,m:'Agosto',roll:false,inv:'MueblesAgosto20.xlsx',al:'BienesMueblesAgostoAltas2020.xlsx',ba:'BienesMueblesAgostoBajas2020.xlsx',dn:'BienesMueblesAgostoDonaciones2020.xlsx',of:''},
+    {c:'mue',a:'1821',y:2020,mi:7,m:'Julio',roll:false,inv:'MueblesJulio20.xlsx',al:'BienesMueblesJulioAltas2020.xlsx',ba:'BienesMueblesJulioBajas2020.xlsx',dn:'BienesMueblesJulioDonaciones2020.xlsx',of:''},
+    {c:'mue',a:'1821',y:2020,mi:6,m:'Junio',roll:false,inv:'MueblesJunio20.xlsx',al:'BienesMueblesJunioAltas2020.xlsx',ba:'BienesMueblesJunioBajas2020.xlsx',dn:'BienesMueblesJunioDonaciones2020.xlsx',of:''},
+    {c:'mue',a:'1821',y:2020,mi:5,m:'Mayo',roll:false,inv:'MueblesMayo20.xlsx',al:'BienesMueblesMayoAltas2020.xlsx',ba:'BienesMueblesMayoBajas2020.xlsx',dn:'BienesMueblesMayoDonaciones2020.xlsx',of:''},
+    {c:'mue',a:'1821',y:2020,mi:4,m:'Abril',roll:false,inv:'MueblesAbril20.xlsx',al:'BienesMueblesAbrilAltas2020.xlsx',ba:'BienesMueblesAbrilBajas2020.xlsx',dn:'BienesMueblesAbrilDonaciones2020.xlsx',of:''},
+    {c:'mue',a:'1821',y:2020,mi:3,m:'Marzo',roll:false,inv:'MueblesMarzo20.xlsx',al:'BienesMueblesMarzoAltas2020.xlsx',ba:'BienesMueblesMarzoBajas2020.xlsx',dn:'BienesMueblesMarzoDonaciones2020.xlsx',of:''},
+    {c:'mue',a:'1821',y:2020,mi:2,m:'Febrero',roll:false,inv:'MueblesFebrero20.xlsx',al:'BienesMueblesFebreroAltas2020.xlsx',ba:'BienesMueblesFebreroBajas2020.xlsx',dn:'BienesMueblesFebreroDonaciones2020.xlsx',of:''},
+    {c:'mue',a:'1821',y:2020,mi:1,m:'Enero',roll:false,inv:'MueblesEnero20.xlsx',al:'BienesMueblesEneroAltas2020.xlsx',ba:'BienesMueblesEneroBajas2020.xlsx',dn:'BienesMueblesEneroDonaciones2020.xlsx',of:''},
+    {c:'mue',a:'1821',y:2019,mi:12,m:'Diciembre',roll:false,inv:'MueblesDiciembre19.xlsx',al:'BienesMueblesDiciembreAltas2019.xlsx',ba:'BienesMueblesDiciembreBajas2019.xlsx',dn:'BienesMueblesDiciembreDonaciones2019.xlsx',of:''},
+    {c:'mue',a:'1821',y:2019,mi:11,m:'Noviembre',roll:false,inv:'MueblesNoviembre19.xlsx',al:'BienesMueblesNoviembreAltas2019.xlsx',ba:'BienesMueblesNoviembreBajas2019.xlsx',dn:'BienesMueblesNoviembreDonaciones2019.xlsx',of:''},
+    {c:'mue',a:'1821',y:2019,mi:10,m:'Octubre',roll:false,inv:'MueblesOctubre19.xlsx',al:'BienesMueblesOctubreAltas2019.xlsx',ba:'BienesMueblesOctubreBajas2019.xlsx',dn:'BienesMueblesOctubreDonaciones2019.xlsx',of:''},
+    {c:'mue',a:'1821',y:2019,mi:9,m:'Septiembre',roll:false,inv:'MueblesSeptiembre19.xlsx',al:'BienesMueblesSeptiembreAltas2019.xlsx',ba:'BienesMueblesSeptiembreBajas2019.xlsx',dn:'BienesMueblesSeptiembreDonaciones2019.xlsx',of:''},
+    {c:'mue',a:'1821',y:2019,mi:8,m:'Agosto',roll:false,inv:'MueblesAgosto19.xlsx',al:'BienesMueblesAgostoAltas2019.xlsx',ba:'BienesMueblesAgostoBajas2019.xlsx',dn:'BienesMueblesAgostoDonaciones2019.xlsx',of:''},
+    {c:'mue',a:'1821',y:2019,mi:7,m:'Julio',roll:false,inv:'MueblesJulio19.xlsx',al:'BienesMueblesJulioAltas2019.xlsx',ba:'BienesMueblesJulioBajas2019.xlsx',dn:'BienesMueblesJulioDonaciones2019.xlsx',of:''},
+    {c:'mue',a:'1821',y:2019,mi:6,m:'Junio',roll:false,inv:'MueblesJunio19.xlsx',al:'BienesMueblesJunioAltas2019.xlsx',ba:'BienesMueblesJunioBajas2019.xlsx',dn:'BienesMueblesJunioDonaciones2019.xlsx',of:''},
+    {c:'mue',a:'1821',y:2019,mi:5,m:'Mayo',roll:false,inv:'MueblesMayo19.xlsx',al:'BienesMueblesMayoAltas2019.xlsx',ba:'BienesMueblesMayoBajas2019.xlsx',dn:'BienesMueblesMayoDonaciones2019.xlsx',of:''},
+    {c:'mue',a:'1821',y:2019,mi:4,m:'Abril',roll:false,inv:'MueblesAbril19.xlsx',al:'BienesMueblesAbrilAltas2019.xlsx',ba:'BienesMueblesAbrilBajas2019.xlsx',dn:'BienesMueblesAbrilDonaciones2019.xlsx',of:''},
+    {c:'mue',a:'1821',y:2019,mi:3,m:'Marzo',roll:false,inv:'MueblesMarzo19.xlsx',al:'BienesMueblesMarzoAltas2019.xlsx',ba:'BienesMueblesMarzoBajas2019.xlsx',dn:'BienesMueblesMarzoDonaciones2019.xlsx',of:''},
+    {c:'mue',a:'1821',y:2019,mi:2,m:'Febrero',roll:false,inv:'MueblesFebrero19.xlsx',al:'BienesMueblesFebreroAltas2019.xlsx',ba:'BienesMueblesFebreroBajas2019.xlsx',dn:'BienesMueblesFebreroDonaciones2019.xlsx',of:''},
+    {c:'mue',a:'1821',y:2019,mi:1,m:'Enero',roll:false,inv:'MueblesEnero19.xlsx',al:'BienesMueblesEneroAltas2019.xlsx',ba:'BienesMueblesEneroBajas2019.xlsx',dn:'BienesMueblesEneroDonaciones2019.xlsx',of:''},
+    {c:'mue',a:'1821',y:2018,mi:12,m:'Diciembre',roll:false,inv:'MueblesDiciembre18.xlsx',al:'',ba:'',dn:'',of:''},
+    {c:'mue',a:'1821',y:2018,mi:11,m:'Noviembre',roll:false,inv:'MueblesNoviembre18.xlsx',al:'',ba:'',dn:'',of:''},
+    {c:'mue',a:'1821',y:2018,mi:10,m:'Octubre',roll:false,inv:'MueblesOctubre18.xlsx',al:'',ba:'',dn:'',of:''},
+    {c:'veh',a:'act',y:2026,mi:13,m:'2026 (actualizado a mayo)',roll:true,inv:'Vehiculos-Inventario-2026.xlsx',al:'Vehiculos-Altas-2026.xlsx',ba:'Vehiculos-Bajas-2026.xlsx',dn:'Vehiculos-Donaciones-2026.xlsx',of:''},
+    {c:'veh',a:'act',y:2025,mi:13,m:'2025',roll:true,inv:'Vehiculos-Inventario-2025.xlsx',al:'Vehiculos-Altas-2025.xlsx',ba:'Vehiculos-Bajas-2025.xlsx',dn:'Vehiculos-Donaciones-2025.xlsx',of:''},
+    {c:'veh',a:'act',y:2024,mi:12,m:'Diciembre',roll:false,inv:'VehiculosDiciembre24.xlsx',al:'BienesVehiculosDiciembreAltas2024.xlsx',ba:'',dn:'',of:'OficioVehiculosDiciembre24.pdf'},
+    {c:'veh',a:'act',y:2024,mi:11,m:'Noviembre',roll:false,inv:'VehiculosNoviembre24.xlsx',al:'',ba:'BienesVehiculosNoviembreBajas2024.xlsx',dn:'',of:'OficioVehiculosNoviembre24.pdf'},
+    {c:'veh',a:'act',y:2024,mi:10,m:'Octubre',roll:false,inv:'VehiculosOctubre24.xlsx',al:'',ba:'BienesVehiculosOctubreBajas2024.xlsx',dn:'',of:'OficioVehiculosOctubre24.pdf'},
+    {c:'veh',a:'2124',y:2024,mi:9,m:'Septiembre',roll:false,inv:'VehiculosSeptiembre24.xlsx',al:'',ba:'',dn:'',of:'OficioVehiculosSeptiembre24.pdf'},
+    {c:'veh',a:'2124',y:2024,mi:8,m:'Agosto',roll:false,inv:'VehiculosAgosto24.xlsx',al:'BienesVehiculosAgostoAltas2024.xlsx',ba:'BienesVehiculosAgostoBajas2024.xlsx',dn:'',of:'OficioVehiculosAgosto24.pdf'},
+    {c:'veh',a:'2124',y:2024,mi:7,m:'Julio',roll:false,inv:'VehiculosJulio24.xlsx',al:'',ba:'BienesVehiculosJulioBajas2024.xlsx',dn:'',of:'OficioVehiculosJulio24.pdf'},
+    {c:'veh',a:'2124',y:2024,mi:6,m:'Junio',roll:false,inv:'VehiculosJunio24.xlsx',al:'BienesVehiculosJunioAltas2024.xlsx',ba:'BienesVehiculosJunioBajas2024.xlsx',dn:'',of:'OficioVehiculosJunio24.pdf'},
+    {c:'veh',a:'2124',y:2024,mi:5,m:'Mayo',roll:false,inv:'VehiculosMayo24.xlsx',al:'BienesVehiculosMayoAltas2024.xlsx',ba:'',dn:'',of:'OficioVehiculosMayo24.pdf'},
+    {c:'veh',a:'2124',y:2024,mi:4,m:'Abril',roll:false,inv:'VehiculosAbril24.xlsx',al:'',ba:'BienesVehiculosAbrilBajas2024.xlsx',dn:'',of:'OficioVehiculosAbril24.pdf'},
+    {c:'veh',a:'2124',y:2024,mi:3,m:'Marzo',roll:false,inv:'VehiculosMarzo24.xlsx',al:'BienesVehiculosMarzoAltas2024.xlsx',ba:'',dn:'',of:'OficioVehiculosMarzo24.pdf'},
+    {c:'veh',a:'2124',y:2024,mi:2,m:'Febrero',roll:false,inv:'VehiculosFebrero24.xlsx',al:'BienesVehiculosFebreroAltas2024.xlsx',ba:'BienesVehiculosFebreroBajas2024.xlsx',dn:'',of:'OficioVehiculosFebrero24.pdf'},
+    {c:'veh',a:'2124',y:2024,mi:1,m:'Enero',roll:false,inv:'VehiculosEnero24.xlsx',al:'',ba:'BienesVehiculosEneroBajas2024.xlsx',dn:'',of:'OficioVehiculosEnero24.pdf'},
+    {c:'veh',a:'2124',y:2023,mi:12,m:'Diciembre',roll:false,inv:'VehiculosDiciembre23.xlsx',al:'BienesVehiculosDiciembreAltas2023.xlsx',ba:'',dn:'',of:'OficioVehiculosDiciembre23.pdf'},
+    {c:'veh',a:'2124',y:2023,mi:11,m:'Noviembre',roll:false,inv:'VehiculosNoviembre23.xlsx',al:'',ba:'',dn:'',of:'OficioVehiculosNoviembre23.pdf'},
+    {c:'veh',a:'2124',y:2023,mi:10,m:'Octubre',roll:false,inv:'VehiculosOctubre23.xlsx',al:'',ba:'',dn:'',of:'OficioVehiculosOctubre23.pdf'},
+    {c:'veh',a:'2124',y:2023,mi:9,m:'Septiembre',roll:false,inv:'VehiculosSeptiembre23.xlsx',al:'BienesVehiculosSeptiembreAltas2023.xlsx',ba:'',dn:'',of:'OficioVehiculosSeptiembre23.pdf'},
+    {c:'veh',a:'2124',y:2023,mi:8,m:'Agosto',roll:false,inv:'VehiculosAgosto23.xlsx',al:'',ba:'BienesVehiculosAgostoBajas2023.xlsx',dn:'',of:'OficioVehiculosAgosto23.pdf'},
+    {c:'veh',a:'2124',y:2023,mi:7,m:'Julio',roll:false,inv:'VehiculosJulio23.xlsx',al:'BienesVehiculosJulioAltas2023.xlsx',ba:'BienesVehiculosJulioBajas2023.xlsx',dn:'',of:'OficioVehiculosJulio23.pdf'},
+    {c:'veh',a:'2124',y:2023,mi:6,m:'Junio',roll:false,inv:'VehiculosJunio23.xlsx',al:'',ba:'',dn:'',of:'OficioVehiculosJunio23.pdf'},
+    {c:'veh',a:'2124',y:2023,mi:5,m:'Mayo',roll:false,inv:'VehiculosMayo23.xlsx',al:'',ba:'',dn:'',of:'OficioVehiculosMayo23.pdf'},
+    {c:'veh',a:'2124',y:2023,mi:4,m:'Abril',roll:false,inv:'VehiculosAbril23.xlsx',al:'',ba:'',dn:'',of:'OficioVehiculosAbril23.pdf'},
+    {c:'veh',a:'2124',y:2023,mi:3,m:'Marzo',roll:false,inv:'VehiculosMarzo23.xlsx',al:'',ba:'BienesVehiculosMarzoBajas2023.xlsx',dn:'',of:'OficioVehiculosMarzo23.pdf'},
+    {c:'veh',a:'2124',y:2023,mi:2,m:'Febrero',roll:false,inv:'VehiculosFebrero23.xlsx',al:'',ba:'',dn:'',of:'OficioVehiculosFebrero23.pdf'},
+    {c:'veh',a:'2124',y:2023,mi:1,m:'Enero',roll:false,inv:'VehiculosEnero23.xlsx',al:'',ba:'',dn:'',of:'OficioVehiculosEnero23.pdf'},
+    {c:'veh',a:'2124',y:2022,mi:12,m:'Diciembre',roll:false,inv:'VehiculosDiciembre22.xlsx',al:'',ba:'BienesVehiculosDiciembreBajas2022.xlsx',dn:'',of:'OficioVehiculosDiciembre22.pdf'},
+    {c:'veh',a:'2124',y:2022,mi:11,m:'Noviembre',roll:false,inv:'VehiculosNoviembre22.xlsx',al:'BienesVehiculosNoviembreAltas2022.xlsx',ba:'BienesVehiculosNoviembreBajas2022.xlsx',dn:'',of:'OficioVehiculosNoviembre22.pdf'},
+    {c:'veh',a:'2124',y:2022,mi:10,m:'Octubre',roll:false,inv:'VehiculosOctubre22.xlsx',al:'BienesVehiculosOctubreAltas2022.xlsx',ba:'BienesVehiculosOctubreBajas2022.xlsx',dn:'',of:'OficioVehiculosOctubre22.pdf'},
+    {c:'veh',a:'2124',y:2022,mi:9,m:'Septiembre',roll:false,inv:'VehiculosSeptiembre22.xlsx',al:'BienesVehiculosSeptiembreAltas2022.xlsx',ba:'BienesVehiculosSeptiembreBajas2022.xlsx',dn:'',of:'OficioVehiculosSeptiembre22.pdf'},
+    {c:'veh',a:'2124',y:2022,mi:8,m:'Agosto',roll:false,inv:'VehiculosAgosto22.xlsx',al:'BienesVehiculosAgostoAltas2022.xlsx',ba:'BienesVehiculosAgostoBajas2022.xlsx',dn:'',of:'OficioVehiculosAgosto22.pdf'},
+    {c:'veh',a:'2124',y:2022,mi:7,m:'Julio',roll:false,inv:'VehiculosJulio22.xlsx',al:'',ba:'BienesVehiculosJulioBajas2022.xlsx',dn:'',of:'OficioVehiculosJulio22.pdf'},
+    {c:'veh',a:'2124',y:2022,mi:6,m:'Junio',roll:false,inv:'VehiculosJunio22.xlsx',al:'',ba:'BienesVehiculosJunioBajas2022.xlsx',dn:'',of:'OficioVehiculosJunio22.pdf'},
+    {c:'veh',a:'2124',y:2022,mi:5,m:'Mayo',roll:false,inv:'VehiculosMayo22.xlsx',al:'BienesVehiculosMayoAltas2022.xlsx',ba:'',dn:'',of:'OficioVehiculosMayo22.pdf'},
+    {c:'veh',a:'2124',y:2022,mi:4,m:'Abril',roll:false,inv:'VehiculosAbril22.xlsx',al:'',ba:'BienesVehiculosAbrilBajas2022.xlsx',dn:'',of:'OficioVehiculosAbril22.pdf'},
+    {c:'veh',a:'2124',y:2022,mi:3,m:'Marzo',roll:false,inv:'VehiculosMarzo22.xlsx',al:'BienesVehiculosMarzoAltas2022.xlsx',ba:'BienesVehiculosMarzoBajas2022.xlsx',dn:'',of:'OficioVehiculosMarzo22.pdf'},
+    {c:'veh',a:'2124',y:2022,mi:2,m:'Febrero',roll:false,inv:'VehiculosFebrero22.xlsx',al:'BienesVehiculosFebreroAltas2022.xlsx',ba:'BienesVehiculosFebreroBajas2022.xlsx',dn:'',of:'OficioVehiculosFebrero22.pdf'},
+    {c:'veh',a:'2124',y:2022,mi:1,m:'Enero',roll:false,inv:'VehiculosEnero22.xlsx',al:'BienesVehiculosEneroAltas2022.xlsx',ba:'BienesVehiculosEneroBajas2022.xlsx',dn:'',of:'OficioVehiculosEnero22.pdf'},
+    {c:'veh',a:'2124',y:2021,mi:12,m:'Diciembre',roll:false,inv:'VehiculosDiciembre21.xlsx',al:'',ba:'BienesVehiculosDiciembreBajas2021.xlsx',dn:'',of:'OficioVehiculosDiciembre21.pdf'},
+    {c:'veh',a:'2124',y:2021,mi:11,m:'Noviembre',roll:false,inv:'VehiculosNoviembre21.xlsx',al:'BienesVehiculosNoviembreAltas2021.xlsx',ba:'BienesVehiculosNoviembreBajas2021.xlsx',dn:'BienesVehiculosNoviembreDonaciones2021.xlsx',of:''},
+    {c:'veh',a:'2124',y:2021,mi:10,m:'Octubre',roll:false,inv:'VehiculosOctubre21.xlsx',al:'BienesVehiculosOctubreAltas2021.xlsx',ba:'BienesVehiculosOctubreBajas2021.xlsx',dn:'BienesVehiculosOctubreDonaciones2021.xlsx',of:''},
+    {c:'veh',a:'1821',y:2021,mi:9,m:'Septiembre',roll:false,inv:'VehiculosSeptiembre21.xlsx',al:'',ba:'BienesVehiculosSeptiembreBajas2021.xlsx',dn:'',of:'OficioVehiculosSeptiembre21.pdf'},
+    {c:'veh',a:'1821',y:2021,mi:8,m:'Agosto',roll:false,inv:'VehiculosAgosto21.xlsx',al:'BienesVehiculosAgostoAltas2021.xlsx',ba:'BienesVehiculosAgostoBajas2021.xlsx',dn:'BienesVehiculosAgostoDonaciones2021.xlsx',of:''},
+    {c:'veh',a:'1821',y:2021,mi:7,m:'Julio',roll:false,inv:'VehiculosJulio21.xlsx',al:'BienesVehiculosJulioAltas2021.xlsx',ba:'BienesVehiculosJulioBajas2021.xlsx',dn:'BienesVehiculosJulioDonaciones2021.xlsx',of:''},
+    {c:'veh',a:'1821',y:2021,mi:6,m:'Junio',roll:false,inv:'VehiculosJunio21.xlsx',al:'BienesVehiculosJunioAltas2021.xlsx',ba:'BienesVehiculosJunioBajas2021.xlsx',dn:'BienesVehiculosJunioDonaciones2021.xlsx',of:''},
+    {c:'veh',a:'1821',y:2021,mi:5,m:'Mayo',roll:false,inv:'VehiculosMayo21.xlsx',al:'BienesVehiculosMayoAltas2021.xlsx',ba:'BienesVehiculosMayoBajas2021.xlsx',dn:'BienesVehiculosMayoDonaciones2021.xlsx',of:''},
+    {c:'veh',a:'1821',y:2021,mi:4,m:'Abril',roll:false,inv:'VehiculosAbril21.xlsx',al:'BienesVehiculosAbrilAltas2021.xlsx',ba:'BienesVehiculosAbrilBajas2021.xlsx',dn:'BienesVehiculosAbrilDonaciones2021.xlsx',of:''},
+    {c:'veh',a:'1821',y:2021,mi:3,m:'Marzo',roll:false,inv:'VehiculosMarzo21.xlsx',al:'BienesVehiculosMarzoAltas2021.xlsx',ba:'BienesVehiculosMarzoBajas2021.xlsx',dn:'BienesVehiculosMarzoDonaciones2021.xlsx',of:''},
+    {c:'veh',a:'1821',y:2021,mi:2,m:'Febrero',roll:false,inv:'VehiculosFebrero21.xlsx',al:'BienesVehiculosFebreroAltas2021.xlsx',ba:'BienesVehiculosFebreroBajas2021.xlsx',dn:'BienesVehiculosFebreroDonaciones2021.xlsx',of:''},
+    {c:'veh',a:'1821',y:2021,mi:1,m:'Enero',roll:false,inv:'VehiculosEnero21.xlsx',al:'BienesVehiculosEneroAltas2021.xlsx',ba:'BienesVehiculosEneroBajas2021.xlsx',dn:'BienesVehiculosEneroDonaciones2021.xlsx',of:''},
+    {c:'veh',a:'1821',y:2020,mi:12,m:'Diciembre',roll:false,inv:'VehiculosDiciembre20.xlsx',al:'BienesVehiculosDiciembreAltas2020.xlsx',ba:'BienesVehiculosDiciembreBajas2020.xlsx',dn:'BienesVehiculosDiciembreDonaciones2020.xlsx',of:''},
+    {c:'veh',a:'1821',y:2020,mi:11,m:'Noviembre',roll:false,inv:'VehiculosNoviembre20.xlsx',al:'BienesVehiculosNoviembreAltas2020.xlsx',ba:'BienesVehiculosNoviembreBajas2020.xlsx',dn:'BienesVehiculosNoviembreDonaciones2020.xlsx',of:''},
+    {c:'veh',a:'1821',y:2020,mi:10,m:'Octubre',roll:false,inv:'VehiculosOctubre20.xlsx',al:'BienesVehiculosOctubreAltas2020.xlsx',ba:'BienesVehiculosOctubreBajas2020.xlsx',dn:'BienesVehiculosOctubreDonaciones2020.xlsx',of:''},
+    {c:'veh',a:'1821',y:2020,mi:9,m:'Septiembre',roll:false,inv:'VehiculosSeptiembre20.xlsx',al:'BienesVehiculosSeptiembreAltas2020.xlsx',ba:'BienesVehiculosSeptiembreBajas2020.xlsx',dn:'BienesVehiculosSeptiembreDonaciones2020.xlsx',of:''},
+    {c:'veh',a:'1821',y:2020,mi:8,m:'Agosto',roll:false,inv:'VehiculosAgosto20.xlsx',al:'BienesVehiculosAgostoAltas2020.xlsx',ba:'BienesVehiculosAgostoBajas2020.xlsx',dn:'BienesVehiculosAgostoDonaciones2020.xlsx',of:''},
+    {c:'veh',a:'1821',y:2020,mi:7,m:'Julio',roll:false,inv:'VehiculosJulio20.xlsx',al:'BienesVehiculosJulioAltas2020.xlsx',ba:'BienesVehiculosJulioBajas2020.xlsx',dn:'BienesVehiculosJulioDonaciones2020.xlsx',of:''},
+    {c:'veh',a:'1821',y:2020,mi:6,m:'Junio',roll:false,inv:'VehiculosJunio20.xlsx',al:'BienesVehiculosJunioAltas2020.xlsx',ba:'BienesVehiculosJunioBajas2020.xlsx',dn:'BienesVehiculosJunioDonaciones2020.xlsx',of:''},
+    {c:'veh',a:'1821',y:2020,mi:5,m:'Mayo',roll:false,inv:'VehiculosMayo20.xlsx',al:'BienesVehiculosMayoAltas2020.xlsx',ba:'BienesVehiculosMayoBajas2020.xlsx',dn:'BienesVehiculosMayoDonaciones2020.xlsx',of:''},
+    {c:'veh',a:'1821',y:2020,mi:4,m:'Abril',roll:false,inv:'VehiculosAbril20.xlsx',al:'BienesVehiculosAbrilAltas2020.xlsx',ba:'BienesVehiculosAbrilBajas2020.xlsx',dn:'BienesVehiculosAbrilDonaciones2020.xlsx',of:''},
+    {c:'veh',a:'1821',y:2020,mi:3,m:'Marzo',roll:false,inv:'VehiculosMarzo20.xlsx',al:'BienesVehiculosMarzoAltas2020.xlsx',ba:'BienesVehiculosMarzoBajas2020.xlsx',dn:'BienesVehiculosMarzoDonaciones2020.xlsx',of:''},
+    {c:'veh',a:'1821',y:2020,mi:2,m:'Febrero',roll:false,inv:'VehiculosFebrero20.xlsx',al:'BienesVehiculosFebreroAltas2020.xlsx',ba:'BienesVehiculosFebreroBajas2020.xlsx',dn:'BienesVehiculosFebreroDonaciones2020.xlsx',of:''},
+    {c:'veh',a:'1821',y:2020,mi:1,m:'Enero',roll:false,inv:'VehiculosEnero20.xlsx',al:'BienesVehiculosEneroAltas2020.xlsx',ba:'BienesVehiculosEneroBajas2020.xlsx',dn:'BienesVehiculosEneroDonaciones2020.xlsx',of:''},
+    {c:'veh',a:'1821',y:2019,mi:12,m:'Diciembre',roll:false,inv:'VehiculosDiciembre19.xlsx',al:'BienesVehiculosDiciembreAltas2019.xlsx',ba:'BienesVehiculosDiciembreBajas2019.xlsx',dn:'BienesVehiculosDiciembreDonaciones2019.xlsx',of:''},
+    {c:'veh',a:'1821',y:2019,mi:11,m:'Noviembre',roll:false,inv:'VehiculosNoviembre19.xlsx',al:'BienesVehiculosNoviembreAltas2019.xlsx',ba:'BienesVehiculosNoviembreBajas2019.xlsx',dn:'BienesVehiculosNoviembreDonaciones2019.xlsx',of:''},
+    {c:'veh',a:'1821',y:2019,mi:10,m:'Octubre',roll:false,inv:'VehiculosOctubre19.xlsx',al:'BienesVehiculosOctubreAltas2019.xlsx',ba:'BienesVehiculosOctubreBajas2019.xlsx',dn:'BienesVehiculosOctubreDonaciones2019.xlsx',of:''},
+    {c:'veh',a:'1821',y:2019,mi:9,m:'Septiembre',roll:false,inv:'VehiculosSeptiembre19.xlsx',al:'BienesVehiculosSeptiembreAltas2019.xlsx',ba:'BienesVehiculosSeptiembreBajas2019.xlsx',dn:'BienesVehiculosSeptiembreDonaciones2019.xlsx',of:''},
+    {c:'veh',a:'1821',y:2019,mi:8,m:'Agosto',roll:false,inv:'VehiculosAgosto19.xlsx',al:'BienesVehiculosAgostoAltas2019.xlsx',ba:'BienesVehiculosAgostoBajas2019.xlsx',dn:'BienesVehiculosAgostoDonaciones2019.xlsx',of:''},
+    {c:'veh',a:'1821',y:2019,mi:7,m:'Julio',roll:false,inv:'VehiculosJulio19.xlsx',al:'BienesVehiculosJulioAltas2019.xlsx',ba:'BienesVehiculosJulioBajas2019.xlsx',dn:'BienesVehiculosJulioDonaciones2019.xlsx',of:''},
+    {c:'veh',a:'1821',y:2019,mi:6,m:'Junio',roll:false,inv:'VehiculosJunio19.xlsx',al:'BienesVehiculosJunioAltas2019.xlsx',ba:'BienesVehiculosJunioBajas2019.xlsx',dn:'BienesVehiculosJunioDonaciones2019.xlsx',of:''},
+    {c:'veh',a:'1821',y:2019,mi:5,m:'Mayo',roll:false,inv:'VehiculosMayo19.xlsx',al:'BienesVehiculosMayoAltas2019.xlsx',ba:'BienesVehiculosMayoBajas2019.xlsx',dn:'BienesVehiculosMayoDonaciones2019.xlsx',of:''},
+    {c:'veh',a:'1821',y:2019,mi:4,m:'Abril',roll:false,inv:'VehiculosAbril19.xlsx',al:'BienesVehiculosAbrilAltas2019.xlsx',ba:'BienesVehiculosAbrilBajas2019.xlsx',dn:'BienesVehiculosAbrilDonaciones2019.xlsx',of:''},
+    {c:'veh',a:'1821',y:2019,mi:3,m:'Marzo',roll:false,inv:'VehiculosMarzo19.xlsx',al:'BienesVehiculosMarzoAltas2019.xlsx',ba:'BienesVehiculosMarzoBajas2019.xlsx',dn:'BienesVehiculosMarzoDonaciones2019.xlsx',of:''},
+    {c:'veh',a:'1821',y:2019,mi:2,m:'Febrero',roll:false,inv:'VehiculosFebrero19.xlsx',al:'BienesVehiculosFebreroAltas2019.xlsx',ba:'BienesVehiculosFebreroBajas2019.xlsx',dn:'BienesVehiculosFebreroDonaciones2019.xlsx',of:''},
+    {c:'veh',a:'1821',y:2019,mi:1,m:'Enero',roll:false,inv:'VehiculosEnero19.xlsx',al:'BienesVehiculosEneroAltas2019.xlsx',ba:'BienesVehiculosEneroBajas2019.xlsx',dn:'BienesVehiculosEneroDonaciones2019.xlsx',of:''},
+    {c:'veh',a:'1821',y:2018,mi:12,m:'Diciembre',roll:false,inv:'VehiculosDiciembre18.xlsx',al:'',ba:'',dn:'',of:''},
+    {c:'veh',a:'1821',y:2018,mi:11,m:'Noviembre',roll:false,inv:'VehiculosNoviembre18.xlsx',al:'',ba:'',dn:'',of:''},
+    {c:'veh',a:'1821',y:2018,mi:10,m:'Octubre',roll:false,inv:'VehiculosOctubre18.xlsx',al:'',ba:'',dn:'',of:''}
+  ];
+
+  var CATS = { veh:'Vehículos', mue:'Bienes muebles', inm:'Bienes inmuebles' };
+  var ADMIN = { act:'2024–2027', '2124':'2021–2024', '1821':'2018–2021' };
+
+  var ICO_DL = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';
+
+  /* Visor en linea: los Excel se abren con el visor de Office (sin descargar); los PDF abren directo en el navegador. */
+  function fileHref(fn){
+    var direct = PDF_BASE + encodeURI(fn);
+    var ext = fn.split('.').pop().toLowerCase();
+    if(ext === 'xlsx' || ext === 'xls'){
+      return 'https://view.officeapps.live.com/op/view.aspx?src=' + encodeURIComponent(direct);
+    }
+    return direct;
+  }
+  function docBtn(fn, label, kind){
+    if(!fn) return '';
+    var ext = fn.split('.').pop().toLowerCase();
+    var extCls = (ext === 'pdf') ? 'pdf' : 'xls';
+    var extTx = (ext === 'pdf') ? 'PDF' : 'XLS';
+    var cls = 'bp-doc';
+    if(kind === 'inv') cls += ' bp-doc-inv';
+    else if(kind === 'of') cls += ' bp-doc-of';
+    return '<a class="' + cls + '" href="' + fileHref(fn) + '" target="_blank" rel="noopener noreferrer">' + ICO_DL + label + '<span class="bp-ext ' + extCls + '">' + extTx + '</span></a>';
+  }
+
+  var listEl = document.getElementById('bpList');
+  var emptyEl = document.getElementById('bpEmpty');
+  var countEl = document.getElementById('bpCount');
+  var catRow = document.getElementById('bpCatRow');
+  var admRow = document.getElementById('bpAdmRow');
+  var fCat = 'todas', fAdm = 'todas';
+
+  function render(){
+    var html = '', shown = 0, showCat = (fCat === 'todas'), showAdm = (fAdm === 'todas');
+    for(var i=0;i<MOV.length;i++){
+      var o = MOV[i];
+      if(fCat !== 'todas' && o.c !== fCat) continue;
+      if(fAdm !== 'todas' && o.a !== fAdm) continue;
+      shown++;
+      var period = o.roll ? ('Ejercicio ' + o.m) : (o.m + ' ' + o.y);
+      var tags = '';
+      if(showCat) tags += '<span class="bp-mtag ' + o.c + '">' + CATS[o.c] + '</span>';
+      if(showAdm) tags += '<span class="bp-mtag adm">' + ADMIN[o.a] + '</span>';
+      var tagWrap = tags ? ('<div class="bp-mrow-tags">' + tags + '</div>') : '';
+      var docs = docBtn(o.inv, 'Inventario', 'inv') +
+                 docBtn(o.al, 'Altas', '') +
+                 docBtn(o.ba, 'Bajas', '') +
+                 docBtn(o.dn, 'Donaciones', '') +
+                 docBtn(o.of, 'Oficio', 'of');
+      html += '<div class="bp-mrow">' +
+                '<div class="bp-mrow-left">' + tagWrap + '<span class="bp-mrow-period">' + period + '</span></div>' +
+                '<div class="bp-mrow-docs">' + docs + '</div>' +
+              '</div>';
+    }
+    listEl.innerHTML = html;
+    emptyEl.className = shown ? 'bp-mempty' : 'bp-mempty show';
+    countEl.innerHTML = '<b>' + shown + '</b> ' + (shown === 1 ? 'periodo' : 'periodos') + ' con documentos disponibles';
+    reportHeight();
+  }
+
+  function wireChips(row, attr, setter){
+    row.addEventListener('click', function(e){
+      var b = e.target.closest ? e.target.closest('.bp-chip') : null;
+      if(!b) return;
+      var chips = row.querySelectorAll('.bp-chip');
+      for(var i=0;i<chips.length;i++) chips[i].className = 'bp-chip';
+      b.className = 'bp-chip active';
+      setter(b.getAttribute(attr));
+      render();
+    });
+  }
+  wireChips(catRow, 'data-cat', function(v){ fCat = v; });
+  wireChips(admRow, 'data-adm', function(v){ fAdm = v; });
+
+  /* ----- Auto-altura para Strapi (anti-rebote) ----- */
+  var lastReported = 0;
+  function reportHeight(){
+    var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight);
+    if (h && Math.abs(h - lastReported) > 2){
+      lastReported = h;
+      try { parent.postMessage({ type:'gdl-iframe-height', id:'bienes-patrimoniales-art8-VI-a', height: h }, '*'); } catch(e){}
+    }
+  }
+  render();
+  window.addEventListener('load', reportHeight);
+  window.addEventListener('resize', reportHeight);
+  setTimeout(reportHeight, 400); setTimeout(reportHeight, 1200); setTimeout(reportHeight, 2500);
+})();
+</script>
+
+</body>
+</html>
