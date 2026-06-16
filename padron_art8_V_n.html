@@ -47,7 +47,7 @@ body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:va
 .gx-search.has-q .gx-clear{display:flex}
 .gx-count{font-size:12px;color:var(--g600);font-weight:600;margin:9px 6px 0}
 .gx-count b{color:var(--ac-d);font-family:var(--fm);font-weight:500}
-.gx-sec-title{font-size:12.5px;font-weight:800;color:var(--g400);letter-spacing:.1em;text-transform:uppercase;margin:0 4px 12px;display:flex;align-items:center;gap:10px}
+.gx-sec-title{font-size:12.5px;font-weight:800;color:var(--g800);letter-spacing:.1em;text-transform:uppercase;margin:0 4px 12px;display:flex;align-items:center;gap:10px}
 .gx-sec-title.feat{color:var(--ac-d)}
 .gx-sec-title::after{content:'';flex:1;height:1.5px;background:var(--g200);border-radius:2px}
 .gx-group{margin-bottom:26px}
@@ -95,7 +95,7 @@ body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:va
 .gx-noresults{display:none;background:var(--ac-soft);border:1.5px solid var(--ac-border);border-radius:var(--rad-lg);padding:22px 24px;font-size:13.5px;color:var(--g800);line-height:1.6;text-align:center;margin-bottom:26px}
 .gx-noresults.show{display:block}
 .gx-noresults strong{color:var(--ac-d);font-weight:700}
-.gx-foot-title{font-size:12.5px;font-weight:800;color:var(--g400);letter-spacing:.1em;text-transform:uppercase;margin:30px 4px 14px;display:flex;align-items:center;gap:10px}
+.gx-foot-title{font-size:12.5px;font-weight:800;color:var(--g800);letter-spacing:.1em;text-transform:uppercase;margin:30px 4px 14px;display:flex;align-items:center;gap:10px}
 .gx-foot-title::after{content:'';flex:1;height:1.5px;background:var(--g200);border-radius:2px}
 .gx-info{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:14px;margin-bottom:8px}
 .gx-info-card{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);border-top:5px solid var(--ac);padding:18px 20px;display:flex;flex-direction:column;gap:8px}
@@ -157,7 +157,7 @@ body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:va
 
   <!-- CTAS -->
   <div class="gx-cta">
-    <div class="gx-cta-ico" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+    <div class="gx-cta-ico" aria-hidden="true" style="background:transparent;overflow:hidden"><svg width="46" height="46" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><title>Mirada Pública</title><rect width="100" height="100" rx="16" fill="#E87722"/><circle cx="50" cy="56" r="29" fill="none" stroke="#fff" stroke-width="14"/><circle cx="50" cy="34" r="12" fill="#fff"/></svg></div>
     <div class="gx-cta-tx">
       <h3>¿Quieres saber a quién le compra Guadalajara?</h3>
       <p>El sistema <strong>Mirada Pública</strong> muestra en línea las compras del municipio: proveedor por proveedor, contrato por contrato. Y si tienes una empresa, puedes <strong>darte de alta en el padrón</strong> desde Trámites Digitales.</p>
@@ -216,7 +216,7 @@ body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:va
   <!-- FOOTER CIUDADANO -->
   <div class="gx-foot-title">La página en cifras</div>
     <div class="gx-hero-meta gx-meta-foot">
-      <span class="gx-chip"><b>94</b> cortes del padrón de proveedores</span>
+      <span class="gx-chip"><b>95</b> cortes del padrón de proveedores</span>
       <span class="gx-chip"><b>3</b> listados de sancionados</span>
       <span class="gx-chip"><b>14</b> cortes del padrón de contratistas</span>
     </div>
@@ -254,8 +254,8 @@ body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:va
 /* ==========================================================================
    Padrones de proveedores y contratistas · Art. 8 Frac. V Inc. ñ)
    Datos verbatim del registro oficial del sujeto obligado (corte: 10/06/2026).
-   112 archivos: 90 cortes mensuales del padrón de proveedores (oct 2018 –
-   abr 2026; octubre 2021 no fue publicado por el registro), 4 concentrados
+   113 archivos: 91 cortes mensuales del padrón de proveedores (oct 2018 –
+   may 2026; octubre 2021 no fue publicado por el registro), 4 concentrados
    anuales, 3 listados de sancionados y 15 cortes del padrón de contratistas
    (oct 2018 – dic 2019). Verificado archivo por archivo.
    ========================================================================== */
@@ -308,7 +308,7 @@ body{margin:0;padding:24px;background:transparent;font-family:var(--fh);color:va
     return rows;
   }
   var provHtml='';
-  provHtml += detalle('26','Padrón de proveedores 2026','enero – abril', anioProv('26','2026',0,3), true);
+  provHtml += detalle('26','Padrón de proveedores 2026','enero – mayo', anioProv('26','2026',0,4), true);
   provHtml += detalle('25','Padrón de proveedores 2025','año completo', anioProv('25','2025',0,11), false);
   provHtml += detalle('24','Padrón de proveedores 2024','año completo + concentrado enero–octubre', anioProv('24','2024',0,11,[['Concentrado enero–octubre 2024','proveedoresEne-Oct24.xlsx']]), false);
   provHtml += detalle('23','Padrón de proveedores 2023','año completo + concentrado anual', anioProv('23','2023',0,11,[['Concentrado anual 2023','proveedoresEne-Dic23.xlsx']]), false);

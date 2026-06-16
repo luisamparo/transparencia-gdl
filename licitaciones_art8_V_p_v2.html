@@ -375,7 +375,7 @@ body{font-family:var(--font);background:transparent;color:var(--n);-webkit-font-
     </div>
   </div>
 
-  <h2 class="sec-h"><span>Tabulador en vivo · Licitaciones y Concursos por Invitación</span> <span class="sec-h-tag" id="adq-tag">—</span></h2>
+  <h2 class="sec-h"><span>Tabulador · Licitaciones y Concursos por Invitación</span> <span class="sec-h-tag" id="adq-tag">—</span></h2>
 
   <div class="filter-bar" id="filter-adq">
     <div class="filter-bar-top">
@@ -532,7 +532,7 @@ body{font-family:var(--font);background:transparent;color:var(--n);-webkit-font-
     </div>
   </div>
 
-  <h2 class="sec-h"><span>Tabulador en vivo · Obras Públicas</span> <span class="sec-h-tag" id="obra-tag">—</span></h2>
+  <h2 class="sec-h"><span>Tabulador · Obras Públicas</span> <span class="sec-h-tag" id="obra-tag">—</span></h2>
 
   <div class="filter-bar" id="filter-obra">
     <div class="filter-bar-top">
@@ -1062,14 +1062,14 @@ function renderKpis(){
   let html = '', tag = '';
   if(tab==='adq'){
     html = `
-      <div class="kpi b"><div class="kpi-lbl">Procesos en vivo</div><div class="kpi-val">${adqTotal}</div><div class="kpi-sub">Licitaciones y concursos del periodo procesado</div></div>
+      <div class="kpi b"><div class="kpi-lbl">Procesos abiertos</div><div class="kpi-val">${adqTotal}</div><div class="kpi-sub">Licitaciones y concursos del periodo procesado</div></div>
       <div class="kpi a"><div class="kpi-lbl">Adjudicadas</div><div class="kpi-val">${adqAdj}</div><div class="kpi-sub">Con motivo de adjudicación registrado</div></div>
       <div class="kpi d"><div class="kpi-lbl">Desiertas / Fusionadas</div><div class="kpi-val">${adqDesiertas}</div><div class="kpi-sub">Sin adjudicación efectiva</div></div>
-      <div class="kpi c"><div class="kpi-lbl">Monto adjudicado vivo</div><div class="kpi-val" style="font-size:1.05rem">${fmtMoney(adqMonto)}</div><div class="kpi-sub">Suma de procesos con monto numérico</div></div>`;
+      <div class="kpi c"><div class="kpi-lbl">Monto adjudicado</div><div class="kpi-val" style="font-size:1.05rem">${fmtMoney(adqMonto)}</div><div class="kpi-sub">Suma de procesos con monto numérico</div></div>`;
     tag = 'Adquisiciones · datos procesados';
   } else if(tab==='obra'){
     html = `
-      <div class="kpi b"><div class="kpi-lbl">Contratos de obra</div><div class="kpi-val">${obraTotal}</div><div class="kpi-sub">Ejercicio 2026 procesado en vivo</div></div>
+      <div class="kpi b"><div class="kpi-lbl">Contratos de obra</div><div class="kpi-val">${obraTotal}</div><div class="kpi-sub">Ejercicio 2026 en proceso</div></div>
       <div class="kpi a"><div class="kpi-lbl">Monto contratado</div><div class="kpi-val" style="font-size:1.05rem">${fmtMoney(obraMonto)}</div><div class="kpi-sub">Suma de obras procesadas</div></div>
       <div class="kpi c"><div class="kpi-lbl">XLSX oficiales</div><div class="kpi-val">2019–2026</div><div class="kpi-sub">Tabuladores anuales disponibles</div></div>
       <div class="kpi d"><div class="kpi-lbl">Oficios mensuales PDF</div><div class="kpi-val">12+</div><div class="kpi-sub">Publicados desde 2021</div></div>`;

@@ -116,11 +116,11 @@ body{font-family:var(--fh);background:transparent;color:var(--g900);line-height:
 .hist-bar-wrap:hover .hist-bar-val{color:var(--insti-orange-d);transform:scale(1.08);transition:transform .15s ease, color .15s ease}
 
 /* Bar color by administration band — sophisticated neutrals + orange for current */
-.hist-bar.adm-1{background:linear-gradient(180deg,#94A3B8 0%,#64748B 100%)} /* 2010-2012 — slate */
-.hist-bar.adm-2{background:linear-gradient(180deg,#A5B4FC 0%,#6366F1 100%)} /* 2012-2015 — indigo */
-.hist-bar.adm-3{background:linear-gradient(180deg,#5EEAD4 0%,#0F766E 100%)} /* 2015-2018 — teal */
-.hist-bar.adm-4{background:linear-gradient(180deg,#FCD34D 0%,#B45309 100%)} /* 2018-2021 — amber */
-.hist-bar.adm-5{background:linear-gradient(180deg,#FBA8B8 0%,#9F1239 100%)} /* 2021-2024 — rose */
+.hist-bar.adm-1{background:linear-gradient(180deg,#F87171 0%,#DC2626 100%)} /* 2010-2012 — rojo */
+.hist-bar.adm-2{background:linear-gradient(180deg,#F87171 0%,#DC2626 100%)} /* 2012-2015 — rojo */
+.hist-bar.adm-3{background:linear-gradient(180deg,#FCA85C 0%,#C45F0A 100%)} /* 2015-2018 — naranja */
+.hist-bar.adm-4{background:linear-gradient(180deg,#FCD34D 0%,#B45309 100%)} /* 2018-2021 — ámbar */
+.hist-bar.adm-5{background:linear-gradient(180deg,#FCA85C 0%,#C45F0A 100%)} /* 2021-2024 — naranja */
 .hist-bar.adm-6{background:linear-gradient(180deg,var(--insti-orange-l) 0%,var(--insti-orange-d) 100%)} /* 2024-2027 — orange */
 
 .hist-bar-empty{background:repeating-linear-gradient(45deg,#F1F5F9,#F1F5F9 6px,#FAFAFA 6px,#FAFAFA 12px);border:1.5px dashed var(--slate-200);border-radius:6px 6px 0 0;cursor:default;height:24px;width:100%;max-width:54px;display:flex;align-items:center;justify-content:center}
@@ -134,11 +134,11 @@ body{font-family:var(--fh);background:transparent;color:var(--g900);line-height:
 /* Administration bands below X axis (no names) — alineadas con las barras (max-width 54px por columna) */
 .hist-periods{margin-left:62px;display:grid;grid-template-columns:repeat(16,minmax(0,1fr));gap:8px;padding:14px 10px 0;--bgap:8px}
 .hist-period{font-family:var(--fh);font-size:clamp(8.5px,1.1vw,11px);color:#fff;font-weight:700;text-align:center;letter-spacing:.02em;padding:8px 4px;border-radius:7px;line-height:1.3;box-shadow:0 1px 2px rgba(15,23,42,.08);width:100%;max-width:calc(54px * var(--cols, 1) + var(--bgap, 8px) * (var(--cols, 1) - 1));justify-self:center;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:42px}
-.hist-period.adm-1{background:linear-gradient(180deg,#64748B 0%,#475569 100%)}
-.hist-period.adm-2{background:linear-gradient(180deg,#6366F1 0%,#4338CA 100%)}
-.hist-period.adm-3{background:linear-gradient(180deg,#0F766E 0%,#115E59 100%)}
+.hist-period.adm-1{background:linear-gradient(180deg,#DC2626 0%,#B91C1C 100%)}
+.hist-period.adm-2{background:linear-gradient(180deg,#DC2626 0%,#B91C1C 100%)}
+.hist-period.adm-3{background:linear-gradient(180deg,#E87722 0%,#C45F0A 100%)}
 .hist-period.adm-4{background:linear-gradient(180deg,#B45309 0%,#92400E 100%)}
-.hist-period.adm-5{background:linear-gradient(180deg,#9F1239 0%,#881337 100%)}
+.hist-period.adm-5{background:linear-gradient(180deg,#E87722 0%,#C45F0A 100%)}
 .hist-period.adm-6{background:linear-gradient(180deg,var(--insti-orange) 0%,var(--insti-orange-d) 100%)}
 .hist-period-empty{visibility:hidden}
 
@@ -171,7 +171,7 @@ body{font-family:var(--fh);background:transparent;color:var(--g900);line-height:
 .hist-legend-item-ico.bar{background:linear-gradient(180deg,var(--insti-orange-l) 0%,var(--insti-orange-d) 100%)}
 .hist-legend-item-ico.line{background:transparent;border:0;position:relative}
 .hist-legend-item-ico.line::after{content:'';position:absolute;left:0;right:0;top:50%;height:0;border-top:2px dashed var(--avg-blue)}
-.hist-legend-item-ico.band{background:linear-gradient(180deg,#6366F1 0%,#4338CA 100%);font-size:0}
+.hist-legend-item-ico.band{background:linear-gradient(180deg,#E87722 0%,#C45F0A 100%);font-size:0}
 .hist-legend-item-ico.empty{background:repeating-linear-gradient(45deg,#F1F5F9,#F1F5F9 4px,#FAFAFA 4px,#FAFAFA 8px);border:1.5px dashed var(--slate-200);font-size:0}
 .hist-legend-item strong{color:var(--slate-900);font-weight:700}
 
@@ -351,7 +351,7 @@ body{font-family:var(--fh);background:transparent;color:var(--g900);line-height:
   <div class="hist-double">
     <div class="hist-rank-card">
       <div class="hist-rank-h">
-        <span class="hist-rank-h-ico" style="background:#FEE2E2;color:#991B1B" aria-hidden="true">&#9650;</span>
+        <span class="hist-rank-h-ico" style="background:#FEE2E2;color:#DC2626" aria-hidden="true">&#9650;</span>
         <span>Los 5 a&ntilde;os con <strong>mayor gasto</strong></span>
       </div>
       <ol class="hist-rank-list" id="hist-rank-top"></ol>
@@ -466,7 +466,7 @@ function fmtCurrencyMicro(n){
 
 /* Color de admin para tooltip dot (matches CSS .adm-N) */
 const ADMIN_TIP_COLORS = {
-  1:'#475569', 2:'#4338CA', 3:'#0F766E', 4:'#92400E', 5:'#9F1239', 6:'#C45F0A'
+  1:'#DC2626', 2:'#DC2626', 3:'#C45F0A', 4:'#92400E', 5:'#C45F0A', 6:'#C45F0A'
 };
 
 function renderHistorical(){
