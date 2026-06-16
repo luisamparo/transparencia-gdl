@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Recursos financieros del Ayuntamiento de Guadalajara en un solo lugar: el Presupuesto de Egresos de la Federación y del Estado de Jalisco (2017–2026) y los ingresos extraordinarios que recibe el municipio, con el origen, destino y los responsables de administrarlos. 95 documentos oficiales verificados. Art. 8, Fracción VI, inciso a) de la Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios."/>
+<title>Recursos financieros del Ayuntamiento de Guadalajara · Presupuesto federal y estatal e ingresos extraordinarios · Art. 8 Frac. VI inciso a)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ac:#E87722;--ac-l:#FFE4CC;--ac-d:#C45F0A;--ac-deeper:#8B4308;--ac-border:#F5C99A;--ac-soft:#FFF1E4;
+  --g50:#FAFAF8;--g100:#F0F0EC;--g200:#E2E2DD;--g300:#CFCFC8;--g400:#9E9E98;--g600:#5A5A55;--g800:#2D2D2A;--g900:#1A1A1A;
+  --wh:#FFF;
+  --fed:#E87722;--est:#E87722;--ing:#E87722;
+  --xls:#1D7044;--xls-l:#E1F3EA;--xls-bd:#A7E8C0;--pdf:#C0392B;
+  --rad:10px;--rad-lg:14px;--rad-xl:20px;
+  --sh:0 4px 22px rgba(0,0,0,.08);--sh-sm:0 1px 3px rgba(0,0,0,.06);--sh-md:0 8px 26px rgba(0,0,0,.09);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --fh:'Outfit',system-ui,-apple-system,sans-serif;
+  --fm:'DM Mono','SF Mono',Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--g900);line-height:1.55;-webkit-font-smoothing:antialiased}
+.rf-wrap{max-width:1100px;margin:0 auto}
+
+/* HERO */
+.rf-hero{background:linear-gradient(135deg,var(--ac-soft) 0%,#FFFFFF 55%);border-radius:var(--rad-lg);padding:28px 32px;margin:0 0 22px;position:relative;overflow:hidden;border-left:5px solid var(--ac);box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.rf-hero::before{content:'';position:absolute;top:-70px;right:-70px;width:230px;height:230px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.13) 0%,transparent 70%);pointer-events:none}
+.rf-hero-tag{display:inline-block;background:var(--ac);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;position:relative;z-index:1;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.rf-hero h1{margin:0 0 9px;font-size:clamp(23px,3.3vw,31px);font-weight:800;color:var(--g900);letter-spacing:-.018em;line-height:1.18;position:relative;z-index:1}
+.rf-hero h1 em{font-style:normal;color:var(--ac-d);display:block;margin-top:2px}
+.rf-hero-sub{font-size:14.5px;color:var(--g600);max-width:94ch;margin:0;line-height:1.62;position:relative;z-index:1}
+.rf-hero-sub strong{color:var(--g900);font-weight:700}
+
+/* LANZADERA — 3 ICONOS GRANDES */
+.rf-areas-eye{font-size:11px;font-weight:800;color:var(--g800);letter-spacing:.13em;text-transform:uppercase;margin:0 4px 14px;display:flex;align-items:center;gap:10px}
+.rf-areas-eye::after{content:'';flex:1;height:1.5px;background:var(--g200);border-radius:2px}
+.rf-launch{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:0 0 12px}
+@media (max-width:820px){.rf-launch{grid-template-columns:1fr}}
+.rf-tile{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:0;background:var(--wh);border:1.5px solid var(--g200);border-radius:var(--rad-xl);padding:26px 24px 22px;text-decoration:none;color:inherit;overflow:hidden;box-shadow:var(--sh-sm);transition:transform .2s var(--ease),box-shadow .2s var(--ease),border-color .2s var(--ease)}
+.rf-tile::before{content:'';position:absolute;left:0;top:0;height:4px;width:100%;background:var(--tile);transform:scaleX(0);transform-origin:left;transition:transform .25s var(--ease)}
+.rf-tile:hover{transform:translateY(-6px);box-shadow:var(--sh-md);border-color:var(--tile)}
+.rf-tile:hover::before{transform:scaleX(1)}
+.rf-tile:focus-visible{outline:3px solid var(--tile);outline-offset:3px}
+.rf-tile.fed{--tile:var(--fed)}
+.rf-tile.est{--tile:var(--est)}
+.rf-tile.ing{--tile:var(--ing)}
+.rf-tile-ico{width:84px;height:84px;border-radius:22px;display:flex;align-items:center;justify-content:center;color:#fff;margin-bottom:18px;box-shadow:0 8px 20px -6px var(--tile);background:linear-gradient(140deg,color-mix(in srgb,var(--tile) 78%,#fff) 0%,var(--tile) 100%);transition:transform .25s var(--ease)}
+.rf-tile:hover .rf-tile-ico{transform:scale(1.06) rotate(-2deg)}
+.rf-tile-eye{font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--tile);margin-bottom:5px}
+.rf-tile h2{font-size:21px;font-weight:800;color:var(--g900);letter-spacing:-.02em;line-height:1.15;margin-bottom:8px}
+.rf-tile p{font-size:13px;color:var(--g600);line-height:1.55;margin-bottom:16px;flex:1}
+.rf-tile-chip{display:inline-flex;align-items:center;gap:7px;font-family:var(--fm);font-size:11px;font-weight:500;color:var(--g600);background:var(--g50);border:1px solid var(--g200);padding:5px 11px;border-radius:20px;margin-bottom:16px}
+.rf-tile-chip b{color:var(--tile);font-weight:500}
+.rf-tile-go{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:700;color:var(--tile)}
+.rf-tile-go svg{transition:transform .2s var(--ease)}
+.rf-tile:hover .rf-tile-go svg{transform:translateX(4px)}
+
+/* SECCIONES */
+.rf-section{scroll-margin-top:14px;margin:32px 0 0}
+.rf-sec-head{display:flex;align-items:center;gap:15px;margin-bottom:6px}
+.rf-sec-ico{width:48px;height:48px;border-radius:13px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;background:linear-gradient(140deg,color-mix(in srgb,var(--tile) 78%,#fff),var(--tile))}
+.rf-section.fed{--tile:var(--fed)}.rf-section.est{--tile:var(--est)}.rf-section.ing{--tile:var(--ing)}
+.rf-sec-head h2{font-size:20px;font-weight:800;color:var(--g900);letter-spacing:-.015em;line-height:1.15}
+.rf-sec-head .rf-sec-eye{font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--tile)}
+.rf-sec-desc{font-size:13.5px;color:var(--g600);line-height:1.6;margin:10px 2px 18px;max-width:92ch}
+.rf-sec-desc strong{color:var(--g800);font-weight:700}
+
+/* TARJETAS FEDERAL */
+.rf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,168px),1fr));gap:12px}
+.rf-card{background:var(--wh);border:1.5px solid var(--g200);border-radius:var(--rad-lg);padding:16px 16px 15px;display:flex;flex-direction:column;gap:4px;transition:border-color .15s var(--ease),transform .15s var(--ease),box-shadow .15s var(--ease)}
+.rf-card:hover{border-color:var(--fed);transform:translateY(-3px);box-shadow:0 6px 16px rgba(232,119,34,.14)}
+.rf-card-yr{font-family:var(--fm);font-size:26px;font-weight:700;color:var(--fed);line-height:1;letter-spacing:-.02em}
+.rf-card-t{font-size:11.5px;color:var(--g600);line-height:1.4;margin-bottom:11px;flex:1}
+.rf-card .rf-doc-btn{width:100%;justify-content:center}
+
+/* BOTONES DOC */
+.rf-doc-btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--fh);font-size:12.5px;font-weight:700;padding:9px 15px;border-radius:9px;cursor:pointer;text-decoration:none;transition:all .14s var(--ease);white-space:nowrap;border:1.5px solid var(--ac);background:var(--ac);color:#fff}
+.rf-doc-btn:hover{background:var(--ac-d);border-color:var(--ac-d);transform:translateY(-1px)}
+.rf-doc-btn svg{flex-shrink:0}
+.rf-doc-btn.xls{background:var(--wh);color:var(--xls);border-color:var(--xls-bd)}
+.rf-doc-btn.xls:hover{background:var(--xls-l);border-color:var(--xls);color:var(--xls)}
+
+/* ACORDEÓN ESTATAL */
+.rf-acc{background:var(--wh);border:1.5px solid var(--g200);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);overflow:hidden;margin-bottom:10px}
+.rf-acc-sum{list-style:none;cursor:pointer;padding:15px 18px;display:flex;align-items:center;gap:14px;user-select:none}
+.rf-acc-sum::-webkit-details-marker{display:none}
+.rf-acc-yr{font-family:var(--fm);font-size:17px;font-weight:700;color:var(--est);min-width:54px;letter-spacing:-.01em}
+.rf-acc-tx{flex:1;min-width:0}
+.rf-acc-tx b{font-size:14px;font-weight:800;color:var(--g900);display:block;letter-spacing:-.01em}
+.rf-acc-tx small{font-size:11.5px;color:var(--g600);font-weight:500}
+.rf-acc-chev{flex-shrink:0;color:var(--est);transition:transform .2s var(--ease)}
+.rf-acc[open] .rf-acc-chev{transform:rotate(180deg)}
+.rf-acc[open] .rf-acc-sum{border-bottom:1px solid var(--g200)}
+.rf-acc-body{padding:8px 10px 12px}
+.rf-row{display:flex;align-items:center;gap:14px;padding:9px 12px;border-radius:9px;transition:background .13s}
+.rf-row:hover{background:var(--ac-soft)}
+.rf-row+.rf-row{border-top:1px solid var(--g100)}
+.rf-row-t{flex:1;min-width:0;font-size:13px;font-weight:600;color:var(--g800)}
+.rf-row-t small{display:block;font-weight:400;font-size:11px;color:var(--g400)}
+
+/* INGRESOS */
+.rf-subgroup{margin-bottom:18px}
+.rf-subgroup h3{font-size:14px;font-weight:800;color:var(--g900);letter-spacing:-.01em;margin:0 2px 4px;display:flex;align-items:center;gap:8px}
+.rf-subgroup h3 .dot{width:8px;height:8px;border-radius:50%;background:var(--ing)}
+.rf-subgroup>p{font-size:12px;color:var(--g600);margin:0 2px 12px;line-height:1.5}
+.rf-list{background:var(--wh);border:1.5px solid var(--g200);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);overflow:hidden}
+.rf-list .rf-row{border-radius:0;padding:13px 16px}
+.rf-list .rf-row+.rf-row{border-top:1px solid var(--g100)}
+.rf-list .rf-row:hover{background:var(--ac-soft)}
+
+/* BACK LINK */
+.rf-back{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--g400);text-decoration:none;margin-top:16px;transition:color .14s}
+.rf-back:hover{color:var(--ac-d)}
+
+/* FOOTER */
+.rf-foot-title{font-size:12.5px;font-weight:800;color:var(--g800);letter-spacing:.1em;text-transform:uppercase;margin:34px 4px 14px;display:flex;align-items:center;gap:10px}
+.rf-foot-title::after{content:'';flex:1;height:1.5px;background:var(--g200);border-radius:2px}
+.rf-cifras{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:12px;margin-bottom:8px}
+.rf-cifra{background:var(--wh);border:1.5px solid var(--ac-border);border-radius:var(--rad);padding:15px 17px;display:flex;flex-direction:column;gap:2px;transition:border-color .18s,transform .18s}
+.rf-cifra:hover{border-color:var(--ac);transform:translateY(-2px)}
+.rf-cifra-num{font-family:var(--fm);font-size:30px;font-weight:700;line-height:1;color:var(--ac-d);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.rf-cifra-lbl{font-size:11px;font-weight:700;color:var(--g800);text-transform:uppercase;letter-spacing:.06em;margin-top:5px;line-height:1.3}
+.rf-ley{background:var(--wh);border-radius:var(--rad-lg);padding:22px 26px;border-left:4px solid var(--ac-d);box-shadow:var(--sh-sm);margin-top:18px}
+.rf-ley-eye{font-size:10.5px;font-weight:800;color:var(--ac-d);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.rf-ley h3{font-size:16px;font-weight:800;color:var(--g900);margin-bottom:8px;letter-spacing:-.008em}
+.rf-ley p{font-size:13px;color:var(--g600);line-height:1.65}
+.rf-ley p+p{margin-top:7px}
+.rf-ley p strong{color:var(--g800);font-weight:600}
+.rf-ley blockquote{font-size:13px;color:var(--g600);line-height:1.62;margin:12px 0 8px;padding:13px 18px;background:var(--ac-soft);border-left:3px solid var(--ac);border-radius:6px;font-style:italic}
+.rf-ley blockquote strong{color:var(--g900);font-style:normal;font-weight:700}
+
+/* BOTÓN SUBIR */
+.rf-top{position:fixed;right:18px;bottom:18px;z-index:60;width:46px;height:46px;border-radius:50%;border:0;background:var(--ac);color:#fff;box-shadow:0 6px 18px rgba(196,95,10,.38);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .18s,transform .18s,visibility .18s}
+.rf-top.show{opacity:1;visibility:visible;transform:none}
+.rf-top:hover{background:var(--ac-d)}
+
+@media (max-width:780px){body{padding:14px}.rf-hero{padding:22px 18px}.rf-ley{padding:18px 18px}}
+@media (max-width:620px){
+  body{padding:10px}
+  .rf-hero{padding:18px 15px;border-radius:12px}
+  .rf-hero h1{font-size:20px}
+  .rf-tile{padding:22px 20px 20px}
+  .rf-row{flex-wrap:wrap}
+  .rf-top{right:12px;bottom:12px;width:42px;height:42px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="rf-wrap" id="rfTop">
+
+  <!-- HERO -->
+  <section class="rf-hero">
+    <span class="rf-hero-tag">Art. 8 · Fracción VI · Inciso a) · Ley de Transparencia Jalisco</span>
+    <h1>Recursos financieros <em>El presupuesto que enmarca a Guadalajara y los ingresos que recibe</em></h1>
+    <p class="rf-hero-sub">En un solo lugar: las <strong>partidas del Presupuesto de Egresos de la Federación y del Estado de Jalisco</strong> —las grandes bolsas de las que provienen muchos recursos públicos— y los <strong>ingresos extraordinarios</strong> que recibe el municipio, con su origen, su destino y el nombre de quienes los administran. Elige un área para abrir y descargar los documentos oficiales.</p>
+  </section>
+
+  <!-- LANZADERA: 3 ICONOS GRANDES -->
+  <div class="rf-areas-eye" id="rfAreas">Elige un área</div>
+  <nav class="rf-launch" aria-label="Áreas de recursos financieros">
+
+    <a class="rf-tile fed" href="#sec-federal">
+      <span class="rf-tile-ico" aria-hidden="true">
+        <svg width="44" height="44" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M32 8 L56 22 H8 Z"/><line x1="10" y1="28" x2="54" y2="28"/><line x1="14" y1="28" x2="14" y2="48"/><line x1="23" y1="28" x2="23" y2="48"/><line x1="32" y1="28" x2="32" y2="48"/><line x1="41" y1="28" x2="41" y2="48"/><line x1="50" y1="28" x2="50" y2="48"/><line x1="12" y1="48" x2="52" y2="48"/><line x1="7" y1="54" x2="57" y2="54"/></svg>
+      </span>
+      <div class="rf-tile-eye">Gasto federal</div>
+      <h2>Presupuesto Federal</h2>
+      <p>Las partidas del <strong>Presupuesto de Egresos de la Federación</strong> que enmarcan el gasto público, ejercicio por ejercicio.</p>
+      <span class="rf-tile-chip"><b>2017–2026</b> · 10 documentos</span>
+      <span class="rf-tile-go">Ver documentos <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+    </a>
+
+    <a class="rf-tile est" href="#sec-estatal">
+      <span class="rf-tile-ico" aria-hidden="true">
+        <svg width="44" height="44" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M14 27 L32 15 L50 27"/><line x1="16" y1="27" x2="16" y2="52"/><line x1="48" y1="27" x2="48" y2="52"/><line x1="8" y1="54" x2="56" y2="54"/><path d="M27 52 V42 a5 5 0 0 1 10 0 V52"/><path d="M32 15 V6 M32 7 H44 L40 10 L44 13 H32"/></svg>
+      </span>
+      <div class="rf-tile-eye">Gasto estatal</div>
+      <h2>Presupuesto Estatal</h2>
+      <p>El <strong>Presupuesto de Egresos del Estado de Jalisco</strong>, por volúmenes y por año, tal como lo publica el Congreso del Estado.</p>
+      <span class="rf-tile-chip"><b>2017–2026</b> · 73 documentos</span>
+      <span class="rf-tile-go">Ver documentos <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+    </a>
+
+    <a class="rf-tile ing" href="#sec-ingresos">
+      <span class="rf-tile-ico" aria-hidden="true">
+        <svg width="44" height="44" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="29" cy="35" r="20"/><path d="M29 25 v20 M34 28.5 q-5 -3.5 -8 0 q-2.5 3 2.5 5.5 q6 2.5 3 6 q-3 3.5 -8 0" stroke-width="2.6"/><path d="M44 20 l9 -9 M53 11 h-7 M53 11 v7"/></svg>
+      </span>
+      <div class="rf-tile-eye">Ingresos · extraordinarios</div>
+      <h2>Ingresos Extraordinarios</h2>
+      <p>Los <strong>ingresos extraordinarios</strong> que recibe el municipio —su origen y destino— y el nombre de quienes los administran.</p>
+      <span class="rf-tile-chip"><b>2021–2026</b> · 12 documentos</span>
+      <span class="rf-tile-go">Ver documentos <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+    </a>
+
+  </nav>
+
+  <!-- SECCIÓN FEDERAL -->
+  <section class="rf-section fed" id="sec-federal">
+    <div class="rf-sec-head">
+      <span class="rf-sec-ico" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M32 8 L56 22 H8 Z"/><line x1="10" y1="28" x2="54" y2="28"/><line x1="14" y1="28" x2="14" y2="48"/><line x1="23" y1="28" x2="23" y2="48"/><line x1="32" y1="28" x2="32" y2="48"/><line x1="41" y1="28" x2="41" y2="48"/><line x1="50" y1="28" x2="50" y2="48"/><line x1="12" y1="48" x2="52" y2="48"/><line x1="7" y1="54" x2="57" y2="54"/></svg></span>
+      <div><div class="rf-sec-eye">Inciso a)</div><h2>Presupuesto de Egresos de la Federación</h2></div>
+    </div>
+    <p class="rf-sec-desc">El presupuesto que aprueba la Federación y que <strong>enmarca el gasto del municipio</strong> cada ejercicio. Se publican las partidas de cuando menos los últimos tres años; aquí está la serie completa <strong>2017–2026</strong>.</p>
+    <div class="rf-grid" id="rfFed"></div>
+    <a class="rf-back" href="#rfAreas"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg> Volver a las áreas</a>
+  </section>
+
+  <!-- SECCIÓN ESTATAL -->
+  <section class="rf-section est" id="sec-estatal">
+    <div class="rf-sec-head">
+      <span class="rf-sec-ico" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 27 L32 15 L50 27"/><line x1="16" y1="27" x2="16" y2="52"/><line x1="48" y1="27" x2="48" y2="52"/><line x1="8" y1="54" x2="56" y2="54"/><path d="M27 52 V42 a5 5 0 0 1 10 0 V52"/><path d="M32 15 V6 M32 7 H44 L40 10 L44 13 H32"/></svg></span>
+      <div><div class="rf-sec-eye">Inciso a)</div><h2>Presupuesto de Egresos del Estado de Jalisco</h2></div>
+    </div>
+    <p class="rf-sec-desc">El presupuesto estatal se publica <strong>por volúmenes</strong> (y, en algunos años, con su decreto). Abre el año que te interese para ver y descargar cada tomo, tal como lo publica el Congreso del Estado.</p>
+    <div id="rfEst"></div>
+    <a class="rf-back" href="#rfAreas"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg> Volver a las áreas</a>
+  </section>
+
+  <!-- SECCIÓN INGRESOS -->
+  <section class="rf-section ing" id="sec-ingresos">
+    <div class="rf-sec-head">
+      <span class="rf-sec-ico" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="29" cy="35" r="20"/><path d="M29 25 v20 M34 28.5 q-5 -3.5 -8 0 q-2.5 3 2.5 5.5 q6 2.5 3 6 q-3 3.5 -8 0" stroke-width="3"/><path d="M44 20 l9 -9 M53 11 h-7 M53 11 v7"/></svg></span>
+      <div><div class="rf-sec-eye">Inciso a)</div><h2>Ingresos extraordinarios y sus responsables</h2></div>
+    </div>
+    <p class="rf-sec-desc">Los recursos que el municipio recibe <strong>fuera de sus ingresos ordinarios</strong> —por cualquier concepto— con el origen del recurso, el proyecto o programa en que se aplican y <strong>el nombre de quienes los reciben, administran y ejercen</strong>.</p>
+    <div class="rf-subgroup">
+      <h3><span class="dot"></span>Ingresos extraordinarios recibidos</h3>
+      <p>Reporte por ejercicio del origen y destino de cada ingreso extraordinario.</p>
+      <div class="rf-list" id="rfIngx"></div>
+    </div>
+    <div class="rf-subgroup">
+      <h3><span class="dot"></span>Responsables de recibirlos, administrarlos y ejercerlos</h3>
+      <p>El nombre de las personas servidoras públicas responsables de cada ejercicio.</p>
+      <div class="rf-list" id="rfResp"></div>
+    </div>
+    <a class="rf-back" href="#rfAreas"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg> Volver a las áreas</a>
+  </section>
+
+  <!-- CIFRAS + FUNDAMENTO -->
+  <div class="rf-foot-title">La página en cifras</div>
+  <div class="rf-cifras">
+    <div class="rf-cifra"><div class="rf-cifra-num">95</div><div class="rf-cifra-lbl">Documentos oficiales</div></div>
+    <div class="rf-cifra"><div class="rf-cifra-num">3</div><div class="rf-cifra-lbl">Áreas de recursos</div></div>
+    <div class="rf-cifra"><div class="rf-cifra-num">2017–26</div><div class="rf-cifra-lbl">Ejercicios</div></div>
+  </div>
+
+  <section class="rf-ley">
+    <div class="rf-ley-eye">Fundamento legal</div>
+    <h3>¿Por qué el Ayuntamiento publica esta información?</h3>
+    <p>Es una obligación de transparencia. La ley ordena publicar, palabra por palabra, lo siguiente:</p>
+    <blockquote>«Artículo 8°. <strong>1.</strong> Es información fundamental, obligatoria para todos los sujetos obligados, la siguiente: (…) <strong>VI.</strong> La información sobre la gestión pública, que comprende: <strong>a)</strong> Las funciones públicas que realiza el sujeto obligado, donde se señale cuando menos el fundamento legal, la descripción de la función pública, así como los recursos materiales, humanos y financieros asignados para la realización de la función pública;»</blockquote>
+    <p>— <strong>Artículo 8, fracción VI, inciso a)</strong> de la <em>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</em>. Los archivos de esta página son los oficiales, tal como fueron publicados por el sujeto obligado; ante cualquier discrepancia, prevalece el documento oficial.</p>
+  </section>
+
+</div>
+
+<button type="button" class="rf-top" id="rfTopBtn" aria-label="Volver arriba" title="Volver arriba">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+/* ==========================================================================
+   Recursos financieros · Art. 8 Fracción V, incisos a) y b)
+   Datos verbatim del registro oficial del sujeto obligado (corte: 16/06/2026).
+   95 documentos verificados archivo por archivo (HTTP 200):
+   - Federal: 10 PDF (Presupuesto de Egresos de la Federación 2017-2026)
+   - Estatal: 73 PDF (Presupuesto de Egresos de Jalisco por volumen, 2017-2026)
+   - Ingresos extraordinarios: 6 XLSX + 6 XLSX de responsables (2021-2026)
+   Fuentes: /presupuesto-federal, /presupuestoestadojalisco{año}, /ingresosextraordinarios
+   ========================================================================== */
+(function(){
+  var FB='https://transparencia.guadalajara.gob.mx/sites/default/files/';
+  var PDFICO='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>';
+  var XLSICO='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="17"/><line x1="16" y1="13" x2="8" y2="17"/></svg>';
+  function url(f){ return (FB+f).replace(/ /g,'%20'); }
+  function pdfBtn(f,label){ return '<a class="rf-doc-btn" href="'+url(f)+'" target="_blank" rel="noopener noreferrer">'+PDFICO+(label||'Abrir PDF')+'</a>'; }
+  function xlsBtn(f){ return '<a class="rf-doc-btn xls" href="'+url(f)+'" target="_blank" rel="noopener noreferrer" download>'+XLSICO+'Descargar Excel</a>'; }
+
+  /* ---- FEDERAL ---- */
+  var FED=[2026,2025,2024,2023,2022,2021,2020,2019,2018,2017];
+  document.getElementById('rfFed').innerHTML = FED.map(function(y){
+    return '<div class="rf-card"><div class="rf-card-yr">'+y+'</div><div class="rf-card-t">Presupuesto de Egresos de la Federación</div>'+pdfBtn('PresupuestoEgresosFederacion-'+y+'.pdf','Abrir PDF')+'</div>';
+  }).join('');
+
+  /* ---- ESTATAL ---- */
+  function vols(year, roms){ return roms.map(function(r){ return 'PresupuestoJaliscoVol'+r+'-'+year+'.pdf'; }); }
+  function decreto(year){ return 'DecretoPresupuestoJalisco'+year+'.pdf'; }
+  var EST=[
+    {y:2026, files: vols(2026,['I','II','III','IV','V','VI','VII'])},
+    {y:2025, files: vols(2025,['I','II','III','IV','V','VI','VII'])},
+    {y:2024, files: vols(2024,['I','II','III','IV','V','VI']).concat(['PresupuestoJaliscoVolVII-A-2024.pdf','PresupuestoJaliscoVolVII-B-2024.pdf','PresupuestoJaliscoVolVII-C-2024.pdf'])},
+    {y:2023, files: vols(2023,['I','II','III','IV','V','VI','VII'])},
+    {y:2022, files: [decreto(2022)].concat(vols(2022,['I','II','III','IV','V','VI','VII']))},
+    {y:2021, files: [decreto(2021)].concat(vols(2021,['I','II','III','IV','V','VI','VII']))},
+    {y:2020, files: [decreto(2020)].concat(vols(2020,['I','II','III','IV','V']))},
+    {y:2019, files: vols(2019,['I','II','III','IV','V'])},
+    {y:2018, files: ['PresupuestoJaliscoVolI-2018.pdf','PresupuestoJaliscoVolII-2018.pdf','PresupuestoJaliscoVolIII-2018.pdf','PresupuestoJaliscoVolIV-2018-1.pdf','PresupuestoJaliscoVolIV-2018-2.pdf','PresupuestoJaliscoVolIV-2018-3.pdf','PresupuestoJaliscoVolIV-2018-4.pdf','PresupuestoJaliscoVolV-2018.pdf']},
+    {y:2017, files: vols(2017,['I','II','III','IV','V','VI','VII','VIII'])}
+  ];
+  function volLabel(fn){
+    if(/^Decreto/.test(fn)) return 'Decreto del Presupuesto';
+    var m=fn.match(/Vol([IVX]+(?:-[ABC])?)-(\d{4})(?:-(\d))?\.pdf$/);
+    if(m){ return 'Volumen '+m[1]+(m[3]?(' · parte '+m[3]):''); }
+    return fn.replace(/\.pdf$/,'');
+  }
+  document.getElementById('rfEst').innerHTML = EST.map(function(g,i){
+    var rows = g.files.map(function(fn){
+      return '<div class="rf-row"><span class="rf-row-t">'+volLabel(fn)+'</span>'+pdfBtn(fn,'Abrir PDF')+'</div>';
+    }).join('');
+    return '<details class="rf-acc"'+(i===0?' open':'')+'>'+
+      '<summary class="rf-acc-sum"><span class="rf-acc-yr">'+g.y+'</span>'+
+      '<span class="rf-acc-tx"><b>Presupuesto de Jalisco '+g.y+'</b><small>'+g.files.length+' documento'+(g.files.length===1?'':'s')+'</small></span>'+
+      '<svg class="rf-acc-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>'+
+      '</summary><div class="rf-acc-body">'+rows+'</div></details>';
+  }).join('');
+
+  /* ---- INGRESOS ---- */
+  var INGX=[
+    ['Ejercicio 2026','corte a abril','IngresosExtraordinariosAbril2026.xlsx'],
+    ['Ejercicio 2025','','IngresosExtraordinariosDiciembre2025.xlsx'],
+    ['Ejercicio 2024','','IngresosExtraordinariosDiciembre2024.xlsx'],
+    ['Ejercicio 2023','','IngresosExtraordinariosDiciembre2023.xlsx'],
+    ['Ejercicio 2022','','IngresosExtraordinariosDiciembre2022.xlsx'],
+    ['Ejercicio 2021','','IngresosExtraordinariosDiciembre2021.xlsx']
+  ];
+  var RESP=[
+    ['Ejercicio 2026','','Art8FraccionV-Inciso-b-Responsable-Recibir-Administrar-Ejercer-Ingresos-2026.xlsx'],
+    ['Ejercicio 2025','','Art8FraccionV-Inciso-b-Responsable-Recibir-Administrar-Ejercer-Ingresos-2025.xlsx'],
+    ['Ejercicio 2024','octubre – diciembre','Art8FraccionV-Inciso-b-Responsable-Recibir-Administrar-Ejercer-Ingresos-2024Oct-Dic.xlsx'],
+    ['Ejercicio 2023','','Art8FraccionV-Inciso-b-Responsable-Recibir-Administrar-Ejercer-Ingresos-2023.xlsx'],
+    ['Ejercicio 2022','','Art8FraccionV-Inciso-b-Responsable-Recibir-Administrar-Ejercer-Ingresos-2022.xlsx'],
+    ['Ejercicio 2021','','Art8FraccionV-Inciso-b-Responsable-Recibir-Administrar-Ejercer-Ingresos-2021.xlsx']
+  ];
+  function rowsOf(arr){
+    return arr.map(function(r){
+      return '<div class="rf-row"><span class="rf-row-t">'+r[0]+(r[1]?'<small>'+r[1]+'</small>':'')+'</span>'+xlsBtn(r[2])+'</div>';
+    }).join('');
+  }
+  document.getElementById('rfIngx').innerHTML = rowsOf(INGX);
+  document.getElementById('rfResp').innerHTML = rowsOf(RESP);
+
+  /* ---- Auto-altura para Strapi (anti-rebote) ---- */
+  var lastH=0;
+  function reportHeight(){
+    var h=Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight);
+    if(h && Math.abs(h-lastH)>1){ lastH=h; try{ parent.postMessage({type:'gdl-iframe-height',id:'recursos-financieros-art8-VI-a',height:h},'*'); }catch(e){} }
+  }
+  [].slice.call(document.querySelectorAll('.rf-acc')).forEach(function(d){ d.addEventListener('toggle', reportHeight); });
+  window.addEventListener('load', reportHeight);
+  window.addEventListener('resize', reportHeight);
+  setTimeout(reportHeight,300); setTimeout(reportHeight,1000);
+
+  /* ---- Botón subir ---- */
+  var b=document.getElementById('rfTopBtn');
+  function s(){ b.classList.toggle('show',(window.pageYOffset||document.documentElement.scrollTop)>320); }
+  window.addEventListener('scroll', s, {passive:true});
+  b.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+  s(); reportHeight();
+})();
+</script>
+</body>
+</html>
