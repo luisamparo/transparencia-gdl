@@ -13,8 +13,8 @@
   --ac:#E87722;--ac-l:#FFE4CC;--ac-d:#C45F0A;--ac-deeper:#8B4308;--ac-border:#F5C99A;--ac-soft:#FFF1E4;
   --g50:#FAFAF8;--g100:#F0F0EC;--g200:#E2E2DD;--g300:#CFCFC8;--g400:#9E9E98;--g600:#5A5A55;--g800:#2D2D2A;--g900:#1A1A1A;
   --wh:#FFF;
-  --veh:#C45F0A;--mue:#8B4308;--inm:#5A5A55;
-  --xls:#1D7044;--xls-l:#E1F3EA;--pdf:#C0392B;--pdf-l:#FBE7E5;
+  --veh:#E87722;--mue:#C45F0A;--inm:#D9700F;
+  --xls:#C45F0A;--xls-l:#FFE4CC;--pdf:#E87722;--pdf-l:#FFF1E4;
   --rad:10px;--rad-lg:14px;
   --sh:0 4px 22px rgba(0,0,0,.08);--sh-sm:0 1px 3px rgba(0,0,0,.06);--sh-md:0 6px 18px rgba(0,0,0,.07);
   --ease:cubic-bezier(.4,0,.2,1);
@@ -194,7 +194,7 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
       </div>
       <div class="bp-cat-body">
         <p class="bp-cat-desc">El parque vehicular del municipio: automóviles, camiones, motocicletas y maquinaria, con su descripción, valor y uso.</p>
-        <a class="bp-cat-cta" href="https://transparencia.guadalajara.gob.mx/sites/default/files/Vehiculos-Inventario-2026.xlsx" target="_blank" rel="noopener noreferrer">Inventario vigente <small>· Excel</small></a>
+        <a class="bp-cat-cta" href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Ftransparencia.guadalajara.gob.mx%2Fsites%2Fdefault%2Ffiles%2FVehiculos-Inventario-2026.xlsx" target="_blank" rel="noopener noreferrer">Ver inventario vigente <small>· en línea</small></a>
       </div>
     </div>
 
@@ -208,7 +208,7 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
       </div>
       <div class="bp-cat-body">
         <p class="bp-cat-desc">Mobiliario, equipo de cómputo, herramienta, maquinaria y demás bienes que se pueden trasladar, con su descripción, valor y régimen jurídico.</p>
-        <a class="bp-cat-cta" href="https://transparencia.guadalajara.gob.mx/sites/default/files/MueblesMayo26.xlsx" target="_blank" rel="noopener noreferrer">Inventario vigente <small>· Excel</small></a>
+        <a class="bp-cat-cta" href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Ftransparencia.guadalajara.gob.mx%2Fsites%2Fdefault%2Ffiles%2FMueblesMayo26.xlsx" target="_blank" rel="noopener noreferrer">Ver inventario vigente <small>· en línea</small></a>
       </div>
     </div>
 
@@ -222,7 +222,7 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
       </div>
       <div class="bp-cat-body">
         <p class="bp-cat-desc">Predios, edificios, parques y demás inmuebles del municipio, con su descripción, valor, régimen jurídico y uso o afectación.</p>
-        <a class="bp-cat-cta" href="https://transparencia.guadalajara.gob.mx/sites/default/files/BienesInmueblesMayoInventario2026.xlsx" target="_blank" rel="noopener noreferrer">Inventario vigente <small>· Excel</small></a>
+        <a class="bp-cat-cta" href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Ftransparencia.guadalajara.gob.mx%2Fsites%2Fdefault%2Ffiles%2FBienesInmueblesMayoInventario2026.xlsx" target="_blank" rel="noopener noreferrer">Ver inventario vigente <small>· en línea</small></a>
       </div>
     </div>
 
@@ -557,8 +557,17 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
   var CATS = { veh:'Vehículos', mue:'Bienes muebles', inm:'Bienes inmuebles' };
   var ADMIN = { act:'2024–2027', '2124':'2021–2024', '1821':'2018–2021' };
 
-  var ICO_DL = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>';
+  var ICO_DL = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';
 
+  /* Visor en linea: los Excel se abren con el visor de Office (sin descargar); los PDF abren directo en el navegador. */
+  function fileHref(fn){
+    var direct = PDF_BASE + encodeURI(fn);
+    var ext = fn.split('.').pop().toLowerCase();
+    if(ext === 'xlsx' || ext === 'xls'){
+      return 'https://view.officeapps.live.com/op/view.aspx?src=' + encodeURIComponent(direct);
+    }
+    return direct;
+  }
   function docBtn(fn, label, kind){
     if(!fn) return '';
     var ext = fn.split('.').pop().toLowerCase();
@@ -567,7 +576,7 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
     var cls = 'bp-doc';
     if(kind === 'inv') cls += ' bp-doc-inv';
     else if(kind === 'of') cls += ' bp-doc-of';
-    return '<a class="' + cls + '" href="' + PDF_BASE + encodeURI(fn) + '" target="_blank" rel="noopener noreferrer">' + ICO_DL + label + '<span class="bp-ext ' + extCls + '">' + extTx + '</span></a>';
+    return '<a class="' + cls + '" href="' + fileHref(fn) + '" target="_blank" rel="noopener noreferrer">' + ICO_DL + label + '<span class="bp-ext ' + extCls + '">' + extTx + '</span></a>';
   }
 
   var listEl = document.getElementById('bpList');
