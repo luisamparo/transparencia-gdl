@@ -41,6 +41,33 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
 .pp-hero-sub{font-size:14.5px;color:#5a4d3e;max-width:78ch;margin:0;line-height:1.6;position:relative;z-index:1}
 .pp-hero-sub strong{color:var(--g900);font-weight:700}
 
+/* BANNER ORGANIGRAMA (acceso destacado al organigrama interactivo) */
+.pp-orga{display:flex;align-items:center;gap:24px;background:linear-gradient(135deg,var(--nr) 0%,var(--nr-d) 100%);border-radius:var(--rad-lg);padding:26px 30px;margin:0 0 22px;text-decoration:none;color:#fff;box-shadow:0 8px 26px rgba(232,119,34,.30);transition:transform .18s var(--ease),box-shadow .18s var(--ease);position:relative;overflow:hidden}
+.pp-orga::before{content:'';position:absolute;top:-70px;right:-50px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.16) 0%,transparent 70%);pointer-events:none}
+.pp-orga:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(232,119,34,.40)}
+.pp-orga:focus-visible{outline:3px solid var(--g900);outline-offset:3px}
+.pp-orga-ico{flex-shrink:0;width:76px;height:76px;border-radius:18px;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;position:relative;z-index:1}
+.pp-orga-tx{flex:1;min-width:0;position:relative;z-index:1}
+.pp-orga-eye{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;opacity:.92;margin-bottom:5px}
+.pp-orga-tx h3{font-size:clamp(20px,2.6vw,25px);font-weight:800;letter-spacing:-.015em;line-height:1.18;margin-bottom:7px;color:#fff}
+.pp-orga-tx p{font-size:13.5px;line-height:1.55;opacity:.94;max-width:64ch}
+.pp-orga-tx p b{font-weight:800}
+.pp-orga-btn{flex-shrink:0;display:inline-flex;align-items:center;gap:9px;background:#fff;color:var(--nr-d);font-family:var(--fh);font-size:15.5px;font-weight:800;letter-spacing:-.01em;padding:15px 26px;border-radius:11px;box-shadow:0 4px 14px rgba(0,0,0,.16);position:relative;z-index:1;white-space:nowrap;transition:transform .15s var(--ease)}
+.pp-orga:hover .pp-orga-btn{transform:scale(1.04)}
+.pp-orga-btn svg{transition:transform .15s var(--ease)}
+.pp-orga:hover .pp-orga-btn svg{transform:translateX(3px)}
+/* Tipografia cinetica: onda letra por letra (titulo del banner + boton) */
+.pp-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.pp-orga .pp-kin{display:inline-block;animation:pp-kin-wave 3.2s var(--ease) infinite;animation-delay:calc(var(--i,0) * .05s);will-change:transform}
+.pp-orga .pp-kin-sp{display:inline-block;width:.3em}
+.pp-orga-tx h3 .pp-kin{--amp:.13em}
+.pp-orga:hover .pp-kin{animation-duration:2s}
+@keyframes pp-kin-wave{0%,64%,100%{transform:translateY(0)}73%{transform:translateY(calc(var(--amp,.24em) * -1))}82%{transform:translateY(calc(var(--amp,.24em) * .2))}90%{transform:translateY(0)}}
+@media (max-width:760px){
+  .pp-orga{flex-direction:column;align-items:flex-start;padding:22px 20px;gap:16px}
+  .pp-orga-btn{width:100%;justify-content:center}
+}
+
 /* CIFRAS (al pie) */
 .pp-stats{margin:26px 0 22px}
 .pp-stats-eyebrow{font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--nr-d);margin-bottom:11px}
@@ -188,6 +215,22 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
     <h2>Cada plaza del Ayuntamiento de Guadalajara, <em>contada y publicada</em></h2>
     <p class="pp-hero-sub">Las <strong>12,698 plazas</strong> que conforman la estructura del Ayuntamiento — quienes están ocupadas, quienes están vacantes esperando convocatoria, y cómo se distribuyen entre <strong>plazas de base</strong> (carrera permanente) y <strong>plazas de confianza</strong> (designación directa). Con corte oficial a <strong>mayo de 2026</strong>.</p>
   </section>
+
+  <!-- BANNER ORGANIGRAMA (acceso destacado) -->
+  <a class="pp-orga" href="https://enlinea.guadalajara.gob.mx/organigrama/" target="_blank" rel="noopener noreferrer">
+    <div class="pp-orga-ico" aria-hidden="true">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="5" rx="1"/><rect x="2" y="17" width="6" height="5" rx="1"/><rect x="16" y="17" width="6" height="5" rx="1"/><path d="M12 7v3"/><path d="M5 17v-2a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v2"/><path d="M12 10v4"/></svg>
+    </div>
+    <div class="pp-orga-tx">
+      <div class="pp-orga-eye">Estructura orgánica · Organigrama</div>
+      <h3 class="pp-kin-auto">Consulta el organigrama del Ayuntamiento</h3>
+      <p>Visualiza de forma interactiva las dependencias, direcciones y la jerarquía completa del Ayuntamiento de Guadalajara. La <b>plantilla de personal</b> —plazas totales, ocupadas y vacantes— se muestra a continuación en esta misma página.</p>
+    </div>
+    <span class="pp-orga-btn">
+      <span class="pp-kin-wrap" aria-hidden="true"><span class="pp-kin" style="--i:0">A</span><span class="pp-kin" style="--i:1">b</span><span class="pp-kin" style="--i:2">r</span><span class="pp-kin" style="--i:3">i</span><span class="pp-kin" style="--i:4">r</span><span class="pp-kin-sp"></span><span class="pp-kin" style="--i:5">o</span><span class="pp-kin" style="--i:6">r</span><span class="pp-kin" style="--i:7">g</span><span class="pp-kin" style="--i:8">a</span><span class="pp-kin" style="--i:9">n</span><span class="pp-kin" style="--i:10">i</span><span class="pp-kin" style="--i:11">g</span><span class="pp-kin" style="--i:12">r</span><span class="pp-kin" style="--i:13">a</span><span class="pp-kin" style="--i:14">m</span><span class="pp-kin" style="--i:15">a</span></span><span class="pp-sr-only">Abrir organigrama</span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </span>
+  </a>
 
   <!-- LEYENDA CIUDADANA -->
   <section class="pp-legend">
@@ -433,6 +476,29 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
 
 <script>
 (function(){
+  /* Tipografia cinetica: divide el texto marcado (.pp-kin-auto) en letras animadas */
+  function splitKin(el){
+    var text = (el.textContent || '').replace(/\s+/g, ' ').trim();
+    if(!text) return;
+    el.setAttribute('aria-label', text);
+    var wrap = document.createElement('span');
+    wrap.className = 'pp-kin-wrap';
+    wrap.setAttribute('aria-hidden', 'true');
+    var i = 0;
+    for (var c = 0; c < text.length; c++){
+      if (text.charAt(c) === ' '){
+        var sp = document.createElement('span'); sp.className = 'pp-kin-sp'; wrap.appendChild(sp);
+      } else {
+        var s = document.createElement('span'); s.className = 'pp-kin';
+        s.style.setProperty('--i', i); s.textContent = text.charAt(c);
+        wrap.appendChild(s); i++;
+      }
+    }
+    el.textContent = ''; el.appendChild(wrap);
+  }
+  var kinEls = document.querySelectorAll('.pp-kin-auto');
+  for (var n = 0; n < kinEls.length; n++) splitKin(kinEls[n]);
+
   function reportHeight(){
     var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight);
     try { parent.postMessage({ type: 'gdl-iframe-height', id: 'plantilla-personal-art8-V-e', height: h }, '*'); } catch (e){}
