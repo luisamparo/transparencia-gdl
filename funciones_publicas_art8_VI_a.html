@@ -292,9 +292,6 @@ body.modal-open{overflow:hidden}
             <th>Denominación del Área</th>
             <th>Norma &middot; Artículo</th>
             <th>Atribuciones</th>
-            <th>Recursos<br>Materiales</th>
-            <th>Recursos<br>Humanos</th>
-            <th>Recursos<br>Financieros</th>
           </tr>
         </thead>
         <tbody id="depBody"></tbody>
@@ -397,7 +394,7 @@ body.modal-open{overflow:hidden}
 
     const tbody = $('depBody');
     if(filtrados.length === 0){
-      tbody.innerHTML = '<tr><td colspan="7" class="empty"><div class="empty-h">Sin resultados para "' + esc(q) + '"</div><div class="empty-txt">Intenta con otro término (ej. "transparencia", "tesorería", "133").</div></td></tr>';
+      tbody.innerHTML = '<tr><td colspan="4" class="empty"><div class="empty-h">Sin resultados para "' + esc(q) + '"</div><div class="empty-txt">Intenta con otro término (ej. "transparencia", "tesorería", "133").</div></td></tr>';
     } else {
       tbody.innerHTML = filtrados.map((d, i) => {
         const np = parseNorma(d.norma);
@@ -407,9 +404,6 @@ body.modal-open{overflow:hidden}
           '<td class="td-dep">' + esc(d.denominacion) + '</td>' +
           '<td class="td-norma">' + esc(np.norma) + (np.articulo ? '<span class="td-norma-art">' + esc(np.articulo) + '</span>' : '') + '</td>' +
           '<td class="td-atribuciones"><button type="button" class="btn-ver" data-dep-idx="' + indexOriginal + '" aria-label="Ver atribuciones completas de ' + esc(d.denominacion) + '"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> Ver detalle</button></td>' +
-          '<td class="td-rec"><button type="button" class="btn-rec materiales" data-rec="materiales" title="Ver Recursos Materiales (bienes patrimoniales)" aria-label="Ver Recursos Materiales">M</button></td>' +
-          '<td class="td-rec"><button type="button" class="btn-rec humanos" data-rec="humanos" title="Ver Recursos Humanos (estructura y plantilla)" aria-label="Ver Recursos Humanos">H</button></td>' +
-          '<td class="td-rec"><button type="button" class="btn-rec financieros" data-rec="financieros" title="Ver Recursos Financieros (ingresos extraordinarios)" aria-label="Ver Recursos Financieros">F</button></td>' +
         '</tr>';
       }).join('');
     }
