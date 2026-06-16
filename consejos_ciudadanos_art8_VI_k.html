@@ -71,7 +71,11 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
 .kc-acc[open] .kc-sum{border-bottom:1px solid var(--g100)}
 
 /* ===== CONTENIDO ===== */
-.kc-body{padding:6px 16px 16px;background:linear-gradient(180deg,#FCFAF6 0%,#FFFFFF 60px)}
+.kc-body{padding:6px 16px 16px;background:linear-gradient(180deg,#FCFAF6 0%,#FFFFFF 60px);max-height:520px;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:var(--ac) var(--ac-soft)}
+.kc-body::-webkit-scrollbar{width:11px}
+.kc-body::-webkit-scrollbar-track{background:var(--ac-soft);border-radius:9px;margin:6px}
+.kc-body::-webkit-scrollbar-thumb{background:var(--ac);border-radius:9px;border:2px solid var(--ac-soft)}
+.kc-body::-webkit-scrollbar-thumb:hover{background:var(--ac-d)}
 .kc-grp{margin-top:14px}
 .kc-grp.hide{display:none}
 .kc-grp-h{display:flex;align-items:center;gap:9px;margin:0 2px 8px;padding-bottom:7px;border-bottom:1.5px solid var(--g100)}
@@ -132,6 +136,7 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
 </style>
 </head>
 <body>
+<span id="kcTopAnchor" aria-hidden="true" style="position:absolute;top:0"></span>
 <div class="kc-wrap">
 
   <section class="kc-hero">
@@ -282,7 +287,7 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
   var accs=[].slice.call(document.querySelectorAll('.kc-acc'));
   var grps=[].slice.call(document.querySelectorAll('.kc-grp'));
   var docsEls=[].slice.call(document.querySelectorAll('.kc-doc'));
-  var curT='all';
+  var curT='all', suppressAcc=false;
   function apply(){
     var raw=inp.value.replace(/^\s+|\s+$/g,''); var toks=norm(raw).split(/\s+/).filter(Boolean);
     box.classList.toggle('has-q', raw.length>0);
@@ -293,8 +298,10 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
       el.classList.toggle('hide', !ok); if(ok) vis++; }
     for(var g=0;g<grps.length;g++){ grps[g].classList.toggle('hide', grps[g].querySelectorAll('.kc-doc:not(.hide)').length===0); }
     var active=(toks.length>0||curT!=='all');
+    suppressAcc=true;
     for(var a=0;a<accs.length;a++){ var any=accs[a].querySelectorAll('.kc-doc:not(.hide)').length;
       accs[a].classList.toggle('hide', any===0); if(active&&any>0) accs[a].open=true; else if(!active) accs[a].open=false; }
+    suppressAcc=false;
     if(vis===0){ count.innerHTML=''; noResQ.textContent='«'+(raw||(TIPOS[curT]&&TIPOS[curT].n)||'')+'»'; noRes.className='kc-noresults show'; }
     else { count.innerHTML='<b>'+vis+'</b> documento'+(vis===1?'':'s')+(active?' encontrado'+(vis===1?'':'s'):' en 8 consejos'); noRes.className='kc-noresults'; }
     reportHeight();
@@ -305,14 +312,22 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
     [].slice.call(this.querySelectorAll('.kc-chip')).forEach(function(x){x.classList.remove('active');});
     b.classList.add('active'); curT=b.getAttribute('data-t'); apply(); });
   apply();
-  for(var a2=0;a2<accs.length;a2++){ accs[a2].addEventListener('toggle', reportHeight); }
+  for(var a2=0;a2<accs.length;a2++){ accs[a2].addEventListener('toggle', function(){
+    if(!suppressAcc && this.open){
+      for(var z=0;z<accs.length;z++){ if(accs[z]!==this) accs[z].open=false; }
+      var bd=this.querySelector('.kc-body'); if(bd) bd.scrollTop=0;
+      var self=this; setTimeout(function(){ try{ self.scrollIntoView({behavior:'smooth',block:'start'}); }catch(e){} }, 40);
+    }
+    scn(); reportHeight();
+  }); }
 
   function reportHeight(){ var h=Math.max(document.body.scrollHeight,document.body.offsetHeight,document.documentElement.offsetHeight); try{ parent.postMessage({type:'gdl-iframe-height',id:'consejos-ciudadanos-art8-VI-k',height:h},'*'); }catch(e){} }
   window.addEventListener('load', reportHeight); window.addEventListener('resize', reportHeight);
   setTimeout(reportHeight,300); setTimeout(reportHeight,1000);
   var tb=document.getElementById('kcTopBtn');
-  function scn(){ tb.classList.toggle('show',(window.pageYOffset||document.documentElement.scrollTop)>320); }
-  window.addEventListener('scroll', scn, {passive:true}); tb.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); }); scn();
+  function scn(){ var anyOpen=!!document.querySelector('.kc-acc[open]'); var sc=(window.pageYOffset||document.documentElement.scrollTop)>200; tb.classList.toggle('show', anyOpen||sc); }
+  function goTop(){ var t=document.getElementById('kcTopAnchor'); if(t){ try{ t.scrollIntoView({behavior:'smooth',block:'start'}); }catch(e){} } try{ window.scrollTo({top:0,behavior:'smooth'}); }catch(e){} }
+  window.addEventListener('scroll', scn, {passive:true}); tb.addEventListener('click', goTop); scn();
 })();
 </script>
 </body>
