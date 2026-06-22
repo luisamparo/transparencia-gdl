@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Los ingresos del Ayuntamiento de Guadalajara: el reporte mensual de ingresos recibidos (2018–2026), los responsables de recibirlos, administrarlos y ejercerlos, la Ley de Ingresos de cada año y la normatividad y calendario aplicables. Art. 8, Fracción XII de la Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios."/>
+<title>Ingresos recibidos, administrados y ejercidos · Guadalajara · Art. 8 Frac. XII</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ac:#E87722;--ac-l:#FFE4CC;--ac-d:#C45F0A;--ac-deeper:#8B4308;--ac-border:#F5C99A;--ac-soft:#FFF1E4;
+  --g50:#FAFAF8;--g100:#F0F0EC;--g200:#E2E2DD;--g300:#CFCFC8;--g400:#9E9E98;--g600:#5A5A55;--g800:#2D2D2A;--g900:#1A1A1A;
+  --wh:#FFF;--ok:#16A34A;--ok-d:#0E6B4C;--ok-l:#DCFCE7;--ok-border:#A7E8C0;
+  --rad:10px;--rad-lg:14px;
+  --sh:0 4px 22px rgba(0,0,0,.08);--sh-sm:0 1px 3px rgba(0,0,0,.06);--sh-md:0 6px 18px rgba(0,0,0,.07);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --fh:'Outfit',system-ui,-apple-system,sans-serif;
+  --fm:'DM Mono','SF Mono',Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--g900);line-height:1.55;-webkit-font-smoothing:antialiased}
+.ir-wrap{max-width:1040px;margin:0 auto}
+.ir-hero{background:linear-gradient(135deg,var(--ac-soft) 0%,#FFFFFF 55%);color:var(--g900);border-radius:var(--rad-lg);padding:28px 32px;margin:0 0 20px;position:relative;overflow:hidden;border-left:5px solid var(--ac);box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.ir-hero::before{content:'';position:absolute;top:-66px;right:-66px;width:210px;height:210px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.12) 0%,transparent 70%);pointer-events:none}
+.ir-hero-tag{display:inline-block;background:var(--ac);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;position:relative;z-index:1;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.ir-hero h1{margin:0 0 9px;font-size:clamp(22px,3.2vw,29px);font-weight:800;color:var(--g900);letter-spacing:-.018em;line-height:1.2;position:relative;z-index:1}
+.ir-hero h1 em{font-style:normal;color:var(--ac-d);display:block;margin-top:3px}
+.ir-hero-sub{font-size:14.5px;color:var(--g600);max-width:74ch;margin:0;line-height:1.62;position:relative;z-index:1}
+.ir-hero-sub strong{color:var(--g900);font-weight:700}
+.ir-hero-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;position:relative;z-index:1}
+.ir-chip{display:inline-flex;align-items:center;gap:6px;background:var(--wh);border:1.5px solid var(--ac-border);color:var(--ac-d);font-size:11.5px;font-weight:700;padding:5px 12px;border-radius:20px}
+.ir-chip b{font-family:var(--fm);font-weight:500}
+.ir-chip.neutral{border-color:var(--g200);color:var(--g600)}
+.ir-search-wrap{margin:0 0 12px}
+.ir-search{position:relative;display:flex;align-items:center;background:var(--wh);border:1.5px solid var(--g200);border-radius:12px;box-shadow:var(--sh-sm);transition:border-color .15s,box-shadow .15s}
+.ir-search:focus-within{border-color:var(--ac);box-shadow:0 0 0 3px rgba(232,119,34,.12)}
+.ir-search>svg{position:absolute;left:15px;color:var(--g400);pointer-events:none}
+.ir-search input{flex:1;width:100%;border:0;outline:0;background:transparent;font-family:var(--fh);font-size:14.5px;color:var(--g900);padding:13px 46px}
+.ir-search input::placeholder{color:var(--g400)}
+.ir-search input::-webkit-search-cancel-button{display:none}
+.ir-clear{position:absolute;right:8px;width:34px;height:34px;border:0;background:var(--g100);color:var(--g600);border-radius:50%;font-size:19px;line-height:1;cursor:pointer;display:none;align-items:center;justify-content:center;transition:background .14s;font-family:var(--fh)}
+.ir-clear:hover{background:var(--g200);color:var(--g900)}
+.ir-search.has-q .ir-clear{display:flex}
+.ir-chips{display:flex;flex-wrap:wrap;gap:7px;margin:0 2px 12px}
+.ir-chip-f{font-family:var(--fh);font-size:12.5px;font-weight:700;padding:6px 14px;border-radius:20px;border:1.5px solid var(--g200);background:var(--wh);color:var(--g600);cursor:pointer;transition:all .13s var(--ease);display:inline-flex;align-items:center;gap:7px}
+.ir-chip-f:hover{border-color:var(--ac-border);color:var(--ac-d)}
+.ir-chip-f.active{background:var(--ac);border-color:var(--ac);color:#fff;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.ir-chip-f .n{font-family:var(--fm);font-size:11px;opacity:.85}
+.ir-count{font-size:12px;color:var(--g600);font-weight:600;margin:0 2px 16px}
+.ir-count b{color:var(--ac-d);font-family:var(--fm);font-weight:500}
+.ir-acc{border:1.5px solid var(--g200);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);background:var(--wh);overflow:hidden;margin-bottom:12px}
+.ir-acc.hide{display:none}
+.ir-sum{list-style:none;cursor:pointer;padding:15px 20px;display:flex;align-items:center;gap:15px;user-select:none}
+.ir-sum::-webkit-details-marker{display:none}
+.ir-sum-ico{flex-shrink:0;width:42px;height:42px;border-radius:11px;background:var(--ac-soft);color:var(--ac-d);border:1px solid var(--ac-border);display:flex;align-items:center;justify-content:center}
+.ir-sum-tx{flex:1;display:flex;flex-direction:column;gap:1px;min-width:0}
+.ir-sum-t{font-size:15px;font-weight:800;color:var(--g900);letter-spacing:-.01em}
+.ir-sum-tx small{font-size:11.5px;color:var(--g600);font-weight:500}
+.ir-sum-n{flex-shrink:0;font-family:var(--fm);font-size:12px;font-weight:500;color:var(--ac-d);background:var(--ac-soft);border:1px solid var(--ac-border);padding:3px 10px;border-radius:20px}
+.ir-chev{flex-shrink:0;color:var(--g400);transition:transform .2s var(--ease)}
+.ir-acc[open] .ir-chev{transform:rotate(180deg)}
+.ir-acc[open] .ir-sum{border-bottom:1px solid var(--g200);background:var(--g50)}
+.ir-acc-body{padding:9px 14px 14px}
+.ir-yh{font-family:var(--fm);font-size:11px;font-weight:500;color:var(--g600);letter-spacing:.04em;margin:14px 6px 8px;display:flex;align-items:center;gap:9px}
+.ir-yh:first-child{margin-top:4px}
+.ir-yh::after{content:'';flex:1;height:1px;background:var(--g200)}
+.ir-row{display:flex;align-items:center;gap:14px;padding:11px 14px;border-radius:10px;border:1px solid var(--g100);background:var(--g50);transition:border-color .14s,background .14s}
+.ir-row+.ir-row{margin-top:7px}
+.ir-row:hover{border-color:var(--ac-border);background:var(--wh)}
+.ir-row.gone{display:none}
+.ir-row.naf{opacity:.7}
+.ir-row-main{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+.ir-row-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ir-yb{flex-shrink:0;font-family:var(--fm);font-size:11px;font-weight:500;color:var(--ac-d);background:var(--ac-soft);border:1px solid var(--ac-border);padding:2px 9px;border-radius:6px}
+.ir-tag{display:inline-flex;align-items:center;font-size:9.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:20px;white-space:nowrap;background:var(--ac-l);color:var(--ac-d)}
+.ir-tag.na{background:var(--g100);color:var(--g400)}
+.ir-row-t{font-size:13.5px;font-weight:700;color:var(--g900);letter-spacing:-.005em;line-height:1.4}
+.ir-na{flex-shrink:0;font-size:11px;font-weight:700;color:var(--g400);font-style:italic}
+.ir-btn{flex-shrink:0;display:inline-flex;align-items:center;gap:7px;font-family:var(--fh);font-size:12px;font-weight:700;padding:8px 14px;border-radius:9px;cursor:pointer;text-decoration:none;border:1.5px solid var(--ac);background:var(--ac);color:#fff;transition:all .14s var(--ease);white-space:nowrap}
+.ir-btn:hover{background:var(--ac-d);border-color:var(--ac-d);transform:translateY(-1px)}
+.ir-btn svg{flex-shrink:0}
+.ir-btn.xls{background:var(--wh);color:var(--ok-d);border-color:var(--ok-border)}
+.ir-btn.xls:hover{background:var(--ok-l);border-color:var(--ok);color:var(--ok-d)}
+.ir-noresults{display:none;background:var(--ac-soft);border:1.5px solid var(--ac-border);border-radius:var(--rad-lg);padding:22px 24px;font-size:13.5px;color:var(--g800);line-height:1.6;text-align:center;margin-top:4px}
+.ir-noresults.show{display:block}
+.ir-noresults strong{color:var(--ac-d);font-weight:700}
+.ir-mig{display:flex;gap:11px;align-items:flex-start;background:var(--ac-soft);border:1px solid var(--ac-border);border-radius:var(--rad-lg);padding:14px 18px;margin:4px 0 0;font-size:12.5px;color:var(--g800);line-height:1.55}
+.ir-mig svg{flex-shrink:0;color:var(--ac-d);margin-top:1px}
+.ir-mig b{color:var(--g900);font-weight:700}
+.ir-foot-title{font-size:12.5px;font-weight:800;color:var(--g800);letter-spacing:.1em;text-transform:uppercase;margin:34px 4px 16px;display:flex;align-items:center;gap:10px}
+.ir-foot-title::after{content:'';flex:1;height:1.5px;background:var(--g200);border-radius:2px}
+.ir-cifras{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:12px;margin-bottom:4px}
+.ir-cifra{background:var(--wh);border:1.5px solid var(--ac-border);border-radius:var(--rad);padding:16px 18px;display:flex;flex-direction:column;gap:2px;transition:border-color .18s,transform .18s}
+.ir-cifra:hover{border-color:var(--ac);transform:translateY(-2px)}
+.ir-cifra-num{font-family:var(--fm);font-size:30px;font-weight:700;line-height:1;color:var(--ac-d);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.ir-cifra-lbl{font-size:11px;font-weight:700;color:var(--g800);text-transform:uppercase;letter-spacing:.06em;margin-top:6px;line-height:1.3}
+.ir-cifra-sub{font-size:10.5px;color:var(--g400);margin-top:1px}
+.ir-info{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.ir-info-card{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);border-top:5px solid var(--ac);padding:18px 20px;display:flex;flex-direction:column;gap:8px}
+.ir-info-ico{width:40px;height:40px;border-radius:11px;background:var(--ac-soft);color:var(--ac-d);display:flex;align-items:center;justify-content:center;margin-bottom:2px}
+.ir-info-card h3{font-size:14.5px;font-weight:800;color:var(--g900);letter-spacing:-.01em;line-height:1.3}
+.ir-info-card p{font-size:12.5px;color:var(--g600);line-height:1.6}
+.ir-info-card p strong{color:var(--g800);font-weight:700}
+.ir-ley{background:var(--wh);border-radius:var(--rad-lg);padding:22px 26px;border-left:4px solid var(--ac-d);box-shadow:var(--sh-sm);margin-top:22px}
+.ir-ley-head{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.ir-ley-seal{flex-shrink:0;width:46px;height:46px;border-radius:50%;background:var(--ac-soft);border:2px solid var(--ac);color:var(--ac-d);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(232,119,34,.18)}
+.ir-ley-eye{font-size:10.5px;font-weight:800;color:var(--ac-d);letter-spacing:.14em;text-transform:uppercase;margin-bottom:3px}
+.ir-ley h3{font-size:16px;font-weight:800;color:var(--g900);letter-spacing:-.008em;margin:0}
+.ir-ley p{font-size:13px;color:var(--g600);line-height:1.65;max-width:80ch}
+.ir-ley p+p{margin-top:7px}
+.ir-ley p strong{color:var(--g800);font-weight:600}
+.ir-ley blockquote{font-size:13.5px;color:var(--g600);line-height:1.65;margin:12px 0 8px;padding:13px 18px;background:var(--ac-soft);border-left:3px solid var(--ac);border-radius:6px;font-style:italic;max-width:80ch;overflow-wrap:anywhere}
+.ir-ley blockquote strong{color:var(--g900);font-style:normal;font-weight:700}
+.ir-ley-fuente{margin-top:14px;font-size:11.5px;color:var(--g400);line-height:1.6;font-family:var(--fm)}
+.ir-top{position:fixed;right:18px;bottom:18px;z-index:60;width:46px;height:46px;border-radius:50%;border:0;background:var(--ac);color:#fff;box-shadow:0 6px 18px rgba(196,95,10,.38);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .18s,transform .18s,visibility .18s}
+.ir-top.show{opacity:1;visibility:visible;transform:none}
+.ir-top:hover{background:var(--ac-d)}
+.ir-chip-f:focus-visible,.ir-btn:focus-visible,.ir-clear:focus-visible,.ir-top:focus-visible,.ir-sum:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(232,119,34,.45)}
+@media (min-width:781px) and (max-width:1024px){body{padding:20px}.ir-hero{padding:26px 28px}.ir-ley{padding:20px 24px}}
+@media (max-width:860px){.ir-info{grid-template-columns:1fr}}
+@media (max-width:780px){body{padding:14px}.ir-hero{padding:22px 18px}.ir-ley{padding:18px 18px}}
+@media (max-width:600px){
+  body{padding:10px}
+  .ir-hero{padding:18px 15px;border-radius:12px}.ir-hero h1{font-size:19px;line-height:1.24}.ir-hero-tag{font-size:9.5px;padding:4px 11px}
+  .ir-sum{padding:14px 15px;gap:12px}.ir-sum-ico{width:38px;height:38px}.ir-sum-t{font-size:14px}.ir-acc-body{padding:7px 10px 12px}
+  .ir-row{flex-direction:column;align-items:stretch;gap:10px}.ir-row .ir-btn{width:100%;justify-content:center;padding:12px 14px;font-size:13px}
+  .ir-ley blockquote{padding:12px 14px;font-size:13px}.ir-ley{margin-bottom:64px}.ir-top{right:12px;bottom:12px;width:44px;height:44px}
+}
+@media (max-width:380px){.ir-hero{padding:18px 14px}.ir-hero h1{font-size:18px}.ir-hero-sub{font-size:13.5px}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="ir-wrap" id="irTop">
+
+  <section class="ir-hero">
+    <span class="ir-hero-tag">Art. 8 · Fracción XII · Ley de Transparencia Jalisco</span>
+    <h1>¿Cuánto dinero entra a Guadalajara y quién responde por él? <em>Ingresos recibidos, administrados y ejercidos</em></h1>
+    <p class="ir-hero-sub">El <strong>reporte mensual de los ingresos</strong> que recibe el municipio, el <strong>nombre de los responsables</strong> de recibirlos, administrarlos y ejercerlos, la <strong>Ley de Ingresos</strong> de cada año y la normatividad aplicable. Documentos del más antiguo a la fecha.</p>
+    <div class="ir-hero-meta">
+      <span class="ir-chip"><b>113</b> documentos</span>
+      <span class="ir-chip neutral">Ingresos mensuales <b>2018 – 2026</b></span>
+      <span class="ir-chip neutral">Ley de Ingresos <b>2018 – 2026</b></span>
+    </div>
+  </section>
+
+  <div class="ir-search-wrap">
+    <div class="ir-search">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="irQ" type="search" autocomplete="off" placeholder="Busca por mes, año o tipo… (ej.: marzo 2022, ley de ingresos 2024, responsable)" aria-label="Buscar un documento por mes, año o tipo"/>
+      <button type="button" class="ir-clear" id="irClear" aria-label="Limpiar búsqueda" title="Limpiar">&times;</button>
+    </div>
+  </div>
+  <div class="ir-chips" id="irChips"></div>
+  <div class="ir-count" id="irCount"></div>
+
+  <div id="irCats"></div>
+  <div class="ir-noresults" id="irNoRes">No encontramos documentos que coincidan con <strong id="irNoResQ"></strong>. Prueba con un mes y año («marzo 2022»), «ley de ingresos» o «responsable».</div>
+
+  <div class="ir-mig" id="irMig"></div>
+
+  <div class="ir-foot-title">La página en cifras</div>
+  <div class="ir-cifras">
+    <div class="ir-cifra"><div class="ir-cifra-num">113</div><div class="ir-cifra-lbl">Documentos</div><div class="ir-cifra-sub">Del más antiguo (2015) a 2026</div></div>
+    <div class="ir-cifra"><div class="ir-cifra-num">91</div><div class="ir-cifra-lbl">Reportes mensuales</div><div class="ir-cifra-sub">Octubre 2018 – Abril 2026</div></div>
+    <div class="ir-cifra"><div class="ir-cifra-num">10</div><div class="ir-cifra-lbl">Leyes de Ingresos</div><div class="ir-cifra-sub">2018 – 2026 (con 1 reforma)</div></div>
+  </div>
+
+  <div class="ir-foot-title">Para entenderlo mejor</div>
+  <div class="ir-info">
+    <div class="ir-info-card">
+      <div class="ir-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/><path d="m16.71 13.88.7.71-2.82 2.82"/></svg></div>
+      <h3>¿Qué son los ingresos del municipio?</h3>
+      <p>Es <strong>todo el dinero que recibe Guadalajara</strong>: impuestos (como el predial), derechos, multas, participaciones federales y estatales. Esta sección reporta cuánto entró cada mes.</p>
+    </div>
+    <div class="ir-info-card">
+      <div class="ir-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="m9 15 2 2 4-4"/></svg></div>
+      <h3>¿Qué es la Ley de Ingresos?</h3>
+      <p>Es la <strong>ley que cada año autoriza</strong> qué puede cobrar el municipio y cuánto. Define las tarifas del predial, derechos y aprovechamientos para ese ejercicio fiscal.</p>
+    </div>
+    <div class="ir-info-card">
+      <div class="ir-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m16 11 2 2 4-4"/></svg></div>
+      <h3>¿Quién es el responsable?</h3>
+      <p>La ley obliga a publicar <strong>quién recibe, administra y ejerce</strong> el dinero público. Así hay un nombre y un cargo que responde por cada peso que entra.</p>
+    </div>
+    <div class="ir-info-card">
+      <div class="ir-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></div>
+      <h3>¿Para qué te sirve?</h3>
+      <p>Para <strong>seguir el dinero</strong> de tu ciudad: cuánto entra, de dónde viene y a dónde se destina. Es el primer eslabón de la rendición de cuentas.</p>
+    </div>
+  </div>
+
+  <section class="ir-ley">
+    <div class="ir-ley-head">
+      <span class="ir-ley-seal" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg></span>
+      <div>
+        <div class="ir-ley-eye">Fundamento legal</div>
+        <h3>¿Por qué el Ayuntamiento publica esta información?</h3>
+      </div>
+    </div>
+    <p>Es una obligación de transparencia. La ley ordena publicar, palabra por palabra, lo siguiente:</p>
+    <blockquote>«Artículo 8°. <strong>1.</strong> Es información fundamental, obligatoria para todos los sujetos obligados, la siguiente: (…) <strong>XII.</strong> Los ingresos recibidos por cualquier concepto señalado el nombre de los responsables de recibirlos, administrarlos y ejercerlos, así como su destino, indicando el destino de cada uno de ellos;»</blockquote>
+    <p>— <strong>Artículo 8, fracción XII</strong> de la <em>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</em>. Los archivos de esta página son los oficiales, tal como fueron publicados por el sujeto obligado; ante cualquier discrepancia, prevalece el documento oficial.</p>
+    <div class="ir-ley-fuente">
+      Fuente oficial: portal de transparencia del Ayuntamiento de Guadalajara · sección «Ingresos recibidos, administrados y ejercidos».<br>
+      113 documentos verificados en línea uno por uno. 1 archivo (Ingresos recibidos mayo 2021) no está disponible en el origen y se marca como tal.
+    </div>
+  </section>
+
+</div>
+
+<button type="button" class="ir-top" id="irTopBtn" aria-label="Volver arriba" title="Volver arriba">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+/* ==========================================================================
+   Ingresos recibidos, administrados y ejercidos · Art. 8 Fracción XII (LTAIPEJM)
+   Datos verbatim del registro oficial del sujeto obligado. 113 documentos
+   verificados en línea uno por uno (HTTP 200): 91 reportes mensuales de
+   ingresos recibidos (octubre 2018 – abril 2026), 7 documentos de "Responsable
+   de recibir, administrar y ejercer", 10 Leyes de Ingresos (2018–2026, una
+   reforma) y 5 documentos de normatividad y calendario. 1 archivo (ingresos
+   mayo 2021) responde 404 en el origen y se marca como NO DISPONIBLE. Excel
+   abren en vista previa (visor de Office); los PDF abren en el navegador.
+   Íconos Lucide. Sin enlaces a páginas del portal anterior.
+   ========================================================================== */
+var XII = [
+    {
+        "cat":  "RESP",
+        "year":  2026,
+        "mn":  4,
+        "month":  "Abril",
+        "reforma":  0,
+        "label":  "Responsable de recibir, administrar y ejercer",
+        "file":  "Art8FraccionXII-Responsable-Recibir-Administrar-Ejercer-Ingresos-Abril-2026.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2026,
+        "mn":  4,
+        "month":  "Abril",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosAbril26.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2026,
+        "mn":  3,
+        "month":  "Marzo",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosMarzo26.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2026,
+        "mn":  2,
+        "month":  "Febrero",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosFebrero26.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2026,
+        "mn":  1,
+        "month":  "Enero",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosEnero26.xlsx"
+    },
+    {
+        "cat":  "RESP",
+        "year":  2025,
+        "mn":  12,
+        "month":  "Diciembre",
+        "reforma":  0,
+        "label":  "Responsable de recibir, administrar y ejercer",
+        "file":  "Art8FraccionXII-Responsable-Recibir-Administrar-Ejercer-Ingresos-Diciembre-2025.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2025,
+        "mn":  12,
+        "month":  "Diciembre",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosDiciembre25.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2025,
+        "mn":  11,
+        "month":  "Noviembre",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosNoviembre25.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2025,
+        "mn":  10,
+        "month":  "Octubre",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosOctubre25.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2025,
+        "mn":  9,
+        "month":  "Septiembre",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosSeptiembre25.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2025,
+        "mn":  8,
+        "month":  "Agosto",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosAgosto25.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2025,
+        "mn":  7,
+        "month":  "Julio",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosJulio25.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2025,
+        "mn":  6,
+        "month":  "Junio",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosJunio25.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2025,
+        "mn":  5,
+        "month":  "Mayo",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosMayo25.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2025,
+        "mn":  4,
+        "month":  "Abril",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosAbril25.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2025,
+        "mn":  3,
+        "month":  "Marzo",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosMarzo25.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2025,
+        "mn":  2,
+        "month":  "Febrero",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosFebrero25.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2025,
+        "mn":  1,
+        "month":  "Enero",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosEnero25.xlsx"
+    },
+    {
+        "cat":  "RESP",
+        "year":  2024,
+        "mn":  9,
+        "month":  "Septiembre",
+        "reforma":  0,
+        "label":  "Responsable de recibir, administrar y ejercer",
+        "file":  "Art8FraccionXII-Responsable-Recibir-Administrar-Ejercer-Ingresos-Septiembre-2024.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2024,
+        "mn":  12,
+        "month":  "Diciembre",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosDiciembre24.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2024,
+        "mn":  11,
+        "month":  "Noviembre",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosNoviembre24.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2024,
+        "mn":  10,
+        "month":  "Octubre",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosOctubre24.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2024,
+        "mn":  9,
+        "month":  "Septiembre",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosSeptiembre24.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2024,
+        "mn":  8,
+        "month":  "Agosto",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosAgosto24.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2024,
+        "mn":  7,
+        "month":  "Julio",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosJulio24.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2024,
+        "mn":  6,
+        "month":  "Junio",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosJunio24.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2024,
+        "mn":  5,
+        "month":  "Mayo",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosMayo24.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2024,
+        "mn":  4,
+        "month":  "Abril",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosAbril24.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2024,
+        "mn":  3,
+        "month":  "Marzo",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosMarzo24.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2024,
+        "mn":  2,
+        "month":  "Febrero",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosFebrero24.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2024,
+        "mn":  1,
+        "month":  "Enero",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosEnero24.xlsx"
+    },
+    {
+        "cat":  "RESP",
+        "year":  2023,
+        "mn":  12,
+        "month":  "Diciembre",
+        "reforma":  0,
+        "label":  "Responsable de recibir, administrar y ejercer",
+        "file":  "Art8FraccionXII-Responsable-Recibir-Administrar-Ejercer-Ingresos-Diciembre-2023.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2023,
+        "mn":  12,
+        "month":  "Diciembre",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosDiciembre23.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2023,
+        "mn":  11,
+        "month":  "Noviembre",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosNoviembre23.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2023,
+        "mn":  10,
+        "month":  "Octubre",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosOctubre23.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2023,
+        "mn":  9,
+        "month":  "Septiembre",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosSeptiembre23.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2023,
+        "mn":  8,
+        "month":  "Agosto",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosAgosto23.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2023,
+        "mn":  7,
+        "month":  "Julio",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosJulio23.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2023,
+        "mn":  6,
+        "month":  "Junio",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosJunio23.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2023,
+        "mn":  5,
+        "month":  "Mayo",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosMayo23.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2023,
+        "mn":  4,
+        "month":  "Abril",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosAbril23.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2023,
+        "mn":  3,
+        "month":  "Marzo",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosMarzo23.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2023,
+        "mn":  2,
+        "month":  "Febrero",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosFebrero23.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2023,
+        "mn":  1,
+        "month":  "Enero",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosEnero23.xlsx"
+    },
+    {
+        "cat":  "RESP",
+        "year":  2022,
+        "mn":  12,
+        "month":  "Diciembre",
+        "reforma":  0,
+        "label":  "Responsable de recibir, administrar y ejercer",
+        "file":  "Art8FraccionXII-Responsable-Recibir-Administrar-Ejercer-Ingresos-Diciembre-2022.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2022,
+        "mn":  6,
+        "month":  "Junio",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosJunio22.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2022,
+        "mn":  12,
+        "month":  "Diciembre",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosDiciembre22.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2022,
+        "mn":  11,
+        "month":  "Noviembre",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosNoviembre22.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2022,
+        "mn":  10,
+        "month":  "Octubre",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosOctubre22.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2022,
+        "mn":  9,
+        "month":  "Septiembre",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosSeptiembre22.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2022,
+        "mn":  8,
+        "month":  "Agosto",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosAgosto22.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2022,
+        "mn":  7,
+        "month":  "Julio",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosJulio22.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2022,
+        "mn":  5,
+        "month":  "Mayo",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosMayo22.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2022,
+        "mn":  4,
+        "month":  "Abril",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosAbril22.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2022,
+        "mn":  3,
+        "month":  "Marzo",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosMarzo22.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2022,
+        "mn":  2,
+        "month":  "Febrero",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosFebrero22.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2022,
+        "mn":  1,
+        "month":  "Enero",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosEnero22.xlsx"
+    },
+    {
+        "cat":  "RESP",
+        "year":  2021,
+        "mn":  12,
+        "month":  "Diciembre",
+        "reforma":  0,
+        "label":  "Responsable de recibir, administrar y ejercer",
+        "file":  "Art8FraccionXII-Responsable-Recibir-Administrar-Ejercer-Ingresos-Diciembre-2021.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2021,
+        "mn":  12,
+        "month":  "Diciembre",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosDiciembre21.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2021,
+        "mn":  11,
+        "month":  "Noviembre",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosNoviembre21.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2021,
+        "mn":  10,
+        "month":  "Octubre",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosOctubre21.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2021,
+        "mn":  9,
+        "month":  "Septiembre",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosSeptiembre21.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2021,
+        "mn":  8,
+        "month":  "Agosto",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosAgosto21.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2021,
+        "mn":  7,
+        "month":  "Julio",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosJulio21.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2021,
+        "mn":  6,
+        "month":  "Junio",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosJunio21.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2021,
+        "mn":  5,
+        "month":  "Mayo",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosMayo21.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2021,
+        "mn":  4,
+        "month":  "Abril",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosAbril21.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2021,
+        "mn":  3,
+        "month":  "Marzo",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosMarzo21.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2021,
+        "mn":  2,
+        "month":  "Febrero",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosFebrero21.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2021,
+        "mn":  1,
+        "month":  "Enero",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosEnero21.xlsx"
+    },
+    {
+        "cat":  "RESP",
+        "year":  2021,
+        "mn":  9,
+        "month":  "Septiembre",
+        "reforma":  0,
+        "label":  "Responsable de recibir, administrar y ejercer",
+        "file":  "Art8FraccionXII-Responsable-Recibir-Administrar-Ejercer-Ingresos-Septiembre-2021.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2020,
+        "mn":  12,
+        "month":  "Diciembre",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosDiciembre20.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2020,
+        "mn":  11,
+        "month":  "Noviembre",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosNoviembre20.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2020,
+        "mn":  10,
+        "month":  "Octubre",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosOctubre20.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2020,
+        "mn":  9,
+        "month":  "Septiembre",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosSeptiembre20.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2020,
+        "mn":  8,
+        "month":  "Agosto",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosAgosto20.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2020,
+        "mn":  7,
+        "month":  "Julio",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosJulio20.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2020,
+        "mn":  6,
+        "month":  "Junio",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosJunio20.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2020,
+        "mn":  5,
+        "month":  "Mayo",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosMayo20.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2020,
+        "mn":  4,
+        "month":  "Abril",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosAbril20.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2020,
+        "mn":  3,
+        "month":  "Marzo",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosMarzo20.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2020,
+        "mn":  2,
+        "month":  "Febrero",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosFebrero20.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2020,
+        "mn":  1,
+        "month":  "Enero",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosEnero20.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2019,
+        "mn":  12,
+        "month":  "Diciembre",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosDiciembre19.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2019,
+        "mn":  11,
+        "month":  "Noviembre",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosNoviembre19.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2019,
+        "mn":  10,
+        "month":  "Octubre",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosOctubre19.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2019,
+        "mn":  9,
+        "month":  "Septiembre",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosSeptiembre19.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2019,
+        "mn":  8,
+        "month":  "Agosto",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosAgosto19.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2019,
+        "mn":  7,
+        "month":  "Julio",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosJulio19.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2019,
+        "mn":  6,
+        "month":  "Junio",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosJunio19.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2019,
+        "mn":  5,
+        "month":  "Mayo",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosMayo19.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2019,
+        "mn":  4,
+        "month":  "Abril",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosAbril19.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2019,
+        "mn":  3,
+        "month":  "Marzo",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosMarzo19.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2019,
+        "mn":  2,
+        "month":  "Febrero",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosFebrero19.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2019,
+        "mn":  1,
+        "month":  "Enero",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosEnero19.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2018,
+        "mn":  12,
+        "month":  "Diciembre",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosDiciembre18.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2018,
+        "mn":  11,
+        "month":  "Noviembre",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosNoviembre18.xlsx"
+    },
+    {
+        "cat":  "MENSUAL",
+        "year":  2018,
+        "mn":  10,
+        "month":  "Octubre",
+        "reforma":  0,
+        "label":  "Ingresos recibidos",
+        "file":  "IngresosRecibidosOctubre18.xlsx"
+    },
+    {
+        "cat":  "NORMA",
+        "year":  2016,
+        "mn":  0,
+        "month":  "",
+        "reforma":  0,
+        "label":  "Ingresos por Compensación, Indemnización y Mitigación 2016",
+        "file":  "IngresosCompensacionIndemnizacionMitigacion2016.pdf"
+    },
+    {
+        "cat":  "NORMA",
+        "year":  0,
+        "mn":  0,
+        "month":  "",
+        "reforma":  0,
+        "label":  "Norma para la difusión a la ciudadanía de la Ley de Ingresos y del Presupuesto de Egresos 2017",
+        "file":  "NormaDifusionLeyIngresosPresupuestoEgresosNOR-01-14-004.pdf"
+    },
+    {
+        "cat":  "NORMA",
+        "year":  2017,
+        "mn":  0,
+        "month":  "",
+        "reforma":  0,
+        "label":  "Calendario de Ingresos del Ejercicio Fiscal 2017",
+        "file":  "CalendarioIngresosBaseMensual2017.xlsx"
+    },
+    {
+        "cat":  "NORMA",
+        "year":  0,
+        "mn":  0,
+        "month":  "",
+        "reforma":  0,
+        "label":  "Norma para establecer la estructura del Calendario de Ingresos base mensual",
+        "file":  "NOR_01_14_004CalendarioIngresosBaseMensual.pdf"
+    },
+    {
+        "cat":  "LEY",
+        "year":  2026,
+        "mn":  0,
+        "month":  "",
+        "reforma":  0,
+        "label":  "Ley de Ingresos del Municipio de Guadalajara",
+        "file":  "LeyIngresos2026.pdf"
+    },
+    {
+        "cat":  "LEY",
+        "year":  2025,
+        "mn":  0,
+        "month":  "",
+        "reforma":  0,
+        "label":  "Ley de Ingresos del Municipio de Guadalajara",
+        "file":  "LeyIngresos2025.pdf"
+    },
+    {
+        "cat":  "LEY",
+        "year":  2024,
+        "mn":  0,
+        "month":  "",
+        "reforma":  0,
+        "label":  "Ley de Ingresos del Municipio de Guadalajara",
+        "file":  "LeyIngresos2024.pdf"
+    },
+    {
+        "cat":  "LEY",
+        "year":  2023,
+        "mn":  0,
+        "month":  "",
+        "reforma":  0,
+        "label":  "Ley de Ingresos del Municipio de Guadalajara",
+        "file":  "LeyIngresos2023.pdf"
+    },
+    {
+        "cat":  "LEY",
+        "year":  2022,
+        "mn":  0,
+        "month":  "",
+        "reforma":  0,
+        "label":  "Ley de Ingresos del Municipio de Guadalajara",
+        "file":  "LeyIngresos2022.pdf"
+    },
+    {
+        "cat":  "LEY",
+        "year":  2021,
+        "mn":  0,
+        "month":  "",
+        "reforma":  1,
+        "label":  "Reforma a la Ley de Ingresos del Municipio de Guadalajara",
+        "file":  "ReformaLeyIngresos2021.pdf"
+    },
+    {
+        "cat":  "LEY",
+        "year":  2021,
+        "mn":  0,
+        "month":  "",
+        "reforma":  0,
+        "label":  "Ley de Ingresos del Municipio de Guadalajara",
+        "file":  "LeyIngresos2021.pdf"
+    },
+    {
+        "cat":  "LEY",
+        "year":  2020,
+        "mn":  0,
+        "month":  "",
+        "reforma":  0,
+        "label":  "Ley de Ingresos del Municipio de Guadalajara",
+        "file":  "LeyIngresos2020.pdf"
+    },
+    {
+        "cat":  "LEY",
+        "year":  2019,
+        "mn":  0,
+        "month":  "",
+        "reforma":  0,
+        "label":  "Ley de Ingresos del Municipio de Guadalajara",
+        "file":  "LeyIngresos2019.pdf"
+    },
+    {
+        "cat":  "LEY",
+        "year":  2018,
+        "mn":  0,
+        "month":  "",
+        "reforma":  0,
+        "label":  "Ley de Ingresos del Municipio de Guadalajara",
+        "file":  "LeyIngresos2018.pdf"
+    },
+    {
+        "cat":  "NORMA",
+        "year":  2015,
+        "mn":  0,
+        "month":  "",
+        "reforma":  0,
+        "label":  "PRESUPUESTO DE EGRESOS",
+        "file":  "GacetaTomoVIEjemplar19Diciembre24-2015.pdf"
+    }
+];
+var BROKEN = {'IngresosRecibidosMayo21.xlsx':1};
+
+(function(){
+  var FB='https://transparencia.guadalajara.gob.mx/sites/default/files/';
+  function esc(s){ if(s==null) return ''; return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function norm(s){ return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,''); }
+  function enc(file){ return file.split('/').map(function(s){return encodeURIComponent(s);}).join('/'); }
+  var PDFICO='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>';
+  var XLSICO='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="17"/><line x1="16" y1="13" x2="8" y2="17"/></svg>';
+  var ICO={
+    receipt:'<path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M8 7h8"/><path d="M8 11h8"/><path d="M8 15h5"/>',
+    usercheck:'<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/>',
+    scroll:'<path d="M19 17V5a2 2 0 0 0-2-2H4"/><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"/>',
+    book:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>'
+  };
+  function svg(p){ return '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+p+'</svg>'; }
+  function docBtn(file){
+    var u=FB+enc(file);
+    var ext=file.split('.').pop().toLowerCase();
+    if(ext==='pdf') return '<a class="ir-btn" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer">'+PDFICO+'Ver PDF</a>';
+    var viewer='https://view.officeapps.live.com/op/view.aspx?src='+encodeURIComponent(u);
+    return '<a class="ir-btn xls" href="'+esc(viewer)+'" target="_blank" rel="noopener noreferrer">'+XLSICO+'Vista previa</a>';
+  }
+  var MES=['','Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+
+  /* Normaliza items a {sec, year, mn, label, tag, file, na} */
+  function build(it){
+    var sec='',label=it.label,tag='',na=(BROKEN[it.file]?1:0);
+    if(it.cat==='MENSUAL'){ sec='ING'; label='Ingresos recibidos · '+it.month+' '+it.year; }
+    else if(it.cat==='RESP'){ sec='RESP'; label='Responsable de recibir, administrar y ejercer · '+it.month+' '+it.year; }
+    else if(it.cat==='LEY'){ sec='LEY'; label=it.label; if(it.reforma) tag='Reforma'; }
+    else { sec='NORMA'; label=it.label; }
+    return {sec:sec,year:it.year,mn:(it.mn||0),label:label,tag:tag,file:it.file,na:na};
+  }
+  var DATA=XII.map(build);
+
+  var CATS=[
+    {key:'ING', t:'Ingresos recibidos (mensual)', ico:ICO.receipt, sub:'El reporte de ingresos del municipio, mes por mes', open:true},
+    {key:'RESP', t:'Responsable de recibir, administrar y ejercer', ico:ICO.usercheck, sub:'Quién responde por los ingresos públicos', open:false},
+    {key:'LEY', t:'Ley de Ingresos del Municipio', ico:ICO.scroll, sub:'La ley anual que autoriza qué cobra Guadalajara', open:false},
+    {key:'NORMA', t:'Normatividad y calendario', ico:ICO.book, sub:'Normas, calendario de ingresos y presupuesto', open:false}
+  ];
+
+  function rowHtml(it){
+    var search=norm([it.year,it.label,(it.sec==='ING'?'ingresos recibidos mensual':it.sec==='RESP'?'responsable recibir administrar ejercer':it.sec==='LEY'?'ley de ingresos':'normatividad calendario norma presupuesto')].join(' '));
+    var tags='';
+    if(it.year>0) tags+='<span class="ir-yb">'+esc(it.year)+'</span>';
+    if(it.tag) tags+='<span class="ir-tag">'+esc(it.tag)+'</span>';
+    if(it.na) tags+='<span class="ir-tag na">No disponible</span>';
+    var top=tags?'<div class="ir-row-top">'+tags+'</div>':'';
+    var right = it.na ? '<span class="ir-na">— sin archivo en el origen</span>' : docBtn(it.file);
+    return '<div class="ir-row'+(it.na?' naf':'')+'" data-search="'+esc(search)+'"><div class="ir-row-main">'+top+'<span class="ir-row-t">'+esc(it.label)+'</span></div>'+right+'</div>';
+  }
+
+  var host=document.getElementById('irCats'); var html='';
+  CATS.forEach(function(c){
+    var rows=DATA.filter(function(x){return x.sec===c.key;}).slice().sort(function(a,b){ if(b.year!==a.year) return b.year-a.year; return (b.mn||0)-(a.mn||0); });
+    var body='';
+    if(c.key==='ING'){
+      var curY=null;
+      rows.forEach(function(it){ if(it.year!==curY){ curY=it.year; body+='<div class="ir-yh">'+esc(curY)+'</div>'; } body+=rowHtml(it); });
+    } else { rows.forEach(function(it){ body+=rowHtml(it); }); }
+    html+='<details class="ir-acc" data-cat="'+c.key+'"'+(c.open?' open':'')+'>'+
+      '<summary class="ir-sum"><span class="ir-sum-ico" aria-hidden="true">'+svg(c.ico)+'</span>'+
+      '<span class="ir-sum-tx"><span class="ir-sum-t">'+esc(c.t)+'</span><small>'+esc(c.sub)+'</small></span>'+
+      '<span class="ir-sum-n">'+rows.length+'</span>'+
+      '<svg class="ir-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary>'+
+      '<div class="ir-acc-body">'+body+'</div></details>';
+  });
+  host.innerHTML=html;
+
+  var chipsHost=document.getElementById('irChips');
+  var chh='<button type="button" class="ir-chip-f active" data-cat="all">Todos <span class="n">'+DATA.length+'</span></button>';
+  CATS.forEach(function(c){ var n=DATA.filter(function(x){return x.sec===c.key;}).length; chh+='<button type="button" class="ir-chip-f" data-cat="'+c.key+'">'+esc(c.t)+' <span class="n">'+n+'</span></button>'; });
+  chipsHost.innerHTML=chh;
+
+  document.getElementById('irMig').innerHTML='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 2"/></svg><span><b>Secciones relacionadas (en proceso de migración):</b> Ingresos extraordinarios · Ingresos propios · Ingresos municipales, estatales y federales · Cuenta pública · Administraciones pasadas. Se enlazarán a su sección del nuevo portal conforme se publiquen.</span>';
+
+  var inp=document.getElementById('irQ'), clearBtn=document.getElementById('irClear'), box=document.querySelector('.ir-search');
+  var count=document.getElementById('irCount'), noRes=document.getElementById('irNoRes'), noResQ=document.getElementById('irNoResQ');
+  var accs=[].slice.call(document.querySelectorAll('.ir-acc'));
+  var items=[].slice.call(document.querySelectorAll('.ir-row'));
+  var TOTAL=items.length, curCat='all';
+  function apply(){
+    var raw=inp.value.replace(/^\s+|\s+$/g,''); var toks=norm(raw).split(/\s+/).filter(Boolean);
+    box.classList.toggle('has-q', raw.length>0);
+    var vis=0;
+    for(var i=0;i<items.length;i++){ var ds=items[i].getAttribute('data-search'),ok=true; for(var c=0;c<toks.length;c++){ if(ds.indexOf(toks[c])===-1){ok=false;break;} } items[i].classList.toggle('gone',!ok); }
+    for(var d=0;d<accs.length;d++){
+      var det=accs[d]; var okC=(curCat==='all')||(det.getAttribute('data-cat')===curCat);
+      var its=det.querySelectorAll('.ir-row'),cnt=0; for(var k=0;k<its.length;k++){ if(!its[k].classList.contains('gone')) cnt++; }
+      var show=okC && cnt>0; det.classList.toggle('hide',!show);
+      // year dividers visibility (ING)
+      var yhs=det.querySelectorAll('.ir-yh');
+      for(var y=0;y<yhs.length;y++){ var n=yhs[y].nextElementSibling, any=false; while(n && n.classList && n.classList.contains('ir-row')){ if(!n.classList.contains('gone')){any=true;break;} n=n.nextElementSibling; } yhs[y].style.display=any?'':'none'; }
+      if(show) vis+=cnt;
+      if(show && (toks.length>0 || curCat!=='all')) det.open=true;
+      else if(curCat==='all' && toks.length===0) det.open=(det.getAttribute('data-cat')==='ING');
+    }
+    if(toks.length===0 && curCat==='all'){ count.innerHTML='<b>'+TOTAL+'</b> documentos · 2015–2026'; noRes.className='ir-noresults'; }
+    else if(vis===0){ count.innerHTML=''; noResQ.textContent='«'+raw+'»'; noRes.className='ir-noresults show'; }
+    else { count.innerHTML='<b>'+vis+'</b> de '+TOTAL+' documentos'; noRes.className='ir-noresults'; }
+    reportHeight();
+  }
+  inp.addEventListener('input', apply);
+  clearBtn.addEventListener('click', function(){ inp.value=''; apply(); inp.focus(); });
+  chipsHost.addEventListener('click', function(e){ var b=e.target.closest('.ir-chip-f'); if(!b) return; [].slice.call(this.querySelectorAll('.ir-chip-f')).forEach(function(x){x.classList.remove('active');}); b.classList.add('active'); curCat=b.getAttribute('data-cat'); apply(); });
+  for(var ad=0;ad<accs.length;ad++){ accs[ad].addEventListener('toggle', reportHeight); }
+  apply();
+
+  var lastH=0;
+  function reportHeight(){ var h=Math.max(document.body.scrollHeight,document.body.offsetHeight,document.documentElement.offsetHeight); if(h&&Math.abs(h-lastH)>1){ lastH=h; try{ parent.postMessage({type:'gdl-iframe-height',id:'ingresos-recibidos-art8-XII',height:h},'*'); }catch(e){} } }
+  window.addEventListener('load', reportHeight); window.addEventListener('resize', reportHeight);
+  setTimeout(reportHeight,300); setTimeout(reportHeight,1000);
+
+  var tb=document.getElementById('irTopBtn');
+  function s(){ tb.classList.toggle('show',(window.pageYOffset||document.documentElement.scrollTop)>320); }
+  window.addEventListener('scroll', s, {passive:true});
+  tb.addEventListener('click', function(){ var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches; window.scrollTo({top:0,behavior:rm?'auto':'smooth'}); }); s();
+})();
+</script>
+</body>
+</html>

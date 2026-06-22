@@ -1,0 +1,2154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="El Sistema de Evaluación del Desempeño del Ayuntamiento de Guadalajara: las evaluaciones de diseño, desempeño y resultados de los recursos federales (FISM-DF/FAISMUN, FORTAMUN-DF y FORTASEG), el Programa Anual de Evaluación, los Términos de Referencia, las Agendas de Mejora y las sesiones del Comité Técnico, de 2017 a 2026. Art. 8, Fracción XI de la Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios."/>
+<title>Sistema de Evaluación del Desempeño · Guadalajara 2017–2026 · Art. 8 Frac. XI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ac:#E87722;--ac-l:#FFE4CC;--ac-d:#C45F0A;--ac-deeper:#8B4308;--ac-border:#F5C99A;--ac-soft:#FFF1E4;
+  --g50:#FAFAF8;--g100:#F0F0EC;--g200:#E2E2DD;--g300:#CFCFC8;--g400:#9E9E98;--g600:#5A5A55;--g800:#2D2D2A;--g900:#1A1A1A;
+  --wh:#FFF;--ok:#16A34A;--ok-d:#0E6B4C;--ok-l:#DCFCE7;--ok-border:#A7E8C0;
+  --rad:10px;--rad-lg:14px;
+  --sh:0 4px 22px rgba(0,0,0,.08);--sh-sm:0 1px 3px rgba(0,0,0,.06);--sh-md:0 6px 18px rgba(0,0,0,.07);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --fh:'Outfit',system-ui,-apple-system,sans-serif;
+  --fm:'DM Mono','SF Mono',Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--g900);line-height:1.55;-webkit-font-smoothing:antialiased}
+.sd-wrap{max-width:1040px;margin:0 auto}
+
+/* HERO */
+.sd-hero{background:linear-gradient(135deg,var(--ac-soft) 0%,#FFFFFF 55%);color:var(--g900);border-radius:var(--rad-lg);padding:28px 32px;margin:0 0 20px;position:relative;overflow:hidden;border-left:5px solid var(--ac);box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.sd-hero::before{content:'';position:absolute;top:-66px;right:-66px;width:210px;height:210px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.12) 0%,transparent 70%);pointer-events:none}
+.sd-hero-tag{display:inline-block;background:var(--ac);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;position:relative;z-index:1;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.sd-hero h1{margin:0 0 9px;font-size:clamp(22px,3.2vw,29px);font-weight:800;color:var(--g900);letter-spacing:-.018em;line-height:1.2;position:relative;z-index:1}
+.sd-hero h1 em{font-style:normal;color:var(--ac-d);display:block;margin-top:3px}
+.sd-hero-sub{font-size:14.5px;color:var(--g600);max-width:74ch;margin:0;line-height:1.62;position:relative;z-index:1}
+.sd-hero-sub strong{color:var(--g900);font-weight:700}
+.sd-hero-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;position:relative;z-index:1}
+.sd-chip{display:inline-flex;align-items:center;gap:6px;background:var(--wh);border:1.5px solid var(--ac-border);color:var(--ac-d);font-size:11.5px;font-weight:700;padding:5px 12px;border-radius:20px}
+.sd-chip b{font-family:var(--fm);font-weight:500}
+.sd-chip.neutral{border-color:var(--g200);color:var(--g600)}
+
+/* MARCO (featured) */
+.sd-marco-h{font-size:12.5px;font-weight:800;color:var(--g800);letter-spacing:.1em;text-transform:uppercase;margin:0 4px 14px;display:flex;align-items:center;gap:10px}
+.sd-marco-h span{color:var(--g400);font-weight:600;letter-spacing:.02em;text-transform:none;font-size:11.5px}
+.sd-marco-h::after{content:'';flex:1;height:1.5px;background:var(--g200);border-radius:2px}
+.sd-marco{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 24px}
+.sd-marco-card{display:flex;gap:15px;align-items:center;background:var(--wh);border:1.5px solid var(--ac-border);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);padding:18px 20px;text-decoration:none;color:inherit;transition:border-color .15s var(--ease),box-shadow .15s var(--ease),transform .15s var(--ease)}
+.sd-marco-card:hover{border-color:var(--ac);box-shadow:var(--sh-md);transform:translateY(-2px)}
+.sd-marco-card.key{background:linear-gradient(135deg,var(--ac-soft) 0%,#FFFFFF 70%);border-left:4px solid var(--ac)}
+.sd-marco-ico{flex-shrink:0;width:46px;height:46px;border-radius:12px;background:var(--ac);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(232,119,34,.28)}
+.sd-marco-card:not(.key) .sd-marco-ico{background:var(--ac-soft);color:var(--ac-d);box-shadow:none;border:1px solid var(--ac-border)}
+.sd-marco-tx{min-width:0}
+.sd-marco-eye{font-size:10px;font-weight:800;color:var(--ac-d);letter-spacing:.12em;text-transform:uppercase;margin-bottom:3px}
+.sd-marco-tx b{display:block;font-size:13.5px;font-weight:800;color:var(--g900);letter-spacing:-.01em;line-height:1.3}
+.sd-marco-tx s{font-size:11.5px;color:var(--g600);display:inline-flex;align-items:center;gap:5px;margin-top:5px;font-weight:600;text-decoration:none}
+
+/* BUSCADOR */
+.sd-search-wrap{margin:0 0 12px}
+.sd-search{position:relative;display:flex;align-items:center;background:var(--wh);border:1.5px solid var(--g200);border-radius:12px;box-shadow:var(--sh-sm);transition:border-color .15s,box-shadow .15s}
+.sd-search:focus-within{border-color:var(--ac);box-shadow:0 0 0 3px rgba(232,119,34,.12)}
+.sd-search>svg{position:absolute;left:15px;color:var(--g400);pointer-events:none}
+.sd-search input{flex:1;width:100%;border:0;outline:0;background:transparent;font-family:var(--fh);font-size:14.5px;color:var(--g900);padding:13px 46px}
+.sd-search input::placeholder{color:var(--g400)}
+.sd-search input::-webkit-search-cancel-button{display:none}
+.sd-clear{position:absolute;right:8px;width:34px;height:34px;border:0;background:var(--g100);color:var(--g600);border-radius:50%;font-size:19px;line-height:1;cursor:pointer;display:none;align-items:center;justify-content:center;transition:background .14s;font-family:var(--fh)}
+.sd-clear:hover{background:var(--g200);color:var(--g900)}
+.sd-search.has-q .sd-clear{display:flex}
+.sd-chips{display:flex;flex-wrap:wrap;gap:7px;margin:0 2px 12px}
+.sd-chip-f{font-family:var(--fh);font-size:12.5px;font-weight:700;padding:6px 14px;border-radius:20px;border:1.5px solid var(--g200);background:var(--wh);color:var(--g600);cursor:pointer;transition:all .13s var(--ease);display:inline-flex;align-items:center;gap:7px}
+.sd-chip-f:hover{border-color:var(--ac-border);color:var(--ac-d)}
+.sd-chip-f.active{background:var(--ac);border-color:var(--ac);color:#fff;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.sd-chip-f .n{font-family:var(--fm);font-size:11px;opacity:.85}
+.sd-count{font-size:12px;color:var(--g600);font-weight:600;margin:0 2px 16px}
+.sd-count b{color:var(--ac-d);font-family:var(--fm);font-weight:500}
+
+/* ACORDEÓN CATEGORÍA */
+.sd-acc{border:1.5px solid var(--g200);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);background:var(--wh);overflow:hidden;margin-bottom:12px}
+.sd-acc.hide{display:none}
+.sd-sum{list-style:none;cursor:pointer;padding:15px 20px;display:flex;align-items:center;gap:15px;user-select:none}
+.sd-sum::-webkit-details-marker{display:none}
+.sd-sum-ico{flex-shrink:0;width:42px;height:42px;border-radius:11px;background:var(--ac-soft);color:var(--ac-d);border:1px solid var(--ac-border);display:flex;align-items:center;justify-content:center}
+.sd-sum-tx{flex:1;display:flex;flex-direction:column;gap:1px;min-width:0}
+.sd-sum-t{font-size:15px;font-weight:800;color:var(--g900);letter-spacing:-.01em}
+.sd-sum-tx small{font-size:11.5px;color:var(--g600);font-weight:500}
+.sd-sum-n{flex-shrink:0;font-family:var(--fm);font-size:12px;font-weight:500;color:var(--ac-d);background:var(--ac-soft);border:1px solid var(--ac-border);padding:3px 10px;border-radius:20px}
+.sd-chev{flex-shrink:0;color:var(--g400);transition:transform .2s var(--ease)}
+.sd-acc[open] .sd-chev{transform:rotate(180deg)}
+.sd-acc[open] .sd-sum{border-bottom:1px solid var(--g200);background:var(--g50)}
+.sd-acc-body{padding:9px 14px 14px}
+
+/* FILA DOC */
+.sd-row{display:flex;align-items:center;gap:14px;padding:11px 14px;border-radius:10px;border:1px solid var(--g100);background:var(--g50);transition:border-color .14s,background .14s}
+.sd-row+.sd-row{margin-top:7px}
+.sd-row:hover{border-color:var(--ac-border);background:var(--wh)}
+.sd-row.gone{display:none}
+.sd-row-main{flex:1;min-width:0;display:flex;flex-direction:column;gap:5px}
+.sd-row-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.sd-yb{flex-shrink:0;font-family:var(--fm);font-size:11px;font-weight:500;color:var(--ac-d);background:var(--ac-soft);border:1px solid var(--ac-border);padding:2px 9px;border-radius:6px;letter-spacing:.01em}
+.sd-fund{display:inline-flex;align-items:center;font-size:9.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:20px;white-space:nowrap}
+.sd-fund.fi{background:var(--ac-l);color:var(--ac-d)}
+.sd-fund.fo{background:#F5E6D6;color:var(--ac-deeper);border:1px solid var(--ac-border)}
+.sd-fund.fs{background:var(--g100);color:var(--g600)}
+.sd-tag{display:inline-flex;align-items:center;font-size:9.5px;font-weight:700;letter-spacing:.02em;padding:2px 8px;border-radius:20px;white-space:nowrap;border:1px solid var(--g200);color:var(--g600);background:var(--wh)}
+.sd-tag.anx{color:var(--g400);background:var(--g100);border-color:var(--g200)}
+.sd-tag.enc{color:var(--ac-d);background:var(--ac-soft);border-color:var(--ac-border)}
+.sd-per{display:inline-flex;align-items:center;gap:4px;font-size:9.5px;font-weight:700;letter-spacing:.02em;padding:2px 8px;border-radius:20px;white-space:nowrap;color:var(--g600);background:var(--g100)}
+.sd-row-t{font-size:13.5px;font-weight:700;color:var(--g900);letter-spacing:-.005em;line-height:1.4}
+.sd-row-meta{font-size:11px;color:var(--g600);line-height:1.4}
+.sd-btn{flex-shrink:0;display:inline-flex;align-items:center;gap:7px;font-family:var(--fh);font-size:12px;font-weight:700;padding:8px 14px;border-radius:9px;cursor:pointer;text-decoration:none;border:1.5px solid var(--ac);background:var(--ac);color:#fff;transition:all .14s var(--ease);white-space:nowrap}
+.sd-btn:hover{background:var(--ac-d);border-color:var(--ac-d);transform:translateY(-1px)}
+.sd-btn svg{flex-shrink:0}
+.sd-btn.xls{background:var(--wh);color:var(--ok-d);border-color:var(--ok-border)}
+.sd-btn.xls:hover{background:var(--ok-l);border-color:var(--ok);color:var(--ok-d)}
+
+/* SIN RESULTADOS */
+.sd-noresults{display:none;background:var(--ac-soft);border:1.5px solid var(--ac-border);border-radius:var(--rad-lg);padding:22px 24px;font-size:13.5px;color:var(--g800);line-height:1.6;text-align:center;margin-top:4px}
+.sd-noresults.show{display:block}
+.sd-noresults strong{color:var(--ac-d);font-weight:700}
+
+/* SECCIONES FOOTER */
+.sd-foot-title{font-size:12.5px;font-weight:800;color:var(--g800);letter-spacing:.1em;text-transform:uppercase;margin:34px 4px 16px;display:flex;align-items:center;gap:10px}
+.sd-foot-title::after{content:'';flex:1;height:1.5px;background:var(--g200);border-radius:2px}
+.sd-cifras{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:12px;margin-bottom:4px}
+.sd-cifra{background:var(--wh);border:1.5px solid var(--ac-border);border-radius:var(--rad);padding:16px 18px;display:flex;flex-direction:column;gap:2px;transition:border-color .18s,transform .18s}
+.sd-cifra:hover{border-color:var(--ac);transform:translateY(-2px)}
+.sd-cifra-num{font-family:var(--fm);font-size:30px;font-weight:700;line-height:1;color:var(--ac-d);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.sd-cifra-lbl{font-size:11px;font-weight:700;color:var(--g800);text-transform:uppercase;letter-spacing:.06em;margin-top:6px;line-height:1.3}
+.sd-cifra-sub{font-size:10.5px;color:var(--g400);margin-top:1px}
+.sd-info{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.sd-info-card{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);border-top:5px solid var(--ac);padding:18px 20px;display:flex;flex-direction:column;gap:8px}
+.sd-info-ico{width:40px;height:40px;border-radius:11px;background:var(--ac-soft);color:var(--ac-d);display:flex;align-items:center;justify-content:center;margin-bottom:2px}
+.sd-info-card h3{font-size:14.5px;font-weight:800;color:var(--g900);letter-spacing:-.01em;line-height:1.3}
+.sd-info-card p{font-size:12.5px;color:var(--g600);line-height:1.6}
+.sd-info-card p strong{color:var(--g800);font-weight:700}
+
+/* LEY */
+.sd-ley{background:var(--wh);border-radius:var(--rad-lg);padding:22px 26px;border-left:4px solid var(--ac-d);box-shadow:var(--sh-sm);margin-top:22px}
+.sd-ley-head{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.sd-ley-seal{flex-shrink:0;width:46px;height:46px;border-radius:50%;background:var(--ac-soft);border:2px solid var(--ac);color:var(--ac-d);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(232,119,34,.18)}
+.sd-ley-eye{font-size:10.5px;font-weight:800;color:var(--ac-d);letter-spacing:.14em;text-transform:uppercase;margin-bottom:3px}
+.sd-ley h3{font-size:16px;font-weight:800;color:var(--g900);letter-spacing:-.008em;margin:0}
+.sd-ley p{font-size:13px;color:var(--g600);line-height:1.65;max-width:80ch}
+.sd-ley p+p{margin-top:7px}
+.sd-ley p strong{color:var(--g800);font-weight:600}
+.sd-ley blockquote{font-size:13.5px;color:var(--g600);line-height:1.65;margin:12px 0 8px;padding:13px 18px;background:var(--ac-soft);border-left:3px solid var(--ac);border-radius:6px;font-style:italic;max-width:80ch;overflow-wrap:anywhere}
+.sd-ley blockquote strong{color:var(--g900);font-style:normal;font-weight:700}
+.sd-ley-fuente{margin-top:14px;font-size:11.5px;color:var(--g400);line-height:1.6;font-family:var(--fm)}
+
+/* BOTÓN SUBIR */
+.sd-top{position:fixed;right:18px;bottom:18px;z-index:60;width:46px;height:46px;border-radius:50%;border:0;background:var(--ac);color:#fff;box-shadow:0 6px 18px rgba(196,95,10,.38);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .18s,transform .18s,visibility .18s}
+.sd-top.show{opacity:1;visibility:visible;transform:none}
+.sd-top:hover{background:var(--ac-d)}
+
+/* A11Y */
+.sd-chip-f:focus-visible,.sd-btn:focus-visible,.sd-clear:focus-visible,.sd-top:focus-visible,.sd-marco-card:focus-visible,.sd-sum:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(232,119,34,.45)}
+
+/* RESPONSIVE */
+@media (min-width:781px) and (max-width:1024px){
+  body{padding:20px}
+  .sd-hero{padding:26px 28px}
+  .sd-ley{padding:20px 24px}
+}
+@media (max-width:860px){
+  .sd-marco{grid-template-columns:1fr}
+  .sd-info{grid-template-columns:1fr}
+}
+@media (max-width:780px){
+  body{padding:14px}
+  .sd-hero{padding:22px 18px}
+  .sd-ley{padding:18px 18px}
+}
+@media (max-width:600px){
+  body{padding:10px}
+  .sd-hero{padding:18px 15px;border-radius:12px}
+  .sd-hero h1{font-size:19px;line-height:1.24}
+  .sd-hero-tag{font-size:9.5px;padding:4px 11px}
+  .sd-sum{padding:14px 15px;gap:12px}
+  .sd-sum-ico{width:38px;height:38px}
+  .sd-sum-t{font-size:14px}
+  .sd-acc-body{padding:7px 10px 12px}
+  .sd-row{flex-direction:column;align-items:stretch;gap:10px}
+  .sd-row .sd-btn{width:100%;justify-content:center;padding:12px 14px;font-size:13px}
+  .sd-ley blockquote{padding:12px 14px;font-size:13px}
+  .sd-ley{margin-bottom:64px}
+  .sd-top{right:12px;bottom:12px;width:44px;height:44px}
+}
+@media (max-width:380px){
+  .sd-hero{padding:18px 14px}
+  .sd-hero h1{font-size:18px}
+  .sd-hero-sub{font-size:13.5px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="sd-wrap" id="sdTop">
+
+  <!-- HERO -->
+  <section class="sd-hero">
+    <span class="sd-hero-tag">Art. 8 · Fracción XI · Ley de Transparencia Jalisco</span>
+    <h1>¿El dinero público cumplió su objetivo? <em>Sistema de Evaluación del Desempeño</em></h1>
+    <p class="sd-hero-sub">Aquí se mide si los <strong>recursos federales</strong> que llegan a Guadalajara —para infraestructura social, fortalecimiento municipal y seguridad— se gastaron bien. Reúne las <strong>evaluaciones, sus anexos, el plan y los términos de cada año, las agendas de mejora y las sesiones del Comité Técnico</strong>, de 2017 a 2026.</p>
+    <div class="sd-hero-meta">
+      <span class="sd-chip"><b>143</b> documentos</span>
+      <span class="sd-chip neutral">Cobertura <b>2017 – 2026</b></span>
+      <span class="sd-chip neutral"><b>10</b> años</span>
+    </div>
+  </section>
+
+  <!-- MARCO DEL SISTEMA -->
+  <div class="sd-marco-h">El marco del sistema <span>· 2 documentos base</span></div>
+  <div class="sd-marco" id="sdMarco"></div>
+
+  <!-- BUSCADOR -->
+  <div class="sd-search-wrap">
+    <div class="sd-search">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="sdQ" type="search" autocomplete="off" placeholder="Busca por año, fondo o tipo… (ej.: FORTAMUN 2022, evaluación 2025, comité)" aria-label="Buscar un documento por año, fondo o tipo"/>
+      <button type="button" class="sd-clear" id="sdClear" aria-label="Limpiar búsqueda" title="Limpiar">&times;</button>
+    </div>
+  </div>
+  <div class="sd-chips" id="sdChips"></div>
+  <div class="sd-count" id="sdCount"></div>
+
+  <!-- CATEGORÍAS -->
+  <div id="sdCats"></div>
+  <div class="sd-noresults" id="sdNoRes">No encontramos documentos que coincidan con <strong id="sdNoResQ"></strong>. Prueba con un fondo («FORTAMUN», «FISM»), un año («2021») o un tipo («evaluación», «términos», «comité»).</div>
+
+  <!-- CIFRAS -->
+  <div class="sd-foot-title">La página en cifras</div>
+  <div class="sd-cifras">
+    <div class="sd-cifra"><div class="sd-cifra-num">143</div><div class="sd-cifra-lbl">Documentos</div><div class="sd-cifra-sub">141 en catálogo + 2 base</div></div>
+    <div class="sd-cifra"><div class="sd-cifra-num">10</div><div class="sd-cifra-lbl">Años cubiertos</div><div class="sd-cifra-sub">De 2017 a 2026</div></div>
+    <div class="sd-cifra"><div class="sd-cifra-num">3</div><div class="sd-cifra-lbl">Fondos federales</div><div class="sd-cifra-sub">FISM/FAISMUN · FORTAMUN · FORTASEG</div></div>
+  </div>
+
+  <!-- PARA ENTENDERLO MEJOR -->
+  <div class="sd-foot-title">Para entenderlo mejor</div>
+  <div class="sd-info">
+    <div class="sd-info-card">
+      <div class="sd-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="6" rx="1"/><rect x="12" y="7" width="3" height="10" rx="1"/><rect x="17" y="13" width="3" height="4" rx="1"/></svg></div>
+      <h3>¿Qué es el Sistema de Evaluación del Desempeño?</h3>
+      <p>Es la forma en que el municipio <strong>mide si el gasto público logró sus objetivos</strong>. Evalúa el diseño, el desempeño y los resultados de los programas y fondos, para corregir lo que no funciona.</p>
+    </div>
+    <div class="sd-info-card">
+      <div class="sd-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><path d="M12 8v4l2.5 2.5"/></svg></div>
+      <h3>¿Qué son FISM, FORTAMUN y FORTASEG?</h3>
+      <p>Son <strong>fondos federales del Ramo 33</strong>: <strong>FISM/FAISMUN</strong> financia infraestructura social y combate a la pobreza; <strong>FORTAMUN</strong> fortalece las finanzas del municipio; <strong>FORTASEG</strong> apoyó la seguridad pública (programa ya concluido).</p>
+    </div>
+    <div class="sd-info-card">
+      <div class="sd-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M3 12h18"/><path d="M3 18h18"/><circle cx="7" cy="6" r="1.6" fill="currentColor" stroke="none"/><circle cx="14" cy="12" r="1.6" fill="currentColor" stroke="none"/><circle cx="10" cy="18" r="1.6" fill="currentColor" stroke="none"/></svg></div>
+      <h3>¿Qué contiene cada año?</h3>
+      <p>El ciclo completo: el <strong>Programa Anual</strong> (qué se evalúa), los <strong>Términos de Referencia</strong> (cómo), la <strong>Evaluación y su Anexo</strong> (resultados), la <strong>Agenda de Mejora</strong> (qué se corrige) y las <strong>sesiones del Comité Técnico</strong>.</p>
+    </div>
+    <div class="sd-info-card">
+      <div class="sd-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></div>
+      <h3>¿Para qué te sirve?</h3>
+      <p>Para <strong>vigilar si los recursos federales se usaron bien</strong> en tu ciudad y qué está haciendo el gobierno para mejorar, año con año. Es rendición de cuentas con evidencia.</p>
+    </div>
+  </div>
+
+  <!-- FUNDAMENTO LEGAL -->
+  <section class="sd-ley">
+    <div class="sd-ley-head">
+      <span class="sd-ley-seal" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg></span>
+      <div>
+        <div class="sd-ley-eye">Fundamento legal</div>
+        <h3>¿Por qué el Ayuntamiento publica esta información?</h3>
+      </div>
+    </div>
+    <p>Es una obligación de transparencia. La ley ordena publicar, palabra por palabra, lo siguiente:</p>
+    <blockquote>«Artículo 8°. <strong>1.</strong> Es información fundamental, obligatoria para todos los sujetos obligados, la siguiente: (…) <strong>XI.</strong> Los estudios financiados con recursos públicos;»</blockquote>
+    <p>— <strong>Artículo 8, fracción XI</strong> de la <em>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</em>. Las evaluaciones del desempeño son, precisamente, estudios técnicos financiados con recursos públicos; se realizan conforme a la <strong>Ley General de Contabilidad Gubernamental</strong>, la <strong>Ley de Coordinación Fiscal</strong> y los <em>Lineamientos PbR-SED</em> del Municipio. Los archivos de esta página son los oficiales, tal como fueron publicados por el sujeto obligado; ante cualquier discrepancia, prevalece el documento oficial.</p>
+    <div class="sd-ley-fuente">
+      Fuente oficial: portal de transparencia del Ayuntamiento de Guadalajara · sección «Sistema de Evaluación del Desempeño».<br>
+      143 documentos (2017–2026) verificados en línea uno por uno (HTTP 200).
+    </div>
+  </section>
+
+</div>
+
+<!-- BOTÓN SUBIR -->
+<button type="button" class="sd-top" id="sdTopBtn" aria-label="Volver arriba" title="Volver arriba">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+/* ==========================================================================
+   Sistema de Evaluación del Desempeño · Art. 8 Fracción XI (LTAIPEJM)
+   Datos verbatim del registro oficial del sujeto obligado (/sistemaevaluacion-
+   desempeno). 143 documentos (2017–2026) verificados en línea uno por uno
+   (HTTP 200): evaluaciones de diseño/desempeño/resultados de los fondos
+   federales (FISM-DF/FAISMUN, FORTAMUN-DF, FORTASEG) y sus anexos (Norma
+   CONAC), el Programa Anual de Evaluación, los Términos de Referencia, las
+   Agendas de Mejora, una encuesta de satisfacción de obras, y las sesiones del
+   Comité Técnico (actas, órdenes del día y versiones estenográficas); más dos
+   documentos base: los Lineamientos PbR-SED y el Plan Municipal de Desarrollo.
+   Los PDF abren en el navegador; el Excel abre en vista previa (visor de
+   Office). Íconos Lucide. Sin enlaces a páginas del portal anterior.
+   ========================================================================== */
+var SED = [
+    {
+        "cat":  "MARCO",
+        "year":  2024,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Plan Municipal de Desarrollo y Gobernanza Guadalajara 2024-2027 Visión 2042",
+        "label":  "Plan Municipal de Desarrollo y Gobernanza Guadalajara 2024-2027 Visión 2042",
+        "file":  "PlanMunicipalDesarrollo2024-2027.pdf"
+    },
+    {
+        "cat":  "PAE",
+        "year":  2026,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Programa Anual de Evaluación 2026 (Gaceta Tomo II Ejemplar 30, 29 Abril 2026)",
+        "label":  "Programa Anual de Evaluación 2026 (Gaceta Tomo II Ejemplar 30, 29 Abril 2026)",
+        "file":  "GacetaTomoIIEjemplar30Abril29-2026.pdf"
+    },
+    {
+        "cat":  "PAE",
+        "year":  2025,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Actualización del Programa Anual de Evaluación 2025 (Gaceta Tomo III Ejemplar 30, 30 Junio 2025)",
+        "label":  "Actualización del Programa Anual de Evaluación 2025 (Gaceta Tomo III Ejemplar 30, 30 Junio 2025)",
+        "file":  "GacetaTomoIIIEjemplar30Junio30-2025.pdf"
+    },
+    {
+        "cat":  "PAE",
+        "year":  2025,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Programa Anual de Evaluación 2025 (Gaceta Tomo II Ejemplar 21 Secc 2da, 09 Abril 2025)",
+        "label":  "Programa Anual de Evaluación 2025 (Gaceta Tomo II Ejemplar 21 Secc 2da, 09 Abril 2025)",
+        "file":  "GacetaTomoIIEjemplar21Secc2aAbril9-2025.pdf"
+    },
+    {
+        "cat":  "PAE",
+        "year":  2024,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Programa Anual de Evaluación 2024 (Gaceta Tomo III Ejemplar 2 Secc 2da, 03 Mayo 2024)",
+        "label":  "Programa Anual de Evaluación 2024 (Gaceta Tomo III Ejemplar 2 Secc 2da, 03 Mayo 2024)",
+        "file":  "GacetaTomoIIIEjemplar2Secc2aMayo3-2024.pdf"
+    },
+    {
+        "cat":  "PAE",
+        "year":  2023,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Programa Anual de Evaluación 2023 (Gaceta Tomo III Ejemplar 3, 04 Mayo 2023)",
+        "label":  "Programa Anual de Evaluación 2023 (Gaceta Tomo III Ejemplar 3, 04 Mayo 2023)",
+        "file":  "GacetaTomoIIIEjemplar3Secc1aMayo4-2023.pdf"
+    },
+    {
+        "cat":  "PAE",
+        "year":  2022,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Programa Anual de Evaluación 2022 (Gaceta Tomo II Ejemplar 21, 29 Abril 2022)",
+        "label":  "Programa Anual de Evaluación 2022 (Gaceta Tomo II Ejemplar 21, 29 Abril 2022)",
+        "file":  "GacetaTomoIIEjemplar21Abril29-2022.pdf"
+    },
+    {
+        "cat":  "PAE",
+        "year":  2021,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Programa Anual de Evaluación 2021 (Gaceta Tomo II Ejemplar 17 Secc 1ra, 31 Marzo 2021)",
+        "label":  "Programa Anual de Evaluación 2021 (Gaceta Tomo II Ejemplar 17 Secc 1ra, 31 Marzo 2021)",
+        "file":  "GacetaTomoIIEjemplar17Secc1aMarzo31-2021.pdf"
+    },
+    {
+        "cat":  "PAE",
+        "year":  2020,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Programa Anual de Evaluación 2020 (Gaceta Tomo II Ejemplar 14 Secc 1ra, 27 Abril 2020)",
+        "label":  "Programa Anual de Evaluación 2020 (Gaceta Tomo II Ejemplar 14 Secc 1ra, 27 Abril 2020)",
+        "file":  "GacetaTomoIIEjemplar14Secc1aAbril27-2020.pdf"
+    },
+    {
+        "cat":  "PAE",
+        "year":  2019,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Programa Anual de Evaluación 2019 (Gaceta Tomo II Ejemplar 23. 29 de Abril de 2019)",
+        "label":  "Programa Anual de Evaluación 2019 (Gaceta Tomo II Ejemplar 23. 29 de Abril de 2019)",
+        "file":  "GacetaTomoIIEjemplar23Abril29-2019.pdf"
+    },
+    {
+        "cat":  "PAE",
+        "year":  2018,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Programa Anual de Evaluación 2018 (Gaceta Tomo II Ejemplar 33. Primera Sección. 27 de Abril de 2018)",
+        "label":  "Programa Anual de Evaluación 2018 (Gaceta Tomo II Ejemplar 33. Primera Sección. 27 de Abril de 2018)",
+        "file":  "GacetaTomoIIEjemplar33Secc1aAbril27-2018.pdf"
+    },
+    {
+        "cat":  "PAE",
+        "year":  2017,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Programa Anual de Evaluación 2017 (Gaceta Tomo II Ejemplar 14. 23 de Marzo de 2017)",
+        "label":  "Programa Anual de Evaluación 2017 (Gaceta Tomo II Ejemplar 14. 23 de Marzo de 2017)",
+        "file":  "GacetaTomoIIEjemplar14Marzo23-2017.pdf"
+    },
+    {
+        "cat":  "TDR",
+        "year":  2026,
+        "fund":  "FISM-DF | FORTAMUN",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Términos de Referencia para la Evaluación Específica de Desempeño de los Recursos Federales del Ramo General 33 (FISM-DF y FORTAMUN-DF)",
+        "label":  "2026 Términos de Referencia para la Evaluación Específica de Desempeño de los Recursos Federales del Ramo General 33 (FISM-DF y FORTAMUN-DF)",
+        "file":  "GacetaTomoIIIEjemplar10Secc1aMayo20-2026.pdf"
+    },
+    {
+        "cat":  "TDR",
+        "year":  2025,
+        "fund":  "FISM-DF | FORTAMUN",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Términos de Referencia para la Evaluación de Diseño y Desempeño de los Recursos Federales del Ramo General 33 (FISM-DF y FORTAMUN-DF)",
+        "label":  "2025 Términos de Referencia para la Evaluación de Diseño y Desempeño de los Recursos Federales del Ramo General 33 (FISM-DF y FORTAMUN-DF)",
+        "file":  "GacetaTomoIVEjemplar26Agosto22-2025.pdf"
+    },
+    {
+        "cat":  "TDR",
+        "year":  2024,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Términos de Referencia para la Evaluación Estratégica de Consistencia y Resultados",
+        "label":  "2024 Términos de Referencia para la Evaluación Estratégica de Consistencia y Resultados",
+        "file":  "GacetaTomoIIIEjemplar4Mayo7-2024.pdf"
+    },
+    {
+        "cat":  "TDR",
+        "year":  2023,
+        "fund":  "FISM-DF | FORTAMUN",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Términos de Referencia para la Evaluación del Desempeño de los Recursos Federales del Ramo General 33 FISM-DF y FORTAMUN Ejercicio Fiscal 2022",
+        "label":  "2023 Términos de Referencia para la Evaluación del Desempeño de los Recursos Federales del Ramo General 33 FISM-DF y FORTAMUN Ejercicio Fiscal 2022",
+        "file":  "GacetaTomoIVEjemplar8Julio12-2023.pdf"
+    },
+    {
+        "cat":  "TDR",
+        "year":  2022,
+        "fund":  "FISM-DF | FORTAMUN",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Términos de Referencia para la Evaluación del Desempeño de los Recursos Federales del Ramo General 33 FISM-DF y FORTAMUN Ejercicio Fiscal 2021",
+        "label":  "2022 Términos de Referencia para la Evaluación del Desempeño de los Recursos Federales del Ramo General 33 FISM-DF y FORTAMUN Ejercicio Fiscal 2021",
+        "file":  "GacetaTomoIVEjemplar21Agosto16-2022.pdf"
+    },
+    {
+        "cat":  "TDR",
+        "year":  2021,
+        "fund":  "FORTAMUN",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Términos de Referencia Para Evaluar el Desempeño de los Recursos del FORTAMUN-DF Ejercicio Fiscal 2020",
+        "label":  "2021 Términos de Referencia Para Evaluar el Desempeño de los Recursos del FORTAMUN-DF Ejercicio Fiscal 2020",
+        "file":  "TerminoReferenciaEvaluarDesempenoFORTAMUN2021.pdf"
+    },
+    {
+        "cat":  "TDR",
+        "year":  2021,
+        "fund":  "FORTASEG",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Términos de Referencia Para Evaluar el Desempeño y la Orientación de los Recursos del FORTASEG Ejercicio Fiscal 2021",
+        "label":  "2021 Términos de Referencia Para Evaluar el Desempeño y la Orientación de los Recursos del FORTASEG Ejercicio Fiscal 2021",
+        "file":  "TerminoReferenciaEvaluarDesempenoFORTASEG2021.pdf"
+    },
+    {
+        "cat":  "TDR",
+        "year":  2021,
+        "fund":  "FISM-DF",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Términos de Referencia Para Evaluar el Desempeño y la Orientación de los Recursos del Fondo de Infraestructura Social para los Municipios y Demarcaciones Territoriales del Distrito Federal FISM-DF Ejercicio Fiscal 2020",
+        "label":  "2021 Términos de Referencia Para Evaluar el Desempeño y la Orientación de los Recursos del Fondo de Infraestructura Social para los Municipios y Demarcaciones Territoriales del Distrito Federal FISM-DF Ejercicio Fiscal 2020",
+        "file":  "TerminoReferenciaEvaluarDesempenoFISM2021.pdf"
+    },
+    {
+        "cat":  "TDR",
+        "year":  2020,
+        "fund":  "FORTAMUN",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Términos de Referencia Para Evaluar el Desempeño de los Recursos del FORTAMUN-DF Ejercicio Fiscal 2019",
+        "label":  "2020 Términos de Referencia Para Evaluar el Desempeño de los Recursos del FORTAMUN-DF Ejercicio Fiscal 2019",
+        "file":  "TerminoReferenciaEvaluarDesempenoFORTAMUN2020.pdf"
+    },
+    {
+        "cat":  "TDR",
+        "year":  2020,
+        "fund":  "FORTASEG",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Términos de Referencia Para Evaluar el Desempeño y la Orientación de los Recursos del FORTASEG Ejercicio Fiscal 2019",
+        "label":  "2020 Términos de Referencia Para Evaluar el Desempeño y la Orientación de los Recursos del FORTASEG Ejercicio Fiscal 2019",
+        "file":  "TerminoReferenciaEvaluarDesempenoFORTASEG2020.pdf"
+    },
+    {
+        "cat":  "TDR",
+        "year":  2020,
+        "fund":  "FISM-DF",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Términos de Referencia Para Evaluar el Desempeño y la Orientación de los Recursos del Fondo de Infraestructura Social para los Municipios y Demarcaciones Territoriales del Distrito Federal FISM-DF Ejercicio Fiscal 2019",
+        "label":  "2020 Términos de Referencia Para Evaluar el Desempeño y la Orientación de los Recursos del Fondo de Infraestructura Social para los Municipios y Demarcaciones Territoriales del Distrito Federal FISM-DF Ejercicio Fiscal 2019",
+        "file":  "TerminoReferenciaEvaluarDesempenoFISM2020.pdf"
+    },
+    {
+        "cat":  "TDR",
+        "year":  2019,
+        "fund":  "FORTAMUN",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Términos de Referencia Para Evaluar el Desempeño de los Recursos del FORTAMUN-DF Ejercicio Fiscal 2018",
+        "label":  "2019 Términos de Referencia Para Evaluar el Desempeño de los Recursos del FORTAMUN-DF Ejercicio Fiscal 2018",
+        "file":  "TerminoReferenciaEvaluarDesempenoFORTAMUN2019.pdf"
+    },
+    {
+        "cat":  "TDR",
+        "year":  2019,
+        "fund":  "FORTASEG",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Términos de Referencia Para Evaluar el Desempeño y la Orientación de los Recursos del FORTASEG Ejercicio Fiscal 2018",
+        "label":  "2019 Términos de Referencia Para Evaluar el Desempeño y la Orientación de los Recursos del FORTASEG Ejercicio Fiscal 2018",
+        "file":  "TerminoReferenciaEvaluarDesempenoFORTASEG2019.pdf"
+    },
+    {
+        "cat":  "TDR",
+        "year":  2019,
+        "fund":  "FISM-DF",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Términos de Referencia Para Evaluar el Desempeño y la Orientación de los Recursos del Fondo de Infraestructura Social para los Municipios y Demarcaciones Territoriales del Distrito Federal FISM-DF Ejercicio Fiscal 2018",
+        "label":  "2019 Términos de Referencia Para Evaluar el Desempeño y la Orientación de los Recursos del Fondo de Infraestructura Social para los Municipios y Demarcaciones Territoriales del Distrito Federal FISM-DF Ejercicio Fiscal 2018",
+        "file":  "TerminoReferenciaEvaluarDesempenoFISM2019.pdf"
+    },
+    {
+        "cat":  "TDR",
+        "year":  2018,
+        "fund":  "FORTAMUN",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Términos de Referencia Para Evaluar el Desempeño de los Recursos del FORTAMUN-DF Ejercicio Fiscal 2017",
+        "label":  "2018 Términos de Referencia Para Evaluar el Desempeño de los Recursos del FORTAMUN-DF Ejercicio Fiscal 2017",
+        "file":  "TerminoReferenciaEvaluarDesempenoFORTAMUN2018.pdf"
+    },
+    {
+        "cat":  "TDR",
+        "year":  2018,
+        "fund":  "FORTASEG",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Términos de Referencia Para Evaluar el Desempeño y la Orientación de los Recursos del FORTASEG Ejercicio Fiscal 2017",
+        "label":  "2018 Términos de Referencia Para Evaluar el Desempeño y la Orientación de los Recursos del FORTASEG Ejercicio Fiscal 2017",
+        "file":  "TerminoReferenciaEvaluarDesempenoFORTASEG2018.pdf"
+    },
+    {
+        "cat":  "TDR",
+        "year":  2018,
+        "fund":  "FISM-DF",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Términos de Referencia Para Evaluar el Desempeño y la Orientación de los Recursos del Fondo de Infraestructura Social para los Municipios y Demarcaciones Territoriales del Distrito Federal FISM-DF Ejercicio Fiscal 2017",
+        "label":  "2018 Términos de Referencia Para Evaluar el Desempeño y la Orientación de los Recursos del Fondo de Infraestructura Social para los Municipios y Demarcaciones Territoriales del Distrito Federal FISM-DF Ejercicio Fiscal 2017",
+        "file":  "TerminoReferenciaEvaluarDesempenoFISM2018.pdf"
+    },
+    {
+        "cat":  "TDR",
+        "year":  2017,
+        "fund":  "FORTAMUN",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Términos de Referencia Para Evaluar el Desempeño de los Recursos del FORTAMUN-DF Ejercicio Fiscal 2016",
+        "label":  "2017 Términos de Referencia Para Evaluar el Desempeño de los Recursos del FORTAMUN-DF Ejercicio Fiscal 2016",
+        "file":  "TerminoReferenciaEvaluarDesempenoFORTAMUN2017.pdf"
+    },
+    {
+        "cat":  "TDR",
+        "year":  2017,
+        "fund":  "FORTASEG",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Términos de Referencia Para Evaluar el Desempeño y la Orientación de los Recursos del FORTASEG Ejercicio Fiscal 2016",
+        "label":  "2017 Términos de Referencia Para Evaluar el Desempeño y la Orientación de los Recursos del FORTASEG Ejercicio Fiscal 2016",
+        "file":  "TerminoReferenciaEvaluarDesempenoFORTASEG2017.pdf"
+    },
+    {
+        "cat":  "TDR",
+        "year":  2017,
+        "fund":  "FISM-DF",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Términos de Referencia Para Evaluar el Desempeño y la Orientación de los Recursos del Fondo de Infraestructura Social para los Municipios y Demarcaciones Territoriales del Distrito Federal FISM-DF Ejercicio Fiscal 2016",
+        "label":  "2017 Términos de Referencia Para Evaluar el Desempeño y la Orientación de los Recursos del Fondo de Infraestructura Social para los Municipios y Demarcaciones Territoriales del Distrito Federal FISM-DF Ejercicio Fiscal 2016",
+        "file":  "TerminoReferenciaEvaluarDesempenoFISM2017.pdf"
+    },
+    {
+        "cat":  "MARCO",
+        "year":  2019,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Lineamientos para la Implementación y Funcionamiento del Presupuesto basado en Resultados y el Sistema de Evaluación del Desempeño en el Municipio de Guadalajara",
+        "label":  "Lineamientos para la Implementación y Funcionamiento del Presupuesto basado en Resultados y el Sistema de Evaluación del Desempeño en el Municipio de Guadalajara",
+        "file":  "GacetaTomoVIEjemplar24Diciembre20-2019.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2025,
+        "fund":  "FAISMUN",
+        "anexo":  0,
+        "kind":  "Evaluación",
+        "period":  "",
+        "ejercicio":  "2024",
+        "disp":  "Evaluación de diseño, desempeño y resultados del Fondo para la Infraestructura Social Municipal y de las demarcaciones del Distrito Federal (FAISMUN), en el ejercicio 2024",
+        "label":  "2025 Evaluación de diseño, desempeño y resultados del Fondo para la Infraestructura Social Municipal y de las demarcaciones del Distrito Federal (FAISMUN), en el ejercicio 2024",
+        "file":  "2025FAISMUN.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2025,
+        "fund":  "FAISMUN",
+        "anexo":  1,
+        "kind":  "Anexo (Norma CONAC)",
+        "period":  "",
+        "ejercicio":  "2024",
+        "disp":  "Anexo Evaluación de diseño, desempeño y resultados del Fondo para la Infraestructura Social Municipal y de las demarcaciones del Distrito Federal (FAISMUN), en el ejercicio 2024 (De acuerdo a la Norma CONAC)",
+        "label":  "2025 Anexo Evaluación de diseño, desempeño y resultados del Fondo para la Infraestructura Social Municipal y de las demarcaciones del Distrito Federal (FAISMUN), en el ejercicio 2024 (De acuerdo a la Norma CONAC)",
+        "file":  "2025FAISMUNAnexo.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2025,
+        "fund":  "FORTAMUN",
+        "anexo":  0,
+        "kind":  "Evaluación",
+        "period":  "",
+        "ejercicio":  "2024",
+        "disp":  "Evaluación de diseño, desempeño y resultados del Fondo para el Fortalecimiento de los Municipios y las demarcaciones territoriales del Distrito Federal (FORTAMUN-DF), en el ejercicio 2024",
+        "label":  "2025 Evaluación de diseño, desempeño y resultados del Fondo para el Fortalecimiento de los Municipios y las demarcaciones territoriales del Distrito Federal (FORTAMUN-DF), en el ejercicio 2024",
+        "file":  "2025FORTAMUN.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2025,
+        "fund":  "FORTAMUN",
+        "anexo":  1,
+        "kind":  "Anexo (Norma CONAC)",
+        "period":  "",
+        "ejercicio":  "2024",
+        "disp":  "Anexo Evaluación de diseño, desempeño y resultados del Fondo para el Fortalecimiento de los Municipios y las demarcaciones territoriales del Distrito Federal (FORTAMUN-DF), en el ejercicio 2024 (De acuerdo a la Norma CONAC)",
+        "label":  "2025 Anexo Evaluación de diseño, desempeño y resultados del Fondo para el Fortalecimiento de los Municipios y las demarcaciones territoriales del Distrito Federal (FORTAMUN-DF), en el ejercicio 2024 (De acuerdo a la Norma CONAC)",
+        "file":  "2025FORTAMUNAnexo.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2024,
+        "fund":  "FAISMUN",
+        "anexo":  0,
+        "kind":  "Evaluación",
+        "period":  "",
+        "ejercicio":  "2023",
+        "disp":  "Evaluación de diseño, desempeño y resultados del Fondo para la Infraestructura Social Municipal y de las demarcaciones del Distrito Federal (FAISMUN), en el ejercicio 2023",
+        "label":  "2024 Evaluación de diseño, desempeño y resultados del Fondo para la Infraestructura Social Municipal y de las demarcaciones del Distrito Federal (FAISMUN), en el ejercicio 2023",
+        "file":  "2024FAISM.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2024,
+        "fund":  "FAISMUN",
+        "anexo":  1,
+        "kind":  "Anexo (Norma CONAC)",
+        "period":  "",
+        "ejercicio":  "2023",
+        "disp":  "Anexo Evaluación de diseño, desempeño y resultados del Fondo para la Infraestructura Social Municipal y de las demarcaciones del Distrito Federal (FAISMUN), en el ejercicio 2023 (De acuerdo a la Norma CONAC)",
+        "label":  "2024 Anexo Evaluación de diseño, desempeño y resultados del Fondo para la Infraestructura Social Municipal y de las demarcaciones del Distrito Federal (FAISMUN), en el ejercicio 2023 (De acuerdo a la Norma CONAC)",
+        "file":  "2024FISMAnexo.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2024,
+        "fund":  "FORTAMUN",
+        "anexo":  0,
+        "kind":  "Evaluación",
+        "period":  "",
+        "ejercicio":  "2023",
+        "disp":  "Evaluación de diseño, desempeño y resultados del Fondo para el Fortalecimiento de los Municipios y las demarcaciones territoriales del Distrito Federal (FORTAMUN-DF), en el ejercicio 2023",
+        "label":  "2024 Evaluación de diseño, desempeño y resultados del Fondo para el Fortalecimiento de los Municipios y las demarcaciones territoriales del Distrito Federal (FORTAMUN-DF), en el ejercicio 2023",
+        "file":  "2024FORTAMUN.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2024,
+        "fund":  "FORTAMUN",
+        "anexo":  1,
+        "kind":  "Anexo (Norma CONAC)",
+        "period":  "",
+        "ejercicio":  "2023",
+        "disp":  "Anexo Evaluación de diseño, desempeño y resultados del Fondo para el Fortalecimiento de los Municipios y las demarcaciones territoriales del Distrito Federal (FORTAMUN-DF), en el ejercicio 2023 (De acuerdo a la Norma CONAC)",
+        "label":  "2024 Anexo Evaluación de diseño, desempeño y resultados del Fondo para el Fortalecimiento de los Municipios y las demarcaciones territoriales del Distrito Federal (FORTAMUN-DF), en el ejercicio 2023 (De acuerdo a la Norma CONAC)",
+        "file":  "2024FORTAMUNAnexo.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2023,
+        "fund":  "FISM-DF",
+        "anexo":  0,
+        "kind":  "Evaluación",
+        "period":  "",
+        "ejercicio":  "2022",
+        "disp":  "Evaluación de diseño, desempeño y resultados del Fondo para la Infraestructura Social Municipal y de las demarcaciones del Distrito Federal (FISM-DF), en el ejercicio 2022",
+        "label":  "2023 Evaluación de diseño, desempeño y resultados del Fondo para la Infraestructura Social Municipal y de las demarcaciones del Distrito Federal (FISM-DF), en el ejercicio 2022",
+        "file":  "2023FISM.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2023,
+        "fund":  "FISM-DF",
+        "anexo":  1,
+        "kind":  "Anexo (Norma CONAC)",
+        "period":  "",
+        "ejercicio":  "2022",
+        "disp":  "Anexo Evaluación de diseño, desempeño y resultados del Fondo para la Infraestructura Social Municipal y de las demarcaciones del Distrito Federal (FISM-DF), en el ejercicio 2022 (De acuerdo a la Norma CONAC)",
+        "label":  "2023 Anexo Evaluación de diseño, desempeño y resultados del Fondo para la Infraestructura Social Municipal y de las demarcaciones del Distrito Federal (FISM-DF), en el ejercicio 2022 (De acuerdo a la Norma CONAC)",
+        "file":  "2023FISMAnexo.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2023,
+        "fund":  "FORTAMUN",
+        "anexo":  0,
+        "kind":  "Evaluación",
+        "period":  "",
+        "ejercicio":  "2022",
+        "disp":  "Evaluación de diseño, desempeño y resultados del Fondo para el Fortalecimiento de los Municipios y las demarcaciones territoriales del Distrito Federal (FORTAMUN), en el ejercicio 2022",
+        "label":  "2023 Evaluación de diseño, desempeño y resultados del Fondo para el Fortalecimiento de los Municipios y las demarcaciones territoriales del Distrito Federal (FORTAMUN), en el ejercicio 2022",
+        "file":  "2023FORTAMUN.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2023,
+        "fund":  "FORTAMUN",
+        "anexo":  1,
+        "kind":  "Anexo (Norma CONAC)",
+        "period":  "",
+        "ejercicio":  "2022",
+        "disp":  "Anexo Evaluación de diseño, desempeño y resultados del Fondo para el Fortalecimiento de los Municipios y las demarcaciones territoriales del Distrito Federal (FORTAMUN), en el ejercicio 2022 (De acuerdo a la Norma CONAC)",
+        "label":  "2023 Anexo Evaluación de diseño, desempeño y resultados del Fondo para el Fortalecimiento de los Municipios y las demarcaciones territoriales del Distrito Federal (FORTAMUN), en el ejercicio 2022 (De acuerdo a la Norma CONAC)",
+        "file":  "2023FORTAMUNAnexo.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2022,
+        "fund":  "FISM-DF",
+        "anexo":  0,
+        "kind":  "Evaluación",
+        "period":  "",
+        "ejercicio":  "2021",
+        "disp":  "Evaluación de diseño, desempeño y resultados del Fondo para la Infraestructura Social Municipal y de las demarcaciones del Distrito Federal (FISM-DF), en el ejercicio 2021",
+        "label":  "2022 Evaluación de diseño, desempeño y resultados del Fondo para la Infraestructura Social Municipal y de las demarcaciones del Distrito Federal (FISM-DF), en el ejercicio 2021",
+        "file":  "2022FISM.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2022,
+        "fund":  "FISM-DF",
+        "anexo":  1,
+        "kind":  "Anexo (Norma CONAC)",
+        "period":  "",
+        "ejercicio":  "2021",
+        "disp":  "Anexo Evaluación de diseño, desempeño y resultados del Fondo para la Infraestructura Social Municipal y de las demarcaciones del Distrito Federal (FISM-DF), en el ejercicio 2021 (De acuerdo a la Norma CONAC)",
+        "label":  "2022 Anexo Evaluación de diseño, desempeño y resultados del Fondo para la Infraestructura Social Municipal y de las demarcaciones del Distrito Federal (FISM-DF), en el ejercicio 2021 (De acuerdo a la Norma CONAC)",
+        "file":  "2022FISMAnexo.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2022,
+        "fund":  "FORTAMUN",
+        "anexo":  0,
+        "kind":  "Evaluación",
+        "period":  "",
+        "ejercicio":  "2021",
+        "disp":  "Evaluación de diseño, desempeño y resultados del Fondo para el Fortalecimiento de los Municipios y las demarcaciones territoriales del Distrito Federal (FORTAMUN), en el ejercicio 2021",
+        "label":  "2022 Evaluación de diseño, desempeño y resultados del Fondo para el Fortalecimiento de los Municipios y las demarcaciones territoriales del Distrito Federal (FORTAMUN), en el ejercicio 2021",
+        "file":  "2022FORTAMUN.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2022,
+        "fund":  "FORTAMUN",
+        "anexo":  1,
+        "kind":  "Anexo (Norma CONAC)",
+        "period":  "",
+        "ejercicio":  "2021",
+        "disp":  "Anexo Evaluación de diseño, desempeño y resultados del Fondo para el Fortalecimiento de los Municipios y las demarcaciones territoriales del Distrito Federal (FORTAMUN), en el ejercicio 2021 (De acuerdo a la Norma CONAC)",
+        "label":  "2022 Anexo Evaluación de diseño, desempeño y resultados del Fondo para el Fortalecimiento de los Municipios y las demarcaciones territoriales del Distrito Federal (FORTAMUN), en el ejercicio 2021 (De acuerdo a la Norma CONAC)",
+        "file":  "2022FORTAMUNAnexo.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2021,
+        "fund":  "FISM-DF",
+        "anexo":  0,
+        "kind":  "Evaluación",
+        "period":  "",
+        "ejercicio":  "2020",
+        "disp":  "Evaluación de diseño, desempeño y resultados del Fondo para la Infraestructura Social Municipal y de las demarcaciones del Distrito Federal (FISM-DF), en el ejercicio 2020",
+        "label":  "2021 Evaluación de diseño, desempeño y resultados del Fondo para la Infraestructura Social Municipal y de las demarcaciones del Distrito Federal (FISM-DF), en el ejercicio 2020",
+        "file":  "2021FISM.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2021,
+        "fund":  "FISM-DF",
+        "anexo":  1,
+        "kind":  "Anexo (Norma CONAC)",
+        "period":  "",
+        "ejercicio":  "2020",
+        "disp":  "Anexo Evaluación de diseño, desempeño y resultados del Fondo para la Infraestructura Social Municipal y de las demarcaciones del Distrito Federal (FISM-DF), en el ejercicio 2020 (De acuerdo a la Norma CONAC)",
+        "label":  "2021 Anexo Evaluación de diseño, desempeño y resultados del Fondo para la Infraestructura Social Municipal y de las demarcaciones del Distrito Federal (FISM-DF), en el ejercicio 2020 (De acuerdo a la Norma CONAC)",
+        "file":  "2021FISMAnexo.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2021,
+        "fund":  "FORTAMUN",
+        "anexo":  0,
+        "kind":  "Evaluación",
+        "period":  "",
+        "ejercicio":  "2020",
+        "disp":  "Evaluación de diseño, desempeño y resultados del Fondo para el Fortalecimiento de los Municipios y las demarcaciones territoriales del Distrito Federal (FORTAMUN), en el ejercicio 2020",
+        "label":  "2021 Evaluación de diseño, desempeño y resultados del Fondo para el Fortalecimiento de los Municipios y las demarcaciones territoriales del Distrito Federal (FORTAMUN), en el ejercicio 2020",
+        "file":  "2021FORTAMUN.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2021,
+        "fund":  "FORTAMUN",
+        "anexo":  1,
+        "kind":  "Anexo (Norma CONAC)",
+        "period":  "",
+        "ejercicio":  "2020",
+        "disp":  "Anexo Evaluación de diseño, desempeño y resultados del Fondo para el Fortalecimiento de los Municipios y las demarcaciones territoriales del Distrito Federal (FORTAMUN), en el ejercicio 2020 (De acuerdo a la Norma CONAC)",
+        "label":  "2021 Anexo Evaluación de diseño, desempeño y resultados del Fondo para el Fortalecimiento de los Municipios y las demarcaciones territoriales del Distrito Federal (FORTAMUN), en el ejercicio 2020 (De acuerdo a la Norma CONAC)",
+        "file":  "2021FORTAMUNAnexo.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2021,
+        "fund":  "FORTASEG",
+        "anexo":  0,
+        "kind":  "Evaluación",
+        "period":  "",
+        "ejercicio":  "2020",
+        "disp":  "Evaluación de Diseño, Desempeño y Resultados del Programa de Fortalecimiento para la Seguridad (FORTASEG), en el ejercicio 2020",
+        "label":  "2021 Evaluación de Diseño, Desempeño y Resultados del Programa de Fortalecimiento para la Seguridad (FORTASEG), en el ejercicio 2020",
+        "file":  "2021FORTASEG.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2021,
+        "fund":  "FORTASEG",
+        "anexo":  1,
+        "kind":  "Anexo (Norma CONAC)",
+        "period":  "",
+        "ejercicio":  "2020",
+        "disp":  "Anexo Evaluación de Diseño, Desempeño y Resultados del Programa de Fortalecimiento para la Seguridad (FORTASEG), en el ejercicio 2020 (De acuerdo a la Norma CONAC)",
+        "label":  "2021 Anexo Evaluación de Diseño, Desempeño y Resultados del Programa de Fortalecimiento para la Seguridad (FORTASEG), en el ejercicio 2020 (De acuerdo a la Norma CONAC)",
+        "file":  "2021FORTASEGAnexo.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2020,
+        "fund":  "FISM-DF",
+        "anexo":  0,
+        "kind":  "Evaluación",
+        "period":  "",
+        "ejercicio":  "2019",
+        "disp":  "Evaluación de diseño, desempeño y resultados del Fondo para la Infraestructura Social Municipal y de las demarcaciones del Distrito Federal (FISM-DF), en el ejercicio 2019",
+        "label":  "2020 Evaluación de diseño, desempeño y resultados del Fondo para la Infraestructura Social Municipal y de las demarcaciones del Distrito Federal (FISM-DF), en el ejercicio 2019",
+        "file":  "2020FISM.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2020,
+        "fund":  "FISM-DF",
+        "anexo":  1,
+        "kind":  "Anexo (Norma CONAC)",
+        "period":  "",
+        "ejercicio":  "2019",
+        "disp":  "Anexo Evaluación de diseño, desempeño y resultados del Fondo para la Infraestructura Social Municipal y de las demarcaciones del Distrito Federal (FISM-DF), en el ejercicio 2019 (De acuerdo a la Norma CONAC)",
+        "label":  "2020 Anexo Evaluación de diseño, desempeño y resultados del Fondo para la Infraestructura Social Municipal y de las demarcaciones del Distrito Federal (FISM-DF), en el ejercicio 2019 (De acuerdo a la Norma CONAC)",
+        "file":  "2020FISMAnexo.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2020,
+        "fund":  "FORTAMUN",
+        "anexo":  0,
+        "kind":  "Evaluación",
+        "period":  "",
+        "ejercicio":  "2019",
+        "disp":  "Evaluación de diseño, desempeño y resultados del Fondo para el Fortalecimiento de los Municipios y las demarcaciones territoriales del Distrito Federal (FORTAMUN), en el ejercicio 2019",
+        "label":  "2020 Evaluación de diseño, desempeño y resultados del Fondo para el Fortalecimiento de los Municipios y las demarcaciones territoriales del Distrito Federal (FORTAMUN), en el ejercicio 2019",
+        "file":  "2020FORTAMUN.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2020,
+        "fund":  "FORTAMUN",
+        "anexo":  1,
+        "kind":  "Anexo (Norma CONAC)",
+        "period":  "",
+        "ejercicio":  "2019",
+        "disp":  "Anexo Evaluación de diseño, desempeño y resultados del Fondo para el Fortalecimiento de los Municipios y las demarcaciones territoriales del Distrito Federal (FORTAMUN), en el ejercicio 2019 (De acuerdo a la Norma CONAC)",
+        "label":  "2020 Anexo Evaluación de diseño, desempeño y resultados del Fondo para el Fortalecimiento de los Municipios y las demarcaciones territoriales del Distrito Federal (FORTAMUN), en el ejercicio 2019 (De acuerdo a la Norma CONAC)",
+        "file":  "2020FORTAMUNAnexo.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2020,
+        "fund":  "FORTASEG",
+        "anexo":  0,
+        "kind":  "Evaluación",
+        "period":  "",
+        "ejercicio":  "2019",
+        "disp":  "Evaluación de Diseño, Desempeño y Resultados del Programa de Fortalecimiento para la Seguridad (FORTASEG), en el ejercicio 2019",
+        "label":  "2020 Evaluación de Diseño, Desempeño y Resultados del Programa de Fortalecimiento para la Seguridad (FORTASEG), en el ejercicio 2019",
+        "file":  "2020FORTASEG.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2020,
+        "fund":  "FORTASEG",
+        "anexo":  1,
+        "kind":  "Anexo (Norma CONAC)",
+        "period":  "",
+        "ejercicio":  "2019",
+        "disp":  "Anexo Evaluación de Diseño, Desempeño y Resultados del Programa de Fortalecimiento para la Seguridad (FORTASEG), en el ejercicio 2019 (De acuerdo a la Norma CONAC)",
+        "label":  "2020 Anexo Evaluación de Diseño, Desempeño y Resultados del Programa de Fortalecimiento para la Seguridad (FORTASEG), en el ejercicio 2019 (De acuerdo a la Norma CONAC)",
+        "file":  "2020FORTASEGAnexo.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2019,
+        "fund":  "FISM-DF",
+        "anexo":  0,
+        "kind":  "Evaluación",
+        "period":  "",
+        "ejercicio":  "2018",
+        "disp":  "Evaluación de diseño, desempeño y resultados del Fondo para la Infraestructura Social Municipal y de las demarcaciones del Distrito Federal (FISM-DF), en el ejercicio 2018",
+        "label":  "2019 Evaluación de diseño, desempeño y resultados del Fondo para la Infraestructura Social Municipal y de las demarcaciones del Distrito Federal (FISM-DF), en el ejercicio 2018",
+        "file":  "2019FISM.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2019,
+        "fund":  "FISM-DF",
+        "anexo":  1,
+        "kind":  "Anexo (Norma CONAC)",
+        "period":  "",
+        "ejercicio":  "2018",
+        "disp":  "Anexo Evaluación de diseño, desempeño y resultados del Fondo para la Infraestructura Social Municipal y de las demarcaciones del Distrito Federal (FISM-DF), en el ejercicio 2018 (De acuerdo a la Norma CONAC)",
+        "label":  "2019 Anexo Evaluación de diseño, desempeño y resultados del Fondo para la Infraestructura Social Municipal y de las demarcaciones del Distrito Federal (FISM-DF), en el ejercicio 2018 (De acuerdo a la Norma CONAC)",
+        "file":  "2019FISMAnexo.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2019,
+        "fund":  "FORTAMUN",
+        "anexo":  0,
+        "kind":  "Evaluación",
+        "period":  "",
+        "ejercicio":  "2018",
+        "disp":  "Evaluación de diseño, desempeño y resultados del Fondo para el Fortalecimiento de los Municipios y las demarcaciones territoriales del Distrito Federal (FORTAMUN), en el ejercicio 2018",
+        "label":  "2019 Evaluación de diseño, desempeño y resultados del Fondo para el Fortalecimiento de los Municipios y las demarcaciones territoriales del Distrito Federal (FORTAMUN), en el ejercicio 2018",
+        "file":  "2019FORTAMUN.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2019,
+        "fund":  "FORTAMUN",
+        "anexo":  1,
+        "kind":  "Anexo (Norma CONAC)",
+        "period":  "",
+        "ejercicio":  "2018",
+        "disp":  "Anexo Evaluación de diseño, desempeño y resultados del Fondo para el Fortalecimiento de los Municipios y las demarcaciones territoriales del Distrito Federal (FORTAMUN), en el ejercicio 2018 (De acuerdo a la Norma CONAC)",
+        "label":  "2019 Anexo Evaluación de diseño, desempeño y resultados del Fondo para el Fortalecimiento de los Municipios y las demarcaciones territoriales del Distrito Federal (FORTAMUN), en el ejercicio 2018 (De acuerdo a la Norma CONAC)",
+        "file":  "2019FORTAMUNAnexo.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2019,
+        "fund":  "FORTASEG",
+        "anexo":  0,
+        "kind":  "Evaluación",
+        "period":  "",
+        "ejercicio":  "2018",
+        "disp":  "Evaluación de Diseño, Desempeño y Resultados del Programa de Fortalecimiento para la Seguridad (FORTASEG), en el ejercicio 2018",
+        "label":  "2019 Evaluación de Diseño, Desempeño y Resultados del Programa de Fortalecimiento para la Seguridad (FORTASEG), en el ejercicio 2018",
+        "file":  "2019FORTASEG.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2019,
+        "fund":  "FORTASEG",
+        "anexo":  1,
+        "kind":  "Anexo (Norma CONAC)",
+        "period":  "",
+        "ejercicio":  "2018",
+        "disp":  "Anexo Evaluación de Diseño, Desempeño y Resultados del Programa de Fortalecimiento para la Seguridad (FORTASEG), en el ejercicio 2018 (De acuerdo a la Norma CONAC)",
+        "label":  "2019 Anexo Evaluación de Diseño, Desempeño y Resultados del Programa de Fortalecimiento para la Seguridad (FORTASEG), en el ejercicio 2018 (De acuerdo a la Norma CONAC)",
+        "file":  "2019FORTASEGAnexo.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2018,
+        "fund":  "FISM-DF",
+        "anexo":  0,
+        "kind":  "Evaluación",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Evaluación de Desempeño del Fondo para la Infraestructura Social Municipal y de las Demarcaciones Territoriales del Distrito Federal (FISMDF)",
+        "label":  "2018 Evaluación de Desempeño del Fondo para la Infraestructura Social Municipal y de las Demarcaciones Territoriales del Distrito Federal (FISMDF)",
+        "file":  "FISMDF_GDL2018.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2018,
+        "fund":  "FISM-DF",
+        "anexo":  1,
+        "kind":  "Anexo (Norma CONAC)",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Anexo Evaluación del Desempeño Fondo para la Infraestructura Social Municipal y de las Demarcaciones Territoriales del Distrito Federal (FISMDF) (De acuerdo a la Norma CONAC)",
+        "label":  "2018 Anexo Evaluación del Desempeño Fondo para la Infraestructura Social Municipal y de las Demarcaciones Territoriales del Distrito Federal (FISMDF) (De acuerdo a la Norma CONAC)",
+        "file":  "AnexoFISMDF_GDL2018.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2018,
+        "fund":  "FORTAMUN",
+        "anexo":  0,
+        "kind":  "Evaluación",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Evaluación del Desempeño FORTAMUN-DF",
+        "label":  "2018 Evaluación del Desempeño FORTAMUN-DF",
+        "file":  "EvaluacionDesempenoFORTAMUN2017Guadalajara18.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2018,
+        "fund":  "FORTAMUN",
+        "anexo":  1,
+        "kind":  "Anexo (Norma CONAC)",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Anexo Evaluación del Desempeño FORTAMUN-DF (De acuerdo a la Norma CONAC)",
+        "label":  "2018 Anexo Evaluación del Desempeño FORTAMUN-DF (De acuerdo a la Norma CONAC)",
+        "file":  "AnexoFORTAMUN2018.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2018,
+        "fund":  "FORTASEG",
+        "anexo":  0,
+        "kind":  "Evaluación",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Evaluación del Desempeño del Programa Federal de Fortalecimiento para la Seguridad (FORTASEG) del Municipio de Guadalajara",
+        "label":  "2018 Evaluación del Desempeño del Programa Federal de Fortalecimiento para la Seguridad (FORTASEG) del Municipio de Guadalajara",
+        "file":  "EvaluacionFORTASEG2018.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2018,
+        "fund":  "FORTASEG",
+        "anexo":  1,
+        "kind":  "Anexo (Norma CONAC)",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Anexo Evaluación del Desempeño del Programa Federal de Fortalecimiento para la Seguridad (FORTASEG) del Municipio de Guadalajara (De acuerdo a la Norma CONAC)",
+        "label":  "2018 Anexo Evaluación del Desempeño del Programa Federal de Fortalecimiento para la Seguridad (FORTASEG) del Municipio de Guadalajara (De acuerdo a la Norma CONAC)",
+        "file":  "AnexoFORTASEG2018.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2017,
+        "fund":  "FISM-DF",
+        "anexo":  0,
+        "kind":  "Evaluación",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Evaluación del Desempeño y Orientación de los Recursos del Fondo para la Infraestructura Social Municipal y de las Demarcaciones Territoriales del Distrito Federal (FISMDF)",
+        "label":  "2017 Evaluación del Desempeño y Orientación de los Recursos del Fondo para la Infraestructura Social Municipal y de las Demarcaciones Territoriales del Distrito Federal (FISMDF)",
+        "file":  "FISMDF_GDL.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2017,
+        "fund":  "FISM-DF",
+        "anexo":  1,
+        "kind":  "Anexo (Norma CONAC)",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Anexo Evaluación del Desempeño y Orientación de los Recursos del Fondo para la Infraestructura Social Municipal y de las Demarcaciones Territoriales del Distrito Federal (FISMDF (De acuerdo a la Norma CONAC))",
+        "label":  "2017 Anexo Evaluación del Desempeño y Orientación de los Recursos del Fondo para la Infraestructura Social Municipal y de las Demarcaciones Territoriales del Distrito Federal (FISMDF (De acuerdo a la Norma CONAC))",
+        "file":  "AnexoFISMDF_GDL.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2017,
+        "fund":  "FORTAMUN",
+        "anexo":  0,
+        "kind":  "Evaluación",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Evaluación del Desempeño FORTAMUN-DF",
+        "label":  "2017 Evaluación del Desempeño FORTAMUN-DF",
+        "file":  "EvaluacionFORTAMUN.doc.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2017,
+        "fund":  "FORTAMUN",
+        "anexo":  1,
+        "kind":  "Anexo (Norma CONAC)",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Anexo Evaluación del Desempeño FORTAMUN-DF (De acuerdo a la Norma CONAC)",
+        "label":  "2017 Anexo Evaluación del Desempeño FORTAMUN-DF (De acuerdo a la Norma CONAC)",
+        "file":  "AnexoFORTAMUN.doc.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2017,
+        "fund":  "FORTASEG",
+        "anexo":  0,
+        "kind":  "Evaluación",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Evaluación del Desempeño de los Recursos Federales del Programa de Fortalecimiento para la Seguridad (FORTASEG) del Municipio de Guadalajara",
+        "label":  "2017 Evaluación del Desempeño de los Recursos Federales del Programa de Fortalecimiento para la Seguridad (FORTASEG) del Municipio de Guadalajara",
+        "file":  "EvaluacionFORTASEG.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2017,
+        "fund":  "FORTASEG",
+        "anexo":  1,
+        "kind":  "Anexo (Norma CONAC)",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Anexo Evaluación del Desempeño de los Recursos Federales del Programa de Fortalecimiento para la Seguridad (FORTASEG) del Municipio de Guadalajara (De acuerdo a la Norma CONAC)",
+        "label":  "2017 Anexo Evaluación del Desempeño de los Recursos Federales del Programa de Fortalecimiento para la Seguridad (FORTASEG) del Municipio de Guadalajara (De acuerdo a la Norma CONAC)",
+        "file":  "AnexoFORTASEG.pdf"
+    },
+    {
+        "cat":  "AGENDA",
+        "year":  2024,
+        "fund":  "FAISMUN",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Agenda de Mejora de FAISMUN",
+        "label":  "2024 Agenda de Mejora de FAISMUN",
+        "file":  "2025FAISM.pdf"
+    },
+    {
+        "cat":  "AGENDA",
+        "year":  2021,
+        "fund":  "FORTAMUN",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Agenda de Mejora de FORTAMUN",
+        "label":  "2021 Agenda de Mejora de FORTAMUN",
+        "file":  "2021AgendaMejoraFORTAMUN.pdf"
+    },
+    {
+        "cat":  "AGENDA",
+        "year":  2021,
+        "fund":  "FISM-DF",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Agenda de Mejora de FISM",
+        "label":  "2021 Agenda de Mejora de FISM",
+        "file":  "2021AgendaMejoraFISM.pdf"
+    },
+    {
+        "cat":  "AGENDA",
+        "year":  2020,
+        "fund":  "FORTAMUN",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Agenda de Mejora de FORTAMUN",
+        "label":  "2020 Agenda de Mejora de FORTAMUN",
+        "file":  "2020AgendaMejoraFORTAMUN.pdf"
+    },
+    {
+        "cat":  "AGENDA",
+        "year":  2020,
+        "fund":  "FORTASEG",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Agenda de Mejora de FORTASEG",
+        "label":  "2020 Agenda de Mejora de FORTASEG",
+        "file":  "2020AgendaMejoraFORTASEG.pdf"
+    },
+    {
+        "cat":  "AGENDA",
+        "year":  2020,
+        "fund":  "FISM-DF",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Agenda de Mejora de FISM",
+        "label":  "2020 Agenda de Mejora de FISM",
+        "file":  "2020AgendaMejoraFISM.pdf"
+    },
+    {
+        "cat":  "AGENDA",
+        "year":  2019,
+        "fund":  "FORTAMUN",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Agenda de Mejora de FORTAMUN",
+        "label":  "2019 Agenda de Mejora de FORTAMUN",
+        "file":  "2019AgendaMejoraFORTAMUN.pdf"
+    },
+    {
+        "cat":  "AGENDA",
+        "year":  2019,
+        "fund":  "FORTASEG",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Agenda de Mejora de FORTASEG",
+        "label":  "2019 Agenda de Mejora de FORTASEG",
+        "file":  "2019AgendaMejoraFORTASEG.pdf"
+    },
+    {
+        "cat":  "AGENDA",
+        "year":  2019,
+        "fund":  "FISM-DF",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Agenda de Mejora de FISM",
+        "label":  "2019 Agenda de Mejora de FISM",
+        "file":  "2019AgendaMejoraFISM.pdf"
+    },
+    {
+        "cat":  "AGENDA",
+        "year":  2018,
+        "fund":  "FORTAMUN",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Agenda de Mejora de FORTAMUN",
+        "label":  "2018 Agenda de Mejora de FORTAMUN",
+        "file":  "2018AgendaMejoraFORTAMUN.pdf"
+    },
+    {
+        "cat":  "AGENDA",
+        "year":  2018,
+        "fund":  "FORTASEG",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Agenda de Mejora de FORTASEG",
+        "label":  "2018 Agenda de Mejora de FORTASEG",
+        "file":  "2018AgendaMejoraFORTASEG.pdf"
+    },
+    {
+        "cat":  "AGENDA",
+        "year":  2018,
+        "fund":  "FISM-DF",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Agenda de Mejora de FISM",
+        "label":  "2018 Agenda de Mejora de FISM",
+        "file":  "2018AgendaMejoraFISM.pdf"
+    },
+    {
+        "cat":  "AGENDA",
+        "year":  2017,
+        "fund":  "FORTAMUN",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Agenda de Mejora de FORTAMUN",
+        "label":  "2017 Agenda de Mejora de FORTAMUN",
+        "file":  "2017AgendaMejoraFORTAMUN.pdf"
+    },
+    {
+        "cat":  "AGENDA",
+        "year":  2017,
+        "fund":  "FORTASEG",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Agenda de Mejora de FORTASEG",
+        "label":  "2017 Agenda de Mejora de FORTASEG",
+        "file":  "2017AgendaMejoraFORTASEG.pdf"
+    },
+    {
+        "cat":  "AGENDA",
+        "year":  2017,
+        "fund":  "FISM-DF",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Agenda de Mejora de FISM",
+        "label":  "2017 Agenda de Mejora de FISM",
+        "file":  "2017AgendaMejoraFISM.pdf"
+    },
+    {
+        "cat":  "RESULT",
+        "year":  2019,
+        "fund":  "FISM-DF",
+        "anexo":  0,
+        "kind":  "Encuesta de satisfacción",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Satisfacción de Obras FISM 2019",
+        "label":  "Satisfacción de Obras FISM 2019",
+        "file":  "SatisfaccionObrasFISM2019.xlsx"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2026,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2024-2027",
+        "ejercicio":  "",
+        "disp":  "Mayo 2026",
+        "label":  "Periodo 2024-2027 Mayo 2026",
+        "file":  "ComiteTecnicoEvaluacionDesempenoMayo26.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2026,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2024-2027",
+        "ejercicio":  "",
+        "disp":  "Abril 2026",
+        "label":  "Periodo 2024-2027 Abril 2026",
+        "file":  "ComiteTecnicoEvaluacionDesempenoAbril26.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2026,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2024-2027",
+        "ejercicio":  "",
+        "disp":  "Versión Estenográfica del Día Quinta Sesión Ordinaria del Día 20 Marzo de 2026",
+        "label":  "Periodo 2024-2027 Versión Estenográfica del Día Quinta Sesión Ordinaria del Día 20 Marzo de 2026",
+        "file":  "VEComiteTecnicoEvaluacionDesempeno20Marzo26.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2026,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2024-2027",
+        "ejercicio":  "",
+        "disp":  "Febrero 2026",
+        "label":  "Periodo 2024-2027 Febrero 2026",
+        "file":  "ComiteTecnicoEvaluacionDesempenoFebrero26.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2026,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2024-2027",
+        "ejercicio":  "",
+        "disp":  "Enero 2026",
+        "label":  "Periodo 2024-2027 Enero 2026",
+        "file":  "ComiteTecnicoEvaluacionDesempenoEnero26.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2025,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2024-2027",
+        "ejercicio":  "",
+        "disp":  "Versión Estenográfica del Día Cuarta Sesión Ordinaria del Día 18 Diciembre de 2025",
+        "label":  "Periodo 2024-2027 Versión Estenográfica del Día Cuarta Sesión Ordinaria del Día 18 Diciembre de 2025",
+        "file":  "VEComiteTecnicoEvaluacionDesempeno18Diciembre25.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2025,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2024-2027",
+        "ejercicio":  "",
+        "disp":  "Noviembre 2025",
+        "label":  "Periodo 2024-2027 Noviembre 2025",
+        "file":  "ComiteTecnicoEvaluacionDesempenoNoviembre25.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2025,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2024-2027",
+        "ejercicio":  "",
+        "disp":  "Octubre 2025",
+        "label":  "Periodo 2024-2027 Octubre 2025",
+        "file":  "ComiteTecnicoEvaluacionDesempenoOctubre25.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2025,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2024-2027",
+        "ejercicio":  "",
+        "disp":  "Versión Estenográfica del Día Tercera Sesión Ordinaria del Día 29 Septiembre de 2025",
+        "label":  "Periodo 2024-2027 Versión Estenográfica del Día Tercera Sesión Ordinaria del Día 29 Septiembre de 2025",
+        "file":  "VEComiteTecnicoEvaluacionDesempeno29Septiembre25.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2025,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2024-2027",
+        "ejercicio":  "",
+        "disp":  "Agosto 2025",
+        "label":  "Periodo 2024-2027 Agosto 2025",
+        "file":  "ComiteTecnicoEvaluacionDesempenoAgosto25.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2025,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2024-2027",
+        "ejercicio":  "",
+        "disp":  "Julio 2025",
+        "label":  "Periodo 2024-2027 Julio 2025",
+        "file":  "ComiteTecnicoEvaluacionDesempenoJulio25.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2025,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2024-2027",
+        "ejercicio":  "",
+        "disp":  "Acta del Día Segunda Sesión Ordinaria del Día 26 Junio de 2025",
+        "label":  "Periodo 2024-2027 Acta del Día Segunda Sesión Ordinaria del Día 26 Junio de 2025",
+        "file":  "ActaComiteTecnicoEvaluacionDesempeno26Junio25.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2025,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2024-2027",
+        "ejercicio":  "",
+        "disp":  "Versión Estenográfica del Día Segunda Sesión Ordinaria del Día 26 Junio de 2025",
+        "label":  "Periodo 2024-2027 Versión Estenográfica del Día Segunda Sesión Ordinaria del Día 26 Junio de 2025",
+        "file":  "VEComiteTecnicoEvaluacionDesempeno26Junio25.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2025,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2024-2027",
+        "ejercicio":  "",
+        "disp":  "Orden del Día Segunda Sesión Ordinaria del Día 26 Junio de 2025",
+        "label":  "Periodo 2024-2027 Orden del Día Segunda Sesión Ordinaria del Día 26 Junio de 2025",
+        "file":  "OrdenDiaComiteTecnicoEvaluacionDesempeno26Junio25.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2025,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2024-2027",
+        "ejercicio":  "",
+        "disp":  "Mayo 2025",
+        "label":  "Periodo 2024-2027 Mayo 2025",
+        "file":  "ComiteTecnicoEvaluacionDesempenoMayo25.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2025,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2024-2027",
+        "ejercicio":  "",
+        "disp":  "Abril 2025",
+        "label":  "Periodo 2024-2027 Abril 2025",
+        "file":  "ComiteTecnicoEvaluacionDesempenoAbril25.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2025,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2024-2027",
+        "ejercicio":  "",
+        "disp":  "Acta del Día Primera Sesión Ordinaria del Día 27 Marzo de 2025",
+        "label":  "Periodo 2024-2027 Acta del Día Primera Sesión Ordinaria del Día 27 Marzo de 2025",
+        "file":  "ActaComiteTecnicoEvaluacionDesempeno27Marzo25.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2025,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2024-2027",
+        "ejercicio":  "",
+        "disp":  "Versión Estenográfica Primera Sesión Ordinaria del Día 27 Marzo de 2025",
+        "label":  "Periodo 2024-2027 Versión Estenográfica Primera Sesión Ordinaria del Día 27 Marzo de 2025",
+        "file":  "VEComiteTecnicoEvaluacionDesempeno27Marzo25.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2025,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2024-2027",
+        "ejercicio":  "",
+        "disp":  "Orden del Día Primera Sesión Ordinaria del Día 27 Marzo de 2025",
+        "label":  "Periodo 2024-2027 Orden del Día Primera Sesión Ordinaria del Día 27 Marzo de 2025",
+        "file":  "OrdenDiaComiteTecnicoEvaluacionDesempeno27Marzo25.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2025,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2024-2027",
+        "ejercicio":  "",
+        "disp":  "Febrero 2025",
+        "label":  "Periodo 2024-2027 Febrero 2025",
+        "file":  "ComiteTecnicoEvaluacionDesempenoFebrero25.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2025,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2024-2027",
+        "ejercicio":  "",
+        "disp":  "Enero 2025",
+        "label":  "Periodo 2024-2027 Enero 2025",
+        "file":  "ComiteTecnicoEvaluacionDesempenoEnero25.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2024,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2024-2027",
+        "ejercicio":  "",
+        "disp":  "Diciembre 2024",
+        "label":  "Periodo 2024-2027 Diciembre 2024",
+        "file":  "ComiteTecnicoEvaluacionDesempenoDiciembre24.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2024,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2024-2027",
+        "ejercicio":  "",
+        "disp":  "Noviembre 2024",
+        "label":  "Periodo 2024-2027 Noviembre 2024",
+        "file":  "ComiteTecnicoEvaluacionDesempenoNoviembre24.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2024,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2024-2027",
+        "ejercicio":  "",
+        "disp":  "Octubre 2024",
+        "label":  "Periodo 2024-2027 Octubre 2024",
+        "file":  "ComiteTecnicoEvaluacionDesempenoOctubre24.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2024,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2021-2024",
+        "ejercicio":  "",
+        "disp":  "Acta Décimo Octava Sesión Ordinaria del Día 27 Marzo de 2024",
+        "label":  "Periodo 2021-2024 Acta Décimo Octava Sesión Ordinaria del Día 27 Marzo de 2024",
+        "file":  "ActaComiteTecnicoSesion27Marzo24.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2023,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2021-2024",
+        "ejercicio":  "",
+        "disp":  "Acta Décimo Séptima Sesión Ordinaria del Día 31 Marzo de 2023",
+        "label":  "Periodo 2021-2024 Acta Décimo Séptima Sesión Ordinaria del Día 31 Marzo de 2023",
+        "file":  "ActaComiteTecnicoSesion31Marzo23.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2022,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2021-2024",
+        "ejercicio":  "",
+        "disp":  "Acta Décimo Sexta Sesión Ordinaria del Día 14 Enero de 2022",
+        "label":  "Periodo 2021-2024 Acta Décimo Sexta Sesión Ordinaria del Día 14 Enero de 2022",
+        "file":  "ActaComiteTecnicoSesion14Enero22.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2021,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2021-2024",
+        "ejercicio":  "",
+        "disp":  "Acta Décimo Quinta Sesión Ordinaria del Día 07 Diciembre de 2021",
+        "label":  "Periodo 2021-2024 Acta Décimo Quinta Sesión Ordinaria del Día 07 Diciembre de 2021",
+        "file":  "ActaComiteTecnicoSesion7Diciembre21.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2021,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2018-2021",
+        "ejercicio":  "",
+        "disp":  "Acta Décimo Cuarta Sesión Ordinaria del Día 02 Septiembre de 2021",
+        "label":  "Periodo 2018-2021 Acta Décimo Cuarta Sesión Ordinaria del Día 02 Septiembre de 2021",
+        "file":  "ActaComiteTecnicoSesion2Septiembre21.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2021,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2018-2021",
+        "ejercicio":  "",
+        "disp":  "Acta Décimo Tercera Sesión Ordinaria del Día 16 Julio de 2021",
+        "label":  "Periodo 2018-2021 Acta Décimo Tercera Sesión Ordinaria del Día 16 Julio de 2021",
+        "file":  "ActaComiteTecnicoSesion16Julio21.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2021,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2018-2021",
+        "ejercicio":  "",
+        "disp":  "Acta Décimo Segunda Sesión Ordinaria del Día 18 Mayo de 2021",
+        "label":  "Periodo 2018-2021 Acta Décimo Segunda Sesión Ordinaria del Día 18 Mayo de 2021",
+        "file":  "ActaComiteTecnicoSesion18Mayo21.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2021,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2018-2021",
+        "ejercicio":  "",
+        "disp":  "Acta Undécima Sesión Ordinaria del Día 22 Marzo de 2021",
+        "label":  "Periodo 2018-2021 Acta Undécima Sesión Ordinaria del Día 22 Marzo de 2021",
+        "file":  "ActaComiteTecnicoSesion22Marzo21.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2020,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2018-2021",
+        "ejercicio":  "",
+        "disp":  "Acta Décima Sesión Ordinaria del Día 02 Diciembre de 2020",
+        "label":  "Periodo 2018-2021 Acta Décima Sesión Ordinaria del Día 02 Diciembre de 2020",
+        "file":  "ActaComiteTecnicoSesion2Diciembre20.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2020,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2018-2021",
+        "ejercicio":  "",
+        "disp":  "Acta Novena Sesión Ordinaria del Día 18 Noviembre de 2020",
+        "label":  "Periodo 2018-2021 Acta Novena Sesión Ordinaria del Día 18 Noviembre de 2020",
+        "file":  "ActaComiteTecnicoSesion18Noviembre20.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2020,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2018-2021",
+        "ejercicio":  "",
+        "disp":  "Acta Octava Sesión Ordinaria del Día 08 Mayo de 2020",
+        "label":  "Periodo 2018-2021 Acta Octava Sesión Ordinaria del Día 08 Mayo de 2020",
+        "file":  "ActaComiteTecnicoSesion8Mayo20.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2020,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2018-2021",
+        "ejercicio":  "",
+        "disp":  "Acta Séptima Sesión Ordinaria del Día 12 Febrero de 2020",
+        "label":  "Periodo 2018-2021 Acta Séptima Sesión Ordinaria del Día 12 Febrero de 2020",
+        "file":  "ActaComiteTecnicoSesion12Febrero20.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2019,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2018-2021",
+        "ejercicio":  "",
+        "disp":  "Acta Sexta Sesión Ordinaria del Día 10 Septiembre de 2019",
+        "label":  "Periodo 2018-2021 Acta Sexta Sesión Ordinaria del Día 10 Septiembre de 2019",
+        "file":  "ActaComiteTecnicoSesion10Septiembre19.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2019,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2018-2021",
+        "ejercicio":  "",
+        "disp":  "Acta Quinta Sesión Ordinaria del Día 28 Agosto de 2019",
+        "label":  "Periodo 2018-2021 Acta Quinta Sesión Ordinaria del Día 28 Agosto de 2019",
+        "file":  "ActaComiteTecnicoSesion28Agosto19.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2019,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2018-2021",
+        "ejercicio":  "",
+        "disp":  "Acta Cuarta Sesión Ordinaria del Día 10 Julio de 2019",
+        "label":  "Periodo 2018-2021 Acta Cuarta Sesión Ordinaria del Día 10 Julio de 2019",
+        "file":  "ActaComiteTecnicoSesion10Julio19.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2019,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2018-2021",
+        "ejercicio":  "",
+        "disp":  "Acta Tercera Sesión Ordinaria del Día 03 Mayo de 2019",
+        "label":  "Periodo 2018-2021 Acta Tercera Sesión Ordinaria del Día 03 Mayo de 2019",
+        "file":  "ActaComiteTecnicoSesion3Mayo19.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2019,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2018-2021",
+        "ejercicio":  "",
+        "disp":  "Acta Segunda Sesión Ordinaria del Día 12 Abril de 2019",
+        "label":  "Periodo 2018-2021 Acta Segunda Sesión Ordinaria del Día 12 Abril de 2019",
+        "file":  "ActaComiteTecnicoSesion12Abril19.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2019,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "2018-2021",
+        "ejercicio":  "",
+        "disp":  "Acta Primera Sesión Ordinaria del Día 28 Marzo de 2019",
+        "label":  "Periodo 2018-2021 Acta Primera Sesión Ordinaria del Día 28 Marzo de 2019",
+        "file":  "ActaComiteTecnicoSesion28Marzo19.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2018,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Acta Cuarta Sesión Ordinaria del Día 22 Agosto de 2018",
+        "label":  "Acta Cuarta Sesión Ordinaria del Día 22 Agosto de 2018",
+        "file":  "ActaComiteTecnicoSesion22Agosto18.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2018,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Acta Tercera Sesión Ordinaria del Día 12 Marzo de 2018",
+        "label":  "Acta Tercera Sesión Ordinaria del Día 12 Marzo de 2018",
+        "file":  "ActaComiteTecnicoSesion12Marzo18.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2017,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Acta Segunda Sesión Ordinaria del Día 4 Diciembre de 2017",
+        "label":  "Acta Segunda Sesión Ordinaria del Día 4 Diciembre de 2017",
+        "file":  "ActaComiteTecnicoSesion4Diciembre17.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2017,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Acta Primera Sesión Extraordinaria del Día 11 Septiembre de 2017",
+        "label":  "Acta Primera Sesión Extraordinaria del Día 11 Septiembre de 2017",
+        "file":  "ActaComiteTecnicoSesion11Septiembre17.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2017,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Acta Primera Sesión Ordinaria del Día 19 Julio de 2017",
+        "label":  "Acta Primera Sesión Ordinaria del Día 19 Julio de 2017",
+        "file":  "ActaComiteTecnicoSesion19Julio17.pdf"
+    },
+    {
+        "cat":  "COMITE",
+        "year":  2017,
+        "fund":  "",
+        "anexo":  0,
+        "kind":  "",
+        "period":  "",
+        "ejercicio":  "",
+        "disp":  "Acta de Instalación del Día 24 Abril de 2017",
+        "label":  "Acta de Instalación del Día 24 Abril de 2017",
+        "file":  "Acta_ComiteDesempeno.pdf"
+    }
+];
+
+(function(){
+  var FB='https://transparencia.guadalajara.gob.mx/sites/default/files/';
+  function esc(s){ if(s==null) return ''; return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function norm(s){ return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,''); }
+
+  var PDFICO='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>';
+  var XLSICO='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="17"/><line x1="16" y1="13" x2="8" y2="17"/></svg>';
+
+  /* Lucide icons por categoría (line, currentColor) */
+  var ICO={
+    chart:'<path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="6" rx="1"/><rect x="12" y="7" width="3" height="10" rx="1"/><rect x="17" y="13" width="3" height="4" rx="1"/>',
+    calendar:'<rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="m9 16 2 2 4-4"/>',
+    ruler:'<path d="M21.3 8.7 8.7 21.3a1 1 0 0 1-1.4 0l-4.6-4.6a1 1 0 0 1 0-1.4L15.3 2.7a1 1 0 0 1 1.4 0l4.6 4.6a1 1 0 0 1 0 1.4Z"/><path d="m7.5 10.5 2 2"/><path d="m10.5 7.5 2 2"/><path d="m13.5 4.5 2 2"/><path d="m4.5 13.5 2 2"/>',
+    trending:'<polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>',
+    users:'<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+    book:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>',
+    compass:'<circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>'
+  };
+  function svg(p,sz){ return '<svg width="'+(sz||22)+'" height="'+(sz||22)+'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+p+'</svg>'; }
+
+  function docBtn(file){
+    var u=(FB+file).replace(/ /g,'%20');
+    var ext=file.split('.').pop().toLowerCase();
+    if(ext==='pdf') return '<a class="sd-btn" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer">'+PDFICO+'Ver PDF</a>';
+    var viewer='https://view.officeapps.live.com/op/view.aspx?src='+encodeURIComponent(u);
+    return '<a class="sd-btn xls" href="'+esc(viewer)+'" target="_blank" rel="noopener noreferrer">'+XLSICO+'Vista previa</a>';
+  }
+  function fundClass(f){ if(!f) return ''; if(f.indexOf('FORTASEG')>-1) return 'fs'; if(f.indexOf('FORTAMUN')>-1 && f.indexOf('FISM')===-1) return 'fo'; return 'fi'; }
+  function fundTxt(f){ return f.replace(' | ',' · '); }
+
+  /* ---- MARCO (featured) ---- */
+  var marco=SED.filter(function(x){return x.cat==='MARCO';}).sort(function(a,b){
+    var ak=/Lineamientos/i.test(a.disp)?0:1, bk=/Lineamientos/i.test(b.disp)?0:1; return ak-bk;
+  });
+  var mIco={0:ICO.book,1:ICO.compass};
+  var mh='';
+  marco.forEach(function(g,i){
+    var u=(FB+g.file).replace(/ /g,'%20');
+    var key=/Lineamientos/i.test(g.disp);
+    mh+='<a class="sd-marco-card'+(key?' key':'')+'" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer">'+
+      '<span class="sd-marco-ico" aria-hidden="true">'+svg(key?ICO.book:ICO.compass,22)+'</span>'+
+      '<span class="sd-marco-tx"><span class="sd-marco-eye">'+(key?'Reglas del sistema':'Planeación municipal')+'</span>'+
+      '<b>'+esc(g.disp)+'</b><s>'+PDFICO+(key?'Gaceta 2019 · PbR-SED':'Gaceta 2024 · Visión 2042')+'</s></span></a>';
+  });
+  document.getElementById('sdMarco').innerHTML=mh;
+
+  /* ---- Categorías ---- */
+  var CATS=[
+    {key:'RESULT', t:'Resultados de las evaluaciones', ico:ICO.chart,    sub:'Evaluaciones de diseño, desempeño y resultados, con sus anexos', open:true},
+    {key:'PAE',    t:'Programa Anual de Evaluación',     ico:ICO.calendar, sub:'El plan que define qué se evalúa cada año', open:false},
+    {key:'TDR',    t:'Términos de Referencia',            ico:ICO.ruler,    sub:'La metodología con que se evalúa cada fondo', open:false},
+    {key:'AGENDA', t:'Agenda de Mejora',                  ico:ICO.trending, sub:'Las acciones de mejora derivadas de cada evaluación', open:false},
+    {key:'COMITE', t:'Comité Técnico de Evaluación',      ico:ICO.users,    sub:'Actas, órdenes del día y versiones estenográficas', open:false}
+  ];
+
+  function rowHtml(it){
+    var search=norm([it.year,it.fund,it.kind,it.period,it.ejercicio,it.disp,
+      (it.cat==='RESULT'?'resultados evaluacion':it.cat==='PAE'?'programa anual de evaluacion pae':it.cat==='TDR'?'terminos de referencia metodologia':it.cat==='AGENDA'?'agenda de mejora':'comite tecnico sesion acta')].join(' '));
+    var tags='<span class="sd-yb">'+esc(it.year)+'</span>';
+    if(it.fund) tags+='<span class="sd-fund '+fundClass(it.fund)+'">'+esc(fundTxt(it.fund))+'</span>';
+    if(it.cat==='RESULT' && it.kind){ var kc=it.kind.indexOf('Anexo')>-1?'anx':(it.kind.indexOf('Encuesta')>-1?'enc':''); tags+='<span class="sd-tag '+kc+'">'+esc(it.kind)+'</span>'; }
+    if(it.cat==='COMITE' && it.period) tags+='<span class="sd-per">'+esc('Periodo '+it.period)+'</span>';
+    var meta='';
+    if(it.cat==='RESULT' && it.ejercicio) meta='<div class="sd-row-meta">Ejercicio fiscal evaluado: '+esc(it.ejercicio)+'</div>';
+    return '<div class="sd-row" data-search="'+esc(search)+'"><div class="sd-row-main"><div class="sd-row-top">'+tags+'</div><span class="sd-row-t">'+esc(it.disp)+'</span>'+meta+'</div>'+docBtn(it.file)+'</div>';
+  }
+
+  var catsHost=document.getElementById('sdCats'); var html='';
+  CATS.forEach(function(c){
+    var rows=SED.filter(function(x){return x.cat===c.key;}).slice().sort(function(a,b){return b.year-a.year;});
+    var body=''; rows.forEach(function(it){ body+=rowHtml(it); });
+    html+='<details class="sd-acc" data-cat="'+c.key+'"'+(c.open?' open':'')+'>'+
+      '<summary class="sd-sum"><span class="sd-sum-ico" aria-hidden="true">'+svg(c.ico,22)+'</span>'+
+      '<span class="sd-sum-tx"><span class="sd-sum-t">'+esc(c.t)+'</span><small>'+esc(c.sub)+'</small></span>'+
+      '<span class="sd-sum-n">'+rows.length+'</span>'+
+      '<svg class="sd-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary>'+
+      '<div class="sd-acc-body">'+body+'</div></details>';
+  });
+  catsHost.innerHTML=html;
+
+  /* ---- Chips de categoría ---- */
+  var chipsHost=document.getElementById('sdChips');
+  var chh='<button type="button" class="sd-chip-f active" data-cat="all">Todos <span class="n">'+SED.filter(function(x){return x.cat!=='MARCO';}).length+'</span></button>';
+  CATS.forEach(function(c){ var n=SED.filter(function(x){return x.cat===c.key;}).length; chh+='<button type="button" class="sd-chip-f" data-cat="'+c.key+'">'+esc(c.t)+' <span class="n">'+n+'</span></button>'; });
+  chipsHost.innerHTML=chh;
+
+  /* ---- Buscador + filtro ---- */
+  var inp=document.getElementById('sdQ'), clearBtn=document.getElementById('sdClear'), box=document.querySelector('.sd-search');
+  var count=document.getElementById('sdCount'), noRes=document.getElementById('sdNoRes'), noResQ=document.getElementById('sdNoResQ');
+  var accs=[].slice.call(document.querySelectorAll('.sd-acc'));
+  var items=[].slice.call(document.querySelectorAll('.sd-row'));
+  var TOTAL=items.length, curCat='all';
+
+  function apply(){
+    var raw=inp.value.replace(/^\s+|\s+$/g,''); var toks=norm(raw).split(/\s+/).filter(Boolean);
+    box.classList.toggle('has-q', raw.length>0);
+    var vis=0;
+    for(var i=0;i<items.length;i++){
+      var ds=items[i].getAttribute('data-search'), ok=true;
+      for(var c=0;c<toks.length;c++){ if(ds.indexOf(toks[c])===-1){ ok=false; break; } }
+      items[i].classList.toggle('gone', !ok);
+    }
+    for(var d=0;d<accs.length;d++){
+      var det=accs[d]; var okC=(curCat==='all')||(det.getAttribute('data-cat')===curCat);
+      var its=det.querySelectorAll('.sd-row'), cnt=0;
+      for(var k=0;k<its.length;k++){ if(!its[k].classList.contains('gone')) cnt++; }
+      var show=okC && cnt>0; det.classList.toggle('hide', !show);
+      if(show) vis+=cnt;
+      if(show && (toks.length>0 || curCat!=='all')) det.open=true;
+      else if(curCat==='all' && toks.length===0) det.open=(det.getAttribute('data-cat')==='RESULT');
+    }
+    if(toks.length===0 && curCat==='all'){ count.innerHTML='<b>'+TOTAL+'</b> documentos · 2017–2026'; noRes.className='sd-noresults'; }
+    else if(vis===0){ count.innerHTML=''; noResQ.textContent='«'+raw+'»'; noRes.className='sd-noresults show'; }
+    else { count.innerHTML='<b>'+vis+'</b> de '+TOTAL+' documentos'; noRes.className='sd-noresults'; }
+    reportHeight();
+  }
+  inp.addEventListener('input', apply);
+  clearBtn.addEventListener('click', function(){ inp.value=''; apply(); inp.focus(); });
+  chipsHost.addEventListener('click', function(e){ var b=e.target.closest('.sd-chip-f'); if(!b) return; [].slice.call(this.querySelectorAll('.sd-chip-f')).forEach(function(x){x.classList.remove('active');}); b.classList.add('active'); curCat=b.getAttribute('data-cat'); apply(); });
+  for(var ad=0;ad<accs.length;ad++){ accs[ad].addEventListener('toggle', reportHeight); }
+  apply();
+
+  /* ---- Altura Strapi ---- */
+  var lastH=0;
+  function reportHeight(){ var h=Math.max(document.body.scrollHeight,document.body.offsetHeight,document.documentElement.offsetHeight); if(h&&Math.abs(h-lastH)>1){ lastH=h; try{ parent.postMessage({type:'gdl-iframe-height',id:'sistema-evaluacion-desempeno-art8-XI',height:h},'*'); }catch(e){} } }
+  window.addEventListener('load', reportHeight); window.addEventListener('resize', reportHeight);
+  setTimeout(reportHeight,300); setTimeout(reportHeight,1000);
+
+  /* ---- Botón subir ---- */
+  var tb=document.getElementById('sdTopBtn');
+  function s(){ tb.classList.toggle('show',(window.pageYOffset||document.documentElement.scrollTop)>320); }
+  window.addEventListener('scroll', s, {passive:true});
+  tb.addEventListener('click', function(){ var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches; window.scrollTo({top:0,behavior:rm?'auto':'smooth'}); }); s();
+})();
+</script>
+</body>
+</html>

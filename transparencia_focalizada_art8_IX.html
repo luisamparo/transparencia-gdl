@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Transparencia focalizada del Ayuntamiento de Guadalajara: la información pública ordinaria, proactiva o focalizada que el municipio publica por encima de lo mínimo. Directorio de temas con sus documentos oficiales (Ley de Ingresos, Licitaciones, FORTAMUN, FORTASEG, estadísticas, guías del ITEI, padrones y más). Art. 8, Fracción IX de la Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios."/>
+<title>Transparencia focalizada de Guadalajara · Información proactiva y focalizada por tema · Art. 8 Frac. IX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ac:#E87722;--ac-l:#FFE4CC;--ac-d:#C45F0A;--ac-deeper:#8B4308;--ac-border:#F5C99A;--ac-soft:#FFF1E4;
+  --g50:#FAFAF8;--g100:#F0F0EC;--g200:#E2E2DD;--g300:#CFCFC8;--g400:#9E9E98;--g600:#5A5A55;--g800:#2D2D2A;--g900:#1A1A1A;
+  --wh:#FFF;--ok:#16A34A;--ok-d:#0E6B4C;--ok-l:#DCFCE7;--ok-border:#A7E8C0;
+  --wd:#1E5BB8;--wd-l:#DBEAFE;--wd-border:#BFD4F5;
+  --rad:10px;--rad-lg:14px;
+  --sh:0 4px 22px rgba(0,0,0,.08);--sh-sm:0 1px 3px rgba(0,0,0,.06);--sh-md:0 6px 18px rgba(0,0,0,.07);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --fh:'Outfit',system-ui,-apple-system,sans-serif;
+  --fm:'DM Mono','SF Mono',Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--g900);line-height:1.55;-webkit-font-smoothing:antialiased}
+.tf-wrap{max-width:1040px;margin:0 auto}
+
+/* HERO */
+.tf-hero{background:linear-gradient(135deg,var(--ac-soft) 0%,#FFFFFF 55%);color:var(--g900);border-radius:var(--rad-lg);padding:28px 32px;margin:0 0 20px;position:relative;overflow:hidden;border-left:5px solid var(--ac);box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.tf-hero::before{content:'';position:absolute;top:-66px;right:-66px;width:210px;height:210px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.12) 0%,transparent 70%);pointer-events:none}
+.tf-hero-tag{display:inline-block;background:var(--ac);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;position:relative;z-index:1;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.tf-hero h1{margin:0 0 9px;font-size:clamp(22px,3.2vw,29px);font-weight:800;color:var(--g900);letter-spacing:-.018em;line-height:1.2;position:relative;z-index:1}
+.tf-hero h1 em{font-style:normal;color:var(--ac-d);display:block;margin-top:3px}
+.tf-hero-sub{font-size:14.5px;color:var(--g600);max-width:72ch;margin:0;line-height:1.62;position:relative;z-index:1}
+.tf-hero-sub strong{color:var(--g900);font-weight:700}
+.tf-hero-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;position:relative;z-index:1}
+.tf-chip{display:inline-flex;align-items:center;gap:6px;background:var(--wh);border:1.5px solid var(--ac-border);color:var(--ac-d);font-size:11.5px;font-weight:700;padding:5px 12px;border-radius:20px}
+.tf-chip b{font-family:var(--fm);font-weight:500}
+.tf-chip.neutral{border-color:var(--g200);color:var(--g600)}
+
+/* BUSCADOR */
+.tf-search-wrap{margin:0 0 10px}
+.tf-search{position:relative;display:flex;align-items:center;background:var(--wh);border:1.5px solid var(--g200);border-radius:12px;box-shadow:var(--sh-sm);transition:border-color .15s,box-shadow .15s}
+.tf-search:focus-within{border-color:var(--ac);box-shadow:0 0 0 3px rgba(232,119,34,.12)}
+.tf-search>svg{position:absolute;left:15px;color:var(--g400);pointer-events:none}
+.tf-search input{flex:1;width:100%;border:0;outline:0;background:transparent;font-family:var(--fh);font-size:14.5px;color:var(--g900);padding:13px 46px}
+.tf-search input::placeholder{color:var(--g400)}
+.tf-search input::-webkit-search-cancel-button{display:none}
+.tf-clear{position:absolute;right:8px;width:34px;height:34px;border:0;background:var(--g100);color:var(--g600);border-radius:50%;font-size:19px;line-height:1;cursor:pointer;display:none;align-items:center;justify-content:center;transition:background .14s;font-family:var(--fh)}
+.tf-clear:hover{background:var(--g200);color:var(--g900)}
+.tf-search.has-q .tf-clear{display:flex}
+.tf-count{font-size:12px;color:var(--g600);font-weight:600;margin:0 2px 18px}
+.tf-count b{color:var(--ac-d);font-family:var(--fm);font-weight:500}
+
+/* SECCIÓN TÍTULO */
+.tf-sec-title{font-size:12.5px;font-weight:800;color:var(--g800);letter-spacing:.1em;text-transform:uppercase;margin:26px 4px 12px;display:flex;align-items:center;gap:10px}
+.tf-sec-title::after{content:'';flex:1;height:1.5px;background:var(--g200);border-radius:2px}
+.tf-sec-title.mig{color:var(--g400)}
+
+/* LISTA */
+.tf-list{display:flex;flex-direction:column;gap:10px}
+.tf-item{background:var(--wh);border:1.5px solid var(--g200);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);overflow:hidden}
+.tf-item.hide{display:none}
+.tf-head{display:flex;align-items:center;gap:14px;padding:15px 18px}
+.tf-ico{flex-shrink:0;width:40px;height:40px;border-radius:11px;background:var(--ac-soft);color:var(--ac-d);display:flex;align-items:center;justify-content:center;border:1px solid var(--ac-border)}
+.tf-tx{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.tf-tx b{font-size:14.5px;font-weight:800;color:var(--g900);letter-spacing:-.01em;line-height:1.3}
+.tf-tx small{font-size:11.5px;color:var(--g600);font-weight:500;font-family:var(--fm)}
+.tf-right{flex-shrink:0;display:flex;align-items:center;gap:10px}
+
+/* details */
+details.tf-item>summary{list-style:none;cursor:pointer}
+details.tf-item>summary::-webkit-details-marker{display:none}
+.tf-chev{flex-shrink:0;color:var(--ac-d);transition:transform .2s var(--ease)}
+details.tf-item[open]>summary .tf-chev{transform:rotate(180deg)}
+details.tf-item[open]>summary .tf-head{border-bottom:1px solid var(--g100)}
+.tf-files{padding:8px 12px 12px}
+.tf-file{display:flex;align-items:center;gap:14px;padding:10px 12px;border-radius:9px;border:1px solid var(--g100);background:var(--g50);transition:border-color .14s,background .14s}
+.tf-file+.tf-file{margin-top:7px}
+.tf-file:hover{border-color:var(--ac-border);background:var(--wh)}
+.tf-file-t{flex:1;min-width:0;font-size:12.5px;font-weight:600;color:var(--g800);line-height:1.4}
+
+/* botones doc */
+.tf-btn{flex-shrink:0;display:inline-flex;align-items:center;gap:7px;font-family:var(--fh);font-size:12px;font-weight:700;padding:8px 14px;border-radius:9px;cursor:pointer;text-decoration:none;border:1.5px solid var(--ac);background:var(--ac);color:#fff;transition:all .14s var(--ease);white-space:nowrap}
+.tf-btn:hover{background:var(--ac-d);border-color:var(--ac-d);transform:translateY(-1px)}
+.tf-btn svg{flex-shrink:0}
+.tf-btn.xls{background:var(--wh);color:var(--ok-d);border-color:var(--ok-border)}
+.tf-btn.xls:hover{background:var(--ok-l);border-color:var(--ok);color:var(--ok-d)}
+.tf-btn.doc{background:var(--wh);color:var(--wd);border-color:var(--wd-border)}
+.tf-btn.doc:hover{background:var(--wd-l);border-color:var(--wd);color:var(--wd)}
+.tf-btn.ext{background:var(--wh);color:var(--ac-d);border-color:var(--ac-border)}
+.tf-btn.ext:hover{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* badge migración / count */
+.tf-badge{display:inline-flex;align-items:center;gap:5px;font-size:9.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:4px 10px;border-radius:20px;white-space:nowrap}
+.tf-badge.cnt{background:var(--ac-l);color:var(--ac-d)}
+.tf-badge.mig{background:var(--g100);color:var(--g600)}
+.tf-item.migr{background:var(--g50);border-style:dashed}
+.tf-item.migr .tf-ico{background:var(--g100);color:var(--g400);border-color:var(--g200)}
+.tf-item.migr .tf-tx b{color:var(--g600)}
+
+/* SIN RESULTADOS */
+.tf-noresults{display:none;background:var(--ac-soft);border:1.5px solid var(--ac-border);border-radius:var(--rad-lg);padding:22px 24px;font-size:13.5px;color:var(--g800);line-height:1.6;text-align:center;margin-top:4px}
+.tf-noresults.show{display:block}
+.tf-noresults strong{color:var(--ac-d);font-weight:700}
+
+/* FOOTER */
+.tf-foot-title{font-size:12.5px;font-weight:800;color:var(--g800);letter-spacing:.1em;text-transform:uppercase;margin:36px 4px 16px;display:flex;align-items:center;gap:10px}
+.tf-foot-title::after{content:'';flex:1;height:1.5px;background:var(--g200);border-radius:2px}
+.tf-info{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.tf-info-card{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);border-top:5px solid var(--ac);padding:18px 20px;display:flex;flex-direction:column;gap:8px}
+.tf-info-ico{width:40px;height:40px;border-radius:11px;background:var(--ac-soft);color:var(--ac-d);display:flex;align-items:center;justify-content:center;margin-bottom:2px}
+.tf-info-card h3{font-size:14.5px;font-weight:800;color:var(--g900);letter-spacing:-.01em;line-height:1.3}
+.tf-info-card p{font-size:12.5px;color:var(--g600);line-height:1.6}
+.tf-info-card p strong{color:var(--g800);font-weight:700}
+
+/* LEY */
+.tf-ley{background:var(--wh);border-radius:var(--rad-lg);padding:22px 26px;border-left:4px solid var(--ac-d);box-shadow:var(--sh-sm);margin-top:22px}
+.tf-ley-eye{font-size:10.5px;font-weight:800;color:var(--ac-d);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.tf-ley-head{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.tf-ley-seal{flex-shrink:0;width:46px;height:46px;border-radius:50%;background:var(--ac-soft);border:2px solid var(--ac);color:var(--ac-d);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(232,119,34,.18)}
+.tf-ley-head .tf-ley-eye{margin-bottom:3px}
+.tf-ley-head h3{margin-bottom:0}
+.tf-ley h3{font-size:16px;font-weight:800;color:var(--g900);margin-bottom:8px;letter-spacing:-.008em}
+.tf-ley p{font-size:13px;color:var(--g600);line-height:1.65;max-width:78ch}
+.tf-ley p+p{margin-top:7px}
+.tf-ley p strong{color:var(--g800);font-weight:600}
+.tf-ley blockquote{font-size:13.5px;color:var(--g600);line-height:1.65;margin:12px 0 8px;padding:13px 18px;background:var(--ac-soft);border-left:3px solid var(--ac);border-radius:6px;font-style:italic;max-width:78ch;overflow-wrap:anywhere}
+.tf-ley blockquote strong{color:var(--g900);font-style:normal;font-weight:700}
+.tf-ley-fuente{margin-top:14px;font-size:11.5px;color:var(--g400);line-height:1.6;font-family:var(--fm)}
+
+/* BOTÓN SUBIR */
+.tf-top{position:fixed;right:18px;bottom:18px;z-index:60;width:46px;height:46px;border-radius:50%;border:0;background:var(--ac);color:#fff;box-shadow:0 6px 18px rgba(196,95,10,.38);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .18s,transform .18s,visibility .18s}
+.tf-top.show{opacity:1;visibility:visible;transform:none}
+.tf-top:hover{background:var(--ac-d)}
+
+/* A11Y */
+.tf-clear:focus-visible,.tf-btn:focus-visible,.tf-top:focus-visible,details.tf-item>summary:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(232,119,34,.45)}
+details.tf-item:has(>summary:focus-visible){border-color:var(--ac-border)}
+
+/* RESPONSIVE */
+@media (min-width:781px) and (max-width:1024px){
+  body{padding:20px}
+  .tf-hero{padding:26px 28px}
+  .tf-ley{padding:20px 24px}
+}
+@media (max-width:820px){
+  .tf-info{grid-template-columns:1fr}
+}
+@media (max-width:780px){
+  body{padding:14px}
+  .tf-hero{padding:22px 18px}
+  .tf-ley{padding:18px 18px}
+}
+@media (max-width:600px){
+  body{padding:10px}
+  .tf-hero{padding:18px 15px;border-radius:12px}
+  .tf-hero h1{font-size:19px;line-height:1.24}
+  .tf-hero-tag{font-size:9.5px;padding:4px 11px}
+  .tf-head{padding:14px 14px;gap:12px}
+  .tf-file{flex-direction:column;align-items:stretch;gap:9px}
+  .tf-file .tf-btn{width:100%;justify-content:center;padding:11px 14px}
+  .tf-ley blockquote{padding:12px 14px;font-size:13px}
+  .tf-ley{margin-bottom:64px}
+  .tf-top{right:12px;bottom:12px;width:44px;height:44px}
+}
+@media (max-width:520px){
+  /* tarjetas de tema de un solo archivo: el botón baja a renglón propio */
+  .tf-item:not(.tf-acc):not(.migr) .tf-head{flex-wrap:wrap}
+  .tf-item:not(.tf-acc):not(.migr) .tf-right{width:100%}
+  .tf-item:not(.tf-acc):not(.migr) .tf-right .tf-btn{width:100%;justify-content:center;padding:11px 14px}
+}
+@media (max-width:380px){
+  .tf-hero{padding:18px 14px}
+  .tf-hero h1{font-size:18px}
+  .tf-hero-sub{font-size:13.5px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="tf-wrap" id="tfTop">
+
+  <!-- HERO -->
+  <section class="tf-hero">
+    <span class="tf-hero-tag">Art. 8 · Fracción IX · Ley de Transparencia Jalisco</span>
+    <h1>Transparencia focalizada <em>La información que Guadalajara publica de más, por tema</em></h1>
+    <p class="tf-hero-sub">Además de lo que la ley exige como mínimo, el municipio publica <strong>información ordinaria, proactiva y focalizada</strong> sobre temas de interés público. Aquí está reunida, tema por tema, con sus documentos oficiales listos para consultar.</p>
+    <div class="tf-hero-meta">
+      <span class="tf-chip"><b>138</b> documentos</span>
+      <span class="tf-chip neutral"><b>26</b> temas con archivos</span>
+      <span class="tf-chip neutral"><b>8</b> temas en migración</span>
+    </div>
+  </section>
+
+  <!-- BUSCADOR -->
+  <div class="tf-search-wrap">
+    <div class="tf-search">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="tfQ" type="search" autocomplete="off" placeholder="Busca un tema o documento… (ej.: ley de ingresos, fortaseg, licitaciones 2024)" aria-label="Buscar un tema o documento de transparencia focalizada"/>
+      <button type="button" class="tf-clear" id="tfClear" aria-label="Limpiar búsqueda" title="Limpiar">&times;</button>
+    </div>
+    <div class="tf-count" id="tfCount"></div>
+  </div>
+
+  <!-- TEMAS DISPONIBLES -->
+  <div class="tf-sec-title" id="grpDisp">Temas disponibles</div>
+  <div class="tf-list" id="tfList"></div>
+
+  <!-- EN MIGRACIÓN -->
+  <div class="tf-sec-title mig" id="grpMig">En proceso de migración</div>
+  <div class="tf-list" id="tfMig"></div>
+
+  <!-- SIN RESULTADOS -->
+  <div class="tf-noresults" id="tfNoRes">No encontramos temas que coincidan con <strong id="tfNoResQ"></strong>. Prueba con otra palabra (por ejemplo «ingresos», «estadísticas» o «sindicatos»).</div>
+
+  <!-- PARA ENTENDERLO MEJOR -->
+  <div class="tf-foot-title">Para entenderlo mejor</div>
+  <div class="tf-info">
+    <div class="tf-info-card">
+      <div class="tf-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+      <h3>¿Qué es la transparencia focalizada?</h3>
+      <p>Es la información de <strong>interés público sobre un tema específico</strong> —cuantificable, analizable y comparable— que el municipio reúne para tomar decisiones y evaluar el impacto de sus políticas.</p>
+    </div>
+    <div class="tf-info-card">
+      <div class="tf-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
+      <h3>Ordinaria, proactiva o focalizada</h3>
+      <p><strong>Ordinaria:</strong> información útil de uso cotidiano. <strong>Proactiva:</strong> la que el sujeto decide publicar de más por su interés público. <strong>Focalizada:</strong> enfocada a un tema concreto para analizarlo a fondo.</p>
+    </div>
+    <div class="tf-info-card">
+      <div class="tf-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+      <h3>¿Para qué te sirve?</h3>
+      <p>Para encontrar en <strong>un solo lugar</strong> reportes, padrones, estadísticas, guías y documentos clave que el Ayuntamiento publica por encima de lo mínimo que exige la ley.</p>
+    </div>
+  </div>
+
+  <!-- FUNDAMENTO LEGAL -->
+  <section class="tf-ley">
+    <div class="tf-ley-head">
+      <span class="tf-ley-seal" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg></span>
+      <div>
+        <div class="tf-ley-eye">Fundamento legal</div>
+        <h3>¿Por qué el Ayuntamiento publica esta información?</h3>
+      </div>
+    </div>
+    <p>Es una obligación de transparencia. La ley ordena publicar, palabra por palabra, lo siguiente:</p>
+    <blockquote>«Artículo 8°. <strong>1.</strong> Es información fundamental, obligatoria para todos los sujetos obligados, la siguiente: (…) <strong>IX.</strong> La información pública ordinaria, proactiva o focalizada que considere el sujeto obligado, por sí o a propuesta del Instituto;»</blockquote>
+    <p>— <strong>Artículo 8, fracción IX</strong> de la <em>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</em>. Los archivos de esta página son los oficiales, tal como fueron publicados por el sujeto obligado; ante cualquier discrepancia, prevalece el documento oficial.</p>
+    <div class="tf-ley-fuente">
+      Fuente oficial: portal de transparencia del Ayuntamiento de Guadalajara · sección «Transparencia Focalizada».<br>
+      Documentos verificados en línea uno por uno. Los temas marcados «en proceso de migración» se enlazarán a su sección del nuevo portal conforme se publiquen.
+    </div>
+  </section>
+
+</div>
+
+<!-- BOTÓN SUBIR -->
+<button type="button" class="tf-top" id="tfTopBtn" aria-label="Volver arriba" title="Volver arriba">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+/* ==========================================================================
+   Transparencia focalizada · Art. 8 Fracción IX
+   Contenido verbatim del registro oficial del sujeto obligado
+   (/transparencia-focalizada). Directorio de 34 temas: 26 con archivos
+   (138 documentos verificados en línea, HTTP 200, enlazados directo al CDN
+   /sites/default/files/) + 8 temas en proceso de migración (sin enlace, se
+   conectarán a su sección del nuevo portal) + Nómina (sistema externo).
+   Los Excel y Word abren en vista previa (visor de Office, sin descarga
+   directa); los PDF abren en el navegador. Cero enlaces a páginas del portal
+   anterior.
+   ========================================================================== */
+var TF_FILES = {
+  "cumplimiento-acuerdo-itei": [["Oficio Acuerdo AGP-ITEI/018/2022","Cumplimiento-Acuerdo-ITEI.pdf"],["Estadísticas (Enero a Mayo)","EstadisticasComisariaSeguridad2022.xlsx"],["Oficios de la primera modificación al Presupuesto de Egresos del Municipio de Guadalajara para el Ejercicio Fiscal 2022","Oficio_y_clasificadores_Primera_Modificacion_del_Presupuesto_de_Egresos_2022.pdf"]],
+  "cimtra-entrega-recepcion": [["Ley de Entrega-Recepción del Estado de Jalisco y sus Municipios","LeyEntregaRecepcionJalisco.pdf"],["Ley para los Servidores Públicos del Estado de Jalisco y sus Municipios","ley_servidores_publicos.pdf"],["Reglamento para la Entrega-Recepción de la Administración Pública Municipal de Guadalajara","reglamentos/ReglamentoEntregaRecepcionAdministracionPublicaGuadalajara.pdf"],["Reglamento del Servicio Civil de Carrera en la Administración Pública Municipal de Guadalajara","reglamentos/Reg.ServicioCivilCarreraAdministracionPublicaGuadalajara.pdf"],["Reglamento de Adquisiciones, Enajenaciones, Arrendamientos y Contrataciones para el municipio de Guadalajara","reglamentos/ReglamentoAdquisicionesEnajenacionesArrendamientosContratacionesGuadalajara.pdf"],["Lineamientos y Formatos para los procesos de Entrega-Recepción (Gaceta, 15 marzo 2021)","GacetaTomoIIEjemplar15Marzo29-2021.pdf"],["Condiciones Generales de Trabajo del Ayuntamiento de Guadalajara","GacetaTomoIEjemplar26Febrero22-2021.pdf"],["Metodología de Selección del Gabinete","MetodologiaSeleccionGabinete.xlsx"],["Orden del día · Instalación y Primera Reunión (27 ago 2024)","OrdenDiaComisionTransicion27Ago24.pdf"],["Versión estenográfica · Primera Reunión (27 ago 2024)","ActaComisionTransicion27Ago24.docx"],["Acta · Primera Reunión (27 ago 2024)","ActaComisionTransicion27Ago24.pdf"],["Orden del día · Segunda Reunión (29 ago 2024)","OrdenDiaComisionTransicion29Ago24.pdf"],["Versión estenográfica · Segunda Reunión (29 ago 2024)","ActaComisionTransicion29Ago24.docx"],["Acta · Segunda Reunión (29 ago 2024)","ActaComisionTransicion29Ago24.pdf"],["Orden del día · Tercera Reunión (5 sep 2024)","OrdenDiaComisionTransicion5Sep24.pdf"],["Versión estenográfica · Tercera Reunión (5 sep 2024)","ActaComisionTransicion5Sep24.docx"],["Acta · Tercera Reunión (5 sep 2024)","ActaComisionTransicion5Sep24.pdf"],["Orden del día · Cuarta Reunión (12 sep 2024)","OrdenDiaComisionTransicion12Sep24.pdf"],["Versión estenográfica · Cuarta Reunión (12 sep 2024)","ActaComisionTransicion12Sep24.docx"]],
+  "sindicatos": [["Oficio DRH/6916/2024 emitido por Recursos Humanos","OficioRHSindicatos2024.pdf"],["Sindicato Democrático de Bomberos de Jalisco","OficioSindicatoBomberos.pdf"],["Sindicato de Vanguardia de los Servidores Públicos del H. Ayuntamiento de Guadalajara","OficioSindicatoVanguadia.pdf"],["Sindicato Nuevo Jalisco","OficioSindicatoNuevoJalisco.pdf"],["Sindicato Único de Trabajadores de la Cruz Verde Guadalajara","OficioSindicatoCruzVerdeGuadalajara.pdf"],["Sindicato de Unidad de Servidores Públicos","OficioSindicatoUnidadServidoresPublicos.pdf"]],
+  "acciones-gobierno-abierto-guadalajara": [["OGP Jalisco 2016 · Trayectoria","OGPJalisco2016Trayectoria.pdf"],["Manual de Procedimiento de Servicios Municipales","ManualProcedimientoServiciosMunicipales.pdf"],["Catálogo de Servicios Municipales","CatalogoServiciosMunicipales.pdf"],["Segundo Plan de Acción Local de Gobierno Abierto","SegundoPlanAccionLocalGobiernoAbierto.pdf"]],
+  "indicadoresuti": [["Estadísticas 2026 (excel)","Estadisticas2026.xlsx"],["Estadísticas ARCO 2026 (excel)","EstadisticasARCO2026.xlsx"],["Estadísticas 2025 (excel)","Estadisticas2025.xlsx"],["Estadísticas 2024 (excel)","Estadisticas2024.xlsx"],["Estadísticas 2023 (excel)","Estadisticas2023.xlsx"],["Estadísticas 2022 (excel)","Estadisticas2022.xlsx"],["Estadísticas 2021 (excel)","Estadisticas2021.xlsx"],["Recursos de Revisión 2018-2026","RecursosRevision2018-2026.xlsx"],["Estadísticas SIRES (enero a abril 2026)","Estadisticas2026SIRES.xlsx"],["Estadísticas SIRES 2025","Estadisticas2025SIRES.xlsx"],["Estadísticas SIRES 2024","Estadisticas2024SIRES.xlsx"],["Estadísticas SIRES 2023","Estadisticas2023SIRES.xlsx"],["Estadísticas SIRES 2022","Estadisticas2022SIRES.xlsx"],["Estadísticas SIRES 2021","Estadisticas2021SIRES.xlsx"]],
+  "registropadronproveedores": [["Listado de documentos para inscripción y refrendo al Padrón de Proveedores","RequisitosPadronProveedores2025.pdf"],["Solicitud de registro al Padrón de Proveedores","solicitudProveedores.pdf"]],
+  "fortamun": [["Acciones FORTAMUN · estimado 2025","FORTAMUNACCIONESESTIMADO2025.xlsx"],["Acciones FORTAMUN · estimado 2024","FORTAMUNACCIONESESTIMADO2024.xlsx"],["Acciones FORTAMUN · estimado 2023","FORTAMUNACCIONESESTIMADO2023.xlsx"],["Acciones FORTAMUN · estimado 2022","FORTAMUNACCIONESESTIMADO2022.xlsx"],["Acciones FORTAMUN · estimado 2021","FORTAMUNACCIONESESTIMADO2021.pdf"],["Acciones FORTAMUN · estimado 2020","FORTAMUNACCIONESESTIMADO2020.pdf"],["Acciones FORTAMUN · cierre 2020","FORTAMUNACCIONESCIERRE2020.pdf"]],
+  "fortaseg": [["Oficio de no ministración FORTASEG 2026","OficioNoMinistracionFortaseg2026.pdf"],["Oficio de no ministración FORTASEG (enero 2025)","OficioNoMinistracionFortasegEnero2025.pdf"],["Estudios y encuestas financiadas con recursos públicos · Comisaría 2024","Estudios_y_Encuestas_Financiadas_con_Recursos_Publicos_Comisaria_2024.pdf"],["Oficio · Estudios y encuestas · Comisaría 2023","Oficio_Estudios_y_Encuestas_Financiadas_con_Recursos_Publicos_Comisaria_2023.pdf"],["Oficio · Estudios y encuestas · Comisaría","Oficio_Estudios_y_Encuestas_Financiadas_con_Recursos_Publicos_Comisaria.pdf"],["Convenio SEGOB-FORTASEG 2020","ConvenioSegobFortaseg2020.pdf"],["Anexo del Convenio SEGOB-FORTASEG 2020","AnexoConvenioSegobFortaseg2020.pdf"],["Informe Municipal de Evaluación FORTASEG 2019","InformeMunicipalEvaluacionFortaseg2019.pdf"],["Convenio SEGOB-FORTASEG 2019","ConvenioSegobFortaseg2019.pdf"],["Anexo del Convenio SEGOB-FORTASEG 2019","AnexoConvenioSegobFortaseg2019.pdf"],["Convenio SEGOB-FORTASEG 2018","ConvenioSegobFortaseg2018.pdf"],["Anexo del Convenio SEGOB-FORTASEG 2018","AnexoConvenioSegobFortaseg2018.pdf"],["Informe Anual de Evaluación FORTASEG 2018","InformeAnualEvaluacionFORTASEG18.pdf"],["Base de datos de la Evaluación FORTASEG 2018","BaseDatosEvaluacionFORTASEG18.xls"],["Informe Anual de Evaluación FORTASEG 2017","InformeAnualEvaluacionFORTASEG17.pdf"],["Base de datos de la Evaluación FORTASEG","BaseDatosEvaluacionFORTASEG.xls"]],
+  "guiaaccesotransparenciaitei": [["Guía de Buenas Prácticas en materia de Transparencia","guiaBuenasPracticasMateriaTransparencia.pdf"],["Guía para el Cumplimiento del Principio de Información","Anexo_I_AGP_ITEI_025_2020_Guia_para_el_cumplimiento_del_principio_de_informacion.pdf"],["Guía de buenas prácticas para el resguardo de actas de nacimiento primigenias de la población transgénero y transexual","Anexo_II_AGP_ITEI_025_2020RESGUARDO_INTEGRAL_DE_ACTAS_DE_NACIMIENTO_PRIMIGENIAS_DE_LA_POBLACIÓN_TRANSGÉNERO_Y_TRANSEXUAL.pdf"],["Guía para que quienes intervengan en el tratamiento de datos personales guarden confidencialidad","Anexo_III_AGP_ITEI_025_2020PERSONAS_QUE_INTERVENGAN_EN_CUALQUIER_FASE_DEL_TRATAMIENTO_DE_LOS_DATOS_PERSONALES_GUARDEN_CONFIDENCIALIDAD.pdf"],["Guía de Preguntas Frecuentes","guiaPreguntasFrecuentesObligados.pdf"],["Guía para la elaboración de los Sistemas de Información Reservada o Confidencial","guiaElaboracionSistemasInformacionReservaConfidencial.pdf"],["Guía para elaborar un Documento de Seguridad","guia_documento_seguridad_so.pdf"],["Guía para el tratamiento de datos personales contenidos en expedientes de personal","guia_para_el_tratamiento_de_datos_personales_contenido_en_expedientes_de_personal_de_los_responsables.docx"]],
+  "informegobierno": [["Informe de Gobierno de Guadalajara 2025","InformeGuadalajara2025.pdf"]],
+  "leyingresos": [["Ley de Ingresos 2026","LeyIngresos2026.pdf"],["Ley de Ingresos 2025","LeyIngresos2025.pdf"],["Ley de Ingresos 2024","LeyIngresos2024.pdf"],["Ley de Ingresos 2023","LeyIngresos2023.pdf"],["Ley de Ingresos 2022","LeyIngresos2022.pdf"],["Reforma a la Ley de Ingresos 2021","ReformaLeyIngresos2021.pdf"],["Ley de Ingresos 2021","LeyIngresos2021.pdf"],["Ley de Ingresos 2020","LeyIngresos2020.pdf"],["Ley de Ingresos 2019","LeyIngresos2019.pdf"],["Ley de Ingresos 2018","LeyIngresos2018.pdf"],["Ley de Ingresos 2017","LeyIngresos2017.pdf"],["Ley de Ingresos 2016","LeyIngresos2016.pdf"],["Ley de Ingresos 2015","LeyIngresos2015.pdf"],["Ley de Ingresos 2014","LeyIngresos2014.pdf"],["Ley de Ingresos 2013","ley_de_ingresos_para_el_municipio_de_guadalajara_2013.pdf"],["Ley de Ingresos 2012","Ley_de_Ingresos_para_el_Municipio_de_Guadalajara_2012.pdf"],["Incentivos de la Ley de Ingresos 2011","INCENTIVOSLEYINGRESOS2011.pdf"],["Incentivos de la Ley de Ingresos 2010","INCENTIVOSLEYINGRESOS2010.pdf"],["Incentivos de la Ley de Ingresos 2009","INCENTIVOSLEYINGRESOS2009.pdf"],["Incentivos de la Ley de Ingresos 2008","INCENTIVOSLEYINGRESOS2008.pdf"],["Incentivos de la Ley de Ingresos 2007","INCENTIVOSLEYINGRESOS2007.pdf"],["Incentivos de la Ley de Ingresos 2006","INCENTIVOSLEYINGRESOS2006.pdf"],["Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios","Ley_Transparencia_Acceso_Informacion_Publica_Estado_Jalisco_Municipios.doc"]],
+  "licitacionesindex": [["Plan Anual de Compras 2026 (PDF)","PlanAnualCompras2026.pdf"],["Plan Anual de Compras 2025 (PDF)","PlanAnualCompras2025.pdf"],["Plan Anual de Compras 2025 (Excel)","PlanAnualCompras2025.xlsx"],["Plan Anual de Compras 2024 (PDF)","PlanAnualCompras2024.pdf"],["Plan Anual de Compras 2024 (Excel)","PlanAnualCompras2024.xlsx"],["Plan Anual de Compras 2023 (PDF)","PlanAnualCompras2023.pdf"],["Plan Anual de Compras 2023 (Excel)","PlanAnualCompras2023.xlsx"],["Plan Anual de Compras 2022","PlanAnualCompras2022.xlsx"],["Licitaciones 2026","Licitaciones-Mayo2026.xlsx"],["Licitaciones 2025","Licitaciones-Diciembre2025.xlsx"],["Licitaciones 2024","Licitaciones-Diciembre2024.xlsx"],["Licitaciones 2023","Licitaciones-Diciembre2023.xlsx"],["Licitaciones 2022","Licitaciones-Diciembre2022.xlsx"],["Licitaciones 2021","Licitaciones-Diciembre2021.xlsx"],["Licitaciones 2020","Concurso-Invitacion-Enero-Diciembre2020.xlsx"]],
+  "catalogodisposicionguiaarchivodocumental": [["Acta Constitutiva del Grupo Interdisciplinario del Archivo Municipal","ActaConstitutivaGrupoInterdisciplinarioArchivoMunicipal.pdf"]],
+  "proyectos-emblematicos": [["Manual del Árbol 2026","Manual_del_Arbol_2026.pdf"],["Estrategias de arbolado urbano 2025 · plantaciones, cuidado y monitoreo","Estrategias_de_arbolado_urbano_2025_plantaciones_cuidado_y_monitoreo.pdf"],["Programa Municipal de Gestión Integral de Residuos Sólidos · Base Cero","ProgramaMunicipalGestionIntegralResiduosSolidosBaseCero.pdf"],["Programa Municipal para la Gestión Integral de Residuos Sólidos","Programa_Municipal_para_la_Gestion_Integral_de_Residuos_Solidos.pdf"],["Anexo 1 · Inventario de arbolado LIDAR 2018 (2023)","Anexo-1.-Inventario-de-arbolado-LIDAR-2018-(2023).pdf"],["Anexo 2 · Islas de calor urbanas GDL 2019-2024","Anexo_2_Islas_de_calor_urbanas_GDL_2019_2024_mitigando_sus_efectos.pdf"],["Guadalajara Ciudad Luz 2025","Guadalajara_Ciudad_Luz_2025.pdf"]],
+  "lineamientos-salud": [["Lineamientos Generales de Transparencia en la Rama del Sector Público de Salud","lineamientos_salud.pdf"],["Currículum · Dr. Miguel Ángel Andrade Ramos","CurriculumMiguelAndradeRamos2018.pdf"]],
+  "sistemamejoraregulatoria": [["Padrón de Visitas Domiciliarias 2021","PadronVisitasDomiciliarias2021.pdf"]],
+  "diag": [["Diagnóstico de Accesibilidad de la Dirección de Transparencia · Fase I (2023-2024)","DiagnosticoDireccionTransparencia2023-2024.pdf"]],
+  "sociodem": [["Estadísticas sociodemográficas del Municipio de Guadalajara","Estadisticas_sociodemograficas_Guadalajara.docx"]],
+  "lineamientos-er": [["Lineamientos y formatos para los procedimientos de entrega-recepción (Gaceta)","GacetaTomoIEjemplar24Febrero20-2024.pdf"]],
+  "lenguas": [["Información en Lenguas Indígenas de los Mecanismos de Denuncia Ciudadana","InformacionLenguasIndigenasDenunciaCiudadana.pdf"]],
+  "indice-dp": [["Índice de Datos Personales","IndiceDatosPersonales.docx"]],
+  "padron-amb": [["Padrón de Prestadores de Servicios Ambientales para la Recolección y Disposición de Residuos","PadronRecolectoresBasura2021.pdf"]],
+  "recursos-rev": [["Recursos de Revisión en Materia de Transparencia · Indicadores 2018-2025","RecursosRevision2018-2025.xlsx"]],
+  "tianguis": [["Listado de Tianguis Instalados en el Municipio de Guadalajara 2025","ListadoTianguisGuadalajara2025.xlsx"]],
+  "vida-libre": [["Vida Libre de Violencia","MujeresLibresViolencia.pdf"]]
+};
+
+/* [titulo, tipo, slug/url]  — tipo: s=archivo único, m=multi, e=externo, g=en migración */
+var TF_TOPICS = [
+  ["Acciones de Gobierno Abierto","m","acciones-gobierno-abierto-guadalajara"],
+  ["Cumplimiento del Acuerdo AGP-ITEI/018/2022","m","cumplimiento-acuerdo-itei"],
+  ["Diagnóstico de Accesibilidad de la Dirección de Transparencia (Fase I · 2023-2024)","s","diag"],
+  ["Entrega-Recepción · Administración 2021-2024","m","cimtra-entrega-recepcion"],
+  ["Estadísticas de Solicitudes de Información","m","indicadoresuti"],
+  ["Estadísticas sociodemográficas del Municipio","s","sociodem"],
+  ["Formato de Registro al Padrón de Proveedores","m","registropadronproveedores"],
+  ["FORTAMUN","m","fortamun"],
+  ["FORTASEG","m","fortaseg"],
+  ["Guías del ITEI para el Acceso, Transparencia y Protección de Datos","m","guiaaccesotransparenciaitei"],
+  ["Índice de Datos Personales","s","indice-dp"],
+  ["Información en Lenguas Indígenas de los Mecanismos de Denuncia Ciudadana","s","lenguas"],
+  ["Informe de Gobierno","s","informegobierno"],
+  ["Ley de Ingresos","m","leyingresos"],
+  ["Licitaciones","m","licitacionesindex"],
+  ["Lineamientos y formatos de Entrega-Recepción del gobierno municipal","s","lineamientos-er"],
+  ["Nómina del Gobierno Municipal","e","https://enlinea.guadalajara.gob.mx/consultaNomina/nomina.php"],
+  ["Organización, Conservación y Preservación de los documentos","s","catalogodisposicionguiaarchivodocumental"],
+  ["Padrón de Prestadores de Servicios Ambientales · Recolección de Residuos","s","padron-amb"],
+  ["Proyectos Emblemáticos","m","proyectos-emblematicos"],
+  ["Recursos de Revisión en Materia de Transparencia · Indicadores 2018-2025","s","recursos-rev"],
+  ["Salud Municipal","m","lineamientos-salud"],
+  ["Sindicatos","m","sindicatos"],
+  ["Sistema Municipal de Mejora Regulatoria","s","sistemamejoraregulatoria"],
+  ["Tianguis Instalados en el Municipio","s","tianguis"],
+  ["Vida Libre de Violencia","s","vida-libre"]
+];
+var TF_MIG = [
+  ["Actas Circunstanciadas de Entrega y Recepción","clipboard"],
+  ["Actas del Comité de Adquisiciones, Enajenaciones, Arrendamientos y Contratación de Servicios","cart"],
+  ["Actas del Comité de Transparencia","eye"],
+  ["Actas de Sesiones del Ayuntamiento","msg"],
+  ["Contralorías Sociales","checkCircle"],
+  ["Finanzas Públicas","pieChart"],
+  ["Gacetas Municipales","book"],
+  ["Organismos Públicos Descentralizados","building"]
+];
+
+(function(){
+  var FB='https://transparencia.guadalajara.gob.mx/sites/default/files/';
+  function esc(s){ if(s==null) return ''; return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function norm(s){ return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,''); }
+  var PDFICO='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>';
+  var XLSICO='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="17"/><line x1="16" y1="13" x2="8" y2="17"/></svg>';
+  var DOCICO='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>';
+  var EXTICO='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';
+  function icoSvg(inner){ return '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+inner+'</svg>'; }
+  var ICO={
+    globe:'<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>',
+    clipCheck:'<path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 14l2 2 4-4"/>',
+    activity:'<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>',
+    repeat:'<polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/>',
+    barChart:'<line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/>',
+    pieChart:'<path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/>',
+    clipboard:'<path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/>',
+    trendingUp:'<polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>',
+    shield:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
+    bookOpen:'<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>',
+    lock:'<rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>',
+    message:'<path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>',
+    mic:'<path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/>',
+    dollar:'<line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>',
+    pkg:'<line x1="16.5" y1="9.4" x2="7.5" y2="4.21"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>',
+    fileText:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>',
+    archive:'<polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/>',
+    trash:'<polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>',
+    star:'<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>',
+    refresh:'<polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/>',
+    health:'<circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/>',
+    users:'<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+    sliders:'<line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/>',
+    bag:'<path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>',
+    heart:'<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>',
+    creditCard:'<rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/>',
+    cart:'<circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>',
+    eye:'<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>',
+    msg:'<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
+    checkCircle:'<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>',
+    book:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>',
+    building:'<path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9h.01M9 12h.01M9 15h.01M9 18h.01"/>',
+    clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/>'
+  };
+  var TF_ICO={
+    "acciones-gobierno-abierto-guadalajara":"globe","cumplimiento-acuerdo-itei":"clipCheck","diag":"activity","cimtra-entrega-recepcion":"repeat","indicadoresuti":"barChart","sociodem":"pieChart","registropadronproveedores":"clipboard","fortamun":"trendingUp","fortaseg":"shield","guiaaccesotransparenciaitei":"bookOpen","indice-dp":"lock","lenguas":"message","informegobierno":"mic","leyingresos":"dollar","licitacionesindex":"pkg","lineamientos-er":"fileText","catalogodisposicionguiaarchivodocumental":"archive","padron-amb":"trash","proyectos-emblematicos":"star","recursos-rev":"refresh","lineamientos-salud":"health","sindicatos":"users","sistemamejoraregulatoria":"sliders","tianguis":"bag","vida-libre":"heart"
+  };
+
+  function fileBtn(label, file){
+    var u=(FB+file).replace(/ /g,'%20');
+    var ext=file.split('.').pop().toLowerCase();
+    if(ext==='pdf') return '<a class="tf-btn pdf" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer">'+PDFICO+(label||'Ver PDF')+'</a>';
+    var viewer='https://view.officeapps.live.com/op/view.aspx?src='+encodeURIComponent(u);
+    if(ext==='xlsx'||ext==='xls') return '<a class="tf-btn xls" href="'+esc(viewer)+'" target="_blank" rel="noopener noreferrer">'+XLSICO+(label||'Vista previa')+'</a>';
+    return '<a class="tf-btn doc" href="'+esc(viewer)+'" target="_blank" rel="noopener noreferrer">'+DOCICO+(label||'Vista previa')+'</a>';
+  }
+
+  function searchData(title, files){
+    var s=title; if(files){ for(var i=0;i<files.length;i++){ s+=' '+files[i][0]; } } return norm(s);
+  }
+
+  var listHtml='';
+  for(var t=0;t<TF_TOPICS.length;t++){
+    var top=TF_TOPICS[t], title=top[0], kind=top[1], ref=top[2];
+    if(kind==='e'){
+      listHtml+='<div class="tf-item" data-search="'+esc(norm(title+' nomina externo'))+'">'+
+        '<div class="tf-head"><span class="tf-ico" aria-hidden="true">'+icoSvg(ICO.creditCard)+'</span>'+
+        '<span class="tf-tx"><b>'+esc(title)+'</b><small>Sistema externo de consulta</small></span>'+
+        '<span class="tf-right"><a class="tf-btn ext" href="'+esc(ref)+'" target="_blank" rel="noopener noreferrer">'+EXTICO+'Abrir sistema</a></span></div></div>';
+      continue;
+    }
+    var files=TF_FILES[ref]||[];
+    var ds=esc(searchData(title, files));
+    if(kind==='s'){
+      var f=files[0];
+      listHtml+='<div class="tf-item" data-search="'+ds+'">'+
+        '<div class="tf-head"><span class="tf-ico" aria-hidden="true">'+icoSvg(ICO[TF_ICO[ref]]||ICO.fileText)+'</span>'+
+        '<span class="tf-tx"><b>'+esc(title)+'</b></span>'+
+        '<span class="tf-right">'+fileBtn(null, f[1])+'</span></div></div>';
+    } else {
+      var rows='';
+      for(var i=0;i<files.length;i++){
+        rows+='<div class="tf-file"><span class="tf-file-t">'+esc(files[i][0])+'</span>'+fileBtn(null, files[i][1])+'</div>';
+      }
+      listHtml+='<details class="tf-item tf-acc" data-search="'+ds+'">'+
+        '<summary><div class="tf-head"><span class="tf-ico" aria-hidden="true">'+icoSvg(ICO[TF_ICO[ref]]||ICO.fileText)+'</span>'+
+        '<span class="tf-tx"><b>'+esc(title)+'</b></span>'+
+        '<span class="tf-right"><span class="tf-badge cnt">'+files.length+' documentos</span>'+
+        '<svg class="tf-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div></summary>'+
+        '<div class="tf-files">'+rows+'</div></details>';
+    }
+  }
+  document.getElementById('tfList').innerHTML=listHtml;
+
+  var migHtml='';
+  for(var m=0;m<TF_MIG.length;m++){
+    migHtml+='<div class="tf-item migr" data-search="'+esc(norm(TF_MIG[m][0]))+'">'+
+      '<div class="tf-head"><span class="tf-ico" aria-hidden="true">'+icoSvg(ICO[TF_MIG[m][1]]||ICO.clock)+'</span>'+
+      '<span class="tf-tx"><b>'+esc(TF_MIG[m][0])+'</b><small>Se enlazará a su sección del nuevo portal</small></span>'+
+      '<span class="tf-right"><span class="tf-badge mig">En migración</span></span></div></div>';
+  }
+  document.getElementById('tfMig').innerHTML=migHtml;
+
+  /* ---- Buscador ---- */
+  var inp=document.getElementById('tfQ'), clearBtn=document.getElementById('tfClear'), box=document.querySelector('.tf-search');
+  var count=document.getElementById('tfCount'), noRes=document.getElementById('tfNoRes'), noResQ=document.getElementById('tfNoResQ');
+  var grpDisp=document.getElementById('grpDisp'), grpMig=document.getElementById('grpMig');
+  var items=[].slice.call(document.querySelectorAll('#tfList .tf-item'));
+  var migs=[].slice.call(document.querySelectorAll('#tfMig .tf-item'));
+  var TOTAL=items.length;
+  function apply(){
+    var raw=inp.value.replace(/^\s+|\s+$/g,''); var toks=norm(raw).split(/\s+/).filter(Boolean);
+    box.classList.toggle('has-q', raw.length>0);
+    var vis=0, migVis=0;
+    for(var i=0;i<items.length;i++){
+      var ds=items[i].getAttribute('data-search'), ok=true;
+      for(var c=0;c<toks.length;c++){ if(ds.indexOf(toks[c])===-1){ ok=false; break; } }
+      items[i].classList.toggle('hide', !ok); if(ok) vis++;
+    }
+    for(var j=0;j<migs.length;j++){
+      var ds2=migs[j].getAttribute('data-search'), ok2=true;
+      for(var c2=0;c2<toks.length;c2++){ if(ds2.indexOf(toks[c2])===-1){ ok2=false; break; } }
+      migs[j].classList.toggle('hide', !ok2); if(ok2) migVis++;
+    }
+    grpDisp.style.display = vis>0 ? '' : 'none';
+    grpMig.style.display = migVis>0 ? '' : 'none';
+    if(toks.length===0){ count.innerHTML='<b>'+TOTAL+'</b> temas disponibles · 138 documentos'; noRes.className='tf-noresults'; }
+    else if(vis===0 && migVis===0){ count.innerHTML=''; noResQ.textContent='«'+raw+'»'; noRes.className='tf-noresults show'; }
+    else { count.innerHTML='<b>'+vis+'</b> de '+TOTAL+' temas'+(migVis?(' · '+migVis+' en migración'):''); noRes.className='tf-noresults'; }
+    reportHeight();
+  }
+  inp.addEventListener('input', apply);
+  clearBtn.addEventListener('click', function(){ inp.value=''; apply(); inp.focus(); });
+  [].slice.call(document.querySelectorAll('details.tf-item')).forEach(function(d){ d.addEventListener('toggle', reportHeight); });
+  apply();
+
+  /* ---- Altura Strapi ---- */
+  var lastH=0;
+  function reportHeight(){ var h=Math.max(document.body.scrollHeight,document.body.offsetHeight,document.documentElement.offsetHeight); if(h&&Math.abs(h-lastH)>1){ lastH=h; try{ parent.postMessage({type:'gdl-iframe-height',id:'transparencia-focalizada-art8-IX',height:h},'*'); }catch(e){} } }
+  window.addEventListener('load', reportHeight); window.addEventListener('resize', reportHeight);
+  setTimeout(reportHeight,300); setTimeout(reportHeight,1000);
+
+  /* ---- Botón subir ---- */
+  var tb=document.getElementById('tfTopBtn');
+  function s(){ tb.classList.toggle('show',(window.pageYOffset||document.documentElement.scrollTop)>320); }
+  window.addEventListener('scroll', s, {passive:true});
+  tb.addEventListener('click', function(){ var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches; window.scrollTo({top:0,behavior:rm?'auto':'smooth'}); }); s();
+})();
+</script>
+</body>
+</html>

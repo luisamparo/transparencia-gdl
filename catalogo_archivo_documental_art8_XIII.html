@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="El catálogo de disposición y la guía de archivo documental del Ayuntamiento de Guadalajara: instrumentos de clasificación, transferencias primarias y secundarias, actas y dictámenes de baja documental, el Programa Anual de Desarrollo Archivístico y sus informes, auditorías archivísticas, el Sistema Institucional de Archivos, el Grupo Interdisciplinario y la normatividad aplicable. Art. 8, Fracción XIII de la Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios."/>
+<title>Catálogo de disposición y guía de archivo documental · Guadalajara · Art. 8 Frac. XIII</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ac:#E87722;--ac-l:#FFE4CC;--ac-d:#C45F0A;--ac-deeper:#8B4308;--ac-border:#F5C99A;--ac-soft:#FFF1E4;
+  --g50:#FAFAF8;--g100:#F0F0EC;--g200:#E2E2DD;--g300:#CFCFC8;--g400:#9E9E98;--g600:#5A5A55;--g800:#2D2D2A;--g900:#1A1A1A;
+  --wh:#FFF;--ok:#16A34A;--ok-d:#0E6B4C;--ok-l:#DCFCE7;--ok-border:#A7E8C0;
+  --bl:#1D4ED8;--bl-l:#DBE6FE;--bl-border:#BBD0F7;
+  --rad:10px;--rad-lg:14px;
+  --sh:0 4px 22px rgba(0,0,0,.08);--sh-sm:0 1px 3px rgba(0,0,0,.06);--sh-md:0 6px 18px rgba(0,0,0,.07);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --fh:'Outfit',system-ui,-apple-system,sans-serif;
+  --fm:'DM Mono','SF Mono',Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--g900);line-height:1.55;-webkit-font-smoothing:antialiased}
+.ad-wrap{max-width:1040px;margin:0 auto}
+.ad-hero{background:linear-gradient(135deg,var(--ac-soft) 0%,#FFFFFF 55%);color:var(--g900);border-radius:var(--rad-lg);padding:28px 32px;margin:0 0 20px;position:relative;overflow:hidden;border-left:5px solid var(--ac);box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.ad-hero::before{content:'';position:absolute;top:-66px;right:-66px;width:210px;height:210px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.12) 0%,transparent 70%);pointer-events:none}
+.ad-hero-tag{display:inline-block;background:var(--ac);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;position:relative;z-index:1;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.ad-hero h1{margin:0 0 9px;font-size:clamp(22px,3.2vw,29px);font-weight:800;color:var(--g900);letter-spacing:-.018em;line-height:1.2;position:relative;z-index:1}
+.ad-hero h1 em{font-style:normal;color:var(--ac-d);display:block;margin-top:3px}
+.ad-hero-sub{font-size:14.5px;color:var(--g600);max-width:76ch;margin:0;line-height:1.62;position:relative;z-index:1}
+.ad-hero-sub strong{color:var(--g900);font-weight:700}
+.ad-hero-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;position:relative;z-index:1}
+.ad-chip{display:inline-flex;align-items:center;gap:6px;background:var(--wh);border:1.5px solid var(--ac-border);color:var(--ac-d);font-size:11.5px;font-weight:700;padding:5px 12px;border-radius:20px}
+.ad-chip b{font-family:var(--fm);font-weight:500}
+.ad-chip.neutral{border-color:var(--g200);color:var(--g600)}
+.ad-search-wrap{margin:0 0 12px}
+.ad-search{position:relative;display:flex;align-items:center;background:var(--wh);border:1.5px solid var(--g200);border-radius:12px;box-shadow:var(--sh-sm);transition:border-color .15s,box-shadow .15s}
+.ad-search:focus-within{border-color:var(--ac);box-shadow:0 0 0 3px rgba(232,119,34,.12)}
+.ad-search>svg{position:absolute;left:15px;color:var(--g400);pointer-events:none}
+.ad-search input{flex:1;width:100%;border:0;outline:0;background:transparent;font-family:var(--fh);font-size:14.5px;color:var(--g900);padding:13px 46px}
+.ad-search input::placeholder{color:var(--g400)}
+.ad-search input::-webkit-search-cancel-button{display:none}
+.ad-clear{position:absolute;right:8px;width:34px;height:34px;border:0;background:var(--g100);color:var(--g600);border-radius:50%;font-size:19px;line-height:1;cursor:pointer;display:none;align-items:center;justify-content:center;transition:background .14s;font-family:var(--fh)}
+.ad-clear:hover{background:var(--g200);color:var(--g900)}
+.ad-search.has-q .ad-clear{display:flex}
+.ad-chips{display:flex;flex-wrap:wrap;gap:7px;margin:0 2px 12px}
+.ad-chip-f{font-family:var(--fh);font-size:12.5px;font-weight:700;padding:6px 13px;border-radius:20px;border:1.5px solid var(--g200);background:var(--wh);color:var(--g600);cursor:pointer;transition:all .13s var(--ease);display:inline-flex;align-items:center;gap:7px}
+.ad-chip-f:hover{border-color:var(--ac-border);color:var(--ac-d)}
+.ad-chip-f.active{background:var(--ac);border-color:var(--ac);color:#fff;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.ad-chip-f .n{font-family:var(--fm);font-size:11px;opacity:.85}
+.ad-count{font-size:12px;color:var(--g600);font-weight:600;margin:0 2px 16px}
+.ad-count b{color:var(--ac-d);font-family:var(--fm);font-weight:500}
+.ad-acc{border:1.5px solid var(--g200);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);background:var(--wh);overflow:hidden;margin-bottom:12px}
+.ad-acc.hide{display:none}
+.ad-sum{list-style:none;cursor:pointer;padding:15px 20px;display:flex;align-items:center;gap:15px;user-select:none}
+.ad-sum::-webkit-details-marker{display:none}
+.ad-sum-ico{flex-shrink:0;width:42px;height:42px;border-radius:11px;background:var(--ac-soft);color:var(--ac-d);border:1px solid var(--ac-border);display:flex;align-items:center;justify-content:center}
+.ad-sum-tx{flex:1;display:flex;flex-direction:column;gap:1px;min-width:0}
+.ad-sum-t{font-size:15px;font-weight:800;color:var(--g900);letter-spacing:-.01em}
+.ad-sum-tx small{font-size:11.5px;color:var(--g600);font-weight:500}
+.ad-sum-n{flex-shrink:0;font-family:var(--fm);font-size:12px;font-weight:500;color:var(--ac-d);background:var(--ac-soft);border:1px solid var(--ac-border);padding:3px 10px;border-radius:20px}
+.ad-chev{flex-shrink:0;color:var(--g400);transition:transform .2s var(--ease)}
+.ad-acc[open] .ad-chev{transform:rotate(180deg)}
+.ad-acc[open] .ad-sum{border-bottom:1px solid var(--g200);background:var(--g50)}
+.ad-acc-body{padding:9px 14px 14px}
+.ad-row{display:flex;align-items:center;gap:14px;padding:11px 14px;border-radius:10px;border:1px solid var(--g100);background:var(--g50);transition:border-color .14s,background .14s}
+.ad-row+.ad-row{margin-top:7px}
+.ad-row:hover{border-color:var(--ac-border);background:var(--wh)}
+.ad-row.gone{display:none}
+.ad-row-main{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+.ad-row-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ad-yb{flex-shrink:0;font-family:var(--fm);font-size:11px;font-weight:500;color:var(--ac-d);background:var(--ac-soft);border:1px solid var(--ac-border);padding:2px 9px;border-radius:6px}
+.ad-row-t{font-size:13.5px;font-weight:700;color:var(--g900);letter-spacing:-.005em;line-height:1.4}
+.ad-btn{flex-shrink:0;display:inline-flex;align-items:center;gap:7px;font-family:var(--fh);font-size:12px;font-weight:700;padding:8px 14px;border-radius:9px;cursor:pointer;text-decoration:none;border:1.5px solid var(--ac);background:var(--ac);color:#fff;transition:all .14s var(--ease);white-space:nowrap}
+.ad-btn:hover{background:var(--ac-d);border-color:var(--ac-d);transform:translateY(-1px)}
+.ad-btn svg{flex-shrink:0}
+.ad-btn.xls{background:var(--wh);color:var(--ok-d);border-color:var(--ok-border)}
+.ad-btn.xls:hover{background:var(--ok-l);border-color:var(--ok);color:var(--ok-d)}
+.ad-btn.doc{background:var(--wh);color:var(--bl);border-color:var(--bl-border)}
+.ad-btn.doc:hover{background:var(--bl-l);border-color:var(--bl);color:var(--bl)}
+.ad-noresults{display:none;background:var(--ac-soft);border:1.5px solid var(--ac-border);border-radius:var(--rad-lg);padding:22px 24px;font-size:13.5px;color:var(--g800);line-height:1.6;text-align:center;margin-top:4px}
+.ad-noresults.show{display:block}
+.ad-noresults strong{color:var(--ac-d);font-weight:700}
+.ad-mig{display:flex;gap:11px;align-items:flex-start;background:var(--ac-soft);border:1px solid var(--ac-border);border-radius:var(--rad-lg);padding:14px 18px;margin:4px 0 0;font-size:12.5px;color:var(--g800);line-height:1.55}
+.ad-mig svg{flex-shrink:0;color:var(--ac-d);margin-top:1px}
+.ad-mig b{color:var(--g900);font-weight:700}
+.ad-foot-title{font-size:12.5px;font-weight:800;color:var(--g800);letter-spacing:.1em;text-transform:uppercase;margin:34px 4px 16px;display:flex;align-items:center;gap:10px}
+.ad-foot-title::after{content:'';flex:1;height:1.5px;background:var(--g200);border-radius:2px}
+.ad-cifras{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:12px;margin-bottom:4px}
+.ad-cifra{background:var(--wh);border:1.5px solid var(--ac-border);border-radius:var(--rad);padding:16px 18px;display:flex;flex-direction:column;gap:2px;transition:border-color .18s,transform .18s}
+.ad-cifra:hover{border-color:var(--ac);transform:translateY(-2px)}
+.ad-cifra-num{font-family:var(--fm);font-size:30px;font-weight:700;line-height:1;color:var(--ac-d);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.ad-cifra-lbl{font-size:11px;font-weight:700;color:var(--g800);text-transform:uppercase;letter-spacing:.06em;margin-top:6px;line-height:1.3}
+.ad-cifra-sub{font-size:10.5px;color:var(--g400);margin-top:1px}
+.ad-info{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.ad-info-card{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);border-top:5px solid var(--ac);padding:18px 20px;display:flex;flex-direction:column;gap:8px}
+.ad-info-ico{width:40px;height:40px;border-radius:11px;background:var(--ac-soft);color:var(--ac-d);display:flex;align-items:center;justify-content:center;margin-bottom:2px}
+.ad-info-card h3{font-size:14.5px;font-weight:800;color:var(--g900);letter-spacing:-.01em;line-height:1.3}
+.ad-info-card p{font-size:12.5px;color:var(--g600);line-height:1.6}
+.ad-info-card p strong{color:var(--g800);font-weight:700}
+.ad-ley{background:var(--wh);border-radius:var(--rad-lg);padding:22px 26px;border-left:4px solid var(--ac-d);box-shadow:var(--sh-sm);margin-top:22px}
+.ad-ley-head{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.ad-ley-seal{flex-shrink:0;width:46px;height:46px;border-radius:50%;background:var(--ac-soft);border:2px solid var(--ac);color:var(--ac-d);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(232,119,34,.18)}
+.ad-ley-eye{font-size:10.5px;font-weight:800;color:var(--ac-d);letter-spacing:.14em;text-transform:uppercase;margin-bottom:3px}
+.ad-ley h3{font-size:16px;font-weight:800;color:var(--g900);letter-spacing:-.008em;margin:0}
+.ad-ley p{font-size:13px;color:var(--g600);line-height:1.65;max-width:80ch}
+.ad-ley p+p{margin-top:7px}
+.ad-ley p strong{color:var(--g800);font-weight:600}
+.ad-ley blockquote{font-size:13.5px;color:var(--g600);line-height:1.65;margin:12px 0 8px;padding:13px 18px;background:var(--ac-soft);border-left:3px solid var(--ac);border-radius:6px;font-style:italic;max-width:80ch;overflow-wrap:anywhere}
+.ad-ley blockquote strong{color:var(--g900);font-style:normal;font-weight:700}
+.ad-ley-fuente{margin-top:14px;font-size:11.5px;color:var(--g400);line-height:1.6;font-family:var(--fm)}
+.ad-top{position:fixed;right:18px;bottom:18px;z-index:60;width:46px;height:46px;border-radius:50%;border:0;background:var(--ac);color:#fff;box-shadow:0 6px 18px rgba(196,95,10,.38);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .18s,transform .18s,visibility .18s}
+.ad-top.show{opacity:1;visibility:visible;transform:none}
+.ad-top:hover{background:var(--ac-d)}
+.ad-chip-f:focus-visible,.ad-btn:focus-visible,.ad-clear:focus-visible,.ad-top:focus-visible,.ad-sum:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(232,119,34,.45)}
+@media (min-width:781px) and (max-width:1024px){body{padding:20px}.ad-hero{padding:26px 28px}.ad-ley{padding:20px 24px}}
+@media (max-width:860px){.ad-info{grid-template-columns:1fr}}
+@media (max-width:780px){body{padding:14px}.ad-hero{padding:22px 18px}.ad-ley{padding:18px 18px}}
+@media (max-width:600px){
+  body{padding:10px}
+  .ad-hero{padding:18px 15px;border-radius:12px}.ad-hero h1{font-size:19px;line-height:1.24}.ad-hero-tag{font-size:9.5px;padding:4px 11px}
+  .ad-sum{padding:14px 15px;gap:12px}.ad-sum-ico{width:38px;height:38px}.ad-sum-t{font-size:14px}.ad-acc-body{padding:7px 10px 12px}
+  .ad-row{flex-direction:column;align-items:stretch;gap:10px}.ad-row .ad-btn{width:100%;justify-content:center;padding:12px 14px;font-size:13px}
+  .ad-ley blockquote{padding:12px 14px;font-size:13px}.ad-ley{margin-bottom:64px}.ad-top{right:12px;bottom:12px;width:44px;height:44px}
+}
+@media (max-width:380px){.ad-hero{padding:18px 14px}.ad-hero h1{font-size:18px}.ad-hero-sub{font-size:13.5px}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="ad-wrap" id="adTop">
+
+  <section class="ad-hero">
+    <span class="ad-hero-tag">Art. 8 · Fracción XIII · Ley de Transparencia Jalisco</span>
+    <h1>¿Cómo cuida Guadalajara su memoria documental? <em>Catálogo de disposición y guía de archivo documental</em></h1>
+    <p class="ad-hero-sub">Las reglas e instrumentos con que el municipio <strong>organiza, conserva, transfiere y da de baja</strong> sus documentos públicos: catálogo de disposición, transferencias, actas de baja, el Programa Anual de Desarrollo Archivístico, auditorías y la normatividad aplicable.</p>
+    <div class="ad-hero-meta">
+      <span class="ad-chip"><b>144</b> documentos</span>
+      <span class="ad-chip neutral"><b>10</b> secciones</span>
+      <span class="ad-chip neutral">Vigente a <b>2026</b></span>
+    </div>
+  </section>
+
+  <div class="ad-search-wrap">
+    <div class="ad-search">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="adQ" type="search" autocomplete="off" placeholder="Busca por tema, año o documento… (ej.: baja documental, PADA 2024, auditoría)" aria-label="Buscar un documento por tema, año o nombre"/>
+      <button type="button" class="ad-clear" id="adClear" aria-label="Limpiar búsqueda" title="Limpiar">&times;</button>
+    </div>
+  </div>
+  <div class="ad-chips" id="adChips"></div>
+  <div class="ad-count" id="adCount"></div>
+
+  <div id="adCats"></div>
+  <div class="ad-noresults" id="adNoRes">No encontramos documentos que coincidan con <strong id="adNoResQ"></strong>. Prueba con un tema («baja documental», «transferencia», «auditoría»), un año o el nombre de una ley.</div>
+
+  <div class="ad-mig" id="adMig"></div>
+
+  <div class="ad-foot-title">La página en cifras</div>
+  <div class="ad-cifras">
+    <div class="ad-cifra"><div class="ad-cifra-num">144</div><div class="ad-cifra-lbl">Documentos</div><div class="ad-cifra-sub">En 10 secciones archivísticas</div></div>
+    <div class="ad-cifra"><div class="ad-cifra-num">56</div><div class="ad-cifra-lbl">Recepciones</div><div class="ad-cifra-sub">Transferencias primarias 2021–2026</div></div>
+    <div class="ad-cifra"><div class="ad-cifra-num">25</div><div class="ad-cifra-lbl">Normas y leyes</div><div class="ad-cifra-sub">Marco archivístico aplicable</div></div>
+  </div>
+
+  <div class="ad-foot-title">Para entenderlo mejor</div>
+  <div class="ad-info">
+    <div class="ad-info-card">
+      <div class="ad-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-6l-2-3H5a2 2 0 0 0-2 2Z"/><path d="M8 13h8"/></svg></div>
+      <h3>¿Qué es el catálogo de disposición documental?</h3>
+      <p>Es el <strong>instrumento que define cuánto se conserva cada tipo de documento</strong> y qué destino final tiene (conservación o baja). Incluye el cuadro de clasificación y las fichas de valoración.</p>
+    </div>
+    <div class="ad-info-card">
+      <div class="ad-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg></div>
+      <h3>¿Qué son las transferencias y las bajas?</h3>
+      <p>La <strong>transferencia</strong> pasa documentos al archivo (primaria) o al histórico (secundaria). La <strong>baja documental</strong> depura, con dictamen, lo que ya cumplió su vida útil.</p>
+    </div>
+    <div class="ad-info-card">
+      <div class="ad-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="m9 16 2 2 4-4"/></svg></div>
+      <h3>¿Qué es el PADA y el Grupo Interdisciplinario?</h3>
+      <p>El <strong>Programa Anual de Desarrollo Archivístico</strong> es el plan de mejora del archivo cada año; el <strong>Grupo Interdisciplinario</strong> decide, de forma colegiada, la valoración de los documentos.</p>
+    </div>
+    <div class="ad-info-card">
+      <div class="ad-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></div>
+      <h3>¿Para qué te sirve?</h3>
+      <p>Para asegurar que <strong>la memoria documental de tu gobierno se conserva y se puede consultar</strong>, y que nada se destruye sin un procedimiento y un dictamen de por medio.</p>
+    </div>
+  </div>
+
+  <section class="ad-ley">
+    <div class="ad-ley-head">
+      <span class="ad-ley-seal" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg></span>
+      <div>
+        <div class="ad-ley-eye">Fundamento legal</div>
+        <h3>¿Por qué el Ayuntamiento publica esta información?</h3>
+      </div>
+    </div>
+    <p>Es una obligación de transparencia. La ley ordena publicar, palabra por palabra, lo siguiente:</p>
+    <blockquote>«Artículo 8°. <strong>1.</strong> Es información fundamental, obligatoria para todos los sujetos obligados, la siguiente: (…) <strong>XIII.</strong> El catálogo de disposición y guía de archivo documental; los dictámenes de baja y actas de baja documental y transferencia secundaria, programa e informe anual de desarrollo archivístico y actas de documentación siniestrada; así como, los resultados de las auditorías archivísticas, las determinaciones y resoluciones del Consejo Estatal de Archivos; y»</blockquote>
+    <p>— <strong>Artículo 8, fracción XIII</strong> de la <em>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</em>. Los archivos de esta página son los oficiales, tal como fueron publicados por el sujeto obligado; ante cualquier discrepancia, prevalece el documento oficial.</p>
+    <div class="ad-ley-fuente">
+      Fuente oficial: portal de transparencia del Ayuntamiento de Guadalajara · sección «Catálogo de disposición y guía de archivo documental» y sus subsecciones.<br>
+      144 documentos verificados en línea uno por uno (HTTP 200).
+    </div>
+  </section>
+
+</div>
+
+<button type="button" class="ad-top" id="adTopBtn" aria-label="Volver arriba" title="Volver arriba">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+/* ==========================================================================
+   Catálogo de disposición y guía de archivo documental · Art. 8 Fracción XIII
+   (LTAIPEJM). Datos verbatim del registro oficial del sujeto obligado y sus
+   subsecciones. 144 documentos verificados en línea uno por uno (HTTP 200):
+   instrumentos del catálogo de disposición, 56 transferencias primarias,
+   transferencias secundarias, actas y dictámenes de baja documental, el
+   Programa Anual de Desarrollo Archivístico y sus informes, 16 auditorías
+   archivísticas, el Sistema Institucional de Archivos, el Grupo
+   Interdisciplinario y 25 normas aplicables. PDF abren en el navegador; los
+   archivos de Office (Word/Excel) abren en vista previa (visor de Office).
+   Íconos Lucide. Sin enlaces a páginas del portal anterior.
+   ========================================================================== */
+var XIII = [
+    {
+        "sec":  "catalogo",
+        "section":  "Catálogo de disposición documental",
+        "year":  0,
+        "label":  "Guía Simple de Archivo de Concentración",
+        "file":  "GuiaArchivoConcentracion.pdf"
+    },
+    {
+        "sec":  "catalogo",
+        "section":  "Catálogo de disposición documental",
+        "year":  0,
+        "label":  "Ficha Técnica de Valoración Documental",
+        "file":  "FichaTecnicaValoracionDocumental.pdf"
+    },
+    {
+        "sec":  "catalogo",
+        "section":  "Catálogo de disposición documental",
+        "year":  0,
+        "label":  "Guía de llenado de la Ficha Técnica de Valoración Documental",
+        "file":  "GuiaFichaValoracionDocumental.pdf"
+    },
+    {
+        "sec":  "catalogo",
+        "section":  "Catálogo de disposición documental",
+        "year":  0,
+        "label":  "Diagnóstico de Archivos",
+        "file":  "DiagnosticoArchivos.pdf"
+    },
+    {
+        "sec":  "catalogo",
+        "section":  "Catálogo de disposición documental",
+        "year":  0,
+        "label":  "Cuadro General de Clasificación Archivística",
+        "file":  "CuadroClasificacionArchivistica.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2026,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Mayo 2026",
+        "file":  "DocumentosResguardoArchivoMunicipalMayo2026.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2026,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Abril 2026",
+        "file":  "DocumentosResguardoArchivoMunicipalAbril2026.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2026,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Marzo 2026",
+        "file":  "DocumentosResguardoArchivoMunicipalMarzo2026.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2026,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Febrero 2026",
+        "file":  "DocumentosResguardoArchivoMunicipalFebrero2026.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2026,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Enero 2026",
+        "file":  "DocumentosResguardoArchivoMunicipalEnero2026.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2025,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Diciembre 2025",
+        "file":  "DocumentosResguardoArchivoMunicipalDiciembre2025.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2025,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Noviembre 2025",
+        "file":  "DocumentosResguardoArchivoMunicipalNoviembre2025.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2025,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Octubre 2025",
+        "file":  "DocumentosResguardoArchivoMunicipalOctubre2025.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2025,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Septiembre 2025",
+        "file":  "DocumentosResguardoArchivoMunicipalSeptiembre2025.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2025,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Agosto 2025",
+        "file":  "DocumentosResguardoArchivoMunicipalAgosto2025.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2025,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Julio 2025",
+        "file":  "DocumentosResguardoArchivoMunicipalJulio2025.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2025,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Junio 2025",
+        "file":  "DocumentosResguardoArchivoMunicipalJunio2025.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2025,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Mayo 2025",
+        "file":  "DocumentosResguardoArchivoMunicipalMayo2025.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2025,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Abril 2025",
+        "file":  "DocumentosResguardoArchivoMunicipalAbril2025.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2025,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Marzo 2025",
+        "file":  "DocumentosResguardoArchivoMunicipalMarzo2025.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2025,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Febrero 2025",
+        "file":  "DocumentosResguardoArchivoMunicipalFebrero2025.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2025,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Enero 2025",
+        "file":  "DocumentosResguardoArchivoMunicipalEnero2025.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2024,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Diciembre 2024",
+        "file":  "DocumentosResguardoArchivoMunicipalDiciembre2024.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2024,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Noviembre 2024",
+        "file":  "DocumentosResguardoArchivoMunicipalNoviembre2024.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2024,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Octubre 2024",
+        "file":  "DocumentosResguardoArchivoMunicipalOctubre2024.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2024,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Septiembre 2024",
+        "file":  "DocumentosResguardoArchivoMunicipalSeptiembre2024.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2024,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Agosto 2024",
+        "file":  "DocumentosResguardoArchivoMunicipalAgosto2024.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2024,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Julio 2024",
+        "file":  "DocumentosResguardoArchivoMunicipalJulio2024.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2024,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Junio 2024",
+        "file":  "DocumentosResguardoArchivoMunicipalJunio2024.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2024,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Mayo 2024",
+        "file":  "DocumentosResguardoArchivoMunicipalMayo2024.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2024,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Abril 2024",
+        "file":  "DocumentosResguardoArchivoMunicipalAbril2024.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2024,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Marzo 2024",
+        "file":  "DocumentosResguardoArchivoMunicipalMarzo2024.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2024,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Febrero 2024",
+        "file":  "DocumentosResguardoArchivoMunicipalFebrero2024.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2024,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Enero 2024",
+        "file":  "DocumentosResguardoArchivoMunicipalEnero2024.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2023,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Diciembre 2023",
+        "file":  "DocumentosResguardoArchivoMunicipalDiciembre2023.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2023,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Noviembre 2023",
+        "file":  "DocumentosResguardoArchivoMunicipalNoviembre2023.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2023,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Octubre 2023",
+        "file":  "DocumentosResguardoArchivoMunicipalOctubre2023.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2023,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Septiembre 2023",
+        "file":  "DocumentosResguardoArchivoMunicipalSeptiembre2023.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2023,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Agosto 2023",
+        "file":  "DocumentosResguardoArchivoMunicipalAgosto2023.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2023,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Julio 2023",
+        "file":  "DocumentosResguardoArchivoMunicipalJulio2023.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2023,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Junio 2023",
+        "file":  "DocumentosResguardoArchivoMunicipalJunio2023.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2023,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Mayo 2023",
+        "file":  "DocumentosResguardoArchivoMunicipalMayo2023.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2023,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Abril 2023",
+        "file":  "DocumentosResguardoArchivoMunicipalAbril2023.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2023,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Marzo 2023",
+        "file":  "DocumentosResguardoArchivoMunicipalMarzo2023.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2023,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Febrero 2023",
+        "file":  "DocumentosResguardoArchivoMunicipalFebrero2023.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2023,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Enero 2023",
+        "file":  "DocumentosResguardoArchivoMunicipalEnero2023.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2022,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Diciembre 2022",
+        "file":  "DocumentosResguardoArchivoMunicipalDiciembre2022.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2022,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Noviembre 2022",
+        "file":  "DocumentosResguardoArchivoMunicipalNoviembre2022.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2022,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Octubre 2022",
+        "file":  "DocumentosResguardoArchivoMunicipalOctubre2022.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2022,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Septiembre 2022",
+        "file":  "DocumentosResguardoArchivoMunicipalSeptiembre2022.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2022,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Agosto 2022",
+        "file":  "DocumentosResguardoArchivoMunicipalAgosto2022.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2022,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Julio 2022",
+        "file":  "DocumentosResguardoArchivoMunicipalJulio2022.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2022,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Junio 2022",
+        "file":  "DocumentosResguardoArchivoMunicipalJunio2022.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2022,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Mayo 2022",
+        "file":  "DocumentosResguardoArchivoMunicipalMayo2022.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2022,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Abril 2022",
+        "file":  "DocumentosResguardoArchivoMunicipalAbril2022.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2022,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Marzo 2022",
+        "file":  "DocumentosResguardoArchivoMunicipalMarzo2022.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2022,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Febrero 2022",
+        "file":  "DocumentosResguardoArchivoMunicipalFebrero2022.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2022,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Enero 2022",
+        "file":  "DocumentosResguardoArchivoMunicipalEnero2022.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2021,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Diciembre 2021",
+        "file":  "DocumentosResguardoArchivoMunicipalDiciembre2021.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2021,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Noviembre 2021",
+        "file":  "DocumentosResguardoArchivoMunicipalNoviembre2021.pdf"
+    },
+    {
+        "sec":  "transfprim",
+        "section":  "Transferencia primaria (recepciones)",
+        "year":  2021,
+        "label":  "Recepción de Cajas con Documentos para resguardo en el archivo de concentración. Octubre 2021",
+        "file":  "DocumentosResguardoArchivoMunicipalOctubre2021.pdf"
+    },
+    {
+        "sec":  "transfsec",
+        "section":  "Transferencias secundarias",
+        "year":  2025,
+        "label":  "Transferencia Secundaria Marzo 2025",
+        "file":  "TransferenciaSecundariaMarzo25.pdf"
+    },
+    {
+        "sec":  "transfsec",
+        "section":  "Transferencias secundarias",
+        "year":  2024,
+        "label":  "Transferencia Secundaria Febrero 2024",
+        "file":  "TransferenciaSecundariaFebrero24.pdf"
+    },
+    {
+        "sec":  "transfsec",
+        "section":  "Transferencias secundarias",
+        "year":  0,
+        "label":  "Transferencia Secundaria 1",
+        "file":  "TransferenciaSecundaria1.pdf"
+    },
+    {
+        "sec":  "transfsec",
+        "section":  "Transferencias secundarias",
+        "year":  0,
+        "label":  "Transferencia Secundaria 2",
+        "file":  "TransferenciaSecundaria2.pdf"
+    },
+    {
+        "sec":  "transfsec",
+        "section":  "Transferencias secundarias",
+        "year":  0,
+        "label":  "Transferencia Secundaria 3",
+        "file":  "TransferenciaSecundaria3.pdf"
+    },
+    {
+        "sec":  "transfsec",
+        "section":  "Transferencias secundarias",
+        "year":  0,
+        "label":  "Transferencia Secundaria 4",
+        "file":  "TransferenciaSecundaria4.pdf"
+    },
+    {
+        "sec":  "actasbaja",
+        "section":  "Actas y dictámenes de baja documental",
+        "year":  2023,
+        "label":  "Baja Documental Mesa 1 y Mesa 2",
+        "file":  "BajaDocumentalMesa1-2-2023.pdf"
+    },
+    {
+        "sec":  "actasbaja",
+        "section":  "Actas y dictámenes de baja documental",
+        "year":  0,
+        "label":  "Dictamen Técnico de Depuración Documental Mesa 1",
+        "file":  "DictamenTecnicoDepuracionDocumentalMesa1.pdf"
+    },
+    {
+        "sec":  "actasbaja",
+        "section":  "Actas y dictámenes de baja documental",
+        "year":  0,
+        "label":  "Decreto de Depuración Mesa 1",
+        "file":  "DecretoDepuracionMesa1.pdf"
+    },
+    {
+        "sec":  "actasbaja",
+        "section":  "Actas y dictámenes de baja documental",
+        "year":  0,
+        "label":  "Dictamen Técnico de Depuración Documental Mesa 2",
+        "file":  "DictamenTecnicoDepuracionDocumentalMesa2.pdf"
+    },
+    {
+        "sec":  "actasbaja",
+        "section":  "Actas y dictámenes de baja documental",
+        "year":  0,
+        "label":  "Decreto de Depuración Mesa 2",
+        "file":  "DecretoDepuracionMesa2.pdf"
+    },
+    {
+        "sec":  "actasbaja",
+        "section":  "Actas y dictámenes de baja documental",
+        "year":  0,
+        "label":  "Dictamen Técnico de Depuración Documental Mesa 3",
+        "file":  "DictamenTecnicoDepuracionDocumentalMesa3.pdf"
+    },
+    {
+        "sec":  "actasbaja",
+        "section":  "Actas y dictámenes de baja documental",
+        "year":  0,
+        "label":  "Decreto de Depuración Mesa 3",
+        "file":  "DecretoDepuracionMesa3.pdf"
+    },
+    {
+        "sec":  "actasbaja",
+        "section":  "Actas y dictámenes de baja documental",
+        "year":  0,
+        "label":  "Dictamen Técnico de Depuración Documental Mesa 4",
+        "file":  "DictamenTecnicoDepuracionDocumentalMesa4.pdf"
+    },
+    {
+        "sec":  "actasbaja",
+        "section":  "Actas y dictámenes de baja documental",
+        "year":  0,
+        "label":  "Decreto de Depuración Mesa 4",
+        "file":  "DecretoDepuracionMesa4.pdf"
+    },
+    {
+        "sec":  "pada",
+        "section":  "Programa Anual de Desarrollo Archivístico",
+        "year":  2026,
+        "label":  "Programa Anual de Desarrollo Archivístico 2026",
+        "file":  "ProgramaAnualDesarrolloArchivistico2026.pdf"
+    },
+    {
+        "sec":  "pada",
+        "section":  "Programa Anual de Desarrollo Archivístico",
+        "year":  2025,
+        "label":  "Programa Anual de Desarrollo Archivístico 2025",
+        "file":  "ProgramaAnualDesarrolloArchivistico2025.pdf"
+    },
+    {
+        "sec":  "pada",
+        "section":  "Programa Anual de Desarrollo Archivístico",
+        "year":  2024,
+        "label":  "Programa Anual de Desarrollo Archivístico 2024",
+        "file":  "ProgramaAnualDesarrolloArchivistico2024.pdf"
+    },
+    {
+        "sec":  "pada",
+        "section":  "Programa Anual de Desarrollo Archivístico",
+        "year":  2023,
+        "label":  "Programa Anual de Desarrollo Archivístico 2023",
+        "file":  "ProgramaAnualDesarrolloArchivistico2023.pdf"
+    },
+    {
+        "sec":  "pada",
+        "section":  "Programa Anual de Desarrollo Archivístico",
+        "year":  2022,
+        "label":  "Programa Anual de Desarrollo Archivístico 2022",
+        "file":  "ProgramaAnualDesarrolloArchivistico2022.pdf"
+    },
+    {
+        "sec":  "pada",
+        "section":  "Programa Anual de Desarrollo Archivístico",
+        "year":  2021,
+        "label":  "Programa Anual de Desarrollo Archivístico 2021",
+        "file":  "ProgramaAnualDesarrolloArchivistico2021.pdf"
+    },
+    {
+        "sec":  "informepada",
+        "section":  "Informe anual de resultados del PADA",
+        "year":  2025,
+        "label":  "Informe anual de resultados del PADA 2025",
+        "file":  "InformeAnualProgramaAnualDesarrolloArchivistico2025.pdf"
+    },
+    {
+        "sec":  "informepada",
+        "section":  "Informe anual de resultados del PADA",
+        "year":  2024,
+        "label":  "Informe anual de resultados del PADA 2024",
+        "file":  "InformeAnualProgramaAnualDesarrolloArchivistico2024.pdf"
+    },
+    {
+        "sec":  "informepada",
+        "section":  "Informe anual de resultados del PADA",
+        "year":  2023,
+        "label":  "Informe anual de resultados del PADA 2023",
+        "file":  "InformeAnualProgramaAnualDesarrolloArchivistico2023.pdf"
+    },
+    {
+        "sec":  "auditorias",
+        "section":  "Auditorías archivísticas",
+        "year":  2022,
+        "label":  "Auditoría al Archivo Municipal · Octubre 2022",
+        "file":  "Auditorias2022/AuditoriaArchivoMunicipalOctubre22.pdf"
+    },
+    {
+        "sec":  "auditorias",
+        "section":  "Auditorías archivísticas",
+        "year":  2022,
+        "label":  "Informe final de la auditoría al Archivo Municipal · Octubre 2022",
+        "file":  "Auditorias2022/InformeFinalAuditoriaArchivoMunicipalOctubre22.pdf"
+    },
+    {
+        "sec":  "auditorias",
+        "section":  "Auditorías archivísticas",
+        "year":  2022,
+        "label":  "Acta de cierre de la auditoría al Archivo Municipal · Octubre 2022",
+        "file":  "Auditorias2022/ActaCierreAuditoriaArchivoMunicipalOctubre22.pdf"
+    },
+    {
+        "sec":  "auditorias",
+        "section":  "Auditorías archivísticas",
+        "year":  2023,
+        "label":  "Auditoría al Archivo · Octubre 2023",
+        "file":  "Auditorias2023/AuditoriaArchivoOctubre23.pdf"
+    },
+    {
+        "sec":  "auditorias",
+        "section":  "Auditorías archivísticas",
+        "year":  2023,
+        "label":  "Informe final de la auditoría al Archivo · Octubre 2023",
+        "file":  "Auditorias2023/InformeFinalAuditoriaArchivoOctubre23.pdf"
+    },
+    {
+        "sec":  "auditorias",
+        "section":  "Auditorías archivísticas",
+        "year":  2023,
+        "label":  "Acta de cierre de la auditoría al Archivo · Octubre 2023",
+        "file":  "Auditorias2023/ActaCierreAuditoriaArchivoOctubre23.pdf"
+    },
+    {
+        "sec":  "auditorias",
+        "section":  "Auditorías archivísticas",
+        "year":  2024,
+        "label":  "Auditoría al Archivo Municipal · Diciembre 2024",
+        "file":  "Auditorias2024/AuditoriaArchivoMunicipalDiciembre24.pdf"
+    },
+    {
+        "sec":  "auditorias",
+        "section":  "Auditorías archivísticas",
+        "year":  2024,
+        "label":  "Informe de la auditoría al Archivo Municipal · Diciembre 2024",
+        "file":  "Auditorias2024/InformeAuditoriaArchivoMunicipalDiciembre24.pdf"
+    },
+    {
+        "sec":  "auditorias",
+        "section":  "Auditorías archivísticas",
+        "year":  2024,
+        "label":  "Informe final de la auditoría al Archivo Municipal · Diciembre 2024",
+        "file":  "Auditorias2024/InformeFinalAuditoriaArchivoMunicipalDiciembre24.pdf"
+    },
+    {
+        "sec":  "auditorias",
+        "section":  "Auditorías archivísticas",
+        "year":  2024,
+        "label":  "Acta de cierre de la auditoría al Archivo Municipal · Diciembre 2024",
+        "file":  "Auditorias2024/ActaCierreAuditoriaArchivoMunicipalDiciembre24.pdf"
+    },
+    {
+        "sec":  "auditorias",
+        "section":  "Auditorías archivísticas",
+        "year":  2024,
+        "label":  "Acta de cierre de la auditoría al Archivo Municipal · Diciembre 2024 (2)",
+        "file":  "Auditorias2024/ActaCierreAuditoriaArchivoMunicipalDiciembre24-2.pdf"
+    },
+    {
+        "sec":  "auditorias",
+        "section":  "Auditorías archivísticas",
+        "year":  2025,
+        "label":  "Auditoría al Archivo · Octubre 2025",
+        "file":  "Auditorias2025/AuditoriaArchivoOctubre25.pdf"
+    },
+    {
+        "sec":  "auditorias",
+        "section":  "Auditorías archivísticas",
+        "year":  2026,
+        "label":  "Auditoría a Inmujeres Guadalajara · Marzo 2026",
+        "file":  "Auditorias2026/AuditoriaInmujeresMarzo26.pdf"
+    },
+    {
+        "sec":  "auditorias",
+        "section":  "Auditorías archivísticas",
+        "year":  2026,
+        "label":  "Auditoría al Zoológico Guadalajara · Marzo 2026",
+        "file":  "Auditorias2026/AuditoriaZoologicoMarzo26.pdf"
+    },
+    {
+        "sec":  "auditorias",
+        "section":  "Auditorías archivísticas",
+        "year":  2026,
+        "label":  "Auditoría al Consejo de Colaboración Municipal · Marzo 2026",
+        "file":  "Auditorias2026/AuditoriaConsejoColaboracionMarzo26.pdf"
+    },
+    {
+        "sec":  "auditorias",
+        "section":  "Auditorías archivísticas",
+        "year":  2026,
+        "label":  "Auditoría a GDL Limpia · Marzo 2026",
+        "file":  "Auditorias2026/AuditoriaGDLLimpiaMarzo26.pdf"
+    },
+    {
+        "sec":  "sia",
+        "section":  "Sistema institucional de archivos",
+        "year":  2025,
+        "label":  "Acta del Sistema Institucional de Archivos del Archivo Municipal de Gobierno de Guadalajara 20 de Noviembre 2025",
+        "file":  "ActaSistemaInstitucionalArchivos20Nov2025.pdf"
+    },
+    {
+        "sec":  "sia",
+        "section":  "Sistema institucional de archivos",
+        "year":  2025,
+        "label":  "Acta del Sistema Institucional de Archivos del Archivo Municipal de Gobierno de Guadalajara 07 de Febrero 2025",
+        "file":  "ActaSistemaInstitucionalArchivos7Feb2025.pdf"
+    },
+    {
+        "sec":  "sia",
+        "section":  "Sistema institucional de archivos",
+        "year":  2024,
+        "label":  "Acta del Sistema Institucional de Archivos del Archivo Municipal de Gobierno de Guadalajara 21 de Noviembre 2024",
+        "file":  "ActaSistemaInstitucionalArchivos21Nov2024.pdf"
+    },
+    {
+        "sec":  "sia",
+        "section":  "Sistema institucional de archivos",
+        "year":  2023,
+        "label":  "Acta del Sistema Institucional de Archivos del Archivo Municipal de Gobierno de Guadalajara 02 de Marzo 2023",
+        "file":  "ActaSistemaInstitucionalArchivos2Mar2023.pdf"
+    },
+    {
+        "sec":  "sia",
+        "section":  "Sistema institucional de archivos",
+        "year":  2023,
+        "label":  "Acta de Instalación del Sistema Institucional de Archivos del Archivo Municipal de Gobierno de Guadalajara 30 de Enero 2023",
+        "file":  "ActaSistemaInstitucionalArchivos3Ene2023.pdf"
+    },
+    {
+        "sec":  "grupo",
+        "section":  "Grupo interdisciplinario del archivo",
+        "year":  2022,
+        "label":  "Reglas de Operación del Grupo Interdisciplinario de Archivos del Gobierno Municipal de Guadalajara",
+        "file":  "ReglasOperacionMateriaArchivistica2022.pdf"
+    },
+    {
+        "sec":  "grupo",
+        "section":  "Grupo interdisciplinario del archivo",
+        "year":  2025,
+        "label":  "Acta del Día del Grupo Interdisciplinario de Archivos del Gobierno Municipal de Guadalajara 27 de Noviembre 2025",
+        "file":  "ActaMateriaArchivistica27Nov2025.pdf"
+    },
+    {
+        "sec":  "grupo",
+        "section":  "Grupo interdisciplinario del archivo",
+        "year":  2025,
+        "label":  "Acta del Día del Grupo Interdisciplinario de Archivos del Gobierno Municipal de Guadalajara 11 de Abril 2025",
+        "file":  "ActaMateriaArchivistica11Abr2025.pdf"
+    },
+    {
+        "sec":  "grupo",
+        "section":  "Grupo interdisciplinario del archivo",
+        "year":  2024,
+        "label":  "Acta del Día del Grupo Interdisciplinario de Archivos del Gobierno Municipal de Guadalajara 28 de Noviembre 2024",
+        "file":  "ActaMateriaArchivistica28Nov2024.pdf"
+    },
+    {
+        "sec":  "grupo",
+        "section":  "Grupo interdisciplinario del archivo",
+        "year":  2023,
+        "label":  "Calendario de reuniones del Grupo Interdisciplinario 2023",
+        "file":  "CalendarioMateriaArchivistica2023.pdf"
+    },
+    {
+        "sec":  "grupo",
+        "section":  "Grupo interdisciplinario del archivo",
+        "year":  2023,
+        "label":  "Acta del Día del Grupo Interdisciplinario de Archivos del Gobierno Municipal de Guadalajara 30 de Noviembre 2023",
+        "file":  "ActaMateriaArchivistica30Nov2023.pdf"
+    },
+    {
+        "sec":  "grupo",
+        "section":  "Grupo interdisciplinario del archivo",
+        "year":  2022,
+        "label":  "Acta del Día del Grupo Interdisciplinario de Archivos del Gobierno Municipal de Guadalajara 16 de Noviembre 2022",
+        "file":  "ActaMateriaArchivistica16Nov2022.pdf"
+    },
+    {
+        "sec":  "grupo",
+        "section":  "Grupo interdisciplinario del archivo",
+        "year":  2022,
+        "label":  "Acta del Día del Grupo Interdisciplinario en Materia Archivística del Gobierno Municipal de Guadalajara 07 de Julio 2022",
+        "file":  "ActaMateriaArchivistica7Jul2022.pdf"
+    },
+    {
+        "sec":  "grupo",
+        "section":  "Grupo interdisciplinario del archivo",
+        "year":  2022,
+        "label":  "Minuta del Día del Grupo Interdisciplinario en Materia Archivística del Gobierno Municipal de Guadalajara 07 de Julio 2022",
+        "file":  "MinutaMateriaArchivistica7Jul2022.pdf"
+    },
+    {
+        "sec":  "grupo",
+        "section":  "Grupo interdisciplinario del archivo",
+        "year":  2022,
+        "label":  "Lista de Asistencia del Grupo Interdisciplinario en Materia Archivística del Gobierno Municipal de Guadalajara 07 de Julio 2022",
+        "file":  "ListaAsistenciaMateriaArchivistica7Jul2022.pdf"
+    },
+    {
+        "sec":  "grupo",
+        "section":  "Grupo interdisciplinario del archivo",
+        "year":  2022,
+        "label":  "Acta del Día del Grupo Interdisciplinario en Materia Archivística del Gobierno Municipal de Guadalajara 09 de Junio 2022",
+        "file":  "ActaMateriaArchivistica9Jun2022.pdf"
+    },
+    {
+        "sec":  "grupo",
+        "section":  "Grupo interdisciplinario del archivo",
+        "year":  2020,
+        "label":  "Acta del Día del Grupo Interdisciplinario en Materia Archivística del Gobierno Municipal de Guadalajara 20 de Noviembre 2020",
+        "file":  "ActaConstitutivaGrupoInterdisciplinarioArchivoMunicipal2020.pdf"
+    },
+    {
+        "sec":  "leyes",
+        "section":  "Normatividad aplicable en materia de archivos",
+        "year":  2024,
+        "label":  "Archivo Municipal de Guadalajara. Lineamientos para la Organización, Conservación y Transferencia de los Archivos de las Dependencias 2024-2027",
+        "file":  "LINEAMIENTOS-ARCHIVO-MUNICIPAL-2024-2027.pdf"
+    },
+    {
+        "sec":  "leyes",
+        "section":  "Normatividad aplicable en materia de archivos",
+        "year":  2021,
+        "label":  "Archivo Municipal de Guadalajara. Lineamientos 2021-2024",
+        "file":  "ARCHIVO MUNICIPAL DE GUADALAJARA. LINEAMIENTOS 2021-2024.pdf"
+    },
+    {
+        "sec":  "leyes",
+        "section":  "Normatividad aplicable en materia de archivos",
+        "year":  0,
+        "label":  "Código de Gobierno del Municipio de Guadalajara",
+        "file":  "reglamentos/CodigoGobiernoMunicipioGuadalajara.pdf"
+    },
+    {
+        "sec":  "leyes",
+        "section":  "Normatividad aplicable en materia de archivos",
+        "year":  0,
+        "label":  "Constitución Política de los Estados Unidos Mexicanos",
+        "file":  "Constitucion-Politica-Estados-Unidos-Mexicanos.pdf"
+    },
+    {
+        "sec":  "leyes",
+        "section":  "Normatividad aplicable en materia de archivos",
+        "year":  0,
+        "label":  "Constitución Política del Estado de Jalisco",
+        "file":  "Constitucion-Politica-Estado-Jalisco.doc"
+    },
+    {
+        "sec":  "leyes",
+        "section":  "Normatividad aplicable en materia de archivos",
+        "year":  0,
+        "label":  "Criterios ITEI para la Catalogación y Conservación de los Documentos Públicos",
+        "file":  "CRITERIOS ITEI PARA LA CATALOGACION Y CONSERVACION DE LOS DOCUMENTOS PUBLICOS.pdf"
+    },
+    {
+        "sec":  "leyes",
+        "section":  "Normatividad aplicable en materia de archivos",
+        "year":  0,
+        "label":  "Criterios para elaborar el Plan Anual de Desarrollo Archivístico",
+        "file":  "CRITERIOS PARA ELABORAR EL PLAN ANUAL DE DESARROLLO ARCHIVISTICO.pdf"
+    },
+    {
+        "sec":  "leyes",
+        "section":  "Normatividad aplicable en materia de archivos",
+        "year":  0,
+        "label":  "Ficha Técnica de Valoración Documental",
+        "file":  "FICHA TECNICA DE VALORACION DOCUMENTAL.pdf"
+    },
+    {
+        "sec":  "leyes",
+        "section":  "Normatividad aplicable en materia de archivos",
+        "year":  2021,
+        "label":  "Manual de Organización. Secretaría General 2021-2024",
+        "file":  "ManualOrganizacionSecretariaGeneral21-24.pdf"
+    },
+    {
+        "sec":  "leyes",
+        "section":  "Normatividad aplicable en materia de archivos",
+        "year":  2021,
+        "label":  "Manual de Procedimientos. Archivo Municipal 2021-2024",
+        "file":  "ManualProcedimientosArchivoMunicipal21-24.pdf"
+    },
+    {
+        "sec":  "leyes",
+        "section":  "Normatividad aplicable en materia de archivos",
+        "year":  2021,
+        "label":  "Formato de Transferencia Secundaria de Archivos 2021-2024",
+        "file":  "FORMATO DE TRANSFERENCIA SECUNDARIA DE ARCHIVOS 2021-2024.pdf"
+    },
+    {
+        "sec":  "leyes",
+        "section":  "Normatividad aplicable en materia de archivos",
+        "year":  2021,
+        "label":  "Formato de Transferencia y Valoración de Archivos 2021-2024",
+        "file":  "FORMATO DE TRANSFERENCIA Y VALORACION DE ARCHIVOS 2021-2024.pdf"
+    },
+    {
+        "sec":  "leyes",
+        "section":  "Normatividad aplicable en materia de archivos",
+        "year":  0,
+        "label":  "Ley de Transparencia y Acceso a la Información Pública del estado de Jalisco y sus Municipios",
+        "file":  "Ley_Transparencia_Acceso_Informacion_Publica_Estado_Jalisco_Municipios.doc"
+    },
+    {
+        "sec":  "leyes",
+        "section":  "Normatividad aplicable en materia de archivos",
+        "year":  0,
+        "label":  "Ley de Archivos del Estado de Jalisco y sus Municipios",
+        "file":  "LeyArchivosEstadoJalisco.pdf"
+    },
+    {
+        "sec":  "leyes",
+        "section":  "Normatividad aplicable en materia de archivos",
+        "year":  0,
+        "label":  "Ley General de Archivos",
+        "file":  "LeyGeneralArchivo.pdf"
+    },
+    {
+        "sec":  "leyes",
+        "section":  "Normatividad aplicable en materia de archivos",
+        "year":  0,
+        "label":  "Ley General de Transparencia y Acceso a la Información Pública",
+        "file":  "LeyGeneralTransparenciaAccesoInformacionPublica.pdf"
+    },
+    {
+        "sec":  "leyes",
+        "section":  "Normatividad aplicable en materia de archivos",
+        "year":  2021,
+        "label":  "Guía de llenado para el Formato de Transferencia Documental 2021-2024",
+        "file":  "GuiaTransferenciaDocumental21-24.pdf"
+    },
+    {
+        "sec":  "leyes",
+        "section":  "Normatividad aplicable en materia de archivos",
+        "year":  0,
+        "label":  "Guía para Salvaguardar Documentos en Circunstancia de Riesgo",
+        "file":  "GuiaSalvaguardarCircunstanciaRiesgo.pdf"
+    },
+    {
+        "sec":  "leyes",
+        "section":  "Normatividad aplicable en materia de archivos",
+        "year":  0,
+        "label":  "Lineamientos Generales en Materia de Clasificación de la Información Pública que deberán observar los Sujetos Obligados previstos en la Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios",
+        "file":  "LineamientosMateriaClasificacionInformacionPublicaLeyTransparenciaAccesoInformacion.pdf"
+    },
+    {
+        "sec":  "leyes",
+        "section":  "Normatividad aplicable en materia de archivos",
+        "year":  0,
+        "label":  "Lineamientos para la Organización y Conservación de los Archivos",
+        "file":  "LineamientosOrganizacionConservacionArchivos.pdf"
+    },
+    {
+        "sec":  "leyes",
+        "section":  "Normatividad aplicable en materia de archivos",
+        "year":  0,
+        "label":  "Norma Internacional General de Descripción Archivística",
+        "file":  "NormaInternacionalDescripcionArchivistica.pdf"
+    },
+    {
+        "sec":  "leyes",
+        "section":  "Normatividad aplicable en materia de archivos",
+        "year":  2018,
+        "label":  "Norma Mexicana NMX-R-100-SCFI-2018 para Preservación Documental",
+        "file":  "NormaMexicanaPreservacionDocumental.pdf"
+    },
+    {
+        "sec":  "leyes",
+        "section":  "Normatividad aplicable en materia de archivos",
+        "year":  0,
+        "label":  "Reglamento de la Ley de Transparencia y Acceso a la Información Pública del estado de Jalisco",
+        "file":  "Reglamento_de_la Ley_de_Transparencia_y_Acceso_a_la_Informacion_Publica.docx"
+    },
+    {
+        "sec":  "leyes",
+        "section":  "Normatividad aplicable en materia de archivos",
+        "year":  0,
+        "label":  "Reglamento de Transparencia y Acceso a la Información Pública del Municipio de Guadalajara",
+        "file":  "reglamentos/ReglamentoTransparenciaAccesoInformacionGuadalajara.pdf"
+    },
+    {
+        "sec":  "leyes",
+        "section":  "Normatividad aplicable en materia de archivos",
+        "year":  0,
+        "label":  "Criterios del ITEI",
+        "file":  "criterios_catalogacion_conservacion.pdf"
+    },
+    {
+        "sec":  "grupo",
+        "section":  "Grupo interdisciplinario del archivo",
+        "year":  0,
+        "label":  "Acta Constitutiva del Grupo Interdisciplinario del Archivo Municipal de Guadalajara",
+        "file":  "ActaConstitutivaGrupoInterdisciplinarioArchivoMunicipal.pdf"
+    }
+];
+
+(function(){
+  var FB='https://transparencia.guadalajara.gob.mx/sites/default/files/';
+  function esc(s){ if(s==null) return ''; return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function norm(s){ return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,''); }
+  function enc(file){ return file.split('/').map(function(s){return encodeURIComponent(s);}).join('/'); }
+  var PDFICO='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>';
+  var XLSICO='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="17"/><line x1="16" y1="13" x2="8" y2="17"/></svg>';
+  var DOCICO='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>';
+  var ICO={
+    folder:'<path d="M3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-6l-2-3H5a2 2 0 0 0-2 2Z"/><path d="M8 13h8"/>',
+    inbox:'<polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/>',
+    archive:'<rect x="2" y="4" width="20" height="5" rx="1"/><path d="M4 9v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9"/><path d="M10 13h4"/>',
+    filex:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9.5" y1="12.5" x2="14.5" y2="17.5"/><line x1="14.5" y1="12.5" x2="9.5" y2="17.5"/>',
+    calendar:'<rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="m9 16 2 2 4-4"/>',
+    clipboard:'<rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M9 12h6"/><path d="M9 16h4"/>',
+    searchcheck:'<path d="m8 11 2 2 4-4"/><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
+    layers:'<polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>',
+    users:'<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+    book:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>'
+  };
+  function svg(p){ return '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+p+'</svg>'; }
+  function docBtn(file){
+    var u=FB+enc(file);
+    var ext=file.split('.').pop().toLowerCase();
+    if(ext==='pdf') return '<a class="ad-btn" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer">'+PDFICO+'Ver PDF</a>';
+    var viewer='https://view.officeapps.live.com/op/view.aspx?src='+encodeURIComponent(u);
+    if(ext==='xlsx'||ext==='xls') return '<a class="ad-btn xls" href="'+esc(viewer)+'" target="_blank" rel="noopener noreferrer">'+XLSICO+'Vista previa</a>';
+    return '<a class="ad-btn doc" href="'+esc(viewer)+'" target="_blank" rel="noopener noreferrer">'+DOCICO+'Vista previa</a>';
+  }
+
+  var CATS=[
+    {key:'catalogo', t:'Catálogo de disposición documental', ico:ICO.folder, sub:'Instrumentos de clasificación y valoración'},
+    {key:'transfprim', t:'Transferencia primaria (recepciones)', ico:ICO.inbox, sub:'Recepción de cajas para resguardo'},
+    {key:'transfsec', t:'Transferencias secundarias', ico:ICO.archive, sub:'Pase de documentos al archivo histórico'},
+    {key:'actasbaja', t:'Actas y dictámenes de baja documental', ico:ICO.filex, sub:'Depuración documental con dictamen'},
+    {key:'pada', t:'Programa Anual de Desarrollo Archivístico', ico:ICO.calendar, sub:'El plan archivístico de cada año'},
+    {key:'informepada', t:'Informe anual de resultados del PADA', ico:ICO.clipboard, sub:'Resultados del programa por año'},
+    {key:'auditorias', t:'Auditorías archivísticas', ico:ICO.searchcheck, sub:'Revisiones al manejo de los archivos'},
+    {key:'sia', t:'Sistema Institucional de Archivos', ico:ICO.layers, sub:'Actas de instalación y sesiones del SIA'},
+    {key:'grupo', t:'Grupo Interdisciplinario del Archivo', ico:ICO.users, sub:'Valoración documental colegiada'},
+    {key:'leyes', t:'Normatividad aplicable en materia de archivos', ico:ICO.book, sub:'Leyes, lineamientos y criterios'}
+  ];
+  var SECNAME={}; CATS.forEach(function(c){ SECNAME[c.key]=c.t; });
+
+  function rowHtml(it){
+    var search=norm([it.year>0?it.year:'',it.label,(SECNAME[it.sec]||'')].join(' '));
+    var tags=(it.year>0)?'<div class="ad-row-top"><span class="ad-yb">'+esc(it.year)+'</span></div>':'';
+    return '<div class="ad-row" data-search="'+esc(search)+'"><div class="ad-row-main">'+tags+'<span class="ad-row-t">'+esc(it.label)+'</span></div>'+docBtn(it.file)+'</div>';
+  }
+
+  var host=document.getElementById('adCats'); var html='';
+  CATS.forEach(function(c,idx){
+    var rows=XIII.filter(function(x){return x.sec===c.key;}).slice().sort(function(a,b){ return (b.year||-1)-(a.year||-1); });
+    var body=''; rows.forEach(function(it){ body+=rowHtml(it); });
+    html+='<details class="ad-acc" data-cat="'+c.key+'"'+(idx===0?' open':'')+'>'+
+      '<summary class="ad-sum"><span class="ad-sum-ico" aria-hidden="true">'+svg(c.ico)+'</span>'+
+      '<span class="ad-sum-tx"><span class="ad-sum-t">'+esc(c.t)+'</span><small>'+esc(c.sub)+'</small></span>'+
+      '<span class="ad-sum-n">'+rows.length+'</span>'+
+      '<svg class="ad-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary>'+
+      '<div class="ad-acc-body">'+body+'</div></details>';
+  });
+  host.innerHTML=html;
+
+  var chipsHost=document.getElementById('adChips');
+  var chh='<button type="button" class="ad-chip-f active" data-cat="all">Todas <span class="n">'+XIII.length+'</span></button>';
+  CATS.forEach(function(c){ var n=XIII.filter(function(x){return x.sec===c.key;}).length; chh+='<button type="button" class="ad-chip-f" data-cat="'+c.key+'">'+esc(c.t)+' <span class="n">'+n+'</span></button>'; });
+  chipsHost.innerHTML=chh;
+
+  document.getElementById('adMig').innerHTML='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg><span><b>Sin documentos publicados en el origen al momento de la consulta:</b> «Determinaciones y resoluciones del Consejo Estatal de Archivos» y «actas de documentación siniestrada». El sitio externo del <b>Archivo Municipal de Guadalajara</b> se enlazará desde el nuevo portal.</span>';
+
+  var inp=document.getElementById('adQ'), clearBtn=document.getElementById('adClear'), box=document.querySelector('.ad-search');
+  var count=document.getElementById('adCount'), noRes=document.getElementById('adNoRes'), noResQ=document.getElementById('adNoResQ');
+  var accs=[].slice.call(document.querySelectorAll('.ad-acc'));
+  var items=[].slice.call(document.querySelectorAll('.ad-row'));
+  var TOTAL=items.length, curCat='all';
+  function apply(){
+    var raw=inp.value.replace(/^\s+|\s+$/g,''); var toks=norm(raw).split(/\s+/).filter(Boolean);
+    box.classList.toggle('has-q', raw.length>0);
+    var vis=0;
+    for(var i=0;i<items.length;i++){ var ds=items[i].getAttribute('data-search'),ok=true; for(var c=0;c<toks.length;c++){ if(ds.indexOf(toks[c])===-1){ok=false;break;} } items[i].classList.toggle('gone',!ok); }
+    for(var d=0;d<accs.length;d++){
+      var det=accs[d]; var okC=(curCat==='all')||(det.getAttribute('data-cat')===curCat);
+      var its=det.querySelectorAll('.ad-row'),cnt=0; for(var k=0;k<its.length;k++){ if(!its[k].classList.contains('gone')) cnt++; }
+      var show=okC && cnt>0; det.classList.toggle('hide',!show);
+      if(show) vis+=cnt;
+      if(show && (toks.length>0 || curCat!=='all')) det.open=true;
+      else if(curCat==='all' && toks.length===0) det.open=(det.getAttribute('data-cat')==='catalogo');
+    }
+    if(toks.length===0 && curCat==='all'){ count.innerHTML='<b>'+TOTAL+'</b> documentos · 10 secciones'; noRes.className='ad-noresults'; }
+    else if(vis===0){ count.innerHTML=''; noResQ.textContent='«'+raw+'»'; noRes.className='ad-noresults show'; }
+    else { count.innerHTML='<b>'+vis+'</b> de '+TOTAL+' documentos'; noRes.className='ad-noresults'; }
+    reportHeight();
+  }
+  inp.addEventListener('input', apply);
+  clearBtn.addEventListener('click', function(){ inp.value=''; apply(); inp.focus(); });
+  chipsHost.addEventListener('click', function(e){ var b=e.target.closest('.ad-chip-f'); if(!b) return; [].slice.call(this.querySelectorAll('.ad-chip-f')).forEach(function(x){x.classList.remove('active');}); b.classList.add('active'); curCat=b.getAttribute('data-cat'); apply(); });
+  for(var ad=0;ad<accs.length;ad++){ accs[ad].addEventListener('toggle', reportHeight); }
+  apply();
+
+  var lastH=0;
+  function reportHeight(){ var h=Math.max(document.body.scrollHeight,document.body.offsetHeight,document.documentElement.offsetHeight); if(h&&Math.abs(h-lastH)>1){ lastH=h; try{ parent.postMessage({type:'gdl-iframe-height',id:'catalogo-archivo-documental-art8-XIII',height:h},'*'); }catch(e){} } }
+  window.addEventListener('load', reportHeight); window.addEventListener('resize', reportHeight);
+  setTimeout(reportHeight,300); setTimeout(reportHeight,1000);
+
+  var tb=document.getElementById('adTopBtn');
+  function s(){ tb.classList.toggle('show',(window.pageYOffset||document.documentElement.scrollTop)>320); }
+  window.addEventListener('scroll', s, {passive:true});
+  tb.addEventListener('click', function(){ var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches; window.scrollTo({top:0,behavior:rm?'auto':'smooth'}); }); s();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Las versiones públicas de las resoluciones y laudos que emite el Ayuntamiento de Guadalajara en procesos seguidos en forma de juicio y que ya causaron estado (son definitivos). 47 documentos oficiales verificados de Sindicatura, Control del Territorio, Recursos Humanos, Contraloría y Desarrollo Urbano, organizados por año de 2018 a 2026, más el glosario de juicios laborales. Art. 8, Fracción VII de la Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios."/>
+<title>¿Cómo terminaron los juicios del Ayuntamiento de Guadalajara? · Versiones públicas de resoluciones y laudos 2018–2026 · Art. 8 Frac. VII</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ac:#E87722;--ac-l:#FFE4CC;--ac-d:#C45F0A;--ac-deeper:#8B4308;--ac-border:#F5C99A;--ac-soft:#FFF1E4;
+  --g50:#FAFAF8;--g100:#F0F0EC;--g200:#E2E2DD;--g300:#CFCFC8;--g400:#9E9E98;--g600:#5A5A55;--g800:#2D2D2A;--g900:#1A1A1A;
+  --wh:#FFF;--ok:#16A34A;--ok-d:#0E6B4C;--ok-l:#DCFCE7;--ok-border:#A7E8C0;
+  --rad:10px;--rad-lg:14px;
+  --sh:0 4px 22px rgba(0,0,0,.08);--sh-sm:0 1px 3px rgba(0,0,0,.06);--sh-md:0 6px 18px rgba(0,0,0,.07);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --fh:'Outfit',system-ui,-apple-system,sans-serif;
+  --fm:'DM Mono','SF Mono',Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--g900);line-height:1.55;-webkit-font-smoothing:antialiased}
+.rl-wrap{max-width:1040px;margin:0 auto}
+
+/* HERO */
+.rl-hero{background:linear-gradient(135deg,var(--ac-soft) 0%,#FFFFFF 55%);color:var(--g900);border-radius:var(--rad-lg);padding:28px 32px;margin:0 0 20px;position:relative;overflow:hidden;border-left:5px solid var(--ac);box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.rl-hero::before{content:'';position:absolute;top:-66px;right:-66px;width:210px;height:210px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.12) 0%,transparent 70%);pointer-events:none}
+.rl-hero-tag{display:inline-block;background:var(--ac);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;position:relative;z-index:1;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.rl-hero h1{margin:0 0 9px;font-size:clamp(22px,3.2vw,29px);font-weight:800;color:var(--g900);letter-spacing:-.018em;line-height:1.2;position:relative;z-index:1}
+.rl-hero h1 em{font-style:normal;color:var(--ac-d);display:block;margin-top:3px}
+.rl-hero-sub{font-size:14.5px;color:var(--g600);max-width:72ch;margin:0;line-height:1.62;position:relative;z-index:1}
+.rl-hero-sub strong{color:var(--g900);font-weight:700}
+.rl-hero-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;position:relative;z-index:1}
+.rl-chip{display:inline-flex;align-items:center;gap:6px;background:var(--wh);border:1.5px solid var(--ac-border);color:var(--ac-d);font-size:11.5px;font-weight:700;padding:5px 12px;border-radius:20px}
+.rl-chip b{font-family:var(--fm);font-weight:500}
+.rl-chip.neutral{border-color:var(--g200);color:var(--g600)}
+
+/* EXPLAINER */
+.rl-info{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 0 8px}
+.rl-info-card{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);border-top:5px solid var(--ac);padding:18px 20px;display:flex;flex-direction:column;gap:8px}
+.rl-info-ico{width:40px;height:40px;border-radius:11px;background:var(--ac-soft);color:var(--ac-d);display:flex;align-items:center;justify-content:center;margin-bottom:2px}
+.rl-info-card h3{font-size:14.5px;font-weight:800;color:var(--g900);letter-spacing:-.01em;line-height:1.3}
+.rl-info-card p{font-size:12.5px;color:var(--g600);line-height:1.6}
+.rl-info-card p strong{color:var(--g800);font-weight:700}
+
+/* CTA RECURSOS (Glosario + Desarrollo Urbano) */
+.rl-cta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:14px;margin:0 0 22px}
+.rl-cta{display:flex;gap:16px;align-items:center;background:linear-gradient(135deg,var(--ac-soft) 0%,#FFFFFF 70%);border:1.5px solid var(--ac-border);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);padding:18px 20px;flex-wrap:wrap}
+.rl-cta-ico{flex-shrink:0;width:48px;height:48px;border-radius:12px;background:var(--ac);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(232,119,34,.28)}
+.rl-cta-tx{flex:1;min-width:230px}
+.rl-cta-tx h3{font-size:15px;font-weight:800;color:var(--g900);margin-bottom:3px;letter-spacing:-.01em}
+.rl-cta-tx p{font-size:12.5px;color:var(--g600);line-height:1.55}
+.rl-cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--wh);color:var(--ac-d);border:1.5px solid var(--ac-border);font-family:var(--fh);font-size:13px;font-weight:700;padding:11px 18px;border-radius:10px;text-decoration:none;transition:all .14s var(--ease);white-space:nowrap}
+.rl-cta-btn:hover{background:var(--ac);color:#fff;border-color:var(--ac);transform:translateY(-1px)}
+
+/* CONTROLES */
+.rl-search-wrap{margin:0 0 12px}
+.rl-search{position:relative;display:flex;align-items:center;background:var(--wh);border:1.5px solid var(--g200);border-radius:12px;box-shadow:var(--sh-sm);transition:border-color .15s,box-shadow .15s}
+.rl-search:focus-within{border-color:var(--ac);box-shadow:0 0 0 3px rgba(232,119,34,.12)}
+.rl-search>svg{position:absolute;left:15px;color:var(--g400);pointer-events:none}
+.rl-search input{flex:1;width:100%;border:0;outline:0;background:transparent;font-family:var(--fh);font-size:14.5px;color:var(--g900);padding:13px 46px}
+.rl-search input::placeholder{color:var(--g400)}
+.rl-search input::-webkit-search-cancel-button{display:none}
+.rl-clear{position:absolute;right:8px;width:30px;height:30px;border:0;background:var(--g100);color:var(--g600);border-radius:50%;font-size:19px;line-height:1;cursor:pointer;display:none;align-items:center;justify-content:center;transition:background .14s;font-family:var(--fh)}
+.rl-clear:hover{background:var(--g200);color:var(--g900)}
+.rl-search.has-q .rl-clear{display:flex}
+.rl-chips{display:flex;flex-wrap:wrap;gap:7px;margin:0 2px 12px}
+.rl-chip-f{font-family:var(--fh);font-size:12.5px;font-weight:700;padding:6px 14px;border-radius:20px;border:1.5px solid var(--g200);background:var(--wh);color:var(--g600);cursor:pointer;transition:all .13s var(--ease)}
+.rl-chip-f:hover{border-color:var(--ac-border);color:var(--ac-d)}
+.rl-chip-f.active{background:var(--ac);border-color:var(--ac);color:#fff;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.rl-count{font-size:12px;color:var(--g600);font-weight:600;margin:0 2px 16px}
+.rl-count b{color:var(--ac-d);font-family:var(--fm);font-weight:500}
+
+/* ACORDEÓN POR AÑO */
+.rl-acc{border:1.5px solid var(--g200);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);background:var(--wh);overflow:hidden;margin-bottom:12px}
+.rl-acc.hide{display:none}
+.rl-sum{list-style:none;cursor:pointer;padding:16px 20px;display:flex;align-items:center;gap:15px;user-select:none}
+.rl-sum::-webkit-details-marker{display:none}
+.rl-sum-yr{flex-shrink:0;font-family:var(--fm);font-size:21px;font-weight:700;color:var(--ac-d);letter-spacing:-.02em;min-width:50px}
+.rl-sum-tx{flex:1;display:flex;flex-direction:column;gap:1px;min-width:0}
+.rl-sum-t{font-size:14.5px;font-weight:800;color:var(--g900);letter-spacing:-.01em}
+.rl-sum-tx small{font-size:11.5px;color:var(--g600);font-weight:500;font-family:var(--fm)}
+.rl-sum-chev{flex-shrink:0;color:var(--ac-d);transition:transform .2s var(--ease)}
+.rl-acc[open] .rl-sum-chev{transform:rotate(180deg)}
+.rl-acc[open] .rl-sum{border-bottom:1px solid var(--g200);background:var(--g50)}
+.rl-acc-body{padding:6px 16px 16px}
+
+/* GRUPO ÁREA */
+.rl-area{padding-top:14px}
+.rl-area-h{display:flex;align-items:center;gap:11px;margin:0 2px 10px;padding-top:4px}
+.rl-area-ico{flex-shrink:0;width:34px;height:34px;border-radius:9px;background:var(--ac-soft);color:var(--ac-d);display:flex;align-items:center;justify-content:center;border:1px solid var(--ac-border)}
+.rl-area-tx{min-width:0}
+.rl-area-tx b{display:block;font-size:13.5px;font-weight:800;color:var(--g900);letter-spacing:-.01em;line-height:1.2}
+.rl-area-tx span{font-size:11px;color:var(--g400);font-weight:500}
+
+/* FILA DOCUMENTO */
+.rl-row{display:flex;align-items:center;gap:14px;padding:11px 13px;border-radius:10px;border:1px solid var(--g100);background:var(--g50);transition:border-color .14s,box-shadow .14s,background .14s}
+.rl-row+.rl-row{margin-top:7px}
+.rl-row:hover{border-color:var(--ac-border);background:var(--wh);box-shadow:var(--sh-sm)}
+.rl-row-main{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
+.rl-row-top{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.rl-badge{display:inline-flex;align-items:center;font-size:9px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:2px 8px;border-radius:20px;white-space:nowrap;flex-shrink:0}
+.rl-badge.res{background:var(--ac-l);color:var(--ac-d)}
+.rl-badge.ryl{background:#FDEBD8;color:var(--ac-deeper);border:1px solid var(--ac-border)}
+.rl-badge.ofi{background:var(--g100);color:var(--g600)}
+.rl-row-t{font-size:13.5px;font-weight:700;color:var(--g900);letter-spacing:-.005em;line-height:1.3}
+.rl-row-meta{font-size:11.5px;color:var(--g600);line-height:1.45}
+.rl-btn{flex-shrink:0;display:inline-flex;align-items:center;gap:7px;font-family:var(--fh);font-size:12px;font-weight:700;padding:8px 14px;border-radius:9px;cursor:pointer;text-decoration:none;border:1.5px solid var(--ac);background:var(--ac);color:#fff;transition:all .14s var(--ease);white-space:nowrap}
+.rl-btn:hover{background:var(--ac-d);border-color:var(--ac-d);transform:translateY(-1px)}
+.rl-btn svg{flex-shrink:0}
+.rl-btn.xls{background:var(--wh);color:var(--ok-d);border-color:var(--ok-border)}
+.rl-btn.xls:hover{background:var(--ok-l);border-color:var(--ok);color:var(--ok-d)}
+.rl-btn.ext{background:var(--wh);color:var(--ac-d);border-color:var(--ac-border)}
+.rl-btn.ext:hover{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* NOTA OFICIAL */
+.rl-note{display:flex;gap:10px;align-items:flex-start;background:var(--ac-soft);border:1px solid var(--ac-border);border-radius:9px;padding:11px 14px;margin:10px 2px 2px;font-size:11.5px;color:var(--g800);line-height:1.55}
+.rl-note svg{flex-shrink:0;color:var(--ac-d);margin-top:1px}
+.rl-note b{color:var(--g900);font-weight:700}
+
+/* SIN RESULTADOS */
+.rl-noresults{display:none;background:var(--ac-soft);border:1.5px solid var(--ac-border);border-radius:var(--rad-lg);padding:22px 24px;font-size:13.5px;color:var(--g800);line-height:1.6;text-align:center;margin-bottom:8px}
+.rl-noresults.show{display:block}
+.rl-noresults strong{color:var(--ac-d);font-weight:700}
+
+/* FOOTER */
+.rl-foot-title{font-size:12.5px;font-weight:800;color:var(--g800);letter-spacing:.1em;text-transform:uppercase;margin:36px 4px 16px;display:flex;align-items:center;gap:10px}
+.rl-foot-title::after{content:'';flex:1;height:1.5px;background:var(--g200);border-radius:2px}
+.rl-cifras{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:14px;margin-bottom:4px}
+.rl-cifra{background:var(--wh);border:1.5px solid var(--ac-border);border-radius:var(--rad);padding:16px 18px;display:flex;flex-direction:column;gap:2px;transition:border-color .18s,transform .18s}
+.rl-cifra:hover{border-color:var(--ac);transform:translateY(-2px)}
+.rl-cifra-num{font-family:var(--fm);font-size:30px;font-weight:700;line-height:1;color:var(--ac-d);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.rl-cifra-lbl{font-size:11px;font-weight:700;color:var(--g800);text-transform:uppercase;letter-spacing:.06em;margin-top:6px;line-height:1.3}
+.rl-cifra-sub{font-size:10.5px;color:var(--g400);margin-top:1px;line-height:1.4}
+
+/* SECCIÓN BASE DE DATOS */
+.rl-bd{margin:6px 0 16px}
+.rl-bd-eye{font-size:10.5px;font-weight:800;color:var(--ac-d);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.rl-bd-tx h2{font-size:clamp(18px,2.4vw,21px);font-weight:800;color:var(--g900);letter-spacing:-.015em;line-height:1.2}
+.rl-bd-tx p{font-size:13px;color:var(--g600);margin-top:6px;line-height:1.55;max-width:80ch}
+.rl-bd-tx p b{color:var(--ac-d);font-family:var(--fm);font-weight:500}
+
+/* LEY */
+.rl-ley{background:var(--wh);border-radius:var(--rad-lg);padding:22px 26px;border-left:4px solid var(--ac-d);box-shadow:var(--sh-sm);margin-top:22px}
+.rl-ley-eye{font-size:10.5px;font-weight:800;color:var(--ac-d);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.rl-ley h3{font-size:16px;font-weight:800;color:var(--g900);margin-bottom:8px;letter-spacing:-.008em}
+.rl-ley p{font-size:13px;color:var(--g600);line-height:1.65;max-width:78ch}
+.rl-ley p+p{margin-top:7px}
+.rl-ley p strong{color:var(--g800);font-weight:600}
+.rl-ley blockquote{font-size:13.5px;color:var(--g600);line-height:1.65;margin:12px 0 8px;padding:13px 18px;background:var(--ac-soft);border-left:3px solid var(--ac);border-radius:6px;font-style:italic;max-width:78ch;overflow-wrap:anywhere}
+.rl-ley blockquote strong{color:var(--g900);font-style:normal;font-weight:700}
+.rl-ley-fuente{margin-top:14px;font-size:11.5px;color:var(--g400);line-height:1.6;font-family:var(--fm)}
+
+/* BOTÓN SUBIR */
+.rl-top{position:fixed;right:18px;bottom:18px;z-index:60;width:46px;height:46px;border-radius:50%;border:0;background:var(--ac);color:#fff;box-shadow:0 6px 18px rgba(196,95,10,.38);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .18s,transform .18s,visibility .18s}
+.rl-top.show{opacity:1;visibility:visible;transform:none}
+.rl-top:hover{background:var(--ac-d)}
+
+/* ===== A11Y + refuerzos globales (auditoría responsive) ===== */
+.rl-chip-f:focus-visible,
+.rl-sum:focus-visible,
+.rl-btn:focus-visible,
+.rl-cta-btn:focus-visible,
+.rl-clear:focus-visible,
+.rl-top:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(232,119,34,.45)}
+.rl-acc:has(.rl-sum:focus-visible){overflow:visible}
+.rl-note span{overflow-wrap:anywhere}
+
+/* ===== Desktop grande (>=1024): acerca el botón al texto en filas anchas ===== */
+@media (min-width:1024px){
+  .rl-row-main{max-width:760px}
+}
+/* ===== Tablet alto 781-1024: escalón de ritmo entre tablet y desktop ===== */
+@media (min-width:781px) and (max-width:1024px){
+  body{padding:20px}
+  .rl-hero{padding:26px 28px}
+  .rl-ley{padding:20px 24px}
+  .rl-acc-body{padding:6px 18px 18px}
+}
+/* ===== Tablet 601-780: aire en filas + CTA en 1 columna (rango antes descubierto) ===== */
+@media (min-width:601px) and (max-width:780px){
+  .rl-row{gap:16px;padding:12px 14px}
+  .rl-row-main{padding-right:4px}
+  .rl-btn{padding:9px 16px}
+  .rl-cta-grid{grid-template-columns:1fr;gap:14px}
+  .rl-cta{padding:18px 20px}
+}
+/* ===== KPIs en 2x2 en móvil y tablet (evita fila huérfana hasta 900px) ===== */
+@media (max-width:900px){
+  .rl-cifras{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:780px){
+  body{padding:14px}
+  .rl-hero{padding:22px 18px}
+  .rl-ley{padding:18px 18px}
+  .rl-info{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  body{padding:10px}
+  .rl-hero{padding:18px 15px;border-radius:12px}
+  .rl-hero h1{font-size:19px;line-height:1.24}
+  .rl-hero-tag{font-size:9.5px;padding:4px 11px}
+  .rl-sum{padding:14px 15px;gap:11px}
+  .rl-sum-yr{font-size:18px;min-width:42px}
+  .rl-acc-body{padding:4px 10px 12px}
+  .rl-row{flex-direction:column;align-items:stretch;gap:10px}
+  .rl-row .rl-btn{width:100%;justify-content:center;padding:12px 14px;font-size:13px}
+  .rl-cta{padding:16px 16px;gap:12px}
+  .rl-cta-tx{min-width:100%;flex-basis:100%}
+  .rl-cta-btn{width:100%;justify-content:center;padding:13px 18px}
+  .rl-ley blockquote{padding:12px 14px;font-size:13px}
+  .rl-ley{margin-bottom:64px}
+  .rl-top{right:12px;bottom:12px;width:42px;height:42px}
+}
+@media (max-width:480px){
+  .rl-search input{padding:13px 16px 13px 44px;font-size:14px}
+  .rl-search.has-q input{padding-right:44px}
+  .rl-cifras{gap:10px}
+  .rl-cifra{padding:14px 16px}
+  .rl-cifra-num{font-size:26px}
+}
+@media (max-width:380px){
+  .rl-hero{padding:18px 14px}
+  .rl-hero h1{font-size:18px}
+  .rl-hero-sub{font-size:13.5px}
+  .rl-sum{gap:9px;padding:13px 13px}
+  .rl-sum-yr{min-width:38px}
+  .rl-info-card{padding:16px 16px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="rl-wrap" id="rlTop">
+
+  <!-- HERO -->
+  <section class="rl-hero">
+    <span class="rl-hero-tag">Art. 8 · Fracción VII · Ley de Transparencia Jalisco</span>
+    <h1>¿Cómo terminaron los juicios del Ayuntamiento? <em>Las versiones públicas de sus resoluciones y laudos</em></h1>
+    <p class="rl-hero-sub">Cuando el municipio resuelve un asunto <strong>en forma de juicio</strong> —una queja, una controversia, un conflicto laboral— y esa decisión <strong>ya causó estado</strong> (es definitiva), la ley obliga a publicar su <strong>versión pública</strong>. Aquí están, año por año, las resoluciones y laudos que emiten Sindicatura, Control del Territorio, Recursos Humanos, Contraloría y Desarrollo Urbano.</p>
+    <div class="rl-hero-meta">
+      <span class="rl-chip"><b>47</b> documentos oficiales</span>
+      <span class="rl-chip neutral">Cobertura <b>2018 – 2026</b></span>
+      <span class="rl-chip neutral">Actualizado <b>05/06/2026</b></span>
+    </div>
+  </section>
+
+  <!-- BASE DE DATOS -->
+  <div class="rl-bd">
+    <div class="rl-bd-tx">
+      <div class="rl-bd-eye">Consulta y descarga</div>
+      <h2>Resoluciones y laudos, año por año</h2>
+      <p>Filtra por año, por área o por tipo de documento y descarga la versión pública oficial. Son <b>47</b> documentos verificados, de 2018 a 2026.</p>
+    </div>
+  </div>
+
+  <!-- BUSCADOR -->
+  <div class="rl-search-wrap">
+    <div class="rl-search">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="rlQ" type="search" autocomplete="off" placeholder="Busca por año, área o tipo… (ej.: contraloría 2024, laudos 2022, oficio 2021)" aria-label="Buscar resoluciones y laudos por año, área o tipo"/>
+      <button type="button" class="rl-clear" id="rlClear" aria-label="Limpiar búsqueda" title="Limpiar">&times;</button>
+    </div>
+  </div>
+  <div class="rl-chips" id="rlChips">
+    <button type="button" class="rl-chip-f active" data-y="all">Todos</button>
+    <button type="button" class="rl-chip-f" data-y="2026">2026</button>
+    <button type="button" class="rl-chip-f" data-y="2025">2025</button>
+    <button type="button" class="rl-chip-f" data-y="2024">2024</button>
+    <button type="button" class="rl-chip-f" data-y="2023">2023</button>
+    <button type="button" class="rl-chip-f" data-y="2022">2022</button>
+    <button type="button" class="rl-chip-f" data-y="2021">2021</button>
+    <button type="button" class="rl-chip-f" data-y="2020">2020</button>
+    <button type="button" class="rl-chip-f" data-y="2019">2019</button>
+    <button type="button" class="rl-chip-f" data-y="2018">2018</button>
+  </div>
+  <div class="rl-count" id="rlCount"></div>
+
+  <!-- AÑOS -->
+  <div id="rlYears"></div>
+
+  <!-- SIN RESULTADOS -->
+  <div class="rl-noresults" id="rlNoRes">No encontramos documentos que coincidan con <strong id="rlNoResQ"></strong>. Prueba con un año («2022»), un área («contraloría») o un tipo («laudos», «oficio»).</div>
+
+  <!-- CIFRAS -->
+  <div class="rl-foot-title">La página en cifras</div>
+  <div class="rl-cifras">
+    <div class="rl-cifra"><div class="rl-cifra-num">47</div><div class="rl-cifra-lbl">Documentos</div><div class="rl-cifra-sub">Resoluciones y laudos</div></div>
+    <div class="rl-cifra"><div class="rl-cifra-num">9</div><div class="rl-cifra-lbl">Ejercicios</div><div class="rl-cifra-sub">De 2018 a 2026</div></div>
+    <div class="rl-cifra"><div class="rl-cifra-num">5</div><div class="rl-cifra-lbl">Áreas responsables</div><div class="rl-cifra-sub">Que emiten y reportan</div></div>
+    <div class="rl-cifra"><div class="rl-cifra-num">100%</div><div class="rl-cifra-lbl">Enlaces verificados</div><div class="rl-cifra-sub">Comprobados en línea</div></div>
+  </div>
+
+  <!-- PARA ENTENDERLO MEJOR · explicación ciudadana (al pie) -->
+  <div class="rl-foot-title">Para entenderlo mejor</div>
+  <div class="rl-info">
+    <div class="rl-info-card">
+      <div class="rl-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg></div>
+      <h3>¿Qué es una resolución?</h3>
+      <p>Es la <strong>decisión final</strong> con la que una autoridad del municipio resuelve un procedimiento: una sanción, un recurso, una controversia. Pone fin al asunto y dice quién tenía la razón.</p>
+    </div>
+    <div class="rl-info-card">
+      <div class="rl-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M5 7h14"/><path d="M5 7l-3 6a3 3 0 0 0 6 0z"/><path d="M19 7l-3 6a3 3 0 0 0 6 0z"/><path d="M8 21h8"/></svg></div>
+      <h3>¿Qué es un laudo?</h3>
+      <p>Es la resolución que <strong>pone fin a un juicio laboral</strong> —por ejemplo, entre el Ayuntamiento y una persona trabajadora—. Equivale a la sentencia en materia de trabajo.</p>
+    </div>
+    <div class="rl-info-card">
+      <div class="rl-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+      <h3>¿Para qué te sirve?</h3>
+      <p>Para <strong>vigilar cómo resuelve el gobierno</strong>: qué sanciona, cómo trata a su personal y cómo termina los conflictos en los que es parte. Es rendición de cuentas sobre sus decisiones.</p>
+    </div>
+  </div>
+
+  <!-- GLOSARIO · recurso al pie -->
+  <div class="rl-cta-grid" style="margin-top:18px">
+    <div class="rl-cta">
+      <div class="rl-cta-ico" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+      <div class="rl-cta-tx">
+        <h3>¿Términos que no entiendes? Abre el glosario</h3>
+        <p>El <strong>Glosario de juicios laborales</strong> explica, en lenguaje sencillo, las palabras técnicas que aparecen en las resoluciones y laudos.</p>
+      </div>
+      <a class="rl-cta-btn" href="https://transparencia.guadalajara.gob.mx/sites/default/files/GlosarioJuiciosLaborales.pdf" target="_blank" rel="noopener noreferrer">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Abrir glosario (PDF)
+      </a>
+    </div>
+  </div>
+
+  <!-- FUNDAMENTO LEGAL -->
+  <section class="rl-ley">
+    <div class="rl-ley-eye">Fundamento legal</div>
+    <h3>¿Por qué el Ayuntamiento publica esta información?</h3>
+    <p>Es una obligación de transparencia. La ley ordena publicar, palabra por palabra, lo siguiente:</p>
+    <blockquote>«Artículo 8°. <strong>1.</strong> Es información fundamental, obligatoria para todos los sujetos obligados, la siguiente: (…) <strong>VII.</strong> Las versiones públicas de las resoluciones y laudos que emitan los sujetos obligados, en procesos o procedimientos seguidos en forma de juicio y que hayan causado estado;»</blockquote>
+    <p>— <strong>Artículo 8, fracción VII</strong> de la <em>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</em>. Los archivos de esta página son los oficiales, tal como fueron publicados por el sujeto obligado; ante cualquier discrepancia, prevalece el documento oficial.</p>
+    <div class="rl-ley-fuente">
+      Fuente oficial: portal de transparencia del Ayuntamiento de Guadalajara · sección «Resoluciones y Laudos» (Art. 8 Fr. VII).<br>
+      Fecha de actualización del registro: 05/06/2026 · Documentos verificados en línea uno por uno.
+    </div>
+  </section>
+
+</div>
+
+<!-- BOTÓN SUBIR -->
+<button type="button" class="rl-top" id="rlTopBtn" aria-label="Volver arriba" title="Volver arriba">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+/* ==========================================================================
+   Resoluciones y Laudos (versiones públicas) · Art. 8 Fracción VII
+   Datos verbatim del registro oficial del sujeto obligado (/resolucioneslaudos,
+   Fecha de Actualización 05/06/2026). 47 documentos de resoluciones y laudos
+   (2018-2026) + Glosario de juicios laborales. Cada archivo fue verificado en
+   línea uno por uno (HTTP 200, tipo y tamaño correctos). Los Excel se abren en
+   vista previa con el visor de Office (sin descarga directa); los PDF abren en
+   el navegador.
+   NOTA EDITORIAL: el portal oficial lista además, en esta fracción, el enlace al
+   portal externo de "Recurso de Revisión en Materia de Desarrollo Urbano
+   (2018-2021)"; fue retirado de esta página por decisión editorial.
+   Áreas con documentos en esta página: Sindicatura (Órgano de Control
+   Disciplinario, Dirección de lo Jurídico Contencioso y Dirección de lo Jurídico
+   Laboral), Control del Territorio, Recursos Humanos y Contraloría.
+   ========================================================================== */
+(function(){
+  var FB='https://transparencia.guadalajara.gob.mx/sites/default/files/';
+  function esc(s){ if(s==null) return ''; return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function norm(s){ return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,''); }
+
+  var PDFICO='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>';
+  var XLSICO='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="17"/><line x1="16" y1="13" x2="8" y2="17"/></svg>';
+  var EXTICO='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';
+
+  var BADGE={ res:'Resoluciones', ryl:'Resoluciones y laudos', ofi:'Oficio' };
+
+  var AREAS={
+    sind:{ n:'Sindicatura', d:'Defensa jurídica, lo contencioso, lo laboral y control disciplinario',
+      ico:'<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M5 7h14"/><path d="M5 7l-3 6a3 3 0 0 0 6 0z"/><path d="M19 7l-3 6a3 3 0 0 0 6 0z"/><path d="M8 21h8"/></svg>' },
+    terr:{ n:'Control del Territorio', d:'Ordenamiento y uso del suelo',
+      ico:'<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>' },
+    rh:{ n:'Recursos Humanos', d:'Asuntos laborales del personal municipal',
+      ico:'<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>' },
+    cont:{ n:'Contraloría', d:'Control interno y responsabilidades',
+      ico:'<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>' },
+    du:{ n:'Desarrollo Urbano', d:'Recurso de revisión en la materia',
+      ico:'<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9h.01M9 12h.01M9 15h.01M9 18h.01"/></svg>' }
+  };
+  var ORDER=['sind','terr','rh','cont'];
+
+  /* DATA — verbatim del registro oficial, archivo por archivo (HTTP 200 verificado) */
+  var DATA=[
+   {y:'2026', areas:{
+      sind:[
+        {b:'res', t:'Órgano de Control Disciplinario', m:'Resoluciones · enero a mayo 2026', f:'Resoluciones-Laudos-Organo-Control-Disciplinario-Mayo2026.xlsx'},
+        {b:'res', t:'Dirección de lo Jurídico Contencioso', m:'Resoluciones · enero a mayo 2026', f:'Art8FraccionVII-Resoluciones-Laudos-JuridicoContenciosoMayo2026.xlsx'},
+        {b:'ryl', t:'Dirección de lo Jurídico Laboral', m:'Resoluciones y laudos emitidos · enero a mayo 2026', f:'Art8FraccionVII-Resoluciones-Laudos-Mayo2026.xlsx'}
+      ],
+      terr:[ {b:'res', t:'Enero a mayo 2026', m:'Resoluciones emitidas', f:'ResolucionesControlDelTerritorioMayo2026.xlsx'} ],
+      cont:[ {b:'res', t:'Enero a mayo 2026', m:'Resoluciones emitidas', f:'ResolucionesContraloriaMayo2026.xlsx'} ]
+   }},
+   {y:'2025', areas:{
+      sind:[
+        {b:'res', t:'Órgano de Control Disciplinario', m:'Resoluciones · junio a diciembre 2025', f:'Resoluciones-Laudos-Organo-Control-Disciplinario-Diciembre2025.xlsx'},
+        {b:'res', t:'Dirección de lo Jurídico Contencioso', m:'Resoluciones · enero a diciembre 2025', f:'Art8FraccionVII-Resoluciones-Laudos-JuridicoContenciosoDiciembre2025.xlsx'},
+        {b:'ryl', t:'Dirección de lo Jurídico Laboral', m:'Resoluciones y laudos emitidos · enero a diciembre 2025', f:'Art8FraccionVII-Resoluciones-Laudos-Diciembre2025.xlsx'}
+      ],
+      terr:[ {b:'res', t:'Enero a diciembre 2025', m:'Resoluciones emitidas', f:'ResolucionesControlDelTerritorioDiciembre2025.xlsx'} ],
+      rh:[ {b:'res', t:'Enero a junio 2025', m:'Resoluciones emitidas', f:'ResolucionesRecursosHumanos2025.xlsx'} ],
+      cont:[ {b:'res', t:'Enero a diciembre 2025', m:'Resoluciones emitidas', f:'ResolucionesContraloriaDiciembre2025.xlsx'} ]
+   }, notaArea:{ rh:'Se informa que esta obligación será reportada por la Dirección General de Sindicatura a partir del mes de julio. Esto conforme a lo establecido en el Capítulo IV, Artículo 167, fracc. XXXVI del Código de Gobierno del Municipio de Guadalajara.' }},
+   {y:'2024', areas:{
+      sind:[
+        {b:'res', t:'Dirección de lo Jurídico Contencioso', m:'Resoluciones · enero a diciembre 2024', f:'Art8FraccionVII-Resoluciones-Laudos-JuridicoContenciosoDiciembre2024.xlsx'},
+        {b:'ryl', t:'Dirección de lo Jurídico Laboral', m:'Resoluciones y laudos emitidos · enero a diciembre 2024', f:'Art8FraccionVII-Resoluciones-Laudos-Diciembre2024.xlsx'}
+      ],
+      rh:[ {b:'res', t:'Enero a diciembre 2024', m:'Resoluciones emitidas', f:'ResolucionesRecursosHumanosDiciembre2024.xlsx'} ],
+      cont:[ {b:'res', t:'Enero a diciembre 2024', m:'Resoluciones emitidas', f:'ResolucionesContraloriaDiciembre24.xlsx'} ]
+   }},
+   {y:'2023', areas:{
+      sind:[
+        {b:'res', t:'Dirección de lo Jurídico Contencioso', m:'Resoluciones · enero a diciembre 2023', f:'Art8FraccionVII-Resoluciones-Laudos-JuridicoContenciosoEneroDiciembre2023.xlsx'},
+        {b:'ryl', t:'Dirección de lo Jurídico Laboral', m:'Resoluciones y laudos emitidos · enero a diciembre 2023', f:'Art8FraccionVII-Resoluciones-Laudos-Diciembre2023.xlsx'}
+      ],
+      rh:[ {b:'res', t:'Enero a diciembre 2023', m:'Resoluciones emitidas', f:'ResolucionesRecursosHumanos2023.xlsx'} ],
+      cont:[ {b:'res', t:'Enero a diciembre 2023', m:'Resoluciones emitidas', f:'ResolucionesContraloriaDiciembre23.xlsx'} ]
+   }},
+   {y:'2022', areas:{
+      sind:[
+        {b:'ofi', t:'Dirección de lo Jurídico Contencioso', m:'Oficio de resoluciones · enero a septiembre 2022', f:'OficioResolucionesSindicaturaEneroSeptiembre2022.pdf'},
+        {b:'res', t:'Dirección de lo Jurídico Contencioso', m:'Resoluciones · octubre a diciembre 2022', f:'Art8FraccionVII-Resoluciones-Laudos-JuridicoContenciosoDiciembre2022.xlsx'},
+        {b:'ryl', t:'Dirección de lo Jurídico Laboral', m:'Resoluciones y laudos emitidos · enero a diciembre 2022', f:'Art8FraccionVII-Resoluciones-Laudos-Diciembre2022.xlsx'}
+      ],
+      rh:[ {b:'res', t:'Ejercicio 2022', m:'Resoluciones emitidas', f:'ResolucionesRecursosHumanos2022.xlsx'} ],
+      cont:[ {b:'res', t:'Enero a diciembre 2022', m:'Resoluciones emitidas', f:'ResolucionesContraloriaEneroDiciembre22.xlsx'} ]
+   }},
+   {y:'2021', areas:{
+      sind:[
+        {b:'ofi', t:'Oficio de resoluciones', m:'Diciembre 2021', f:'OficioResolucionesSindicaturaDiciembre2021.pdf'},
+        {b:'ofi', t:'Oficio de resoluciones', m:'Noviembre 2021', f:'OficioResolucionesSindicaturaNoviembre2021.pdf'},
+        {b:'ofi', t:'Oficio de resoluciones', m:'Octubre 2021', f:'OficioResolucionesSindicaturaOctubre2021.pdf'},
+        {b:'ofi', t:'Oficio de resoluciones', m:'Septiembre 2021', f:'OficioResolucionesSindicaturaSeptiembre2021.pdf'},
+        {b:'res', t:'Ejercicio 2021', m:'Resoluciones emitidas', f:'ResolucionesSindicatura2021.xlsx'},
+        {b:'ryl', t:'Dirección de lo Jurídico Laboral', m:'Resoluciones y laudos emitidos · diciembre 2021', f:'Art8FraccionVII-Resoluciones-Laudos-Diciembre2021.xlsx'}
+      ],
+      rh:[
+        {b:'ofi', t:'Oficio de resoluciones', m:'Diciembre 2021', f:'OficioResolucionesRecursosHumanosDiciembre2021.pdf'},
+        {b:'res', t:'Ejercicio 2021', m:'Resoluciones emitidas', f:'ResolucionesRecursosHumanos2021.xlsx'}
+      ],
+      cont:[
+        {b:'res', t:'Octubre a diciembre 2021', m:'Resoluciones emitidas', f:'ResolucionesContraloriaDiciembre2021.xlsx'},
+        {b:'res', t:'Enero a septiembre 2021', m:'Resoluciones emitidas', f:'ResolucionesContraloria2021.xlsx'}
+      ]
+   }, notaArea:{ cont:'Se hace de su conocimiento que la versión pública de la obligación en comento fue realizada por el Área Generadora de la Información.' }},
+   {y:'2020', nota:'Se informa que en los meses de Abril, Mayo y Junio no se registraron sanciones a proveedores por la Contingencia.', areas:{
+      sind:[
+        {b:'res', t:'Ejercicio 2020', m:'Resoluciones emitidas (Sindicatura)', f:'ResolucionesSindicatura2020.xlsx'},
+        {b:'ryl', t:'Resoluciones y laudos emitidos', m:'Enero a diciembre 2020', f:'Art8FraccionVII-Resoluciones-Laudos-Diciembre2020.xlsx'}
+      ],
+      rh:[ {b:'res', t:'Ejercicio 2020', m:'Resoluciones emitidas', f:'ResolucionesRecursosHumanos2020.xlsx'} ],
+      cont:[ {b:'res', t:'Ejercicio 2020', m:'Resoluciones emitidas', f:'ResolucionesContraloria2020.xlsx'} ]
+   }},
+   {y:'2019', areas:{
+      sind:[ {b:'ryl', t:'Resoluciones y laudos emitidos', m:'Ejercicio 2019', f:'Art8FraccionVII-Resoluciones-Laudos2019.xlsx'} ],
+      cont:[ {b:'res', t:'Ejercicio 2019', m:'Resoluciones emitidas', f:'ResolucionesContraloria2019.xlsx'} ]
+   }},
+   {y:'2018', areas:{
+      sind:[
+        {b:'ryl', t:'Diciembre 2018', m:'Resoluciones y laudos emitidos', f:'FormatosPlataforma/Art8FraccionVII-Resoluciones-Laudos-Diciembre18.xlsx'},
+        {b:'ryl', t:'Noviembre 2018', m:'Resoluciones y laudos emitidos', f:'FormatosPlataforma/Art8FraccionVII-Resoluciones-Laudos-Noviembre18.xlsx'},
+        {b:'ryl', t:'Octubre 2018', m:'Resoluciones y laudos emitidos', f:'FormatosPlataforma/Art8FraccionVII-Resoluciones-Laudos-Octubre18.xlsx'},
+        {b:'ryl', t:'Septiembre 2018', m:'Resoluciones y laudos emitidos', f:'FormatosPlataforma/Art8FraccionVII-Resoluciones-Laudos-Septiembre18.xlsx'},
+        {b:'ryl', t:'Agosto 2018', m:'Resoluciones y laudos emitidos', f:'FormatosPlataforma/Art8FraccionVII-Resoluciones-Laudos-Agosto18.xlsx'},
+        {b:'ryl', t:'Julio 2018', m:'Resoluciones y laudos emitidos', f:'FormatosPlataforma/Art8FraccionVII-Resoluciones-Laudos-Julio18.xlsx'},
+        {b:'ryl', t:'Junio 2018', m:'Resoluciones y laudos emitidos', f:'FormatosPlataforma/Art8FraccionVII-Resoluciones-Laudos-Junio18.xlsx'}
+      ]
+   }}
+  ];
+
+  function docBtn(d){
+    var u=(FB+d.f).replace(/ /g,'%20');
+    var ext=d.f.split('.').pop().toLowerCase();
+    // PDF: abre en el navegador (vista previa nativa). Excel: vista previa en línea con el visor de Office (sin descarga directa).
+    if(ext==='pdf') return '<a class="rl-btn" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer">'+PDFICO+'Ver PDF</a>';
+    var viewer='https://view.officeapps.live.com/op/view.aspx?src='+encodeURIComponent(u);
+    return '<a class="rl-btn xls" href="'+esc(viewer)+'" target="_blank" rel="noopener noreferrer">'+XLSICO+'Vista previa</a>';
+  }
+  function row(d, y, areaName){
+    var search=norm([y, areaName, d.t, d.m, BADGE[d.b]||'', 'resoluciones laudos oficio versiones publicas'].join(' '));
+    return '<div class="rl-row" data-search="'+esc(search)+'">'+
+      '<div class="rl-row-main">'+
+        '<div class="rl-row-top">'+(d.b?('<span class="rl-badge '+d.b+'">'+esc(BADGE[d.b])+'</span>'):'')+'<span class="rl-row-t">'+esc(d.t)+'</span></div>'+
+        '<div class="rl-row-meta">'+esc(d.m)+'</div>'+
+      '</div>'+docBtn(d)+'</div>';
+  }
+  function noteHtml(txt){
+    return '<div class="rl-note"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span><b>Nota oficial:</b> '+esc(txt)+'</span></div>';
+  }
+
+  var html='';
+  for(var i=0;i<DATA.length;i++){
+    var Y=DATA[i], count=0, body='';
+    if(Y.nota){ body+=noteHtml(Y.nota); }
+    for(var a=0;a<ORDER.length;a++){
+      var key=ORDER[a]; var docs=Y.areas[key]; if(!docs) continue;
+      var rows='';
+      for(var r=0;r<docs.length;r++){ rows+=row(docs[r], Y.y, AREAS[key].n); count++; }
+      var areaNote = (Y.notaArea && Y.notaArea[key]) ? noteHtml(Y.notaArea[key]) : '';
+      body+='<div class="rl-area">'+
+        '<div class="rl-area-h"><span class="rl-area-ico" aria-hidden="true">'+AREAS[key].ico+'</span>'+
+        '<span class="rl-area-tx"><b>'+esc(AREAS[key].n)+'</b><span>'+esc(AREAS[key].d)+'</span></span></div>'+
+        rows+areaNote+'</div>';
+    }
+    html+='<details class="rl-acc" data-y="'+Y.y+'"'+(i===0?' open':'')+'>'+
+      '<summary class="rl-sum">'+
+        '<span class="rl-sum-yr">'+Y.y+'</span>'+
+        '<span class="rl-sum-tx"><span class="rl-sum-t">Resoluciones y laudos '+Y.y+'</span><small>'+count+' documento'+(count===1?'':'s')+'</small></span>'+
+        '<svg class="rl-sum-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>'+
+      '</summary>'+
+      '<div class="rl-acc-body">'+body+'</div></details>';
+  }
+  document.getElementById('rlYears').innerHTML=html;
+
+  /* ---- Buscador + chips de año ---- */
+  var inp=document.getElementById('rlQ'), clearBtn=document.getElementById('rlClear'), box=document.querySelector('.rl-search');
+  var count=document.getElementById('rlCount'), noRes=document.getElementById('rlNoRes'), noResQ=document.getElementById('rlNoResQ');
+  var accs=[].slice.call(document.querySelectorAll('.rl-acc'));
+  var items=[].slice.call(document.querySelectorAll('.rl-row'));
+  var TOTAL=items.length, curY='all';
+  function apply(){
+    var raw=inp.value.replace(/^\s+|\s+$/g,''); var toks=norm(raw).split(/\s+/).filter(Boolean);
+    box.classList.toggle('has-q', raw.length>0);
+    var vis=0;
+    for(var i=0;i<items.length;i++){
+      var ds=items[i].getAttribute('data-search'), okT=true;
+      for(var c=0;c<toks.length;c++){ if(ds.indexOf(toks[c])===-1){ okT=false; break; } }
+      items[i].style.display = okT ? '' : 'none';
+    }
+    for(var d=0;d<accs.length;d++){
+      var det=accs[d];
+      var okY=(curY==='all')||(det.getAttribute('data-y')===curY);
+      var its=det.querySelectorAll('.rl-row'), any=false;
+      for(var k=0;k<its.length;k++){ if(its[k].style.display!=='none'){ any=true; break; } }
+      var show = okY && any;
+      det.classList.toggle('hide', !show);
+      if(show){ vis += (function(){ var n=0; for(var j=0;j<its.length;j++){ if(its[j].style.display!=='none') n++; } return n; })(); }
+      /* las áreas sin filas visibles se ocultan */
+      var areas=det.querySelectorAll('.rl-area');
+      for(var z=0;z<areas.length;z++){
+        var arrows=areas[z].querySelectorAll('.rl-row'), aany=false;
+        for(var w=0;w<arrows.length;w++){ if(arrows[w].style.display!=='none'){ aany=true; break; } }
+        areas[z].style.display = aany ? '' : 'none';
+      }
+      if(show && (toks.length>0)) det.open=true;
+    }
+    if(vis===0){ count.innerHTML=''; noResQ.textContent='«'+(raw||('año '+curY))+'»'; noRes.className='rl-noresults show'; }
+    else { count.innerHTML='<b>'+vis+'</b> de '+TOTAL+' documentos'; noRes.className='rl-noresults'; }
+    reportHeight();
+  }
+  inp.addEventListener('input', apply);
+  clearBtn.addEventListener('click', function(){ inp.value=''; apply(); inp.focus(); });
+  document.getElementById('rlChips').addEventListener('click', function(e){
+    var b=e.target.closest('.rl-chip-f'); if(!b) return;
+    [].slice.call(this.querySelectorAll('.rl-chip-f')).forEach(function(x){x.classList.remove('active');});
+    b.classList.add('active'); curY=b.getAttribute('data-y'); apply();
+  });
+  for(var ad=0; ad<accs.length; ad++){ accs[ad].addEventListener('toggle', reportHeight); }
+  apply();
+
+  /* ---- Auto-altura para Strapi (anti-rebote) ---- */
+  var lastH=0;
+  function reportHeight(){
+    var h=Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight);
+    if(h && Math.abs(h-lastH)>1){ lastH=h; try{ parent.postMessage({type:'gdl-iframe-height',id:'resoluciones-laudos-art8-VII',height:h},'*'); }catch(e){} }
+  }
+  window.addEventListener('load', reportHeight); window.addEventListener('resize', reportHeight);
+  setTimeout(reportHeight,300); setTimeout(reportHeight,1000); setTimeout(reportHeight,2200);
+
+  /* ---- Botón subir ---- */
+  var tb=document.getElementById('rlTopBtn');
+  function s(){ tb.classList.toggle('show',(window.pageYOffset||document.documentElement.scrollTop)>300); }
+  window.addEventListener('scroll', s, {passive:true});
+  tb.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); }); s();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Los ingresos del municipio de Guadalajara por participaciones federales y estatales y por ingresos propios. Art. 15, Fracción XXV de la Ley de Transparencia del Estado de Jalisco y sus Municipios."/>
+<title>Ingresos municipales: participaciones e ingresos propios · Guadalajara · Art. 15 Frac. XXV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ac:#E87722;--ac-l:#FFE4CC;--ac-d:#C45F0A;--ac-deeper:#8B4308;--ac-border:#F5C99A;--ac-soft:#FFF1E4;
+  --g50:#FAFAF8;--g100:#F0F0EC;--g200:#E2E2DD;--g300:#CFCFC8;--g400:#9E9E98;--g600:#5A5A55;--g800:#2D2D2A;--g900:#1A1A1A;
+  --wh:#FFF;--ok:#16A34A;--ok-d:#0E6B4C;--ok-l:#DCFCE7;--ok-border:#A7E8C0;--bl:#1D4ED8;--bl-l:#DBE6FE;--bl-border:#BBD0F7;
+  --rad:10px;--rad-lg:14px;--sh:0 4px 22px rgba(0,0,0,.08);--sh-sm:0 1px 3px rgba(0,0,0,.06);--sh-md:0 6px 18px rgba(0,0,0,.07);
+  --ease:cubic-bezier(.4,0,.2,1);--fh:'Outfit',system-ui,-apple-system,sans-serif;--fm:'DM Mono','SF Mono',Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--g900);line-height:1.55;-webkit-font-smoothing:antialiased}
+.gx-wrap{max-width:1040px;margin:0 auto}
+.gx-hero{background:linear-gradient(135deg,var(--ac-soft) 0%,#FFFFFF 55%);border-radius:var(--rad-lg);padding:28px 32px;margin:0 0 20px;position:relative;overflow:hidden;border-left:5px solid var(--ac);box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.gx-hero::before{content:'';position:absolute;top:-66px;right:-66px;width:210px;height:210px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.12) 0%,transparent 70%);pointer-events:none}
+.gx-hero-tag{display:inline-block;background:var(--ac);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;position:relative;z-index:1;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.gx-hero h1{margin:0 0 9px;font-size:clamp(22px,3.2vw,29px);font-weight:800;color:var(--g900);letter-spacing:-.018em;line-height:1.2;position:relative;z-index:1}
+.gx-hero h1 em{font-style:normal;color:var(--ac-d);display:block;margin-top:3px}
+.gx-hero-sub{font-size:14.5px;color:var(--g600);max-width:78ch;margin:0;line-height:1.62;position:relative;z-index:1}
+.gx-hero-sub strong{color:var(--g900);font-weight:700}
+.gx-hero-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;position:relative;z-index:1}
+.gx-chip{display:inline-flex;align-items:center;gap:6px;background:var(--wh);border:1.5px solid var(--ac-border);color:var(--ac-d);font-size:11.5px;font-weight:700;padding:5px 12px;border-radius:20px}
+.gx-chip b{font-family:var(--fm);font-weight:500}
+.gx-chip.neutral{border-color:var(--g200);color:var(--g600)}
+.gx-search-wrap{margin:0 0 12px}
+.gx-search{position:relative;display:flex;align-items:center;background:var(--wh);border:1.5px solid var(--g200);border-radius:12px;box-shadow:var(--sh-sm);transition:border-color .15s,box-shadow .15s}
+.gx-search:focus-within{border-color:var(--ac);box-shadow:0 0 0 3px rgba(232,119,34,.12)}
+.gx-search>svg{position:absolute;left:15px;color:var(--g400);pointer-events:none}
+.gx-search input{flex:1;width:100%;border:0;outline:0;background:transparent;font-family:var(--fh);font-size:14.5px;color:var(--g900);padding:13px 46px}
+.gx-search input::placeholder{color:var(--g400)}
+.gx-search input::-webkit-search-cancel-button{display:none}
+.gx-clear{position:absolute;right:8px;width:34px;height:34px;border:0;background:var(--g100);color:var(--g600);border-radius:50%;font-size:19px;line-height:1;cursor:pointer;display:none;align-items:center;justify-content:center;transition:background .14s;font-family:var(--fh)}
+.gx-clear:hover{background:var(--g200);color:var(--g900)}
+.gx-search.has-q .gx-clear{display:flex}
+.gx-chips{display:flex;flex-wrap:wrap;gap:7px;margin:0 2px 12px}
+.gx-chip-f{font-family:var(--fh);font-size:12.5px;font-weight:700;padding:6px 13px;border-radius:20px;border:1.5px solid var(--g200);background:var(--wh);color:var(--g600);cursor:pointer;transition:all .13s var(--ease);display:inline-flex;align-items:center;gap:7px}
+.gx-chip-f:hover{border-color:var(--ac-border);color:var(--ac-d)}
+.gx-chip-f.active{background:var(--ac);border-color:var(--ac);color:#fff;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.gx-chip-f .n{font-family:var(--fm);font-size:11px;opacity:.85}
+.gx-count{font-size:12px;color:var(--g600);font-weight:600;margin:0 2px 16px}
+.gx-count b{color:var(--ac-d);font-family:var(--fm);font-weight:500}
+.gx-acc{border:1.5px solid var(--g200);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);background:var(--wh);overflow:hidden;margin-bottom:12px}
+.gx-acc.hide{display:none}
+.gx-sum{list-style:none;cursor:pointer;padding:15px 20px;display:flex;align-items:center;gap:15px;user-select:none}
+.gx-sum::-webkit-details-marker{display:none}
+.gx-sum-ico{flex-shrink:0;width:42px;height:42px;border-radius:11px;background:var(--ac-soft);color:var(--ac-d);border:1px solid var(--ac-border);display:flex;align-items:center;justify-content:center}
+.gx-sum-tx{flex:1;display:flex;flex-direction:column;gap:1px;min-width:0}
+.gx-sum-t{font-size:15px;font-weight:800;color:var(--g900);letter-spacing:-.01em}
+.gx-sum-tx small{font-size:11.5px;color:var(--g600);font-weight:500}
+.gx-sum-n{flex-shrink:0;font-family:var(--fm);font-size:12px;font-weight:500;color:var(--ac-d);background:var(--ac-soft);border:1px solid var(--ac-border);padding:3px 10px;border-radius:20px}
+.gx-chev{flex-shrink:0;color:var(--g400);transition:transform .2s var(--ease)}
+.gx-acc[open] .gx-chev{transform:rotate(180deg)}
+.gx-acc[open]>.gx-sum{border-bottom:1px solid var(--g200);background:var(--g50)}
+.gx-acc-body{padding:9px 14px 14px;max-height:620px;overflow-y:auto}
+.gx-row{display:flex;align-items:center;gap:13px;padding:10px 13px;border-radius:9px;border:1px solid var(--g100);background:var(--g50);transition:border-color .14s,background .14s}
+.gx-row+.gx-row{margin-top:6px}
+.gx-row:hover{border-color:var(--ac-border);background:var(--wh)}
+.gx-row.gone{display:none}
+.gx-row-main{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+.gx-row-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.gx-yb{flex-shrink:0;font-family:var(--fm);font-size:11px;font-weight:500;color:var(--ac-d);background:var(--ac-soft);border:1px solid var(--ac-border);padding:2px 9px;border-radius:6px}
+.gx-row-t{font-size:13px;font-weight:700;color:var(--g900);letter-spacing:-.004em;line-height:1.4}
+.gx-na{flex-shrink:0;font-size:11px;font-weight:700;color:var(--g400);font-style:italic;white-space:nowrap}
+.gx-btn{flex-shrink:0;display:inline-flex;align-items:center;gap:7px;font-family:var(--fh);font-size:12px;font-weight:700;padding:8px 14px;border-radius:9px;cursor:pointer;text-decoration:none;border:1.5px solid var(--ac);background:var(--ac);color:#fff;transition:all .14s var(--ease);white-space:nowrap}
+.gx-btn:hover{background:var(--ac-d);border-color:var(--ac-d);transform:translateY(-1px)}
+.gx-btn svg{flex-shrink:0}
+.gx-btn.xls{background:var(--wh);color:var(--ok-d);border-color:var(--ok-border)}
+.gx-btn.doc{background:var(--wh);color:var(--bl);border-color:var(--bl-border)}
+.gx-noresults{display:none;background:var(--ac-soft);border:1.5px solid var(--ac-border);border-radius:var(--rad-lg);padding:22px 24px;font-size:13.5px;color:var(--g800);line-height:1.6;text-align:center;margin-top:4px}
+.gx-noresults.show{display:block}
+.gx-noresults strong{color:var(--ac-d);font-weight:700}
+.gx-mig{display:flex;gap:11px;align-items:flex-start;background:var(--ac-soft);border:1px solid var(--ac-border);border-radius:var(--rad-lg);padding:14px 18px;margin:4px 0 0;font-size:12.5px;color:var(--g800);line-height:1.55}
+.gx-mig svg{flex-shrink:0;color:var(--ac-d);margin-top:1px}
+.gx-mig b{color:var(--g900);font-weight:700}
+.gx-foot-title{font-size:12.5px;font-weight:800;color:var(--g800);letter-spacing:.1em;text-transform:uppercase;margin:34px 4px 16px;display:flex;align-items:center;gap:10px}
+.gx-foot-title::after{content:'';flex:1;height:1.5px;background:var(--g200);border-radius:2px}
+.gx-cifras{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:12px;margin-bottom:4px}
+.gx-cifra{background:var(--wh);border:1.5px solid var(--ac-border);border-radius:var(--rad);padding:16px 18px;display:flex;flex-direction:column;gap:2px;transition:border-color .18s,transform .18s}
+.gx-cifra:hover{border-color:var(--ac);transform:translateY(-2px)}
+.gx-cifra-num{font-family:var(--fm);font-size:30px;font-weight:700;line-height:1;color:var(--ac-d);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.gx-cifra-lbl{font-size:11px;font-weight:700;color:var(--g800);text-transform:uppercase;letter-spacing:.06em;margin-top:6px;line-height:1.3}
+.gx-cifra-sub{font-size:10.5px;color:var(--g400);margin-top:1px}
+.gx-info{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.gx-info-card{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);border-top:5px solid var(--ac);padding:18px 20px;display:flex;flex-direction:column;gap:8px}
+.gx-info-ico{width:40px;height:40px;border-radius:11px;background:var(--ac-soft);color:var(--ac-d);display:flex;align-items:center;justify-content:center;margin-bottom:2px}
+.gx-info-card h3{font-size:14.5px;font-weight:800;color:var(--g900);letter-spacing:-.01em;line-height:1.3}
+.gx-info-card p{font-size:12.5px;color:var(--g600);line-height:1.6}
+.gx-info-card p strong{color:var(--g800);font-weight:700}
+.gx-ley{background:var(--wh);border-radius:var(--rad-lg);padding:22px 26px;border-left:4px solid var(--ac-d);box-shadow:var(--sh-sm);margin-top:22px}
+.gx-ley-head{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.gx-ley-seal{flex-shrink:0;width:46px;height:46px;border-radius:50%;background:var(--ac-soft);border:2px solid var(--ac);color:var(--ac-d);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(232,119,34,.18)}
+.gx-ley-eye{font-size:10.5px;font-weight:800;color:var(--ac-d);letter-spacing:.14em;text-transform:uppercase;margin-bottom:3px}
+.gx-ley h3{font-size:16px;font-weight:800;color:var(--g900);letter-spacing:-.008em;margin:0}
+.gx-ley p{font-size:13px;color:var(--g600);line-height:1.65;max-width:80ch}
+.gx-ley p+p{margin-top:7px}
+.gx-ley p strong{color:var(--g800);font-weight:600}
+.gx-ley blockquote{font-size:13.5px;color:var(--g600);line-height:1.65;margin:12px 0 8px;padding:13px 18px;background:var(--ac-soft);border-left:3px solid var(--ac);border-radius:6px;font-style:italic;max-width:80ch;overflow-wrap:anywhere}
+.gx-ley blockquote strong{color:var(--g900);font-style:normal;font-weight:700}
+.gx-ley-fuente{margin-top:14px;font-size:11.5px;color:var(--g400);line-height:1.6;font-family:var(--fm)}
+.gx-top{position:fixed;right:18px;bottom:18px;z-index:60;width:46px;height:46px;border-radius:50%;border:0;background:var(--ac);color:#fff;box-shadow:0 6px 18px rgba(196,95,10,.38);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .18s,transform .18s,visibility .18s}
+.gx-top.show{opacity:1;visibility:visible;transform:none}
+.gx-top:hover{background:var(--ac-d)}
+.gx-chip-f:focus-visible,.gx-btn:focus-visible,.gx-clear:focus-visible,.gx-top:focus-visible,.gx-sum:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(232,119,34,.45)}
+@media (min-width:781px) and (max-width:1024px){body{padding:20px}.gx-hero{padding:26px 28px}.gx-ley{padding:20px 24px}}
+@media (max-width:860px){.gx-info{grid-template-columns:1fr}}
+@media (max-width:780px){body{padding:14px}.gx-hero{padding:22px 18px}.gx-ley{padding:18px 18px}}
+@media (max-width:600px){
+  body{padding:10px}
+  .gx-hero{padding:18px 15px;border-radius:12px}.gx-hero h1{font-size:19px;line-height:1.24}.gx-hero-tag{font-size:9.5px;padding:4px 11px}
+  .gx-sum{padding:14px 15px;gap:12px}.gx-sum-ico{width:38px;height:38px}.gx-sum-t{font-size:14px}.gx-acc-body{padding:7px 10px 12px;max-height:72vh}
+  .gx-row{flex-direction:column;align-items:stretch;gap:10px}.gx-row .gx-btn{width:100%;justify-content:center;padding:12px 14px;font-size:13px}
+  .gx-ley blockquote{padding:12px 14px;font-size:13px}.gx-ley{margin-bottom:64px}.gx-top{right:12px;bottom:12px;width:44px;height:44px}
+}
+@media (max-width:380px){.gx-hero{padding:18px 14px}.gx-hero h1{font-size:18px}.gx-hero-sub{font-size:13.5px}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="gx-wrap" id="gxTop">
+  <section class="gx-hero" id="gxHero"></section>
+  <div class="gx-search-wrap"><div class="gx-search">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input id="gxQ" type="search" autocomplete="off" aria-label="Buscar"/>
+    <button type="button" class="gx-clear" id="gxClear" aria-label="Limpiar búsqueda" title="Limpiar">&times;</button>
+  </div></div>
+  <div class="gx-chips" id="gxChips"></div>
+  <div class="gx-count" id="gxCount"></div>
+  <div id="gxCats"></div>
+  <div class="gx-noresults" id="gxNoRes">No encontramos resultados para <strong id="gxNoResQ"></strong>.</div>
+  <div class="gx-mig" id="gxMig" style="display:none"></div>
+  <div class="gx-foot-title">La página en cifras</div>
+  <div class="gx-cifras" id="gxCifras"></div>
+  <div class="gx-foot-title">Para entenderlo mejor</div>
+  <div class="gx-info" id="gxInfo"></div>
+  <section class="gx-ley" id="gxLey"></section>
+</div>
+<button type="button" class="gx-top" id="gxTopBtn" aria-label="Volver arriba" title="Volver arriba">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+<script>
+/* Plantilla genérica data-driven · portal transparencia GDL · Art. 15.
+   Render desde CFG (textos, secciones-icono, cifras, footer, fundamento) + DATA
+   (documentos verificados). PDF abren en navegador; Excel/Word en visor Office.
+   Sin enlaces al portal anterior. */
+var CFG = { pmid:'ingresos-municipales-art15-XXV', noun:'documentos',
+ tag:'Art. 15 · Fracción XXV · Ley de Transparencia Jalisco',
+ h1:'¿De dónde viene el dinero del municipio?', h1em:'Ingresos: participaciones federales/estatales e ingresos propios',
+ sub:'Los <strong>ingresos del municipio</strong>: las <strong>participaciones federales y estatales</strong> que recibe y los <strong>ingresos propios</strong> (predial, derechos, etc.) que integran la hacienda pública.',
+ searchph:'Busca por concepto o año… (ej.: participaciones, predial, 2024)',
+ meta:[{b:'16',t:'documentos'},{t:'Federales · estatales · propios',neutral:true}],
+ cifras:[{num:'16',lbl:'Documentos',sub:'Ingresos del municipio'},{num:'2',lbl:'Fuentes',sub:'Participaciones e ingresos propios'},{num:'100%',lbl:'Enlaces verificados',sub:'En línea, HTTP 200'}],
+ cats:[
+  {key:'partfed',t:'Participaciones federales y estatales',ico:'landmark',sub:'Lo que el municipio recibe de la Federación y el Estado',open:true,sort:'year'},
+  {key:'propios',t:'Ingresos propios',ico:'coins',sub:'Predial, derechos y otros que cobra el municipio',sort:'year'}
+ ],
+ info:[
+  {ico:'landmark',h:'¿Qué son las participaciones?',p:'Es el <strong>dinero que la Federación y el Estado transfieren</strong> al municipio de los impuestos que recaudan. Son una de sus mayores fuentes de ingreso.'},
+  {ico:'coins',h:'¿Qué son los ingresos propios?',p:'Es lo que el <strong>municipio cobra directamente</strong>: predial, derechos, multas y aprovechamientos. Reflejan su capacidad recaudatoria.'},
+  {ico:'receipt',h:'¿Qué encuentras aquí?',p:'Los <strong>reportes de ingresos</strong> por ambas fuentes, que integran la hacienda pública municipal, con buscador.'},
+  {ico:'eye',h:'¿Para qué te sirve?',p:'Para <strong>seguir de dónde viene cada peso</strong> de tu municipio y qué tanto depende de transferencias o de lo que recauda.'}
+ ],
+ blockquote:'«Artículo 15. <strong>1.</strong> Es información pública fundamental de los ayuntamientos: (…) <strong>XXV.</strong> Los ingresos municipales por concepto de participaciones federales y estatales, así como por ingresos propios, que integre la hacienda pública;»',
+ leyref:'Artículo 15, fracción XXV',
+ fuente:'Fuente oficial: portal de transparencia del Ayuntamiento de Guadalajara · secciones de ingresos (participaciones federales/estatales e ingresos propios).<br>16 documentos verificados en línea uno por uno (HTTP 200).' };
+var DATA = [
+    {
+        "sec":  "partfed",
+        "year":  0,
+        "label":  "Ingresos Municipales por Concepto de Participaciones Federales (pdf)",
+        "file":  "IngresosMunicipalesParticipacionesFederales.pdf"
+    },
+    {
+        "sec":  "partfed",
+        "year":  0,
+        "label":  "Ingresos Municipales por Concepto de Participaciones Federales (excel)",
+        "file":  "IngresosMunicipalesParticipacionesFederales.xlsx"
+    },
+    {
+        "sec":  "partfed",
+        "year":  0,
+        "label":  "Ingresos Municipales por Concepto de Participaciones Estatales (pdf)",
+        "file":  "IngresosMunicipalesParticipacionesEstatales.pdf"
+    },
+    {
+        "sec":  "partfed",
+        "year":  0,
+        "label":  "Ingresos Municipales por Concepto de Participaciones Estatales (excel)",
+        "file":  "IngresosMunicipalesParticipacionesEstatales.xlsx"
+    },
+    {
+        "sec":  "propios",
+        "year":  2020,
+        "label":  "Ingresos Propios 2020 a Abril 2026",
+        "file":  "IngresosPropios2020-Abril2026.xlsx"
+    },
+    {
+        "sec":  "propios",
+        "year":  2026,
+        "label":  "Ley de Ingresos 2026",
+        "file":  "LeyIngresos2026.pdf"
+    },
+    {
+        "sec":  "propios",
+        "year":  2025,
+        "label":  "Ley de Ingresos 2025",
+        "file":  "LeyIngresos2025.pdf"
+    },
+    {
+        "sec":  "propios",
+        "year":  2024,
+        "label":  "Ley de Ingresos 2024",
+        "file":  "LeyIngresos2024.pdf"
+    },
+    {
+        "sec":  "propios",
+        "year":  2023,
+        "label":  "Ley de Ingresos 2023",
+        "file":  "LeyIngresos2023.pdf"
+    },
+    {
+        "sec":  "propios",
+        "year":  2022,
+        "label":  "Reforma de la Ley de Ingresos 2022",
+        "file":  "LeyIngresos2022Reforma.pdf"
+    },
+    {
+        "sec":  "propios",
+        "year":  2022,
+        "label":  "Ley de Ingresos 2022",
+        "file":  "LeyIngresos2022.pdf"
+    },
+    {
+        "sec":  "propios",
+        "year":  2021,
+        "label":  "Reforma de la Ley de Ingresos 2021",
+        "file":  "ReformaLeyIngresos2021.pdf"
+    },
+    {
+        "sec":  "propios",
+        "year":  2021,
+        "label":  "Ley de Ingresos 2021",
+        "file":  "LeyIngresos2021.pdf"
+    },
+    {
+        "sec":  "propios",
+        "year":  2020,
+        "label":  "Ley de Ingresos 2020",
+        "file":  "LeyIngresos2020.pdf"
+    },
+    {
+        "sec":  "propios",
+        "year":  2019,
+        "label":  "Ley de Ingresos 2019",
+        "file":  "LeyIngresos2019.pdf"
+    },
+    {
+        "sec":  "propios",
+        "year":  2018,
+        "label":  "Ley de Ingresos 2018",
+        "file":  "LeyIngresos2018.pdf"
+    }
+];
+(function(){
+  var FB='https://transparencia.guadalajara.gob.mx/sites/default/files/';
+  function esc(s){ if(s==null) return ''; return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function norm(s){ return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,''); }
+  function encf(file){ return file.trim().split('/').map(function(s){return encodeURIComponent(s);}).join('/'); }
+  var BROKEN={}; (CFG.broken||[]).forEach(function(b){ BROKEN[b]=1; });
+  var ICO={
+    book:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>',
+    file:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/>',
+    chart:'<path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="6" rx="1"/><rect x="12" y="7" width="3" height="10" rx="1"/><rect x="17" y="13" width="3" height="4" rx="1"/>',
+    users:'<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+    calendar:'<rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="m9 16 2 2 4-4"/>',
+    clipboard:'<rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M9 12h6"/><path d="M9 16h4"/>',
+    gavel:'<path d="m14.5 12.5-8 8a2.12 2.12 0 1 1-3-3l8-8"/><path d="m16 16 6-6"/><path d="m8 8 6-6"/><path d="m9 7 8 8"/><path d="m21 11-8-8"/>',
+    handshake:'<path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/>',
+    map:'<polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/>',
+    building:'<rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M8 10h.01"/><path d="M16 10h.01"/><path d="M8 14h.01"/><path d="M16 14h.01"/>',
+    coins:'<circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/><path d="m16.71 13.88.7.71-2.82 2.82"/>',
+    receipt:'<path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M8 7h8"/><path d="M8 11h8"/><path d="M8 15h5"/>',
+    file2:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>',
+    video:'<path d="m22 8-6 4 6 4V8Z"/><rect x="2" y="6" width="14" height="12" rx="2"/>',
+    landmark:'<line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/>',
+    idcard:'<rect x="2" y="4" width="20" height="16" rx="2"/><circle cx="8" cy="10" r="2"/><path d="M5 16a3 3 0 0 1 6 0"/><line x1="14" y1="9" x2="19" y2="9"/><line x1="14" y1="13" x2="19" y2="13"/>',
+    layers:'<polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>',
+    compass:'<circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>',
+    target:'<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',
+    eye:'<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>',
+    scroll:'<path d="M19 17V5a2 2 0 0 0-2-2H4"/><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"/>',
+    home:'<path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>'
+  };
+  function svg(name,sz){ return '<svg width="'+(sz||22)+'" height="'+(sz||22)+'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+(ICO[name]||ICO.file2)+'</svg>'; }
+  function chev(cls){ return '<svg class="'+cls+'" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>'; }
+  var PDFICO='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>';
+  var XLSICO='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="17"/><line x1="16" y1="13" x2="8" y2="17"/></svg>';
+  var DOCICO='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>';
+  function docBtn(file){
+    if(BROKEN[file.trim()]) return '<span class="gx-na">— no disponible en el origen</span>';
+    var u=FB+encf(file); var ext=file.trim().split('.').pop().toLowerCase();
+    if(ext==='pdf') return '<a class="gx-btn" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer">'+PDFICO+'Ver PDF</a>';
+    var v='https://view.officeapps.live.com/op/view.aspx?src='+encodeURIComponent(u);
+    if(ext==='xlsx'||ext==='xls') return '<a class="gx-btn xls" href="'+esc(v)+'" target="_blank" rel="noopener noreferrer">'+XLSICO+'Vista previa</a>';
+    return '<a class="gx-btn doc" href="'+esc(v)+'" target="_blank" rel="noopener noreferrer">'+DOCICO+'Vista previa</a>';
+  }
+
+  /* HERO */
+  var meta=(CFG.meta||[]).map(function(m){ return '<span class="gx-chip'+(m.neutral?' neutral':'')+'">'+(m.b?'<b>'+esc(m.b)+'</b> ':'')+esc(m.t)+'</span>'; }).join('');
+  document.getElementById('gxHero').innerHTML='<span class="gx-hero-tag">'+esc(CFG.tag)+'</span><h1>'+esc(CFG.h1)+' <em>'+esc(CFG.h1em)+'</em></h1><p class="gx-hero-sub">'+CFG.sub+'</p><div class="gx-hero-meta">'+meta+'</div>';
+  document.getElementById('gxQ').setAttribute('placeholder', CFG.searchph||'Buscar…');
+
+  /* CATS */
+  var SECNAME={}; (CFG.cats||[]).forEach(function(c){ SECNAME[c.key]=c.t; });
+  function rowHtml(it){
+    var search=norm([it.year>0?it.year:'',it.label,(SECNAME[it.sec]||''),(it.extra||'')].join(' '));
+    var tags=(it.year>0)?'<div class="gx-row-top"><span class="gx-yb">'+esc(it.year)+'</span></div>':'';
+    return '<div class="gx-row" data-search="'+esc(search)+'"><div class="gx-row-main">'+tags+'<span class="gx-row-t">'+esc(it.label)+'</span></div>'+docBtn(it.file)+'</div>';
+  }
+  var host=document.getElementById('gxCats'); var html='';
+  (CFG.cats||[]).forEach(function(c){
+    var rows=DATA.filter(function(x){return x.sec===c.key;}).slice();
+    if(c.sort==='label'){ rows.sort(function(a,b){return a.label<b.label?-1:(a.label>b.label?1:0);}); }
+    else { rows.sort(function(a,b){ if((b.year||0)!==(a.year||0)) return (b.year||0)-(a.year||0); if((b.q||0)!==(a.q||0)) return (b.q||0)-(a.q||0); return a.label<b.label?-1:(a.label>b.label?1:0); }); }
+    var body=''; rows.forEach(function(it){ body+=rowHtml(it); });
+    html+='<details class="gx-acc" data-cat="'+esc(c.key)+'"'+(c.open?' open':'')+'>'+
+      '<summary class="gx-sum"><span class="gx-sum-ico" aria-hidden="true">'+svg(c.ico)+'</span>'+
+      '<span class="gx-sum-tx"><span class="gx-sum-t">'+esc(c.t)+'</span><small>'+esc(c.sub||'')+'</small></span>'+
+      '<span class="gx-sum-n">'+rows.length+'</span>'+chev('gx-chev')+'</summary>'+
+      '<div class="gx-acc-body">'+body+'</div></details>';
+  });
+  host.innerHTML=html;
+
+  /* CHIPS */
+  var chipsHost=document.getElementById('gxChips');
+  var multi=(CFG.cats||[]).length>1;
+  if(multi){
+    var chh='<button type="button" class="gx-chip-f active" data-cat="all">Todos <span class="n">'+DATA.length+'</span></button>';
+    (CFG.cats||[]).forEach(function(c){ var n=DATA.filter(function(x){return x.sec===c.key;}).length; chh+='<button type="button" class="gx-chip-f" data-cat="'+esc(c.key)+'">'+esc(c.t)+' <span class="n">'+n+'</span></button>'; });
+    chipsHost.innerHTML=chh;
+  } else { chipsHost.style.display='none'; }
+
+  /* CIFRAS */
+  document.getElementById('gxCifras').innerHTML=(CFG.cifras||[]).map(function(c){ return '<div class="gx-cifra"><div class="gx-cifra-num">'+esc(c.num)+'</div><div class="gx-cifra-lbl">'+esc(c.lbl)+'</div><div class="gx-cifra-sub">'+esc(c.sub||'')+'</div></div>'; }).join('');
+
+  /* INFO (footer ciudadano) */
+  document.getElementById('gxInfo').innerHTML=(CFG.info||[]).map(function(c){ return '<div class="gx-info-card"><div class="gx-info-ico" aria-hidden="true">'+svg(c.ico)+'</div><h3>'+esc(c.h)+'</h3><p>'+c.p+'</p></div>'; }).join('');
+
+  /* LEY */
+  var seal='<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg>';
+  document.getElementById('gxLey').innerHTML='<div class="gx-ley-head"><span class="gx-ley-seal" aria-hidden="true">'+seal+'</span><div><div class="gx-ley-eye">Fundamento legal</div><h3>¿Por qué el Ayuntamiento publica esta información?</h3></div></div>'+
+    '<p>Es una obligación de transparencia. La ley ordena publicar, palabra por palabra, lo siguiente:</p>'+
+    '<blockquote>'+CFG.blockquote+'</blockquote>'+
+    '<p>— <strong>'+esc(CFG.leyref)+'</strong> de la <em>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</em>. Los archivos de esta página son los oficiales, tal como fueron publicados por el sujeto obligado; ante cualquier discrepancia, prevalece el documento oficial.</p>'+
+    '<div class="gx-ley-fuente">'+CFG.fuente+'</div>';
+
+  /* MIG */
+  if(CFG.mig){ var mg=document.getElementById('gxMig'); mg.style.display='flex'; mg.innerHTML='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg><span>'+CFG.mig+'</span>'; }
+
+  /* BUSCADOR + FILTRO */
+  var inp=document.getElementById('gxQ'), clearBtn=document.getElementById('gxClear'), box=document.querySelector('.gx-search');
+  var count=document.getElementById('gxCount'), noRes=document.getElementById('gxNoRes'), noResQ=document.getElementById('gxNoResQ');
+  var accs=[].slice.call(document.querySelectorAll('.gx-acc'));
+  var items=[].slice.call(document.querySelectorAll('.gx-row'));
+  var TOTAL=items.length, curCat='all', noun=CFG.noun||'documentos', firstOpen=(CFG.cats&&CFG.cats.length?(CFG.cats.filter(function(c){return c.open;})[0]||CFG.cats[0]).key:'');
+  function apply(){
+    var raw=inp.value.replace(/^\s+|\s+$/g,''); var toks=norm(raw).split(/\s+/).filter(Boolean);
+    box.classList.toggle('has-q', raw.length>0); var vis=0;
+    for(var i=0;i<items.length;i++){ var ds=items[i].getAttribute('data-search'),ok=true; for(var c=0;c<toks.length;c++){ if(ds.indexOf(toks[c])===-1){ok=false;break;} } items[i].classList.toggle('gone',!ok); }
+    for(var d=0;d<accs.length;d++){
+      var det=accs[d]; var okC=(curCat==='all')||(det.getAttribute('data-cat')===curCat);
+      var its=det.querySelectorAll('.gx-row'),cnt=0; for(var k=0;k<its.length;k++){ if(!its[k].classList.contains('gone')) cnt++; }
+      var show=okC && cnt>0; det.classList.toggle('hide',!show);
+      if(show) vis+=cnt;
+      if(show && (toks.length>0 || curCat!=='all')) det.open=true;
+      else if(curCat==='all' && toks.length===0) det.open=(det.getAttribute('data-cat')===firstOpen);
+    }
+    if(toks.length===0 && curCat==='all'){ count.innerHTML='<b>'+TOTAL.toLocaleString('es-MX')+'</b> '+noun; noRes.className='gx-noresults'; }
+    else if(vis===0){ count.innerHTML=''; noResQ.textContent='«'+raw+'»'; noRes.className='gx-noresults show'; }
+    else { count.innerHTML='<b>'+vis.toLocaleString('es-MX')+'</b> de '+TOTAL.toLocaleString('es-MX')+' '+noun; noRes.className='gx-noresults'; }
+    reportHeight();
+  }
+  inp.addEventListener('input', apply);
+  clearBtn.addEventListener('click', function(){ inp.value=''; apply(); inp.focus(); });
+  if(multi){ chipsHost.addEventListener('click', function(e){ var b=e.target.closest('.gx-chip-f'); if(!b) return; [].slice.call(this.querySelectorAll('.gx-chip-f')).forEach(function(x){x.classList.remove('active');}); b.classList.add('active'); curCat=b.getAttribute('data-cat'); apply(); }); }
+  for(var ad=0;ad<accs.length;ad++){ accs[ad].addEventListener('toggle', reportHeight); }
+  apply();
+
+  var lastH=0;
+  function reportHeight(){ var h=Math.max(document.body.scrollHeight,document.body.offsetHeight,document.documentElement.offsetHeight); if(h&&Math.abs(h-lastH)>1){ lastH=h; try{ parent.postMessage({type:'gdl-iframe-height',id:CFG.pmid,height:h},'*'); }catch(e){} } }
+  window.addEventListener('load', reportHeight); window.addEventListener('resize', reportHeight);
+  setTimeout(reportHeight,300); setTimeout(reportHeight,1000);
+  var tb=document.getElementById('gxTopBtn');
+  function sc(){ tb.classList.toggle('show',(window.pageYOffset||document.documentElement.scrollTop)>320); }
+  window.addEventListener('scroll', sc, {passive:true});
+  tb.addEventListener('click', function(){ var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches; window.scrollTo({top:0,behavior:rm?'auto':'smooth'}); }); sc();
+})();
+</script>
+</body>
+</html>
