@@ -45,6 +45,8 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
 .ir-clear:hover{background:var(--g200);color:var(--g900)}
 .ir-search.has-q .ir-clear{display:flex}
 .ir-chips{display:flex;flex-wrap:wrap;gap:7px;margin:0 2px 12px}
+.ir-filterlabel{font-size:10px;font-weight:800;color:var(--g400);letter-spacing:.1em;text-transform:uppercase;margin:2px 2px 7px}
+.ir-chip-f.yr{min-width:46px;justify-content:center}
 .ir-chip-f{font-family:var(--fh);font-size:12.5px;font-weight:700;padding:6px 14px;border-radius:20px;border:1.5px solid var(--g200);background:var(--wh);color:var(--g600);cursor:pointer;transition:all .13s var(--ease);display:inline-flex;align-items:center;gap:7px}
 .ir-chip-f:hover{border-color:var(--ac-border);color:var(--ac-d)}
 .ir-chip-f.active{background:var(--ac);border-color:var(--ac);color:#fff;box-shadow:0 2px 6px rgba(232,119,34,.25)}
@@ -154,6 +156,9 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
       <button type="button" class="ir-clear" id="irClear" aria-label="Limpiar búsqueda" title="Limpiar">&times;</button>
     </div>
   </div>
+  <div class="ir-filterlabel">Ver por año</div>
+  <div class="ir-chips" id="irYears"></div>
+  <div class="ir-filterlabel">O filtra por tipo de documento</div>
   <div class="ir-chips" id="irChips"></div>
   <div class="ir-count" id="irCount"></div>
 
@@ -1298,7 +1303,7 @@ var BROKEN = {'IngresosRecibidosMayo21.xlsx':1};
     if(it.na) tags+='<span class="ir-tag na">No disponible</span>';
     var top=tags?'<div class="ir-row-top">'+tags+'</div>':'';
     var right = it.na ? '<span class="ir-na">— sin archivo en el origen</span>' : docBtn(it.file);
-    return '<div class="ir-row'+(it.na?' naf':'')+'" data-search="'+esc(search)+'"><div class="ir-row-main">'+top+'<span class="ir-row-t">'+esc(it.label)+'</span></div>'+right+'</div>';
+    return '<div class="ir-row'+(it.na?' naf':'')+'" data-year="'+(it.year||0)+'" data-search="'+esc(search)+'"><div class="ir-row-main">'+top+'<span class="ir-row-t">'+esc(it.label)+'</span></div>'+right+'</div>';
   }
 
   var host=document.getElementById('irCats'); var html='';
@@ -1323,37 +1328,49 @@ var BROKEN = {'IngresosRecibidosMayo21.xlsx':1};
   CATS.forEach(function(c){ var n=DATA.filter(function(x){return x.sec===c.key;}).length; chh+='<button type="button" class="ir-chip-f" data-cat="'+c.key+'">'+esc(c.t)+' <span class="n">'+n+'</span></button>'; });
   chipsHost.innerHTML=chh;
 
+  /* ---- Botones por año ---- */
+  var yearsHost=document.getElementById('irYears');
+  var YEARS=[]; DATA.forEach(function(x){ if(x.year>0 && YEARS.indexOf(x.year)<0) YEARS.push(x.year); });
+  YEARS.sort(function(a,b){ return b-a; });
+  var DEFY=String(YEARS[0]);
+  var yhh='';
+  YEARS.forEach(function(y){ var n=DATA.filter(function(x){return x.year===y;}).length; yhh+='<button type="button" class="ir-chip-f yr'+(String(y)===DEFY?' active':'')+'" data-year="'+y+'">'+y+' <span class="n">'+n+'</span></button>'; });
+  yhh+='<button type="button" class="ir-chip-f" data-year="all">Todos los años <span class="n">'+DATA.length+'</span></button>';
+  yearsHost.innerHTML=yhh;
+
   document.getElementById('irMig').innerHTML='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 2"/></svg><span><b>Secciones relacionadas (en proceso de migración):</b> Ingresos extraordinarios · Ingresos propios · Ingresos municipales, estatales y federales · Cuenta pública · Administraciones pasadas. Se enlazarán a su sección del nuevo portal conforme se publiquen.</span>';
 
   var inp=document.getElementById('irQ'), clearBtn=document.getElementById('irClear'), box=document.querySelector('.ir-search');
   var count=document.getElementById('irCount'), noRes=document.getElementById('irNoRes'), noResQ=document.getElementById('irNoResQ');
   var accs=[].slice.call(document.querySelectorAll('.ir-acc'));
   var items=[].slice.call(document.querySelectorAll('.ir-row'));
-  var TOTAL=items.length, curCat='all';
+  var TOTAL=items.length, curCat='all', curYear=DEFY;
   function apply(){
     var raw=inp.value.replace(/^\s+|\s+$/g,''); var toks=norm(raw).split(/\s+/).filter(Boolean);
     box.classList.toggle('has-q', raw.length>0);
+    var active=(toks.length>0||curCat!=='all'||curYear!=='all');
     var vis=0;
-    for(var i=0;i<items.length;i++){ var ds=items[i].getAttribute('data-search'),ok=true; for(var c=0;c<toks.length;c++){ if(ds.indexOf(toks[c])===-1){ok=false;break;} } items[i].classList.toggle('gone',!ok); }
+    for(var i=0;i<items.length;i++){ var ds=items[i].getAttribute('data-search'),ok=true; for(var c=0;c<toks.length;c++){ if(ds.indexOf(toks[c])===-1){ok=false;break;} } var okY=(curYear==='all')||(items[i].getAttribute('data-year')===curYear); items[i].classList.toggle('gone',!(ok&&okY)); }
     for(var d=0;d<accs.length;d++){
       var det=accs[d]; var okC=(curCat==='all')||(det.getAttribute('data-cat')===curCat);
       var its=det.querySelectorAll('.ir-row'),cnt=0; for(var k=0;k<its.length;k++){ if(!its[k].classList.contains('gone')) cnt++; }
       var show=okC && cnt>0; det.classList.toggle('hide',!show);
       // year dividers visibility (ING)
       var yhs=det.querySelectorAll('.ir-yh');
-      for(var y=0;y<yhs.length;y++){ var n=yhs[y].nextElementSibling, any=false; while(n && n.classList && n.classList.contains('ir-row')){ if(!n.classList.contains('gone')){any=true;break;} n=n.nextElementSibling; } yhs[y].style.display=any?'':'none'; }
+      for(var y=0;y<yhs.length;y++){ var nn=yhs[y].nextElementSibling, any=false; while(nn && nn.classList && nn.classList.contains('ir-row')){ if(!nn.classList.contains('gone')){any=true;break;} nn=nn.nextElementSibling; } yhs[y].style.display=any?'':'none'; }
       if(show) vis+=cnt;
-      if(show && (toks.length>0 || curCat!=='all')) det.open=true;
-      else if(curCat==='all' && toks.length===0) det.open=(det.getAttribute('data-cat')==='ING');
+      if(show && active) det.open=true;
+      else if(!active) det.open=(det.getAttribute('data-cat')==='ING');
     }
-    if(toks.length===0 && curCat==='all'){ count.innerHTML='<b>'+TOTAL+'</b> documentos · 2015–2026'; noRes.className='ir-noresults'; }
-    else if(vis===0){ count.innerHTML=''; noResQ.textContent='«'+raw+'»'; noRes.className='ir-noresults show'; }
-    else { count.innerHTML='<b>'+vis+'</b> de '+TOTAL+' documentos'; noRes.className='ir-noresults'; }
+    if(!active){ count.innerHTML='<b>'+TOTAL+'</b> documentos · 2015–2026'; noRes.className='ir-noresults'; }
+    else if(vis===0){ count.innerHTML=''; noResQ.textContent=raw?('«'+raw+'»'):('los filtros seleccionados'); noRes.className='ir-noresults show'; }
+    else { count.innerHTML=(curYear!=='all')?('<b>'+vis+'</b> documento'+(vis===1?'':'s')+' de '+curYear):('<b>'+vis+'</b> de '+TOTAL+' documentos'); noRes.className='ir-noresults'; }
     reportHeight();
   }
   inp.addEventListener('input', apply);
   clearBtn.addEventListener('click', function(){ inp.value=''; apply(); inp.focus(); });
   chipsHost.addEventListener('click', function(e){ var b=e.target.closest('.ir-chip-f'); if(!b) return; [].slice.call(this.querySelectorAll('.ir-chip-f')).forEach(function(x){x.classList.remove('active');}); b.classList.add('active'); curCat=b.getAttribute('data-cat'); apply(); });
+  yearsHost.addEventListener('click', function(e){ var b=e.target.closest('.ir-chip-f'); if(!b) return; [].slice.call(this.querySelectorAll('.ir-chip-f')).forEach(function(x){x.classList.remove('active');}); b.classList.add('active'); curYear=b.getAttribute('data-year'); apply(); });
   for(var ad=0;ad<accs.length;ad++){ accs[ad].addEventListener('toggle', reportHeight); }
   apply();
 
