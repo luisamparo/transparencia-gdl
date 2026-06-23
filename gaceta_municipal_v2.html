@@ -46,6 +46,13 @@ body{font-family:var(--font);background:transparent;color:var(--n);-webkit-font-
 .gm-cifra-num{font-family:var(--fontD);font-size:30px;font-weight:800;line-height:1;color:var(--od);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
 .gm-cifra-lbl{font-size:10.5px;font-weight:700;color:var(--ng);text-transform:uppercase;letter-spacing:.05em;margin-top:3px;line-height:1.3}
 
+/* ENLACE EXTERNO: demas organos de difusion y publicacion municipal */
+.gm-extlink{display:inline-flex;align-items:center;gap:9px;background:var(--w);border:1.5px solid var(--ob);border-radius:999px;padding:9px 17px;margin:0 0 16px;font-size:13px;font-weight:700;color:var(--od);text-decoration:none;box-shadow:var(--sh-sm);transition:border-color .15s var(--ease),background .15s var(--ease),transform .15s var(--ease)}
+.gm-extlink:hover{border-color:var(--o);background:var(--oxl);transform:translateY(-1px);box-shadow:var(--sh-md)}
+.gm-extlink svg{flex-shrink:0}
+.gm-extlink .gm-extlink-arrow{color:var(--o);transition:transform .15s var(--ease)}
+.gm-extlink:hover .gm-extlink-arrow{transform:translate(2px,-2px)}
+
 /* POSTALES EDUCATIVAS */
 .gm-postales{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;margin-bottom:18px}
 .gm-postal{background:var(--w);border-radius:var(--rad-lg);box-shadow:var(--sh);overflow:hidden;display:flex;flex-direction:column;border-top:5px solid var(--o);transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
@@ -77,6 +84,16 @@ body{font-family:var(--font);background:transparent;color:var(--n);-webkit-font-
 .gm-chip.active .gm-chip-ct{background:rgba(255,255,255,.25);color:#fff}
 .gm-count{font-size:12px;color:var(--ng);font-weight:600;font-variant-numeric:tabular-nums}
 .gm-count strong{color:var(--n);font-weight:800}
+
+/* PANEL CON SCROLL PROPIO (la lista vive aquí; funciona a cualquier alto de embed) */
+.gm-panel{height:clamp(880px,calc(100vh - 1135px),1850px);overflow-y:auto;position:relative;display:flex;flex-direction:column;padding-right:4px;scrollbar-width:thin;scrollbar-color:var(--ob) transparent}
+.gm-panel::-webkit-scrollbar{width:9px}
+.gm-panel::-webkit-scrollbar-track{background:transparent}
+.gm-panel::-webkit-scrollbar-thumb{background:var(--ob);border-radius:8px}
+.gm-panel::-webkit-scrollbar-thumb:hover{background:var(--o)}
+.gm-panel-top{position:sticky;bottom:12px;align-self:flex-end;margin:10px 16px 4px auto;width:46px;height:46px;border-radius:50%;background:var(--o);color:#fff;border:none;box-shadow:0 4px 14px rgba(232,119,34,.45);cursor:pointer;display:none;align-items:center;justify-content:center;z-index:5;flex-shrink:0}
+.gm-panel-top.show{display:flex}
+.gm-panel-top:hover{background:var(--od)}
 
 /* GRUPOS POR AÑO (colapsables) */
 .gm-groups{display:flex;flex-direction:column;gap:11px}
@@ -189,6 +206,13 @@ body{font-family:var(--font);background:transparent;color:var(--n);-webkit-font-
     <h1>Gaceta Municipal: <em>¿dónde se publican las decisiones del gobierno?</em></h1>
     <p class="gm-hero-sub">La <strong>Gaceta Municipal</strong> es el medio oficial donde el Ayuntamiento de Guadalajara publica todo lo que aprueba: <strong>reglamentos, decretos, acuerdos del Cabildo, presupuestos, convocatorias y nombramientos</strong>. Mientras algo no se publica aquí, no entra en vigor. Este es el <strong>archivo histórico completo desde 2004 hasta 2026</strong>: búscalo, ábrelo en pantalla o descárgalo en PDF.</p>
   </section>
+
+  <!-- ENLACE EXTERNO: demás órganos de difusión y publicación municipal -->
+  <a class="gm-extlink" href="https://guadalajara.gob.mx/" target="_blank" rel="noopener noreferrer">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+    Demás órganos de difusión y publicación municipal
+    <svg class="gm-extlink-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+  </a>
 
   <!-- CONTROLES -->
   <div class="gm-controls">
