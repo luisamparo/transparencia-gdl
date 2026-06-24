@@ -13,7 +13,7 @@
   --nr-a:rgba(232,119,34,.10);--nr-b:rgba(232,119,34,.22);
   --g50:#FAFAF8;--g100:#F0F0EC;--g200:#E2E2DD;--g300:#CFCFC8;--g400:#9E9E98;--g600:#5A5A55;--g800:#2D2D2A;--g900:#1A1A1A;
   --wh:#FFF;
-  --fed:#8B2434;--fed-l:#FCEDF0;--fed-d:#5C1622;--fed-border:#E8C5CB;
+  --fed:#C45F0A;--fed-l:#FFF1E4;--fed-d:#8B4308;--fed-border:#F5C99A;
   --est:#E87722;--est-l:#FFF1E4;--est-d:#C45F0A;--est-border:#FFD2A5;
   --ok:#1D9E75;--ok-l:#E1F5EE;--ok-d:#0E6B4C;
   --rad:10px;--rad-lg:14px;
@@ -83,7 +83,7 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
 .peg-year-card.current .peg-year-card-year{color:var(--ok-d)}
 .peg-year-card-badge{font-size:9px;font-weight:800;color:var(--g400);background:var(--g100);padding:3px 8px;border-radius:999px;letter-spacing:.06em;text-transform:uppercase}
 .peg-year-card.current .peg-year-card-badge{background:var(--ok);color:#fff}
-.peg-year-card-icon{flex-shrink:0;color:#991B1B;background:#FEE2E2;width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center}
+.peg-year-card-icon{flex-shrink:0;color:var(--fed-d);background:var(--fed-l);width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center}
 .peg-year-card-desc{font-size:11.5px;color:var(--g600);line-height:1.5;margin:6px 0 12px}
 .peg-year-card-cta{font-size:11.5px;font-weight:700;color:var(--fed-d);text-transform:uppercase;letter-spacing:.05em;display:inline-flex;align-items:center;gap:6px;margin-top:auto}
 .peg-year-card.current .peg-year-card-cta{color:var(--ok-d)}
@@ -116,8 +116,8 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
 .peg-vol-card:hover{border-color:var(--est);transform:translateY(-3px);box-shadow:var(--sh-md);background:#FFF8EE}
 .peg-vol-card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;gap:10px}
 .peg-vol-badge{display:inline-flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:12px;font-weight:700;background:var(--est-l);color:var(--est-d);padding:6px 12px;border-radius:7px;letter-spacing:.06em;min-width:60px;border:1px solid var(--est-border)}
-.peg-vol-pdf-ico{flex-shrink:0;color:#991B1B;background:#FEE2E2;width:32px;height:32px;border-radius:7px;display:flex;align-items:center;justify-content:center;transition:all .15s ease}
-.peg-vol-card:hover .peg-vol-pdf-ico{background:#991B1B;color:#fff}
+.peg-vol-pdf-ico{flex-shrink:0;color:var(--est-d);background:var(--est-l);width:32px;height:32px;border-radius:7px;display:flex;align-items:center;justify-content:center;transition:all .15s ease}
+.peg-vol-card:hover .peg-vol-pdf-ico{background:var(--est-d);color:#fff}
 .peg-vol-desc{font-size:12.5px;color:var(--g600);line-height:1.5;flex:1;margin-bottom:10px}
 .peg-vol-cta{font-size:11px;font-weight:700;color:var(--est-d);text-transform:uppercase;letter-spacing:.05em;display:inline-flex;align-items:center;gap:6px;margin-top:auto}
 .peg-vol-cta svg{transition:transform .15s ease}
@@ -161,28 +161,7 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
     <span class="peg-hero-tag">Art. 8 · Fracción V · Inciso a)</span>
     <h2>El presupuesto público explicado: <em>¿en qué autorizan gastar México y Jalisco cada año?</em></h2>
     <p class="peg-hero-sub">Aquí encuentras los documentos oficiales que <strong>aprueba el Congreso de la Unión y el Congreso del Estado de Jalisco</strong> cada año para decidir cómo se gasta el dinero público. El Ayuntamiento de Guadalajara recibe recursos de ambos órdenes de gobierno: esta es la radiografía completa de los últimos años, lista para consulta y descarga.</p>
-    <div class="peg-cifras">
-      <div class="peg-cifra">
-        <div class="peg-cifra-num">4</div>
-        <div class="peg-cifra-lbl">Años disponibles</div>
-      </div>
-      <div class="peg-cifra">
-        <div class="peg-cifra-num">2</div>
-        <div class="peg-cifra-lbl">Órdenes de gobierno</div>
-      </div>
-      <div class="peg-cifra">
-        <div class="peg-cifra-num">34</div>
-        <div class="peg-cifra-lbl">Documentos oficiales</div>
-      </div>
-    </div>
   </section>
-
-  <!-- LEYENDA -->
-  <div class="peg-legend">
-    <div class="peg-legend-eye">¿Cómo usar esta página?</div>
-    <h3>Dos órdenes de gobierno, navegación rápida</h3>
-    <p>Cada año, el dinero público se aprueba en <strong>dos niveles</strong>: el Gobierno Federal aprueba el suyo en la Cámara de Diputados (un único documento por año), y el Gobierno de Jalisco aprueba el suyo en el Congreso Estatal (dividido en <strong>siete volúmenes</strong> por temas). En la sección federal toca un año para abrirlo; en la sección estatal elige primero el año y verás directamente los siete volúmenes.</p>
-  </div>
 
   <!-- ===== SECCIÓN FEDERAL (grid de 4 cards) ===== -->
   <section class="peg-orden federal">
@@ -266,8 +245,29 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
     </div>
   </section>
 
+  <!-- ¿CÓMO USAR? (movido al pie) -->
+  <div class="peg-legend">
+    <div class="peg-legend-eye">¿Cómo usar esta página?</div>
+    <h3>Dos órdenes de gobierno, navegación rápida</h3>
+    <p>Cada año, el dinero público se aprueba en <strong>dos niveles</strong>: el Gobierno Federal aprueba el suyo en la Cámara de Diputados (un único documento por año), y el Gobierno de Jalisco aprueba el suyo en el Congreso Estatal (dividido en <strong>siete volúmenes</strong> por temas). En la sección federal toca un año para abrirlo; en la sección estatal elige primero el año y verás directamente los siete volúmenes.</p>
+  </div>
+
   <!-- FUNDAMENTO LEGAL -->
   <div class="peg-ley">
+    <div class="peg-cifras" style="margin-top:0;margin-bottom:18px">
+      <div class="peg-cifra">
+        <div class="peg-cifra-num">4</div>
+        <div class="peg-cifra-lbl">Años disponibles</div>
+      </div>
+      <div class="peg-cifra">
+        <div class="peg-cifra-num">2</div>
+        <div class="peg-cifra-lbl">Órdenes de gobierno</div>
+      </div>
+      <div class="peg-cifra">
+        <div class="peg-cifra-num">34</div>
+        <div class="peg-cifra-lbl">Documentos oficiales</div>
+      </div>
+    </div>
     <div class="peg-ley-eye">Fundamento legal</div>
     <h3>¿Por qué se publica esta información?</h3>
     <p>Artículo 8, Fracción V, Inciso a) de la <strong>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</strong>:</p>
