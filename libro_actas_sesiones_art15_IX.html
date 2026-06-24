@@ -299,14 +299,19 @@ var DATA = [{"sec":"consejos","year":2025,"label":"Acta · 21 Febrero 2025","fil
     var raw=inp.value.replace(/^\s+|\s+$/g,''); var toks=norm(raw).split(/\s+/).filter(Boolean);
     box.classList.toggle('has-q', raw.length>0); var vis=0;
     for(var i=0;i<items.length;i++){ var ds=items[i].getAttribute('data-search'),ok=true; for(var c=0;c<toks.length;c++){ if(ds.indexOf(toks[c])===-1){ok=false;break;} } if(ok && curYear!=='all' && items[i].getAttribute('data-year')!==curYear){ ok=false; } items[i].classList.toggle('gone',!ok); }
+    var totalVis=0;
     for(var d=0;d<accs.length;d++){
-      var det=accs[d]; var okC=(curCat==='all')||(det.getAttribute('data-cat')===curCat);
+      var det=accs[d]; var catKey=det.getAttribute('data-cat'); var okC=(curCat==='all')||(catKey===curCat);
       var its=det.querySelectorAll('.gx-row'),cnt=0; for(var k=0;k<its.length;k++){ if(!its[k].classList.contains('gone')) cnt++; }
+      totalVis+=cnt;
+      var nb=det.querySelector('.gx-sum-n'); if(nb) nb.textContent=cnt;
+      var ck=chipsHost.querySelector('.gx-chip-f[data-cat="'+catKey+'"] .n'); if(ck) ck.textContent=cnt;
       var show=okC && cnt>0; det.classList.toggle('hide',!show);
       if(show) vis+=cnt;
       if(show && (toks.length>0 || curCat!=='all' || curYear!=='all')) det.open=true;
-      else if(curCat==='all' && toks.length===0 && curYear==='all') det.open=(det.getAttribute('data-cat')===firstOpen);
+      else if(curCat==='all' && toks.length===0 && curYear==='all') det.open=(catKey===firstOpen);
     }
+    var allN=chipsHost.querySelector('.gx-chip-f[data-cat="all"] .n'); if(allN) allN.textContent=totalVis;
     if(toks.length===0 && curCat==='all' && curYear==='all'){ count.innerHTML='<b>'+TOTAL.toLocaleString('es-MX')+'</b> '+noun; noRes.className='gx-noresults'; }
     else if(vis===0){ count.innerHTML=''; noResQ.textContent='«'+(raw||(curYear==='0'?'sin fecha':'año '+curYear))+'»'; noRes.className='gx-noresults show'; }
     else { count.innerHTML='<b>'+vis.toLocaleString('es-MX')+'</b> de '+TOTAL.toLocaleString('es-MX')+' '+noun; noRes.className='gx-noresults'; }

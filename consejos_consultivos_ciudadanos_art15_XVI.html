@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Registro de los Consejos Ciudadanos Municipales y órganos colegiados del Ayuntamiento de Guadalajara: consejos consultivos, comités y comisiones, con su fecha de creación, las funciones que realizan (reglamento) y el nombre y cargo de sus integrantes. Art. 15, Fracción XVI de la Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios."/>
+<title>Consejos Ciudadanos Municipales y órganos colegiados de Guadalajara · Registro · Art. 15 Frac. XVI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ac:#E87722;--ac-l:#FFE4CC;--ac-d:#C45F0A;--ac-deeper:#8B4308;--ac-border:#F5C99A;--ac-soft:#FFF1E4;
+  --g50:#FAFAF8;--g100:#F0F0EC;--g200:#E2E2DD;--g300:#CFCFC8;--g400:#9E9E98;--g600:#5A5A55;--g800:#2D2D2A;--g900:#1A1A1A;
+  --wh:#FFF;--ok:#16A34A;--ok-d:#0E6B4C;--ok-l:#DCFCE7;--ok-border:#A7E8C0;
+  --wd:#1E5BB8;--wd-l:#DBEAFE;--wd-border:#BFD4F5;
+  --rad:10px;--rad-lg:14px;
+  --sh:0 4px 22px rgba(0,0,0,.08);--sh-sm:0 1px 3px rgba(0,0,0,.06);--sh-md:0 6px 18px rgba(0,0,0,.07);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --fh:'Outfit',system-ui,-apple-system,sans-serif;
+  --fm:'DM Mono','SF Mono',Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--g900);line-height:1.55;-webkit-font-smoothing:antialiased}
+.tf-wrap{max-width:1040px;margin:0 auto}
+
+/* HERO */
+.tf-hero{background:linear-gradient(135deg,var(--ac-soft) 0%,#FFFFFF 55%);color:var(--g900);border-radius:var(--rad-lg);padding:28px 32px;margin:0 0 20px;position:relative;overflow:hidden;border-left:5px solid var(--ac);box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.tf-hero::before{content:'';position:absolute;top:-66px;right:-66px;width:210px;height:210px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.12) 0%,transparent 70%);pointer-events:none}
+.tf-hero-tag{display:inline-block;background:var(--ac);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;position:relative;z-index:1;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.tf-hero h1{margin:0 0 9px;font-size:clamp(22px,3.2vw,29px);font-weight:800;color:var(--g900);letter-spacing:-.018em;line-height:1.2;position:relative;z-index:1}
+.tf-hero h1 em{font-style:normal;color:var(--ac-d);display:block;margin-top:3px}
+.tf-hero-sub{font-size:14.5px;color:var(--g600);max-width:76ch;margin:0;line-height:1.62;position:relative;z-index:1}
+.tf-hero-sub strong{color:var(--g900);font-weight:700}
+.tf-hero-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;position:relative;z-index:1}
+.tf-chip{display:inline-flex;align-items:center;gap:6px;background:var(--wh);border:1.5px solid var(--ac-border);color:var(--ac-d);font-size:11.5px;font-weight:700;padding:5px 12px;border-radius:20px}
+.tf-chip b{font-family:var(--fm);font-weight:500}
+.tf-chip.neutral{border-color:var(--g200);color:var(--g600)}
+
+/* BUSCADOR */
+.tf-search-wrap{margin:0 0 10px}
+.tf-search{position:relative;display:flex;align-items:center;background:var(--wh);border:1.5px solid var(--g200);border-radius:12px;box-shadow:var(--sh-sm);transition:border-color .15s,box-shadow .15s}
+.tf-search:focus-within{border-color:var(--ac);box-shadow:0 0 0 3px rgba(232,119,34,.12)}
+.tf-search>svg{position:absolute;left:15px;color:var(--g400);pointer-events:none}
+.tf-search input{flex:1;width:100%;border:0;outline:0;background:transparent;font-family:var(--fh);font-size:14.5px;color:var(--g900);padding:13px 46px}
+.tf-search input::placeholder{color:var(--g400)}
+.tf-search input::-webkit-search-cancel-button{display:none}
+.tf-clear{position:absolute;right:8px;width:34px;height:34px;border:0;background:var(--g100);color:var(--g600);border-radius:50%;font-size:19px;line-height:1;cursor:pointer;display:none;align-items:center;justify-content:center;transition:background .14s;font-family:var(--fh)}
+.tf-clear:hover{background:var(--g200);color:var(--g900)}
+.tf-search.has-q .tf-clear{display:flex}
+.tf-count{font-size:12px;color:var(--g600);font-weight:600;margin:0 2px 18px}
+.tf-count b{color:var(--ac-d);font-family:var(--fm);font-weight:500}
+
+/* FILTRO POR CATEGORÍA */
+.ev-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+.ev-tab{display:inline-flex;align-items:center;gap:8px;font-family:var(--fh);font-size:12.5px;font-weight:700;color:var(--g600);background:var(--wh);border:1.5px solid var(--g200);border-radius:22px;padding:8px 15px;cursor:pointer;transition:background .14s,color .14s,border-color .14s,box-shadow .14s;white-space:nowrap;line-height:1}
+.ev-tab:hover{border-color:var(--ac-border);color:var(--ac-d)}
+.ev-tab .n{font-family:var(--fm);font-weight:500;font-size:11px;background:var(--g100);color:var(--g600);border-radius:20px;padding:2px 7px;transition:background .14s,color .14s}
+.ev-tab.active{background:var(--ac);border-color:var(--ac);color:#fff;box-shadow:0 2px 8px rgba(232,119,34,.28)}
+.ev-tab.active .n{background:rgba(0,0,0,.22);color:#fff}
+.ev-tab:focus-visible,.ev-scroll:focus-visible{outline:none;box-shadow:0 0 0 2px #fff,0 0 0 4px var(--ac-d)}
+
+/* SCROLL INTERNO */
+.ev-scroll{max-height:620px;overflow-y:auto;overscroll-behavior:contain;border:1.5px solid var(--g200);border-radius:var(--rad-lg);padding:8px 12px 12px;background:var(--g50);scrollbar-width:thin;scrollbar-color:var(--ac-border) transparent}
+.ev-scroll::-webkit-scrollbar{width:11px}
+.ev-scroll::-webkit-scrollbar-track{background:transparent}
+.ev-scroll::-webkit-scrollbar-thumb{background:var(--ac-border);border-radius:8px;border:3px solid var(--g50)}
+.ev-scroll::-webkit-scrollbar-thumb:hover{background:var(--ac)}
+.ev-grp-title{font-size:12px;font-weight:800;color:var(--g800);letter-spacing:.08em;text-transform:uppercase;margin:14px 4px 9px;display:flex;align-items:center;gap:9px}
+.ev-grp-title:first-child{margin-top:4px}
+.ev-grp-title::after{content:'';flex:1;height:1.5px;background:var(--g200);border-radius:2px}
+.ev-list{display:flex;flex-direction:column;gap:9px;margin:0 0 4px}
+
+/* ÓRGANO (acordeón) */
+.tf-item{background:var(--wh);border:1.5px solid var(--g200);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);overflow:hidden}
+.tf-item.hide{display:none}
+.tf-head{display:flex;align-items:center;gap:14px;padding:14px 16px}
+.tf-ico{flex-shrink:0;width:38px;height:38px;border-radius:10px;background:var(--ac-soft);color:var(--ac-d);display:flex;align-items:center;justify-content:center;border:1px solid var(--ac-border)}
+.tf-tx{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.tf-tx b{font-size:13.5px;font-weight:800;color:var(--g900);letter-spacing:-.01em;line-height:1.3}
+.tf-right{flex-shrink:0;display:flex;align-items:center;gap:10px}
+details.tf-item>summary{list-style:none;cursor:pointer}
+details.tf-item>summary::-webkit-details-marker{display:none}
+.tf-chev{flex-shrink:0;color:var(--ac-d);transition:transform .2s var(--ease)}
+details.tf-item[open]>summary .tf-chev{transform:rotate(180deg)}
+details.tf-item[open]>summary .tf-head{border-bottom:1px solid var(--g100)}
+.tf-body{padding:6px 14px 14px}
+
+/* sub-grupo Fr XVI dentro del órgano */
+.xv-grp{padding:10px 0 2px}
+.xv-grp+.xv-grp{border-top:1px dashed var(--g200);margin-top:6px}
+.xv-grp-h{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--ac-deeper);margin:4px 0 9px}
+.xv-grp-h svg{flex-shrink:0}
+.xv-note{font-size:12px;color:var(--g600);line-height:1.55;background:var(--ac-soft);border:1px solid var(--ac-border);border-radius:8px;padding:9px 12px}
+.tf-file{display:flex;align-items:center;gap:14px;padding:9px 12px;border-radius:9px;border:1px solid var(--g100);background:var(--g50);transition:border-color .14s,background .14s}
+.tf-file+.tf-file{margin-top:7px}
+.tf-file:hover{border-color:var(--ac-border);background:var(--wh)}
+.tf-file-t{flex:1;min-width:0;font-size:12.5px;font-weight:600;color:var(--g800);line-height:1.4}
+
+/* botones doc */
+.tf-btn{flex-shrink:0;display:inline-flex;align-items:center;gap:7px;font-family:var(--fh);font-size:12px;font-weight:700;padding:8px 14px;border-radius:9px;cursor:pointer;text-decoration:none;border:1.5px solid var(--ac);background:var(--ac);color:#fff;transition:all .14s var(--ease);white-space:nowrap}
+.tf-btn:hover{background:var(--ac-d);border-color:var(--ac-d);transform:translateY(-1px)}
+.tf-btn svg{flex-shrink:0}
+.tf-btn.xls{background:var(--wh);color:var(--ok-d);border-color:var(--ok-border)}
+.tf-btn.xls:hover{background:var(--ok-l);border-color:var(--ok);color:var(--ok-d)}
+.tf-btn.doc{background:var(--wh);color:var(--wd);border-color:var(--wd-border)}
+.tf-btn.doc:hover{background:var(--wd-l);border-color:var(--wd);color:var(--wd)}
+
+/* badge count */
+.tf-badge{display:inline-flex;align-items:center;gap:5px;font-size:9.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:4px 10px;border-radius:20px;white-space:nowrap;background:var(--ac-l);color:var(--ac-d)}
+.tf-badge.muted{background:var(--g100);color:var(--g600)}
+
+/* SIN RESULTADOS */
+.tf-noresults{display:none;background:var(--ac-soft);border:1.5px solid var(--ac-border);border-radius:var(--rad-lg);padding:22px 24px;font-size:13.5px;color:var(--g800);line-height:1.6;text-align:center;margin-top:4px}
+.tf-noresults.show{display:block}
+.tf-noresults strong{color:var(--ac-d);font-weight:700}
+
+/* FOOTER */
+.tf-foot-title{font-size:12.5px;font-weight:800;color:var(--g800);letter-spacing:.1em;text-transform:uppercase;margin:36px 4px 16px;display:flex;align-items:center;gap:10px}
+.tf-foot-title::after{content:'';flex:1;height:1.5px;background:var(--g200);border-radius:2px}
+.tf-info{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.tf-info-card{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);border-top:5px solid var(--ac);padding:18px 20px;display:flex;flex-direction:column;gap:8px}
+.tf-info-ico{width:40px;height:40px;border-radius:11px;background:var(--ac-soft);color:var(--ac-d);display:flex;align-items:center;justify-content:center;margin-bottom:2px}
+.tf-info-card h3{font-size:14.5px;font-weight:800;color:var(--g900);letter-spacing:-.01em;line-height:1.3}
+.tf-info-card p{font-size:12.5px;color:var(--g600);line-height:1.6}
+.tf-info-card p strong{color:var(--g800);font-weight:700}
+
+/* LEY */
+.tf-ley{background:var(--wh);border-radius:var(--rad-lg);padding:22px 26px;border-left:4px solid var(--ac-d);box-shadow:var(--sh-sm);margin-top:22px}
+.tf-ley-eye{font-size:10.5px;font-weight:800;color:var(--ac-d);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.tf-ley-head{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.tf-ley-seal{flex-shrink:0;width:46px;height:46px;border-radius:50%;background:var(--ac-soft);border:2px solid var(--ac);color:var(--ac-d);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(232,119,34,.18)}
+.tf-ley-head .tf-ley-eye{margin-bottom:3px}
+.tf-ley-head h3{margin-bottom:0}
+.tf-ley h3{font-size:16px;font-weight:800;color:var(--g900);margin-bottom:8px;letter-spacing:-.008em}
+.tf-ley p{font-size:13px;color:var(--g600);line-height:1.65;max-width:80ch}
+.tf-ley p+p{margin-top:7px}
+.tf-ley p strong{color:var(--g800);font-weight:600}
+.tf-ley blockquote{font-size:13.5px;color:var(--g600);line-height:1.65;margin:12px 0 8px;padding:13px 18px;background:var(--ac-soft);border-left:3px solid var(--ac);border-radius:6px;font-style:italic;max-width:80ch;overflow-wrap:anywhere}
+.tf-ley blockquote strong{color:var(--g900);font-style:normal;font-weight:700}
+
+/* BOTÓN SUBIR */
+.tf-top{position:fixed;right:18px;bottom:18px;z-index:60;width:46px;height:46px;border-radius:50%;border:0;background:var(--ac);color:#fff;box-shadow:0 6px 18px rgba(196,95,10,.38);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .18s,transform .18s,visibility .18s}
+.tf-top.show{opacity:1;visibility:visible;transform:none}
+.tf-top:hover{background:var(--ac-d)}
+
+/* A11Y */
+.tf-clear:focus-visible,.tf-btn:focus-visible,.tf-top:focus-visible,details.tf-item>summary:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(232,119,34,.45)}
+details.tf-item:has(>summary:focus-visible){border-color:var(--ac-border)}
+
+/* RESPONSIVE */
+@media (min-width:781px) and (max-width:1024px){ body{padding:20px} .tf-hero{padding:26px 28px} .tf-ley{padding:20px 24px} }
+@media (max-width:820px){ .tf-info{grid-template-columns:1fr} }
+@media (max-width:780px){ body{padding:14px} .tf-hero{padding:22px 18px} .tf-ley{padding:18px 18px} }
+@media (max-width:600px){
+  body{padding:10px}
+  .tf-hero{padding:18px 15px;border-radius:12px}
+  .tf-hero h1{font-size:19px;line-height:1.24}
+  .tf-hero-tag{font-size:9.5px;padding:4px 11px}
+  .ev-tab{font-size:12px;padding:10px 14px;min-height:44px}
+  .ev-scroll{max-height:480px;padding:6px 9px 10px}
+  .tf-head{padding:13px 13px;gap:11px}
+  .tf-file{flex-direction:column;align-items:stretch;gap:9px}
+  .tf-file .tf-btn{width:100%;justify-content:center;padding:11px 14px}
+  .tf-ley blockquote{padding:12px 14px;font-size:13px}
+  .tf-ley{margin-bottom:64px}
+  .tf-top{right:12px;bottom:12px;width:44px;height:44px}
+}
+@media (max-width:380px){ .tf-hero{padding:18px 14px} .tf-hero h1{font-size:18px} .tf-hero-sub{font-size:13.5px} }
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="tf-wrap" id="evTop">
+
+  <!-- HERO -->
+  <section class="tf-hero">
+    <span class="tf-hero-tag">Art. 15 · Fracción XVI · Ley de Transparencia Jalisco</span>
+    <h1>Consejos Ciudadanos Municipales <em>El registro de los órganos colegiados, quién los integra y qué hacen</em></h1>
+    <p class="tf-hero-sub">El Ayuntamiento integra <strong>consejos, comités y comisiones</strong> con participación ciudadana y de servidores públicos. Aquí está el registro de cada uno: su <strong>fecha de creación</strong>, las <strong>funciones</strong> que realiza y el <strong>nombre y cargo de sus integrantes</strong>.</p>
+    <div class="tf-hero-meta">
+      <span class="tf-chip"><b id="evC1">0</b> órganos colegiados</span>
+      <span class="tf-chip neutral"><b id="evC2">0</b> documentos de registro</span>
+      <span class="tf-chip neutral">Actualizado a 2026</span>
+    </div>
+  </section>
+
+  <!-- BUSCADOR -->
+  <div class="tf-search-wrap">
+    <div class="tf-search">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="evQ" type="search" autocomplete="off" placeholder="Busca un consejo, comité o comisión… (ej.: catastro, anticorrupción, mejora regulatoria)" aria-label="Buscar un consejo, comité o comisión"/>
+      <button type="button" class="tf-clear" id="evClear" aria-label="Limpiar búsqueda" title="Limpiar">&times;</button>
+    </div>
+    <div class="tf-count" id="evCount" aria-live="polite" aria-atomic="true"></div>
+  </div>
+
+  <!-- FILTRO POR CATEGORÍA -->
+  <div class="ev-tabs" id="evTabs" role="group" aria-label="Filtrar por tipo de órgano"></div>
+
+  <!-- ÓRGANOS (con scroll interno) -->
+  <div class="ev-scroll" id="evScroll" role="region" aria-label="Registro de órganos colegiados y sus documentos" tabindex="0">
+    <div id="evRoot"></div>
+    <div class="tf-noresults" id="evNoRes" role="status">No encontramos ningún órgano que coincida con <strong id="evNoResQ"></strong>. Prueba con otra palabra o cambia de categoría.</div>
+  </div>
+
+  <!-- PARA ENTENDERLO MEJOR -->
+  <div class="tf-foot-title">Para entenderlo mejor</div>
+  <div class="tf-info">
+    <div class="tf-info-card">
+      <div class="tf-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+      <h3>¿Qué es un consejo consultivo ciudadano?</h3>
+      <p>Es un <strong>órgano colegiado</strong> donde la ciudadanía y el gobierno deliberan juntos sobre un tema (desarrollo, catastro, mejora regulatoria, anticorrupción…). Acompaña y vigila decisiones públicas, sin sustituir a la autoridad.</p>
+    </div>
+    <div class="tf-info-card">
+      <div class="tf-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg></div>
+      <h3>¿Qué encuentras en cada uno?</h3>
+      <p>Para cada órgano: su <strong>fecha de creación</strong> (acta de instalación), las <strong>funciones</strong> que realiza (su reglamento u ordenamiento) y la lista con el <strong>nombre y cargo de sus integrantes</strong>, tal como lo exige la ley.</p>
+    </div>
+    <div class="tf-info-card">
+      <div class="tf-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <h3>¿Por qué importa?</h3>
+      <p>Porque te permite saber <strong>quién decide</strong> en estos espacios, desde cuándo operan y con qué reglas, y acercarte a participar. Es la base de la <strong>gobernanza abierta</strong> del municipio.</p>
+    </div>
+  </div>
+
+  <!-- FUNDAMENTO LEGAL -->
+  <section class="tf-ley">
+    <div class="tf-ley-head">
+      <span class="tf-ley-seal" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 4v6c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6l7-4z"/><path d="M9 12l2 2 4-4"/></svg></span>
+      <div><div class="tf-ley-eye">Fundamento legal</div><h3>Registro de los consejos consultivos ciudadanos</h3></div>
+    </div>
+    <blockquote><strong>Artículo 15, fracción XVI.</strong> «El registro de los consejos consultivos ciudadanos, con indicación de la fecha de su creación, funciones que realizan, así como nombre y cargo de los integrantes.»</blockquote>
+    <p>Información fundamental de los Ayuntamientos conforme a la <strong>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</strong>. Se difunde junto con las versiones estenográficas, actas y minutas de las reuniones de los órganos colegiados del municipio (Art. 8).</p>
+    <p>Este registro reúne los <strong>Consejos Ciudadanos Municipales y demás órganos colegiados</strong> del Ayuntamiento. Cada ficha enlaza los documentos oficiales que sustentan su creación, funciones e integración; cuando algún dato aún no está publicado en línea, así se indica.</p>
+  </section>
+
+</div>
+
+<button class="tf-top" id="evTopBtn" aria-label="Volver al inicio" title="Volver arriba"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></button>
+
+<script>
+  var ORG = [
+    {n:'Sesiones del Ayuntamiento, sus Audios y Videos',cat:'ayto',cre:[],fun:[],int:[]},
+    {n:'Comisiones Edilicias',cat:'ayto',cre:[],fun:[],int:[]},
+    {n:'Comité de Transparencia',cat:'ayto',cre:[],fun:[],int:[]},
+    {n:'Comité de Adquisiciones, Enajenaciones, Arrendamientos y Contratación de Servicios de Guadalajara',cat:'comite',cre:[{l:'s Instalacion Orden Dia18Octubre24',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/sInstalacionOrdenDia18Octubre24.pdf'},{l:'s Instalacion VE18Octubre24',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/sInstalacionVE18Octubre24.pdf'},{l:'s Instalacion18Octubre24',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/sInstalacion18Octubre24.pdf'},],fun:[{l:'Reglamento de Adquisiciones, Enajenaciones, Arrendamientos y Contrataciones para el Municipio de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/ReglamentoAdquisicionesEnajenacionesArrendamientosContratacionesGuadalajara.pdf'},],int:[{l:'Comité de Adquisiciones, Enajenaciones, Arrendamientos y Contratación de Servicios de Guadalajara (Integrantes)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ComiteAdquisicionesEnajenacionesArrendamientosContratacionServiciosGuadalajara.xlsx'},]},
+    {n:'Consejo de Participación y Planeación para el Desarrollo Municipal de Guadalajara (COPPLADEMUN)',cat:'consejo',cre:[{l:'Acta de Instalación COPPLADEMUN 10 de Abril 2025',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/CopplademunActa10Abril2025.pdf'},{l:'Acta de Instalación COPPLADEMUN 31 de Enero 2022',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/Copplademun31Enero2022.pdf'},{l:'Acta Instalación Subcomité de Infraestructura Social 28 de Marzo 2022',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/SubComiteInfraestructuraSo28Marzo2022.pdf'},{l:'Acta de Instalación y Primera Sesión Ordinaria Versión Estenográfica COPPLADEMUN 31 de Enero 2022',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/CopplademunVE31Enero2022.docx'},{l:'Acta del Día de la sesión de instalación del 08 de marzo 2019',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/CopplademunActa8Marzo19.pdf'},{l:'Acta de Instalación 08 de febrero 2016',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/CoplademunActaOrdinaria8febrero16.pdf'},],fun:[{l:'Reglamento de Participación Ciudadana y Planeación Participativa para la Gobernanza del Municipio de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/RegParticipacionCiudadanaPlaneacionParticipativaGDL.pdf'},],int:[{l:'Oficio de los Integrantes de COPPLADEMUN',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/OficioIntegrantes_Copplademun2021-2024.pdf'},{l:'Integrantes de COPPLADEMUN',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/Integrantes_Copplademun2021-2024.xlsx'},{l:'Integrantes del Consejo de Participación y Planeación para el Desarrollo de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/IntegrantesCopplademun18-21.pdf'},]},
+    {n:'Consejo de Colaboración Municipal',cat:'consejo',cre:[{l:'Acta de Instalación del Consejo Social de Cooperación para el Desarrollo Urbano (Ahora Consejo de Colaboración Municipal)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaIntegracionConsejoSocial13Abril2016.pdf'},],fun:[{l:'Reglamento Interno del Organismo Público Descentralizado de la Administración Pública Municipal denominado “Consejo de Colaboración Municipal” de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/ReglamentoConsejoColaboracionMunicipalGuadalajara.pdf'},{l:'Código de Gobierno Municipal de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/CodigoGobiernoMunicipalGuadalajara.pdf'},{l:'Reglamento Interno del Organismo Público Descentralizado de la Administración Pública Municipal denominado "Consejo Social de Cooperación para el Desarrollo Urbano" de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/Reg.ConsejoSocialCooperacionDesarrolloUrbano.pdf'},{l:'reg.consejocolaboracionmunicipalgdl 0',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/reg.consejocolaboracionmunicipalgdl_0.pdf'},],int:[{l:'Integrantes del Consejo Social de Cooperación para el Desarrollo Urbano',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/IntegrantesConsejoSocialDesarrolloUrbano21.pdf'},]},
+    {n:'Comité Municipal Mixto de Obra Pública',cat:'comite',cre:[],fun:[{l:'Reglamento de Contratación y Ejecución de la Obra Pública y Servicios relacionados con la misma del Municipio de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/Reg.ContatacionEjecucionObraPublicaServiciosGuadalajara.pdf'},],int:[{l:'Integrantes del Comité (excel)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ComiteMunicipalMixtoObraPublica.xlsx'},]},
+    {n:'Comisión Municipal de Honor y Justicia',cat:'comite',cre:[{l:'Acta de Instalación de la Comisión Municipal de Honor y Justicia 19 de Noviembre 2024',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaComisionHonorJusticia19Nov24.pdf'},{l:'Acta de Instalación de la Comisión Municipal de Honor y Justicia 27 de Octubre 2021',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaComisionHonorJusticia27Oct21.pdf'},],fun:[{l:'Reglamento de la Comisión Municipal de Honor y Justicia',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/Reg.VigilarActuacionElementosOperativosComisariaGuadalajara.pdf'},],int:[]},
+    {n:'Comisión Municipal de Regularización (COMUR)',cat:'comite',cre:[{l:'Acta del Día de Instalación de la Comisión Municipal de Regularización (COMUR) 07 de Enero 2022',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaComur7Ene2022.pdf'},{l:'Acta de Instalación de la Comisión Municipal de Regularización (COMUR) 08 de Febrero 2019',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaComur8Ene2019.pdf'},{l:'Acta de Instalación de la Comisión Municipal de Regularización (COMUR) 18 de Enero 2016',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaComur18Ene2016.pdf'},],fun:[{l:'Reglamento de Regularización y Titulación de Predios Urbanos del Municipio de Guadalajara Jalisco',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/Reg.RegularizacionTitulacionPrediosUrbanosGuadalajara.pdf'},],int:[]},
+    {n:'Consejo Municipal de Participación Ciudadana para la Gobernanza y la Paz de Guadalajara',cat:'consejo',cre:[{l:'Acta Sesión de Instalación del 29 de noviembre del 2021',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaConsejoParticipacionCiudadana29Noviembre2021.pdf'},{l:'Versión Estenográfica Sesión de Instalación del 29 de noviembre del 2021',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaVEConsejoParticipacionCiudadana29Noviembre2021.docx'},{l:'Acta de Instalación 11 de diciembre',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/actadeinstalacion11diciembre2015.pdf'},],fun:[{l:'Reglamento de Participación Ciudadana y Planeación Participativa para la Gobernanza del Municipio de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/RegParticipacionCiudadanaPlaneacionParticipativaGDL.pdf'},],int:[{l:'Integrantes del Consejo Municipal de Participación Ciudadana de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/IntegrantesConsejoParticipacionCiudadana21-24.xlsx'},{l:'Acuerdo para Renovación de Integrantes del Consejo Municipal de Participación Ciudadana de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/AcuerdoRenovacionIntegrantesConsejoParticipacionCiudadana21-24.pdf'},]},
+    {n:'Consejo de Ciudades Hermanas y Acuerdos de Cooperación',cat:'consejo',cre:[{l:'Acta Sesión de Instalación 24 de Octubre 2023 del Consejo de Ciudades Hermanas y Acuerdos de Cooperación',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/Acta24Octubre23ConsejoCiudadesHermanas.pdf'},{l:'Versión Estenográfica Sesión de Instalación 24 de Octubre 2023 del Consejo de Ciudades Hermanas y Acuerdos de Cooperación',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/Acta24Octubre23ConsejoCiudadesHermanas.docx'},],fun:[{l:'Reglamento de Ciudades Hermanas y Acuerdos de Cooperación del Municipio de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/Reg.CiudadesHermanasAcuerdosCooperacionGuadalajara.pdf'},],int:[]},
+    {n:'Consejo Municipal de Mejora Regulatoria de Guadalajara',cat:'consejo',cre:[{l:'Acta Sesión de Instalación 10 de Diciembre 2021 del Consejo Municipal de Mejora Regulatoria de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/Acta10Diciembre2021ConsejoMejoraRegulatoria.pdf'},],fun:[{l:'Reglamento de Mejora Regulatoria y Gobierno Digital para el Municipio de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/ReglamentoMejoraRegulatoriaGobiernoDigitalGuadalajara.pdf'},],int:[]},
+    {n:'Consejo de Promoción Económica del Municipio de Guadalajara',cat:'consejo',cre:[{l:'Acta del Día de Instalación del Consejo de Promoción Económica del Municipio de Guadalajara 25 de Noviembre 2021 (Administración 2021-2024)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaConsejoPromocionEc25Nov2021.pdf'},{l:'Acta de Instalación del Consejo de Promoción Económica del Municipio de Guadalajara 26 de Octubre 2018 (Administración 2018-2021)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaConsejoPromocionEc26Oct2018.pdf'},{l:'Acta de Instalación del Consejo de Promoción Económica del Municipio de Guadalajara (2016)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaConsejoPromocionEc27Jun2016.pdf'},],fun:[{l:'Reglamento del Consejo de Promoción Económica del Municipio de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/Reg.ConsejoPromocionEconomicaGuadalajara.pdf'},],int:[]},
+    {n:'Consejo Técnico de Catastro',cat:'consejo',cre:[{l:'Acta del día de la Sesión de Instalación 01 de Julio 2025 del Consejo Técnico de Catastro',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/Acta1Julio2025ConsejoTecnicoCatastro.pdf'},{l:'Acta de Instalación 22 de Marzo 2022 del Consejo Técnico de Catastro',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/Acta22Marzo2022ConsejoTecnicoCatasto.pdf'},{l:'Versión Estenográfica del Acta de Instalación 22 de Marzo 2022 del Consejo Técnico de Catastro',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/Acta22Marzo2022ConsejoTecnicoCatasto.docx'},],fun:[{l:'Reglamento del Consejo Técnico de Catastro del Municipio de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/Reg.ConsejoTecnicoCatastroGuadalajara.pdf'},],int:[{l:'Integrantes del Consejo Técnico de Catastro del Municipio de Guadalajara (2025)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/Consejo_Tecnico_de_Catastro 2025.xlsx'},{l:'Integrantes del Consejo Técnico de Catastro del Municipio de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/Consejo_Tecnico_de_CatastroIntegrantes.xlsx'},]},
+    {n:'Junta Municipal del Sistema Integral de Cuidados para el Municipio de Guadalajara',cat:'consejo',cre:[{l:'Versión Estenográfica de la Sesión de Instalación de la Junta Municipal del Sistema Integral de Cuidados para el Municipio de Guadalajara 16 de Junio 2025',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/VEJuntaMunicipalCuidadosGuadalajara16Junio25.pdf'},{l:'Orden del día de la Sesión de Instalación de la Junta Municipal del Sistema Integral de Cuidados para el Municipio de Guadalajara 16 de Junio 2025',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/OrdenDiaJuntaMunicipalCuidadosGuadalajara16Junio25.pdf'},],fun:[],int:[]},
+    {n:'Comité Coordinador Municipal Anticorrupción de Guadalajara',cat:'comite',cre:[{l:'Acta de la Sesión de Instalación del Comité Coordinador Municipal Anticorrupción de Guadalajara 27 de Abril 2022',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaComiteCoordinadorMunAnticorrupcion27Abr2022.pdf'},{l:'Acta del Día de Instalación del Comité Coordinador Municipal Anticorrupción de Guadalajara 20 de Abril 2018',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaComiteCoordinadorMunAnticorrupcion20Abr2018.pdf'},],fun:[{l:'Reglamento del Sistema Anticorrupción del Municipio de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/ReglamentoSistemaAnticorrupcionGuadalajara.pdf'},],int:[{l:'Integrantes del Comité Coordinador Municipal Anticorrupción de Guadalajara 2022',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/IntegrantesComiteCoordinadorMunAnticorrupcion2022.pdf'},{l:'Integrantes del Comité Coordinador Municipal Anticorrupción de Guadalajara 2021',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/IntegrantesComiteCoordinadorMunAnticorrupcion2021.pdf'},{l:'Integrantes del Comité Coordinador Municipal Anticorrupción de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/IntegrantesComiteCoordinadorMunAnticorrupcion2019.pdf'},]},
+    {n:'Comisión Mixta de Capacitación y Escalafón',cat:'comite',cre:[{l:'Acta de Instalación de la Comisión Mixta de Capacitación y Escalafón 09 de Diciembre 2024',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaComisionMixtaEscalafonCapacitacion9Diciembre2024.pdf'},{l:'Acta de Instalación de la Comisión Mixta de Capacitación y Escalafón 30 de Septiembre 2022',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaInstalacionComisionMixtaEscalafonCapacitacion30Sep2022.pdf'},{l:'Versión Estenográfica de Instalación de la Comisión Mixta de Capacitación y Escalafón 30 de Septiembre 2022',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaInstalacionComisionMixtaEscalafonCapacitacion30Sep2022.docx'},{l:'Acta de Instalación de la Comisión Mixta de Escalafón y Capacitación 05 de Octubre 2018',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaInstalacionComisionMixtaEscalafonCapacitacion5Oct2018.pdf'},],fun:[{l:'Reglamento de la Comisión Mixta de Capacitación y Escalafón para los Servidores Públicos del Ayuntamiento de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/Reg.ComisionMixtaCapacitacionEscalafonServidoresPublicosGuadalajara.pdf'},],int:[]},
+    {n:'Comité Técnico para la Evaluación del Desempeño',cat:'comite',cre:[{l:'Acta del Día Primera Sesión Ordinaria e Instalación del Día 27 Marzo de 2025',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaComiteTecnicoEvaluacionDesempeno27Marzo25.pdf'},{l:'Acta del Día de Instalación del Comité Técnico para la Evaluación del Desempeño 24 de Abril 2017',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaComiteEvaluacionDesempeno24Abr2017.pdf'},],fun:[{l:'Lineamientos para la Implementación y Funcionamiento del Presupuesto Basado en Resultados y el Sistema de Evaluación del Desempeño en el Municipio de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/LineamientosImplementacionFuncionamientoGuadalajara.pdf'},],int:[]},
+    {n:'Comité de Vigilancia en Materia de Áreas Naturales Protegidas, Parques, Jardines y Recursos Forestales del Municipio de Guadalajara',cat:'comite',cre:[{l:'Acta del día de Instalación del Comité de Vigilancia en Materia de Áreas Naturales Protegidas, Parques, Jardines y Recursos Forestales del Municipio de Guadalajara 28 de Octubre 2021',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaComiteVigilanciaAreasNaturalesParquesJardines28Oct21.pdf'},{l:'Acta de Instalación del Comité de Vigilancia en Materia de Áreas Naturales Protegidas, Parques, Jardines y Recursos Forestales del Municipio de Guadalajara 12 de Diciembre 2018',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaComiteVigilanciaAreasNaturalesParquesJardines12Dic18.pdf'},],fun:[{l:'Reglamento de Áreas Verdes y Recursos Forestales del Municipio de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/Reg.AreasVerdesRecursosForestalesGuadalajara.pdf'},],int:[{l:'Integrantes del Comité de Vigilancia en Materia de Áreas Naturales Protegidas, Parques, Jardines y Recursos Forestales del Municipio de Guadalajara (2024-2027)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ListaIntegrantesComiteVigilanciaAreasNaturalesParquesJardines24-27.pdf'},{l:'Integrantes del Comité de Vigilancia en Materia de Áreas Naturales Protegidas, Parques, Jardines y Recursos Forestales del Municipio de Guadalajara (2021-2024)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ListaIntegrantesComiteVigilanciaAreasNaturalesParquesJardines21-24.pdf'},{l:'Integrantes del Comité de Vigilancia en Materia de Áreas Naturales Protegidas, Parques, Jardines y Recursos Forestales del Municipio de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ListaIntegrantesComiteVigilanciaAreasNaturalesParquesJardines.pdf'},]},
+    {n:'Comité Dictaminador del Programa Social "Guardianes de Guadalajara"',cat:'dict',cre:[{l:'Acta de la Sesión de Instalación del Comité Dictaminador del Programa Social "Guardianes de Guadalajara" 12 de Marzo 2026',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaComiteGuardianesGuadalajara12Marzo2026.pdf'},{l:'Versión Estenográfica de la Sesión de Instalación del Comité Dictaminador del Programa Social "Guardianes de Guadalajara" 12 de Marzo 2026',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaComiteGuardianesGuadalajara12Marzo2026.docx'},{l:'Acta de la Sesión de Instalación del Comité Dictaminador del Programa Social "Guardianes de Guadalajara" 10 de Marzo 2025',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaComiteGuardianesGuadalajara10Marzo2025.pdf'},],fun:[],int:[]},
+    {n:'Comité Dictaminador del Programa Social "Juntas nos Cuidamos"',cat:'dict',cre:[{l:'Acta de la Sesión de Instalación del Comité Dictaminador del Programa Social "Juntas nos Cuidamos" 12 de Marzo 2025',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaComiteJuntasCuidamos12Marzo2025.pdf'},],fun:[],int:[]},
+    {n:'Comité Dictaminador del Programa "Corazón Contento"',cat:'dict',cre:[{l:'Versión Estenográfica de la Sesión de Instalación del Comité Dictaminador del Programa "Corazón Contento" 26 de Marzo 2026',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/VEComiteCorazonContento26Marzo2026.docx'},{l:'Orden del día de la Sesión de Instalación del Comité Dictaminador del Programa "Corazón Contento" 26 de Marzo 2026',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/OrdenDiaComiteCorazonContento26Marzo2026.pdf'},{l:'Orden del día de la Sesión de Instalación del Comité Dictaminador del Programa "Corazón Contento" 14 de Mayo 2025',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/OrdenDiaComiteCorazonContento14Mayo2025.pdf'},],fun:[],int:[]},
+    {n:'Comité Dictaminador del Programa "Guadalajara cuida a las mujeres"',cat:'dict',cre:[{l:'Acta del día de la Sesión de Instalación del Comité Dictaminador del Programa "Guadalajara cuida a las mujeres" 14 de Mayo 2025',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaComiteGuadalajaraCuidaMujeres14Mayo2025.pdf'},{l:'Versión Estenográfica de la Sesión de Instalación del Comité Dictaminador del Programa "Guadalajara cuida a las mujeres" 14 de Mayo 2025',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaComiteGuadalajaraCuidaMujeres14Mayo2025.docx'},],fun:[],int:[]},
+    {n:'Comité Dictaminador del Programa "Guadalajara Te Cuida"',cat:'dict',cre:[{l:'Versión Estenográfica de la Sesión de Instalación del Comité Dictaminador del Programa "Guadalajara Te Cuida" 26 de Marzo 2026',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/VEComiteGuadalajaraTeCuida26Marzo2026.docx'},{l:'Orden del día de la Sesión de Instalación del Comité Dictaminador del Programa "Guadalajara Te Cuida" 26 de Marzo 2026',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/OrdenDiaComiteGuadalajaraTeCuida26Marzo2026.pdf'},{l:'Versión Estenográfica de la Sesión de Instalación del Comité Dictaminador del Programa "Guadalajara Te Cuida" 02 de Abril 2025',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/VEComiteGuadalajaraTeCuida2Abril2025.docx'},{l:'Orden del día de la Sesión de Instalación del Comité Dictaminador del Programa "Guadalajara Te Cuida" 02 de Abril 2025',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/OrdenDiaComiteGuadalajaraTeCuida2Abril2025.pdf'},],fun:[],int:[]},
+    {n:'Comité Dictaminador del Programa "Guadalajara Lee"',cat:'dict',cre:[{l:'Acta de la Sesión de Instalación del Comité Dictaminador del Programa "Guadalajara Lee" 19 de Marzo 2026',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaComiteGuadalajaraLee19Marzo2026.pdf'},],fun:[],int:[]},
+    {n:'Comité Dictaminador del Programa "Limpia Guadalajara, Recicla y Techa"',cat:'dict',cre:[],fun:[],int:[]},
+    {n:'Comité Dictaminador del Programa "Cuidados de Nuestras Comunidades"',cat:'dict',cre:[],fun:[],int:[]},
+    {n:'Comité Dictaminador del Programa "Cuidamos Guadalajara"',cat:'dict',cre:[],fun:[],int:[]},
+    {n:'Comité Dictaminador del Programa "Cuidamos a tu familia"',cat:'dict',cre:[{l:'Orden del día de la Sesión de Instalación del Comité Dictaminador del Programa "Cuidamos a tu familia 2026" 26 de Marzo 2026',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/OrdenDiaComiteCuidamosTuFamilia26Marzo2026.pdf'},{l:'Orden del día de la Sesión de Instalación del Comité Dictaminador del Programa "Cuidamos a tu familia 2025" 14 de Mayo 2025',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/OrdenDiaComiteCuidamosTuFamilia14Mayo2025.pdf'},],fun:[],int:[]},
+    {n:'Comité Dictaminador del Programa "Cuidamos la cultura"',cat:'dict',cre:[{l:'Acta de la Sesión de Instalación del Comité Dictaminador del Programa "Cuidamos la cultura" 19 de Marzo 2026',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaComiteCuidamosLaCultura19Marzo2026.pdf'},],fun:[],int:[]},
+    {n:'Comité Dictaminador del Programa "Cuidamos con inclusión"',cat:'dict',cre:[{l:'Acta de Instalación del Comité Dictaminador del Programa "Cuidamos con inclusión" 23 de Febrero 2026',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaComiteCuidamosConInclusion23Febrero2026.pdf'},{l:'Versión Estenográfica de Instalación del Comité Dictaminador del Programa "Cuidamos con inclusión" 23 de Febrero 2026',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaComiteCuidamosConInclusion23Febrero2026.docx'},{l:'Versión Estenográfica de Instalación del Comité Dictaminador del Programa "Cuidamos con inclusión" 24 de Septiembre 2025',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaComiteCuidamosConInclusion24Septiembre2025.docx'},{l:'Versión Estenográfica de Instalación del Comité Dictaminador del Programa "Cuidamos con inclusión" 04 de Agosto 2025',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaComiteCuidamosConInclusion4Agosto2025.docx'},{l:'Versión Estenográfica de Instalación del Comité Dictaminador del Programa "Cuidamos con inclusión" 19 de Junio 2025',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaComiteCuidamosConInclusion19Junio2025.docx'},{l:'Acta del día de Instalación del Comité Dictaminador del Programa "Cuidamos con inclusión" 30 de Abril 2025',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaComiteCuidamosConInclusion30Abril2025.pdf'},{l:'Versión Estenográfica de Instalación del Comité Dictaminador del Programa "Cuidamos con inclusión" 30 de Abril 2025',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaComiteCuidamosConInclusion30Abril2025.docx'},],fun:[],int:[]},
+    {n:'Comité Dictaminador del Programa "Cuidamos a quien nos cuida"',cat:'dict',cre:[{l:'Versión Estenográfica de la Sesión Ordinaria de Instalación del Comité Dictaminador del Programa "Cuidamos a quien nos cuida 2026" 10 de Marzo 2026',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/VEComiteCuidamosQuienNosCuida10Marzo2026.docx'},{l:'Orden del día de la Sesión Ordinaria de Instalación del Comité Dictaminador del Programa "Cuidamos a quien nos cuida 2026" 10 de Marzo 2026',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/OrdenDiaComiteCuidamosQuienNosCuida10Marzo2026.pdf'},{l:'Orden del día de la Sesión de Instalación del Comité Dictaminador del Programa "Cuidamos a quien nos cuida" 14 de Mayo 2025',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/OrdenDiaComiteCuidamosQuienNosCuida14Mayo2025.pdf'},],fun:[],int:[]},
+    {n:'Comité Dictaminador del Programa "Guardianes de la Ciudad"',cat:'dict',cre:[],fun:[],int:[]},
+    {n:'Comité Dictaminador del Programa "Guardianes de Cuidados"',cat:'dict',cre:[],fun:[],int:[]},
+    {n:'Comité Dictaminador del Programa "Escuela Segura"',cat:'dict',cre:[{l:'Acta de la Sesión de Instalación del Comité Dictaminador del Programa "Escuela Segura" 12 de Mayo 2025',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaComiteEscuelaSegura12Mayo2025.pdf'},],fun:[],int:[]},
+    {n:'Comité Dictaminador del Programa "La cultura late"',cat:'dict',cre:[{l:'Acta de la Sesión de Instalación del Comité Dictaminador del Programa "la cultura late" 19 de Marzo 2026',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaComiteLaCulturaLate19Marzo2026.pdf'},],fun:[],int:[]},
+    {n:'Comité Dictaminador del Programa Social "Listas y Listos para la Escuela"',cat:'dict',cre:[{l:'Acta de la Sesión de Instalación del Comité Dictaminador del Programa Social "Listas y Listos para la Escuela" 03 de Abril 2025',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaComiteListasListosEscuela3Abril2025.pdf'},],fun:[],int:[]},
+    {n:'Comité Dictaminador del Programa Social "Listas y Listos para la Universidad"',cat:'dict',cre:[{l:'Acta de la Sesión de Instalación del Comité Dictaminador del Programa Social "Listas y Listos para la Universidad" 21 de Marzo 2025',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaComiteListasListosUniversidad21Marzo2025.pdf'},],fun:[],int:[]},
+    {n:'Comité Dictaminador del Programa Social "Listas y Listos para estudiar"',cat:'dict',cre:[],fun:[],int:[]},
+    {n:'Comité Dictaminador del Programa Social "Pequeños Guardianes de Guadalajara"',cat:'dict',cre:[],fun:[],int:[]},
+    {n:'Comité Dictaminador del Programa Social "Jóvenes Guardianes de Guadalajara"',cat:'dict',cre:[],fun:[],int:[]},
+    {n:'Comité Dictaminador del Programa "Hogares con Corazón"',cat:'dict',cre:[{l:'Acta de la sesión de Instalación Comité Dictaminador del Programa "Hogares con Corazón" 17 de Abril 2026',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaComiteEscuelasCorazon17Abril2026.pdf'},{l:'Acta de la sesión de Instalación del Comité Dictaminador del Programa "Hogares con Corazón" 30 de Mayo 2025',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaComiteEscuelasCorazon30Mayo2025.pdf'},],fun:[],int:[]},
+    {n:'Comité Dictaminador del Programa "Apoyo de Renta para Jóvenes"',cat:'dict',cre:[{l:'Acta de la sesión de Instalación Comité Dictaminador del Programa "Apoyo de Renta para Jóvenes" 17 de Abril 2026',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaComiteApoyoRentaJovenes17Abril2026.pdf'},],fun:[],int:[]},
+    {n:'Comité Dictaminador del Programa "Escuelas con Corazón"',cat:'dict',cre:[],fun:[],int:[]},
+    {n:'Comité contra la Discriminación del Municipio de Guadalajara',cat:'comite',cre:[{l:'Versión Estenográfica de instalación del Comité contra la Discriminación del Municipio de Guadalajara 16 de Octubre 2025',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/VEComiteContraDiscriminacion16Octubre2025.docx'},{l:'Orden del día de instalación del Comité contra la Discriminación del Municipio de Guadalajara 16 de Octubre 2025',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/OrdenDiaComiteContraDiscriminacion16Octubre2025.pdf'},],fun:[],int:[]},
+    {n:'Comisión Dictaminadora de Zona de Intervención Especial "Centro Histórico"',cat:'comite',cre:[],fun:[],int:[]},
+    {n:'Unidad Especializada en Ética e Integridad Pública',cat:'comite',cre:[],fun:[{l:'Código de Gobierno Municipal de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/CodigoGobiernoMunicipalGuadalajara.pdf'},{l:'Código de Ética del Gobierno Municipal de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/CodigoEticaGobiernoMunicipalGuadalajara.pdf'},],int:[]},
+  ];
+(function(){
+  function esc(s){ if(s==null) return ''; return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function norm(s){ return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,''); }
+  var PDFICO='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>';
+  var XLSICO='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="17"/><line x1="16" y1="13" x2="8" y2="17"/></svg>';
+  var DOCICO='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>';
+  function ic20(inner){ return '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+inner+'</svg>'; }
+  function ic14(inner){ return '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">'+inner+'</svg>'; }
+  var ICO={
+    consejo:'<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+    comite:'<path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 14l2 2 4-4"/>',
+    dict:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>',
+    ayto:'<path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9h.01M9 12h.01M9 15h.01M9 18h.01"/>',
+    cal:'<rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>',
+    book:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>',
+    users:'<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>'
+  };
+  var CATS=[
+    {k:'all',label:'Todos'},
+    {k:'consejo',label:'Consejos ciudadanos'},
+    {k:'comite',label:'Comités y comisiones'},
+    {k:'dict',label:'Comités dictaminadores'},
+    {k:'ayto',label:'Órganos del Ayuntamiento'}
+  ];
+  var SECS=[
+    {key:'cre',h:'Fecha de creación / instalación',ico:ICO.cal,empty:'Acta de instalación en proceso de publicación en línea.'},
+    {key:'fun',h:'Funciones que realiza',ico:ICO.book,empty:'Sus funciones se establecen en el reglamento u ordenamiento que lo rige.'},
+    {key:'int',h:'Integrantes (nombre y cargo)',ico:ICO.users,empty:'La integración se detalla en el acta de instalación.'}
+  ];
+
+  function docBtn(url){
+    var u=String(url).replace(/ /g,'%20');
+    var ext=u.split('?')[0].split('.').pop().toLowerCase();
+    if(ext==='pdf') return '<a class="tf-btn pdf" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer">'+PDFICO+'Ver PDF</a>';
+    var viewer='https://view.officeapps.live.com/op/view.aspx?src='+encodeURIComponent(u);
+    if(ext==='xlsx'||ext==='xls') return '<a class="tf-btn xls" href="'+esc(viewer)+'" target="_blank" rel="noopener noreferrer">'+XLSICO+'Abrir Excel</a>';
+    return '<a class="tf-btn doc" href="'+esc(viewer)+'" target="_blank" rel="noopener noreferrer">'+DOCICO+'Abrir documento</a>';
+  }
+  function rows(arr){ var h=''; for(var i=0;i<arr.length;i++){ h+='<div class="tf-file"><span class="tf-file-t">'+esc(arr[i].l)+'</span>'+docBtn(arr[i].u)+'</div>'; } return h; }
+  var CHEV='<svg class="tf-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
+
+  var totalDocs=0;
+  var root=document.getElementById('evRoot');
+  var html='';
+  for(var ci=0;ci<CATS.length;ci++){
+    if(CATS[ci].k==='all') continue;
+    var ck=CATS[ci].k;
+    var grp=[]; for(var z=0;z<ORG.length;z++){ if(ORG[z].cat===ck) grp.push(ORG[z]); }
+    if(!grp.length) continue;
+    html+='<div class="ev-grp-title" data-grp="'+ck+'">'+esc(CATS[ci].label)+'</div><div class="ev-list" data-grp="'+ck+'">';
+    for(var g=0;g<grp.length;g++){
+      var o=grp[g];
+      var nDocs=o.cre.length+o.fun.length+o.int.length; totalDocs+=nDocs;
+      var sd=norm(o.n+' '+CATS[ci].label);
+      var body='';
+      for(var s=0;s<SECS.length;s++){
+        var arr=o[SECS[s].key];
+        body+='<div class="xv-grp"><div class="xv-grp-h">'+ic14(SECS[s].ico)+esc(SECS[s].h)+'</div>';
+        if(arr&&arr.length){ body+=rows(arr); for(var r2=0;r2<arr.length;r2++){ sd+=' '+norm(arr[r2].l); } }
+        else { var note=(SECS[s].key==='int'&&(!o.cre||!o.cre.length))?'Integrantes pendientes de publicación en línea.':SECS[s].empty; body+='<div class="xv-note">'+esc(note)+'</div>'; }
+        body+='</div>';
+      }
+      var badge = nDocs>0 ? ('<span class="tf-badge">'+nDocs+(nDocs===1?' documento':' documentos')+'</span>') : '<span class="tf-badge muted">En publicación</span>';
+      html+='<details class="tf-item" data-cat="'+ck+'" data-search="'+esc(sd)+'">'+
+        '<summary><div class="tf-head"><span class="tf-ico" aria-hidden="true">'+ic20(ICO[ck]||ICO.comite)+'</span>'+
+        '<span class="tf-tx"><b>'+esc(o.n)+'</b></span>'+
+        '<span class="tf-right">'+badge+CHEV+'</span></div></summary>'+
+        '<div class="tf-body">'+body+'</div></details>';
+    }
+    html+='</div>';
+  }
+  root.innerHTML=html;
+  document.getElementById('evC1').textContent=ORG.length;
+  document.getElementById('evC2').textContent=totalDocs;
+
+  /* ---- Botones-filtro por categoría ---- */
+  var activeCat='all';
+  var tabsHtml='';
+  for(var t=0;t<CATS.length;t++){
+    var cnt = CATS[t].k==='all' ? ORG.length : ORG.filter(function(o){return o.cat===CATS[t].k;}).length;
+    tabsHtml+='<button type="button" class="ev-tab'+(t===0?' active':'')+'" data-k="'+CATS[t].k+'" aria-pressed="'+(t===0?'true':'false')+'">'+esc(CATS[t].label)+' <span class="n">'+cnt+'</span></button>';
+  }
+  document.getElementById('evTabs').innerHTML=tabsHtml;
+
+  /* ---- Buscador + filtro ---- */
+  var inp=document.getElementById('evQ'), clearBtn=document.getElementById('evClear'), box=document.querySelector('.tf-search');
+  var count=document.getElementById('evCount'), noRes=document.getElementById('evNoRes'), noResQ=document.getElementById('evNoResQ');
+  var evScroll=document.getElementById('evScroll');
+  var items=[].slice.call(document.querySelectorAll('#evRoot .tf-item'));
+  var grpTitles=[].slice.call(document.querySelectorAll('.ev-grp-title'));
+  var grpLists=[].slice.call(document.querySelectorAll('.ev-list'));
+  function matches(ds,toks){ for(var c=0;c<toks.length;c++){ if(ds.indexOf(toks[c])===-1) return false; } return true; }
+  function apply(){
+    var raw=inp.value.replace(/^\s+|\s+$/g,''); var toks=norm(raw).split(/\s+/).filter(Boolean);
+    box.classList.toggle('has-q', raw.length>0);
+    var vis=0, perGrp={};
+    for(var i=0;i<items.length;i++){
+      var it=items[i], cat=it.getAttribute('data-cat');
+      var inCat=(activeCat==='all'||cat===activeCat);
+      var ok = inCat && (toks.length===0 || matches(it.getAttribute('data-search'), toks));
+      it.classList.toggle('hide', !ok);
+      if(!ok) it.removeAttribute('open');
+      if(ok){ vis++; perGrp[cat]=(perGrp[cat]||0)+1; }
+    }
+    for(var t2=0;t2<grpTitles.length;t2++){ var gk=grpTitles[t2].getAttribute('data-grp'); grpTitles[t2].style.display=(perGrp[gk]>0)?'':'none'; }
+    for(var l=0;l<grpLists.length;l++){ var lk=grpLists[l].getAttribute('data-grp'); grpLists[l].style.display=(perGrp[lk]>0)?'':'none'; }
+    var word=(vis===1?'órgano':'órganos');
+    if(vis===0){ count.innerHTML='<b>0</b> órganos · sin coincidencias'; noResQ.textContent='«'+(raw||(activeCat!=='all'?'esta categoría':''))+'»'; noRes.className='tf-noresults show'; }
+    else if(toks.length===0 && activeCat==='all'){ count.innerHTML='<b>'+ORG.length+'</b> órganos colegiados registrados'; noRes.className='tf-noresults'; }
+    else { count.innerHTML='<b>'+vis+'</b> '+word+(toks.length?(vis===1?' encontrado':' encontrados'):' en esta categoría'); noRes.className='tf-noresults'; }
+    reportHeight();
+  }
+  inp.addEventListener('input', function(){ if(evScroll) evScroll.scrollTop=0; apply(); });
+  clearBtn.addEventListener('click', function(){ inp.value=''; if(evScroll) evScroll.scrollTop=0; apply(); inp.focus(); });
+  [].slice.call(document.querySelectorAll('.ev-tab')).forEach(function(b){
+    b.addEventListener('click', function(){
+      activeCat=b.getAttribute('data-k');
+      [].slice.call(document.querySelectorAll('.ev-tab')).forEach(function(x){ var on=(x===b); x.classList.toggle('active',on); x.setAttribute('aria-pressed',on?'true':'false'); });
+      if(evScroll) evScroll.scrollTop=0;
+      apply();
+    });
+  });
+  [].slice.call(document.querySelectorAll('details.tf-item')).forEach(function(x){ x.addEventListener('toggle', reportHeight); });
+  apply();
+
+  /* ---- Altura Strapi ---- */
+  var lastH=0;
+  function reportHeight(){ var h=Math.max(document.body.scrollHeight,document.body.offsetHeight,document.documentElement.offsetHeight); if(h&&Math.abs(h-(lastH||0))>1){ lastH=h; try{ parent.postMessage({type:'gdl-iframe-height',id:'consejos-consultivos-ciudadanos-art15-XVI',height:h},'*'); }catch(e){} } }
+  window.addEventListener('load', reportHeight); window.addEventListener('resize', reportHeight);
+  setTimeout(reportHeight,300); setTimeout(reportHeight,1000);
+
+  /* ---- Botón subir ---- */
+  var tb=document.getElementById('evTopBtn');
+  function sc(){ tb.classList.toggle('show',(window.pageYOffset||document.documentElement.scrollTop)>320); }
+  window.addEventListener('scroll', sc, {passive:true});
+  tb.addEventListener('click', function(){ var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches; window.scrollTo({top:0,behavior:rm?'auto':'smooth'}); }); sc();
+})();
+</script>
+</body>
+</html>

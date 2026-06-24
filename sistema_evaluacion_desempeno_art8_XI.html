@@ -84,7 +84,11 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
 .sd-chev{flex-shrink:0;color:var(--g400);transition:transform .2s var(--ease)}
 .sd-acc[open] .sd-chev{transform:rotate(180deg)}
 .sd-acc[open] .sd-sum{border-bottom:1px solid var(--g200);background:var(--g50)}
-.sd-acc-body{padding:9px 14px 14px}
+.sd-acc-body{padding:9px 14px 14px;max-height:620px;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:var(--ac-border) transparent}
+.sd-acc-body::-webkit-scrollbar{width:10px}
+.sd-acc-body::-webkit-scrollbar-track{background:transparent}
+.sd-acc-body::-webkit-scrollbar-thumb{background:var(--ac-border);border-radius:8px;border:2px solid var(--wh)}
+.sd-acc-body::-webkit-scrollbar-thumb:hover{background:var(--ac)}
 
 /* FILA DOC */
 .sd-row{display:flex;align-items:center;gap:14px;padding:11px 14px;border-radius:10px;border:1px solid var(--g100);background:var(--g50);transition:border-color .14s,background .14s}
@@ -175,7 +179,7 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
   .sd-sum{padding:14px 15px;gap:12px}
   .sd-sum-ico{width:38px;height:38px}
   .sd-sum-t{font-size:14px}
-  .sd-acc-body{padding:7px 10px 12px}
+  .sd-acc-body{padding:7px 10px 12px;max-height:72vh}
   .sd-row{flex-direction:column;align-items:stretch;gap:10px}
   .sd-row .sd-btn{width:100%;justify-content:center;padding:12px 14px;font-size:13px}
   .sd-ley blockquote{padding:12px 14px;font-size:13px}
@@ -195,7 +199,7 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
 
   <!-- HERO -->
   <section class="sd-hero">
-    <span class="sd-hero-tag">Art. 8 · Fracción XI · Ley de Transparencia Jalisco</span>
+    <span class="sd-hero-tag">Art. 8 · Fr. XI · Art. 15 · Fr. XXIII · Ley de Transparencia Jalisco</span>
     <h1>¿El dinero público cumplió su objetivo? <em>Sistema de Evaluación del Desempeño</em></h1>
     <p class="sd-hero-sub">Aquí se mide si los <strong>recursos federales</strong> que llegan a Guadalajara —para infraestructura social, fortalecimiento municipal y seguridad— se gastaron bien. Reúne las <strong>evaluaciones, sus anexos, el plan y los términos de cada año, las agendas de mejora y las sesiones del Comité Técnico</strong>, de 2017 a 2026.</p>
     <div class="sd-hero-meta">
@@ -266,9 +270,10 @@ body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--
         <h3>¿Por qué el Ayuntamiento publica esta información?</h3>
       </div>
     </div>
-    <p>Es una obligación de transparencia. La ley ordena publicar, palabra por palabra, lo siguiente:</p>
+    <p>Son <strong>dos</strong> obligaciones de transparencia. La ley ordena publicar, palabra por palabra, lo siguiente:</p>
     <blockquote>«Artículo 8°. <strong>1.</strong> Es información fundamental, obligatoria para todos los sujetos obligados, la siguiente: (…) <strong>XI.</strong> Los estudios financiados con recursos públicos;»</blockquote>
-    <p>— <strong>Artículo 8, fracción XI</strong> de la <em>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</em>. Las evaluaciones del desempeño son, precisamente, estudios técnicos financiados con recursos públicos; se realizan conforme a la <strong>Ley General de Contabilidad Gubernamental</strong>, la <strong>Ley de Coordinación Fiscal</strong> y los <em>Lineamientos PbR-SED</em> del Municipio. Los archivos de esta página son los oficiales, tal como fueron publicados por el sujeto obligado; ante cualquier discrepancia, prevalece el documento oficial.</p>
+    <blockquote>«Artículo 15. <strong>1.</strong> Es información pública fundamental de los ayuntamientos: (…) <strong>XXIII.</strong> Los indicadores de evaluación del desempeño;»</blockquote>
+    <p>— Esta información cumple <strong>dos obligaciones</strong>: el <strong>Artículo 8, fracción XI</strong> (común a todos los sujetos obligados) y el <strong>Artículo 15, fracción XXIII</strong> (específica de los ayuntamientos) de la <em>Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</em>. Las evaluaciones del desempeño son estudios técnicos financiados con recursos públicos (Art. 8, fr. XI) y, a la vez, los indicadores de evaluación del desempeño del municipio (Art. 15, fr. XXIII); se realizan conforme a la <strong>Ley General de Contabilidad Gubernamental</strong>, la <strong>Ley de Coordinación Fiscal</strong> y los <em>Lineamientos PbR-SED</em> del Municipio. Los archivos de esta página son los oficiales, tal como fueron publicados por el sujeto obligado; ante cualquier discrepancia, prevalece el documento oficial.</p>
     <div class="sd-ley-fuente">
       Fuente oficial: portal de transparencia del Ayuntamiento de Guadalajara · sección «Sistema de Evaluación del Desempeño».<br>
       143 documentos (2017–2026) verificados en línea uno por uno (HTTP 200).

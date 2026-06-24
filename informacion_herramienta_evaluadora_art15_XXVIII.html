@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Información por Herramienta Evaluadora del Ayuntamiento de Guadalajara: la evidencia documental con la que el municipio responde a las evaluaciones externas de transparencia de CIMTRA, el IMCO (Barómetro de Información Presupuestal) y Aregional (Índice ITDIF-M de información fiscal), además de la información de libre acceso y ordinaria. Art. 15, Fracción XXVIII de la Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios."/>
+<title>Información por Herramienta Evaluadora de Guadalajara · CIMTRA, IMCO e ITDIF-M · Art. 15 Frac. XXVIII</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ac:#E87722;--ac-l:#FFE4CC;--ac-d:#C45F0A;--ac-deeper:#8B4308;--ac-border:#F5C99A;--ac-soft:#FFF1E4;
+  --g50:#FAFAF8;--g100:#F0F0EC;--g200:#E2E2DD;--g300:#CFCFC8;--g400:#9E9E98;--g600:#5A5A55;--g800:#2D2D2A;--g900:#1A1A1A;
+  --wh:#FFF;--ok:#16A34A;--ok-d:#0E6B4C;--ok-l:#DCFCE7;--ok-border:#A7E8C0;
+  --wd:#1E5BB8;--wd-l:#DBEAFE;--wd-border:#BFD4F5;
+  --rad:10px;--rad-lg:14px;
+  --sh:0 4px 22px rgba(0,0,0,.08);--sh-sm:0 1px 3px rgba(0,0,0,.06);--sh-md:0 6px 18px rgba(0,0,0,.07);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --fh:'Outfit',system-ui,-apple-system,sans-serif;
+  --fm:'DM Mono','SF Mono',Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{margin:0;padding:24px;background:#f7f3ec;font-family:var(--fh);color:var(--g900);line-height:1.55;-webkit-font-smoothing:antialiased}
+.tf-wrap{max-width:1040px;margin:0 auto}
+
+/* HERO */
+.tf-hero{background:linear-gradient(135deg,var(--ac-soft) 0%,#FFFFFF 55%);color:var(--g900);border-radius:var(--rad-lg);padding:28px 32px;margin:0 0 20px;position:relative;overflow:hidden;border-left:5px solid var(--ac);box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.tf-hero::before{content:'';position:absolute;top:-66px;right:-66px;width:210px;height:210px;border-radius:50%;background:radial-gradient(circle,rgba(232,119,34,.12) 0%,transparent 70%);pointer-events:none}
+.tf-hero-tag{display:inline-block;background:var(--ac);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px;position:relative;z-index:1;box-shadow:0 2px 6px rgba(232,119,34,.25)}
+.tf-hero h1{margin:0 0 9px;font-size:clamp(22px,3.2vw,29px);font-weight:800;color:var(--g900);letter-spacing:-.018em;line-height:1.2;position:relative;z-index:1}
+.tf-hero h1 em{font-style:normal;color:var(--ac-d);display:block;margin-top:3px}
+.tf-hero-sub{font-size:14.5px;color:var(--g600);max-width:74ch;margin:0;line-height:1.62;position:relative;z-index:1}
+.tf-hero-sub strong{color:var(--g900);font-weight:700}
+.tf-hero-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;position:relative;z-index:1}
+.tf-chip{display:inline-flex;align-items:center;gap:6px;background:var(--wh);border:1.5px solid var(--ac-border);color:var(--ac-d);font-size:11.5px;font-weight:700;padding:5px 12px;border-radius:20px}
+.tf-chip b{font-family:var(--fm);font-weight:500}
+.tf-chip.neutral{border-color:var(--g200);color:var(--g600)}
+
+/* BUSCADOR */
+.tf-search-wrap{margin:0 0 10px}
+.tf-search{position:relative;display:flex;align-items:center;background:var(--wh);border:1.5px solid var(--g200);border-radius:12px;box-shadow:var(--sh-sm);transition:border-color .15s,box-shadow .15s}
+.tf-search:focus-within{border-color:var(--ac);box-shadow:0 0 0 3px rgba(232,119,34,.12)}
+.tf-search>svg{position:absolute;left:15px;color:var(--g400);pointer-events:none}
+.tf-search input{flex:1;width:100%;border:0;outline:0;background:transparent;font-family:var(--fh);font-size:14.5px;color:var(--g900);padding:13px 46px}
+.tf-search input::placeholder{color:var(--g400)}
+.tf-search input::-webkit-search-cancel-button{display:none}
+.tf-clear{position:absolute;right:8px;width:34px;height:34px;border:0;background:var(--g100);color:var(--g600);border-radius:50%;font-size:19px;line-height:1;cursor:pointer;display:none;align-items:center;justify-content:center;transition:background .14s;font-family:var(--fh)}
+.tf-clear:hover{background:var(--g200);color:var(--g900)}
+.tf-search.has-q .tf-clear{display:flex}
+.tf-count{font-size:12px;color:var(--g600);font-weight:600;margin:0 2px 18px}
+.tf-count b{color:var(--ac-d);font-family:var(--fm);font-weight:500}
+
+/* FILTRO POR HERRAMIENTA (botones) */
+.ev-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+.ev-tab{display:inline-flex;align-items:center;gap:8px;font-family:var(--fh);font-size:12.5px;font-weight:700;color:var(--g600);background:var(--wh);border:1.5px solid var(--g200);border-radius:22px;padding:8px 15px;cursor:pointer;transition:background .14s,color .14s,border-color .14s,box-shadow .14s;white-space:nowrap;line-height:1}
+.ev-tab:hover{border-color:var(--ac-border);color:var(--ac-d)}
+.ev-tab .n{font-family:var(--fm);font-weight:500;font-size:11px;background:var(--g100);color:var(--g600);border-radius:20px;padding:2px 7px;transition:background .14s,color .14s}
+.ev-tab.active{background:var(--ac);border-color:var(--ac);color:#fff;box-shadow:0 2px 8px rgba(232,119,34,.28)}
+.ev-tab.active .n{background:rgba(0,0,0,.22);color:#fff}
+.ev-tab:focus-visible,.ev-scroll:focus-visible{outline:none;box-shadow:0 0 0 2px #fff,0 0 0 4px var(--ac-d)}
+
+/* SCROLL INTERNO */
+.ev-scroll{max-height:600px;overflow-y:auto;overscroll-behavior:contain;border:1.5px solid var(--g200);border-radius:var(--rad-lg);padding:6px 12px 12px;background:var(--g50);scrollbar-width:thin;scrollbar-color:var(--ac-border) transparent}
+.ev-scroll::-webkit-scrollbar{width:11px}
+.ev-scroll::-webkit-scrollbar-track{background:transparent}
+.ev-scroll::-webkit-scrollbar-thumb{background:var(--ac-border);border-radius:8px;border:3px solid var(--g50)}
+.ev-scroll::-webkit-scrollbar-thumb:hover{background:var(--ac)}
+.ev-scroll .tf-sec-title{margin-top:16px}
+.ev-scroll .ev-herr:first-child .tf-sec-title{margin-top:6px}
+
+/* SECCIÓN TÍTULO (herramienta) */
+.tf-sec-title{font-size:12.5px;font-weight:800;color:var(--g800);letter-spacing:.1em;text-transform:uppercase;margin:26px 4px 12px;display:flex;align-items:center;gap:10px}
+.tf-sec-title::after{content:'';flex:1;height:1.5px;background:var(--g200);border-radius:2px}
+
+/* CABECERA DE HERRAMIENTA */
+.ev-herr{margin:0}
+.ev-herr.hide{display:none}
+.ev-tool{background:var(--wh);border:1.5px solid var(--ac-border);border-left:5px solid var(--ac);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);padding:18px 20px;margin:0 0 12px;display:flex;gap:16px;align-items:flex-start}
+.ev-tool-ico{flex-shrink:0;width:46px;height:46px;border-radius:12px;background:var(--ac-soft);color:var(--ac-d);display:flex;align-items:center;justify-content:center;border:1px solid var(--ac-border)}
+.ev-tool-bd{flex:1;min-width:0}
+.ev-tool-bd h3{font-size:15.5px;font-weight:800;color:var(--g900);letter-spacing:-.01em;line-height:1.3;margin:0 0 5px}
+.ev-tool-bd p{font-size:12.5px;color:var(--g600);line-height:1.6;margin:0}
+.ev-tool-note{margin-top:10px;font-size:12px;color:var(--g800);background:var(--ac-soft);border:1px solid var(--ac-border);border-radius:8px;padding:9px 12px;line-height:1.55}
+.ev-tool-note b{color:var(--ac-d);font-weight:700}
+.ev-tool-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px}
+.ev-cnt{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:4px 11px;border-radius:20px;background:var(--ac-l);color:var(--ac-d)}
+
+/* LISTA / ACORDEONES (bloques) */
+.ev-bloques{display:flex;flex-direction:column;gap:10px;margin:0 0 6px}
+.tf-item{background:var(--wh);border:1.5px solid var(--g200);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);overflow:hidden}
+.tf-item.hide{display:none}
+.tf-head{display:flex;align-items:center;gap:14px;padding:15px 18px}
+.tf-ico{flex-shrink:0;width:40px;height:40px;border-radius:11px;background:var(--ac-soft);color:var(--ac-d);display:flex;align-items:center;justify-content:center;border:1px solid var(--ac-border)}
+.tf-tx{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.tf-tx b{font-size:14px;font-weight:800;color:var(--g900);letter-spacing:-.01em;line-height:1.3}
+.tf-right{flex-shrink:0;display:flex;align-items:center;gap:10px}
+
+/* details */
+details.tf-item>summary{list-style:none;cursor:pointer}
+details.tf-item>summary::-webkit-details-marker{display:none}
+.tf-chev{flex-shrink:0;color:var(--ac-d);transition:transform .2s var(--ease)}
+details.tf-item[open]>summary .tf-chev{transform:rotate(180deg)}
+details.tf-item[open]>summary .tf-head{border-bottom:1px solid var(--g100)}
+.tf-files{padding:8px 12px 12px}
+.tf-file{display:flex;align-items:center;gap:14px;padding:10px 12px;border-radius:9px;border:1px solid var(--g100);background:var(--g50);transition:border-color .14s,background .14s}
+.tf-file+.tf-file{margin-top:7px}
+.tf-file:hover{border-color:var(--ac-border);background:var(--wh)}
+.tf-file-t{flex:1;min-width:0;font-size:12.5px;font-weight:600;color:var(--g800);line-height:1.4}
+
+/* botones doc */
+.tf-btn{flex-shrink:0;display:inline-flex;align-items:center;gap:7px;font-family:var(--fh);font-size:12px;font-weight:700;padding:8px 14px;border-radius:9px;cursor:pointer;text-decoration:none;border:1.5px solid var(--ac);background:var(--ac);color:#fff;transition:all .14s var(--ease);white-space:nowrap}
+.tf-btn:hover{background:var(--ac-d);border-color:var(--ac-d);transform:translateY(-1px)}
+.tf-btn svg{flex-shrink:0}
+.tf-btn.xls{background:var(--wh);color:var(--ok-d);border-color:var(--ok-border)}
+.tf-btn.xls:hover{background:var(--ok-l);border-color:var(--ok);color:var(--ok-d)}
+.tf-btn.doc{background:var(--wh);color:var(--wd);border-color:var(--wd-border)}
+.tf-btn.doc:hover{background:var(--wd-l);border-color:var(--wd);color:var(--wd)}
+.tf-btn.ext{background:var(--wh);color:var(--ac-d);border-color:var(--ac-border)}
+.tf-btn.ext:hover{background:var(--ac);color:#fff;border-color:var(--ac)}
+
+/* badge count */
+.tf-badge{display:inline-flex;align-items:center;gap:5px;font-size:9.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:4px 10px;border-radius:20px;white-space:nowrap;background:var(--ac-l);color:var(--ac-d)}
+
+/* SIN RESULTADOS */
+.tf-noresults{display:none;background:var(--ac-soft);border:1.5px solid var(--ac-border);border-radius:var(--rad-lg);padding:22px 24px;font-size:13.5px;color:var(--g800);line-height:1.6;text-align:center;margin-top:4px}
+.tf-noresults.show{display:block}
+.tf-noresults strong{color:var(--ac-d);font-weight:700}
+
+/* FOOTER */
+.tf-foot-title{font-size:12.5px;font-weight:800;color:var(--g800);letter-spacing:.1em;text-transform:uppercase;margin:36px 4px 16px;display:flex;align-items:center;gap:10px}
+.tf-foot-title::after{content:'';flex:1;height:1.5px;background:var(--g200);border-radius:2px}
+.tf-info{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.tf-info-card{background:var(--wh);border-radius:var(--rad-lg);box-shadow:var(--sh-sm);border-top:5px solid var(--ac);padding:18px 20px;display:flex;flex-direction:column;gap:8px}
+.tf-info-ico{width:40px;height:40px;border-radius:11px;background:var(--ac-soft);color:var(--ac-d);display:flex;align-items:center;justify-content:center;margin-bottom:2px}
+.tf-info-card h3{font-size:14.5px;font-weight:800;color:var(--g900);letter-spacing:-.01em;line-height:1.3}
+.tf-info-card p{font-size:12.5px;color:var(--g600);line-height:1.6}
+.tf-info-card p strong{color:var(--g800);font-weight:700}
+
+/* LEY */
+.tf-ley{background:var(--wh);border-radius:var(--rad-lg);padding:22px 26px;border-left:4px solid var(--ac-d);box-shadow:var(--sh-sm);margin-top:22px}
+.tf-ley-eye{font-size:10.5px;font-weight:800;color:var(--ac-d);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.tf-ley-head{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.tf-ley-seal{flex-shrink:0;width:46px;height:46px;border-radius:50%;background:var(--ac-soft);border:2px solid var(--ac);color:var(--ac-d);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(232,119,34,.18)}
+.tf-ley-head .tf-ley-eye{margin-bottom:3px}
+.tf-ley-head h3{margin-bottom:0}
+.tf-ley h3{font-size:16px;font-weight:800;color:var(--g900);margin-bottom:8px;letter-spacing:-.008em}
+.tf-ley p{font-size:13px;color:var(--g600);line-height:1.65;max-width:80ch}
+.tf-ley p+p{margin-top:7px}
+.tf-ley p strong{color:var(--g800);font-weight:600}
+.tf-ley blockquote{font-size:13.5px;color:var(--g600);line-height:1.65;margin:12px 0 8px;padding:13px 18px;background:var(--ac-soft);border-left:3px solid var(--ac);border-radius:6px;font-style:italic;max-width:80ch;overflow-wrap:anywhere}
+.tf-ley blockquote strong{color:var(--g900);font-style:normal;font-weight:700}
+
+/* BOTÓN SUBIR */
+.tf-top{position:fixed;right:18px;bottom:18px;z-index:60;width:46px;height:46px;border-radius:50%;border:0;background:var(--ac);color:#fff;box-shadow:0 6px 18px rgba(196,95,10,.38);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .18s,transform .18s,visibility .18s}
+.tf-top.show{opacity:1;visibility:visible;transform:none}
+.tf-top:hover{background:var(--ac-d)}
+
+/* A11Y */
+.tf-clear:focus-visible,.tf-btn:focus-visible,.tf-top:focus-visible,details.tf-item>summary:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(232,119,34,.45)}
+details.tf-item:has(>summary:focus-visible){border-color:var(--ac-border)}
+
+/* RESPONSIVE */
+@media (min-width:781px) and (max-width:1024px){ body{padding:20px} .tf-hero{padding:26px 28px} .tf-ley{padding:20px 24px} }
+@media (max-width:820px){ .tf-info{grid-template-columns:1fr} }
+@media (max-width:780px){ body{padding:14px} .tf-hero{padding:22px 18px} .tf-ley{padding:18px 18px} }
+@media (max-width:600px){
+  body{padding:10px}
+  .tf-hero{padding:18px 15px;border-radius:12px}
+  .tf-hero h1{font-size:19px;line-height:1.24}
+  .tf-hero-tag{font-size:9.5px;padding:4px 11px}
+  .ev-tool{flex-direction:column;gap:12px;padding:16px 15px}
+  .ev-tab{font-size:12px;padding:10px 14px;min-height:44px}
+  .ev-scroll{max-height:460px;padding:6px 9px 10px}
+  .tf-head{padding:14px 14px;gap:12px}
+  .tf-file{flex-direction:column;align-items:stretch;gap:9px}
+  .tf-file .tf-btn{width:100%;justify-content:center;padding:11px 14px}
+  .tf-ley blockquote{padding:12px 14px;font-size:13px}
+  .tf-ley{margin-bottom:64px}
+  .tf-top{right:12px;bottom:12px;width:44px;height:44px}
+}
+@media (max-width:380px){ .tf-hero{padding:18px 14px} .tf-hero h1{font-size:18px} .tf-hero-sub{font-size:13.5px} }
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="tf-wrap" id="evTop">
+
+  <!-- HERO -->
+  <section class="tf-hero">
+    <span class="tf-hero-tag">Art. 15 · Fracción XXVIII · Ley de Transparencia Jalisco</span>
+    <h1>Información por Herramienta Evaluadora <em>Cómo evalúan la transparencia de Guadalajara, con la evidencia en la mano</em></h1>
+    <p class="tf-hero-sub">El Ayuntamiento se somete de forma permanente a la evaluación de <strong>organismos externos especializados</strong> en transparencia. Aquí se reúne, herramienta por herramienta, la <strong>evidencia documental</strong> que sustenta cada evaluación.</p>
+    <div class="tf-hero-meta">
+      <span class="tf-chip"><b id="evC1">4</b> herramientas evaluadoras</span>
+      <span class="tf-chip neutral"><b id="evC2">0</b> documentos</span>
+      <span class="tf-chip neutral">Evaluación externa e independiente</span>
+    </div>
+  </section>
+
+  <!-- BUSCADOR -->
+  <div class="tf-search-wrap">
+    <div class="tf-search">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="evQ" type="search" autocomplete="off" placeholder="Busca por herramienta, bloque o documento… (ej.: cimtra, ley de ingresos, obras, predial)" aria-label="Buscar por herramienta, bloque o documento"/>
+      <button type="button" class="tf-clear" id="evClear" aria-label="Limpiar búsqueda" title="Limpiar">&times;</button>
+    </div>
+    <div class="tf-count" id="evCount" aria-live="polite" aria-atomic="true"></div>
+  </div>
+
+  <!-- FILTRO POR HERRAMIENTA -->
+  <div class="ev-tabs" id="evTabs" role="group" aria-label="Filtrar por herramienta evaluadora"></div>
+
+  <!-- HERRAMIENTAS (con scroll interno) -->
+  <div class="ev-scroll" id="evScroll" role="region" aria-label="Documentos por herramienta evaluadora" tabindex="0">
+    <div id="evRoot"></div>
+    <!-- SIN RESULTADOS -->
+    <div class="tf-noresults" id="evNoRes" role="status">No encontramos nada que coincida con <strong id="evNoResQ"></strong>. Prueba con otra palabra (por ejemplo «cimtra», «predial», «obras» o «ingresos») o cambia de herramienta.</div>
+  </div>
+
+  <!-- PARA ENTENDERLO MEJOR -->
+  <div class="tf-foot-title">Para entenderlo mejor</div>
+  <div class="tf-info">
+    <div class="tf-info-card">
+      <div class="tf-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+      <h3>¿Qué es una herramienta evaluadora?</h3>
+      <p>Es la <strong>metodología de un organismo independiente</strong> que califica qué tan transparente y accesible es la información de un gobierno. El municipio no se autoevalúa: lo miden <strong>terceros</strong> con criterios públicos.</p>
+    </div>
+    <div class="tf-info-card">
+      <div class="tf-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg></div>
+      <h3>¿Quiénes evalúan a Guadalajara?</h3>
+      <p><strong>CIMTRA</strong> (colectivo ciudadano, 37 criterios), el <strong>IMCO</strong> (información presupuestal) y <strong>Aregional</strong> (información fiscal, índice ITDIF-M). Cada uno observa un ángulo distinto del manejo público.</p>
+    </div>
+    <div class="tf-info-card">
+      <div class="tf-info-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+      <h3>¿Para qué te sirve?</h3>
+      <p>Para ver, con los <strong>documentos originales</strong>, cómo y con qué evidencia el Ayuntamiento responde a evaluaciones independientes, sin tener que confiar solo en su palabra.</p>
+    </div>
+  </div>
+
+  <!-- FUNDAMENTO LEGAL -->
+  <section class="tf-ley">
+    <div class="tf-ley-head">
+      <span class="tf-ley-seal" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 4v6c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6l7-4z"/><path d="M9 12l2 2 4-4"/></svg></span>
+      <div><div class="tf-ley-eye">Fundamento legal</div><h3>Información por Herramienta Evaluadora</h3></div>
+    </div>
+    <p>El Municipio de Guadalajara publica esta información en medios electrónicos de conformidad con los <strong>numerales 19, 20 y 21 del Reglamento de Transparencia y Acceso a la Información Pública del Municipio de Guadalajara</strong>, en relación con los <strong>artículos 8 y 15 de la Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios</strong> (LTAIPEJM).</p>
+    <blockquote>«El Municipio de Guadalajara […] publicará en medios electrónicos la siguiente información: <strong>Información de Libre Acceso y Ordinaria</strong>; <strong>Herramienta CIMTRA</strong> (Colectivo por Municipios Transparentes); <strong>Presupuesto Ciudadano, IMCO</strong> (Instituto Mexicano para la Competitividad); y <strong>AR Regional</strong> (Herramienta Índice de Transparencia de la Información Fiscal).»</blockquote>
+    <p>Las evaluaciones de CIMTRA, IMCO y Aregional son ejercicios <strong>externos e independientes</strong>; los documentos aquí reunidos son la evidencia con la que el municipio sustenta sus resultados ante cada metodología.</p>
+  </section>
+
+</div>
+
+<button class="tf-top" id="evTopBtn" aria-label="Volver al inicio" title="Volver arriba"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></button>
+
+<script>
+  var DOCS = [
+    {t:'cimtra',b:'Convenios y documentos generales',l:'Convenio de Colaboración CIMTRA (Administración 2024-2027)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ConvenioColaboracionCimtra2024-2027.pdf'},
+    {t:'cimtra',b:'Convenios y documentos generales',l:'Convenio de Colaboración CIMTRA (Administración 2021-2024)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ConvenioColaboracionCimtra2021.pdf'},
+    {t:'cimtra',b:'Convenios y documentos generales',l:'Convenio de Colaboración CIMTRA (Administración 2018-2021)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ConvenioColaboracionCimtra2018.pdf'},
+    {t:'cimtra',b:'Convenios y documentos generales',l:'Convenio de Colaboración CIMTRA (Administración 2015-2018)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ConvenioCimtra2016.pdf'},
+    {t:'cimtra',b:'Bloque de Gastos',l:'Dictaminación de estados financieros 2026 (oficio)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/OficioDictaminacionEstadosFinancieros26.pdf'},
+    {t:'cimtra',b:'Bloque de Gastos',l:'Auditoría a estados financieros 2026 (oficio)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/OficioAuditoriaEstadosFinancieros26.pdf'},
+    {t:'cimtra',b:'Bloque de Gastos',l:'Auditorías realizadas 2026 (oficio)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/OficioAuditoriasRealizadas2026.pdf'},
+    {t:'cimtra',b:'Bloque de Obras',l:'Obras Propuestas 2024',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ObrasPropuestasFAIS2024.xlsx'},
+    {t:'cimtra',b:'Bloque de Obras',l:'Obras Seleccionadas 2024',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ObrasSelecionadasFAISMUN2024.xlsx'},
+    {t:'cimtra',b:'Bloque de Obras',l:'Obras Seleccionadas Detalladas 2024',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/SubComiteInfraestructuraDetalleObras24Enero2024.pdf'},
+    {t:'cimtra',b:'Bloque de Obras',l:'Acta Primera Sesión Ordinaria 24 de Enero 2024 (Obras Seleccionadas)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/SubComiteInfraestructuraActa24Enero2024.pdf'},
+    {t:'cimtra',b:'Bloque de Obras',l:'Obras Propuestas 2023',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ObrasPropuestasFAIS2023.xlsx'},
+    {t:'cimtra',b:'Bloque de Obras',l:'Obras Seleccionadas 2023',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ObrasSelecionadasFAISMUN2023.xlsx'},
+    {t:'cimtra',b:'Bloque de Obras',l:'Acta Primera Sesión Ordinaria 24 de Mayo 2023 (Obras Seleccionadas)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/SubComiteInfraestructuraSo24Mayo2023.pdf'},
+    {t:'cimtra',b:'Bloque de Obras',l:'Obras Propuestas 2022',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ObrasPropuestasFAIS2022.xlsx'},
+    {t:'cimtra',b:'Bloque de Obras',l:'Obras Seleccionadas 2022',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ObrasSelecionadasFAIS2022.xlsx'},
+    {t:'cimtra',b:'Bloque de Obras',l:'Acta Primera Sesión Extraordinaria 04 de Abril 2022 (Obras Seleccionadas)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/SubComiteInfraestructuraSo4Abril2022.pdf'},
+    {t:'cimtra',b:'Bloque de Obras',l:'Control de Obra 2026',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ControlObras2026.xlsx'},
+    {t:'cimtra',b:'Bloque de Obras',l:'Control de Obra 2025',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ControlObras2025.xlsx'},
+    {t:'cimtra',b:'Bloque de Obras',l:'Control de Obra 2024',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ControlObras2024.xlsx'},
+    {t:'cimtra',b:'Bloque de Obras',l:'Control de Obra 2023',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ControlObras2023.xlsx'},
+    {t:'cimtra',b:'Bloque sobre Bienes y sus Usos',l:'Vehículos ingresados a taller (agosto 2021)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/VehiculosIngresadosTallerAgosto2021.xlsx'},
+    {t:'cimtra',b:'Bloque sobre Administración',l:'Acta de Instalación',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/sInstalacion18Octubre24.pdf'},
+    {t:'cimtra',b:'Bloque sobre Administración',l:'Reglamento de Adquisiciones, Enajenaciones, Arrendamientos y Contrataciones de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/ReglamentoAdquisicionesEnajenacionesArrendamientosContratacionesGuadalajara.pdf'},
+    {t:'cimtra',b:'Bloque sobre Administración',l:'Integrantes del Comité de Adquisiciones (Excel)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ComiteAdquisicionesEnajenacionesArrendamientosContratacionServiciosGuadalajara.xlsx'},
+    {t:'cimtra',b:'Bloque sobre Administración',l:'Acta de Instalación del Comité Mixto de Obra Pública 2024-2027',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaInstalacionComiteMixtoObraPublica2024-2027.pdf'},
+    {t:'cimtra',b:'Bloque sobre Administración',l:'Reglamento de Contratación y Ejecución de Obra Pública y Servicios de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/Reg.ContatacionEjecucionObraPublicaServiciosGuadalajara.pdf'},
+    {t:'cimtra',b:'Bloque sobre Administración',l:'Integrantes del Comité Municipal Mixto de Obra Pública (Excel)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ComiteMunicipalMixtoObraPublica.xlsx'},
+    {t:'cimtra',b:'Bloque sobre Administración',l:'Procedimiento de selección, contratación y despido de servidores públicos',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ProcedimientoContratacionDespido.docx'},
+    {t:'cimtra',b:'Bloque sobre Administración',l:'Reglas del Servicio Profesional de Carrera',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/serviciocivilcarreraadministracionpublicamunicipal.docx'},
+    {t:'cimtra',b:'Bloque sobre Administración',l:'Modelo de contrato de prestación de servicios',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ContratoPrestacionServicios.docx'},
+    {t:'cimtra',b:'Bloque sobre Administración',l:'Reglamento de Presupuesto y Ejercicio del Gasto Público para el Municipio de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/reglamentopresupuestoejerciciogastopublico_0.pdf'},
+    {t:'cimtra',b:'Bloque sobre Administración',l:'Sentencias de juicios de amparo y su cumplimiento (mayo 2026)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/SentenciaJuiciosAmparoMayo2026.xlsx'},
+    {t:'cimtra',b:'Bloque sobre Administración',l:'Destino del subejercicio 2024 (oficio TES/DF/012/2025)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/DestinoSubjercicio2024.pdf'},
+    {t:'cimtra',b:'Bloque sobre Urbanidad',l:'Plan Municipal de Desarrollo y Gobernanza 2024-2027',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/PlanMunicipalDesarrollo2024-2027.pdf'},
+    {t:'cimtra',b:'Bloque sobre Urbanidad',l:'Programa Municipal de Desarrollo Urbano',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/Programa-Municipal-de-Desarrollo-Urbano-2017.pdf'},
+    {t:'cimtra',b:'Bloque sobre Consejos',l:'Oficio Aclaratorio',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/OficioAclaratorioConsejoSocialDesarrolloUrbano.pdf'},
+    {t:'cimtra',b:'Bloque sobre Consejos',l:'Consejo Ciudadano de Control y Transparencia del Municipio de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ConstanciaConsejoCiudadanoControlTransparencia2022.pdf'},
+    {t:'cimtra',b:'Bloque sobre Consejos',l:'Consejo Ciudadano en Materia de Seguridad del Municipio de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/OficioConsejoMateriaSeguridadCiudadanaGuadalajara22.pdf'},
+    {t:'cimtra',b:'Bloque sobre Consejos',l:'Consejo Ciudadano en Materia de Seguridad (integrantes, Excel)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ConsejoCiudadanoMateriaSeguridadGuadalajara.xlsx'},
+    {t:'cimtra',b:'Bloque sobre Consejos',l:'Dictamen con Turno 139/22',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/Dictamen139-22.pdf'},
+    {t:'cimtra',b:'Bloque sobre Consejos',l:'Tomo IV Ejemplar 27, 29 Agosto 2022',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIVEjemplar27Agosto29-2022.pdf'},
+    {t:'cimtra',b:'Bloque sobre Participación Ciudadana',l:'Dictamen con Turno 156/22',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/Dictamen156-22.pdf'},
+    {t:'cimtra',b:'Bloque sobre Participación Ciudadana',l:'Reglamento de Participación Ciudadana y Planeación Participativa para la Gobernanza del Municipio de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/RegParticipacionCiudadanaPlaneacionParticipativaGDL.pdf'},
+    {t:'cimtra',b:'Bloque sobre Participación Ciudadana',l:'Tomo V Ejemplar 1, 1 Septiembre 2022',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoVEjemplar1Septiembre1-2022.pdf'},
+    {t:'cimtra',b:'Bloque sobre Participación Ciudadana',l:'Ficha Informativa Criterios Evaluables',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/FichaInformativaCriteriosEvaluables37Cimtra.docx'},
+    {t:'cimtra',b:'Bloque sobre Participación Ciudadana',l:'Contraloría Ciudadana',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/Contraloria_Ciudadana_CIMTRA.docx'},
+    {t:'cimtra',b:'Bloque sobre Participación Ciudadana',l:'Informe sobre Contralorías Sociales 2023',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/OficioJustificacionIntegracionContraloriasSociales23.pdf'},
+    {t:'cimtra',b:'Bloque sobre Participación Ciudadana',l:'Informe sobre Contralorías Sociales 2022',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/OficioJustificacionIntegracionContraloriasSociales22.pdf'},
+    {t:'cimtra',b:'Bloque sobre Participación Ciudadana',l:'Lineamientos para la Promoción y Operación de la Contraloría Social en los Programas de Desarrollo Social del Municipio de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/LineamientosPromocionOperacionContraloriaSocialGuadalajara.pdf'},
+    {t:'cimtra',b:'Bloque sobre Participación Ciudadana',l:'Gaceta Municipal — Tomo V, Ejemplar 26 (25 oct 2021)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoVEjemplar26Octubre25-2021.pdf'},
+    {t:'cimtra',b:'Bloque de Cabildo',l:'Ley del Gobierno y la Administración Pública Municipal del Estado de Jalisco',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/LeyGobiernoAdministracionPublicaMunicipalEstadoJalisco.pdf'},
+    {t:'cimtra',b:'Bloque de Cabildo',l:'Ley del Sistema de Participación Ciudadana y Popular para la Gobernanza del Estado de Jalisco',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/LeySistemaParticipacionCiudadanaPopularEstadoJalisco.doc'},
+    {t:'cimtra',b:'Bloque de Cabildo',l:'Código de Gobierno del Municipio de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/CodigoGobiernoMunicipioGuadalajara.pdf'},
+    {t:'cimtra',b:'Bloque de Cabildo',l:'Calendario de Sesiones 2026(excel)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/CalendarioSesionesCabildo2026.xlsx'},
+    {t:'cimtra',b:'Bloque de Cabildo',l:'Comparativa del Calendario de Sesiones 2026(excel)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/CalendarioSesionesCabildoComparativa2026.xlsx'},
+    {t:'cimtra',b:'Bloque de Cabildo',l:'Calendario de Sesiones 2025(excel)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/CalendarioSesionesCabildo2025.xlsx'},
+    {t:'cimtra',b:'Bloque de Cabildo',l:'Comparativa del Calendario de Sesiones 2025(excel)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/CalendarioSesionesCabildoComparativa2025.xlsx'},
+    {t:'cimtra',b:'Bloque de Cabildo',l:'Calendario de Sesiones 2024(excel) (Administración 2024-2027)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/CalendarioSesionesCabildo2024-2027.xlsx'},
+    {t:'cimtra',b:'Bloque de Cabildo',l:'Comparativa del Calendario de Sesiones 2024(excel)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/CalendarioSesionesCabildoComparativa2024.xlsx'},
+    {t:'cimtra',b:'Bloque de Cabildo',l:'Calendario de Sesiones 2024(excel)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/CalendarioSesionesCabildo2024.xlsx'},
+    {t:'cimtra',b:'Bloque de Cabildo',l:'Comparativa del Calendario de Sesiones 2023(excel)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/CalendarioSesionesCabildoComparativa2023.xlsx'},
+    {t:'cimtra',b:'Bloque de Cabildo',l:'Calendario de Sesiones 2023(excel)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/CalendarioSesionesCabildo2023.xlsx'},
+    {t:'cimtra',b:'Bloque de Cabildo',l:'Comparativa del Calendario de Sesiones 2022(excel)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/CalendarioSesionesCabildoComparativa2022.xlsx'},
+    {t:'cimtra',b:'Bloque de Cabildo',l:'Calendario de Sesiones 2022(excel)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/CalendarioSesionesCabildo2022.xlsx'},
+    {t:'cimtra',b:'Bloque sobre Atención Ciudadana',l:'Costo de Licencias de Construcción',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/Costo_Licencias_de_Construccion.pdf'},
+    {t:'cimtra',b:'Bloque sobre Atención Ciudadana',l:'Ley de Ingresos 2026',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/LeyIngresos2026.pdf'},
+    {t:'cimtra',b:'Bloque sobre Atención Ciudadana',l:'Costo de Servicios Catastrales',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/Costo_Servicios_Catastrales.pdf'},
+    {t:'cimtra',b:'Bloque sobre Atención Ciudadana',l:'Costo de Licencia de Giro Tipo D',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/Costo_Licencia_Giro_Tipo_D.pdf'},
+    {t:'cimtra',b:'Bloque sobre Atención Ciudadana',l:'Costo de Permiso de Degustación de Bebidas Alcohólicas',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/Costo_Permiso_de_Degustacion.pdf'},
+    {t:'cimtra',b:'Bloque sobre Atención Ciudadana',l:'Costo de Licencia de Giro Tipo A y B',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/Costo_Licencia_Giro_Tipo_A_y_B.pdf'},
+    {t:'cimtra',b:'Bloque sobre Atención Ciudadana',l:'Costo de Licencia de Giro Tipo C',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/Costo_Licencia_Giro_Tipo_C.pdf'},
+    {t:'cimtra',b:'Bloque sobre Atención Ciudadana',l:'Formato de solicitud de información (UTI)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/solicituddeinformacionUTI.pdf'},
+    {t:'cimtra',b:'Bloque sobre Atención Ciudadana',l:'Reglamento de Transparencia y Acceso a la Información del Municipio de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/ReglamentoTransparenciaAccesoInformacionGuadalajara.pdf'},
+    {t:'cimtra',b:'Bloque sobre Atención Ciudadana',l:'Recurso de Revisión',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/RecursoRevisionTransparencia.docx'},
+    {t:'cimtra',b:'Bloque sobre Atención Ciudadana',l:'Acuerdo de Gobierno Abierto — Gaceta Tomo I, Ejemplar 8 (16 ene 2023)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIEjemplar8Enero16-2023.pdf'},
+    {t:'imco',b:'Documentos del Barometro',l:'Ley de Ingresos 2026',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/LeyIngresos2026.pdf'},
+    {t:'imco',b:'Documentos del Barometro',l:'Ley de Ingresos 2025',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/LeyIngresos2025.pdf'},
+    {t:'imco',b:'Documentos del Barometro',l:'Ley de Ingresos 2024',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/LeyIngresos2024.pdf'},
+    {t:'imco',b:'Documentos del Barometro',l:'Ley de Ingresos 2023',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/LeyIngresos2023.pdf'},
+    {t:'imco',b:'Documentos del Barometro',l:'Ley de Ingresos 2022',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/LeyIngresos2022.pdf'},
+    {t:'imco',b:'Documentos del Barometro',l:'Ley de Ingresos 2022 (Word · Congreso de Jalisco)',u:'https://congresoweb.congresojal.gob.mx/bibliotecavirtual/legislacion/Ingresos/Ley%20de%20Ingresos%20del%20Municipio%20de%20Guadalajara,%20Jalisco%20para%20el%20ejercicio%20fiscal%202022-130122.docx'},
+    {t:'imco',b:'Documentos del Barometro',l:'Presupuesto de Egresos 2022 · Versión Ciudadana',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/PresupuestoCiudadanoGuadalajara22.pdf'},
+    {t:'imco',b:'Documentos del Barometro',l:'Presupuesto de Egresos 2022 (Gaceta T. VI, Ej. 18)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoVIEjemplar18Diciembre15-2021.pdf'},
+    {t:'imco',b:'Documentos del Barometro',l:'Presupuesto de Egresos 2022 (Gaceta T. VI, Ej. 18) · Word',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoVIEjemplar18Diciembre15-2021.docx'},
+    {t:'imco',b:'Documentos del Barometro',l:'Fe de erratas · Presupuesto de Egresos 2022 (Gaceta T. VI, Ej. 21)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoVIEjemplar21Secc3aDiciembre31-2021.pdf'},
+    {t:'imco',b:'Documentos del Barometro',l:'Estimación de Ingresos por rubro · Ley de Ingresos 2022',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/EstimacionLeyIngresos2022.xlsx'},
+    {t:'imco',b:'Documentos del Barometro',l:'Dictamen de la Iniciativa de Ley de Ingresos 2022',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/DictamenLeyIngresos2022.pdf'},
+    {t:'imco',b:'Documentos del Barometro',l:'Dictamen del Presupuesto de Egresos 2022',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/DictamenPresupuestoEgresos2022.pdf'},
+    {t:'itdif',b:'Indices ITDIF-M',l:'Índice de Transparencia y Disponibilidad de la Información Fiscal de las Entidades Federativas ITDIF-M 2021',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/itdifm21.pdf'},
+    {t:'itdif',b:'Indices ITDIF-M',l:'Índice de Transparencia y Disponibilidad de la Información Fiscal de las Entidades Federativas ITDIF-M 2020',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/itdifm20.pdf'},
+    {t:'itdif',b:'Indices ITDIF-M',l:'Índice de Transparencia y Disponibilidad de la Información Fiscal de las Entidades Federativas ITDIF-M 2019',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/itdifm19.pdf'},
+    {t:'itdif',b:'Indices ITDIF-M',l:'Índice de Transparencia y Disponibilidad de la Información Fiscal de las Entidades Federativas ITDIF-M 2018',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/itdifm18.pdf'},
+    {t:'itdif',b:'Indices ITDIF-M',l:'Índice de Transparencia y Disponibilidad de la Información Fiscal de las Entidades Federativas ITDIF-M 2017',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/itdifm17.pdf'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Reglamento de Justicia Cívica del Municipio de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/Reg.JusticiaCivicaGuadalajara.pdf'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Código de Gobierno Municipal de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/CodigoGobiernoMunicipalGuadalajara.pdf'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Plan Institucional del Municipio de Guadalajara 2018-2021',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIIIEjemplar13Junio22-2020.pdf'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Reglamento Interno del Organismo Público Descentralizado de la Administración Pública Municipal denominado Sistema para el Desarrollo Integral de la Familia de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/RegIntAdminDIFGuadalajara.pdf'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Reglamento del Organismo Público Descentralizado de la Administración Pública Municipal denominado “Red de Bosques Urbanos de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/Reg.RedBosquesUrbanosGuadalajara.pdf'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Reglamento Interno del Organismo Públlco Descentralizado de la Administración Pública Municipal denominado "Consejo Social de Cooperación para el Desarrollo Urbano" de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/Reg.ConsejoSocialCooperacionDesarrolloUrbano.pdf'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Reglamento Interno del Organismo Público Descentralizado de la Administración Pública Municipal denominado Consejo Municipal del Deporte de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/Reg.ConsejoMunicipalDeporteGuadalajara.pdf'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Reglamento del Instituto Municipal de las Mujeres en Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/Reg.InstitutoMunicipalMujeresGuadalajara.pdf'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Reglamento Interno del Organismo Público Descentralizado de la Administración Pública Municipal denominado Instituto Municipal de la Vivienda de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/Reg.InternoInstitutoMunicipalVivienda.pdf'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Reglamento del Organismo Público Descentralizado de la Administración Pública Municipal de Guadalajara, denominado Instituto Municipal de Atención a la Juventud de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/ReglamentoOrgDescInstitutoMunicipalAtencionJuventudGuadalajara.pdf'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Reglamento Interno del Organismo Público Descentralizado de la Administración Pública Municipal denominado Patronato del Centro Histórico, Barrios y Zonas Tradicionales de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/Reg.PatronatoCentroHistoricoBarriosZonasTradicionales.pdf'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Reglamento del Organismo Público Descentralizado de la Administración Pública Municipal de Guadalajara denominado Zoológico Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/Reg.OrganismoPub.DescentralizadoZoologicoGuadalajara.pdf'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Decreto que aprueba suscribir convenio con SIAPA',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/gacetatomovejemplar5septiembre20.pdf'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Reglamento de Adquisiciones, Enajenaciones, Arrendamientos y Contrataciones de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/ReglamentoAdquisicionesEnajenacionesArrendamientosContratacionesGuadalajara.pdf'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Reglamento de Patrimonio Municipal de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/reg.patrimonioguadalajara.pdf'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Reglamento de Gestión del Desarrollo Urbano para el Municipio de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/Reg.GestionDesarrolloUrbanoGuadalajara.pdf'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Reglamento para la Gestión Integral del Municipio de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/Reg.GestionIntegralMunicipioGuadalajara.pdf'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Reglamento de Transparencia y Acceso a la Información Pública del Municipio de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/reglamentos/ReglamentoTransparenciaAccesoInformacionGuadalajara.pdf'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Acuerdo del comité municipal de emergencia mediante el cual se emite la declaratoria de emergencia para el municipio de Guadalajara, Jalisco',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIIEjemplar6Secc1aMarzo16-2020.pdf'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Acuerdo de la Síndico municipal de Guadalajara, mediante el cual declara la suspensión de términos y medidas de prevención de las direcciones dependientes y áreas a cargo de éstas, así como de la contraloría ciudadana, direcciones y áreas a cargo de esta, que brinden atención al público en general derivado de la declaratoria de emergencia emitida por el comité municipal de protección civil el día 17 de marzo del año 2020, como medida preventiva de salud en el municipio de Guadalajara ante la pandemia del Covid-19 (coronavirus)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIIEjemplar7Marzo18-2020.pdf'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Acuerdo de la Síndico Municipal de Guadalajara, mediante el cual prorroga y modifica la circular 142/CIR/SIN/2020 y prorroga el acuerdo de fecha 17 de marzo del año 2020, ambos de la Sindicatura Municipal de Guadalajara, publicado e identificados en la gaceta municipal; Tomo II. Ejemplar 7. Año 103. 18 de marzo de 2020 y en el suplemento. Tomo II. Ejemplar 11. Primera Sección. Año 103. 6 de abril de 2020',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIIEjemplar14Abril20-2020.pdf'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Acuerdo de la Síndico Municipal de Guadalajara, mediante el cual prorroga y modifica el acuerdo de fecha 20 de abril de 2020, publicado en la gaceta municipal, suplemento. Tomo II. Ejemplar 14. año 103. 20 de abril de 2020',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIIIEjemplar4Mayo15-2020.pdf'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Acuerdo de la Síndico Municipal de Guadalajara, mediante el cual se prorroga y modifica el acuerdo de fecha 15 de mayo de 2020, publicado en la gaceta municipal suplemento. tomo III. Ejemplar 4. Año 103. 15 de mayo de 2020',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIIIEjemplar6Mayo31-2020.pdf'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Acuerdo de la Síndico Municipal de Guadalajara, mediante el cual se prorroga y modifica el acuerdo de fecha 29 de mayo de 2020, publicado en la gaceta municipal suplemento tomo III. Ejemplar 6. año 103. 31 de mayo de 2020',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIIIEjemplar7Secc1aJunio12-2020.pdf'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Acuerdo de la Síndico Municipal de Guadalajara, mediante el cual se prorroga y modifica el acuerdo de fecha 12 de junio de 2020, publicado en la gaceta municipal suplemento. tomo III. Ejemplar 7. Primera Sección. Año 103. 12 de junio de 2020',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIIIEjemplar15Junio30-2020.pdf'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Fe de erratas del acuerdo de la Síndico Municipal de Guadalajara, mediante el cual se prorroga el acuerdo de fecha 30 de junio de 2020 publicado en la gaceta municipal suplemento tomo IV. Ejemplar 3. Año 103. 15 de julio de 2020',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIVEjemplar3Secc1aJulio15-2020.pdf'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Acuerdo de la Síndico Municipal de Guadalajara, relativo a la reanudación de plazos y al regreso escalonado de actividades ante la contingencia por el Virus SARS-COV-2',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIVEjemplar8Secc1aJulio31-2020.pdf'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Versión estenográfica — Sesión 49 (31/03/2020) · Word',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/acta_49_31_03_20.docx'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Versión estenográfica — Sesión 49 (31/03/2020) · PDF',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/acta_49_31_03_20.pdf'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Versión estenográfica — Sesión 50 (30/04/2020) · Word',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/acta_50_30_04_20.docx'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Versión estenográfica — Sesión 50 (30/04/2020) · PDF',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/acta_50_30_04_20.pdf'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Versión estenográfica — Sesión 51 (12/06/2020) · Word',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/acta_51_12_06_20.docx'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Versión estenográfica — Sesión 51 (12/06/2020) · PDF',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/acta_51_12_06_20.pdf'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Versión estenográfica — Sesión 52 (30/07/2020) · PDF',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/actaVE_52_30_07_20.pdf'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Acta — Sesión 52 (30/07/2020) · PDF',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/acta_52_30_07_20.pdf'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Versión estenográfica — Sesión 53 (14/08/2020) · PDF',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/actaVE_53_14_08_20.pdf'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Acta — Sesión 53 (14/08/2020) · PDF',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/acta_53_14_08_20.pdf'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Acta Entrega-Recepción Tesorería 2018-2021 · PDF',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaEntregaRecepcionTesoreria18-21.pdf'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Acta Entrega-Recepción Tesorería 2018-2021 · Word',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ActaEntregaRecepcionTesoreria18-21.docx'},
+    {t:'itdif',b:'Bloque I. Marco Regulatorio',l:'Ley General de Transparencia y Acceso a la Información Pública',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/LeyGeneralTransparenciaAccesoInformacionPublica.pdf'},
+    {t:'itdif',b:'Bloque II. Marco Programático Presupuestal',l:'Programa Municipal de Desarrollo Urbano',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/Programa-Municipal-de-Desarrollo-Urbano-2017.pdf'},
+    {t:'itdif',b:'Bloque II. Marco Programático Presupuestal',l:'Programa Anual de Evaluaciones 2020 (Gaceta T. II, Ej. 14)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIIEjemplar14Secc1aAbril27-2020.pdf'},
+    {t:'itdif',b:'Bloque II. Marco Programático Presupuestal',l:'Programa Anual de Evaluaciones 2019 (Gaceta T. II, Ej. 23)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/GacetaTomoIIEjemplar23Abril29-2019.pdf'},
+    {t:'itdif',b:'Bloque II. Marco Programático Presupuestal',l:'Iniciativa de la Ley de Ingresos (Presidencia Municipal)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/iniciativas/2019/PresidenteToroJulio.pdf'},
+    {t:'itdif',b:'Bloque II. Marco Programático Presupuestal',l:'Ley de Ingresos 2021',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/LeyIngresos2021.pdf'},
+    {t:'itdif',b:'Bloque II. Marco Programático Presupuestal',l:'Ley de Ingresos 2020',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/LeyIngresos2020.pdf'},
+    {t:'itdif',b:'Bloque II. Marco Programático Presupuestal',l:'Ley de Ingresos 2019',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/LeyIngresos2019.pdf'},
+    {t:'itdif',b:'Bloque II. Marco Programático Presupuestal',l:'Ley de Ingresos 2018',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/LeyIngresos2018.pdf'},
+    {t:'itdif',b:'Bloque II. Marco Programático Presupuestal',l:'Ley de Ingresos 2017',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/LeyIngresos2017.doc'},
+    {t:'itdif',b:'Bloque II. Marco Programático Presupuestal',l:'Tasas y tarifas del Impuesto Predial (Específico)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/TasasTarifasImpuestoPredial21.pdf'},
+    {t:'itdif',b:'Bloque II. Marco Programático Presupuestal',l:'Cuotas por Contribuciones de Mejora (Específico)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/CuotasContribucionesMejora21.pdf'},
+    {t:'itdif',b:'Bloque II. Marco Programático Presupuestal',l:'Presupuesto Ciudadano 2021',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/PresupuestoCiudadanoIMCO2021.xlsx'},
+    {t:'itdif',b:'Bloque II. Marco Programático Presupuestal',l:'Presupuesto Ciudadano 2020',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/PresupuestoCiudadanoIMCO2020.xlsx'},
+    {t:'itdif',b:'Bloque II. Marco Programático Presupuestal',l:'Decreto Tabla de Valores Unitarios de Suelo y Construcción del Municipio de Guadalajara',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ValoresCatastrales20.pdf'},
+    {t:'itdif',b:'Bloque II. Marco Programático Presupuestal',l:'Tabla de Valores 2020',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/TablaValoresGuadalajara2020.pdf'},
+    {t:'itdif',b:'Bloque III. Costos Operativos',l:'Estructura',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/Estructura2020.pdf'},
+    {t:'itdif',b:'Bloque III. Costos Operativos',l:'Plantilla de Personal',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/Plantilla2020.pdf'},
+    {t:'itdif',b:'Bloque III. Costos Operativos',l:'Salario del Presidente Municipal',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/SalarioPresidenteMunicipal20.xlsx'},
+    {t:'itdif',b:'Bloque III. Costos Operativos',l:'Salario de Regidores y Síndica',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/SalarioSindicoRegidores20.xlsx'},
+    {t:'itdif',b:'Bloque III. Costos Operativos',l:'Compras realizadas con motivo de Covid-19 (2020)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ComprasCovid19.xlsx'},
+    {t:'itdif',b:'Bloque III. Costos Operativos',l:'Compras realizadas con motivo de Covid-19 (2021)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ComprasCovid19-2021.xlsx'},
+    {t:'itdif',b:'Bloque III. Costos Operativos',l:'Viáticos y gastos de representación anual 2018 y 2019',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/GastosRepresentacion2018-2019.pdf'},
+    {t:'itdif',b:'Bloque III. Costos Operativos',l:'Viáticos y gastos de representación mensual 2020',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/GastosRepresentacion2020.pdf'},
+    {t:'itdif',b:'Bloque IV. Rendición de Cuentas',l:'Padrón de beneficiarios · Despensa Segura',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/PadronDespensaCovid19-2020.xlsx'},
+    {t:'itdif',b:'Bloque IV. Rendición de Cuentas',l:'Padrón de beneficiarios · Primero Comer',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/PadronPrimeroComer2021.pdf'},
+    {t:'itdif',b:'Bloque IV. Rendición de Cuentas',l:'Padrón de beneficiarios · Cuidamos tu Empleo',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/PadronCuidamosTuEmpleoCovid19Diciembre.xlsx'},
+    {t:'itdif',b:'Bloque IV. Rendición de Cuentas',l:'Padrón de beneficiarios · Guadalajara está contigo',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ApoyoGuadalajaraEstaContigoCovid19.xlsx'},
+    {t:'itdif',b:'Bloque IV. Rendición de Cuentas',l:'Padrón de beneficiarios · Corredores Comerciales Seguros',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/PadronCorredoresComercialesSegurosCovidDiciembre20.xlsx'},
+    {t:'itdif',b:'Bloque IV. Rendición de Cuentas',l:'Formatos en acatamiento a la LDF',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/GuiaCumplimientoLDF.pdf'},
+    {t:'itdif',b:'Bloque IV. Rendición de Cuentas',l:'Dictámen sobre Cuenta Pública (Órgano de Fiscalización )',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/DictamenCuentaPublica.pdf'},
+    {t:'itdif',b:'Bloque IV. Rendición de Cuentas',l:'Informe de Resultados de la Fiscalización a la Cuenta Pública',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/InformeResultadosFiscalizacionoCuentaPublica.pdf'},
+    {t:'itdif',b:'Bloque IV. Rendición de Cuentas',l:'Convenios con el Estado en materia fiscal (Impuesto Predial)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/ConvenioPREDIALGobiernoEstado.pdf'},
+    {t:'itdif',b:'Bloque V. Evaluación de Resultados',l:'Informe FORTAMUN 2018',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/InformeFortamun18.pdf'},
+    {t:'itdif',b:'Bloque V. Evaluación de Resultados',l:'Informe FORTASEG',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/InformeFortaseg.pdf'},
+    {t:'itdif',b:'Bloque V. Evaluación de Resultados',l:'Informe Ley de Disciplina',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/InformeLeyDisciplina.pdf'},
+    {t:'itdif',b:'Bloque V. Evaluación de Resultados',l:'Informe Participaciones Federales 2018',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/InformeParticipacionesFederales18.pdf'},
+    {t:'itdif',b:'Bloque V. Evaluación de Resultados',l:'Informe Programas de Desarrollo Regional',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/InformeProgramasDesarrolloRegional.pdf'},
+    {t:'itdif',b:'Bloque V. Evaluación de Resultados',l:'Informe Auditoria Sistema de Evaluación del Desempeño del Gasto Federalizado',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/InformeAuditoriaSed.pdf'},
+    {t:'itdif',b:'Bloque V. Evaluación de Resultados',l:'Informe Auditoria Programas Culturales',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/InformeAuditoriaProgramasCulturales.pdf'},
+    {t:'itdif',b:'Bloque V. Evaluación de Resultados',l:'Informe Auditoria Fondo para el Fortalecimiento Financiero',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/InformeAuditoriaFFI.pdf'},
+    {t:'itdif',b:'Bloque VI. Estadísticas Finales',l:'Estadísticas de Ingresos (Total)',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/EstadisticasIngresosARegional2021.pdf'},
+    {t:'itdif',b:'Bloque VI. Estadísticas Finales',l:'Histórico de Gastos / Egresos 2014-2019',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/GastosEgresosTotal2014-2019.pdf'},
+    {t:'itdif',b:'Bloque VI. Estadísticas Finales',l:'Deuda de corto plazo trimestral',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/DeudaCortoPlazoTrimestral20.xlsx'},
+    {t:'itdif',b:'Bloque VI. Estadísticas Finales',l:'Afectación de Participaciones, con base en el Formato de Participaciones por Municipio y sus Entes públicos, utilizados por la SHCP',u:'https://transparencia.guadalajara.gob.mx/sites/default/files/AfectacionParticipacionesConcentrado2020.pdf'},
+  ];
+(function(){
+  function esc(s){ if(s==null) return ''; return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function norm(s){ return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,''); }
+  var PDFICO='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>';
+  var XLSICO='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="17"/><line x1="16" y1="13" x2="8" y2="17"/></svg>';
+  var DOCICO='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>';
+  var EXTICO='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';
+  function ic(inner){ return '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+inner+'</svg>'; }
+  function ic20(inner){ return '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+inner+'</svg>'; }
+  var ICO={
+    bookOpen:'<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>',
+    check:'<path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 14l2 2 4-4"/>',
+    bar:'<line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/>',
+    pie:'<path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/>',
+    layers:'<polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>'
+  };
+  var TOOLS=[
+    {k:'libre',name:'Información de libre acceso y ordinaria',ico:'bookOpen',
+     what:'Información pública que el municipio difunde de manera ordinaria, proactiva y focalizada, por encima del mínimo que exige la ley.',
+     note:'Esta información se publica y se consulta en la sección de <b>Transparencia Focalizada</b> (Art. 8, Fr. IX), organizada tema por tema con sus documentos.',
+     extra:'transparencia focalizada libre acceso ordinaria proactiva'},
+    {k:'cimtra',name:'CIMTRA · Ciudadanos por Municipios Transparentes',ico:'check',
+     what:'Colectivo ciudadano que mide la transparencia de los gobiernos municipales con 37 criterios verificables. Aquí están los convenios de colaboración y la evidencia documental que respalda cada criterio.',
+     ext:'https://www.cimtra.org.mx/',extLabel:'Sitio de CIMTRA',extra:'colectivo municipios transparentes 37 criterios'},
+    {k:'imco',name:'IMCO · Barómetro de Información Presupuestal Municipal',ico:'bar',
+     what:'El Instituto Mexicano para la Competitividad evalúa la calidad y disponibilidad de la información presupuestal de los municipios. Aquí están las leyes de ingresos, los presupuestos de egresos y los dictámenes que sustentan la evaluación.',
+     ext:'https://imco.org.mx/',extLabel:'Sitio del IMCO',extra:'instituto mexicano competitividad barometro presupuestal'},
+    {k:'itdif',name:'Aregional · Índice de Transparencia y Disponibilidad de la Información Fiscal (ITDIF-M)',ico:'pie',
+     what:'La firma Aregional evalúa la transparencia y disponibilidad de la información fiscal de los municipios. Aquí están los índices ITDIF-M obtenidos por Guadalajara y la evidencia documental organizada por bloques.',
+     note:'Los índices ITDIF-M que aparecen abajo son los resultados emitidos por <b>Aregional</b> para el Municipio de Guadalajara.',
+     extra:'ar regional itdif informacion fiscal indice'}
+  ];
+
+  function docBtn(url){
+    var u=String(url).replace(/ /g,'%20');
+    var ext=u.split('?')[0].split('.').pop().toLowerCase();
+    if(ext==='pdf') return '<a class="tf-btn pdf" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer">'+PDFICO+'Ver PDF</a>';
+    var viewer='https://view.officeapps.live.com/op/view.aspx?src='+encodeURIComponent(u);
+    if(ext==='xlsx'||ext==='xls') return '<a class="tf-btn xls" href="'+esc(viewer)+'" target="_blank" rel="noopener noreferrer">'+XLSICO+'Abrir Excel</a>';
+    return '<a class="tf-btn doc" href="'+esc(viewer)+'" target="_blank" rel="noopener noreferrer">'+DOCICO+'Abrir documento</a>';
+  }
+
+  var CHEV='<svg class="tf-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
+  var root=document.getElementById('evRoot');
+  var html='';
+  for(var ti=0;ti<TOOLS.length;ti++){
+    var T=TOOLS[ti];
+    var docs=[]; for(var d=0;d<DOCS.length;d++){ if(DOCS[d].t===T.k) docs.push(DOCS[d]); }
+    // bloques en orden de aparicion
+    var border=[], bmap={};
+    for(var i=0;i<docs.length;i++){ var b=docs[i].b; if(!bmap[b]){ bmap[b]=[]; border.push(b); } bmap[b].push(docs[i]); }
+    // cabecera de herramienta
+    var meta='';
+    if(T.ext){ meta='<a class="tf-btn ext" href="'+esc(T.ext)+'" target="_blank" rel="noopener noreferrer">'+EXTICO+esc(T.extLabel)+'</a>'; }
+    var cntTxt = docs.length ? (docs.length+' documentos') : 'Ver en Transparencia Focalizada';
+    var head='<div class="ev-tool"><span class="ev-tool-ico" aria-hidden="true">'+ic(ICO[T.ico])+'</span>'+
+      '<div class="ev-tool-bd"><h3>'+esc(T.name)+'</h3><p>'+esc(T.what)+'</p>'+
+      (T.note?('<div class="ev-tool-note">'+T.note+'</div>'):'')+
+      '<div class="ev-tool-meta"><span class="ev-cnt">'+cntTxt+'</span>'+meta+'</div></div></div>';
+    // acordeones por bloque
+    var accs='';
+    for(var bi=0;bi<border.length;bi++){
+      var bn=border[bi], bd=bmap[bn], rows='', sd=T.name+' '+(T.extra||'')+' '+bn;
+      for(var r=0;r<bd.length;r++){ rows+='<div class="tf-file"><span class="tf-file-t">'+esc(bd[r].l)+'</span>'+docBtn(bd[r].u)+'</div>'; sd+=' '+bd[r].l; }
+      accs+='<details class="tf-item" data-count="'+bd.length+'" data-search="'+esc(norm(sd))+'">'+
+        '<summary><div class="tf-head"><span class="tf-ico" aria-hidden="true">'+ic20(ICO.layers)+'</span>'+
+        '<span class="tf-tx"><b>'+esc(bn)+'</b></span>'+
+        '<span class="tf-right"><span class="tf-badge">'+bd.length+(bd.length===1?' documento':' documentos')+'</span>'+CHEV+'</span></div></summary>'+
+        '<div class="tf-files">'+rows+'</div></details>';
+    }
+    var cds=norm(T.name+' '+(T.extra||''));
+    html+='<div class="ev-herr" data-k="'+T.k+'" data-search="'+esc(cds)+'">'+
+      '<div class="tf-sec-title">'+esc(T.name)+'</div>'+head+
+      (accs?('<div class="ev-bloques">'+accs+'</div>'):'')+'</div>';
+  }
+  root.innerHTML=html;
+
+  document.getElementById('evC1').textContent=TOOLS.length;
+  document.getElementById('evC2').textContent=DOCS.length;
+
+  /* ---- Botones-filtro por herramienta ---- */
+  var TABLBL={all:'Todas las herramientas',libre:'Libre acceso y ordinaria',cimtra:'CIMTRA',imco:'IMCO',itdif:'Aregional'};
+  var activeTool='all';
+  var tabsHtml='<button type="button" class="ev-tab active" data-k="all" aria-pressed="true">'+TABLBL.all+' <span class="n">'+DOCS.length+'</span></button>';
+  for(var tt=0;tt<TOOLS.length;tt++){
+    var tk=TOOLS[tt].k, dc=0; for(var dd=0;dd<DOCS.length;dd++){ if(DOCS[dd].t===tk) dc++; }
+    tabsHtml+='<button type="button" class="ev-tab" data-k="'+tk+'" aria-pressed="false">'+esc(TABLBL[tk]||tk)+(dc?(' <span class="n">'+dc+'</span>'):'')+'</button>';
+  }
+  document.getElementById('evTabs').innerHTML=tabsHtml;
+
+  /* ---- Buscador ---- */
+  var inp=document.getElementById('evQ'), clearBtn=document.getElementById('evClear'), box=document.querySelector('.tf-search');
+  var count=document.getElementById('evCount'), noRes=document.getElementById('evNoRes'), noResQ=document.getElementById('evNoResQ');
+  var evScroll=document.getElementById('evScroll');
+  var conts=[].slice.call(document.querySelectorAll('.ev-herr'));
+  function matches(ds,toks){ for(var c=0;c<toks.length;c++){ if(ds.indexOf(toks[c])===-1) return false; } return true; }
+  function apply(){
+    var raw=inp.value.replace(/^\s+|\s+$/g,''); var toks=norm(raw).split(/\s+/).filter(Boolean);
+    box.classList.toggle('has-q', raw.length>0);
+    var visHerr=0, visDocs=0;
+    for(var i=0;i<conts.length;i++){
+      var c=conts[i], inTab=(activeTool==='all'||c.getAttribute('data-k')===activeTool);
+      var accs=[].slice.call(c.querySelectorAll('.tf-item'));
+      var headMatch=matches(c.getAttribute('data-search'), toks);
+      var anyAcc=false, dCount=0;
+      for(var a=0;a<accs.length;a++){
+        var ok = inTab && (toks.length===0 || headMatch || matches(accs[a].getAttribute('data-search'), toks));
+        accs[a].classList.toggle('hide', !ok);
+        if(!ok) accs[a].removeAttribute('open');
+        if(ok){ anyAcc=true; dCount+=parseInt(accs[a].getAttribute('data-count')||'0',10); }
+      }
+      var show = inTab && (toks.length===0 || anyAcc || headMatch);
+      c.classList.toggle('hide', !show);
+      if(show){ visHerr++; visDocs+=dCount; }
+    }
+    var scopeN = activeTool==='all' ? TOOLS.length : 1;
+    if(visHerr===0){ count.innerHTML=''; noResQ.textContent='«'+(raw||TABLBL[activeTool])+'»'; noRes.className='tf-noresults show'; }
+    else if(toks.length===0 && activeTool==='all'){ count.innerHTML='<b>'+TOOLS.length+'</b> herramientas · <b>'+DOCS.length+'</b> documentos'; noRes.className='tf-noresults'; }
+    else if(toks.length===0){ count.innerHTML='<b>'+esc(TABLBL[activeTool])+'</b>'+(visDocs?(' · <b>'+visDocs+'</b> documentos'):''); noRes.className='tf-noresults'; }
+    else { count.innerHTML='<b>'+visDocs+'</b> documentos en <b>'+visHerr+'</b> de '+scopeN+(scopeN===1?' herramienta':' herramientas'); noRes.className='tf-noresults'; }
+    reportHeight();
+  }
+  inp.addEventListener('input', function(){ if(evScroll) evScroll.scrollTop=0; apply(); });
+  clearBtn.addEventListener('click', function(){ inp.value=''; if(evScroll) evScroll.scrollTop=0; apply(); inp.focus(); });
+  [].slice.call(document.querySelectorAll('.ev-tab')).forEach(function(b){
+    b.addEventListener('click', function(){
+      activeTool=b.getAttribute('data-k');
+      [].slice.call(document.querySelectorAll('.ev-tab')).forEach(function(x){ var on=(x===b); x.classList.toggle('active',on); x.setAttribute('aria-pressed',on?'true':'false'); });
+      if(evScroll) evScroll.scrollTop=0;
+      apply();
+    });
+  });
+  [].slice.call(document.querySelectorAll('details.tf-item')).forEach(function(x){ x.addEventListener('toggle', reportHeight); });
+  apply();
+
+  /* ---- Altura Strapi ---- */
+  var lastH=0;
+  function reportHeight(){ var h=Math.max(document.body.scrollHeight,document.body.offsetHeight,document.documentElement.offsetHeight); if(h&&Math.abs(h-(lastH||0))>1){ lastH=h; try{ parent.postMessage({type:'gdl-iframe-height',id:'informacion-herramienta-evaluadora-art15-XXVIII',height:h},'*'); }catch(e){} } }
+  window.addEventListener('load', reportHeight); window.addEventListener('resize', reportHeight);
+  setTimeout(reportHeight,300); setTimeout(reportHeight,1000);
+
+  /* ---- Botón subir ---- */
+  var tb=document.getElementById('evTopBtn');
+  function sc(){ tb.classList.toggle('show',(window.pageYOffset||document.documentElement.scrollTop)>320); }
+  window.addEventListener('scroll', sc, {passive:true});
+  tb.addEventListener('click', function(){ var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches; window.scrollTo({top:0,behavior:rm?'auto':'smooth'}); }); sc();
+})();
+</script>
+</body>
+</html>
