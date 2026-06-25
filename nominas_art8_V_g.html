@@ -1088,17 +1088,17 @@ button.nm-esp-card{border:1.5px solid var(--g200);background:var(--wh)}
         titulo = 'El servidor del Ayuntamiento está fallando';
         explicacion = 'Respondió con error del lado del servidor (HTTP 5xx). Es temporal — intenta de nuevo en unos minutos. Mientras tanto puedes ver el archivo en el visor de Microsoft o descargarlo.';
       } else if(msg.indexOf('Failed to fetch') !== -1 || msg.indexOf('NetworkError') !== -1 || msg.indexOf('TypeError') !== -1){
-        titulo = 'Tu navegador bloqueó la descarga del Excel';
-        explicacion = 'Esto puede ser por <strong>tu conexión a internet</strong> o, más comúnmente, por la <strong>política de seguridad (CSP) del sitio donde está embebida</strong> esta página, que no permite descargar archivos de <code>enlinea.guadalajara.gob.mx</code> vía JavaScript.<br><br>La buena noticia: el <strong>visor de Microsoft Office Online</strong> y el botón <strong>Descargar</strong> sí funcionan, porque no dependen del navegador para bajar el archivo.';
+        titulo = 'La búsqueda por nombre aún no está lista para este documento';
+        explicacion = 'La versión optimizada para buscar dentro de esta nómina todavía se está preparando. Mientras tanto puedes <strong>verla en el visor</strong>, <strong>descargarla</strong> o <strong>abrirla en una pestaña nueva</strong> — esas opciones siempre funcionan.';
       } else if(msg.indexOf('SheetJS') !== -1){
-        titulo = 'No pudimos cargar el motor de búsqueda';
-        explicacion = 'Tu navegador o el sitio que embebe esta página bloqueó la librería <code>SheetJS</code> desde <code>cdn.jsdelivr.net</code>. Puedes seguir usando el visor de Microsoft o descargar el Excel directamente.';
+        titulo = 'La búsqueda por nombre no está disponible aquí';
+        explicacion = 'El sitio donde está embebida esta página no permitió cargar el buscador interno. Puedes <strong>ver la nómina en el visor</strong>, <strong>descargarla</strong> o <strong>abrirla en una pestaña nueva</strong>.';
       } else if(msg.indexOf('EMPTY_WORKBOOK') !== -1 || msg.indexOf('NO_ROWS') !== -1){
         titulo = 'El archivo se descargó pero está vacío';
         explicacion = 'Es probable que el archivo en el servidor del Ayuntamiento esté dañado. Reporta el problema a <a href="mailto:transparencia@guadalajara.gob.mx">transparencia@guadalajara.gob.mx</a> con el nombre del archivo.';
         mostrarAcciones = false;
       } else {
-        explicacion = 'Algo inesperado ocurrió al procesar el archivo. Puedes ver el archivo en el visor de Microsoft o descargar el Excel original.';
+        explicacion = 'Por ahora no pudimos preparar la búsqueda dentro de este documento. Puedes verlo en el visor, descargarlo o abrirlo en una pestaña nueva.';
       }
       var officeUrl = 'https://view.officeapps.live.com/op/view.aspx?src=' + encodeURIComponent(url);
       var acciones = '';
