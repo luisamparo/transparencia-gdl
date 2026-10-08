@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿A quién le pregunto? · Guía para tu solicitud de información · Transparencia GDL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ac:#E87722;--ac-l:#FFE4CC;--ac-d:#C45F0A;--ac-deeper:#8B4308;--ac-border:#F5C99A;--ac-soft:#FFF1E4;
+  --g50:#FAFAF8;--g100:#F0F0EC;--g200:#E2E2DD;--g300:#CFCFC8;--g400:#9E9E98;--g600:#5A5A55;--g800:#2D2D2A;--g900:#1A1A1A;
+  --wh:#FFF;--rad:10px;--rad-lg:14px;
+  --ease:cubic-bezier(.4,0,.2,1);
+  --fh:'Outfit',system-ui,-apple-system,sans-serif;--fm:var(--fh);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{padding:24px;background:transparent;font-family:var(--fh);color:var(--g900);line-height:1.55;-webkit-font-smoothing:antialiased}
+.gs-wrap{max-width:1040px;margin:0 auto}
+a{color:var(--ac-deeper)}
+:focus-visible{outline:3px solid var(--ac-deeper);outline-offset:2px;border-radius:4px}
+[tabindex="-1"]:focus{outline:none}
+.gs-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* HERO */
+.gs-hero{background:linear-gradient(135deg,#FFF4E8 0%,#FFFFFF 55%);border-radius:var(--rad-lg);padding:26px 30px;margin:0 0 22px;border-left:5px solid var(--ac);box-shadow:0 2px 14px rgba(232,119,34,.10)}
+.gs-hero-tag{display:inline-block;background:var(--ac);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px}
+.gs-hero h1{font-size:clamp(22px,3.2vw,28px);font-weight:800;color:var(--g900);letter-spacing:-.015em;line-height:1.22;margin-bottom:8px}
+.gs-hero h1 em{font-style:normal;color:var(--ac-d)}
+.gs-hero p{font-size:14.5px;color:var(--g600);max-width:80ch}
+
+/* ROBOT */
+.rb{display:block}
+.rb-ojo{transform-box:fill-box;transform-origin:center;animation:rbParpadeo 5.5s infinite}
+.rb-luz{animation:rbLuz 2.4s ease-in-out infinite}
+@keyframes rbParpadeo{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.12)}}
+@keyframes rbLuz{0%,100%{opacity:1}50%{opacity:.45}}
+
+/* VENTANA DEL CHAT */
+.bot{background:#fff;border:1.5px solid var(--ac-border);border-radius:20px;overflow:hidden;box-shadow:0 10px 34px rgba(139,67,8,.12);margin-bottom:28px;display:flex;flex-direction:column}
+.bot-cab{display:flex;align-items:center;gap:14px;padding:16px 20px;background:linear-gradient(135deg,var(--ac) 0%,var(--ac-d) 100%);color:#fff}
+.bot-cab-ava{flex-shrink:0;width:58px;height:58px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 4px rgba(255,255,255,.28)}
+.bot-cab h2{font-size:18px;font-weight:800;line-height:1.2;letter-spacing:-.01em}
+.bot-cab p{font-size:12.5px;font-weight:500;opacity:.95;display:flex;align-items:center;gap:6px}
+.bot-cab p::before{content:'';width:8px;height:8px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.3)}
+.bot-cuerpo{position:relative;height:600px;overflow-y:auto;padding:20px 18px 26px;background:#FBF7F2;display:flex;flex-direction:column;gap:10px;scrollbar-width:thin;scrollbar-color:var(--ac-border) transparent}
+.bot-cuerpo::-webkit-scrollbar{width:8px}
+.bot-cuerpo::-webkit-scrollbar-thumb{background:var(--ac-border);border-radius:8px}
+.bot-pie{border-top:1px solid var(--g200);background:#fff;padding:12px 16px 10px}
+.bot-form{display:flex;gap:8px;align-items:center}
+.bot-form label{flex:1;min-width:0}
+.bot-input{width:100%;font-family:var(--fh);font-size:16px;padding:12px 16px;border:1.5px solid var(--g300);border-radius:24px;background:var(--g50);color:var(--g900)}
+.bot-input:focus{border-color:var(--ac);outline:none;background:#fff;box-shadow:0 0 0 3px rgba(232,119,34,.22)}
+.bot-enviar{flex-shrink:0;width:48px;height:48px;border-radius:50%;border:0;background:var(--ac);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .14s}
+.bot-enviar:hover{background:var(--ac-d)}
+.bot-privado{font-size:11.5px;color:var(--g600);margin-top:7px;padding-left:6px}
+
+/* MENSAJES */
+.m{display:flex;gap:10px;align-items:flex-end;max-width:100%;animation:mIn .25s var(--ease)}
+.m-bot{align-self:flex-start;width:100%}
+.m-ava{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:#fff;border:1.5px solid var(--ac-border);display:flex;align-items:center;justify-content:center;align-self:flex-start}
+.m-ava.vacio{visibility:hidden}
+.m-burbuja{overflow-wrap:break-word;background:#fff;border:1px solid var(--g200);border-radius:4px 16px 16px 16px;padding:11px 15px;font-size:14.5px;color:var(--g800);max-width:min(640px,100%);min-width:0;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.m-burbuja.ancha{max-width:100%;flex:1}
+.m-burbuja p+p{margin-top:6px}
+.m-burbuja strong{color:var(--g900);font-weight:700}
+.m-yo{align-self:flex-end;justify-content:flex-end;max-width:85%}
+.m-yo .m-burbuja{background:var(--ac);border-color:var(--ac);color:#fff;border-radius:16px 4px 16px 16px;font-weight:600;overflow-wrap:anywhere}
+.m-sub{display:block;font-size:12.5px;color:var(--g600);margin-top:5px}
+.m-opcion{margin-top:9px;background:var(--ac-soft);border:1px solid var(--ac-border);border-radius:10px;padding:9px 12px;font-size:13.5px;color:var(--g800)}
+.m-opcion strong{color:var(--ac-deeper);font-weight:800}
+.m-aviso{background:var(--ac-soft);border-color:var(--ac-border)}
+.m-aviso strong{color:var(--ac-deeper)}
+.escribiendo{display:inline-flex;gap:5px;padding:4px 2px}
+.escribiendo i{width:8px;height:8px;border-radius:50%;background:var(--ac);opacity:.35;animation:punto 1s infinite}
+.escribiendo i:nth-child(2){animation-delay:.15s}
+.escribiendo i:nth-child(3){animation-delay:.3s}
+@keyframes punto{0%,60%,100%{opacity:.35;transform:translateY(0)}30%{opacity:1;transform:translateY(-4px)}}
+
+/* RESPUESTAS RÁPIDAS */
+.rapidas{display:flex;flex-wrap:wrap;gap:7px;padding-left:46px;animation:mIn .25s var(--ease)}
+.rapidas-tit{width:100%;font-size:12px;font-weight:700;color:var(--g600)}
+.chip{font-family:var(--fh);font-size:13px;font-weight:600;padding:8px 13px;border-radius:20px;border:1.5px solid var(--ac-border);background:#fff;color:var(--ac-deeper);cursor:pointer;transition:background .14s,border-color .14s;text-align:left;line-height:1.3}
+.chip:hover{background:var(--ac-soft);border-color:var(--ac)}
+.chip.fuerte{background:var(--ac-soft);border-color:var(--ac)}
+
+/* LIGAS Y REDACCIÓN DENTRO DE LA CONVERSACIÓN */
+.ligas{display:flex;flex-direction:column;gap:7px;margin-top:9px}
+.liga{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1.5px solid var(--ac-border);border-radius:var(--rad);background:#fff;text-decoration:none;color:var(--g900);transition:background .14s,border-color .14s}
+.liga:hover{background:var(--ac-soft);border-color:var(--ac)}
+.liga-ico{flex-shrink:0;width:30px;height:30px;border-radius:8px;background:var(--ac-soft);color:var(--ac-d);display:flex;align-items:center;justify-content:center}
+.liga-txt{flex:1;min-width:0;font-size:13.5px;font-weight:700;line-height:1.3}
+.liga-txt small{display:block;font-size:11.5px;font-weight:600;color:var(--g600);margin-top:1px}
+.liga-fl{flex-shrink:0;color:var(--ac-d)}
+.campos{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:10px;margin:10px 0}
+.campo{display:flex;flex-direction:column;gap:4px;font-size:12px;font-weight:700;color:var(--g800)}
+.campo-fila{display:flex;gap:6px}
+.campo input,.campo select{font-family:var(--fh);font-size:16px;padding:9px 10px;border:1.5px solid var(--g300);border-radius:8px;background:#fff;color:var(--g900);min-width:0;flex:1}
+.campo input:focus,.campo select:focus{border-color:var(--ac);outline:none;box-shadow:0 0 0 3px rgba(232,119,34,.22)}
+.texto{width:100%;min-height:170px;font-family:var(--fh);font-size:16px;line-height:1.6;padding:12px 14px;border:1.5px solid var(--g300);border-radius:var(--rad);background:#fff;color:var(--g900);resize:vertical}
+.texto:focus{border-color:var(--ac);outline:none;box-shadow:0 0 0 3px rgba(232,119,34,.22)}
+.acciones{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
+.btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:7px;min-width:236px;font-family:var(--fh);font-size:13px;font-weight:700;padding:11px 16px;border-radius:9px;cursor:pointer;text-decoration:none;border:1.5px solid;transition:background .14s,border-color .14s;white-space:nowrap}
+.btn-main{background:var(--ac);border-color:var(--ac);color:#fff}
+.btn-main:hover{background:var(--ac-d);border-color:var(--ac-d)}
+.btn-2nd{background:#fff;border-color:var(--ac-border);color:var(--ac-deeper)}
+.btn-2nd:hover{background:var(--ac-soft);border-color:var(--ac)}
+.btn svg{flex-shrink:0}
+.copiado{font-size:12.5px;font-weight:700;color:var(--ac-deeper)}
+
+/* DÓNDE PRESENTARLA */
+.gs-sec{display:flex;align-items:center;gap:12px;margin:0 2px 14px}
+.gs-sec-ico{flex-shrink:0;width:38px;height:38px;border-radius:10px;background:var(--ac);color:#fff;display:flex;align-items:center;justify-content:center}
+.gs-sec h2{font-size:18px;font-weight:800;color:var(--g900);letter-spacing:-.01em;line-height:1.25}
+.gs-sec p{font-size:13px;color:var(--g600)}
+.gs-canales{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:8px}
+@media (max-width:1000px){ .gs-canales{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:560px){ .gs-canales{grid-template-columns:1fr} }
+.gs-canal{background:#fff;border:1.5px solid var(--g200);border-top:5px solid var(--ac);border-radius:var(--rad-lg);padding:18px 20px;display:flex;flex-direction:column;gap:6px}
+.gs-canal-eye{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ac-d)}
+.gs-canal h3{font-size:16px;font-weight:800;color:var(--g900);line-height:1.3}
+.gs-canal p{font-size:13px;color:var(--g600)}
+.gs-canal .btn{margin-top:auto;align-self:stretch;min-width:0}
+.gs-canal .copiado{min-height:1em}
+.gs-canal-dato{font-size:13.5px;font-weight:700;color:var(--g900);overflow-wrap:break-word}
+.gs-canal-dato.correo{overflow-wrap:anywhere}
+
+/* Pantallas táctiles: blancos de 44 px para el dedo */
+@media (pointer:coarse){ .chip{min-height:44px;padding:10px 14px} .liga{min-height:48px} }
+/* Tableta */
+@media (max-width:1024px){ .m-burbuja{max-width:min(600px,100%)} }
+@keyframes mIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (max-width:700px){
+  body{padding:12px}
+  .gs-hero{padding:20px 18px}
+  .bot-cab{padding:14px 14px}
+  .bot-cab-ava{width:48px;height:48px}
+  .bot-cuerpo{padding:14px 10px 20px}
+  .m-ava{width:30px;height:30px}
+  .m-ava svg{width:24px;height:24px}
+  .rapidas{padding-left:0}
+  .m-yo{max-width:92%}
+  .bot-pie{padding:10px}
+  .btn{width:100%;min-width:0}
+  .gs-hero h1{font-size:21px}
+  .bot-cab h2{font-size:16.5px}
+}
+@media (max-width:380px){
+  body{padding:8px}
+  .gs-hero{padding:16px 14px}
+  .m{gap:6px}
+  .m-ava{display:none}
+  .m-burbuja{padding:10px 12px;font-size:14px}
+  .campo-fila{flex-direction:column}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="gs-wrap">
+
+  <header class="gs-hero">
+    <span class="gs-hero-tag">Solicitudes de información</span>
+    <h1>¿A quién le pregunto <em>lo que quiero saber</em>?</h1>
+    <p>Platica con nuestra guía sobre la información del <strong>Gobierno Municipal de Guadalajara</strong>: te dice a qué autoridad va dirigida tu pregunta, qué área tiene la información, si ya está publicada y cómo redactar tu solicitud.</p>
+  </header>
+
+  <section class="bot" id="gsBot" aria-labelledby="gsBotTit">
+    <div class="bot-cab">
+      <span class="bot-cab-ava" aria-hidden="true"><svg class="rb" width="46" height="46" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><line x1="32" y1="9" x2="32" y2="15" stroke="#B8513A" stroke-width="2.8" stroke-linecap="round"/><path class="rb-luz" d="M32 1.2l5.4 5.4c-1.5 1.5-3.4 2.2-5.4 2.2s-3.9-.7-5.4-2.2z" fill="#E06B4D" stroke="#B8513A" stroke-width="1.2" stroke-linejoin="round"/><rect x="4" y="25" width="7" height="13" rx="3.5" fill="#B8513A"/><rect x="53" y="25" width="7" height="13" rx="3.5" fill="#B8513A"/><path d="M15 14h34a6 6 0 0 1 6 6v20c0 9-11 16-23 21C20 56 9 49 9 40V20a6 6 0 0 1 6-6z" fill="#E06B4D"/><rect x="16" y="20" width="32" height="23" rx="9" fill="#FDEEE9"/><ellipse class="rb-ojo" cx="25" cy="30.5" rx="3.5" ry="4.3" fill="#2D2D2A"/><ellipse class="rb-ojo" cx="39" cy="30.5" rx="3.5" ry="4.3" fill="#2D2D2A"/><circle cx="26.2" cy="28.9" r="1.1" fill="#fff"/><circle cx="40.2" cy="28.9" r="1.1" fill="#fff"/><circle cx="20.5" cy="37" r="2.3" fill="#F5B9A8"/><circle cx="43.5" cy="37" r="2.3" fill="#F5B9A8"/><path d="M27.5 37.2q4.5 4.2 9 0" fill="none" stroke="#2D2D2A" stroke-width="2.3" stroke-linecap="round"/><path d="M26 49.5h12" stroke="#FDEEE9" stroke-width="2.4" stroke-linecap="round" opacity=".7"/></svg></span>
+      <div><h2 id="gsBotTit">Guía de Transparencia</h2><p>Gobierno Municipal de Guadalajara</p></div>
+    </div>
+    <div class="bot-cuerpo" id="gsCuerpo" role="log" aria-live="polite" aria-label="Conversación con la Guía de Transparencia" tabindex="0"></div>
+    <div class="bot-pie">
+      <form class="bot-form" id="gsForm" autocomplete="off">
+        <label><span class="gs-sr">Escribe lo que quieres saber</span>
+          <input class="bot-input" id="gsQ" type="text" maxlength="300" placeholder="Escribe aquí tu pregunta"></label>
+        <button class="bot-enviar" type="submit" aria-label="Enviar pregunta">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg>
+        </button>
+      </form>
+      <p class="bot-privado">Lo que escribes aquí no se envía a ningún lado: sólo sirve para orientarte en esta página.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="gsTitCanales">
+    <div class="gs-sec">
+      <span class="gs-sec-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg></span>
+      <div><h2 id="gsTitCanales">Dónde presentar tu solicitud al Ayuntamiento</h2><p>Por cualquiera de estos medios.</p></div>
+    </div>
+    <div class="gs-canales">
+      <article class="gs-canal">
+        <span class="gs-canal-eye">En este portal</span>
+        <h3>Formulario de Solicitud de Transparencia</h3>
+        <p>Escribes tu solicitud, eliges la dependencia y el formato en que la quieres recibir. Puedes usar tu nombre o un seudónimo.</p>
+        <a class="btn btn-main" href="https://transparencia.guadalajara.gob.mx/solicitud-transparencia" target="_blank" rel="noopener noreferrer">Abrir el formulario</a>
+      </article>
+      <article class="gs-canal">
+        <span class="gs-canal-eye">En línea</span>
+        <h3>Plataforma Nacional de Transparencia</h3>
+        <p>Creas una cuenta gratuita, envías tu solicitud y le das seguimiento desde ahí. También sirve para cualquier otra autoridad del país.</p>
+        <a class="btn btn-2nd" href="https://www.plataformadetransparencia.org.mx/" target="_blank" rel="noopener noreferrer">Ir a la Plataforma</a>
+      </article>
+      <article class="gs-canal">
+        <span class="gs-canal-eye">Por correo</span>
+        <h3>Correo de la Unidad de Transparencia</h3>
+        <p class="gs-canal-dato correo">transparencia@<wbr>guadalajara.gob.mx</p>
+        <p>Escribe tu solicitud en el cuerpo del correo con tu nombre y el correo donde quieres recibir la respuesta.</p>
+        <button type="button" class="btn btn-2nd" data-copiacorreo="gsCopCan">Copiar correo</button>
+        <span class="copiado" id="gsCopCan" role="status"></span>
+      </article>
+      <article class="gs-canal">
+        <span class="gs-canal-eye">En persona</span>
+        <h3>Unidad de Transparencia</h3>
+        <p class="gs-canal-dato">Cuarto Piso del Mercado Corona · Av. Miguel Hidalgo y Costilla 474, Zona Centro</p>
+        <p>Lunes a viernes de 9:00 a 15:00 h · 33 38 18 36 46, ext. 3530</p>
+        <a class="btn btn-2nd" href="https://transparencia.guadalajara.gob.mx/articulo-8/i-la-necesaria-para-el-ejercicio-del-derecho-a-la-informacion-publica-que-comprende/m-el-manual-y-formato-de-solicitud-de-informacion-publica" target="_blank" rel="noopener noreferrer">Ver manual y formato</a>
+      </article>
+    </div>
+  </section>
+
+</div>
+
+<script>
+/* Peso de cada palabra: '!' la vuelve decisiva (3), '~' la vuelve débil (1); una palabra sola pesa 1.5 y una frase, 2 por palabra.
+   Catálogo de la guía para solicitudes de información.
+   Cada tema: id, t (nombre), cat (grupo), kw (palabras y frases como las dice la gente; frases de varias palabras pesan más),
+   so ('A' Ayuntamiento · 'O' organismo descentralizado · 'E' otra autoridad · 'F' pregunta sobre el procedimiento),
+   area / dep / cod (área probable, a quién pertenece y artículo del Código de Gobierno Municipal que le da la función),
+   pub (incisos del portal donde puede estar ya publicada), q (lo que se pide, para el texto sugerido),
+   av (aviso opcional), ent / web (sólo para 'O' y 'E'), r (respuesta, sólo para 'F'),
+   frases (opcional: preguntas que, escritas tal cual, ya dicen el tema aunque sólo tengan palabras de relleno).
+   Fuentes: Código de Gobierno del Municipio de Guadalajara; organigrama de enlinea.guadalajara.gob.mx/organigrama (8 oct 2026);
+   las respuestas 'F' repiten lo que publica el propio Ayuntamiento en el formulario de solicitud y en el manual (Art. 8 I m). */
+/* Formulario oficial del portal (transparencia.guadalajara.gob.mx/solicitud-transparencia, revisado el 8 oct 2026):
+   las 15 opciones de «Dependencia o área específica» y a cuál corresponde cada dependencia del catálogo. */
+const FORMULARIO='https://transparencia.guadalajara.gob.mx/solicitud-transparencia';
+const OPCIONES=['Presidencia Municipal','Sindicatura','Secretaría General','Comisaría de Seguridad Ciudadana','Tesorería','Contraloría Ciudadana','Coordinación de Administración e Innovación','Regidores','Coordinación General de la Superintendencia del Centro Histórico','Coordinación General de Construcción de Comunidad','Coordinación General de Desarrollo Económico','Coordinación General de Combate a la Desigualdad','Coordinación General de Gestión Integral de la Ciudad','Coordinación General de Servicios Municipales','Coordinación General Cuidamos Guadalajara'];
+const OPCION_DE={'Oficinas de la Presidencia':'Presidencia Municipal','Oficina Ejecutiva de Presidencia':'Presidencia Municipal','Jefatura de Gabinete':'Presidencia Municipal','Secretaría Particular':'Presidencia Municipal','Consejería Jurídica':'Presidencia Municipal'};
+const opcion=dep=>{ const o=OPCION_DE[dep]||dep; return OPCIONES.includes(o)?o:''; };
+const CATS=[
+ ['faq','Sobre las solicitudes de información'],
+ ['ciudad','Servicios de la ciudad'],
+ ['urbano','Obras, construcción, uso de suelo y mapas'],
+ ['negocios','Negocios, empleo, mercados y comercio'],
+ ['dinero','Dinero público, compras y contratos'],
+ ['personal','Trabajar en el Ayuntamiento, personal y sueldos'],
+ ['gobierno','Gobierno, Cabildo, control y atención'],
+ ['seguridad','Seguridad y emergencias'],
+ ['social','Desarrollo social, cultura y salud'],
+ ['organismos','Organismos del municipio con personalidad propia'],
+ ['otras','Temas que no son del Ayuntamiento']
+];
+const TEMAS=[
+/* ── Sobre las solicitudes de información (respuestas tomadas del formulario y del manual que publica el Ayuntamiento) ── */
+{id:'f_como',cat:'faq',t:'Cómo presentar una solicitud de información',so:'F',pub:['8 I m','8 I h'],
+ frases:['como hago una solicitud','como hago solicitud','como se hace una solicitud','como solicito','hacer una solicitud','como pido informacion','como presento una solicitud'],
+ kw:['como presento solicitud','donde presento solicitud','donde hago solicitud','presentar solicitud','pedir informacion','pasos solicitud','formato solicitud','manual solicitud','como pido','donde pido','requisito solicitud','llenar solicitud','como pregunto','plataforma nacional','pnt','infomex'],
+ r:'<p>Puedes presentarla de cuatro formas: con el <strong>formulario de solicitud de este portal</strong>, en la <strong>Plataforma Nacional de Transparencia</strong>, por <strong>correo</strong> a transparencia@guadalajara.gob.mx o <strong>en persona</strong> en la Unidad de Transparencia.</p><p>Sólo tienes que describir la información que buscas y dar un correo para recibir la respuesta. Puedes usar tu nombre o un seudónimo.</p><p>Si me cuentas qué quieres saber, te digo qué área la tiene y te dejo la solicitud redactada.</p>'},
+{id:'f_costo',cat:'faq',t:'¿Cuesta hacer una solicitud?',so:'F',pub:['8 I m'],
+ kw:['cuesta solicitud','costo solicitud','cobran solicitud','es gratis','gratuita','gratuito','tiene costo','hay que pagar solicitud','precio copia','copias certificadas','costo copia','cuanto cobran'],
+ r:'<p>Presentar una solicitud no cuesta. El manual de solicitud del Ayuntamiento indica que <strong>las primeras 20 copias simples de cada solicitud son sin costo</strong>; si pides más copias o un formato distinto, te avisan del costo de reproducción antes de entregártelas.</p><p>Las tarifas vienen en el manual.</p>'},
+{id:'f_anonimo',cat:'faq',t:'¿Puedo pedir información sin dar mi nombre?',so:'F',pub:['8 I m'],
+ kw:['!anonimo','!anonima','!seudonimo','sin nombre','sin dar mi nombre','dar mi nombre','identificacion','credencial solicitud','ine solicitud','tengo que identificarme','datos piden'],
+ r:'<p>Sí. Como indica el formulario de solicitud del portal, <strong>puedes usar tu nombre o un seudónimo</strong>; lo único necesario es un correo electrónico para enviarte la respuesta y las notificaciones.</p><p>No tienes que explicar para qué quieres la información.</p>'},
+{id:'f_plazo',cat:'faq',t:'¿Cuánto tardan en responder?',so:'F',pub:['8 I m'],
+ kw:['cuanto tardan','cuanto tarda','plazo','dias habiles','cuando me responden','cuando contestan','tiempo respuesta','cuanto tiempo','cuando responden'],
+ r:'<p>El formulario de solicitud del portal indica que tu solicitud se procesa en un <strong>plazo máximo de 8 días hábiles</strong>. Los días hábiles no cuentan sábados, domingos ni días inhábiles.</p><p>El detalle de cada paso está en el manual de solicitud.</p>'},
+{id:'f_inconforme',cat:'faq',t:'No me respondieron o no estoy de acuerdo con la respuesta',so:'F',pub:['8 I m'],
+ kw:['no me respondieron','no me contestaron','no me han respondido','no responden','!respondieron','!contestaron','respuesta incompleta','no estoy de acuerdo','recurso revision','inconformidad','queja solicitud','me negaron','negaron informacion','informacion reservada','reservada','inexistente','inexistencia'],
+ r:'<p>Si no te responden a tiempo o no estás de acuerdo con la respuesta, puedes inconformarte con un <strong>recurso de revisión</strong>. El manual de solicitud del Ayuntamiento explica a dónde acudir y trae el formato.</p><p>Si tienes dudas, la Unidad de Transparencia te orienta: Cuarto Piso del Mercado Corona, Av. Miguel Hidalgo y Costilla 474, Zona Centro, de lunes a viernes de 9:00 a 15:00 h.</p>'},
+{id:'f_seguimiento',cat:'faq',t:'¿Cómo va mi solicitud?',so:'F',pub:['8 I h'],
+ kw:['como va mi solicitud','seguimiento solicitud','folio','estado de mi solicitud','consultar solicitud','ya tiene respuesta'],
+ r:'<p>Si la presentaste en la <strong>Plataforma Nacional de Transparencia</strong>, ahí ves su avance entrando con tu cuenta.</p><p>Si fue por el formulario del portal, por correo o en persona, la respuesta y los avisos te llegan al correo que diste. Para cualquier duda, pregunta a la Unidad de Transparencia con tu número de folio: transparencia@guadalajara.gob.mx.</p>'},
+{id:'f_unidad',cat:'faq',t:'Dónde está la Unidad de Transparencia',so:'F',pub:['8 I m','8 I h'],
+ kw:['unidad transparencia','donde estan','donde queda','direccion oficina','horario','telefono transparencia','oficina transparencia','en persona','ventanilla','mercado corona'],
+ r:'<p>La Unidad de Transparencia está en el <strong>Cuarto Piso del Mercado Corona</strong>, Av. Miguel Hidalgo y Costilla 474, Zona Centro.</p><p>Atiende de lunes a viernes de 9:00 a 15:00 h, en el 33 38 18 36 46, ext. 3530, y en transparencia@guadalajara.gob.mx.</p>'},
+{id:'f_que',cat:'faq',t:'¿Qué puedo pedir con una solicitud?',so:'F',pub:['8 I m'],
+ frases:['que puedo pedir','que puedo preguntar','que se puede pedir','que informacion puedo pedir','que puedo solicitar'],
+ kw:['que puedo pedir','que es solicitud','para que sirve solicitud','que informacion puedo','derecho acceso','que es transparencia','que puedo preguntar','informacion publica'],
+ r:'<p>Puedes pedir cualquier <strong>documento o dato que el Ayuntamiento genere, administre o tenga</strong>: contratos, gastos, sueldos, obras, estadísticas, actas, permisos y más.</p><p>Una solicitud sirve para conocer información; no sirve para pedir que reparen algo ni para hacer un trámite. Cuéntame qué quieres saber y te oriento.</p>'},
+
+/* ── Servicios de la ciudad ── */
+{id:'alumbrado',cat:'ciudad',t:'Alumbrado público',so:'A',area:'Dirección de Alumbrado Público',dep:'Coordinación General de Servicios Municipales',cod:'267',
+ kw:['luminaria','lampara','alumbrado','arbotante','farol','luz calle','luz poste','calle oscura','poste luz','foco calle','iluminacion','luz parque','lampara fundida','lampara apagada','no hay luz calle','alumbra','luminarias led'],
+ pub:['15 XIX'],q:'el número total de luminarias del alumbrado público instaladas en el municipio de Guadalajara, con su ubicación o desglosado por colonia',av:'reporte'},
+{id:'pavimentos',cat:'ciudad',t:'Baches y pavimentos',so:'A',area:'Dirección de Pavimentos',dep:'Coordinación General de Servicios Municipales',cod:'272',
+ kw:['bache','pavimento','asfalto','hoyo calle','calle rota','repavimentacion','carpeta asfaltica','mantenimiento vialidad','empedrado','concreto hidraulico','calle destrozada','tapar bache','pavimentar','pavimentacion','hundimiento calle','calle mal estado','reencarpetado'],
+ pub:['8 VI c'],q:'los baches atendidos y el programa anual de mantenimiento de pavimentos del municipio, con la ubicación de los trabajos realizados',av:'reporte'},
+{id:'aseo',cat:'ciudad',t:'Recolección de basura y aseo',so:'A',area:'Dirección de Aseo Público',dep:'Coordinación General de Servicios Municipales',cod:'268',
+ kw:['basura','recoleccion','camion basura','residuo','desecho','barrido','contenedor','relleno sanitario','limpia','tiradero','reciclaje basura','no pasa basura','no recogen basura','pasa camion','caabsa','escombro','cacharro','descacharrizacion','barrendero','tambo'],
+ pub:['15 XV'],q:'las rutas, días y horarios de recolección de basura, así como las toneladas recolectadas por mes',av:'reporte'},
+{id:'parques',cat:'ciudad',t:'Parques, jardines y árboles',so:'A',area:'Dirección de Parques y Jardines',dep:'Coordinación General de Servicios Municipales',cod:'271',
+ kw:['arbol','poda','derribo','parque','jardin','area verde','camellon','vivero','glorieta','pasto','reforestacion','arbolado','tala','talaron','cortaron arbol','arbol caido','arbol peligroso','plantar arbol'],
+ pub:[],q:'las podas y derribos de árboles realizados, con su ubicación, fecha y el dictamen técnico que los sustenta',av:'reporte'},
+{id:'mejoramiento',cat:'ciudad',t:'Mantenimiento urbano, grafiti y lotes baldíos',so:'A',area:'Dirección de Mejoramiento Urbano',dep:'Coordinación General de Servicios Municipales',cod:'270',
+ kw:['grafiti','graffiti','pinta','barda','machuelo','lote baldio','baldio','mobiliario urbano','mantenimiento urbano','propaganda poste','paso desnivel','vaso regulador','banca rota','pintar','terreno abandonado','maleza','monte terreno'],
+ pub:[],q:'las acciones de mantenimiento del equipamiento urbano realizadas, con su ubicación, fecha y costo',av:'reporte'},
+{id:'cementerios',cat:'ciudad',t:'Cementerios',so:'A',area:'Dirección de Cementerios',dep:'Coordinación General de Servicios Municipales',cod:'269',
+ kw:['cementerio','panteon','tumba','fosa','gaveta','inhumacion','exhumacion','velatorio','cremacion','incineracion','sepultura','difunto','mezquitan','enterrar','refrendo fosa','muerto','funeral'],
+ pub:[],q:'el número de inhumaciones, exhumaciones e incineraciones realizadas en los cementerios municipales, por cementerio y por mes',av:'tramite'},
+{id:'rastro',cat:'ciudad',t:'Rastro municipal',so:'A',area:'Dirección de Rastro',dep:'Coordinación General de Servicios Municipales',cod:'273',
+ kw:['rastro','sacrificio','matanza','reses','cerdo','carne','ganado sacrificado'],
+ pub:[],q:'el número de animales sacrificados en el rastro municipal por especie y por mes'},
+{id:'ambiente',cat:'ciudad',t:'Medio ambiente',so:'A',area:'Dirección de Medio Ambiente',dep:'Coordinación General de Gestión Integral de la Ciudad',cod:'260',
+ kw:['medio ambiente','ambiental','contaminacion','ruido','cambio climatico','calidad aire','emision','impacto ambiental','reciclaje','ecologia','residuos solidos','olor','humo','contamina','fabrica contamina','vecino ruido'],
+ pub:[],q:'los programas municipales en materia ambiental y de acción ante el cambio climático vigentes, con sus avances'},
+{id:'animales',cat:'ciudad',t:'Animales y mascotas',so:'A',area:'Dirección de Bienestar Animal',dep:'Coordinación General de Construcción de Comunidad',cod:'241',
+ kw:['perro','gato','mascota','animal','maltrato animal','esterilizacion','vacuna antirrabica','perro callejero','control animal','adopcion','bienestar animal','perrera','antirrabico','esterilizar','castrar'],
+ pub:[],q:'el número de esterilizaciones y vacunas aplicadas a perros y gatos por los servicios municipales de protección animal, por mes'},
+{id:'centro',cat:'ciudad',t:'Centro Histórico',so:'A',area:'Coordinación General de la Superintendencia del Centro Histórico',dep:'Coordinación General de la Superintendencia del Centro Histórico',cod:'234',
+ kw:['centro historico','primer cuadro','plaza tapatia','ambulante centro','catedral','plaza liberacion','paseo alcalde'],
+ pub:[],q:'las acciones de servicios públicos y de orden realizadas en el Centro Histórico, con su fecha y ubicación'},
+{id:'movilidad',cat:'ciudad',t:'Movilidad, ciclovías y estacionómetros',so:'A',area:'Dirección de Movilidad y Transporte',dep:'Coordinación General de Gestión Integral de la Ciudad',cod:'261',
+ kw:['!estacionometro','!parquimetro','ciclovia','bicicleta','movilidad','estacionamiento','tope','reductor velocidad','cruce peatonal','infraestructura vial','peaton','banqueta accesible','rampa','cajon estacionamiento','estacionar'],
+ pub:[],q:'el número de estacionómetros instalados en el municipio y su ubicación'},
+
+/* ── Obras, construcción, uso de suelo y mapas ── */
+{id:'obras',cat:'urbano',t:'Obra pública',so:'A',area:'Dirección de Obras Públicas',dep:'Coordinación General de Gestión Integral de la Ciudad',cod:'262',
+ kw:['obra publica','obra','puente','remodelacion','construccion parque','avance obra','contratista','colector','rehabilitacion','obra municipal','proyecto ejecutivo','cuanto costo obra','quien construye','obra calle','obra inconclusa','obra parada','cuando terminan obra'],
+ pub:['8 VI c','8 V p','8 V o','15 XIII'],q:'el costo, el contratista, el avance y la fecha de terminación de la obra pública ubicada en el lugar que indico'},
+{id:'construccion',cat:'urbano',t:'Licencias de construcción',so:'A',area:'Dirección de Licencias de Construcción',dep:'Coordinación General de Gestión Integral de la Ciudad',cod:'264',
+ kw:['licencia construccion','permiso construccion','obra privada','edificio','torre','departamentos','demolicion','alineamiento','numero oficial','habitabilidad','!construyendo','construccion vecino','vecino construye','construccion sin permiso','tiene permiso construccion','barda vecino','ampliacion casa'],
+ pub:['8 V t','8 VI g'],q:'la licencia de construcción otorgada para el predio ubicado en el domicilio que indico, con su fecha, vigencia y lo autorizado',av:'tramite'},
+{id:'suelo',cat:'urbano',t:'Uso de suelo y planes de desarrollo urbano',so:'A',area:'Dirección de Ordenamiento del Territorio',dep:'Coordinación General de Gestión Integral de la Ciudad',cod:'263',
+ kw:['uso suelo','plan parcial','desarrollo urbano','zonificacion','densidad','fraccionamiento','ordenamiento territorial','cambio uso','que se puede construir','dictamen trazos','dictamen usos'],
+ pub:['15 XX','15 XXII'],q:'el uso de suelo permitido y el plan parcial de desarrollo urbano aplicable al predio o zona que indico'},
+{id:'territorio',cat:'urbano',t:'Recursos y conflictos en desarrollo urbano',so:'A',area:'Dirección de Control del Territorio',dep:'Oficina Ejecutiva de Presidencia',cod:'156',
+ kw:['conflicto territorial','recurso desarrollo urbano','impugnar licencia','inconformidad construccion','resolucion desarrollo urbano'],
+ pub:[],q:'los recursos de revisión en materia de desarrollo urbano presentados y resueltos, con su sentido'},
+{id:'vivienda',cat:'urbano',t:'Vivienda',so:'A',area:'Agencia Municipal de Vivienda',dep:'Oficina Ejecutiva de Presidencia',cod:'153',
+ kw:['vivienda','casa','repoblamiento','vivienda social','credito vivienda','renta vivienda','habitacional','vivienda asequible','comprar casa','apoyo vivienda'],
+ pub:[],q:'los programas y acciones de vivienda del municipio, con el número de personas beneficiadas'},
+{id:'mapas',cat:'urbano',t:'Mapas, datos geográficos y datos abiertos',so:'A',area:'Dirección de Información Geoespacial y Análisis Urbano',dep:'Oficina Ejecutiva de Presidencia',cod:'150',
+ kw:['!mapa','cartografia','geografico','geoespacial','coordenadas','shapefile','datos abiertos','base datos','limites colonias','mapa colonias','ciudad inteligente'],
+ pub:[],q:'la cartografía en formato abierto (por ejemplo, shapefile o GeoJSON) de las colonias del municipio'},
+
+/* ── Negocios, empleo, mercados y comercio ── */
+{id:'licencias',cat:'negocios',t:'Licencias de negocios',so:'A',area:'Dirección de Padrón y Licencias',dep:'Coordinación General de Desarrollo Económico',cod:'246',
+ kw:['licencia giro','negocio','permiso funcionamiento','giro comercial','bar','antro','cantina','restaurante','venta alcohol','espectaculo','anuncio','padron licencias','local comercial','abrir negocio','tiene licencia','permiso negocio','deposito cerveza','tienda','abarrotes','licoreria'],
+ pub:['8 V t','8 VI g'],q:'las licencias de giro vigentes en la zona que indico, con su giro y domicilio',av:'tramite'},
+{id:'emprendimiento',cat:'negocios',t:'Emprendimiento, inversión y empleo en la ciudad',so:'A',area:'Dirección de Emprendimiento y Promoción Económica',dep:'Coordinación General de Desarrollo Económico',cod:'245',
+ kw:['!emprender','!emprendedor','!emprendimiento','credito negocio','apoyo negocio','pyme','inversion','fomento empleo','bolsa trabajo','feria empleo','economia circular','apertura empresa'],
+ pub:['8 VI d'],q:'los programas de apoyo a personas emprendedoras y de fomento al empleo, con sus reglas y el número de personas beneficiadas'},
+{id:'mercados',cat:'negocios',t:'Mercados municipales',so:'A',area:'Dirección de Mercados',dep:'Coordinación General de Desarrollo Económico',cod:'248',
+ kw:['mercado','locatario','local mercado','mercado corona','mercado libertad','san juan dios','mercado municipal','mercado abastos'],
+ pub:[],q:'el número de locales, el catálogo de giros y el programa de mantenimiento del mercado municipal que indico'},
+{id:'tianguis',cat:'negocios',t:'Tianguis y comercio en la calle',so:'A',area:'Dirección de Tianguis y Comercio en Espacios Abiertos',dep:'Coordinación General de Desarrollo Económico',cod:'249',
+ kw:['tianguis','ambulante','puesto','comercio calle','vendedor','via publica','feria','comercio espacio abierto','puesto banqueta','vender calle','permiso vender'],
+ pub:[],q:'el padrón de tianguis del municipio, con su ubicación, días de instalación y número de espacios asignados'},
+{id:'inspeccion',cat:'negocios',t:'Inspecciones, multas y clausuras',so:'A',area:'Dirección de Inspección y Vigilancia',dep:'Jefatura de Gabinete',cod:'165 quinquies',
+ kw:['inspeccion','inspector','!clausura','!clausurado','!clausuraron','!multa','infraccion','sancion negocio','verificacion','acta infraccion','sellos','multa municipal','me multaron','denunciar negocio'],
+ pub:[],q:'el número de inspecciones, actas de infracción y clausuras realizadas por mes, con el giro y la colonia'},
+{id:'turismo',cat:'negocios',t:'Turismo',so:'A',area:'Dirección de Turismo',dep:'Coordinación General de Desarrollo Económico',cod:'247',
+ kw:['!turismo','!turista','visitante','hotel','ruta turistica','ocupacion hotelera','promocion turistica','mundial'],
+ pub:[],q:'el número de visitantes y los programas de promoción turística del municipio, con su costo'},
+
+/* ── Dinero público, compras y contratos ── */
+{id:'presupuesto',cat:'dinero',t:'Presupuesto y gasto',so:'A',area:'Dirección de Finanzas',dep:'Tesorería',cod:'218',
+ kw:['presupuesto','~gasto','~gastaron','~dinero','egreso','partida','~costo','~pago','ejercido','erogacion','en que gastan','cuanto dinero','presupuesto anual','presupuesto dependencia'],
+ pub:['8 V c','8 V i','15 XII'],q:'el presupuesto asignado y el monto ejercido por la dependencia o el programa que indico'},
+{id:'cuentas',cat:'dinero',t:'Cuenta pública y estados financieros',so:'A',area:'Dirección de Contabilidad',dep:'Tesorería',cod:'216',
+ kw:['cuenta publica','estados financieros','contabilidad','balance','conciliacion bancaria','estado cuenta','cuentas bancarias'],
+ pub:['8 V i','8 V n','8 V x'],q:'la cuenta pública y los estados financieros del periodo que indico'},
+{id:'pagos',cat:'dinero',t:'Pagos a proveedores y contratistas',so:'A',area:'Dirección de Egresos',dep:'Tesorería',cod:'217',
+ kw:['pago proveedor','cuando pagan','no me han pagado','pagos realizados','cheque','transferencia','facturas pagadas','adeudo proveedor'],
+ pub:['8 V v'],q:'los pagos realizados a proveedores y contratistas en el periodo que indico, con el beneficiario, el concepto y el monto'},
+{id:'ingresos',cat:'dinero',t:'Ingresos, predial y recaudación',so:'A',area:'Dirección de Ingresos',dep:'Tesorería',cod:'219',
+ kw:['ingreso','recaudacion','recaudo','impuesto','predial','cobro','ley ingresos','participacion federal','cuanto se cobra','contribucion','pagar predial','descuento predial','tarifa','derechos municipales'],
+ pub:['15 XXV','8 XII'],q:'lo recaudado por el impuesto predial, por mes',av:'tramite'},
+{id:'catastro',cat:'dinero',t:'Catastro y valor de predios',so:'A',area:'Dirección de Catastro',dep:'Tesorería',cod:'215',
+ kw:['catastro','valor catastral','cuenta predial','avaluo','plano predio','terreno','predio','tabla valores','certificado catastral','dueño terreno','propietario predio'],
+ pub:[],q:'las tablas de valores catastrales vigentes para la zona que indico',av:'catastro'},
+{id:'deuda',cat:'dinero',t:'Deuda pública',so:'A',area:'Dirección de Finanzas',dep:'Tesorería',cod:'218',
+ kw:['!deuda','debe','adeudo','credito','prestamo','endeudamiento','financiamiento','banco','cuanto debe'],
+ pub:['8 V w'],q:'el saldo de la deuda pública del municipio, con cada crédito, su banco, tasa y plazo'},
+{id:'compras',cat:'dinero',t:'Compras, licitaciones y proveedores',so:'A',area:'Dirección de Adquisiciones',dep:'Coordinación de Administración e Innovación',cod:'229',
+ kw:['compra','!licitacion','proveedor','adquisicion','concurso','adjudicacion','adjudicacion directa','factura','arrendamiento','cotizacion','!compraron','vendio','vendieron','ser proveedor','vender municipio','padron proveedores','cuanto pagaron'],
+ pub:['8 V p','8 V o','8 V ñ'],q:'las compras realizadas para el bien o servicio que indico, con el proveedor, el monto y el tipo de procedimiento'},
+{id:'contratos',cat:'dinero',t:'Contratos y convenios',so:'A',area:'Dirección de lo Jurídico Consultivo',dep:'Sindicatura',cod:'169',
+ kw:['contrato','convenio','concesion','firmado','acuerdo empresa','comodato','concesionado','empresa privada'],
+ pub:['8 VI f','15 XV','15 XIV'],q:'el contrato o convenio que indico, en versión pública'},
+{id:'bienes',cat:'dinero',t:'Bienes, vehículos e inmuebles municipales',so:'A',area:'Dirección de Patrimonio',dep:'Coordinación de Administración e Innovación',cod:'231',
+ kw:['vehiculo oficial','camioneta','camioneta oficial','auto oficial','carro oficial','inmueble','bien municipal','inventario','edificio municipal','terreno municipal','patrimonio','propiedad municipal','flotilla','vehiculos ayuntamiento'],
+ pub:['8 V r','15 XVIII'],q:'el inventario de vehículos (o inmuebles) del municipio, con su descripción y el área que los tiene asignados'},
+{id:'comunicacion',cat:'dinero',t:'Publicidad y comunicación social',so:'A',area:'Análisis y Comunicación Estratégica',dep:'Oficinas de la Presidencia',cod:'159',
+ kw:['!publicidad','propaganda','comunicacion social','medio comunicacion','campana publicitaria','anuncio gobierno','redes sociales','espectacular','periodico','influencer','prensa'],
+ pub:['8 V j'],q:'el gasto en publicidad y comunicación social, con el proveedor, la campaña y el monto'},
+{id:'subsidios',cat:'dinero',t:'Subsidios, donativos y condonaciones',so:'A',area:'Dirección de Egresos',dep:'Tesorería',cod:'217',
+ kw:['subsidio','donativo','donacion','condonacion','exencion','descuento impuesto','apoyo organizacion'],
+ pub:['8 V l','8 V m','8 V q'],q:'los subsidios y donativos otorgados en el periodo que indico, con el beneficiario y el monto'},
+
+/* ── Trabajar en el Ayuntamiento, personal y sueldos ── */
+{id:'empleo',cat:'personal',t:'Trabajar en el Ayuntamiento (vacantes y convocatorias)',so:'A',area:'Dirección de Recursos Humanos',dep:'Coordinación de Administración e Innovación',cod:'232',
+ kw:['!trabajar','!trabajo','!empleo','!vacante','chamba','entrar trabajar','como entro','solicitud trabajo','convocatoria','plaza disponible','contratan','requisito','requisitos trabajar','bolsa trabajo ayuntamiento','quiero trabajar','buscar trabajo','oferta laboral','examen ingreso','ser policia'],
+ pub:['8 V d'],q:'las vacantes y convocatorias abiertas para ocupar plazas en el Ayuntamiento, con sus requisitos',av:'empleo'},
+{id:'sueldos',cat:'personal',t:'Sueldos y nómina',so:'A',area:'Dirección de Nómina',dep:'Tesorería',cod:'220',
+ kw:['!sueldo','!salario','!nomina','!gana','!ganan','!remuneracion','!aguinaldo','compensacion','!quincena','pago trabajador','prestaciones','bono','cuanto le pagan','cuanto cobra'],
+ pub:['8 V f','8 V g'],q:'el sueldo mensual bruto y neto, con sus prestaciones, del puesto que indico'},
+{id:'personal',cat:'personal',t:'Personal y plantilla',so:'A',area:'Dirección de Recursos Humanos',dep:'Coordinación de Administración e Innovación',cod:'232',
+ kw:['plaza','personal','empleado','trabajador','servidor publico','plantilla','contratacion','honorario','sindicato','base','confianza','jubilado','pensionado','cuantos trabajan','burocrata','capacitacion empleados','aviador'],
+ pub:['8 V e','8 V k','8 V h','15 XIX'],q:'el número de personas que trabajan en la dependencia que indico, por tipo de plaza'},
+{id:'directorio',cat:'personal',t:'Directorio de funcionarios',so:'A',area:'',dep:'',cod:'',
+ kw:['!directorio','!telefono','correo funcionario','!titular','director','funcionario','!extension','quien es encargado','quien manda','curriculum funcionario'],
+ pub:['8 I j'],q:'el nombre, cargo, teléfono y correo institucional de la persona titular del área que indico'},
+
+/* ── Gobierno, Cabildo, control y atención ── */
+{id:'cabildo',cat:'gobierno',t:'Cabildo, regidores y reglamentos',so:'A',area:'Secretaría General',dep:'Secretaría General',cod:'48',
+ kw:['cabildo','sesion','regidor','regidora','acta cabildo','acuerdo','votacion','reglamento','iniciativa','gaceta','comision edilicia','ayuntamiento sesion','sindica','voto','como voto','asistencia regidores'],
+ pub:['15 IX','15 III','15 X','15 XXVII'],q:'el acta y la votación de la sesión de Cabildo en la que se aprobó el asunto que indico'},
+{id:'agenda',cat:'gobierno',t:'Agenda y viajes de la Presidenta Municipal',so:'A',area:'Secretaría Particular',dep:'Oficinas de la Presidencia',cod:'134',
+ kw:['agenda','presidenta','alcaldesa','viaje','viatico','gira','reunion presidenta','evento presidenta'],
+ pub:['8 VI h','8 V s'],q:'la agenda de actividades de la Presidenta Municipal en las fechas que indico'},
+{id:'atencion',cat:'gobierno',t:'Reportes, quejas y peticiones ciudadanas',so:'A',area:'Dirección de Atención Ciudadana',dep:'Secretaría Particular',cod:'136',
+ kw:['reporte','reportar','queja','peticion','demanda ciudadana','atencion ciudadana','nadie atiende','no hacen caso','mi reporte','folio reporte','cuantos reportes'],
+ pub:[],q:'el número de reportes ciudadanos recibidos por tipo y colonia, y cuántos fueron atendidos',av:'reporte'},
+{id:'contraloria',cat:'gobierno',t:'Auditorías y quejas contra servidores públicos',so:'A',area:'Contraloría Ciudadana',dep:'Contraloría Ciudadana',cod:'222',
+ kw:['auditoria','queja funcionario','corrupcion','denuncia servidor','responsabilidad administrativa','sancion funcionario','contraloria','soborno','mordida','declaracion patrimonial','denunciar funcionario','funcionario corrupto','conflicto interes'],
+ pub:['8 V n','8 V z','8 V y'],q:'las auditorías practicadas a la dependencia que indico, con sus observaciones y su estado'},
+{id:'internos',cat:'gobierno',t:'Quejas contra policías municipales',so:'A',area:'Dirección de Asuntos Internos',dep:'Consejería Jurídica',cod:'144',
+ kw:['queja policia','denunciar policia','policia abuso','asuntos internos','policia extorsion','policia corrupto','mal trato policia'],
+ pub:[],q:'el número de procedimientos iniciados contra elementos de la policía municipal por año y su resultado'},
+{id:'ddhh',cat:'gobierno',t:'Derechos humanos',so:'A',area:'Dirección de Derechos Humanos',dep:'Sindicatura',cod:'172',
+ kw:['derechos humanos','cedhj','cndh','recomendacion','discriminacion','queja derechos'],
+ pub:['8 VI m'],q:'las recomendaciones de derechos humanos dirigidas al municipio y su cumplimiento'},
+{id:'juicios',cat:'gobierno',t:'Juicios y demandas contra el municipio',so:'A',area:'Dirección de lo Jurídico Contencioso',dep:'Sindicatura',cod:'170',
+ kw:['demanda','juicio','laudo','litigio','amparo','sentencia','abogado','tribunal','demandar ayuntamiento','indemnizacion'],
+ pub:['8 VII'],q:'el número de juicios en los que el municipio es parte, por tipo de juicio y estado procesal'},
+{id:'resultados',cat:'gobierno',t:'Informes, metas e indicadores',so:'A',area:'Dirección de Evaluación y Seguimiento',dep:'Oficina Ejecutiva de Presidencia',cod:'148',
+ kw:['informe gobierno','resultado','indicador','meta','plan municipal','evaluacion','avance programa','promesa campaña','cumplimiento'],
+ pub:['8 VI l','8 IV h'],q:'los indicadores y el avance de metas del programa que indico'},
+{id:'participacion',cat:'gobierno',t:'Participación ciudadana y presupuesto participativo',so:'A',area:'Dirección de Participación Ciudadana',dep:'Coordinación General Cuidamos Guadalajara',cod:'278',
+ kw:['participacion ciudadana','asociacion vecinal','vecino','colono','consulta','presupuesto participativo','consejo ciudadano','mesa directiva','organizacion vecinal','junta vecinos','comite vecinal'],
+ pub:['15 XVII','15 XXVI','8 VIII'],q:'las asociaciones vecinales registradas en la colonia que indico, con su fecha de creación'},
+{id:'archivo',cat:'gobierno',t:'Archivo municipal e histórico',so:'A',area:'Dirección de Archivo Municipal',dep:'Secretaría General',cod:'191',
+ kw:['!archivo','archivo historico','archivo municipal','documento antiguo','documentos historicos','historico','expediente historico','plano antiguo','fotografia antigua','historia','investigacion historica'],
+ pub:['8 XIII'],q:'los documentos del archivo municipal relacionados con el tema que indico'},
+{id:'solicitudes',cat:'gobierno',t:'Estadísticas de transparencia',so:'A',area:'Dirección de Transparencia y Buenas Prácticas',dep:'Oficinas de la Presidencia',cod:'133',
+ frases:['cuantas solicitudes','numero de solicitudes','solicitudes reciben','solicitudes recibidas','solicitudes recibe'],
+ kw:['estadistica solicitud','solicitudes recibidas','solicitudes reciben','solicitudes mes','numero solicitudes','comite transparencia'],
+ pub:['8 I ñ','8 I g'],q:'el número de solicitudes de información recibidas por mes y el sentido de sus respuestas'},
+{id:'arco',cat:'gobierno',t:'Mis datos personales (derechos ARCO)',so:'A',area:'',dep:'',cod:'',
+ kw:['mis datos','datos personales','mi expediente','arco','corregir mis datos','borrar mis datos','aviso privacidad','que datos tienen'],
+ pub:['8 I h'],q:'',av:'arco'},
+{id:'registro',cat:'gobierno',t:'Registro Civil',so:'A',area:'Dirección del Registro Civil',dep:'Secretaría General',cod:'208',
+ kw:['registro civil','acta nacimiento','acta matrimonio','acta defuncion','divorcio','matrimonio','nacimiento','oficialia','boda','registro bebe','casarme','casarse','casamiento','civil','registrar hijo','acta'],
+ pub:['8 VI b'],q:'el número de nacimientos, matrimonios y defunciones registrados en las oficialías del Registro Civil de Guadalajara, por mes',av:'acta'},
+{id:'reclutamiento',cat:'gobierno',t:'Cartilla del Servicio Militar',so:'A',area:'Junta Municipal de Reclutamiento',dep:'Secretaría General',cod:'211',
+ kw:['cartilla','servicio militar','cartilla militar','sorteo militar','precartilla','junta reclutamiento'],
+ pub:['8 VI b'],q:'el número de cartillas del Servicio Militar Nacional tramitadas por año',av:'tramite'},
+{id:'religiosos',cat:'gobierno',t:'Asuntos religiosos',so:'A',area:'Dirección de Asuntos Religiosos',dep:'Secretaría General',cod:'213',
+ kw:['religion','religioso','iglesia','templo','culto','asociacion religiosa','procesion','peregrinacion'],
+ pub:[],q:'los permisos o avisos de actos de culto público en la vía pública registrados en el periodo que indico'},
+
+/* ── Seguridad y emergencias ── */
+{id:'policia',cat:'seguridad',t:'Policía municipal',so:'A',area:'Comisaría de Seguridad Ciudadana',dep:'Comisaría de Seguridad Ciudadana',cod:'166',
+ kw:['policia','patrulla','elemento','seguridad publica','comisaria','detenido','vigilancia','camara','policia municipal','robo','asalto','inseguridad','rondin','violencia genero'],
+ pub:[],q:'el número de elementos de la policía municipal y de patrullas en servicio, por mes'},
+{id:'civica',cat:'seguridad',t:'Juzgados cívicos y faltas administrativas',so:'A',area:'Dirección de Justicia Cívica Municipal',dep:'Secretaría General',cod:'175',
+ kw:['juzgado civico','juez civico','falta administrativa','arresto','mediacion','conflicto vecinal','infractor','me detuvieron','tomar via publica','alcohol via publica','pleito vecino'],
+ pub:[],q:'el número de personas presentadas ante los juzgados cívicos municipales por mes y por tipo de falta'},
+{id:'proteccion',cat:'seguridad',t:'Protección Civil y Bomberos',so:'A',area:'Coordinación Municipal de Gestión Integral de Riesgos, Protección Civil y Bomberos',dep:'Secretaría General',cod:'201',
+ kw:['proteccion civil','bombero','incendio','inundacion','emergencia','atlas riesgo','sismo','riesgo','evacuacion','encharcamiento','dictamen proteccion civil','fuga gas','socavon'],
+ pub:[],q:'el número de servicios atendidos por Protección Civil y Bomberos por tipo de emergencia y por mes'},
+
+/* ── Desarrollo social, cultura y salud ── */
+{id:'programas',cat:'social',t:'Programas sociales y apoyos',so:'A',area:'Dirección de Programas Sociales Municipales',dep:'Coordinación General de Combate a la Desigualdad',cod:'252',
+ kw:['programa social','apoyo','beca','beneficiario','despensa','padron beneficiario','ayuda economica','comedor comunitario','estancia infantil','apoyo economico','apoyo madres','madre soltera','adulto mayor apoyo','como me inscribo programa','reglas operacion'],
+ pub:['8 VI d'],q:'el padrón de beneficiarios y el monto entregado del programa social que indico'},
+{id:'ninez',cat:'social',t:'Niñas y niños',so:'A',area:'Dirección de Apoyo a la Niñez',dep:'Coordinación General de Combate a la Desigualdad',cod:'253',
+ kw:['niñez','niño','niña','infancia','menores','infantil'],
+ pub:['8 VI d'],q:'los programas y acciones dirigidos a niñas y niños, con su presupuesto y número de personas atendidas'},
+{id:'juventudes',cat:'social',t:'Juventudes',so:'A',area:'Dirección de Juventudes',dep:'Coordinación General de Combate a la Desigualdad',cod:'258',
+ kw:['juventud','joven','jovenes','adolescente','estudiante'],
+ pub:['8 VI d'],q:'los programas y acciones dirigidos a personas jóvenes, con su presupuesto y número de personas atendidas'},
+{id:'discapacidad',cat:'social',t:'Personas con discapacidad',so:'A',area:'Dirección de Atención a Personas con Discapacidad',dep:'Coordinación General de Combate a la Desigualdad',cod:'256',
+ kw:['!discapacidad','silla ruedas','accesibilidad','sordo','ciego','autismo','inclusion'],
+ pub:['8 VI d'],q:'los programas y acciones para personas con discapacidad, con su presupuesto y número de personas atendidas'},
+{id:'diversidad',cat:'social',t:'Diversidad sexual',so:'A',area:'Dirección de Diversidad',dep:'Coordinación General de Combate a la Desigualdad',cod:'254',
+ kw:['diversidad','lgbt','lgbtiq','diversidad sexual','orientacion sexual','identidad genero','trans'],
+ pub:[],q:'los programas y acciones dirigidos a la población de la diversidad sexual, con su presupuesto'},
+{id:'pueblos',cat:'social',t:'Pueblos originarios',so:'A',area:'Dirección de Pueblos Originarios',dep:'Coordinación General de Combate a la Desigualdad',cod:'255',
+ kw:['pueblo originario','indigena','wixarika','huichol','lengua indigena','comunidad indigena'],
+ pub:[],q:'los programas y acciones dirigidos a personas de pueblos originarios, con su presupuesto'},
+{id:'osc',cat:'social',t:'Organizaciones de la sociedad civil',so:'A',area:'Dirección de Atención a Organizaciones de la Sociedad Civil',dep:'Coordinación General de Combate a la Desigualdad',cod:'257',
+ kw:['organizacion civil','sociedad civil','asociacion civil','ong','fundacion','osc'],
+ pub:['8 V m'],q:'los apoyos entregados a organizaciones de la sociedad civil, con el nombre de la organización y el monto'},
+{id:'colmenas',cat:'social',t:'Centros Colmena y centros comunitarios',so:'A',area:'Dirección de Colmenas y Centros de Cuidado Comunitarios',dep:'Coordinación General de Construcción de Comunidad',cod:'242',
+ kw:['colmena','centro colmena','centro comunitario','taller comunitario','centro barrial','agroecologico'],
+ pub:[],q:'los Centros Colmena en operación, con su ubicación, actividades y número de personas atendidas'},
+{id:'cuidados',cat:'social',t:'Cuidados',so:'A',area:'Dirección de Cuidados',dep:'Coordinación General de Construcción de Comunidad',cod:'243 bis',
+ kw:['!cuidados','!cuidadora','!cuidador','sistema cuidados','cuidar adulto mayor','guarderia municipal'],
+ pub:[],q:'los programas y servicios municipales de cuidados, con su presupuesto y número de personas atendidas'},
+{id:'migrantes',cat:'social',t:'Personas migrantes y relaciones internacionales',so:'A',area:'Dirección de Relaciones Internacionales y Atención a Personas Migrantes',dep:'Oficina Ejecutiva de Presidencia',cod:'154',
+ kw:['migrante','migracion','extranjero','deportado','refugiado','ciudad hermana','relaciones internacionales','cooperacion internacional'],
+ pub:[],q:'los programas de atención a personas migrantes y los convenios internacionales vigentes del municipio'},
+{id:'cultura',cat:'social',t:'Cultura',so:'A',area:'Dirección de Cultura',dep:'Coordinación General de Construcción de Comunidad',cod:'238',
+ kw:['cultura','museo','teatro','festival','evento cultural','biblioteca','taller artistico','concierto','artista','fiestas octubre','dia muertos'],
+ pub:[],q:'los eventos culturales organizados por el municipio, con su fecha, lugar y costo'},
+{id:'educacion',cat:'social',t:'Educación municipal',so:'A',area:'Dirección de Educación',dep:'Coordinación General de Construcción de Comunidad',cod:'239',
+ kw:['educacion','ayuntamiento infantil','alfabetizacion','apoyo escuela','edificio escolar','utiles','uniformes','mochila'],
+ pub:[],q:'los apoyos del municipio a escuelas oficiales, con la escuela y el tipo de apoyo',av:'escuela'},
+{id:'medicos',cat:'social',t:'Servicios Médicos Municipales (Cruz Verde)',so:'A',area:'Dirección de Servicios Médicos Municipales',dep:'Coordinación General de Construcción de Comunidad',cod:'240',
+ kw:['cruz verde','ambulancia','servicios medicos','urgencia','paramedico','atencion medica','unidad medica','me atendieron','accidente','herido'],
+ pub:[],q:'el número de atenciones de urgencia y de servicios de ambulancia de los Servicios Médicos Municipales, por mes',av:'salud'},
+
+/* ── Organismos con personalidad propia ── */
+{id:'dif',cat:'organismos',t:'DIF Guadalajara',so:'O',ent:'Sistema para el Desarrollo Integral de la Familia de Guadalajara (DIF Guadalajara)',web:'https://difgdl.gob.mx/portaltransparencia/',webt:'Portal de transparencia del DIF Guadalajara',
+ kw:['!dif','asistencia social','adulto mayor','guarderia','violencia familiar','desayuno escolar','familia','menor de edad','centro desarrollo infantil','cai','procuraduria proteccion','abuelito'],
+ pub:[],q:'los programas de asistencia social del DIF Guadalajara, con el número de personas atendidas'},
+{id:'comude',cat:'organismos',t:'Deporte (COMUDE)',so:'O',ent:'Consejo Municipal del Deporte de Guadalajara (COMUDE)',web:'',webt:'',
+ kw:['deporte','unidad deportiva','cancha','gimnasio','alberca','deportista','liga deportiva','!comude','futbol','actividad fisica','box','natacion','escuela deporte'],
+ pub:[],q:'las unidades deportivas municipales, sus horarios, costos y número de usuarios'},
+{id:'mujeres',cat:'organismos',t:'Instituto Municipal de las Mujeres',so:'O',ent:'Instituto Municipal de las Mujeres de Guadalajara',web:'',webt:'',
+ kw:['mujer','violencia contra mujer','igualdad','genero','!inmujeres','equidad','violencia mujeres'],
+ pub:[],q:'los programas y servicios del Instituto Municipal de las Mujeres, con el número de mujeres atendidas'},
+{id:'zoo',cat:'organismos',t:'Zoológico Guadalajara',so:'O',ent:'Zoológico Guadalajara',web:'https://zooguadalajara.com.mx/transparencia',webt:'Transparencia del Zoológico Guadalajara',
+ kw:['!zoologico','!zoo','animal zoologico'],
+ pub:[],q:'el número de visitantes del Zoológico Guadalajara por mes'},
+{id:'colaboracion',cat:'organismos',t:'Consejo de Colaboración Municipal',so:'O',ent:'Consejo de Colaboración Municipal de Guadalajara',web:'',webt:'',
+ kw:['consejo colaboracion','colaboracion municipal','obra por cooperacion','cooperacion vecinal'],
+ pub:[],q:'las obras por colaboración realizadas, con su ubicación y monto'},
+
+/* ── Temas que no son del Ayuntamiento ── */
+{id:'agua',cat:'otras',t:'Agua potable y drenaje',so:'E',ent:'Sistema Intermunicipal de los Servicios de Agua Potable y Alcantarillado (SIAPA)',
+ kw:['!agua','!siapa','fuga','!drenaje','!alcantarillado','recibo agua','tandeo','agua potable','!coladera','sin agua','tuberia','pipa','aguas negras','!alcantarilla','!desazolve','boca tormenta','!colector','!pluvial','aguas residuales','planta tratamiento','!canal','!encharcamiento','!aguas','drenaje tapado','!lluvia'],
+ pub:[],q:'los cortes y el abasto de agua potable en la colonia que indico'},
+{id:'cfe',cat:'otras',t:'Luz de tu casa (energía eléctrica)',so:'E',ent:'Comisión Federal de Electricidad (CFE)',
+ kw:['luz','recibo luz','apagon','energia electrica','!cfe','medidor','transformador','luz casa','tarifa luz','se fue la luz','cable caido'],
+ pub:[],q:'los cortes de energía eléctrica registrados en la colonia que indico'},
+{id:'vial',cat:'otras',t:'Tránsito y multas viales',so:'E',ent:'Secretaría de Seguridad del Estado de Jalisco (Policía Vial)',
+ kw:['transito','multa transito','infraccion vial','policia vial','fotoinfraccion','grua','corralon','alcoholimetro','accidente vial','choque','se llevaron mi carro','semaforo','vialidad'],
+ pub:[],q:'el número de infracciones viales levantadas en el municipio de Guadalajara, por mes'},
+{id:'transporte',cat:'otras',t:'Transporte público y licencias de conducir',so:'E',ent:'Secretaría de Transporte del Estado de Jalisco',
+ kw:['camion','transporte publico','ruta camion','mi macro','tarifa transporte','taxi','licencia conducir','licencia manejo','unidad transporte','chofer','tren ligero','mi tren'],
+ pub:[],q:'las rutas de transporte público que pasan por la colonia que indico, con su frecuencia'},
+{id:'placas',cat:'otras',t:'Placas, refrendo y control vehicular',so:'E',ent:'Secretaría de la Hacienda Pública del Estado de Jalisco',
+ kw:['placas','refrendo','tenencia','tarjeta circulacion','alta vehiculo','baja vehiculo','engomado'],
+ pub:[],q:'el número de vehículos registrados en el municipio de Guadalajara por año'},
+{id:'escuelas',cat:'otras',t:'Escuelas públicas',so:'E',ent:'Secretaría de Educación Jalisco',
+ kw:['escuela','primaria','secundaria','preparatoria','maestro','profesor','inscripcion','alumno','plantel','kinder','preescolar'],
+ pub:[],q:'las escuelas públicas de la colonia que indico, con su nivel y número de alumnos'},
+{id:'hospitales',cat:'otras',t:'Hospitales y centros de salud',so:'E',ent:'Secretaría de Salud Jalisco',
+ kw:['hospital','centro salud','clinica','vacuna','medicamento','doctor','enfermedad','!dengue','salud publica','covid','consulta medica'],
+ pub:[],q:'los casos registrados de la enfermedad que indico en el municipio de Guadalajara, por mes'},
+{id:'fiscalia',cat:'otras',t:'Delitos y denuncias penales',so:'E',ent:'Fiscalía del Estado de Jalisco',
+ kw:['delito','denuncia','homicidio','!desaparecido','!desaparecida','personas desaparecidas','carpeta investigacion','ministerio publico','fiscalia','robo','asalto','violacion','feminicidio','desaparicion','fosa clandestina','extorsion'],
+ pub:[],q:'el número de denuncias por el delito que indico en el municipio de Guadalajara, por mes'},
+{id:'federal',cat:'otras',t:'Dependencias federales',so:'E',ent:'la dependencia federal que corresponda',
+ kw:['imss','sat','issste','pemex','guardia nacional','pasaporte','curp','infonavit','federal','sep federal','ine','credencial votar','sre','bienestar federal'],
+ pub:[],q:'la información que indico'}
+];
+/* Incisos del portal: [nombre corto, dirección larga, dirección corta]. Mientras la estructura corta (/8, /15) no esté publicada, se usan las largas. */
+const USAR_CORTAS=false;
+const INC={
+"15 III": [
+"Bandos de policía y gobierno, y reglamentos",
+"https://transparencia.guadalajara.gob.mx/articulo-15/iii-los-bandos-de-policia-y-gobierno-reglamentos-decretos-acuerdos-circulares-y-demas-disposiciones-juridicas-expedidas-por-el-ayuntamiento-respectivo/los-bandos-de-policia-y-gobierno",
+"https://transparencia.guadalajara.gob.mx/15/F-III/bandos-policia"
+],
+"15 IX": [
+"Actas de Cabildo y de comisiones",
+"https://transparencia.guadalajara.gob.mx/articulo-15/ix-el-libro-de-actas-de-las-sesiones-del-ayuntamiento-las-actas-de-las-comisiones-edilicias-y-asi-como-las-actas-de-los-consejos-ciudadanos-municipales-con-excepcion-de-las-reservadas/el-libro-de-actas-de-las-sesiones-del-ayuntamiento-las-actas-de-las-comisiones-edilicias-y-asi-como-las-actas-de-los-consejos-ciudadanos-municipales-con-excepcion-de-las-reservadas-1",
+"https://transparencia.guadalajara.gob.mx/15/F-IX/actas"
+],
+"15 X": [
+"Gaceta Municipal",
+"https://transparencia.guadalajara.gob.mx/articulo-15/gaceta-municipal/gaceta-municipal",
+""
+],
+"15 XII": [
+"Recursos asignados a cada dependencia",
+"https://transparencia.guadalajara.gob.mx/articulo-15/xii-los-recursos-materiales-humanos-y-financieros-asignados-a-cada-dependencia-y-entidad-de-la-administracion-publica-municipal-detallando-los-correspondientes-a-cada-unidad-administrativa-al-interior-de-las-mismas/los-recursos-materiales-humanos-y-financieros-asignados-a-cada-dependencia-y-entidad-de-la-administracion-publica-municipal-detallando-los-correspondientes-a-cada-unidad-administrativa-al-interior-de-las-mismas-1",
+"https://transparencia.guadalajara.gob.mx/15/F-XII/recursos-dependencias"
+],
+"15 XIII": [
+"Convenios y contratos de obra pública",
+"https://transparencia.guadalajara.gob.mx/articulo-15/xiii-los-convenios-y-contratos-celebrados-para-la-realizacion-de-obra-publica/los-convenios-y-contratos-celebrados-para-la-realizacion-de-obra-publica-1",
+"https://transparencia.guadalajara.gob.mx/15/F-XIII/contratos-obra-publica"
+],
+"15 XIV": [
+"Convenios de coordinación municipal",
+"https://transparencia.guadalajara.gob.mx/articulo-15/xiv-los-convenios-de-coordinacion-o-asociacion-municipal/los-convenios-de-coordinacion-o-asociacion-municipal-1",
+"https://transparencia.guadalajara.gob.mx/15/F-XIV/convenios-coordinacion"
+],
+"15 XIX": [
+"Personal e inventarios de cada servicio público",
+"https://transparencia.guadalajara.gob.mx/articulo-15/xix-la-relacion-del-personal-y-los-inventarios-de-bienes-afectos-a-cada-uno-de-los-servicios-publicos-municipales-con-excepcion-del-servicio-de-seguridad-publica-y-policia-preventiva/la-relacion-del-personal-y-los-inventarios-de-bienes-afectos-a-cada-uno-de-los-servicios-publicos-municipales-con-excepcion-del-servicio-de-seguridad-publica-y-policia-preventiva",
+"https://transparencia.guadalajara.gob.mx/15/F-XIX/personal-inventarios"
+],
+"15 XV": [
+"Convenios de servicios públicos coordinados o concesionados",
+"https://transparencia.guadalajara.gob.mx/articulo-15/xv-los-convenios-para-la-prestacion-de-servicios-publicos-coordinados-o-concesionados/los-convenios-para-la-prestacion-de-servicios-publicos-coordinados-o-concesionados-1",
+"https://transparencia.guadalajara.gob.mx/15/F-XV/convenios-servicios"
+],
+"15 XVII": [
+"Registro de asociaciones de vecinos",
+"https://transparencia.guadalajara.gob.mx/articulo-15/xvii-el-registro-de-las-asociaciones-de-vecinos-en-el-municipio/el-registro-de-las-asociaciones-de-vecinos-en-el-municipio1",
+"https://transparencia.guadalajara.gob.mx/15/F-XVII/asociaciones-vecinos"
+],
+"15 XVIII": [
+"Registro público de bienes del patrimonio municipal",
+"https://transparencia.guadalajara.gob.mx/articulo-15/xviii-el-registro-publico-de-bienes-del-patrimonio-municipal/el-registro-publico-de-bienes-del-patrimonio-municipal-1",
+"https://transparencia.guadalajara.gob.mx/15/F-XVIII/patrimonio-municipal"
+],
+"15 XX": [
+"Programa y planes de desarrollo urbano",
+"https://transparencia.guadalajara.gob.mx/articulo-15/xx-el-programa-municipal-de-desarrollo-urbano-los-planes-de-desarrollo-urbano-de-centros-de-poblacion-y-los-planes-parciales-de-desarrollo-urbano/el-programa-municipal-de-desarrollo-urbano-los-planes-de-desarrollo-urbano-de-centros-de-poblacion-y-los-planes-parciales-de-desarrollo-urbano",
+"https://transparencia.guadalajara.gob.mx/15/F-XX/desarrollo-urbano"
+],
+"15 XXII": [
+"Fraccionamientos y cambios de uso de suelo",
+"https://transparencia.guadalajara.gob.mx/articulo-15/xxii-las-autorizaciones-de-nuevos-fraccionamientos-y-los-cambios-de-uso-de-suelo-junto-con-las-consultas-publicas-realizadas-con-los-colonos-y-la-integracion-del-expediente-respectivo-en-los-terminos-del-codigo-urbano-para-el-estado-de-jalisco/las-autorizaciones-de-nuevos-fraccionamientos-y-los-cambios-de-uso-de-suelo-junto-con-las-consultas-publicas-realizadas-con-los-colonos-y-la-integracion-del-expediente-respectivo-en-los-terminos-del-codigo-urbano-para-el-estado-de-jalisco",
+"https://transparencia.guadalajara.gob.mx/15/F-XXII/fraccionamientos-uso-suelo"
+],
+"15 XXV": [
+"Ingresos municipales",
+"https://transparencia.guadalajara.gob.mx/articulo-15/xxv-los-ingresos-municipales-por-concepto-de-participaciones-federales-y-estatales-asi-como-por-ingresos-propios-que-integre-a-la-hacienda-publica/los-ingresos-municipales-por-concepto-de-participaciones-federales-y-estatales-asi-como-por-ingresos-propios-que-integre-a-la-hacienda-publica",
+"https://transparencia.guadalajara.gob.mx/15/F-XXV/ingresos-municipales"
+],
+"15 XXVI": [
+"Presupuesto participativo",
+"https://transparencia.guadalajara.gob.mx/articulo-15/xxvi-en-su-caso-la-informacion-relativa-a-la-implementacion-del-presupuesto-participativo-desde-su-planeacion-hasta-su-ejecucion/en-su-caso-la-informacion-relativa-a-la-implementacion-del-presupuesto-participativo-desde-su-planeacion-hasta-su-ejecucion",
+"https://transparencia.guadalajara.gob.mx/15/F-XXVI/presupuesto-participativo"
+],
+"15 XXVII": [
+"Video y audio de las sesiones del Ayuntamiento",
+"https://transparencia.guadalajara.gob.mx/articulo-15/xxvii-los-archivos-electronicos-de-video-y-audio-de-las-sesiones-del-ayuntamiento-y/los-archivos-electronicos-de-video-y-audio-de-las-sesiones-del-ayuntamiento-y",
+"https://transparencia.guadalajara.gob.mx/15/F-XXVII/videos-sesiones"
+],
+"8 I g": [
+"Actas y resoluciones del Comité de Transparencia",
+"https://transparencia.guadalajara.gob.mx/articulo-8/i-la-necesaria-para-el-ejercicio-del-derecho-a-la-informacion-publica-que-comprende/g-las-actas-y-resoluciones-del-comite-de-transparencia",
+"https://transparencia.guadalajara.gob.mx/8/FI/actas-resoluciones-comite"
+],
+"8 I h": [
+"Dónde presentar una solicitud de información",
+"https://transparencia.guadalajara.gob.mx/articulo-8/i-la-necesaria-para-el-ejercicio-del-derecho-a-la-informacion-publica-que-comprende/h-direccion-electronica-donde-podran-recibirse-las-solicitudes-de-acceso-a-la-informacion",
+"https://transparencia.guadalajara.gob.mx/8/FI/solicitudes"
+],
+"8 I j": [
+"Directorio de servidores públicos",
+"https://transparencia.guadalajara.gob.mx/articulo-8/i-la-necesaria-para-el-ejercicio-del-derecho-a-la-informacion-publica-que-comprende/j-el-directorio-de-todos-los-servidores-publicos-del-sujeto-obligado-a-partir-del-nivel-de-jefe-de-departamento-o-su-equivalente-o-de-menor-nivel",
+"https://transparencia.guadalajara.gob.mx/8/FI/directorio"
+],
+"8 I m": [
+"Manual y formato de solicitud",
+"https://transparencia.guadalajara.gob.mx/articulo-8/i-la-necesaria-para-el-ejercicio-del-derecho-a-la-informacion-publica-que-comprende/m-el-manual-y-formato-de-solicitud-de-informacion-publica",
+"https://transparencia.guadalajara.gob.mx/8/FI/manual-solicitud-informacion"
+],
+"8 I ñ": [
+"Estadística de solicitudes de información",
+"https://transparencia.guadalajara.gob.mx/articulo-8/i-la-necesaria-para-el-ejercicio-del-derecho-a-la-informacion-publica-que-comprende/n-la-estadistica-de-las-solicitudes-de-informacion-publica-atendidas-precisando-las-procedentes-parcialmente-procedentes-e-improcedentes-asi-como-la-estadistica-de-visitas-a-su-sistema-de-consulta-electronica",
+"https://transparencia.guadalajara.gob.mx/8/FI/estadisticas-solicitudes"
+],
+"8 IV h": [
+"Indicadores de resultados",
+"https://transparencia.guadalajara.gob.mx/articulo-8/iv-la-informacion-sobre-la-planeacion-estrategica-gubernamental-aplicable-al-y-por-el-sujeto-obligado-que-comprende/h-los-indicadores-que-permitan-rendir-cuenta-de-sus-objetivos-y-resultados",
+"https://transparencia.guadalajara.gob.mx/8/FIV/indicadores"
+],
+"8 V c": [
+"Presupuesto de Egresos",
+"https://transparencia.guadalajara.gob.mx/articulo-8/v-la-informacion-financiera-patrimonial-y-administrativa-que-comprende/c-el-presupuesto-de-egresos-anual-y-en-su-caso-el-clasificador-por-objeto-del-gasto-del-sujeto-obligado-de-cuando-menos-los-ultimos-tres-anos",
+"https://transparencia.guadalajara.gob.mx/8/FV/Presupuesto-clasificador-objeto"
+],
+"8 V d": [
+"Convocatorias para ocupar cargos públicos",
+"https://transparencia.guadalajara.gob.mx/articulo-8/v-la-informacion-financiera-patrimonial-y-administrativa-que-comprende/d-las-convocatorias-a-concursos-para-ocupar-cargos-publicos-y-los-resultados-de-los-mismos",
+"https://transparencia.guadalajara.gob.mx/8/FV/convocatorias"
+],
+"8 V e": [
+"Organigrama y plantilla de personal",
+"https://transparencia.guadalajara.gob.mx/articulo-8/v-la-informacion-financiera-patrimonial-y-administrativa-que-comprende/e-el-organigrama-del-sujeto-obligado-con-las-modificaciones-de-cuando-menos-los-ultimos-tres-anos-asi-como-la-plantilla-del-personal-del-sujeto-obligado-con-las-modificaciones-de",
+"https://transparencia.guadalajara.gob.mx/8/FV/organigrama"
+],
+"8 V f": [
+"Remuneraciones mensuales por puesto",
+"https://transparencia.guadalajara.gob.mx/articulo-8/v-la-informacion-financiera-patrimonial-y-administrativa-que-comprende/f-las-remuneraciones-mensuales-por-puesto-incluidas-todas-las-prestaciones-estimulos-o-compensaciones",
+"https://transparencia.guadalajara.gob.mx/8/FV/remuneraciones"
+],
+"8 V g": [
+"Nóminas completas",
+"https://transparencia.guadalajara.gob.mx/articulo-8/v-la-informacion-financiera-patrimonial-y-administrativa-que-comprende/g-las-nominas-completas-del-sujeto-obligado-en-las-que-se-incluya-las-gratificaciones-primas-comisiones-dietas-y-estimulos-de-cuando-menos-los-ultimos-tres-anos-y-en-su-caso-con-sistema-de-busqueda",
+"https://transparencia.guadalajara.gob.mx/8/FV/nominas"
+],
+"8 V h": [
+"Jubilados y pensionados",
+"https://transparencia.guadalajara.gob.mx/articulo-8/v-la-informacion-financiera-patrimonial-y-administrativa-que-comprende/h-el-listado-de-jubilados-y-pensionados-y-el-monto-que-reciben",
+"https://transparencia.guadalajara.gob.mx/8/FV/jubilados"
+],
+"8 V i": [
+"Estados financieros mensuales",
+"https://transparencia.guadalajara.gob.mx/articulo-8/v-la-informacion-financiera-patrimonial-y-administrativa-que-comprende/los-estados-financieros-mensuales",
+"https://transparencia.guadalajara.gob.mx/8/FV/estados-financieros"
+],
+"8 V j": [
+"Gastos de comunicación social",
+"https://transparencia.guadalajara.gob.mx/articulo-8/v-la-informacion-financiera-patrimonial-y-administrativa-que-comprende/j-los-gastos-de-comunicacion-social-de-cuando-menos-los-ultimos-tres-anos-donde-se-senale-cuando-menos-la-fecha-monto-y-partida-de-la-erogacion-responsable-directo-de-la-autorizacion-de",
+"https://transparencia.guadalajara.gob.mx/8/FV/gastos-comunicacion"
+],
+"8 V k": [
+"Contratos por honorarios",
+"https://transparencia.guadalajara.gob.mx/articulo-8/v-la-informacion-financiera-patrimonial-y-administrativa-que-comprende/k-el-contrato-de-prestacion-de-servicios-o-por-honorarios-y-el-gasto-realizado-por-concepto-de-pago-de-asesorias-al-sujeto-obligado-donde-se-senale-nombre-de-la-empresa-institucion-o-individuos",
+"https://transparencia.guadalajara.gob.mx/8/FV/contratos-servicios-honorarios"
+],
+"8 V l": [
+"Subsidios recibidos y otorgados",
+"https://transparencia.guadalajara.gob.mx/articulo-8/v-la-informacion-financiera-patrimonial-y-administrativa-que-comprende/l-los-subsidios-en-especie-o-en-numerario-recibidos-por-el-sujeto-obligado-asi-como-los-otorgados-por-el-sujeto-obligado",
+"https://transparencia.guadalajara.gob.mx/8/FV/subsidios"
+],
+"8 V m": [
+"Personas a quienes se asignan recursos públicos",
+"https://transparencia.guadalajara.gob.mx/articulo-8/v-la-informacion-financiera-patrimonial-y-administrativa-que-comprende/m-el-listado-de-personas-fisicas-o-juridicas-a-quienes-por-cualquier-motivo-se-les-asigne-o-permita-usar-recursos-publicos-o-en-los-terminos-de-las-disposiciones-aplicables-realicen-actos-de-autoridad-asi-como",
+"https://transparencia.guadalajara.gob.mx/8/FV/listado-asignacion-recursos-publicos"
+],
+"8 V n": [
+"Cuentas públicas y auditorías",
+"https://transparencia.guadalajara.gob.mx/articulo-8/v-la-informacion-financiera-patrimonial-y-administrativa-que-comprende/n-las-cuentas-publicas-las-auditorias-internas-y-externas-asi-como-los-demas-informes-de-gestion-financiera-del-sujeto-obligado-de-cuando-menos-los-ultimos-tres-anos",
+"https://transparencia.guadalajara.gob.mx/8/FV/cuentas-publicas-auditorias"
+],
+"8 V o": [
+"Adjudicaciones directas",
+"https://transparencia.guadalajara.gob.mx/articulo-8/v-la-informacion-financiera-patrimonial-y-administrativa-que-comprende/adjudicaciones-directas",
+"https://transparencia.guadalajara.gob.mx/8/FV/adjudicaciones"
+],
+"8 V p": [
+"Concursos por invitación y licitaciones",
+"https://transparencia.guadalajara.gob.mx/articulo-8/v-la-informacion-financiera-patrimonial-y-administrativa-que-comprende/concursos-por-invitacion-y-licitaciones-publicas",
+"https://transparencia.guadalajara.gob.mx/8/FV/licitaciones"
+],
+"8 V q": [
+"Condonaciones y exenciones de impuestos",
+"https://transparencia.guadalajara.gob.mx/articulo-8/v-la-informacion-financiera-patrimonial-y-administrativa-que-comprende/q-el-nombre-denominacion-o-razon-social-y-clave-del-registro-federal-de-contribuyentes-de-quienes-se-les-hubiera-cancelado-o-condonado-algun-credito-fiscal-los-montos-respectivos-asi",
+"https://transparencia.guadalajara.gob.mx/8/FV/condonaciones"
+],
+"8 V r": [
+"Inventarios de bienes muebles e inmuebles",
+"https://transparencia.guadalajara.gob.mx/articulo-8/v-la-informacion-financiera-patrimonial-y-administrativa-que-comprende/r-los-inventarios-de-bienes-muebles-e-inmuebles-del-sujeto-obligado-de-cuando-menos-los-ultimos-tres-anos-donde-se-senale-cuando-menos-la-descripcion-el-valor-el-regimen-juridico-y-el-uso-o-afectacion-del-bien",
+"https://transparencia.guadalajara.gob.mx/8/FV/inventarios"
+],
+"8 V s": [
+"Gastos de representación, viáticos y viajes oficiales",
+"https://transparencia.guadalajara.gob.mx/articulo-8/v-la-informacion-financiera-patrimonial-y-administrativa-que-comprende/s-los-gastos-de-representacion-viaticos-y-viajes-oficiales-su-costo-itinerario-agenda-y-resultados",
+"https://transparencia.guadalajara.gob.mx/8/FV/viaticos"
+],
+"8 V t": [
+"Concesiones, licencias, permisos y autorizaciones",
+"https://transparencia.guadalajara.gob.mx/articulo-8/v-la-informacion-financiera-patrimonial-y-administrativa-que-comprende/t-las-concesiones-licencias-permisos-o-autorizaciones-otorgadas-de-los-ultimos-tres-anos-1",
+"https://transparencia.guadalajara.gob.mx/8/FV/concesiones-licencias-permisos-autorizaciones"
+],
+"8 V v": [
+"Pólizas de cheques y transferencias",
+"https://transparencia.guadalajara.gob.mx/articulo-8/v-la-informacion-financiera-patrimonial-y-administrativa-que-comprende/v-las-polizas-de-los-cheques-expedidos-con-identificacion-del-numero-de-cheque-o-transferencia-monto-y-nombre-del-beneficiario-indicando-el-motivo-de-la-erogacion-en-el-que-de-manera-detallada-y",
+"https://transparencia.guadalajara.gob.mx/8/FV/cheques"
+],
+"8 V w": [
+"Deuda pública",
+"https://transparencia.guadalajara.gob.mx/articulo-8/v-la-informacion-financiera-patrimonial-y-administrativa-que-comprende/w-el-estado-de-la-deuda-publica-del-sujeto-obligado-donde-se-senale-cuando-menos-responsable-de-la-autorizacion-fecha-de-contratacion-monto-del-credito-tasa-de-interes-monto-total",
+"https://transparencia.guadalajara.gob.mx/8/FV/deuda"
+],
+"8 V x": [
+"Estados de cuenta bancarios",
+"https://transparencia.guadalajara.gob.mx/articulo-8/v-la-informacion-financiera-patrimonial-y-administrativa-que-comprende/x-los-estados-de-cuenta-bancarios-que-expiden-las-instituciones-financieras-numero-de-cuentas-bancarias-estados-financieros-cuentas-de-fideicomisos-e-inversiones-de-cuando-menos-los-ultimos-seis-meses",
+"https://transparencia.guadalajara.gob.mx/8/FV/estados-cuenta"
+],
+"8 V y": [
+"Declaraciones patrimoniales",
+"https://transparencia.guadalajara.gob.mx/articulo-8/v-la-informacion-financiera-patrimonial-y-administrativa-que-comprende/y-la-informacion-en-version-publica-de-las-declaraciones-patrimoniales-de-los-servidores-publicos-que-asi-lo-determinen-en-los-sistemas-habilitados-para-ello-de-acuerdo-a-la-normatividad-aplicable",
+"https://transparencia.guadalajara.gob.mx/8/FV/declaraciones"
+],
+"8 V z": [
+"Procedimientos de responsabilidad administrativa",
+"https://transparencia.guadalajara.gob.mx/articulo-8/v-la-informacion-financiera-patrimonial-y-administrativa-que-comprende/procedimientos-de-responsabilidad-administrativa-con-indicacion-del-numero-de-expediente-fecha-de-ingreso-nombre-del-denunciante-nombre-y-cargo-del-denunciado-causa-del-procedimiento-estado-procesal-y",
+"https://transparencia.guadalajara.gob.mx/8/FV/responsabilidades"
+],
+"8 V ñ": [
+"Padrón de proveedores y contratistas",
+"https://transparencia.guadalajara.gob.mx/articulo-8/v-la-informacion-financiera-patrimonial-y-administrativa-que-comprende/n-los-padrones-de-proveedores-o-contratistas",
+"https://transparencia.guadalajara.gob.mx/8/FV/proveedores-contratistas"
+],
+"8 VI b": [
+"Trámites y servicios",
+"https://transparencia.guadalajara.gob.mx/articulo-8/vi-la-informacion-sobre-la-gestion-publica-que-comprende/servicios-publicos-que-presta-el-sujeto-obligado-donde-se-senale-cuando-menos-la-descripcion-y-cobertura-del-servicio-publico-los-recursos-materiales-humanos-y-financieros-asignados-para-la-prestacion-del-servicio-publico-y-el",
+"https://transparencia.guadalajara.gob.mx/8/FVI/servicios"
+],
+"8 VI c": [
+"Obras públicas",
+"https://transparencia.guadalajara.gob.mx/articulo-8/vi-la-informacion-sobre-la-gestion-publica-que-comprende/c-las-obras-publicas-que-realiza-el-sujeto-obligado-de-cuando-menos-los-ultimos-tres-anos-donde-se-senale-cuando-menos-la-descripcion-y-ubicacion-de-la-obra-el-ejecutor-y-supervisor-de-la-obra-el-costo-inicial-y-final-la-superficie",
+"https://transparencia.guadalajara.gob.mx/8/FVI/obras-publicas"
+],
+"8 VI d": [
+"Programas sociales",
+"https://transparencia.guadalajara.gob.mx/articulo-8/vi-la-informacion-sobre-la-gestion-publica-que-comprende/d-los-programas-sociales-que-aplica-el-sujeto-obligado-de-cuando-menos-los-ultimos-tres-anos-donde-se-senale-cuando-menos-los-objetivos-metas-presupuesto-y-reglas-de-operacion-del-programa-los-requisitos-tramites-y",
+"https://transparencia.guadalajara.gob.mx/8/FVI/programas-sociales"
+],
+"8 VI f": [
+"Convenios y contratos",
+"https://transparencia.guadalajara.gob.mx/articulo-8/vi-la-informacion-sobre-la-gestion-publica-que-comprende/f-los-convenios-contratos-y-demas-instrumentos-juridicos-suscritos-por-el-sujeto-obligado-de-cuando-menos-los-ultimos-tres-anos",
+"https://transparencia.guadalajara.gob.mx/8/FVI/convenios"
+],
+"8 VI g": [
+"Concesiones, licencias y permisos otorgados",
+"https://transparencia.guadalajara.gob.mx/articulo-8/vi-la-informacion-sobre-la-gestion-publica-que-comprende/g-las-concesiones-licencias-permisos-autorizaciones-y-demas-actos-administrativos-otorgados-por-el-sujeto-obligado-de-cuando-menos-los-ultimos-tres-anos-en-el-que-se-incluyan-los-requisitos-para",
+"https://transparencia.guadalajara.gob.mx/8/FVI/concesiones-licencias-permisos"
+],
+"8 VI h": [
+"Agenda diaria de actividades",
+"https://transparencia.guadalajara.gob.mx/articulo-8/vi-la-informacion-sobre-la-gestion-publica-que-comprende/h-la-agenda-diaria-de-actividades-del-sujeto-obligado-de-cuando-menos-el-ultimo-mes",
+"https://transparencia.guadalajara.gob.mx/8/FVI/agenda"
+],
+"8 VI l": [
+"Informes trimestrales y anuales",
+"https://transparencia.guadalajara.gob.mx/articulo-8/vi-la-informacion-sobre-la-gestion-publica-que-comprende/l-los-informes-trimestrales-y-anuales-de-actividades-del-sujeto-obligado-de-cuando-menos-los-ultimos-tres-anos",
+"https://transparencia.guadalajara.gob.mx/8/FVI/informes-actividades"
+],
+"8 VI m": [
+"Recomendaciones de derechos humanos",
+"https://transparencia.guadalajara.gob.mx/articulo-8/vi-la-informacion-sobre-la-gestion-publica-que-comprende/m-las-recomendaciones-emitidas-por-los-organos-publicos-del-estado-mexicano-u-organismos-internacionales-garantes-de-los-derechos-humanos-asi-como-las-acciones-que-han-llevado-a-cabo-para-su-atencion",
+"https://transparencia.guadalajara.gob.mx/8/FVI/recomendaciones"
+],
+"8 VII": [
+"Resoluciones y laudos",
+"https://transparencia.guadalajara.gob.mx/articulo-8/vii/vii-resoluciones-y-laudos",
+"https://transparencia.guadalajara.gob.mx/8/FVII/resoluciones-laudos"
+],
+"8 VIII": [
+"Mecanismos de participación ciudadana",
+"https://transparencia.guadalajara.gob.mx/articulo-8/viii/p8-viii-los-mecanismos-e-instrumentos-de-participacion-ciudadana",
+"https://transparencia.guadalajara.gob.mx/8/FVIII/participacion-ciudadana"
+],
+"8 XII": [
+"Ingresos recibidos y responsables",
+"https://transparencia.guadalajara.gob.mx/articulo-8/xii-los-ingresos-recibidos-por-cualquier-concepto-senalando-el-nombre-de-los-responsables-de-recibirlos-administrarlos-y-ejercerlos-asi-como-su-destino-indicando-el-destino-de-cada-uno-de-ellos/los-ingresos-recibidos-por-cualquier-concepto",
+"https://transparencia.guadalajara.gob.mx/8/FXII/ingresos"
+],
+"8 XIII": [
+"Catálogo y guía de archivo documental",
+"https://transparencia.guadalajara.gob.mx/articulo-8/xiii/el-catalogo-de-disposicion-y-guia-de-archivo-documental",
+"https://transparencia.guadalajara.gob.mx/8/FXIII/catalogo-archivo"
+]
+};
+(function(){
+'use strict';
+const $=id=>document.getElementById(id);
+const esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const MESES=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+const CORREO='transparencia@guadalajara.gob.mx';
+const PNT='https://www.plataformadetransparencia.org.mx/';
+const POR_ID=Object.fromEntries(TEMAS.map(t=>[t.id,t]));
+const url=k=>INC[k]?(USAR_CORTAS&&INC[k][2]?INC[k][2]:INC[k][1]):'';
+const ROBOT='<svg class="rb" width="28" height="28" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><line x1="32" y1="9" x2="32" y2="15" stroke="#B8513A" stroke-width="2.8" stroke-linecap="round"/><path class="rb-luz" d="M32 1.2l5.4 5.4c-1.5 1.5-3.4 2.2-5.4 2.2s-3.9-.7-5.4-2.2z" fill="#E06B4D" stroke="#B8513A" stroke-width="1.2" stroke-linejoin="round"/><rect x="4" y="25" width="7" height="13" rx="3.5" fill="#B8513A"/><rect x="53" y="25" width="7" height="13" rx="3.5" fill="#B8513A"/><path d="M15 14h34a6 6 0 0 1 6 6v20c0 9-11 16-23 21C20 56 9 49 9 40V20a6 6 0 0 1 6-6z" fill="#E06B4D"/><rect x="16" y="20" width="32" height="23" rx="9" fill="#FDEEE9"/><ellipse class="rb-ojo" cx="25" cy="30.5" rx="3.5" ry="4.3" fill="#2D2D2A"/><ellipse class="rb-ojo" cx="39" cy="30.5" rx="3.5" ry="4.3" fill="#2D2D2A"/><circle cx="26.2" cy="28.9" r="1.1" fill="#fff"/><circle cx="40.2" cy="28.9" r="1.1" fill="#fff"/><circle cx="20.5" cy="37" r="2.3" fill="#F5B9A8"/><circle cx="43.5" cy="37" r="2.3" fill="#F5B9A8"/><path d="M27.5 37.2q4.5 4.2 9 0" fill="none" stroke="#2D2D2A" stroke-width="2.3" stroke-linecap="round"/><path d="M26 49.5h12" stroke="#FDEEE9" stroke-width="2.4" stroke-linecap="round" opacity=".7"/></svg>';
+const ICO={
+  doc:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>',
+  fl:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>',
+  copia:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>',
+  correo:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>'
+};
+
+/* ── Comparación de palabras ── */
+const SUAVES=new Set('gobierno ayuntamiento guadalajara municipio municipal municipales gdl'.split(' '));   /* no cuentan solas, pero ayudan a desempatar */
+const VACIAS=new Set('a al algo alguna alguno ante con contra otra otro otras otros como cual cuales cuando cuanta cuantas cuanto cuantos de del donde e el ella en entre es esa ese esta este esto hay la las le les lo los me mi mis muy o para pero por porque que quien quiero quisiera saber se ser sin sobre son su sus te tiene tienen un una uno unos y ya yo informacion gobierno ayuntamiento guadalajara municipio municipal municipales gdl favor necesito conocer pedir solicitar solicito puedo puede pueden hacer hago van ir hola buen buenos buenas dia dias tarde tardes noche noches gracias'.split(' '));
+const norm=s=>String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/ñ/g,'n').replace(/[^a-z0-9 ]+/g,' ').replace(/\s+/g,' ').trim();
+const raiz=w=>w.length>5&&w.endsWith('es')?w.slice(0,-2):(w.length>3&&w.endsWith('s')?w.slice(0,-1):w);
+let VACIAS_S=null, CLAVES=null;   /* las palabras vacías también por cómo suenan («kuantas», «ay»), salvo que sean palabra de un tema («perro» suena a «pero») */
+const palabras=s=>{
+  if(!VACIAS_S){ VACIAS_S=new Set([...VACIAS].map(suena)); CLAVES=new Set(); TEMAS.forEach(t=>t.kw.forEach(k=>norm(k).split(' ').forEach(w=>CLAVES.add(raiz(w))))); }
+  return norm(s).split(' ').filter(w=>w&&!VACIAS.has(w)&&!(VACIAS_S.has(suena(w))&&!CLAVES.has(raiz(w)))).map(raiz); };
+/* No todos escriben igual: además de la palabra exacta, se acepta cómo suena (b/v, s/z/c, ll/y, h muda, qu/k, n/m antes de b)
+   y uno o dos errores de dedo (letra de más, de menos, cambiada o dos letras al revés). Lo aproximado pesa un poco menos. */
+function suena(w){
+  return w.replace(/ch/g,'#').replace(/h/g,'').replace(/#/g,'ch')
+    .replace(/v/g,'b').replace(/w/g,'u').replace(/g([ei])/g,'j$1').replace(/gu([ei])/g,'g$1')
+    .replace(/z/g,'s').replace(/c([ei])/g,'s$1').replace(/qu([ei])/g,'k$1').replace(/q/g,'k').replace(/c(?!h)/g,'k')
+    .replace(/ll/g,'y').replace(/([^aeiou])y([aeiou])/g,'$1i$2').replace(/y(?![aeiou])/g,'i').replace(/n([bp])/g,'m$1').replace(/(.)\1+/g,'$1');
+}
+function distancia(a,b){   /* Damerau (con trasposición de dos letras) */
+  const m=a.length,n=b.length; if(Math.abs(m-n)>2) return 9;
+  const d=[]; for(let i=0;i<=m;i++){ d[i]=[i]; } for(let j=1;j<=n;j++) d[0][j]=j;
+  for(let i=1;i<=m;i++) for(let j=1;j<=n;j++){
+    const c=a[i-1]===b[j-1]?0:1;
+    d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+c);
+    if(i>1&&j>1&&a[i-1]===b[j-2]&&a[i-2]===b[j-1]) d[i][j]=Math.min(d[i][j],d[i-2][j-2]+1);
+  }
+  return d[m][n];
+}
+/* una palabra dentro de otra sólo si le sobran 2 letras o menos: «calle» no es «callejero», «parque» no es «parquímetro» */
+const pref=(a,b)=>{ const c=a.length<=b.length?a:b, l=c===a?b:a; return c.length>=4&&l.startsWith(c)&&l.length-c.length<=2; };
+/* 1 = igual, .85 = suena igual, .75 = con errores de dedo, 0 = distinta */
+function empata(x,p){
+  if(x.w===p.w||pref(x.w,p.w)) return 1;
+  if(x.f===p.f||pref(x.f,p.f)) return .85;
+  if(x.f[0]!==p.f[0]) return 0;   /* el error casi nunca está en la primera letra: así «aroles» no se confunde con «farol» */
+  const L=Math.min(x.f.length,p.f.length), M=Math.max(x.f.length,p.f.length), tol=L>=8?2:(L>=5||(L>=4&&M>=5)?1:0);
+  if(tol&&distancia(x.f,p.f)<=tol) return .75;
+  return 0;
+}
+const conSonido=ws=>ws.map(w=>({w,f:suena(w)}));
+const suave=s=>norm(s).split(' ').some(w=>SUAVES.has(w));
+TEMAS.forEach(t=>{ t._kw=t.kw.map(k=>{ const w=palabras(k); const p=k[0]==='!'?3:(k[0]==='~'?1:(w.length>1?2*w.length:1.5)); return {w:conSonido(w),p,suave:suave(k)}; }).filter(k=>k.w.length); t._t=conSonido(palabras(t.t)); });
+/* Una «frase» cuenta sólo si es casi toda la pregunta: lo que sobra son palabras de relleno («cuánto cuesta hacer una solicitud» no es «cómo hago una solicitud») */
+const fraseSola=(nq,f)=>{ const i=(' '+nq+' ').indexOf(' '+f+' '); return i>=0&&!palabras(nq.slice(0,i)+' '+nq.slice(i+f.length)).length; };
+/* Cada palabra de la pregunta cuenta una sola vez por tema: así una palabra común («personas») no suma de más. */
+function califica(q){
+  const nq=norm(q), w=conSonido(palabras(q));
+  if(!w.length&&!TEMAS.some(t=>t.frases&&t.frases.some(f=>fraseSola(nq,f)))) return [];
+  const qs=suave(q);
+  return TEMAS.map(t=>{
+    const hits=[];
+    t._kw.forEach(k=>{ let f=1; const usa=[]; for(const p of k.w){ let b=0,bi=-1; w.forEach((x,i)=>{ const e=empata(x,p); if(e>b){ b=e; bi=i; } }); f=Math.min(f,b); if(!f) break; usa.push(bi); }
+      if(f) hits.push({v:(f<1?Math.min(k.p,1.75):k.p)*f+(k.suave&&qs?.75:0),usa}); });
+    hits.sort((a,b)=>b.v-a.v);
+    const usadas=new Set(); let s=0;
+    for(const h of hits){ if(h.usa.some(i=>usadas.has(i))) continue; h.usa.forEach(i=>usadas.add(i)); s+=h.v; }
+    t._t.forEach(p=>{ if(p.w.length>3&&w.some(x=>empata(x,p)>=.85)) s+=.5; });
+    if(t.frases&&t.frases.some(f=>fraseSola(nq,f))) s+=5;
+    return {t,s};
+  }).filter(r=>r.s>0).sort((a,b)=>b.s-a.s);
+}
+/* Respuesta directa si el tema es claro; si sólo se adivina, se ofrecen los parecidos («¿Te refieres a…?») */
+const puntua=q=>{ const r=califica(q); if(!r.length) return [];
+  const claro=r[0].s>=1.2;
+  return claro?r.filter(x=>x.s>=1.0):[]; };
+const parecidos=q=>califica(q).filter(r=>r.s>=.7).slice(0,4);
+if(window.GS_SIN_PAUSAS) window.GS_CALIFICA=q=>califica(q).slice(0,4).map(r=>r.t.id+":"+r.s.toFixed(2)).join(" ")+" | palabras: "+palabras(q).join(",");
+
+/* ── Texto sugerido ── */
+const conLa=a=>(/^(Comisaría|Contraloría|Sindicatura|Secretaría|Tesorería|Coordinación|Agencia|Dirección|Jefatura)/.test(a)?'la ':'')+a;
+function redacta(t,lugar,de,a){
+  let txt='Solicito '+(t.q||'la información que indico');
+  if(lugar) txt+=', en la colonia o zona: '+lugar;
+  if(de&&a) txt+=', correspondiente al periodo de '+de+' a '+a;
+  else if(de) txt+=', a partir de '+de;
+  txt+='.';
+  if(t.so==='A'&&t.area) txt+='\n\nEntiendo que la información podría encontrarse en '+conLa(t.area)+(t.dep&&t.dep!==t.area?' ('+t.dep+')':'')+'.';
+  txt+='\n\nPido que me la entreguen en archivo electrónico (Excel o PDF) a mi correo.';
+  return txt;
+}
+
+/* ── Copiar: el portapapeles moderno puede estar bloqueado dentro del marco de Strapi ── */
+function copia(area,aviso,abre){
+  const ok=()=>{ aviso.textContent=abre?'Texto copiado. Pégalo en el formulario que se abrió.':'Texto copiado. Pégalo en tu solicitud.'; setTimeout(()=>{aviso.textContent='';},6000); };
+  const mal=()=>{ aviso.textContent='No se pudo copiar solo: selecciona el texto y cópialo (Ctrl+C, o mantén presionado en el celular).'; };
+  const viejo=()=>{ if(!abre) area.focus(); area.select(); try{ document.execCommand('copy')?ok():mal(); }catch(e){ mal(); } };
+  if(!(navigator.clipboard&&window.isSecureContext)) return viejo();
+  let listo=false; const una=f=>()=>{ if(!listo){ listo=true; f(); } };
+  navigator.clipboard.writeText(area.value).then(una(ok),una(viejo)); setTimeout(una(viejo),1000);
+}
+
+/* Copia la dirección de correo de la Unidad (sin abrir Gmail, Outlook ni la aplicación de correo) */
+function copiaCorreo(aviso){
+  const ok=()=>{ aviso.textContent='Correo copiado: '+CORREO; setTimeout(()=>{aviso.textContent='';},6000); };
+  const viejo=()=>{ const t=document.createElement('textarea'); t.value=CORREO; t.setAttribute('readonly',''); t.style.cssText='position:fixed;top:0;left:0;opacity:0;font-size:16px';
+    document.body.appendChild(t); t.select(); t.setSelectionRange(0,CORREO.length); let b=false; try{ b=document.execCommand('copy'); }catch(e){} t.remove();
+    if(b) ok(); else aviso.textContent='Copia este correo: '+CORREO; };
+  if(!(navigator.clipboard&&window.isSecureContext)) return viejo();
+  let listo=false; const una=f=>()=>{ if(!listo){ listo=true; f(); } };
+  navigator.clipboard.writeText(CORREO).then(una(ok),una(viejo)); setTimeout(una(viejo),1000);   /* si el navegador no contesta, el método de respaldo */
+}
+
+/* ── Conversación ──
+   La conversación vive en una ventana de alto fijo con su propio desplazamiento: así la página dentro de Strapi no crece con cada
+   mensaje y no hace falta mover la página de arriba. */
+const cuerpo=$('gsCuerpo');
+function altoChat(){
+  const s=window.screen||{}; let h=Math.max(s.width||0,s.height||0);
+  if(s.orientation&&String(s.orientation.type).indexOf('landscape')===0) h=Math.min(s.width,s.height);
+  if(!h) return;
+  const tactil=window.matchMedia&&matchMedia('(pointer:coarse)').matches;
+  cuerpo.style.height=Math.round(Math.min(600,Math.max(tactil?300:340,h-(tactil?440:360))))+'px';
+}
+altoChat();
+if(window.screen&&screen.orientation&&screen.orientation.addEventListener) screen.orientation.addEventListener('change',()=>setTimeout(altoChat,150));
+window.addEventListener('orientationchange',()=>setTimeout(altoChat,150));
+const quieto=()=>window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+const espera=ms=>new Promise(r=>setTimeout(r,quieto()||window.GS_SIN_PAUSAS?0:ms));
+let turno=0;   /* si llega otra pregunta, la respuesta anterior deja de escribirse */
+let quieta=false;   /* si la persona toca o desplaza la conversación, la guía deja de moverla */
+['touchstart','wheel','pointerdown','keydown'].forEach(ev=>cuerpo.addEventListener(ev,()=>{ quieta=true; },{passive:true}));
+function baja(el){ if(quieta) return; const top=el?Math.max(0,el.offsetTop-12):cuerpo.scrollHeight; try{ cuerpo.scrollTo({top,behavior:quieto()?'auto':'smooth'}); }catch(e){ cuerpo.scrollTop=top; } }
+function burbuja(html,cls,conAva){
+  const d=document.createElement('div'); d.className='m m-bot';
+  d.innerHTML='<span class="m-ava'+(conAva?'':' vacio')+'" aria-hidden="true">'+ROBOT+'</span><div class="m-burbuja '+(cls||'')+'">'+html+'</div>';
+  cuerpo.appendChild(d); return d;
+}
+function mio(txt){ const d=document.createElement('div'); d.className='m m-yo'; d.innerHTML='<div class="m-burbuja"></div>'; d.firstChild.textContent=txt; cuerpo.appendChild(d); return d; }
+function rapidas(titulo,botones){
+  const d=document.createElement('div'); d.className='rapidas';
+  d.innerHTML=(titulo?'<span class="rapidas-tit">'+esc(titulo)+'</span>':'')+botones.join('');
+  cuerpo.appendChild(d); return d;
+}
+const chipTema=t=>'<button type="button" class="chip" data-tema="'+t.id+'">'+esc(t.t)+'</button>';
+const chipTemas='<button type="button" class="chip fuerte" data-temas="1">Ver todos los temas</button>';
+const chipOtra='<button type="button" class="chip" data-otra="1">Hacer otra pregunta</button>';
+/* Escribe los mensajes de la guía uno por uno, con los puntitos de «escribiendo». Con una pregunta, la ventana deja la pregunta arriba
+   y la respuesta va apareciendo debajo. */
+async function habla(partes,yo){
+  const mi=++turno; quieta=false;
+  const t=document.createElement('div'); t.className='m m-bot'; t.innerHTML='<span class="m-ava" aria-hidden="true">'+ROBOT+'</span><div class="m-burbuja"><span class="escribiendo" role="img" aria-label="La guía está escribiendo"><i></i><i></i><i></i></span></div>';
+  cuerpo.appendChild(t); baja(yo||t);
+  await espera(650); t.remove(); if(mi!==turno) return;
+  let primero=true;
+  for(const p of partes){
+    if(mi!==turno) return;
+    const el=typeof p==='function'?p(primero):burbuja(p.html,p.cls,primero);
+    primero=false;
+    baja(yo||el);   /* con pregunta, la ventana sube conforme crece la respuesta hasta dejar la pregunta arriba */
+    await espera(380);
+  }
+}
+
+function etiqueta(k){ const p=k.split(' '); return 'Art. '+p[0]+' · Fracción '+p[1]+(p[2]?' · Inciso '+p[2]+')':''); }
+const ligaInc=k=>INC[k]?'<a class="liga" href="'+esc(url(k))+'" target="_blank" rel="noopener noreferrer"><span class="liga-ico">'+ICO.doc+'</span><span class="liga-txt">'+esc(INC[k][0])+'<small>'+esc(etiqueta(k))+'</small></span><span class="liga-fl">'+ICO.fl+'</span></a>':'';
+function ligas(t){ return t.pub.map(ligaInc).join(''); }
+const AVISOS={
+  reporte:'<strong>¿Quieres que lo reparen?</strong> Eso es un reporte ciudadano, no una solicitud de información: lo recibe la Dirección de Atención Ciudadana del Ayuntamiento. La solicitud sirve para conocer datos y documentos.',
+  tramite:'<strong>¿Quieres hacer el trámite?</strong> Pagar, sacar un permiso, una licencia o un documento se hace como trámite, no con una solicitud de información. Los encuentras en los trámites y servicios del Ayuntamiento.',
+  empleo:'<strong>Las vacantes y convocatorias</strong> para trabajar en el Ayuntamiento se publican en el portal: revisa la liga de abajo. Si quieres saber algo que no esté ahí, como las plazas disponibles en un área o los resultados de un concurso, pídelo con tu solicitud.',
+  catastro:'<strong>¿Necesitas un certificado o un avalúo de tu propio predio?</strong> Eso es un trámite con costo ante Catastro, no una solicitud de información.',
+  escuela:'<strong>Las escuelas públicas</strong> (sus maestros, inscripciones y planteles) son del Gobierno del Estado: pregunta a la Secretaría de Educación Jalisco.',
+  acta:'<strong>¿Necesitas una copia de tu acta?</strong> Eso es un trámite con costo ante el Registro Civil, no una solicitud de información. Lo encuentras en los trámites y servicios del Ayuntamiento.',
+  salud:'<strong>Los hospitales y centros de salud</strong> del Gobierno del Estado se preguntan a la Secretaría de Salud Jalisco.',
+  arco:'<strong>Cuando la información es sobre ti</strong> (tus datos personales, tu expediente), no se pide con una solicitud de información: se pide con una <strong>solicitud de derechos ARCO</strong>, para acceder, corregir, cancelar u oponerte al uso de tus datos. El formato está en la página de solicitudes.'
+};
+let nRed=0;
+function redaccion(t){
+  return primero=>{
+    const n=++nRed, idL='gsL'+n, idD='gsD'+n, idA='gsA'+n, idT='gsT'+n, idC='gsC'+n;
+    const anios=[];for(let y=new Date().getFullYear();y>=2015;y--)anios.push(y);
+    const mesSel=id=>'<select id="'+id+'m" aria-label="Mes"><option value="">Mes</option>'+MESES.map(m=>'<option>'+m+'</option>').join('')+'</select><select id="'+id+'y" aria-label="Año"><option value="">Año</option>'+anios.map(y=>'<option>'+y+'</option>').join('')+'</select>';
+    const op=t.so==='A'?opcion(t.dep):'';
+    const html='<p>Te dejé tu solicitud redactada. Agrega la colonia o el periodo si quieres, y ajústala con tus palabras: es tuya.</p>'+
+      (t.so==='A'?'<span class="m-sub">Con el botón naranja se copia y se abre el formulario: pégala en «Describe la información que solicitas»'+(op?', elige «'+esc(op)+'» en «Dependencia o área específica»':'')+' y en «Formato para recibir la información» elige «Correo electrónico».</span>':'')+
+      '<div class="campos"><label class="campo">Colonia o lugar (opcional)<input id="'+idL+'" type="text" maxlength="120" placeholder="Por ejemplo: Santa Teresita"></label>'+
+      '<div class="campo" role="group" aria-label="Desde (opcional)">Desde (opcional)<div class="campo-fila">'+mesSel(idD)+'</div></div>'+
+      '<div class="campo" role="group" aria-label="Hasta (opcional)">Hasta (opcional)<div class="campo-fila">'+mesSel(idA)+'</div></div></div>'+
+      '<label class="gs-sr" for="'+idT+'">Texto de tu solicitud</label><textarea class="texto" id="'+idT+'"></textarea>'+
+      '<div class="acciones">'+
+      (t.so==='A'?'<a class="btn btn-main" href="'+FORMULARIO+'" target="_blank" rel="noopener noreferrer" data-copia="'+idT+'" data-aviso="'+idC+'">'+ICO.copia+'Copiar y abrir el formulario</a>'+
+                  '<button type="button" class="btn btn-2nd" data-copia="'+idT+'" data-aviso="'+idC+'">'+ICO.copia+'Sólo copiar el texto</button>'+
+                  '<button type="button" class="btn btn-2nd" data-copiacorreo="'+idC+'">'+ICO.correo+'Copiar correo</button>'
+                 :'<button type="button" class="btn btn-main" data-copia="'+idT+'" data-aviso="'+idC+'">'+ICO.copia+'Copiar texto</button>'+
+                  '<a class="btn btn-2nd" href="'+PNT+'" target="_blank" rel="noopener noreferrer">Ir a la Plataforma Nacional</a>')+
+      '<span class="copiado" id="'+idC+'" role="status"></span></div>';
+    const el=burbuja(html,'ancha',primero);
+    const area=$(idT), lugar=$(idL);
+    const per=id=>{ const m=$(id+'m').value, y=$(id+'y').value; return m&&y?m+' '+y:(y||''); };
+    const pinta=()=>{ area.value=redacta(t,lugar.value.trim(),per(idD),per(idA)); };
+    pinta(); area.dataset.auto='1';
+    [lugar,$(idD+'m'),$(idD+'y'),$(idA+'m'),$(idA+'y')].forEach(x=>x.addEventListener(x.tagName==='SELECT'?'change':'input',()=>{ if(area.dataset.auto==='1') pinta(); }));
+    area.addEventListener('input',()=>{ area.dataset.auto='0'; });
+    return el;
+  };
+}
+function responde(t,alts,yo){
+  cuerpo.dataset.ultimoTema=t.id; cuerpo.dataset.ultimosOtros=alts.map(a=>a.id).join(',');
+  if(t.so==='F'){
+    const L=ligas(t), F=[{html:t.r}];
+    F.push({html:'<p>Aquí lo puedes consultar:</p><div class="ligas">'+L+'<a class="liga" href="'+FORMULARIO+'" target="_blank" rel="noopener noreferrer"><span class="liga-ico">'+ICO.doc+'</span><span class="liga-txt">Formulario de Solicitud de Transparencia<small>Para presentar tu solicitud en línea</small></span><span class="liga-fl">'+ICO.fl+'</span></a></div>',cls:'ancha'});
+    F.push(()=>rapidas(alts.length?'¿Buscabas otra cosa?':'',alts.map(chipTema).concat([chipTemas,chipOtra])));
+    return habla(F,yo);
+  }
+  const P=[{html:'Tu pregunta es sobre <strong>'+esc(t.t)+'</strong>.'}];
+  if(t.so==='A'){
+    const op=opcion(t.dep);
+    P.push({html:'<p>Va dirigida al <strong>Ayuntamiento de Guadalajara</strong>. La recibe la Unidad de Transparencia y la turna al área que tiene la información. Puedes usar tu nombre o un seudónimo; sólo necesitas un correo para recibir la respuesta.</p>'});
+    if(t.area) P.push({html:'<p>Quien tiene la información es <strong>'+esc(conLa(t.area))+'</strong>'+(t.dep&&t.dep!==t.area?', de '+esc(conLa(t.dep)):'')+'.</p><span class="m-sub">Sus funciones están en el artículo '+esc(t.cod)+' del Código de Gobierno del Municipio de Guadalajara.</span>'+(op?'<p class="m-opcion">En el formulario, en «Dependencia o área específica», elige: <strong>'+esc(op)+'</strong></p>':'')});
+  } else if(t.so==='O'){
+    P.push({html:'<p>Esto le toca al <strong>'+esc(t.ent)+'</strong>. Es un organismo descentralizado del municipio, con personalidad jurídica propia: tu solicitud se dirige a él y no al Ayuntamiento. En la Plataforma Nacional búscalo por su nombre.</p>'+
+      (t.web?'<div class="ligas"><a class="liga" href="'+esc(t.web)+'" target="_blank" rel="noopener noreferrer"><span class="liga-ico">'+ICO.doc+'</span><span class="liga-txt">'+esc(t.webt)+'</span><span class="liga-fl">'+ICO.fl+'</span></a></div>':'<span class="m-sub">Si no lo encuentras, presenta tu solicitud al Ayuntamiento y la Unidad de Transparencia te orienta.</span>')});
+  } else {
+    P.push({html:'<p>Este tema no le corresponde al Ayuntamiento de Guadalajara. Tu solicitud va a <strong>'+esc(t.ent)+'</strong>; en la Plataforma Nacional de Transparencia la buscas por su nombre.</p>'});
+  }
+  if(t.av&&AVISOS[t.av]) P.push({html:AVISOS[t.av]+(['tramite','acta','catastro'].includes(t.av)&&!t.pub.includes('8 VI b')&&INC['8 VI b']?'<div class="ligas">'+ligaInc('8 VI b')+'</div>':''),cls:'m-aviso'});
+  const L=ligas(t);
+  if(L) P.push({html:'<p>Antes de pedirla, revisa si ya está publicada en el portal:</p><div class="ligas">'+L+'</div>',cls:'ancha'});
+  if(t.av!=='arco') P.push(redaccion(t));
+  P.push(()=>rapidas(alts.length?'¿No era esto? Quizá buscas:':'',alts.map(chipTema).concat([chipTemas,chipOtra])));
+  return habla(P,yo);
+}
+/* La guía responde sólo sobre el Municipio de Guadalajara: si la pregunta nombra otro municipio, se orienta a ese Ayuntamiento. */
+const OTROS=['zapopan','tlaquepaque','san pedro tlaquepaque','tonala','tlajomulco','juanacatlan','ixtlahuacan de los membrillos','zapotlanejo','chapala','jocotepec','puerto vallarta','vallarta','lagos de moreno','tepatitlan','ocotlan','ciudad guzman','zapotlan el grande','autlan','arandas','ameca','poncitlan','acatlan de juarez','cocula','la barca','san juan de los lagos','teocaltiche','sayula','el grullo','tamazula','colotlan','encarnacion de diaz','tototlan','zacoalco','atotonilco el alto','yahualica','monterrey','ciudad de mexico','cdmx','queretaro','puebla','tijuana','morelia','aguascalientes','colima','tepic','zacatecas','merida','cancun'];
+const BONITO={'tonala':'Tonalá','tlajomulco':'Tlajomulco de Zúñiga','juanacatlan':'Juanacatlán','tepatitlan':'Tepatitlán de Morelos','ocotlan':'Ocotlán','autlan':'Autlán de Navarro','poncitlan':'Poncitlán','acatlan de juarez':'Acatlán de Juárez','ixtlahuacan de los membrillos':'Ixtlahuacán de los Membrillos','tlaquepaque':'San Pedro Tlaquepaque','ciudad guzman':'Zapotlán el Grande (Ciudad Guzmán)','zapotlan el grande':'Zapotlán el Grande','queretaro':'Querétaro','merida':'Mérida','cancun':'Benito Juárez (Cancún)','cdmx':'la Ciudad de México','ciudad de mexico':'la Ciudad de México','vallarta':'Puerto Vallarta','encarnacion de diaz':'Encarnación de Díaz','tototlan':'Tototlán','atotonilco el alto':'Atotonilco el Alto'};
+const titulo=s=>s.split(' ').map(w=>['de','el','la','los'].includes(w)?w:w[0].toUpperCase()+w.slice(1)).join(' ');
+function otroMunicipio(q){
+  const n=' '+norm(q)+' ';
+  if(/ guadalajara /.test(n)&&!OTROS.some(o=>n.includes(' '+o+' '))) return '';
+  const o=OTROS.find(o=>n.includes(' '+o+' ')); if(o) return BONITO[o]||titulo(o);
+  if(/ (en|de) el salto (?!de )/.test(n)) return 'El Salto';   /* «el salto de agua» no es el municipio */
+  const m=n.match(/ (?:municipio|ayuntamiento|alcalde|alcaldesa|presidente municipal|presidenta municipal|gobierno municipal) de ([a-z]+(?: (?:de|del|el|la|los) [a-z]+)?)/);
+  if(m&&m[1]!=='guadalajara'&&!['la','las','los','el','mi','su','este','esta'].includes(m[1])) return titulo(m[1]);
+  return '';
+}
+function pregunta(q){
+  q=q.trim(); if(!q) return;
+  const yo=mio(q);
+  const otro=otroMunicipio(q);
+  if(otro){ cuerpo.dataset.ultimoTema='otro-municipio'; cuerpo.dataset.ultimosOtros='';
+    return habla([
+      {html:'<p>Yo te oriento sólo sobre la información del <strong>Gobierno Municipal de Guadalajara</strong>.</p><p>Lo que preguntas es de <strong>'+esc(otro)+'</strong>: es otra autoridad, con su propia Unidad de Transparencia. Presenta tu solicitud a ese Ayuntamiento; en la Plataforma Nacional de Transparencia lo buscas por su nombre.</p><div class="acciones"><a class="btn btn-main" href="'+PNT+'" target="_blank" rel="noopener noreferrer">Ir a la Plataforma Nacional</a></div>'},
+      ()=>rapidas('¿Tu pregunta es sobre Guadalajara?',[chipOtra,chipTemas])
+    ],yo); }
+  const r=puntua(q);
+  if(r.length) return responde(r[0].t,r.slice(1,4).map(x=>x.t),yo);
+  cuerpo.dataset.ultimoTema=''; const cerca=parecidos(q); cuerpo.dataset.ultimosOtros=cerca.map(x=>x.t.id).join(',');
+  if(cerca.length) return habla([
+    {html:'<p>No estoy segura de haber entendido «'+esc(q)+'». ¿Te refieres a alguno de estos temas?</p>'},
+    ()=>rapidas('',cerca.map(x=>chipTema(x.t)).concat([chipTemas,chipOtra]))
+  ],yo);
+  return habla([
+    {html:'<p>Mmm, no encontré un tema con «'+esc(q)+'».</p><p>Prueba con otras palabras, como «basura», «sueldo» o «licencia», o mira todos los temas.</p>'},
+    {html:'<p>También puedes presentar tu pregunta tal cual al Ayuntamiento: la Unidad de Transparencia la turna al área que corresponda.</p><div class="acciones"><a class="btn btn-main" href="'+FORMULARIO+'" target="_blank" rel="noopener noreferrer">Abrir el formulario</a></div>'},
+    ()=>rapidas('',[chipTemas,chipOtra])
+  ],yo);
+}
+function eligeTema(id){ const t=POR_ID[id]; if(!t) return; responde(t,[],mio(t.t)); }
+function verTemas(){
+  const yo=mio('Ver todos los temas');
+  habla([{html:'Claro. Elige un grupo:'},()=>rapidas('',CATS.map(([c,n])=>'<button type="button" class="chip" data-cat="'+c+'">'+esc(n)+'</button>'))],yo);
+}
+function verGrupo(c){
+  const g=CATS.find(x=>x[0]===c); if(!g) return;
+  const yo=mio(g[1]);
+  habla([{html:'Estos son los temas de <strong>'+esc(g[1])+'</strong>:'},()=>rapidas('',TEMAS.filter(t=>t.cat===c).map(chipTema).concat([chipTemas]))],yo);
+}
+
+/* ── Saludo ── */
+habla([
+  {html:'<p>¡Hola! Soy la <strong>Guía de Transparencia</strong> del Gobierno Municipal de Guadalajara.</p><p>Cuéntame qué información pública del <strong>Municipio de Guadalajara</strong> quieres conocer y te digo a quién preguntarle, qué área la tiene y cómo redactar tu solicitud. Si es de otro municipio o de otra autoridad, te digo a dónde dirigirla.</p>'},
+  ()=>rapidas('Puedes empezar con un ejemplo:',['¿Cuántas luminarias hay en mi colonia?','¿Cuánto gana un regidor?','¿Cómo entro a trabajar al Ayuntamiento?','¿Quién construye la obra de mi calle?','¿Qué días pasa el camión de la basura?','¿Cuesta hacer una solicitud?']
+      .map(e=>'<button type="button" class="chip" data-q="'+esc(e)+'">'+esc(e)+'</button>').concat([chipTemas]))
+]);
+
+document.addEventListener('click',e=>{
+  const c=e.target.closest('[data-tema]'); if(c){ eligeTema(c.dataset.tema); return; }
+  const q=e.target.closest('[data-q]'); if(q){ pregunta(q.dataset.q); return; }
+  if(e.target.closest('[data-temas]')){ verTemas(); return; }
+  const g=e.target.closest('[data-cat]'); if(g){ verGrupo(g.dataset.cat); return; }
+  if(e.target.closest('[data-otra]')){ $('gsQ').focus(); return; }
+  const cp=e.target.closest('[data-copia]'); if(cp){ copia($(cp.dataset.copia),$(cp.dataset.aviso),cp.tagName==='A'); return; }
+  const cc=e.target.closest('[data-copiacorreo]'); if(cc){ copiaCorreo($(cc.dataset.copiacorreo)); return; }
+});
+$('gsForm').addEventListener('submit',e=>{ e.preventDefault(); const i=$('gsQ'); pregunta(i.value); i.value=''; });
+
+/* ── Auto-alto para Strapi ── */
+let lastH=0;
+function reportHeight(){
+  const h=Math.max(document.body.scrollHeight,document.documentElement.scrollHeight);
+  if(Math.abs(h-lastH)>1){ lastH=h; try{ parent.postMessage({type:'gdl-iframe-height',id:'guia-solicitud-informacion',height:h},'*'); }catch(e){} }
+}
+window.addEventListener('load',reportHeight);
+window.addEventListener('resize',reportHeight);
+if(window.ResizeObserver) new ResizeObserver(reportHeight).observe(document.body);
+setTimeout(reportHeight,400);
+})();
+</script>
+</body>
+</html>
